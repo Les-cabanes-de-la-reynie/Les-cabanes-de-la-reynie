@@ -21,6 +21,9 @@ module.exports = {
         error: '#AD2216',
         primary: {
           DEFAULT: '#533821'
+        },
+        border: {
+          DEFAULT: 'rgb(68 64 60)' //border-stone-700
         }
       }
     }

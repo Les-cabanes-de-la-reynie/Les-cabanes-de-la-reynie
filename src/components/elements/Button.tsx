@@ -46,7 +46,7 @@ const Button = ({
         kind !== 'headless',
       'border-transparent bg-primary text-white hover:bg-opacity-80':
         kind === 'default',
-      'bg-transparent border-stone-700 text-white hover:bg-stone-700':
+      'bg-transparent border-border text-white hover:bg-stone-700':
         kind === 'border',
       'border-transparent bg-red-700 text-white hover:bg-opacity-80':
         kind === 'delete',

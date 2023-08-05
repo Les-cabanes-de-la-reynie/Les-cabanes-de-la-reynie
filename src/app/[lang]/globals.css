@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* Height */
+  --mobile-top-header-height: 4.5rem;
+  --desktop-top-header-height: 6rem;
+  --mobile-top-nav-category-height: 3.5rem;
+}
