@@ -1,10 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import clsx from 'clsx'
-import { i18n } from '../../../i18n.config'
+import { Locale, i18n } from '../../../i18n.config'
 import Header from '@/components/modules/Header'
 import { Baloo_2 } from 'next/font/google'
-import { PageProps } from '@/_types/misc'
 
 const fontFamily = Baloo_2({ display: 'swap', subsets: ['latin'] })
 
@@ -17,7 +16,13 @@ export async function generateStaticParams() {
   return i18n.locales.map(locale => ({ lang: locale }))
 }
 
-export default function RootLayout({ children, params }: PageProps) {
+export default function RootLayout({
+  children,
+  params
+}: {
+  children: React.ReactNode
+  params: { lang: Locale }
+}) {
   return (
     <html lang={params.lang}>
       <body className={clsx(fontFamily.className, 'bg-stone-900')}>
