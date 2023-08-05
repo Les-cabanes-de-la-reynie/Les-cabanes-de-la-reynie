@@ -1,0 +1,133 @@
+{
+  "Errors": {
+    "shortError404": "Erreur 404",
+    "longError404": "Oups ! La page demandée n'a pas été trouvée",
+    "shortError500": "Erreur 500",
+    "longError500": "Oups ! Nos serveurs rencontrent actuellement quelques difficultés",
+    "backButtonMessage": "Revenir à la page précédente",
+    "requiredMessage": "Ce champ est obligatoire",
+    "maxLengthMessage": "Le nombre maximal de caractères pris en charge est de :",
+    "outOfRangeMessage": "La quantitée maximale est de :"
+  },
+
+  "Navigation": {
+    "menu": "Menus",
+    "menuTitle": "Voir nos menus",
+    "restaurants": "Nos restaurants",
+    "restaurantsTitle": "Voir nos restaurants",
+    "delivery": "Livraison",
+    "deliveryTitle": "Choix de la livraison",
+    "switchLangTitle": "Changer de langue",
+    "themeSwitcherTitle": "Changer de theme",
+    "darkModeTheme": "Thème sombre",
+    "lightModeTheme": "Thème clair",
+    "cartTitle": "Votre panier",
+    "login": "Se connecter",
+    "logout": "Se déconnecter",
+    "profile": "Votre profil",
+    "openBurgerMenu": "Menu",
+    "closeBurgerMenu": "Fermer",
+    "openBurgerMenuTitle": "Ouvrir le menu",
+    "closeBurgerMenuTitle": "Fermer le menu"
+  },
+
+  "Footer": {
+    "aboutUs": "À propos de nous",
+    "leadershipTeam": "L'équipe de direction",
+    "valuesInAction": "Les valeurs en action",
+    "franchiseInfo": "Info sur les franchises",
+    "careers": "Carrières et emplois",
+    "employeePerks": "Avantages du personnel",
+    "workingWithUs": "Travailler avec nous",
+    "applyNow": "Postulez dès maintenant",
+    "contactUs": "Nous contacter",
+    "restaurantFeedback": "Commentaires sur nos restaurants",
+    "frequentlyAskedQuestions": "Foire aux questions",
+    "sendAnEmail": "Nous envoyer un e-mail"
+  },
+
+  "Home": {
+    "title": "Prenez uniquement ce que vous voulez, just PickN`Eat !",
+    "description": "Bienvenue sur PickN`Eat ! Vous allez pouvoir découvrir...",
+    "burgerTitle": "Burgers",
+    "sideTitle": "Petite faim",
+    "drinkTitle": "Boissons",
+    "dessertTitle": "Desserts",
+    "saladTitle": "Salades"
+  },
+
+  "Restaurants": {
+    "restaurantsMainTitle": "Trouver un PickN`Eat",
+    "location": "Où trouver un restaurant PickN`Eat ?",
+    "openingTimes": "Horaires",
+    "day": "Jour",
+    "lunch": "Midi",
+    "dinner": "Soir",
+    "monday": "Lundi",
+    "tuesday": "Mardi",
+    "wednesday": "Mercredi",
+    "thursday": "Jeudi",
+    "friday": "Vendredi",
+    "saturday": "Samedi",
+    "sunday": "Dimanche",
+    "lunchWeeklyHours": "12:00 - 14:30",
+    "lunchWeekendHours": "12:00 - 15:30",
+    "dinnerWeeklyHours": "19:00 - 22:30",
+    "dinnerWeekendHours": "19:00 - 23:00"
+  },
+
+  "Delivery": {
+    "deliveryMainTitle": "Comment récupérer ma commande ?",
+    "delivery": "Livraison",
+    "deliveryContent": "Commandez et soyez livré chez vous",
+    "deliveryButton": "Commandez avec Deliveroo",
+    "or": "Ou",
+    "takeAway": "À emporter",
+    "takeAwayContent": "Commandez en ligne et récupérez votre commande sur place",
+    "takeAwayButton": "Commandez en ligne"
+  },
+
+  "Product": {
+    "badgeNewReleaseText": "Nouveau",
+    "seeMoreDetails": "Voir plus de détails",
+    "price": "{price, number, currency}",
+    "addToCartTextButton": "Ajouter",
+    "description": "Description",
+    "allergens": "Allergènes",
+    "noAllergens": "Ce produit ne contient pas des allergènes.",
+    "inStock": "Disponible",
+    "outOfStock": "Indisponible"
+  },
+
+  "Cart": {
+    "cart": "Panier",
+    "emptyCartText": "Votre panier est actuellement vide",
+    "backToProducts": "Voir nos produits",
+    "cartCountInformation": "Il y a {cartCount} articles dans votre panier !",
+    "proceedToCheckout": "Valider mon panier",
+    "remove": "Supprimer",
+    "subTotalPrice": "Sous-total",
+    "totalPrice": "Total",
+    "continueShopping": "Continuer ma selection",
+    "viewCart": "Voir le panier ({cartCount})"
+  },
+
+  "Profile": {
+    "profile": "Mon profil",
+    "nickname": "Surnom",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "fullName": "Nom et prénom"
+  },
+
+  "Checkout": {
+    "checkout": "Valider ma commande",
+    "userInfo": "Mes informations",
+    "payment": "Paiement",
+    "nameOnCard": "Nom de la carte",
+    "cardNumber": "Numéro de carte",
+    "expirationDate": "Date d'expiration",
+    "cvv": "CVV / CVC (Code de sécurité)",
+    "confirmAndPay": "Confirmer et payer"
+  }
+}

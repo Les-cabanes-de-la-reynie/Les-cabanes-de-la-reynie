@@ -1,0 +1,133 @@
+{
+  "Errors": {
+    "shortError404": "404 error",
+    "longError404": "Woops ! This page is not found",
+    "shortError500": "500 error",
+    "longError500": "Woops ! The server has problems !",
+    "backButtonMessage": "Go back to the previous page",
+    "requiredMessage": "This field is Message",
+    "maxLengthMessage": "The maximum length is:",
+    "outOfRangeMessage": "The maximum value is:"
+  },
+
+  "Navigation": {
+    "menu": "Menu",
+    "menuTitle": "See the menus",
+    "restaurants": "Locate",
+    "restaurantsTitle": "Locate us",
+    "delivery": "Delivery",
+    "deliveryTitle": "Choose how to get your burger",
+    "switchLangTitle": "Change the language",
+    "themeSwitcherTitle": "Change the theme",
+    "darkModeTheme": "Night Mode",
+    "lightModeTheme": "Day Mode",
+    "cartTitle": "Your cart",
+    "login": "Login",
+    "logout": "Logout",
+    "profile": "Your profile",
+    "openBurgerMenu": "Menu",
+    "closeBurgerMenu": "Close",
+    "openBurgerMenuTitle": "Open the menu",
+    "closeBurgerMenuTitle": "Close the menu"
+  },
+
+  "Footer": {
+    "aboutUs": "About Us",
+    "leadershipTeam": "Leadership Team",
+    "valuesInAction": "Values In Action",
+    "franchiseInfo": "Franchise Info",
+    "careers": "Careers",
+    "employeePerks": "Employee Perks",
+    "workingWithUs": "Working with Us",
+    "applyNow": "Apply Now",
+    "contactUs": "Contact Us",
+    "restaurantFeedback": "Restaurant Feedback",
+    "frequentlyAskedQuestions": "Frequently Asked Questions",
+    "sendAnEmail": "Send an email"
+  },
+
+  "Home": {
+    "title": "Just pick what you want, just PickN`Eat !",
+    "description": "Welcome to PickN`Eat ! There are a lot of...",
+    "burgerTitle": "Burgers",
+    "sideTitle": "Sides",
+    "drinkTitle": "Drinks",
+    "dessertTitle": "Desserts",
+    "saladTitle": "Salads"
+  },
+
+  "Restaurants": {
+    "restaurantsMainTitle": "Find a PickN`Eat",
+    "location": "Where to find PickN`Eat ?",
+    "openingTimes": "Opening Times",
+    "day": "Day",
+    "lunch": "Lunch",
+    "dinner": "Dinner",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "lunchWeeklyHours": "12:00pm - 2:30pm",
+    "lunchWeekendHours": "12:00pm - 3:30pm",
+    "dinnerWeeklyHours": "7:00pm - 10:30pm",
+    "dinnerWeekendHours": "7:00pm - 11.00pm"
+  },
+
+  "Delivery": {
+    "deliveryMainTitle": "How do I get my order ?",
+    "delivery": "Delivery",
+    "deliveryContent": "Place an order and get delivered",
+    "deliveryButton": "Order with Deliveroo",
+    "or": "Or",
+    "takeAway": "Take Away",
+    "takeAwayContent": "Order now and pick up on site",
+    "takeAwayButton": "Order online"
+  },
+
+  "Product": {
+    "badgeNewReleaseText": "New",
+    "seeMoreDetails": "See More Details",
+    "price": "{price, number, currency}",
+    "addToCartTextButton": "Add to cart",
+    "description": "Description",
+    "allergens": "Allergens",
+    "noAllergens": "This product does not contain allergen.",
+    "inStock": "Available",
+    "outOfStock": "Unavailable"
+  },
+
+  "Cart": {
+    "cart": "Cart",
+    "emptyCartText": "Your cart is currently empty",
+    "backToProducts": "See our products",
+    "cartCountInformation": "You have {cartCount} items in your cart!",
+    "proceedToCheckout": "Proceed to Checkout",
+    "remove": "Remove",
+    "subTotalPrice": "Sub-total",
+    "totalPrice": "Total",
+    "continueShopping": "Continue Shopping",
+    "viewCart": "View Cart ({cartCount})"
+  },
+
+  "Profile": {
+    "profile": "Profile",
+    "nickname": "Nickname",
+    "email": "Email",
+    "phone": "Phone",
+    "fullName": "Full Name"
+  },
+
+  "Checkout": {
+    "checkout": "Checkout",
+    "userInfo": "My information",
+    "payment": "Payment",
+    "nameOnCard": "Name on Card",
+    "cardNumber": "Card number",
+    "expirationDate": "Expiration Date",
+    "cvv": "CVV / CVC",
+    "confirmAndPay": "Confirm and Pay"
+  }
+}
