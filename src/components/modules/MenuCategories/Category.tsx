@@ -44,7 +44,11 @@ const Category = ({ id, products, title }: CategoryProps) => {
   )
 
   return (
-    <section ref={ref} id={id} className='w-full'>
+    <section
+      ref={ref}
+      id={id}
+      className='w-full scroll-mt-[calc(4.5rem+3.5rem)] md:scroll-mt-[calc(4.5rem+3.5rem+1rem)]'
+    >
       {categoryTitle}
       <ProductList products={products} />
     </section>

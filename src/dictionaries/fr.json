@@ -96,7 +96,8 @@
     "allergens": "Allergènes",
     "noAllergens": "Ce produit ne contient pas des allergènes.",
     "inStock": "Disponible",
-    "outOfStock": "Indisponible"
+    "outOfStock": "Indisponible",
+    "imageWithoutAlternativeText": "Cette image ne contient pas d'image alternatif"
   },
 
   "Cart": {

@@ -13,9 +13,7 @@ const NavMenuCategories = () => {
   const activeMenuCategory = activeCategoryEntry?.target?.id
 
   return (
-    <nav
-      className={`sticky bottom-0 left-0 right-0 top-0 z-10 w-full rounded-full border border-border bg-stone-900`}
-    >
+    <nav className='sticky bottom-0 left-0 right-0 top-[4.5rem] z-10 box-border h-14 w-full overflow-auto rounded-full border border-border bg-stone-950 text-stone-600 shadow-md'>
       <ol tabIndex={-1} className='flex'>
         <NavMenuCategoriesItem
           anchorId={`#${ProductCategoryEnum.Burger}`}
