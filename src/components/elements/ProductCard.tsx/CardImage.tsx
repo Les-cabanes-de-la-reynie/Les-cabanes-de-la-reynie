@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image'
 import { Product, Maybe, ProductImage } from '@/_types/products'
 

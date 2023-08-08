@@ -25,9 +25,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang={params.lang}>
-      <body className={clsx(fontFamily.className, 'bg-stone-900')}>
+      <body
+        className={clsx(fontFamily.className, 'flex flex-col bg-stone-900')}
+      >
         <Header lang={params.lang} />
-        <main id='main' role='main' className='container min-h-screen'>
+        <main id='main' role='main'>
           {children}
         </main>
       </body>
