@@ -4,45 +4,45 @@ import Link from 'next/link'
 
 const AsideProductCategories = () => {
   return (
-    <aside className='flex h-full w-full flex-col lg:w-1/4'>
-      <Heading level={2} className='my-0 bg-primary px-4 py-10 md:my-0'>
-        Tous nos produits
+    <aside className='flex flex-grow flex-col bg-primary lg:mr-8'>
+      <Heading level={2} className='px-4 py-10'>
+        All our products
       </Heading>
       <Link
         href='/'
-        className='flex bg-primary p-4 font-medium text-white hover:bg-opacity-50'
+        className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
-        Notre carte
+        Our menu
       </Link>
       <Link
         href={`/products/category/${ProductCategoryEnum.Burger}`}
-        className='flex bg-primary p-4 font-medium text-white hover:bg-opacity-50'
+        className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
         Burgers
       </Link>
       <Link
         href={`/products/category/${ProductCategoryEnum.Side}`}
-        className='flex bg-primary p-4 font-medium text-white hover:bg-opacity-50'
+        className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
-        Petites faims
+        Sides
       </Link>
       <Link
         href={`/products/category/${ProductCategoryEnum.Drink}`}
-        className='flex bg-primary p-4 font-medium text-white hover:bg-opacity-50'
+        className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
-        Boissons
+        Drinks
       </Link>
       <Link
         href={`/products/category/${ProductCategoryEnum.Dessert}`}
-        className='flex bg-primary p-4 font-medium text-white hover:bg-opacity-50'
+        className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
         Desserts
       </Link>
       <Link
         href={`/products/category/${ProductCategoryEnum.Salad}`}
-        className='flex bg-primary p-4 font-medium text-white hover:bg-opacity-50'
+        className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
-        Salades
+        Salads
       </Link>
     </aside>
   )

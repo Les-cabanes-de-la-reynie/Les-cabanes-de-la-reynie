@@ -1,18 +1,18 @@
-import { useMemo } from 'react'
-import ProductList from '../ProductList'
+import { PropsWithChildren, useMemo } from 'react'
+import clsx from 'clsx'
+import ProductList from '../../elements/ProductList'
 import Heading from '../../elements/Heading'
-import { ProductEntity } from '@/_types/products'
+import { ClassNameProps } from '@/_types/components'
 
-export interface CategoryProps {
+export interface CategoryProps extends ClassNameProps, PropsWithChildren {
   id: string
-  products: ProductEntity[]
   title: string
 }
 
-const Category = ({ id, products, title }: CategoryProps) => {
+const Category = ({ id, title, className, children }: CategoryProps) => {
   const categoryTitle = useMemo(
     () => (
-      <Heading level={2}>
+      <Heading level={1} className='my-8'>
         <span>{title}</span>
       </Heading>
     ),
@@ -20,9 +20,9 @@ const Category = ({ id, products, title }: CategoryProps) => {
   )
 
   return (
-    <section id={id} className='w-full'>
+    <section id={id} className={clsx(className)}>
       {categoryTitle}
-      <ProductList products={products} />
+      <ProductList>{children}</ProductList>
     </section>
   )
 }

@@ -19,7 +19,7 @@ const Heading = ({
     'text-error': error,
     'text-white': !error
   })
-  const h2ClassName = clsx(className, 'text-3xl font-bold my-6 md:text-4xl', {
+  const h2ClassName = clsx(className, 'text-3xl font-bold md:text-4xl', {
     'text-error': error,
     'text-white': !error
   })

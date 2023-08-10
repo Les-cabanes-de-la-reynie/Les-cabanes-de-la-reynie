@@ -2,6 +2,9 @@ import { getProductsByCategory } from '@/services/products'
 import { Locale } from '../../../../../../i18n.config'
 import { ProductCategoryEnum, ProductEntity } from '@/_types/products'
 import Category from '@/components/modules/OurMenu/Category'
+import AsideProductCategories from '@/components/modules/OurMenu/AsideProductCategories'
+import MenuContainer from '@/components/modules/OurMenu/MenuContainer'
+import ProductCard from '@/components/elements/ProductCard.tsx'
 
 export default async function ProductCategory({
   params: { lang, category }
@@ -14,15 +17,15 @@ export default async function ProductCategory({
   const categoryTitle = () => {
     switch (category) {
       case ProductCategoryEnum.Burger:
-        return 'BURGERS'
+        return 'Burgers'
       case ProductCategoryEnum.Side:
-        return 'SIDES'
+        return 'Sides'
       case ProductCategoryEnum.Drink:
-        return 'DRINKS'
+        return 'Drinks'
       case ProductCategoryEnum.Dessert:
-        return 'DESSERTS'
+        return 'Desserts'
       case ProductCategoryEnum.Salad:
-        return 'SALADS'
+        return 'Salads'
 
       default:
         return ''
@@ -30,8 +33,18 @@ export default async function ProductCategory({
   }
 
   return (
-    <div className='container'>
-      <Category id={category} title={categoryTitle()} products={products} />
-    </div>
+    <MenuContainer>
+      <AsideProductCategories />
+      <Category id={category} title={categoryTitle()}>
+        {products?.length > 0
+          ? products.map((product, i) => (
+              <ProductCard
+                key={`product-card-${product?.id}-${i}`}
+                product={product}
+              />
+            ))
+          : null}
+      </Category>
+    </MenuContainer>
   )
 }
