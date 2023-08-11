@@ -53,7 +53,9 @@
     "sideTitle": "Sides",
     "drinkTitle": "Drinks",
     "dessertTitle": "Desserts",
-    "saladTitle": "Salads"
+    "saladTitle": "Salads",
+    "ourMenu": "Our menu",
+    "allOurProducts": "All our products"
   },
 
   "Restaurants": {

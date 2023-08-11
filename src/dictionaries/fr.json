@@ -50,10 +50,12 @@
     "title": "Prenez uniquement ce que vous voulez, just PickN`Eat !",
     "description": "Bienvenue sur PickN`Eat ! Vous allez pouvoir découvrir...",
     "burgerTitle": "Burgers",
-    "sideTitle": "Petite faim",
+    "sideTitle": "Petites faims",
     "drinkTitle": "Boissons",
     "dessertTitle": "Desserts",
-    "saladTitle": "Salades"
+    "saladTitle": "Salades",
+    "ourMenu": "Notre carte",
+    "allOurProducts": "Tous nos produits"
   },
 
   "Restaurants": {

@@ -11,18 +11,24 @@ import CategoryCard from '@/components/elements/CategoryCard'
 import Image from 'next/image'
 import { ProductCategoryEnum } from '@/_types/products'
 import clsx from 'clsx'
+import { Locale } from '../../../../i18n.config'
+import { getDictionary } from '@/lib/dictionary'
 
-interface OurMenuProps extends ClassNameProps {}
+interface OurMenuProps extends ClassNameProps {
+  lang: Locale
+}
 
-const OurMenu = ({ className }: OurMenuProps) => {
+const OurMenu = async ({ className, lang }: OurMenuProps) => {
+  const { Home } = await getDictionary(lang)
+
   return (
     <MenuContainer className={clsx(className)}>
-      <AsideProductCategories />
-      <Category id='ourMenu' title='Our menu'>
+      <AsideProductCategories lang={lang} />
+      <Category id='ourMenu' title={Home.ourMenu}>
         <CategoryCard
           className='overflow-hidden'
           category={ProductCategoryEnum.Burger}
-          title={'Burgers'}
+          title={Home.burgerTitle}
         >
           <Image
             src={burgerImage}
@@ -36,7 +42,7 @@ const OurMenu = ({ className }: OurMenuProps) => {
         <CategoryCard
           className='overflow-hidden'
           category={ProductCategoryEnum.Side}
-          title={'Sides'}
+          title={Home.sideTitle}
         >
           <Image
             src={sideImage}
@@ -50,7 +56,7 @@ const OurMenu = ({ className }: OurMenuProps) => {
         <CategoryCard
           className='overflow-hidden'
           category={ProductCategoryEnum.Drink}
-          title={'Drinks'}
+          title={Home.drinkTitle}
         >
           <Image
             src={drinkImage}
@@ -64,7 +70,7 @@ const OurMenu = ({ className }: OurMenuProps) => {
         <CategoryCard
           className='overflow-hidden'
           category={ProductCategoryEnum.Dessert}
-          title={'Desserts'}
+          title={Home.dessertTitle}
         >
           <Image
             src={dessertImage}
@@ -78,7 +84,7 @@ const OurMenu = ({ className }: OurMenuProps) => {
         <CategoryCard
           className='overflow-hidden'
           category={ProductCategoryEnum.Salad}
-          title={'Salads'}
+          title={Home.saladTitle}
         >
           <Image
             src={saladImage}
