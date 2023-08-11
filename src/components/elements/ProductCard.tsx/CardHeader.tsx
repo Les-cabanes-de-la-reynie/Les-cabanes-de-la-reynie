@@ -12,7 +12,7 @@ const CardHeader = ({ product }: CardHeaderProps) => {
 
   return (
     <Link
-      href={`products/${id}`}
+      href={`/products/${id}`}
       className={clsx(
         !attributes?.in_stock && 'invisible',
         'relative h-3/6 w-full select-none overflow-hidden bg-stone-800'
