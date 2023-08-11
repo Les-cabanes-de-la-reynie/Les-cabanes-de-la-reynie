@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const AsideProductCategories = () => {
   return (
-    <aside className='flex flex-grow flex-col bg-primary lg:mr-8'>
+    <aside className='flex flex-col bg-primary lg:mr-8 lg:flex-shrink-0'>
       <Heading level={2} className='px-4 py-10'>
         All our products
       </Heading>

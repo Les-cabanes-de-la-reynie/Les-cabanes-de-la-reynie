@@ -20,7 +20,7 @@ const Category = ({ id, title, className, children }: CategoryProps) => {
   )
 
   return (
-    <section id={id} className={clsx(className)}>
+    <section id={id} className={clsx(className, 'px-4')}>
       {categoryTitle}
       <ProductList>{children}</ProductList>
     </section>

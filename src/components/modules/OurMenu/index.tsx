@@ -16,7 +16,7 @@ interface OurMenuProps extends ClassNameProps {}
 
 const OurMenu = ({ className }: OurMenuProps) => {
   return (
-    <MenuContainer className={clsx(className, 'w-full')}>
+    <MenuContainer className={clsx(className)}>
       <AsideProductCategories />
       <Category id='ourMenu' title='Our menu'>
         <CategoryCard
@@ -28,7 +28,9 @@ const OurMenu = ({ className }: OurMenuProps) => {
             src={burgerImage}
             alt='burger category'
             fill
-            className='object-contain'
+            priority
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+            className='object-cover'
           />
         </CategoryCard>
         <CategoryCard
@@ -40,7 +42,9 @@ const OurMenu = ({ className }: OurMenuProps) => {
             src={sideImage}
             alt='side category'
             fill
-            className='object-contain'
+            priority
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+            className='object-cover'
           />
         </CategoryCard>
         <CategoryCard
@@ -52,7 +56,9 @@ const OurMenu = ({ className }: OurMenuProps) => {
             src={drinkImage}
             alt='drink category'
             fill
-            className='object-contain'
+            priority
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+            className='object-cover'
           />
         </CategoryCard>
         <CategoryCard
@@ -64,7 +70,9 @@ const OurMenu = ({ className }: OurMenuProps) => {
             src={dessertImage}
             alt='dessert category'
             fill
-            className='object-contain'
+            priority
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+            className='object-cover'
           />
         </CategoryCard>
         <CategoryCard
@@ -76,7 +84,9 @@ const OurMenu = ({ className }: OurMenuProps) => {
             src={saladImage}
             alt='salad category'
             fill
-            className='object-contain'
+            priority
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+            className='object-cover'
           />
         </CategoryCard>
       </Category>

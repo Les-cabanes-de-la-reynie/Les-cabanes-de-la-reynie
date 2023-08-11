@@ -17,7 +17,7 @@ const CategoryCard = ({
 }: CategoryCardProps) => {
   return (
     <Card className={className}>
-      <Link href={`/products/category/${category}`}>
+      <Link href={`/products/category/${category}`} className='relative h-full'>
         {children}
         <div className='absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black transition-opacity hover:opacity-0'>
           <Heading level={3} className='mb-8'>
