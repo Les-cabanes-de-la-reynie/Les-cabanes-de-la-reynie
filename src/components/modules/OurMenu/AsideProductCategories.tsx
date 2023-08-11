@@ -14,7 +14,7 @@ const AsideProductCategories = async ({
   const { Home } = await getDictionary(lang)
 
   return (
-    <aside className='flex flex-col bg-primary lg:mr-8 lg:flex-shrink-0'>
+    <aside className='hidden lg:mr-8 lg:flex lg:flex-shrink-0 lg:flex-col lg:bg-primary'>
       <Heading level={2} className='px-4 py-10'>
         {Home.allOurProducts}
       </Heading>
