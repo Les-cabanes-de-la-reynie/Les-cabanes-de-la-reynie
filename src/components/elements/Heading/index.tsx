@@ -6,6 +6,7 @@ export interface HeadingProps
     HTMLProps<HTMLHeadingElement> {
   level: number
   error?: boolean
+  primary?: boolean
 }
 
 const Heading = ({
@@ -13,23 +14,28 @@ const Heading = ({
   level,
   error = false,
   className = '',
+  primary = false,
   ...rest
 }: HeadingProps) => {
   const h1ClassName = clsx(className, 'text-4xl font-bold md:text-5xl', {
     'text-error': error,
-    'text-white': !error
+    'text-primary': !error && primary,
+    'text-white': !error && !primary
   })
   const h2ClassName = clsx(className, 'text-3xl font-bold md:text-4xl', {
     'text-error': error,
-    'text-white': !error
+    'text-primary': !error && primary,
+    'text-white': !error && !primary
   })
   const h3ClassName = clsx(className, 'text-xl font-bold md:text-2xl', {
     'text-error': error,
-    'text-white': !error
+    'text-primary': !error && primary,
+    'text-white': !error && !primary
   })
   const h4ClassName = clsx(className, 'text-lg font-bold md:text-xl', {
     'text-error': error,
-    'text-white': !error
+    'text-primary': !error && primary,
+    'text-white': !error && !primary
   })
 
   switch (level) {
