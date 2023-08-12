@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import clsx from 'clsx'
 import { Locale, i18n } from '../../../i18n.config'
+import { cn } from '@/utils/cn'
 import Header from '@/components/modules/Header'
 import { Baloo_2 } from 'next/font/google'
 import Footer from '@/components/modules/Footer'
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang={params.lang}>
       <body
-        className={clsx(
+        className={cn(
           fontFamily.className,
           'relative flex min-h-screen w-full flex-col bg-stone-900'
         )}

@@ -6,7 +6,7 @@ import {
   HTMLProps,
   ButtonHTMLAttributes
 } from 'react'
-import clsx from 'clsx'
+import { cn } from '@/utils/cn'
 
 export interface ButtonProps
   extends PropsWithChildren,
@@ -37,13 +37,10 @@ const Button = ({
     }
   }
 
-  const classes = clsx(
-    className,
-    'cursor-pointer select-none text-sm md:text-base',
+  const classes = cn(
+    'font-semibold transition border-2 rounded relative cursor-pointer select-none px-4 py-2 text-sm md:text-base',
     {
       'pointer-events-none opacity-50': definitelyDisabled,
-      'relative rounded px-2 py-1 font-semibold transition border-2':
-        kind !== 'headless',
       'border-transparent bg-primary text-white hover:bg-opacity-80':
         kind === 'default',
       'bg-transparent border-border text-white hover:bg-stone-700':
@@ -52,12 +49,13 @@ const Button = ({
         kind === 'delete',
       'border-transparent text-white bg-green-700 hover:bg-opacity-80':
         kind === 'valid'
-    }
+    },
+    className
   )
 
   return (
     <button
-      className={classes}
+      className={cn(kind === 'headless' ? className : classes)}
       onClick={handleClick}
       type={trueType}
       disabled={definitelyDisabled}

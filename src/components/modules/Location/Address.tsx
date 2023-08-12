@@ -1,3 +1,4 @@
+import { cn } from '@/utils/cn'
 import { itineraryUrl } from './const'
 import {
   PNE_ADDRESS,
@@ -10,7 +11,7 @@ import Heading from '@/components/elements/Heading'
 const Address = () => {
   return (
     <address className='text-center text-sm'>
-      <Heading level={3} primary className='mb-2'>
+      <Heading level={3} className={cn('mb-2 text-primary')}>
         PickN`Eat
       </Heading>
       <Link

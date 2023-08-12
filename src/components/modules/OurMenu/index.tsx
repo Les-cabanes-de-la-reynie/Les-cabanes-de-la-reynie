@@ -1,16 +1,16 @@
-import { ClassNameProps } from '@/_types/components'
-import AsideProductCategories from './AsideProductCategories'
-import MenuContainer from './MenuContainer'
-import Category from './Category'
 import burgerImage from '../../images/burger.jpg'
 import sideImage from '../../images/side.jpg'
 import drinkImage from '../../images/drink.jpg'
 import dessertImage from '../../images/dessert.jpg'
 import saladImage from '../../images/salad.jpg'
-import CategoryCard from '@/components/elements/CategoryCard'
 import Image from 'next/image'
+import { cn } from '@/utils/cn'
+import Category from './Category'
+import { ClassNameProps } from '@/_types/components'
+import AsideProductCategories from './AsideProductCategories'
+import MenuContainer from './MenuContainer'
+import CategoryCard from '@/components/elements/CategoryCard'
 import { ProductCategoryEnum } from '@/_types/products'
-import clsx from 'clsx'
 import { Locale } from '../../../../i18n.config'
 import { getDictionary } from '@/lib/dictionary'
 
@@ -22,7 +22,7 @@ const OurMenu = async ({ className, lang }: OurMenuProps) => {
   const { Home } = await getDictionary(lang)
 
   return (
-    <MenuContainer className={clsx(className)}>
+    <MenuContainer className={cn(className)}>
       <AsideProductCategories lang={lang} />
       <Category id='ourMenu' title={Home.ourMenu}>
         <CategoryCard

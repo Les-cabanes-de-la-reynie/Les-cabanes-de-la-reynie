@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import clsx from 'clsx'
+import { cn } from '@/utils/cn'
 import { ClassNameProps } from '@/_types/components'
 
 interface MenuContainerProps extends ClassNameProps, PropsWithChildren {}
@@ -7,7 +7,7 @@ interface MenuContainerProps extends ClassNameProps, PropsWithChildren {}
 const MenuContainer = ({ className, children }: MenuContainerProps) => {
   return (
     <div
-      className={clsx(className, 'w-full lg:grid lg:grid-cols-[20rem_auto]')}
+      className={cn('w-full lg:grid lg:grid-cols-[20rem_auto]', className)}
       data-test='ourMenu'
     >
       {children}

@@ -1,12 +1,11 @@
 import { HTMLProps, PropsWithChildren } from 'react'
-import clsx from 'clsx'
+import { cn } from '@/utils/cn'
 
 export interface HeadingProps
   extends PropsWithChildren,
     HTMLProps<HTMLHeadingElement> {
   level: number
   error?: boolean
-  primary?: boolean
 }
 
 const Heading = ({
@@ -14,29 +13,36 @@ const Heading = ({
   level,
   error = false,
   className = '',
-  primary = false,
   ...rest
 }: HeadingProps) => {
-  const h1ClassName = clsx(className, 'text-4xl font-bold md:text-5xl', {
-    'text-error': error,
-    'text-primary': !error && primary,
-    'text-white': !error && !primary
-  })
-  const h2ClassName = clsx(className, 'text-3xl font-bold md:text-4xl', {
-    'text-error': error,
-    'text-primary': !error && primary,
-    'text-white': !error && !primary
-  })
-  const h3ClassName = clsx(className, 'text-xl font-bold md:text-2xl', {
-    'text-error': error,
-    'text-primary': !error && primary,
-    'text-white': !error && !primary
-  })
-  const h4ClassName = clsx(className, 'text-lg font-bold md:text-xl', {
-    'text-error': error,
-    'text-primary': !error && primary,
-    'text-white': !error && !primary
-  })
+  const h1ClassName = cn(
+    'text-white text-4xl font-bold md:text-5xl',
+    {
+      'text-error': error
+    },
+    className
+  )
+  const h2ClassName = cn(
+    'text-white text-3xl font-bold md:text-4xl',
+    {
+      'text-error': error
+    },
+    className
+  )
+  const h3ClassName = cn(
+    'text-white text-xl font-bold md:text-2xl',
+    {
+      'text-error': error
+    },
+    className
+  )
+  const h4ClassName = cn(
+    'text-white text-lg font-bold md:text-xl',
+    {
+      'text-error': error
+    },
+    className
+  )
 
   switch (level) {
     case 1:

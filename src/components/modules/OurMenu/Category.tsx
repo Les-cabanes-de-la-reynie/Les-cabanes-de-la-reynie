@@ -1,5 +1,5 @@
 import { PropsWithChildren, useMemo } from 'react'
-import clsx from 'clsx'
+import { cn } from '@/utils/cn'
 import ProductList from '../../elements/ProductList'
 import Heading from '../../elements/Heading'
 import { ClassNameProps } from '@/_types/components'
@@ -20,7 +20,7 @@ const Category = ({ id, title, className, children }: CategoryProps) => {
   )
 
   return (
-    <section id={id} className={clsx(className, 'px-4')}>
+    <section id={id} className={cn('px-4', className)}>
       {categoryTitle}
       <ProductList>{children}</ProductList>
     </section>

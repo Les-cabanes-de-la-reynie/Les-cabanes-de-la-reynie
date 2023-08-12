@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { cn } from '@/utils/cn'
 import { ClassNameProps } from '@/_types/components'
 import { Product } from '@/_types/products'
 import { formatNumberToPrice } from '@/utils/formatNumberToprice'
@@ -7,7 +7,7 @@ export interface PriceTagProps extends ClassNameProps, Pick<Product, 'price'> {}
 
 const PriceTag = ({ price, className = '' }: PriceTagProps) => {
   return (
-    <span className={clsx(className, 'flex font-bold')}>
+    <span className={cn('flex font-bold', className)}>
       {price && formatNumberToPrice(price)}
     </span>
   )

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import clsx from 'clsx'
+import { cn } from '@/utils/cn'
 import CardImage from './CardImage'
 import { ProductEntity } from '@/_types/products'
 
@@ -13,9 +13,9 @@ const CardHeader = ({ product }: CardHeaderProps) => {
   return (
     <Link
       href={`/products/${id}`}
-      className={clsx(
-        !attributes?.in_stock && 'invisible',
-        'relative h-3/6 w-full select-none overflow-hidden bg-stone-800'
+      className={cn(
+        'relative h-3/6 w-full select-none overflow-hidden bg-stone-800',
+        !attributes?.in_stock && 'invisible'
       )}
       title={'See more details'}
     >

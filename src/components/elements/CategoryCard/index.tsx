@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react'
 import Link from 'next/link'
+import { cn } from '@/utils/cn'
 import Heading from '../Heading'
 import Card from '../ProductCard.tsx/Card'
 import { ClassNameProps } from '@/_types/components'
@@ -16,7 +17,7 @@ const CategoryCard = ({
   children
 }: CategoryCardProps) => {
   return (
-    <Card className={className}>
+    <Card className={cn(className)}>
       <Link href={`/products/category/${category}`} className='relative h-full'>
         {children}
         <div className='absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black transition-opacity hover:opacity-0'>
