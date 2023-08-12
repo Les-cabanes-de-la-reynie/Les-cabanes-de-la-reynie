@@ -27,6 +27,12 @@ module.exports = {
         border: {
           DEFAULT: 'rgb(68 64 60)' //border-stone-700
         }
+      },
+      backgroundImage: {
+        delivery:
+          'url("../../components/images/backgrounds/deliveryBackground.svg")',
+        takeAway:
+          'url("../../components/images/backgrounds/takeAwayBackground.svg")'
       }
     }
   },
