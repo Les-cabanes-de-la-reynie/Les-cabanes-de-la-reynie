@@ -20,7 +20,7 @@ const Button = ({
   kind = 'default',
   disabled,
   onClick,
-  type,
+  type = 'button',
   ...rest
 }: ButtonProps) => {
   const trueType = type as 'button' | 'submit' | 'reset' | undefined

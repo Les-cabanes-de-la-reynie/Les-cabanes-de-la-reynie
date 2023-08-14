@@ -34,7 +34,7 @@ export default async function ProductCategory({
 
   return (
     <MenuContainer>
-      <AsideProductCategories />
+      <AsideProductCategories lang={lang} />
       <Category id={category} title={categoryTitle()}>
         {products?.length > 0
           ? products.map((product, i) => (
