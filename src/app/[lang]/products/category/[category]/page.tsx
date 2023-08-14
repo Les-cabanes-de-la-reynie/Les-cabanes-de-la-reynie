@@ -1,5 +1,4 @@
 import { getProductsByCategory } from '@/services/products'
-import { Locale } from '../../../../../../i18n.config'
 import { ProductCategoryEnum, ProductEntity } from '@/_types/products'
 import Category from '@/components/modules/OurMenu/Category'
 import AsideProductCategories from '@/components/modules/OurMenu/AsideProductCategories'
@@ -7,9 +6,9 @@ import MenuContainer from '@/components/modules/OurMenu/MenuContainer'
 import ProductCard from '@/components/elements/ProductCard.tsx'
 
 export default async function ProductCategory({
-  params: { lang, category }
+  params: {  category }
 }: {
-  params: { lang: Locale; category: ProductCategoryEnum }
+  params: { category: ProductCategoryEnum }
 }) {
   const allProductsEntity = await getProductsByCategory(category)
   const products = allProductsEntity?.data as ProductEntity[]
@@ -34,7 +33,7 @@ export default async function ProductCategory({
 
   return (
     <MenuContainer>
-      <AsideProductCategories lang={lang} />
+      <AsideProductCategories />
       <Category id={category} title={categoryTitle()}>
         {products?.length > 0
           ? products.map((product, i) => (

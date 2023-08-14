@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { cn } from '@/utils/cn'
 import CardImage from './CardImage'
 import { ProductEntity } from '@/_types/products'
+import useTranslation from 'next-translate/useTranslation'
 
 interface CardHeaderProps {
   product: ProductEntity
@@ -10,9 +11,11 @@ interface CardHeaderProps {
 const CardHeader = ({ product }: CardHeaderProps) => {
   const { id, attributes } = product
 
+  const { lang } = useTranslation('product')
+
   return (
     <Link
-      href={`/products/${id}`}
+      href={`/${lang}/products/${id}`}
       className={cn(
         'relative h-3/6 w-full select-none overflow-hidden bg-stone-800'
       )}

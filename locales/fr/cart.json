@@ -1,0 +1,12 @@
+{
+  "cart": "Panier",
+  "emptyCartText": "Votre panier est actuellement vide",
+  "backToProducts": "Voir nos produits",
+  "cartCountInformation": "Il y a {cartCount} articles dans votre panier !",
+  "proceedToCheckout": "Valider mon panier",
+  "remove": "Supprimer",
+  "subTotalPrice": "Sous-total",
+  "totalPrice": "Total",
+  "continueShopping": "Continuer ma selection",
+  "viewCart": "Voir le panier ({cartCount})"
+}

@@ -1,8 +1,8 @@
 'use client'
 
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { i18n } from '../../../../i18n.config'
+import Link from 'next/link'
+import i18n from '../../../../i18n'
 import { transformLocaleToCountry } from '@/utils/transformLocaleToCountry'
 import Popup from '../Popup'
 
@@ -36,6 +36,7 @@ const LocaleList = ({ isLocaleListOpen, handleCloseMenu }: LocaleListProps) => {
             <li key={locale}>
               <Link
                 href={redirectedPathName(locale)}
+                as={redirectedPathName(locale)}
                 onClick={handleCloseMenu}
                 onBlur={isLastElement ? handleCloseMenu : undefined}
                 className='block rounded p-3 hover:bg-stone-600'

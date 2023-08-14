@@ -1,5 +1,3 @@
-import { Locale } from '../../../../i18n.config'
-
 export enum DaysOfTheWeekEnum {
   Monday = 'Monday',
   Tuesday = 'Tuesday',
@@ -21,8 +19,4 @@ export interface TableHeaderProps {
   day: string
   lunch: string
   dinner: string
-}
-
-export interface OpeningTimesProps {
-  lang: Locale
 }

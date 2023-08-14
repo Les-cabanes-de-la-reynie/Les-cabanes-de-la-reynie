@@ -1,0 +1,12 @@
+{
+  "badgeNewReleaseText": "Nouveau",
+  "seeMoreDetails": "Voir plus de détails",
+  "price": "{price, number, currency}",
+  "addToCartTextButton": "Ajouter",
+  "description": "Description",
+  "allergens": "Allergènes",
+  "noAllergens": "Ce produit ne contient pas des allergènes.",
+  "inStock": "Disponible",
+  "outOfStock": "Indisponible",
+  "imageWithoutAlternativeText": "Cette image ne contient pas d'image alternatif"
+}

@@ -1,60 +1,56 @@
-import { getDictionary } from '@/lib/dictionary'
-import { DaysOfTheWeekEnum, OpeningTimesProps } from './types'
+import useTranslation from 'next-translate/useTranslation'
+import { DaysOfTheWeekEnum } from './types'
 import DayRow from './DayRow'
 import TableHeader from './TableHeader'
 
-const OpeningTimes = async ({ lang }: OpeningTimesProps) => {
-  const { Restaurants } = await getDictionary(lang)
+const OpeningTimes = () => {
+  const { t } = useTranslation('restaurants')
 
   return (
     <table className='flex-grow text-white' data-test='openingTimes'>
-      <TableHeader
-        day={Restaurants.day}
-        lunch={Restaurants.lunch}
-        dinner={Restaurants.dinner}
-      />
+      <TableHeader day={t('day')} lunch={t('lunch')} dinner={t('dinner')} />
       <tbody className='text-center'>
         <DayRow
           day={DaysOfTheWeekEnum.Monday}
-          dayTranslation={Restaurants.monday}
-          lunchTranslation={Restaurants.lunchWeeklyHours}
-          dinnerTranslation={Restaurants.dinnerWeeklyHours}
+          dayTranslation={t('monday')}
+          lunchTranslation={t('lunchWeeklyHours')}
+          dinnerTranslation={t('dinnerWeeklyHours')}
         />
         <DayRow
           day={DaysOfTheWeekEnum.Tuesday}
-          dayTranslation={Restaurants.tuesday}
-          lunchTranslation={Restaurants.lunchWeeklyHours}
-          dinnerTranslation={Restaurants.dinnerWeeklyHours}
+          dayTranslation={t('tuesday')}
+          lunchTranslation={t('lunchWeeklyHours')}
+          dinnerTranslation={t('dinnerWeeklyHours')}
         />
         <DayRow
           day={DaysOfTheWeekEnum.Wednesday}
-          dayTranslation={Restaurants.wednesday}
-          lunchTranslation={Restaurants.lunchWeeklyHours}
-          dinnerTranslation={Restaurants.dinnerWeeklyHours}
+          dayTranslation={t('wednesday')}
+          lunchTranslation={t('lunchWeeklyHours')}
+          dinnerTranslation={t('dinnerWeeklyHours')}
         />
         <DayRow
           day={DaysOfTheWeekEnum.Thursday}
-          dayTranslation={Restaurants.thursday}
-          lunchTranslation={Restaurants.lunchWeeklyHours}
-          dinnerTranslation={Restaurants.dinnerWeeklyHours}
+          dayTranslation={t('thursday')}
+          lunchTranslation={t('lunchWeeklyHours')}
+          dinnerTranslation={t('dinnerWeeklyHours')}
         />
         <DayRow
           day={DaysOfTheWeekEnum.Friday}
-          dayTranslation={Restaurants.friday}
-          lunchTranslation={Restaurants.lunchWeeklyHours}
-          dinnerTranslation={Restaurants.dinnerWeeklyHours}
+          dayTranslation={t('friday')}
+          lunchTranslation={t('lunchWeeklyHours')}
+          dinnerTranslation={t('dinnerWeeklyHours')}
         />
         <DayRow
           day={DaysOfTheWeekEnum.Saturday}
-          dayTranslation={Restaurants.saturday}
-          lunchTranslation={Restaurants.lunchWeekendHours}
-          dinnerTranslation={Restaurants.dinnerWeekendHours}
+          dayTranslation={t('saturday')}
+          lunchTranslation={t('lunchWeekendHours')}
+          dinnerTranslation={t('dinnerWeekendHours')}
         />
         <DayRow
           day={DaysOfTheWeekEnum.Sunday}
-          dayTranslation={Restaurants.sunday}
-          lunchTranslation={Restaurants.lunchWeekendHours}
-          dinnerTranslation={Restaurants.dinnerWeekendHours}
+          dayTranslation={t('sunday')}
+          lunchTranslation={t('lunchWeekendHours')}
+          dinnerTranslation={t('dinnerWeekendHours')}
         />
       </tbody>
     </table>

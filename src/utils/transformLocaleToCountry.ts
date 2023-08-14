@@ -1,4 +1,2 @@
-import { Locale } from '../../i18n.config'
-
-export const transformLocaleToCountry = (locale: Locale) =>
+export const transformLocaleToCountry = (locale: string) =>
   locale === 'fr' ? 'Français' : 'English'

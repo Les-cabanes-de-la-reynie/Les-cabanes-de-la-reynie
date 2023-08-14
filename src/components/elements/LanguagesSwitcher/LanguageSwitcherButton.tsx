@@ -1,8 +1,7 @@
-import { usePathname } from 'next/navigation'
 import { Languages } from 'lucide-react'
-import { Locale } from '../../../../i18n.config'
 import { transformLocaleToCountry } from '@/utils/transformLocaleToCountry'
 import Button from '../Button'
+import useTranslation from 'next-translate/useTranslation'
 
 interface LanguageSwitcherButtonProps {
   isLocaleListOpen: boolean
@@ -13,9 +12,7 @@ const LanguageSwitcherButton = ({
   isLocaleListOpen,
   handleToggleMenu
 }: LanguageSwitcherButtonProps) => {
-  const pathName = usePathname()
-  const segments = pathName.split('/')
-  const locale = segments[1] as Locale
+  const { lang } = useTranslation('home')
 
   return (
     <Button
@@ -26,7 +23,7 @@ const LanguageSwitcherButton = ({
       className='flex select-none justify-center gap-1 rounded px-2 py-1 text-sm text-white hover:bg-stone-600'
     >
       <Languages name='languages' size={18} />
-      {transformLocaleToCountry(locale)}
+      {transformLocaleToCountry(lang)}
     </Button>
   )
 }

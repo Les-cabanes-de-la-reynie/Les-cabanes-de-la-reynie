@@ -5,30 +5,26 @@ import dessertImage from '../../images/dessert.jpg'
 import saladImage from '../../images/salad.jpg'
 import Image from 'next/image'
 import { cn } from '@/utils/cn'
+import useTranslation from 'next-translate/useTranslation'
 import Category from './Category'
 import { ClassNameProps } from '@/_types/components'
 import AsideProductCategories from './AsideProductCategories'
 import MenuContainer from './MenuContainer'
 import CategoryCard from '@/components/elements/CategoryCard'
 import { ProductCategoryEnum } from '@/_types/products'
-import { Locale } from '../../../../i18n.config'
-import { getDictionary } from '@/lib/dictionary'
 
-interface OurMenuProps extends ClassNameProps {
-  lang: Locale
-}
+interface OurMenuProps extends ClassNameProps {}
 
-const OurMenu = async ({ className, lang }: OurMenuProps) => {
-  const { Home } = await getDictionary(lang)
-
+const OurMenu = ({ className }: OurMenuProps) => {
+  const { t } = useTranslation('home')
   return (
     <MenuContainer className={cn(className)}>
-      <AsideProductCategories lang={lang} />
-      <Category id='ourMenu' title={Home.ourMenu}>
+      <AsideProductCategories />
+      <Category id='ourMenu' title={t('ourMenu')}>
         <CategoryCard
           className='overflow-hidden'
           category={ProductCategoryEnum.Burger}
-          title={Home.burgerTitle}
+          title={t('burgerTitle')}
         >
           <Image
             src={burgerImage}
@@ -42,7 +38,7 @@ const OurMenu = async ({ className, lang }: OurMenuProps) => {
         <CategoryCard
           className='overflow-hidden'
           category={ProductCategoryEnum.Side}
-          title={Home.sideTitle}
+          title={t('sideTitle')}
         >
           <Image
             src={sideImage}
@@ -56,7 +52,7 @@ const OurMenu = async ({ className, lang }: OurMenuProps) => {
         <CategoryCard
           className='overflow-hidden'
           category={ProductCategoryEnum.Drink}
-          title={Home.drinkTitle}
+          title={t('drinkTitle')}
         >
           <Image
             src={drinkImage}
@@ -70,7 +66,7 @@ const OurMenu = async ({ className, lang }: OurMenuProps) => {
         <CategoryCard
           className='overflow-hidden'
           category={ProductCategoryEnum.Dessert}
-          title={Home.dessertTitle}
+          title={t('dessertTitle')}
         >
           <Image
             src={dessertImage}
@@ -84,7 +80,7 @@ const OurMenu = async ({ className, lang }: OurMenuProps) => {
         <CategoryCard
           className='overflow-hidden'
           category={ProductCategoryEnum.Salad}
-          title={Home.saladTitle}
+          title={t('saladTitle')}
         >
           <Image
             src={saladImage}

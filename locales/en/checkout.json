@@ -1,0 +1,10 @@
+{
+  "checkout": "Checkout",
+  "userInfo": "My information",
+  "payment": "Payment",
+  "nameOnCard": "Name on Card",
+  "cardNumber": "Card number",
+  "expirationDate": "Expiration Date",
+  "cvv": "CVV / CVC",
+  "confirmAndPay": "Confirm and Pay"
+}

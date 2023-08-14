@@ -1,10 +1,13 @@
+import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
 
 const FooterItem = ({ children }: PropsWithChildren) => {
+  const { lang } = useTranslation('delivery')
+
   return (
     <li className='mb-2 max-w-max text-sm text-white hover:underline md:max-w-none'>
-      <Link href='/'>{children}</Link>
+      <Link href={`/${lang}`}>{children}</Link>
     </li>
   )
 }

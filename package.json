@@ -25,6 +25,7 @@
     "lucide-react": "^0.266.0",
     "negotiator": "^0.6.3",
     "next": "13.4.12",
+    "next-translate": "^2.5.3",
     "postcss": "8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -38,6 +39,7 @@
   "devDependencies": {
     "@types/leaflet": "^1.9.3",
     "@types/negotiator": "^0.6.1",
+    "next-translate-plugin": "^2.5.3",
     "prettier": "^3.0.1",
     "prettier-plugin-tailwindcss": "^0.4.1",
     "server-only": "^0.0.1"

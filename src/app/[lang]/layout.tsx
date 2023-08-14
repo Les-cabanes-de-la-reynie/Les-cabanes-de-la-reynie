@@ -1,6 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Locale, i18n } from '../../../i18n.config'
+import useTranslation from 'next-translate/useTranslation'
+import i18n from '../../../i18n'
+import { redirect } from 'next/navigation'
 import { cn } from '@/utils/cn'
 import Header from '@/components/modules/Header'
 import { Baloo_2 } from 'next/font/google'
@@ -14,30 +16,29 @@ export const metadata: Metadata = {
     "Bienvenue sur PickN`Eat, le premier site de commande de burger en ligne qui se démarque par sa simplicité d'utilisation et de sa multitude de choix"
 }
 
-export async function generateStaticParams() {
-  return i18n.locales.map(locale => ({ lang: locale }))
-}
-
 export default function RootLayout({
-  children,
-  params
+  children
 }: {
   children: React.ReactNode
-  params: { lang: Locale }
 }) {
+  const { lang } = useTranslation('navigation')
+
+  // Redirect to default locale if lang is not supported. /second-page -> /en/second-page
+  if (!i18n.locales.includes(lang)) redirect(`/${i18n.defaultLocale}/${lang}`)
+
   return (
-    <html lang={params.lang}>
+    <html lang={lang}>
       <body
         className={cn(
           fontFamily.className,
           'relative flex min-h-screen w-full flex-col bg-stone-900'
         )}
       >
-        <Header lang={params.lang} />
+        <Header />
         <main id='main' role='main' className='flex flex-1'>
           {children}
         </main>
-        <Footer lang={params.lang} />
+        <Footer />
       </body>
     </html>
   )

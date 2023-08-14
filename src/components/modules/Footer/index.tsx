@@ -1,37 +1,36 @@
-import { Locale } from '../../../../i18n.config'
-import { getDictionary } from '@/lib/dictionary'
+import useTranslation from 'next-translate/useTranslation'
 import FooterNav from './FooterNav'
 import FooterHeading from './FooterHeading'
 import FooterItem from './FooterItem'
 
-const Footer = async ({ lang }: { lang: Locale }) => {
-  const { Footer } = await getDictionary(lang)
+const Footer = () => {
+  const { t } = useTranslation('footer')
 
   return (
     <footer className='box-border w-full border-t border-border bg-stone-950'>
       <div className='container flex flex-col flex-wrap py-8 md:flex-row md:justify-between lg:justify-around'>
         <FooterNav>
-          <FooterHeading> {Footer.aboutUs}</FooterHeading>
+          <FooterHeading> {t('aboutUs')}</FooterHeading>
           <ul>
-            <FooterItem>{Footer.leadershipTeam}</FooterItem>
-            <FooterItem>{Footer.valuesInAction}</FooterItem>
-            <FooterItem>{Footer.franchiseInfo}</FooterItem>
+            <FooterItem>{t('leadershipTeam')}</FooterItem>
+            <FooterItem>{t('valuesInAction')}</FooterItem>
+            <FooterItem>{t('franchiseInfo')}</FooterItem>
           </ul>
         </FooterNav>
         <FooterNav>
-          <FooterHeading> {Footer.careers}</FooterHeading>
+          <FooterHeading> {t('careers')}</FooterHeading>
           <ul>
-            <FooterItem>{Footer.employeePerks}</FooterItem>
-            <FooterItem>{Footer.workingWithUs}</FooterItem>
-            <FooterItem>{Footer.applyNow}</FooterItem>
+            <FooterItem>{t('employeePerks')}</FooterItem>
+            <FooterItem>{t('workingWithUs')}</FooterItem>
+            <FooterItem>{t('applyNow')}</FooterItem>
           </ul>
         </FooterNav>
         <FooterNav>
-          <FooterHeading> {Footer.contactUs}</FooterHeading>
+          <FooterHeading> {t('contactUs')}</FooterHeading>
           <ul>
-            <FooterItem>{Footer.restaurantFeedback}</FooterItem>
-            <FooterItem>{Footer.frequentlyAskedQuestions}</FooterItem>
-            <FooterItem>{Footer.sendAnEmail}</FooterItem>
+            <FooterItem>{t('restaurantFeedback')}</FooterItem>
+            <FooterItem>{t('frequentlyAskedQuestions')}</FooterItem>
+            <FooterItem>{t('sendAnEmail')}</FooterItem>
           </ul>
         </FooterNav>
       </div>
