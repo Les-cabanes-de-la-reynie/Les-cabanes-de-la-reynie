@@ -1,9 +1,12 @@
+import useTranslation from 'next-translate/useTranslation'
 import { ProductEntity } from '@/_types/products'
 import Heading from '../Heading'
 import PriceTag from '../PriceTag'
 import Quantity from '../Quantity'
 
 const CardBody = ({ attributes }: Pick<ProductEntity, 'attributes'>) => {
+  const { t } = useTranslation('product')
+
   return (
     <div className='flex flex-grow flex-col p-3'>
       <PriceTag price={attributes?.price} className='mb-1 w-full text-xl' />
@@ -17,7 +20,7 @@ const CardBody = ({ attributes }: Pick<ProductEntity, 'attributes'>) => {
         <Quantity className='mt-auto' />
       ) : (
         <span className='mt-auto text-center text-2xl font-semibold text-error'>
-          OUT OF STOCK
+          {t('outOfStock')}
         </span>
       )}
     </div>

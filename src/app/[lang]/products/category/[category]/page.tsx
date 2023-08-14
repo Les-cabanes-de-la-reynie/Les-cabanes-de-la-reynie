@@ -6,35 +6,17 @@ import MenuContainer from '@/components/modules/OurMenu/MenuContainer'
 import ProductCard from '@/components/elements/ProductCard.tsx'
 
 export default async function ProductCategory({
-  params: {  category }
+  params: { category }
 }: {
   params: { category: ProductCategoryEnum }
 }) {
   const allProductsEntity = await getProductsByCategory(category)
   const products = allProductsEntity?.data as ProductEntity[]
 
-  const categoryTitle = () => {
-    switch (category) {
-      case ProductCategoryEnum.Burger:
-        return 'Burgers'
-      case ProductCategoryEnum.Side:
-        return 'Sides'
-      case ProductCategoryEnum.Drink:
-        return 'Drinks'
-      case ProductCategoryEnum.Dessert:
-        return 'Desserts'
-      case ProductCategoryEnum.Salad:
-        return 'Salads'
-
-      default:
-        return ''
-    }
-  }
-
   return (
     <MenuContainer>
       <AsideProductCategories />
-      <Category id={category} title={categoryTitle()}>
+      <Category id={category} title={category}>
         {products?.length > 0
           ? products.map((product, i) => (
               <ProductCard

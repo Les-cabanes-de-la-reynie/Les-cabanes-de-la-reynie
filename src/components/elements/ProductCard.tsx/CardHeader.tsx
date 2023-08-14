@@ -11,7 +11,7 @@ interface CardHeaderProps {
 const CardHeader = ({ product }: CardHeaderProps) => {
   const { id, attributes } = product
 
-  const { lang } = useTranslation('product')
+  const { t, lang } = useTranslation('product')
 
   return (
     <Link
@@ -19,12 +19,12 @@ const CardHeader = ({ product }: CardHeaderProps) => {
       className={cn(
         'relative h-3/6 w-full select-none overflow-hidden bg-stone-800'
       )}
-      title={'See more details'}
+      title={t('seeMoreDetails')}
     >
       <CardImage image={attributes?.image} />
       {attributes?.new_release && (
         <div className='absolute left-2 top-2 box-border w-max rounded bg-primary px-2 py-1 text-xs text-white md:text-sm'>
-          New
+          {t('badgeNewReleaseText')}
         </div>
       )}
     </Link>

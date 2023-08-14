@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic'
 
 const Map = dynamic(() => import('./Map'), {
-  loading: () => <div className='motion-safe:animate-spin'></div>,
+  loading: () => <div className='h-10 w-10 motion-safe:animate-spin'></div>,
   ssr: false
 })
 

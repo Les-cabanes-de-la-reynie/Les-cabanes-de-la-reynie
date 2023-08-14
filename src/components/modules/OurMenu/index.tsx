@@ -17,6 +17,7 @@ interface OurMenuProps extends ClassNameProps {}
 
 const OurMenu = ({ className }: OurMenuProps) => {
   const { t } = useTranslation('home')
+
   return (
     <MenuContainer className={cn(className)}>
       <AsideProductCategories />

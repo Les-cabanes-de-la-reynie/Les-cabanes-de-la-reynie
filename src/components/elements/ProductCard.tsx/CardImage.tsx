@@ -1,11 +1,15 @@
 import Image from 'next/image'
+import useTranslation from 'next-translate/useTranslation'
 import { Product, Maybe, ProductImage } from '@/_types/products'
 
 const CardImage = ({ image }: Pick<Product, 'image'>) => {
+  const { t } = useTranslation('product')
+
   const attributes = image?.data?.attributes as Maybe<ProductImage>
 
   const imageUrl = attributes?.url
-  const alternativeText = attributes?.alternativeText ?? '' // TODO : translate Cette image ne contient pas de texte alternative
+  const alternativeText =
+    attributes?.alternativeText ?? t('imageWithoutAlternativeText')
 
   return (
     imageUrl && (
