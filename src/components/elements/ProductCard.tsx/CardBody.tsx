@@ -13,7 +13,13 @@ const CardBody = ({ attributes }: Pick<ProductEntity, 'attributes'>) => {
       >
         {attributes?.name}
       </Heading>
-      {attributes?.in_stock && <Quantity className='mt-auto' />}
+      {attributes?.in_stock ? (
+        <Quantity className='mt-auto' />
+      ) : (
+        <span className='mt-auto text-center text-2xl font-semibold text-error'>
+          OUT OF STOCK
+        </span>
+      )}
     </div>
   )
 }

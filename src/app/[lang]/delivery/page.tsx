@@ -17,7 +17,7 @@ export default async function Delivery({
         {Delivery.deliveryMainTitle}
       </Heading>
       <div className='mb-8 flex flex-grow flex-col text-white'>
-        <section className='mb-8 flex flex-grow flex-col items-center justify-center lg:bg-delivery lg:bg-contain lg:bg-left-bottom lg:bg-no-repeat'>
+        <section className='mb-8 flex flex-grow flex-col items-center justify-center lg:bg-delivery lg:bg-[length:15rem] lg:bg-left-bottom lg:bg-no-repeat'>
           <Heading level={2}>{Delivery.delivery}</Heading>
           <p className='mb-8 mt-4 text-center'>{Delivery.deliveryContent}</p>
           <Link
@@ -34,7 +34,7 @@ export default async function Delivery({
           <span className='mx-4 uppercase'>{Delivery.or}</span>
           <span className='inline-block h-px w-24 bg-primary'></span>
         </div>
-        <section className='mb-8 flex flex-grow flex-col items-center justify-center lg:bg-takeAway lg:bg-contain lg:bg-right-bottom lg:bg-no-repeat'>
+        <section className='mb-8 flex flex-grow flex-col items-center justify-center lg:bg-takeAway lg:bg-[length:15rem] lg:bg-right-bottom lg:bg-no-repeat'>
           <Heading level={2}>{Delivery.takeAway}</Heading>
           <p className='mb-8 mt-4 text-center'>{Delivery.takeAwayContent}</p>
           <Link href='/' tabIndex={-1}>

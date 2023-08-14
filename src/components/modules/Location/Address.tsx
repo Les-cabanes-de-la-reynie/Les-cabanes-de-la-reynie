@@ -1,11 +1,11 @@
 import { cn } from '@/utils/cn'
+import Link from 'next/link'
 import { itineraryUrl } from './const'
 import {
   PNE_ADDRESS,
   PNE_CITY,
   PNE_PHONE_NUMBER
 } from '@/_constants/restaurantInformation'
-import Link from 'next/link'
 import Heading from '@/components/elements/Heading'
 
 const Address = () => {

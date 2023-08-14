@@ -1,5 +1,4 @@
 import Card from './Card'
-import CardDisabled from './CardDisabled'
 import CardHeader from './CardHeader'
 import CardBody from './CardBody'
 import { ProductEntity } from '@/_types/products'
@@ -15,7 +14,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
     <Card>
       <CardHeader product={product} />
       <CardBody attributes={attributes} />
-      <CardDisabled in_stock={attributes?.in_stock} />
     </Card>
   )
 }
