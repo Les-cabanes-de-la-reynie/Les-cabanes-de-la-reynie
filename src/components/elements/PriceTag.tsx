@@ -1,7 +1,7 @@
 import { cn } from '@/utils/cn'
 import { ClassNameProps } from '@/_types/components'
 import { Product } from '@/_types/products'
-import { formatNumberToPrice } from '@/utils/formatNumberToprice'
+import { formatNumberToPrice } from '@/utils/formatNumberToPrice'
 
 export interface PriceTagProps extends ClassNameProps, Pick<Product, 'price'> {}
 

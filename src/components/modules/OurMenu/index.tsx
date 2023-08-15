@@ -22,76 +22,78 @@ const OurMenu = ({ className }: OurMenuProps) => {
     <MenuContainer className={cn(className)}>
       <AsideProductCategories />
       <Category id='ourMenu' title={t('ourMenu')}>
-        <CategoryCard
-          className='overflow-hidden'
-          category={ProductCategoryEnum.Burger}
-          title={t('burgerTitle')}
-        >
-          <Image
-            src={burgerImage}
-            alt='burger category'
-            fill
-            priority
-            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-            className='object-cover'
-          />
-        </CategoryCard>
-        <CategoryCard
-          className='overflow-hidden'
-          category={ProductCategoryEnum.Side}
-          title={t('sideTitle')}
-        >
-          <Image
-            src={sideImage}
-            alt='side category'
-            fill
-            priority
-            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-            className='object-cover'
-          />
-        </CategoryCard>
-        <CategoryCard
-          className='overflow-hidden'
-          category={ProductCategoryEnum.Drink}
-          title={t('drinkTitle')}
-        >
-          <Image
-            src={drinkImage}
-            alt='drink category'
-            fill
-            priority
-            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-            className='object-cover'
-          />
-        </CategoryCard>
-        <CategoryCard
-          className='overflow-hidden'
-          category={ProductCategoryEnum.Dessert}
-          title={t('dessertTitle')}
-        >
-          <Image
-            src={dessertImage}
-            alt='dessert category'
-            fill
-            priority
-            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-            className='object-cover'
-          />
-        </CategoryCard>
-        <CategoryCard
-          className='overflow-hidden'
-          category={ProductCategoryEnum.Salad}
-          title={t('saladTitle')}
-        >
-          <Image
-            src={saladImage}
-            alt='salad category'
-            fill
-            priority
-            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-            className='object-cover'
-          />
-        </CategoryCard>
+        <ul className='grid grid-cols-2 items-start gap-4 pb-16 md:grid-cols-3 md:gap-8'>
+          <CategoryCard
+            className='overflow-hidden'
+            category={ProductCategoryEnum.Burger}
+            title={t('burgerTitle')}
+          >
+            <Image
+              src={burgerImage}
+              alt='burger category'
+              fill
+              priority
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+              className='object-cover'
+            />
+          </CategoryCard>
+          <CategoryCard
+            className='overflow-hidden'
+            category={ProductCategoryEnum.Side}
+            title={t('sideTitle')}
+          >
+            <Image
+              src={sideImage}
+              alt='side category'
+              fill
+              priority
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+              className='object-cover'
+            />
+          </CategoryCard>
+          <CategoryCard
+            className='overflow-hidden'
+            category={ProductCategoryEnum.Drink}
+            title={t('drinkTitle')}
+          >
+            <Image
+              src={drinkImage}
+              alt='drink category'
+              fill
+              priority
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+              className='object-cover'
+            />
+          </CategoryCard>
+          <CategoryCard
+            className='overflow-hidden'
+            category={ProductCategoryEnum.Dessert}
+            title={t('dessertTitle')}
+          >
+            <Image
+              src={dessertImage}
+              alt='dessert category'
+              fill
+              priority
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+              className='object-cover'
+            />
+          </CategoryCard>
+          <CategoryCard
+            className='overflow-hidden'
+            category={ProductCategoryEnum.Salad}
+            title={t('saladTitle')}
+          >
+            <Image
+              src={saladImage}
+              alt='salad category'
+              fill
+              priority
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+              className='object-cover'
+            />
+          </CategoryCard>
+        </ul>
       </Category>
     </MenuContainer>
   )

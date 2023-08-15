@@ -1,7 +1,6 @@
 import { PropsWithChildren } from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import { cn } from '@/utils/cn'
-import ProductList from '../../elements/ProductList'
 import Heading from '../../elements/Heading'
 import { ClassNameProps } from '@/_types/components'
 import { ProductCategoryEnum } from '@/_types/products'
@@ -38,7 +37,7 @@ const Category = ({ id, title, className, children }: CategoryProps) => {
       <Heading level={1} className='my-8'>
         <span>{categoryTitle()}</span>
       </Heading>
-      <ProductList>{children}</ProductList>
+      {children}
     </section>
   )
 }

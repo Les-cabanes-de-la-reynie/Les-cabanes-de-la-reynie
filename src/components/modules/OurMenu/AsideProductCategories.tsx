@@ -18,31 +18,31 @@ const AsideProductCategories = () => {
         {t('ourMenu')}
       </Link>
       <Link
-        href={`/${lang}products/category/${ProductCategoryEnum.Burger}`}
+        href={`/${lang}/products/category/${ProductCategoryEnum.Burger}`}
         className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
         {t('burgerTitle')}
       </Link>
       <Link
-        href={`/${lang}products/category/${ProductCategoryEnum.Side}`}
+        href={`/${lang}/products/category/${ProductCategoryEnum.Side}`}
         className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
         {t('sideTitle')}
       </Link>
       <Link
-        href={`/${lang}products/category/${ProductCategoryEnum.Drink}`}
+        href={`/${lang}/products/category/${ProductCategoryEnum.Drink}`}
         className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
         {t('drinkTitle')}
       </Link>
       <Link
-        href={`/${lang}products/category/${ProductCategoryEnum.Dessert}`}
+        href={`/${lang}/products/category/${ProductCategoryEnum.Dessert}`}
         className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
         {t('dessertTitle')}
       </Link>
       <Link
-        href={`/${lang}products/category/${ProductCategoryEnum.Salad}`}
+        href={`/${lang}/products/category/${ProductCategoryEnum.Salad}`}
         className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
         {t('saladTitle')}

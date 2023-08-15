@@ -1,7 +1,10 @@
+import { Loader2 } from 'lucide-react'
 import dynamic from 'next/dynamic'
 
 const Map = dynamic(() => import('./Map'), {
-  loading: () => <div className='h-10 w-10 motion-safe:animate-spin'></div>,
+  loading: () => (
+    <Loader2 className='flex h-full w-full animate-spin items-center justify-center text-white' />
+  ),
   ssr: false
 })
 
