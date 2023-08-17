@@ -4,7 +4,7 @@ import AsideProductCategories from '@/components/modules/OurMenu/AsideProductCat
 import MenuContainer from '@/components/modules/OurMenu/MenuContainer'
 import ProductsByCategoryList from '@/components/modules/ProductsByCategoryList'
 
-export default async function ProductCategory({
+export default function ProductCategory({
   params: { category }
 }: {
   params: { category: ProductCategoryEnum }

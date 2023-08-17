@@ -3,7 +3,6 @@ import { ProductEntity, ProductEntityResponse } from '../_types/products'
 
 export const getProducts = async () => {
   const axios = getAxiosConfig()
-
   const response = await axios.get(`/api/products?populate=*`)
 
   const productEntityResponse = response?.data as ProductEntityResponse
@@ -15,15 +14,16 @@ export const getProductsKey = 'hydrate-products'
 
 export const getProduct = async (id: number) => {
   const axios = getAxiosConfig()
+  const response = await axios.get(`/api/products/${id}?populate=image`)
 
-  const response = await axios.get(`/api/products/${id}`)
+  const productEntityResponse = response?.data as ProductEntityResponse
 
-  return response?.data as ProductEntityResponse
+  return productEntityResponse?.data?.attributes
 }
+export const getProductKey = 'hydrate-product'
 
 // export const getProductsByCategory = async (category: ProductCategoryEnum) => {
 //   const axios = getAxiosConfig()
-
 //   const response = await axios.get(
 //     `/api/products?filters[category][$eq]=${category}&populate=image`
 //   )

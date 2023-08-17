@@ -1,17 +1,9 @@
-import { getProduct } from '@/services/products'
+import ProductDetailsWrapper from '@/components/modules/ProductDetails/ProductDetailsWrapper'
 
-export default async function ProductId({
+export default function ProductId({
   params: { id }
 }: {
   params: { id: number }
 }) {
-  const { data } = await getProduct(id)
-  const attributes = data?.attributes
-
-  return (
-    <>
-      {attributes?.name}
-      {attributes?.description}
-    </>
-  )
+  return <ProductDetailsWrapper productId={id} />
 }
