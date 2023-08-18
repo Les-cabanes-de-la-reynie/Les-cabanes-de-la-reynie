@@ -4,7 +4,7 @@ import { Product } from '@/_types/products'
 import ProductCard from '@/components/elements/ProductCard.tsx'
 import { getProducts, getProductsKey } from '@/services/products'
 import { useQuery } from '@tanstack/react-query'
-import { Loader2 } from 'lucide-react'
+import Loader from '../elements/Loader'
 
 interface ProductsByCategoryListProps extends Pick<Product, 'category'> {}
 
@@ -14,8 +14,7 @@ const ProductsByCategoryList = ({ category }: ProductsByCategoryListProps) => {
     queryFn: () => getProducts()
   })
 
-  if (isLoading)
-    return <Loader2 className='w-full animate-spin text-center text-white' />
+  if (isLoading) return <Loader />
 
   if (isError) return <p>Something went wrong</p>
 

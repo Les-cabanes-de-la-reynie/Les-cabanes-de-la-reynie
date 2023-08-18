@@ -2,8 +2,8 @@
 
 import { getProduct, getProductKey } from '@/services/products'
 import { useQuery } from '@tanstack/react-query'
-import { Loader2 } from 'lucide-react'
 import ProductDetails from '.'
+import Loader from '@/components/elements/Loader'
 
 interface ProductDetailsWrapperProps {
   productId: number
@@ -17,8 +17,7 @@ const ProductDetailsWrapper = ({ productId }: ProductDetailsWrapperProps) => {
     cacheTime: 0
   })
 
-  if (isLoading)
-    return <Loader2 className='w-full animate-spin text-center text-white' />
+  if (isLoading) return <Loader />
 
   if (isError) return <p>Something went wrong</p>
 

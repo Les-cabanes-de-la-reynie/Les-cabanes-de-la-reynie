@@ -1,7 +1,5 @@
-import { Loader2 } from 'lucide-react'
+import Loader from '@/components/elements/Loader'
 
 export default function Loading() {
-  return (
-    <Loader2 className='mt-20 w-full animate-spin text-center text-white' />
-  )
+  return <Loader />
 }
