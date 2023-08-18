@@ -6,7 +6,7 @@ const Loader = ({ className }: ClassNameProps) => {
   return (
     <Loader2
       className={cn(
-        'mt-20 w-full animate-spin text-center text-white',
+        'mt-10 h-8 w-full animate-spin text-center text-white',
         className
       )}
     />
