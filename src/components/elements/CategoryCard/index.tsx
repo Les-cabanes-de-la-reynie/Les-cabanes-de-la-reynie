@@ -27,7 +27,7 @@ const CategoryCard = ({
       >
         {children}
         <div className='absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black transition-opacity hover:opacity-0'>
-          <Heading level={3} className='mb-8'>
+          <Heading level={2} className='mb-8'>
             {title}
           </Heading>
         </div>

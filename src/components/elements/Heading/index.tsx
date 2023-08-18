@@ -16,28 +16,28 @@ const Heading = ({
   ...rest
 }: HeadingProps) => {
   const h1ClassName = cn(
-    'text-white text-4xl font-bold md:text-5xl',
-    {
-      'text-error': error
-    },
-    className
-  )
-  const h2ClassName = cn(
     'text-white text-3xl font-bold md:text-4xl',
     {
       'text-error': error
     },
     className
   )
-  const h3ClassName = cn(
+  const h2ClassName = cn(
     'text-white text-xl font-bold md:text-2xl',
     {
       'text-error': error
     },
     className
   )
-  const h4ClassName = cn(
+  const h3ClassName = cn(
     'text-white text-lg font-bold md:text-xl',
+    {
+      'text-error': error
+    },
+    className
+  )
+  const h4ClassName = cn(
+    'text-white text-md font-bold md:text-lg',
     {
       'text-error': error
     },
