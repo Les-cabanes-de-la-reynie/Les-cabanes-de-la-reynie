@@ -1,6 +1,6 @@
 import { ProductCategoryEnum } from '@/_types/products'
 import Category from '@/components/modules/OurMenu/Category'
-import AsideProductCategories from '@/components/modules/OurMenu/AsideProductCategories'
+import AsideProductCategories from '@/components/modules/AsideProductCategories'
 import MenuContainer from '@/components/modules/OurMenu/MenuContainer'
 import ProductsByCategoryList from '@/components/modules/ProductsByCategoryList'
 

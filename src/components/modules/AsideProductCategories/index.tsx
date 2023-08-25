@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
 import { ProductCategoryEnum } from '@/_types/products'
 import Heading from '@/components/elements/Heading'
+import AsideProductCategory from './AsideProductCategory'
 
 const AsideProductCategories = () => {
   const { t, lang } = useTranslation('home')
@@ -11,42 +11,34 @@ const AsideProductCategories = () => {
       <Heading level={2} className='px-4 py-10'>
         {t('allOurProducts')}
       </Heading>
-      <Link
-        href={`/${lang}`}
-        className='flex p-4 font-medium text-white hover:bg-stone-900'
-      >
+      <AsideProductCategory href={`/${lang}`}>
         {t('ourMenu')}
-      </Link>
-      <Link
+      </AsideProductCategory>
+      <AsideProductCategory
         href={`/${lang}/products/category/${ProductCategoryEnum.Burger}`}
-        className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
         {t('burgerTitle')}
-      </Link>
-      <Link
+      </AsideProductCategory>
+      <AsideProductCategory
         href={`/${lang}/products/category/${ProductCategoryEnum.Side}`}
-        className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
         {t('sideTitle')}
-      </Link>
-      <Link
+      </AsideProductCategory>
+      <AsideProductCategory
         href={`/${lang}/products/category/${ProductCategoryEnum.Drink}`}
-        className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
         {t('drinkTitle')}
-      </Link>
-      <Link
+      </AsideProductCategory>
+      <AsideProductCategory
         href={`/${lang}/products/category/${ProductCategoryEnum.Dessert}`}
-        className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
         {t('dessertTitle')}
-      </Link>
-      <Link
+      </AsideProductCategory>
+      <AsideProductCategory
         href={`/${lang}/products/category/${ProductCategoryEnum.Salad}`}
-        className='flex p-4 font-medium text-white hover:bg-stone-900'
       >
         {t('saladTitle')}
-      </Link>
+      </AsideProductCategory>
     </aside>
   )
 }

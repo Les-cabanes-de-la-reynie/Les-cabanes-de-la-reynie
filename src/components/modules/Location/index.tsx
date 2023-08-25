@@ -2,9 +2,7 @@ import dynamic from 'next/dynamic'
 import Loader from '@/components/elements/Loader'
 
 const Map = dynamic(() => import('./Map'), {
-  loading: () => (
-    <Loader className='mt-0 flex h-full items-center justify-center' />
-  ),
+  loading: () => <Loader className='mt-0 flex items-center justify-center' />,
   ssr: false
 })
 
