@@ -1,14 +1,11 @@
 'use client'
 
-import { useState } from 'react'
 import LocaleList from './LocaleList'
 import LanguageSwitcherButton from './LanguageSwitcherButton'
+import useToggle from '@/hooks/useToggle'
 
 const LanguagesSwitcher = () => {
-  const [isLocaleListOpen, setIsLocaleListOpen] = useState(false)
-
-  const handleToggleMenu = () => setIsLocaleListOpen(c => !c)
-  const handleCloseMenu = () => setIsLocaleListOpen(false)
+  const [isLocaleListOpen, handleToggleMenu] = useToggle()
 
   return (
     <div className='relative'>
@@ -20,7 +17,7 @@ const LanguagesSwitcher = () => {
       {isLocaleListOpen && (
         <LocaleList
           isLocaleListOpen={isLocaleListOpen}
-          handleCloseMenu={handleCloseMenu}
+          handleCloseMenu={handleToggleMenu}
         />
       )}
     </div>

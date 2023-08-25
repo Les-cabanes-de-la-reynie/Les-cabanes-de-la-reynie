@@ -1,26 +1,25 @@
-'use client'
-
 import { PropsWithChildren } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import Link, { LinkProps } from 'next/link'
 import { ClassNameProps } from '@/_types/components'
 import { cn } from '@/utils/cn'
 
-interface AsideProductCategoryProps extends PropsWithChildren, ClassNameProps {
-  href: string
+interface AsideProductCategoryProps
+  extends PropsWithChildren,
+    ClassNameProps,
+    LinkProps {
+  isActiveLink: boolean
 }
 
 const AsideProductCategory = ({
   href,
+  isActiveLink,
   className,
   children
 }: AsideProductCategoryProps) => {
-  const patname = usePathname()
-
   const classes = cn(
     'flex p-4 font-medium text-white transition hover:bg-stone-950 hover:bg-opacity-25',
     {
-      'bg-stone-950 hover:bg-opacity-100': patname === href
+      'bg-stone-950 hover:bg-opacity-100': isActiveLink
     },
     className
   )
