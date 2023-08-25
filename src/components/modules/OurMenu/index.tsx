@@ -24,7 +24,6 @@ const OurMenu = ({ className }: OurMenuProps) => {
       <Category id='ourMenu' title={t('ourMenu')}>
         <ul className='grid grid-cols-2 items-start gap-4 pb-16 md:grid-cols-3 md:gap-8'>
           <CategoryCard
-            className='overflow-hidden'
             category={ProductCategoryEnum.Burger}
             title={t('burgerTitle')}
           >
@@ -38,7 +37,6 @@ const OurMenu = ({ className }: OurMenuProps) => {
             />
           </CategoryCard>
           <CategoryCard
-            className='overflow-hidden'
             category={ProductCategoryEnum.Side}
             title={t('sideTitle')}
           >
@@ -52,7 +50,6 @@ const OurMenu = ({ className }: OurMenuProps) => {
             />
           </CategoryCard>
           <CategoryCard
-            className='overflow-hidden'
             category={ProductCategoryEnum.Drink}
             title={t('drinkTitle')}
           >
@@ -66,7 +63,6 @@ const OurMenu = ({ className }: OurMenuProps) => {
             />
           </CategoryCard>
           <CategoryCard
-            className='overflow-hidden'
             category={ProductCategoryEnum.Dessert}
             title={t('dessertTitle')}
           >
@@ -80,7 +76,6 @@ const OurMenu = ({ className }: OurMenuProps) => {
             />
           </CategoryCard>
           <CategoryCard
-            className='overflow-hidden'
             category={ProductCategoryEnum.Salad}
             title={t('saladTitle')}
           >

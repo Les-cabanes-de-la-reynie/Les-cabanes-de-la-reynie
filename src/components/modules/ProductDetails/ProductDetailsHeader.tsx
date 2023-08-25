@@ -14,7 +14,7 @@ const ProductDetailsHeader = ({ image }: ProductDetailsHeaderProps) => {
     attributes?.alternativeText ?? t('imageWithoutAlternativeText')
 
   return (
-    <div className='relative h-80 w-full select-none overflow-hidden bg-stone-800 lg:h-full'>
+    <div className='relative h-80 w-full select-none bg-stone-800 lg:h-full'>
       {imageUrl && (
         <Image
           src={imageUrl}
