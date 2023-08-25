@@ -1,16 +1,19 @@
 import { getAxiosConfig } from '@/lib/axiosConfig'
-import { ProductEntity, ProductEntityResponse } from '../_types/products'
+import {
+  ProductCategoryEnum,
+  ProductEntity,
+  ProductEntityResponse
+} from '../_types/products'
 
-export const getProducts = async () => {
-  const axios = getAxiosConfig()
-  const response = await axios.get(`/api/products?populate=*`)
+// export const getProducts = async () => {
+//   const axios = getAxiosConfig()
+//   const response = await axios.get(`/api/products?populate=*`)
 
-  const productEntityResponse = response?.data as ProductEntityResponse
-  const allProductEntity = productEntityResponse?.data as ProductEntity[]
+//   const productEntityResponse = response?.data as ProductEntityResponse
+//   const allProductEntity = productEntityResponse?.data as ProductEntity[]
 
-  return allProductEntity
-}
-export const getProductsKey = 'hydrate-products'
+//   return allProductEntity
+// }
 
 export const getProduct = async (id: number) => {
   const axios = getAxiosConfig()
@@ -20,16 +23,15 @@ export const getProduct = async (id: number) => {
 
   return productEntityResponse?.data?.attributes
 }
-export const getProductKey = 'hydrate-product'
 
-// export const getProductsByCategory = async (category: ProductCategoryEnum) => {
-//   const axios = getAxiosConfig()
-//   const response = await axios.get(
-//     `/api/products?filters[category][$eq]=${category}&populate=image`
-//   )
+export const getProductsByCategory = async (category: ProductCategoryEnum) => {
+  const axios = getAxiosConfig()
+  const response = await axios.get(
+    `/api/products?filters[category][$eq]=${category}&populate=image`
+  )
 
-//   const allProductsEntity = response?.data as ProductEntityResponse
-//   const products = allProductsEntity?.data as ProductEntity[]
+  const allProductsEntity = response?.data as ProductEntityResponse
+  const products = allProductsEntity?.data as ProductEntity[]
 
-//   return products
-// }
+  return products
+}

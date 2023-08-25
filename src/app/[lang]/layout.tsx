@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import useTranslation from 'next-translate/useTranslation'
 import i18n from '../../../i18n'
-import Providers from '@/utils/provider'
 import { cn } from '@/utils/cn'
 import Header from '@/components/modules/Header'
 import { Baloo_2 } from 'next/font/google'
@@ -35,13 +34,11 @@ export default function RootLayout({
           'relative flex min-h-screen w-full flex-col bg-stone-900'
         )}
       >
-        <Providers>
-          <Header />
-          <main id='main' role='main' className='flex flex-1'>
-            {children}
-          </main>
-          <Footer />
-        </Providers>
+        <Header />
+        <main id='main' role='main' className='flex flex-1'>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )

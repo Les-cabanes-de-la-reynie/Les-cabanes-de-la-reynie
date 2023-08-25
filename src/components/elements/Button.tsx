@@ -1,11 +1,11 @@
 'use client'
 
-import { MouseEvent, PropsWithChildren, ButtonHTMLAttributes } from 'react'
+import { MouseEvent, PropsWithChildren, ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/utils/cn'
 
 export interface ButtonProps
   extends PropsWithChildren,
-    ButtonHTMLAttributes<HTMLButtonElement> {
+    ComponentPropsWithoutRef<'button'> {
   kind?: 'default' | 'border' | 'headless' | 'delete' | 'valid'
 }
 

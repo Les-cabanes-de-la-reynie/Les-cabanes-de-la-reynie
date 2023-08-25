@@ -1,28 +1,17 @@
-'use client'
-
-import { getProduct, getProductKey } from '@/services/products'
-import { useQuery } from '@tanstack/react-query'
+import { getProduct } from '@/services/products'
 import ProductDetails from '.'
-import Loader from '@/components/elements/Loader'
 
 interface ProductDetailsWrapperProps {
   productId: number
 }
 
-const ProductDetailsWrapper = ({ productId }: ProductDetailsWrapperProps) => {
-  const { data, isLoading, isError, isSuccess } = useQuery({
-    queryKey: [getProductKey],
-    queryFn: () => getProduct(productId),
-    enabled: !!productId,
-    cacheTime: 0
-  })
+const ProductDetailsWrapper = async ({
+  productId
+}: ProductDetailsWrapperProps) => {
+  const product = await getProduct(productId)
 
-  if (isLoading) return <Loader />
+  if (!product) throw new Error('No data with this product')
 
-  if (isError) return <p>Something went wrong</p>
-
-  if (isSuccess && data) {
-    return <ProductDetails product={data} />
-  }
+  return <ProductDetails product={product} />
 }
 export default ProductDetailsWrapper
