@@ -9,13 +9,10 @@ const CardBody = ({ attributes }: Pick<ProductEntity, 'attributes'>) => {
 
   return (
     <div className='flex flex-grow flex-col p-3'>
-      <PriceTag price={attributes?.price} className='mb-1 w-full text-xl' />
-      <Heading
-        level={3}
-        className='line-clamp-2 font-normal leading-5 md:leading-5'
-      >
+      <Heading level={3} className='line-clamp-2 leading-5 md:leading-5'>
         {attributes?.name}
       </Heading>
+      <PriceTag price={attributes?.price} className='w-full text-xl' />
       {attributes?.in_stock ? (
         <Quantity className='mt-auto' />
       ) : (

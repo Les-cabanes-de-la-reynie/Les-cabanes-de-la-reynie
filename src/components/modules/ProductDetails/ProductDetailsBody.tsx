@@ -18,7 +18,7 @@ const ProductDetailsBody = ({ product }: ProductDetailsBodyProps) => {
       <Heading level={1}>{name}</Heading>
       <PriceTag
         price={price}
-        className='mb-6 mt-4 text-3xl font-normal text-white lg:mb-8 lg:mt-8'
+        className='mb-6 mt-2 text-3xl text-white lg:mb-8 lg:mt-4'
       />
       <section className='mb-8 text-stone-300'>
         <Heading level={2} className=''>

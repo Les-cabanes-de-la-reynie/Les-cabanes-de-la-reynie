@@ -23,7 +23,7 @@ const CardHeader = ({ product }: CardHeaderProps) => {
     >
       <CardImage image={attributes?.image} />
       {attributes?.new_release && (
-        <div className='absolute left-2 top-2 box-border w-max rounded bg-primary px-2 py-1 text-xs text-white md:text-sm'>
+        <div className='absolute left-2 top-2 box-border w-max rounded bg-primary px-2 py-1 text-xs text-white'>
           {t('badgeNewReleaseText')}
         </div>
       )}

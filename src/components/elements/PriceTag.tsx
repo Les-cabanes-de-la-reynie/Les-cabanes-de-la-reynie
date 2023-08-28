@@ -7,7 +7,7 @@ export interface PriceTagProps extends ClassNameProps, Pick<Product, 'price'> {}
 
 const PriceTag = ({ price, className = '' }: PriceTagProps) => {
   return (
-    <span className={cn('flex font-bold', className)}>
+    <span className={cn('flex', className)}>
       {price && formatNumberToPrice(price)}
     </span>
   )
