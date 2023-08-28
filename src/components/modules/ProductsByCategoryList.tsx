@@ -12,7 +12,7 @@ const ProductsByCategoryList = async ({
   const products = await getProductsByCategory(category)
 
   return (
-    <ul className='grid grid-cols-2 items-start gap-4 pb-16 md:grid-cols-3 md:gap-8'>
+    <ul className='grid grid-cols-1 gap-4 pb-16 xs:grid-cols-2 md:grid-cols-3 md:gap-8'>
       {products?.length > 0
         ? products.map((product, i) => (
             <ProductCard

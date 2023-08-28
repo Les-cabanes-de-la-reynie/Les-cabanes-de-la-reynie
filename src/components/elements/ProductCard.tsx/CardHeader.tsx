@@ -17,7 +17,7 @@ const CardHeader = ({ product }: CardHeaderProps) => {
     <Link
       href={`/${lang}/products/${id}`}
       className={cn(
-        'relative h-3/6 w-full select-none overflow-hidden bg-stone-800'
+        'relative aspect-video select-none overflow-hidden bg-stone-800'
       )}
       title={t('seeMoreDetails')}
     >

@@ -22,7 +22,7 @@ const OurMenu = ({ className }: OurMenuProps) => {
     <MenuContainer className={cn(className)}>
       <AsideProductCategories />
       <Category id='ourMenu' title={t('ourMenu')}>
-        <ul className='grid grid-cols-2 items-start gap-4 pb-16 md:grid-cols-3 md:gap-8'>
+        <ul className='grid grid-cols-1 gap-4 pb-16 xs:grid-cols-2 md:grid-cols-3 md:gap-8'>
           <CategoryCard
             category={ProductCategoryEnum.Burger}
             title={t('burgerTitle')}

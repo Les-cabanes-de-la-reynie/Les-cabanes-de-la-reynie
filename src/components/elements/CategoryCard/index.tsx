@@ -23,7 +23,7 @@ const CategoryCard = ({
     <Card className={cn(className)}>
       <Link
         href={`/${lang}/products/category/${category}`}
-        className='relative h-full'
+        className='relative aspect-square h-full xl:aspect-video'
       >
         {children}
         <div className='absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black transition-opacity hover:opacity-0'>

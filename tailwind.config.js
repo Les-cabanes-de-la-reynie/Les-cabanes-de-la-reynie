@@ -1,3 +1,5 @@
+import { screens } from 'tailwindcss/defaultTheme'
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -15,6 +17,10 @@ module.exports = {
         xl: '5rem',
         '2xl': '6rem'
       }
+    },
+    screens: {
+      xs: '475px',
+      ...screens
     },
     extend: {
       colors: {

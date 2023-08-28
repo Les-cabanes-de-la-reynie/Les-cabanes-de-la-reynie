@@ -8,7 +8,7 @@ const Card = ({ className, children }: CardProps) => {
   return (
     <li
       className={cn(
-        'relative flex h-72 w-full flex-col rounded border border-border bg-stone-950 text-white shadow-lg shadow-stone-950 transition',
+        'relative flex w-full flex-col rounded border border-border bg-stone-950 text-white shadow-lg shadow-stone-950 transition',
         className
       )}
     >
