@@ -5,22 +5,22 @@ import useTranslation from 'next-translate/useTranslation'
 
 interface LanguageSwitcherButtonProps {
   isLocaleListOpen: boolean
-  handleToggleMenu: () => void
+  onTogglePopup: () => void
 }
 
 const LanguageSwitcherButton = ({
   isLocaleListOpen,
-  handleToggleMenu
+  onTogglePopup
 }: LanguageSwitcherButtonProps) => {
   const { lang } = useTranslation('home')
 
   return (
     <Button
-      onClick={handleToggleMenu}
+      onClick={onTogglePopup}
       kind='headless'
       aria-haspopup='menu'
       aria-expanded={isLocaleListOpen}
-      className='flex select-none justify-center gap-1 rounded px-2 py-1 text-sm text-white hover:bg-stone-600'
+      className='flex select-none justify-center gap-1 rounded px-2 py-1 text-sm text-white hover:bg-stone-800'
     >
       <Languages name='languages' size={18} />
       {transformLocaleToCountry(lang)}

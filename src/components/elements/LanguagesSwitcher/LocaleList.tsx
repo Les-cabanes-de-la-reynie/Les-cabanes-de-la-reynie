@@ -8,10 +8,10 @@ import Popup from '../Popup'
 
 interface LocaleListProps {
   isLocaleListOpen: boolean
-  handleCloseMenu: () => void
+  onClosePopup: () => void
 }
 
-const LocaleList = ({ isLocaleListOpen, handleCloseMenu }: LocaleListProps) => {
+const LocaleList = ({ isLocaleListOpen, onClosePopup }: LocaleListProps) => {
   const pathName = usePathname()
 
   const redirectedPathName = (locale: string) => {
@@ -22,11 +22,7 @@ const LocaleList = ({ isLocaleListOpen, handleCloseMenu }: LocaleListProps) => {
   }
 
   return (
-    <Popup
-      isOpen={isLocaleListOpen}
-      cb={handleCloseMenu}
-      className='select-none'
-    >
+    <Popup isOpen={isLocaleListOpen} cb={onClosePopup} className='select-none'>
       <ul aria-labelledby='language-menu-button'>
         {i18n.locales.map((locale, i, array) => {
           const lastElement = array[array.length - 1]
@@ -37,9 +33,9 @@ const LocaleList = ({ isLocaleListOpen, handleCloseMenu }: LocaleListProps) => {
               <Link
                 href={redirectedPathName(locale)}
                 as={redirectedPathName(locale)}
-                onClick={handleCloseMenu}
-                onBlur={isLastElement ? handleCloseMenu : undefined}
-                className='block rounded p-3 hover:bg-stone-600'
+                onClick={onClosePopup}
+                onBlur={isLastElement ? onClosePopup : undefined}
+                className='block rounded p-3 hover:bg-stone-700'
               >
                 {transformLocaleToCountry(locale)}
               </Link>

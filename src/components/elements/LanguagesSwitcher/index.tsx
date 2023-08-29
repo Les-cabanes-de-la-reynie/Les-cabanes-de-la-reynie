@@ -5,21 +5,21 @@ import LanguageSwitcherButton from './LanguageSwitcherButton'
 import useToggle from '@/hooks/useToggle'
 
 const LanguagesSwitcher = () => {
-  const [isLocaleListOpen, handleToggleMenu] = useToggle()
+  const [isLocaleListOpen, handleTogglePopup, setIsLocaleListOpen] = useToggle()
 
   return (
     <div className='relative'>
       <LanguageSwitcherButton
         isLocaleListOpen={isLocaleListOpen}
-        handleToggleMenu={handleToggleMenu}
+        onTogglePopup={handleTogglePopup}
       />
 
-      {isLocaleListOpen && (
+      {
         <LocaleList
           isLocaleListOpen={isLocaleListOpen}
-          handleCloseMenu={handleToggleMenu}
+          onClosePopup={() => setIsLocaleListOpen(false)}
         />
-      )}
+      }
     </div>
   )
 }
