@@ -14,7 +14,7 @@ const BreadCrumbs = ({ breadCrumbs, className }: FBreadCrumbsProps) => {
         <li className='flex items-center'>
           <Link
             href='#'
-            className='flex h-10 items-center gap-1.5 bg-stone-950 px-4 transition hover:text-gray-900'
+            className='transition-color flex h-10 items-center gap-1.5 bg-stone-950 px-4 hover:text-gray-900'
           >
             <HomeIcon size={14} />
 
@@ -26,7 +26,7 @@ const BreadCrumbs = ({ breadCrumbs, className }: FBreadCrumbsProps) => {
           <span className='absolute inset-y-0 -start-px h-10 w-4 bg-stone-950 [clip-path:_polygon(0_0,_0%_100%,_100%_50%)] rtl:rotate-180'></span>
           <Link
             href='#'
-            className='flex h-10 items-center bg-stone-800 pe-4 ps-8 text-xs font-medium transition hover:text-gray-900'
+            className='transition-color flex h-10 items-center bg-stone-800 pe-4 ps-8 text-xs font-medium hover:text-gray-900'
           >
             Shirts
           </Link>
