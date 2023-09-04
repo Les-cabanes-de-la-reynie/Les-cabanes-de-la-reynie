@@ -1,4 +1,5 @@
 import LanguagesSwitcher from '@/components/elements/LanguagesSwitcher'
+import NavItem from './NavItem'
 
 interface SecondNavigationProps {
   handleCloseBurgerMenu: () => void
@@ -7,11 +8,14 @@ interface SecondNavigationProps {
 const SecondNavigation = ({ handleCloseBurgerMenu }: SecondNavigationProps) => {
   // TODO: use handleCloseBurgerMenu on the last item
   return (
-    <nav aria-labelledby='Second'>
+    <nav
+      aria-labelledby='Second'
+      className='mt-4 border-t border-border pt-2 lg:mt-0 lg:border-none lg:pt-0'
+    >
       <ul className='flex items-center gap-x-8 text-white'>
-        <li>
+        <NavItem>
           <LanguagesSwitcher />
-        </li>
+        </NavItem>
       </ul>
     </nav>
   )
