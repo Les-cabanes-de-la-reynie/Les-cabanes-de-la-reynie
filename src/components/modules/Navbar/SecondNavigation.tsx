@@ -1,6 +1,7 @@
 import LanguagesSwitcher from '@/components/elements/LanguagesSwitcher'
 import NavItem from './NavItem'
 import { ThemeSwitcher } from '@/components/elements/ThemeSwitcher'
+import NavList from './NavList'
 
 interface SecondNavigationProps {
   handleCloseBurgerMenu: () => void
@@ -13,14 +14,14 @@ const SecondNavigation = ({ handleCloseBurgerMenu }: SecondNavigationProps) => {
       aria-labelledby='Second'
       className='mt-4 border-t border-border pt-2 lg:mt-0 lg:border-none lg:pt-0'
     >
-      <ul className='flex items-center gap-x-8 text-white'>
+      <NavList>
         <NavItem>
           <LanguagesSwitcher />
         </NavItem>
         <NavItem>
           <ThemeSwitcher />
         </NavItem>
-      </ul>
+      </NavList>
     </nav>
   )
 }

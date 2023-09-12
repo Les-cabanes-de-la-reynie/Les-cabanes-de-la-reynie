@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
 import NavItem from './NavItem'
+import NavList from './NavList'
 
 interface MainNavigationProps {
   onCloseBurgerMenu: () => void
@@ -11,7 +12,7 @@ const MainNavigation = ({ onCloseBurgerMenu }: MainNavigationProps) => {
 
   return (
     <nav aria-labelledby='Main'>
-      <ul className='flex flex-col gap-x-8 text-lg text-white lg:flex-row lg:items-center'>
+      <NavList>
         <NavItem>
           <Link href={`/${lang}`} as={`/${lang}`} onClick={onCloseBurgerMenu}>
             {t('menu')}
@@ -35,7 +36,7 @@ const MainNavigation = ({ onCloseBurgerMenu }: MainNavigationProps) => {
             {t('delivery')}
           </Link>
         </NavItem>
-      </ul>
+      </NavList>
     </nav>
   )
 }

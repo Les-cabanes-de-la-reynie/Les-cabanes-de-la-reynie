@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 import { ThemeMode } from '@/_types/theme'
+import { MoonIcon, SunIcon } from 'lucide-react'
 
 export const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false)
@@ -17,12 +18,16 @@ export const ThemeSwitcher = () => {
 
   return (
     <button
-      className={`absolute right-5 top-2 w-fit rounded-md bg-slate-200 p-2 capitalize duration-200 hover:scale-110 active:scale-100 dark:bg-[#212933]`}
+      className='rounded-full bg-stone-500 p-2 text-sm capitalize transition-colors hover:bg-primary dark:bg-stone-800 dark:hover:bg-primary'
       onClick={() =>
         setTheme(theme === ThemeMode.Dark ? ThemeMode.Light : ThemeMode.Dark)
       }
     >
-      {theme === ThemeMode.Light ? ThemeMode.Dark : ThemeMode.Light}
+      {theme === ThemeMode.Light ? (
+        <MoonIcon size={20} />
+      ) : (
+        <SunIcon size={20} />
+      )}
     </button>
   )
 }

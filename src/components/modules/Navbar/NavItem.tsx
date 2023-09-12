@@ -5,7 +5,7 @@ import { cn } from '@/utils/cn'
 interface NavItemProps extends PropsWithChildren, ClassNameProps {}
 
 const NavItem = ({ children, className }: NavItemProps) => {
-  const classes = cn('py-4', className)
+  const classes = cn('py-4 lg:p-0', className)
 
   return <li className={classes}>{children}</li>
 }
