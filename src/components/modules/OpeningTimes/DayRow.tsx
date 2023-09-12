@@ -13,13 +13,13 @@ const DayRow = ({
 
   return (
     <tr className={cn({ 'bg-primary text-white': day === today })}>
-      <th className='border border-border px-4 py-2 align-middle'>
+      <th className='border border-border-dark px-4 py-2 align-middle'>
         {dayTranslation}
       </th>
-      <td className='border border-border px-4 py-2 align-middle'>
+      <td className='border border-border-dark px-4 py-2 align-middle'>
         {lunchTranslation}
       </td>
-      <td className='border border-border px-4 py-2 align-middle'>
+      <td className='border border-border-dark px-4 py-2 align-middle'>
         {dinnerTranslation}
       </td>
     </tr>

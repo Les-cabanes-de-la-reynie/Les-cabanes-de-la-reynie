@@ -18,7 +18,7 @@ export const ThemeSwitcher = () => {
 
   return (
     <button
-      className='rounded-full bg-zinc-800 p-2 text-sm capitalize transition-colors dark:bg-zinc-800'
+      className='rounded-full p-2 text-sm capitalize transition-colors hover:bg-zinc-800 hover:text-white'
       onClick={() =>
         setTheme(theme === ThemeMode.Dark ? ThemeMode.Light : ThemeMode.Dark)
       }

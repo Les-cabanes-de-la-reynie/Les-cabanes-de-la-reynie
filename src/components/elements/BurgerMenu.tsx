@@ -19,7 +19,8 @@ const BurgerMenu = ({
       className={cn(
         'ml-1 flex h-10 w-10 items-center justify-center rounded-full text-zinc-800 transition-colors hover:bg-zinc-200 dark:text-white dark:hover:bg-zinc-800 lg:hidden',
         {
-          'bg-primary hover:bg-primary': isBurgerMenuOpen
+          'bg-primary text-white hover:bg-primary dark:hover:bg-primary':
+            isBurgerMenuOpen
         },
         className
       )}

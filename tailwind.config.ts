@@ -32,7 +32,10 @@ const config: Config = {
           DEFAULT: '#064e3b'
         },
         border: {
-          DEFAULT: '#3f3f46' //border-zinc-700
+          // DEFAULT = zinc-300
+          // dark = zinc-700
+          DEFAULT: '#d4d4d8',
+          dark: '#3f3f46'
         }
       },
       backgroundImage: {

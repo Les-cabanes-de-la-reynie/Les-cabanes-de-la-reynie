@@ -7,7 +7,7 @@ const Footer = () => {
   const { t } = useTranslation('footer')
 
   return (
-    <footer className='box-border w-full border-t border-border bg-zinc-50 dark:bg-zinc-950'>
+    <footer className='box-border w-full border-t border-border bg-zinc-50 dark:border-border-dark dark:bg-zinc-950'>
       <div className='container flex flex-col flex-wrap py-8 md:flex-row md:justify-between lg:justify-around'>
         <FooterNav>
           <FooterHeading> {t('aboutUs')}</FooterHeading>

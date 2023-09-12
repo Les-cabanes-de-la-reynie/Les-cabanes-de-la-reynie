@@ -46,7 +46,7 @@ const Header = () => {
   useEffect(() => {
     setHeaderClassName(
       cn(
-        'sticky inset-0 z-20 flex h-[4.5rem] transition w-full border-b border-border bg-zinc-50 dark:bg-zinc-950',
+        'sticky inset-0 z-20 flex h-[4.5rem] transition w-full border-b dark:border-border-dark border-border bg-zinc-50 dark:bg-zinc-950',
         {
           'lg:fixed dark:lg:bg-transparent lg:bg-transparent lg:backdrop-blur-3xl lg:border-none lg:backdrop-opacity-50':
             pathWithoutLocale === '/',
