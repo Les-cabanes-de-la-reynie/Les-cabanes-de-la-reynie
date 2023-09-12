@@ -6,7 +6,7 @@ const FooterItem = ({ children }: PropsWithChildren) => {
   const { lang } = useTranslation('delivery')
 
   return (
-    <li className='mb-2 max-w-max text-sm text-white hover:underline md:max-w-none'>
+    <li className='mb-2 max-w-max text-sm text-zinc-700 hover:underline dark:text-white md:max-w-none'>
       <Link href={`/${lang}`}>{children}</Link>
     </li>
   )

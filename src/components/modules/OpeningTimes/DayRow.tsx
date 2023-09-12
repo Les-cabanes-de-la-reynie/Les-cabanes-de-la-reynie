@@ -12,7 +12,7 @@ const DayRow = ({
   const today = format(new Date(), 'eeee', { locale: enUS })
 
   return (
-    <tr className={cn({ 'bg-primary': day === today })}>
+    <tr className={cn({ 'bg-primary text-white': day === today })}>
       <th className='border border-border px-4 py-2 align-middle'>
         {dayTranslation}
       </th>

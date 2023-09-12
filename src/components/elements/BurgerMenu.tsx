@@ -17,7 +17,7 @@ const BurgerMenu = ({
     <Button
       kind='headless'
       className={cn(
-        'ml-1 flex h-10 w-10 items-center justify-center rounded-full text-white transition-colors hover:bg-stone-800 lg:hidden',
+        'ml-1 flex h-10 w-10 items-center justify-center rounded-full text-zinc-800 transition-colors hover:bg-zinc-200 dark:text-white dark:hover:bg-zinc-800 lg:hidden',
         {
           'bg-primary hover:bg-primary': isBurgerMenuOpen
         },

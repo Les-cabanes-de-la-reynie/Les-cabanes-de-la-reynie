@@ -23,7 +23,7 @@ const Popup = ({ isOpen, cb, className, children }: PopupProps) => {
     <div
       ref={popupRef}
       className={cn(
-        'absolute z-10 mt-1 hidden w-max max-w-sm flex-col rounded border border-border bg-stone-950 p-2 text-white shadow-lg shadow-stone-950',
+        'absolute z-10 mt-1 hidden w-max max-w-sm flex-col rounded border border-border bg-zinc-50 p-2 text-white shadow-lg shadow-zinc-950 dark:bg-zinc-950',
         { flex: isOpen },
         className
       )}

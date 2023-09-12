@@ -33,7 +33,7 @@ export default function RootLayout({
       <body
         className={cn(
           fontFamily.className,
-          'relative flex min-h-screen w-full flex-col bg-stone-900'
+          'relative flex min-h-screen w-full flex-col bg-zinc-200 dark:bg-zinc-900'
         )}
       >
         <Providers>

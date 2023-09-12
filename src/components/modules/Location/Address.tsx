@@ -11,7 +11,7 @@ import Heading from '@/components/elements/Heading'
 const Address = () => {
   return (
     <address className='text-center text-sm'>
-      <Heading level={3} className={cn('mb-2 text-primary')}>
+      <Heading level={3} className={cn('mb-2 text-zinc-800')}>
         PickN`Eat
       </Heading>
       <Link

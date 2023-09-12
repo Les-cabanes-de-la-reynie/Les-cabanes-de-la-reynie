@@ -20,10 +20,10 @@ const LanguageSwitcherButton = ({
       kind='headless'
       aria-haspopup='menu'
       aria-expanded={isLocaleListOpen}
-      className='flex select-none justify-center gap-1 rounded p-2 text-sm text-white hover:bg-stone-800'
+      className='flex select-none justify-center gap-1 rounded p-2 text-sm text-zinc-800 hover:bg-zinc-800 hover:text-white dark:text-white'
     >
       <Languages name='languages' size={18} />
-      {transformLocaleToCountry(lang)}
+      <span>{transformLocaleToCountry(lang)}</span>
     </Button>
   )
 }

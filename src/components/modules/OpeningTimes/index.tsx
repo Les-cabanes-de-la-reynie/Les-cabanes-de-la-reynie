@@ -7,7 +7,10 @@ const OpeningTimes = () => {
   const { t } = useTranslation('restaurants')
 
   return (
-    <table className='flex-grow text-white' data-test='openingTimes'>
+    <table
+      className='flex-grow text-zinc-800 dark:text-white'
+      data-test='openingTimes'
+    >
       <TableHeader day={t('day')} lunch={t('lunch')} dinner={t('dinner')} />
       <tbody className='text-center'>
         <DayRow

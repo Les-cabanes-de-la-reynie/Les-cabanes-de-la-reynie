@@ -11,7 +11,7 @@ export default function Delivery() {
       <Heading level={1} className='my-8 text-center'>
         {t('deliveryMainTitle')}
       </Heading>
-      <div className='mb-8 flex flex-grow flex-col text-white'>
+      <div className='mb-8 flex flex-grow flex-col text-zinc-800 dark:text-white'>
         <section className='mb-8 flex flex-grow flex-col items-center justify-center lg:bg-delivery lg:bg-[length:15rem] lg:bg-left-bottom lg:bg-no-repeat'>
           <Heading level={2}>{t('delivery')}</Heading>
           <p className='mb-8 mt-4 text-center'>{t('deliveryContent')}</p>

@@ -29,10 +29,10 @@ const config: Config = {
           DEFAULT: '#AD2216'
         },
         primary: {
-          DEFAULT: '#533821'
+          DEFAULT: '#064e3b'
         },
         border: {
-          DEFAULT: 'rgb(68 64 60)' //border-stone-700
+          DEFAULT: '#3f3f46' //border-zinc-700
         }
       },
       backgroundImage: {
