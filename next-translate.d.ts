@@ -3,6 +3,7 @@ import type { Paths, I18n, Translate } from 'next-translate'
 export interface TranslationsKeys {
   cart: Paths<typeof import('./locales/en/cart.json')>
   checkout: Paths<typeof import('./locales/en/checkout.json')>
+  common: Paths<typeof import('./locales/en/common.json')>
   delivery: Paths<typeof import('./locales/en/delivery.json')>
   errors: Paths<typeof import('./locales/en/errors.json')>
   footer: Paths<typeof import('./locales/en/footer.json')>

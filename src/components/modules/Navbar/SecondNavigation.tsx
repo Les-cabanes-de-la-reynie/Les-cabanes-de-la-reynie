@@ -1,5 +1,6 @@
 import LanguagesSwitcher from '@/components/elements/LanguagesSwitcher'
 import NavItem from './NavItem'
+import { ThemeSwitcher } from '@/components/elements/ThemeSwitcher'
 
 interface SecondNavigationProps {
   handleCloseBurgerMenu: () => void
@@ -15,6 +16,9 @@ const SecondNavigation = ({ handleCloseBurgerMenu }: SecondNavigationProps) => {
       <ul className='flex items-center gap-x-8 text-white'>
         <NavItem>
           <LanguagesSwitcher />
+        </NavItem>
+        <NavItem>
+          <ThemeSwitcher />
         </NavItem>
       </ul>
     </nav>

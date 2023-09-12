@@ -1,9 +1,7 @@
-import OurMenu from '@/components/modules/OurMenu'
-
 export default function Home() {
   return (
     <>
-      <OurMenu />
+      <p>HOME PAGE</p>
     </>
   )
 }

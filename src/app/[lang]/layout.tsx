@@ -7,6 +7,7 @@ import { cn } from '@/utils/cn'
 import Header from '@/components/modules/Header'
 import { Baloo_2 } from 'next/font/google'
 import Footer from '@/components/modules/Footer'
+import Providers from '@/providers'
 
 const fontFamily = Baloo_2({ display: 'swap', subsets: ['latin'] })
 
@@ -26,19 +27,22 @@ export default function RootLayout({
   // Redirect to default locale if lang is not supported. /second-page -> /en/second-page
   if (!i18n.locales.includes(lang)) redirect(`/${i18n.defaultLocale}/${lang}`)
 
+  // suppressHydrationWarning useful because next-themes trigger an error with: attribute='class'
   return (
-    <html lang={lang}>
+    <html suppressHydrationWarning lang={lang}>
       <body
         className={cn(
           fontFamily.className,
           'relative flex min-h-screen w-full flex-col bg-stone-900'
         )}
       >
-        <Header />
-        <main id='main' role='main' className='flex flex-1'>
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main id='main' role='main' className='flex flex-1'>
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )
