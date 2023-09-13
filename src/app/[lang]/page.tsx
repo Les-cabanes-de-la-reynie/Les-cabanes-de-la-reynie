@@ -3,7 +3,7 @@ import fullscreenImage from '../../components/images/forest.jpg'
 
 export default function Home() {
   return (
-    <div className=' w-full'>
+    <div className='w-full lg:-translate-y-[4.5rem]'>
       <div className='w-full'>
         <div className='relative h-96 w-full lg:h-screen'>
           <Image

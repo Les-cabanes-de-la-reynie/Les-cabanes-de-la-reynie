@@ -7,10 +7,12 @@ import BurgerMenu from '@/components/elements/BurgerMenu'
 import HeaderContent from './HeaderContent'
 import useToggle from '@/hooks/useToggle'
 import { cn } from '@/utils/cn'
-import { SCROLL_Y_LIMIT } from './const'
+import { DEFAULT_HEADER_CLASSNAME, SCROLL_Y_LIMIT } from './const'
 
 const Header = () => {
-  const [headerClassName, setHeaderClassName] = useState('')
+  const [headerClassName, setHeaderClassName] = useState(
+    DEFAULT_HEADER_CLASSNAME
+  )
   const [isBurgerMenuOpen, handleToggleBurgerMenu, setIsBurgerMenuOpen] =
     useToggle()
   const [clientWindowHeight, setClientWindowHeight] = useState(0)
@@ -45,16 +47,10 @@ const Header = () => {
 
   useEffect(() => {
     setHeaderClassName(
-      cn(
-        'sticky inset-0 z-20 flex h-[4.5rem] transition w-full border-b dark:border-border-dark border-border bg-zinc-50 dark:bg-zinc-950',
-        {
-          'lg:fixed dark:lg:bg-transparent lg:bg-transparent lg:backdrop-blur-3xl lg:border-none lg:backdrop-opacity-50':
-            pathWithoutLocale === '/',
-
-          'lg:bg-zinc-50 dark:lg:bg-zinc-950 lg:backdrop-blur-none lg:border-b lg:backdrop-opacity-0':
-            clientWindowHeight > SCROLL_Y_LIMIT
-        }
-      )
+      cn(DEFAULT_HEADER_CLASSNAME, {
+        'lg:bg-zinc-50 dark:lg:bg-zinc-950 lg:border-b':
+          clientWindowHeight > SCROLL_Y_LIMIT || pathWithoutLocale !== '/'
+      })
     )
   }, [pathWithoutLocale, clientWindowHeight])
 

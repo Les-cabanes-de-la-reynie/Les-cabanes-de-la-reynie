@@ -1,5 +1,3 @@
-'use client'
-
 import LocaleList from './LocaleList'
 import LanguageSwitcherButton from './LanguageSwitcherButton'
 import useToggle from '@/hooks/useToggle'
