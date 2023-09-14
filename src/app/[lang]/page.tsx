@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import fullscreenImage from '../../components/images/forest.jpg'
+import PracticalInformation from '@/components/modules/PracticalInformation'
 
 export default function Home() {
   return (
@@ -16,7 +17,9 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className='h-72 w-full'>Test</div>
+      <div className='container h-72'>
+        <PracticalInformation />
+      </div>
       <div className='h-72 w-full'>Test</div>
       <div className='h-72 w-full'>Test</div>
       <div className='h-72 w-full'>Test</div>
