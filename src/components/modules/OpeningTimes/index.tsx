@@ -8,7 +8,7 @@ const OpeningTimes = () => {
 
   return (
     <table
-      className='flex-grow text-zinc-800 dark:text-white'
+      className='flex-grow text-primary-black dark:text-white'
       data-test='openingTimes'
     >
       <TableHeader day={t('day')} lunch={t('lunch')} dinner={t('dinner')} />

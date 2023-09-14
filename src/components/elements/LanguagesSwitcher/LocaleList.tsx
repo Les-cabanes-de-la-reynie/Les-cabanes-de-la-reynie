@@ -35,7 +35,7 @@ const LocaleList = ({ isLocaleListOpen, onClosePopup }: LocaleListProps) => {
                 as={redirectedPathName(locale)}
                 onClick={onClosePopup}
                 onBlur={isLastElement ? onClosePopup : undefined}
-                className='block rounded p-3 text-zinc-800 hover:bg-zinc-700 hover:text-white dark:text-white'
+                className='block rounded p-3 text-primary-black hover:bg-zinc-700 hover:text-white dark:text-white'
               >
                 {transformLocaleToCountry(locale)}
               </Link>

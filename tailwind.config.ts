@@ -29,7 +29,9 @@ const config: Config = {
           DEFAULT: '#AD2216'
         },
         primary: {
-          DEFAULT: '#064e3b'
+          // black = zinc-800
+          DEFAULT: '#064e3b',
+          black: '#27272a'
         },
         border: {
           // DEFAULT = zinc-300
