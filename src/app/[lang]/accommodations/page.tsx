@@ -3,7 +3,7 @@ import useTranslation from 'next-translate/useTranslation'
 import Heading from '@/components/elements/Heading'
 import Button from '@/components/elements/Button'
 
-export default function Delivery() {
+export default function Accommodations() {
   const { t } = useTranslation('delivery')
 
   return (

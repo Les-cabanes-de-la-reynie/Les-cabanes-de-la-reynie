@@ -8,32 +8,41 @@ interface MainNavigationProps {
 }
 
 const MainNavigation = ({ onCloseBurgerMenu }: MainNavigationProps) => {
-  const { t, lang } = useTranslation('navigation')
+  const { t, lang } = useTranslation('common')
 
   return (
     <nav aria-labelledby='Main'>
       <NavList>
         <NavItem>
           <Link href={`/${lang}`} as={`/${lang}`} onClick={onCloseBurgerMenu}>
-            {t('menu')}
+            {t('home')}
           </Link>
         </NavItem>
         <NavItem>
           <Link
-            href={`/${lang}/restaurants`}
-            as={`/${lang}/restaurants`}
+            href={`/${lang}/accommodations`}
+            as={`/${lang}/accommodations`}
             onClick={onCloseBurgerMenu}
           >
-            {t('restaurants')}
+            {t('accommodations')}
           </Link>
         </NavItem>
         <NavItem>
           <Link
-            href={`/${lang}/delivery`}
-            as={`/${lang}/delivery`}
+            href={`/${lang}/contact`}
+            as={`/${lang}/contact`}
             onClick={onCloseBurgerMenu}
           >
-            {t('delivery')}
+            {t('contact')}
+          </Link>
+        </NavItem>
+        <NavItem>
+          <Link
+            href={`/${lang}/activities`}
+            as={`/${lang}/activities`}
+            onClick={onCloseBurgerMenu}
+          >
+            {t('activities')}
           </Link>
         </NavItem>
       </NavList>

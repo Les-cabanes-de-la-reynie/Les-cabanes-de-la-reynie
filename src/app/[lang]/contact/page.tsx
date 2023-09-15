@@ -3,9 +3,9 @@ import Heading from '@/components/elements/Heading'
 import Location from '@/components/modules/Location'
 import OpeningTimes from '@/components/modules/OpeningTimes'
 
-export default function Restaurants() {
+export default function Contact() {
   const { t } = useTranslation('restaurants')
-  
+
   return (
     <div className='container mb-8 w-full'>
       <Heading level={1} className='my-8'>

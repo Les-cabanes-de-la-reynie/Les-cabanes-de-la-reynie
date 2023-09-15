@@ -1,3 +1,7 @@
 {
-  "test": "C'est un test"
+  "test": "C'est un test",
+  "home": "Accueil",
+  "accommodations": "Logements",
+  "contact": "Contact",
+  "activities": "Activités"
 }
