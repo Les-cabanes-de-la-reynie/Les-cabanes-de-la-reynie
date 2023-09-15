@@ -29,15 +29,18 @@ const config: Config = {
           DEFAULT: '#AD2216'
         },
         primary: {
+          // DEFAULT = teal-600
+          // hover = teal-700
           // black = zinc-800
-          DEFAULT: '#064e3b',
+          DEFAULT: '#0d9488',
+          hover: '#0f766e',
           black: '#27272a'
         },
         border: {
-          // DEFAULT = zinc-300
-          // dark = zinc-700
-          DEFAULT: '#d4d4d8',
-          dark: '#3f3f46'
+          // DEFAULT = gray-400
+          // dark = teal-900
+          DEFAULT: '#9ca3af',
+          dark: '#134e4a'
         }
       },
       backgroundImage: {

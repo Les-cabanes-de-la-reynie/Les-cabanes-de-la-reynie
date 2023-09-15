@@ -8,7 +8,7 @@ interface LogoProps extends ClassNameProps {
 
 const Logo = ({ onCloseMenu, className = '' }: LogoProps) => {
   const classes = cn(
-    'box-border cursor-pointer mr-8 border-y-4 border-primary',
+    'box-border cursor-pointer mr-8 border-y-4 border-white text-2xl font-extrabold text-white',
     className
   )
 
@@ -20,7 +20,7 @@ const Logo = ({ onCloseMenu, className = '' }: LogoProps) => {
       aria-label='PickN`Eat Logo'
       data-test='mainLogo'
     >
-      <span className='text-2xl font-extrabold text-primary'>PickN`Eat</span>
+      <span>PickN`Eat</span>
     </Link>
   )
 }

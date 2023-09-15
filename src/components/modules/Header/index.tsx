@@ -48,7 +48,7 @@ const Header = () => {
   useEffect(() => {
     setHeaderClassName(
       cn(DEFAULT_HEADER_CLASSNAME, {
-        'lg:bg-zinc-50 dark:lg:bg-zinc-950 lg:border-b':
+        'lg:bg-primary dark:lg:bg-primary':
           clientWindowHeight > SCROLL_Y_LIMIT || pathWithoutLocale !== '/'
       })
     )
@@ -57,7 +57,7 @@ const Header = () => {
   return (
     <header className={headerClassName}>
       <div className='container flex items-center justify-between lg:justify-normal'>
-        <Logo className='mr-8 text-white' />
+        <Logo />
         <BurgerMenu
           isBurgerMenuOpen={isBurgerMenuOpen}
           onToggleBurgerMenu={handleToggleBurgerMenu}
