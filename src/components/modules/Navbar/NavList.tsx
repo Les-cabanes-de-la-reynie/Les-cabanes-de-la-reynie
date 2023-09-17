@@ -1,10 +1,15 @@
 import { PropsWithChildren } from 'react'
+import { cn } from '@/utils/cn'
+import { ClassNameProps } from '@/_types/components'
 
-const NavList = ({ children }: PropsWithChildren) => {
-  return (
-    <ul className='flex flex-col gap-x-8 text-lg text-white lg:flex-row lg:items-center'>
-      {children}
-    </ul>
+interface NavListProps extends PropsWithChildren, ClassNameProps {}
+
+const NavList = ({ children, className }: NavListProps) => {
+  const classes = cn(
+    'flex flex-col gap-x-8 text-lg text-white lg:flex-row lg:items-center',
+    className
   )
+
+  return <ul className={classes}>{children}</ul>
 }
 export default NavList
