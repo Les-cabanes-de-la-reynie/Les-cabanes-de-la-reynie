@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import fullscreenImage from '../../components/images/forest.jpg'
 import PracticalInformation from '@/components/modules/PracticalInformation'
+import Heading from '@/components/elements/Heading'
 
 export default function Home() {
   return (
@@ -15,6 +16,12 @@ export default function Home() {
             priority
             className='object-cover'
           />
+          <Heading
+            level={1}
+            className='absolute inset-0 flex items-center justify-center text-white'
+          >
+            Mon super titre
+          </Heading>
         </div>
       </div>
       <div className='container h-72'>

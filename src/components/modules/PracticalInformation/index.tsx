@@ -15,23 +15,23 @@ const PracticalInformation = () => {
       </Heading>
       <ul className='flex w-full flex-1 justify-around gap-6'>
         <PracticalInformationCard description='Wifi'>
-          <WifiIcon size={40} />
+          <WifiIcon size={40} className='text-primary' />
         </PracticalInformationCard>
 
         <PracticalInformationCard description='Animaux non-admis'>
-          <PawPrintIcon size={40} />
+          <PawPrintIcon size={40} className='text-primary' />
         </PracticalInformationCard>
 
         <PracticalInformationCard description='Lit king-size 180x200'>
-          <BedDoubleIcon size={40} />
+          <BedDoubleIcon size={40} className='text-primary' />
         </PracticalInformationCard>
 
         <PracticalInformationCard description='Mini frigo'>
-          <RefrigeratorIcon size={40} />
+          <RefrigeratorIcon size={40} className='text-primary' />
         </PracticalInformationCard>
 
         <PracticalInformationCard description='Wifi'>
-          <WifiIcon size={40} />
+          <WifiIcon size={40} className='text-primary' />
         </PracticalInformationCard>
       </ul>
     </section>

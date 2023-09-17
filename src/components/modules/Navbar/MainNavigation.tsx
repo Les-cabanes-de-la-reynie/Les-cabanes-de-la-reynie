@@ -75,7 +75,7 @@ const MainNavigation = ({
           </div>
           <NavList
             className={cn('hidden', {
-              'flex flex-col shadow-md lg:absolute lg:top-16 lg:rounded-lg lg:bg-primary-dark lg:p-4':
+              'flex flex-col lg:absolute lg:top-16 lg:rounded-lg lg:bg-primary-dark lg:p-4 lg:shadow-md':
                 isNestedListOpen
             })}
           >
