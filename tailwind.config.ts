@@ -31,9 +31,11 @@ const config: Config = {
         primary: {
           // DEFAULT = teal-600
           // hover = teal-700
+          // dark = teal-900
           // black = zinc-800
           DEFAULT: '#0d9488',
           hover: '#0f766e',
+          dark: '#134e4a',
           black: '#27272a'
         },
         border: {

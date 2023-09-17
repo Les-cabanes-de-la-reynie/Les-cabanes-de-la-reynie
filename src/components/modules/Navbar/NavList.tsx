@@ -6,7 +6,7 @@ interface NavListProps extends PropsWithChildren, ClassNameProps {}
 
 const NavList = ({ children, className }: NavListProps) => {
   const classes = cn(
-    'flex flex-col gap-x-8 text-lg text-white lg:flex-row lg:items-center',
+    'flex flex-col gap-x-8 text-lg text-white select-none lg:flex-row lg:items-center',
     className
   )
 

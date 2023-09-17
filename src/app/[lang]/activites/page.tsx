@@ -1,7 +1,7 @@
 import useTranslation from 'next-translate/useTranslation'
 import Heading from '@/components/elements/Heading'
 
-export default function Activities() {
+export default function Activites() {
   const { t } = useTranslation('delivery')
 
   return (
