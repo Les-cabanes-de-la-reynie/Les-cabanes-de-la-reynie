@@ -4,7 +4,7 @@ import Location from '@/components/modules/Location'
 import OpeningTimes from '@/components/modules/OpeningTimes'
 
 export default function Contact() {
-  const { t } = useTranslation('restaurants')
+  const { t } = useTranslation('contact')
 
   return (
     <div className='container mb-8 w-full'>

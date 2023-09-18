@@ -4,7 +4,7 @@ import DayRow from './DayRow'
 import TableHeader from './TableHeader'
 
 const OpeningTimes = () => {
-  const { t } = useTranslation('restaurants')
+  const { t } = useTranslation('contact')
 
   return (
     <table

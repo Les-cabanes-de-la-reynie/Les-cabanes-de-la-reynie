@@ -8,7 +8,7 @@ export interface TranslationsKeys {
   home: Paths<typeof import('./locales/en/home.json')>
   navigation: Paths<typeof import('./locales/en/navigation.json')>
   profile: Paths<typeof import('./locales/en/profile.json')>
-  restaurants: Paths<typeof import('./locales/en/restaurants.json')>
+  contact: Paths<typeof import('./locales/en/contact.json')>
 }
 
 export interface TypeSafeTranslate<Namespace extends keyof TranslationsKeys>
