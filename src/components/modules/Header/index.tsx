@@ -48,7 +48,7 @@ const Header = () => {
   useEffect(() => {
     setHeaderClassName(
       cn(DEFAULT_HEADER_CLASSNAME, {
-        'lg:bg-primary dark:lg:bg-primary':
+        'lg:bg-primary dark:lg:bg-primary lg:bg-none':
           clientWindowHeight > SCROLL_Y_LIMIT || pathWithoutLocale !== '/'
       })
     )

@@ -35,7 +35,7 @@ const MainNavigation = ({
     if (!isBurgerMenuOpen) {
       setIsNestedListOpen(false)
     }
-  }, [isBurgerMenuOpen])
+  }, [isBurgerMenuOpen, setIsNestedListOpen])
 
   return (
     <nav aria-labelledby='Main'>
