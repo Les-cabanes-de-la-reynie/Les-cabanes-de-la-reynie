@@ -9,7 +9,7 @@ export enum DaysOfTheWeekEnum {
 }
 
 export interface DayRowProps {
-  day: string
+  day: DaysOfTheWeekEnum
   dayTranslation: string
   lunchTranslation: string
   dinnerTranslation: string

@@ -1,7 +1,7 @@
 import useTranslation from 'next-translate/useTranslation'
 import Heading from '@/components/elements/Heading'
 import Location from '@/components/modules/Location'
-import OpeningTimes from '@/components/modules/OpeningTimes'
+import OpeningHours from '@/components/modules/OpeningHours'
 
 export default function Contact() {
   const { t } = useTranslation('contact')
@@ -17,8 +17,8 @@ export default function Contact() {
           <Location />
         </section>
         <section className='flex w-full flex-col gap-4 lg:mb-0'>
-          <Heading level={2}>{t('openingTimes')}</Heading>
-          <OpeningTimes />
+          <Heading level={2}>{t('openingHours')}</Heading>
+          <OpeningHours />
         </section>
       </div>
     </div>
