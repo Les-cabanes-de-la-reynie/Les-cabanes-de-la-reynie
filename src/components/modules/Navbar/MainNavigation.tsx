@@ -75,7 +75,7 @@ const MainNavigation = ({
           </div>
           <NavList
             className={cn('hidden', {
-              'flex flex-col lg:absolute lg:top-16 lg:rounded-lg lg:bg-primary-dark lg:p-4 lg:shadow-md':
+              'flex flex-col lg:absolute lg:top-16 lg:rounded-lg lg:bg-primary-dark lg:p-2 lg:shadow-md':
                 isNestedListOpen
             })}
           >
@@ -83,7 +83,7 @@ const MainNavigation = ({
               <Link
                 href={`/${lang}/logements/yourte`}
                 as={`/${lang}/logements/yourte`}
-                className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-hover'
+                className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-hover lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={handleClosePopup}
               >
                 Yourte
@@ -93,7 +93,7 @@ const MainNavigation = ({
               <Link
                 href={`/${lang}/logements/cabane`}
                 as={`/${lang}/logements/cabane`}
-                className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-hover'
+                className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-hover lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={handleClosePopup}
               >
                 Cabane
@@ -103,7 +103,7 @@ const MainNavigation = ({
               <Link
                 href={`/${lang}/logements`}
                 as={`/${lang}/logements`}
-                className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-hover'
+                className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-hover lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={handleClosePopup}
               >
                 Zone Tentes
@@ -113,7 +113,7 @@ const MainNavigation = ({
               <Link
                 href={`/${lang}/logements`}
                 as={`/${lang}/logements`}
-                className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-hover'
+                className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-hover lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={handleClosePopup}
                 onBlur={handleClosePopup}
               >

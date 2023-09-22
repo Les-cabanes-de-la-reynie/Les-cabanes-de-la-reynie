@@ -1,36 +1,55 @@
+import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
 import FooterNav from './FooterNav'
 import FooterHeading from './FooterHeading'
 import FooterItem from './FooterItem'
 
 const Footer = () => {
-  const { t } = useTranslation('footer')
+  const { lang, t } = useTranslation('footer')
 
   return (
     <footer className='box-border w-full border-t border-border bg-zinc-50 dark:border-border-dark dark:bg-zinc-950'>
       <div className='container flex flex-col flex-wrap py-8 md:flex-row md:justify-between lg:justify-around'>
         <FooterNav>
-          <FooterHeading> {t('aboutUs')}</FooterHeading>
+          <FooterHeading>{t('aboutUs')}</FooterHeading>
           <ul>
-            <FooterItem>{t('leadershipTeam')}</FooterItem>
-            <FooterItem>{t('valuesInAction')}</FooterItem>
-            <FooterItem>{t('franchiseInfo')}</FooterItem>
+            <FooterItem>
+              <Link href={`/${lang}`}>{t('leadershipTeam')}</Link>
+            </FooterItem>
+            <FooterItem>
+              <Link href={`/${lang}`}>{t('valuesInAction')}</Link>
+            </FooterItem>
+            <FooterItem>
+              <Link href={`/${lang}`}>{t('franchiseInfo')}</Link>
+            </FooterItem>
           </ul>
         </FooterNav>
         <FooterNav>
           <FooterHeading> {t('careers')}</FooterHeading>
           <ul>
-            <FooterItem>{t('employeePerks')}</FooterItem>
-            <FooterItem>{t('workingWithUs')}</FooterItem>
-            <FooterItem>{t('applyNow')}</FooterItem>
+            <FooterItem>
+              <Link href={`/${lang}`}>{t('employeePerks')}</Link>
+            </FooterItem>
+            <FooterItem>
+              <Link href={`/${lang}`}>{t('workingWithUs')}</Link>
+            </FooterItem>
+            <FooterItem>
+              <Link href={`/${lang}`}>{t('applyNow')}</Link>
+            </FooterItem>
           </ul>
         </FooterNav>
         <FooterNav>
           <FooterHeading> {t('contactUs')}</FooterHeading>
           <ul>
-            <FooterItem>{t('restaurantFeedback')}</FooterItem>
-            <FooterItem>{t('frequentlyAskedQuestions')}</FooterItem>
-            <FooterItem>{t('sendAnEmail')}</FooterItem>
+            <FooterItem>
+              <Link href='/api/auth/logout'>LOGOUT</Link>
+            </FooterItem>
+            <FooterItem>
+              <Link href='/api/auth/login'>LOGIN</Link>
+            </FooterItem>
+            <FooterItem>
+              <Link href={`/${lang}/dashboard`}>Espace ADMIN</Link>
+            </FooterItem>
           </ul>
         </FooterNav>
       </div>

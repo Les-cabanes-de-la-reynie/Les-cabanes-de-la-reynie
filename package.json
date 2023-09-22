@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth0/nextjs-auth0": "^3.1.0",
     "@formatjs/intl-localematcher": "^0.4.2",
+    "@prisma/client": "^5.3.1",
     "autoprefixer": "10.4.15",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
@@ -42,6 +44,7 @@
     "next-translate-plugin": "^2.5.3",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",
+    "prisma": "^5.3.1",
     "server-only": "^0.0.1"
   }
 }
