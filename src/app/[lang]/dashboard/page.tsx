@@ -8,8 +8,6 @@ import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client'
 const Dashboard = () => {
   const { user, error, isLoading } = useUser()
 
-  console.log('user', user)
-
   return (
     <div className='container mb-8 w-full'>
       <p>{user?.name ?? 'PAS CONNECTE'}</p>

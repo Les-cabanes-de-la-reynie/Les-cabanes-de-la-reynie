@@ -1,132 +1,111 @@
-'use client'
-
-import { FormEvent } from 'react'
 import useTranslation from 'next-translate/useTranslation'
-import Button from '@/components/elements/Button'
 import TableHeader from '../TableHeader'
 import EditDayRow from './EditDayRow'
-import { formatStringTimeIntoDate } from '@/utils/formatStringTimeIntoDate'
+import { formatDateToTime } from '@/utils/formatDateToTime'
 
-const EditOpeningHours = () => {
+const EditOpeningHours = async () => {
   const { t } = useTranslation('contact')
+
+  const url = process.env.NEXT_PUBLIC_BASE_URL as string
+
+  const response = await fetch(`${url}/api/openingHours`)
+  const openingHoursData = await response.json()
+  const {
+    mondayStart,
+    mondayEnd,
+    tuesdayStart,
+    tuesdayEnd,
+    wednesdayStart,
+    wednesdayEnd,
+    thursdayStart,
+    thursdayEnd,
+    fridayStart,
+    fridayEnd,
+    saturdayStart,
+    saturdayEnd,
+    sundayStart,
+    sundayEnd
+  } = openingHoursData[0]
 
   const openingDaysEdit = [
     {
       dayTranslation: t('monday'),
       inputStartName: 'mondayStart',
-      inputEndName: 'mondayEnd'
+      inputStartValue: formatDateToTime(mondayStart),
+      inputEndName: 'mondayEnd',
+      inputEndValue: formatDateToTime(mondayEnd)
     },
     {
       dayTranslation: t('tuesday'),
       inputStartName: 'tuesdayStart',
-      inputEndName: 'tuesdayEnd'
+      inputStartValue: formatDateToTime(tuesdayStart),
+      inputEndName: 'tuesdayEnd',
+      inputEndValue: formatDateToTime(tuesdayEnd)
     },
     {
       dayTranslation: t('wednesday'),
       inputStartName: 'wednesdayStart',
-      inputEndName: 'wednesdayEnd'
+      inputStartValue: formatDateToTime(wednesdayStart),
+      inputEndName: 'wednesdayEnd',
+      inputEndValue: formatDateToTime(wednesdayEnd)
     },
     {
       dayTranslation: t('thursday'),
       inputStartName: 'thursdayStart',
-      inputEndName: 'thursdayEnd'
+      inputStartValue: formatDateToTime(thursdayStart),
+      inputEndName: 'thursdayEnd',
+      inputEndValue: formatDateToTime(thursdayEnd)
     },
     {
       dayTranslation: t('friday'),
       inputStartName: 'fridayStart',
-      inputEndName: 'fridayEnd'
+      inputStartValue: formatDateToTime(fridayStart),
+      inputEndName: 'fridayEnd',
+      inputEndValue: formatDateToTime(fridayEnd)
     },
     {
       dayTranslation: t('saturday'),
       inputStartName: 'saturdayStart',
-      inputEndName: 'saturdayEnd'
+      inputStartValue: formatDateToTime(saturdayStart),
+      inputEndName: 'saturdayEnd',
+      inputEndValue: formatDateToTime(saturdayEnd)
     },
     {
       dayTranslation: t('sunday'),
       inputStartName: 'sundayStart',
-      inputEndName: 'sundayEnd'
+      inputStartValue: formatDateToTime(sundayStart),
+      inputEndName: 'sundayEnd',
+      inputEndValue: formatDateToTime(sundayEnd)
     }
   ]
 
-  const handleLoginSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    const formData = new FormData(e.currentTarget)
-
-    const mondayStart = formatStringTimeIntoDate(
-      String(formData.get('mondayStart'))
-    )
-    const mondayEnd = formatStringTimeIntoDate(
-      String(formData.get('mondayEnd'))
-    )
-
-    const tuesdayStart = formatStringTimeIntoDate(
-      String(formData.get('tuesdayStart'))
-    )
-    const tuesdayEnd = formatStringTimeIntoDate(
-      String(formData.get('tuesdayEnd'))
-    )
-
-    const wednesdayStart = formatStringTimeIntoDate(
-      String(formData.get('wednesdayStart'))
-    )
-    const wednesdayEnd = formatStringTimeIntoDate(
-      String(formData.get('wednesdayEnd'))
-    )
-
-    const thursdayStart = formatStringTimeIntoDate(
-      String(formData.get('thursdayStart'))
-    )
-    const thursdayEnd = formatStringTimeIntoDate(
-      String(formData.get('thursdayEnd'))
-    )
-
-    const fridayStart = formatStringTimeIntoDate(
-      String(formData.get('fridayStart'))
-    )
-    const fridayEnd = formatStringTimeIntoDate(
-      String(formData.get('fridayEnd'))
-    )
-
-    const saturdayStart = formatStringTimeIntoDate(
-      String(formData.get('saturdayStart'))
-    )
-    const saturdayEnd = formatStringTimeIntoDate(
-      String(formData.get('saturdayEnd'))
-    )
-
-    const sundayStart = formatStringTimeIntoDate(
-      String(formData.get('sundayStart'))
-    )
-    const sundayEnd = formatStringTimeIntoDate(
-      String(formData.get('sundayEnd'))
-    )
-  }
-
   return (
-    <form onSubmit={handleLoginSubmit}>
-      <table
-        className='w-full flex-grow text-primary-black dark:text-white'
-        data-test='openingHours'
-      >
-        <TableHeader day={t('day')} lunch={t('lunch')} dinner={t('dinner')} />
-        <tbody className='text-center'>
-          {openingDaysEdit?.map(
-            ({ dayTranslation, inputStartName, inputEndName }) => (
-              <EditDayRow
-                key={dayTranslation}
-                dayTranslation={dayTranslation}
-                inputStartName={inputStartName}
-                inputEndName={inputEndName}
-              />
-            )
-          )}
-        </tbody>
-      </table>
-      <Button type='submit' className='mt-5' kind='valid'>
-        Mettre à jour
-      </Button>
-    </form>
+    <table
+      className='w-full flex-grow text-primary-black dark:text-white'
+      data-test='openingHours'
+    >
+      <TableHeader day={t('day')} lunch={t('lunch')} dinner={t('dinner')} />
+      <tbody className='text-center'>
+        {openingDaysEdit?.map(
+          ({
+            dayTranslation,
+            inputStartName,
+            inputStartValue,
+            inputEndName,
+            inputEndValue
+          }) => (
+            <EditDayRow
+              key={dayTranslation}
+              dayTranslation={dayTranslation}
+              inputStartName={inputStartName}
+              inputStartValue={inputStartValue}
+              inputEndName={inputEndName}
+              inputEndValue={inputEndValue}
+            />
+          )
+        )}
+      </tbody>
+    </table>
   )
 }
 export default EditOpeningHours
