@@ -8,6 +8,7 @@ import HeaderContent from './HeaderContent'
 import useToggle from '@/hooks/useToggle'
 import { cn } from '@/utils/cn'
 import { DEFAULT_HEADER_CLASSNAME, SCROLL_Y_LIMIT } from './const'
+import Container from '@/components/elements/Container'
 
 const Header = () => {
   const [headerClassName, setHeaderClassName] = useState(
@@ -56,17 +57,19 @@ const Header = () => {
 
   return (
     <header className={headerClassName}>
-      <div className='container flex items-center justify-between lg:justify-normal'>
-        <Logo />
-        <BurgerMenu
-          isBurgerMenuOpen={isBurgerMenuOpen}
-          onToggleBurgerMenu={handleToggleBurgerMenu}
-        />
-        <HeaderContent
-          isBurgerMenuOpen={isBurgerMenuOpen}
-          handleCloseBurgerMenu={() => setIsBurgerMenuOpen(false)}
-        />
-      </div>
+      <Container className='justify-center'>
+        <div className='flex items-center justify-between lg:justify-normal'>
+          <Logo />
+          <BurgerMenu
+            isBurgerMenuOpen={isBurgerMenuOpen}
+            onToggleBurgerMenu={handleToggleBurgerMenu}
+          />
+          <HeaderContent
+            isBurgerMenuOpen={isBurgerMenuOpen}
+            handleCloseBurgerMenu={() => setIsBurgerMenuOpen(false)}
+          />
+        </div>
+      </Container>
     </header>
   )
 }

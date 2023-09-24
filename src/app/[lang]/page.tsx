@@ -24,7 +24,7 @@ export default function Home() {
           </Heading>
         </div>
       </div>
-      <div className='container h-72'>
+      <div className='h-72'>
         <PracticalInformation />
       </div>
       <div className='h-72 w-full'>Test</div>

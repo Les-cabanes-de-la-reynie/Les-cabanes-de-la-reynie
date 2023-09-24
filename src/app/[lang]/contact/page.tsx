@@ -2,12 +2,13 @@ import useTranslation from 'next-translate/useTranslation'
 import Heading from '@/components/elements/Heading'
 import Location from '@/components/modules/Location'
 import OpeningHours from '@/components/modules/OpeningHours'
+import Container from '@/components/elements/Container'
 
 export default function Contact() {
   const { t } = useTranslation('contact')
 
   return (
-    <div className='container mb-8 w-full'>
+    <Container>
       <Heading level={1} className='my-8'>
         {t('restaurantsMainTitle')}
       </Heading>
@@ -21,6 +22,6 @@ export default function Contact() {
           <OpeningHours />
         </section>
       </div>
-    </div>
+    </Container>
   )
 }

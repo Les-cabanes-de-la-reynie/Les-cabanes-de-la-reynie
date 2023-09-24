@@ -3,13 +3,14 @@ import useTranslation from 'next-translate/useTranslation'
 import FooterNav from './FooterNav'
 import FooterHeading from './FooterHeading'
 import FooterItem from './FooterItem'
+import Container from '@/components/elements/Container'
 
 const Footer = () => {
   const { lang, t } = useTranslation('footer')
 
   return (
     <footer className='box-border w-full border-t border-border bg-zinc-50 dark:border-border-dark dark:bg-zinc-950'>
-      <div className='container flex flex-col flex-wrap py-8 md:flex-row md:justify-between lg:justify-around'>
+      <Container className='flex-wrap md:flex-row md:justify-between lg:justify-around'>
         <FooterNav>
           <FooterHeading>{t('aboutUs')}</FooterHeading>
           <ul>
@@ -52,7 +53,7 @@ const Footer = () => {
             </FooterItem>
           </ul>
         </FooterNav>
-      </div>
+      </Container>
     </footer>
   )
 }

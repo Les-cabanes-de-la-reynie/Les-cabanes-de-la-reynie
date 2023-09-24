@@ -1,11 +1,9 @@
-// 'use client'
-
 import { FormEvent, PropsWithChildren } from 'react'
 import { formatStringTimeIntoDate } from '@/utils/formatStringTimeIntoDate'
 import Button from '@/components/elements/Button'
 
 const EditOpeningHoursForm = ({ children }: PropsWithChildren) => {
-  const handleLoginSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleLoginSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     const formData = new FormData(e.currentTarget)

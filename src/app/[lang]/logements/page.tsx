@@ -2,12 +2,13 @@ import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
 import Heading from '@/components/elements/Heading'
 import Button from '@/components/elements/Button'
+import Container from '@/components/elements/Container'
 
 export default function Logements() {
   const { t } = useTranslation('delivery')
 
   return (
-    <div className='container mb-8 w-full'>
+    <Container>
       <Heading level={1} className='my-8 text-center'>
         {t('deliveryMainTitle')}
       </Heading>
@@ -37,6 +38,6 @@ export default function Logements() {
           </Link>
         </section>
       </div>
-    </div>
+    </Container>
   )
 }
