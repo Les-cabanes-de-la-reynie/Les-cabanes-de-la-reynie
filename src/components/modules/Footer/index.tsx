@@ -9,7 +9,7 @@ const Footer = () => {
   const { lang, t } = useTranslation('footer')
 
   return (
-    <footer className='box-border w-full border-t border-border bg-zinc-50 dark:border-border-dark dark:bg-zinc-950'>
+    <footer className='box-border w-full border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950'>
       <Container className='flex-wrap md:flex-row md:justify-between lg:justify-around'>
         <FooterNav>
           <FooterHeading>{t('aboutUs')}</FooterHeading>

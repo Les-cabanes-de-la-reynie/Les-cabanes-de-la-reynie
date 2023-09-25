@@ -9,10 +9,12 @@ export enum DaysOfTheWeekEnum {
 }
 
 export interface DayRowProps {
-  day: DaysOfTheWeekEnum
   dayTranslation: string
-  lunchTranslation: string
-  dinnerTranslation: string
+  inputStartName: string
+  inputStartValue: string
+  inputEndName: string
+  inputEndValue: string
+  isEdit: boolean
 }
 
 export interface TableHeaderProps {

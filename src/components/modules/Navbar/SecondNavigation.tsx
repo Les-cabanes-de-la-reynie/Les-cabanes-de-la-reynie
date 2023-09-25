@@ -12,7 +12,7 @@ const SecondNavigation = ({ handleCloseBurgerMenu }: SecondNavigationProps) => {
   return (
     <nav
       aria-labelledby='Second'
-      className='mt-4 border-t border-border pt-2 lg:mt-0 lg:border-none lg:pt-0'
+      className='mt-4 border-t border-zinc-200 pt-2 lg:mt-0 lg:border-none lg:pt-0'
     >
       <NavList>
         <NavItem>

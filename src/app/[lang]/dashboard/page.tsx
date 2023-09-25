@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Loader from '@/components/elements/Loader'
-import EditOpeningHours from '@/components/modules/OpeningHours/Edit/EditOpeningHours'
+import OpeningHours from '@/components/modules/OpeningHours'
 import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client'
 import Container from '@/components/elements/Container'
 
@@ -14,7 +14,7 @@ const Dashboard = () => {
       <p>{user?.name ?? 'PAS CONNECTE'}</p>
       <Link href='/api/auth/logout'>LOGOUT</Link>
       <div>DASHBOARD</div>
-      <EditOpeningHours />
+      <OpeningHours isEditable={true} />
     </Container>
   )
 }
