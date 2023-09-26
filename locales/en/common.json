@@ -4,5 +4,8 @@
   "accommodations": "Accommodations",
   "contact": "Contact",
   "activities": "Activities",
-  "loading": "Loading"
+  "loading": "Loading",
+  "update": "Update",
+  "cancel": "Cancel",
+  "edit": "Edit"
 }

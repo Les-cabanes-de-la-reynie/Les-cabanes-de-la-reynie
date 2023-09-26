@@ -4,5 +4,8 @@
   "accommodations": "Logements",
   "contact": "Contact",
   "activities": "Activités",
-  "loading": "Chargement"
+  "loading": "Chargement",
+  "update": "Mettre à jour",
+  "cancel": "Annuler",
+  "edit": "Modifier"
 }

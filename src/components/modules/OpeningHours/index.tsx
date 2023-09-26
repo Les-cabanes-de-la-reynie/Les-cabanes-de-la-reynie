@@ -16,6 +16,7 @@ interface OpeningHoursProps {
 
 const OpeningHours = async ({ isEditable = false }: OpeningHoursProps) => {
   const { t } = useTranslation('contact')
+  const { t: t2 } = useTranslation('common')
 
   const [isEdit, handleToggleEdit] = useToggle(false)
 
@@ -23,6 +24,7 @@ const OpeningHours = async ({ isEditable = false }: OpeningHoursProps) => {
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/openingHours`
   )
   const openingHoursData = await response.json()
+
   const {
     mondayStart,
     mondayEnd,
@@ -185,16 +187,16 @@ const OpeningHours = async ({ isEditable = false }: OpeningHoursProps) => {
         <div className='mt-4 flex justify-end gap-2'>
           {isEdit ? (
             <Button onClick={() => handleToggleEdit()} kind='border'>
-              Cancel
+              {t2('cancel')}
             </Button>
           ) : (
             <Button onClick={() => handleToggleEdit()} kind='border'>
-              Edit
+              {t2('edit')}
             </Button>
           )}
           {isEdit && (
             <Button type='submit' kind='valid'>
-              Mettre à jour
+              {t2('update')}
             </Button>
           )}
         </div>
