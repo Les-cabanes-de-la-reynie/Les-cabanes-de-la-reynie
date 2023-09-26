@@ -21,9 +21,9 @@ const Dashboard = () => {
 
 export default withPageAuthRequired(Dashboard, {
   onRedirecting: () => (
-    <div>
+    <Container>
       <Loader />
-    </div>
+    </Container>
   ),
   onError: error => (
     <div>

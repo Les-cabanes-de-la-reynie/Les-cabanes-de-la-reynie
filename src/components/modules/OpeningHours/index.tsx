@@ -158,7 +158,7 @@ const OpeningHours = async ({ isEditable = false }: OpeningHoursProps) => {
         className='w-full flex-grow text-primary-black dark:text-white'
         data-test='openingHours'
       >
-        <TableHeader day={t('day')} lunch={t('lunch')} dinner={t('dinner')} />
+        <TableHeader day={''} lunch={t('opening')} dinner={t('closing')} />
         <tbody className='text-center'>
           {openingDaysEdit?.map(
             ({
@@ -181,28 +181,24 @@ const OpeningHours = async ({ isEditable = false }: OpeningHoursProps) => {
           )}
         </tbody>
       </table>
-      {isEditable && isEdit ? (
-        <Button
-          onClick={() => handleToggleEdit()}
-          className='mt-5'
-          kind='border'
-        >
-          Cancel
-        </Button>
-      ) : isEditable ? (
-        <Button
-          onClick={() => handleToggleEdit()}
-          className='mt-5'
-          kind='border'
-        >
-          Edit
-        </Button>
+      {isEditable ? (
+        <div className='mt-4 flex justify-end gap-2'>
+          {isEdit ? (
+            <Button onClick={() => handleToggleEdit()} kind='border'>
+              Cancel
+            </Button>
+          ) : (
+            <Button onClick={() => handleToggleEdit()} kind='border'>
+              Edit
+            </Button>
+          )}
+          {isEdit && (
+            <Button type='submit' kind='valid'>
+              Mettre à jour
+            </Button>
+          )}
+        </div>
       ) : null}
-      {isEditable && isEdit && (
-        <Button type='submit' className='mt-5' kind='valid'>
-          Mettre à jour
-        </Button>
-      )}
     </form>
   )
 }
