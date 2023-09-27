@@ -9,12 +9,15 @@ import { formatStringTimeIntoDate } from '@/utils/formatStringTimeIntoDate'
 import useToggle from '@/hooks/useToggle'
 import DayRow from './DayRow'
 import { cn } from '@/utils/cn'
+import { useRouter } from 'next/navigation'
 
 interface OpeningHoursProps {
   isEditable?: boolean
 }
 
 const OpeningHours = async ({ isEditable = false }: OpeningHoursProps) => {
+  const router = useRouter()
+
   const { t } = useTranslation('contact')
   const { t: t2 } = useTranslation('common')
 
@@ -94,7 +97,7 @@ const OpeningHours = async ({ isEditable = false }: OpeningHoursProps) => {
     }
   ]
 
-  const handleLoginSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleLoginSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     const formData = new FormData(e.currentTarget)
@@ -148,7 +151,40 @@ const OpeningHours = async ({ isEditable = false }: OpeningHoursProps) => {
       String(formData.get('sundayEnd'))
     )
 
-    console.log({ sundayStart, sundayEnd })
+    console.log('mondayStart', mondayStart)
+    console.log('mondayEnd', mondayEnd)
+
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/openingHours/1`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          mondayStart,
+          mondayEnd,
+          tuesdayStart,
+          tuesdayEnd,
+          wednesdayStart,
+          wednesdayEnd,
+          thursdayStart,
+          thursdayEnd,
+          fridayStart,
+          fridayEnd,
+          saturdayStart,
+          saturdayEnd,
+          sundayStart,
+          sundayEnd
+        })
+      }
+    )
+
+    console.log('res.ok', res.ok)
+
+    if (res.ok) {
+      return router.refresh()
+    }
   }
 
   return (
