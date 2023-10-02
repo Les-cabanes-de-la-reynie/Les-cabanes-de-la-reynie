@@ -1,12 +1,12 @@
 import { GetOpeningHours } from '@/lib/OpeningHours'
-import OpeningHoursTable from './OpeningHoursTable'
+import OpeningHoursForm from './OpeningHoursForm'
 
 const OpeningHours = async () => {
   const openingHoursData = await GetOpeningHours()
 
   return (
     <div className='flex flex-1 items-center justify-center'>
-      <OpeningHoursTable openingHoursData={openingHoursData} />
+      <OpeningHoursForm openingHoursData={openingHoursData} />
     </div>
   )
 }

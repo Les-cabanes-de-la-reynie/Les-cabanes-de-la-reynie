@@ -54,6 +54,9 @@ const MainNavigation = ({
           className={cn({
             'pb-0': isNestedListOpen
           })}
+          onClick={handleTogglePopup}
+          onKeyDown={handleKeyDown}
+          tabIndex={0}
         >
           <div
             className={cn(
@@ -62,9 +65,6 @@ const MainNavigation = ({
                 'pb-4 lg:pb-0': isNestedListOpen
               }
             )}
-            onClick={handleTogglePopup}
-            onKeyDown={handleKeyDown}
-            tabIndex={0}
           >
             {t('accommodations')}
             <ChevronDown

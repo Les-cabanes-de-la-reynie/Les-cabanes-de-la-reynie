@@ -8,7 +8,6 @@ interface SecondNavigationProps {
 }
 
 const SecondNavigation = ({ handleCloseBurgerMenu }: SecondNavigationProps) => {
-  // TODO: use handleCloseBurgerMenu on the last item
   return (
     <nav
       aria-labelledby='Second'
@@ -19,7 +18,7 @@ const SecondNavigation = ({ handleCloseBurgerMenu }: SecondNavigationProps) => {
           <LanguagesSwitcher />
         </NavItem>
         <NavItem>
-          <ThemeSwitcher />
+          <ThemeSwitcher onBlur={handleCloseBurgerMenu} />
         </NavItem>
       </NavList>
     </nav>

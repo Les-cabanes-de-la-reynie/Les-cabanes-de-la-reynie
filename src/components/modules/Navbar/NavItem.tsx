@@ -1,12 +1,19 @@
-import { PropsWithChildren } from 'react'
+import { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
 import { ClassNameProps } from '@/_types/components'
 import { cn } from '@/utils/cn'
 
-interface NavItemProps extends PropsWithChildren, ClassNameProps {}
+interface NavItemProps
+  extends PropsWithChildren,
+    ClassNameProps,
+    ComponentPropsWithoutRef<'li'> {}
 
-const NavItem = ({ children, className }: NavItemProps) => {
+const NavItem = ({ children, className, ...rest }: NavItemProps) => {
   const classes = cn('py-4 text-white select-none lg:p-0', className)
 
-  return <li className={classes}>{children}</li>
+  return (
+    <li className={classes} {...rest}>
+      {children}
+    </li>
+  )
 }
 export default NavItem
