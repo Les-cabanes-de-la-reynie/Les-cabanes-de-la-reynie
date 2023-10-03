@@ -1,4 +1,4 @@
-import { KeyboardEvent, useEffect } from 'react'
+import { KeyboardEvent, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
 import { cn } from '@/utils/cn'
@@ -6,6 +6,7 @@ import { ChevronDown } from 'lucide-react'
 import useToggle from '@/hooks/useToggle'
 import NavItem from './NavItem'
 import NavList from './NavList'
+import useOutsideClick from '@/hooks/useOutsideClick'
 
 interface MainNavigationProps {
   isBurgerMenuOpen: boolean
@@ -18,15 +19,25 @@ const MainNavigation = ({
 }: MainNavigationProps) => {
   const { t, lang } = useTranslation('common')
 
-  const [isNestedListOpen, handleTogglePopup, setIsNestedListOpen] = useToggle()
+  const popupRef = useRef(null as unknown as HTMLUListElement)
+  const [isNestedListOpen, handleToggleNestedList, setIsNestedListOpen] =
+    useToggle()
 
   const handleClosePopup = () => {
     setIsNestedListOpen(false)
   }
 
+  const handleClickOutside = () => {
+    if (isNestedListOpen) {
+      setIsNestedListOpen(false)
+    }
+  }
+
+  useOutsideClick(popupRef, handleClickOutside)
+
   const handleKeyDown = (event: KeyboardEvent<HTMLSpanElement>) => {
     if (event.key === 'Enter') {
-      handleTogglePopup()
+      handleToggleNestedList()
     }
   }
 
@@ -54,7 +65,7 @@ const MainNavigation = ({
           className={cn({
             'pb-0': isNestedListOpen
           })}
-          onClick={handleTogglePopup}
+          onClick={handleToggleNestedList}
           onKeyDown={handleKeyDown}
           tabIndex={0}
         >
@@ -78,6 +89,7 @@ const MainNavigation = ({
               'flex flex-col lg:absolute lg:top-11 lg:rounded-lg lg:bg-primary-dark lg:p-2 lg:shadow-md':
                 isNestedListOpen
             })}
+            ref={popupRef}
           >
             <NavItem className='py-1 pl-5'>
               <Link

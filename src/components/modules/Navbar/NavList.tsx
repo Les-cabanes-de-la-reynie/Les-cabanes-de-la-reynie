@@ -1,15 +1,23 @@
-import { PropsWithChildren } from 'react'
+import { ForwardRefRenderFunction, PropsWithChildren, forwardRef } from 'react'
 import { cn } from '@/utils/cn'
 import { ClassNameProps } from '@/_types/components'
 
 interface NavListProps extends PropsWithChildren, ClassNameProps {}
 
-const NavList = ({ children, className }: NavListProps) => {
+const NavList: ForwardRefRenderFunction<HTMLUListElement, NavListProps> = (
+  { children, className },
+  ref
+) => {
   const classes = cn(
     'flex flex-col gap-x-8 text-lg text-white select-none lg:flex-row lg:items-center',
     className
   )
 
-  return <ul className={classes}>{children}</ul>
+  return (
+    <ul className={classes} ref={ref}>
+      {children}
+    </ul>
+  )
 }
-export default NavList
+
+export default forwardRef(NavList)

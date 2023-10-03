@@ -19,15 +19,14 @@ const Popup = ({ isOpen, cb, className, children }: PopupProps) => {
 
   useOutsideClick(popupRef, handleClickOutside)
 
+  const classes = cn(
+    'absolute z-10 mt-1 hidden w-max flex-col rounded-lg bg-primary p-2 text-white shadow-md lg:bg-primary-dark',
+    { flex: isOpen },
+    className
+  )
+
   return (
-    <div
-      ref={popupRef}
-      className={cn(
-        'absolute z-10 mt-1 hidden w-max max-w-sm flex-col rounded-lg bg-primary p-2 text-white shadow-md lg:bg-primary-dark',
-        { flex: isOpen },
-        className
-      )}
-    >
+    <div ref={popupRef} className={classes}>
       {children}
     </div>
   )
