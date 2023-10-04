@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
-import useTranslation from 'next-translate/useTranslation'
+import createTranslation from 'next-translate/createTranslation'
 import i18n from '../../../i18n'
 import { cn } from '@/utils/cn'
 import Header from '@/components/modules/Header'
@@ -22,7 +22,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const { lang } = useTranslation('navigation')
+  const { lang } = createTranslation('navigation')
 
   // Redirect to default locale if lang is not supported. /second-page -> /en/second-page
   if (!i18n.locales.includes(lang)) redirect(`/${i18n.defaultLocale}/${lang}`)

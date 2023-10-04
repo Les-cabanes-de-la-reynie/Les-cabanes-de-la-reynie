@@ -32,7 +32,6 @@ const LocaleList = ({ isLocaleListOpen, onClosePopup }: LocaleListProps) => {
             <li key={locale}>
               <Link
                 href={redirectedPathName(locale)}
-                as={redirectedPathName(locale)}
                 onClick={onClosePopup}
                 onBlur={isLastElement ? onClosePopup : undefined}
                 className='block rounded-lg p-2 text-white hover:bg-primary-dark lg:hover:bg-primary-hover'

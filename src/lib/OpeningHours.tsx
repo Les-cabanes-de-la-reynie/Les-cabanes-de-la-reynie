@@ -3,10 +3,10 @@ import {
   OpeningHoursDayData
 } from '@/components/modules/OpeningHours/types'
 import { formatDateToTime } from '@/utils/formatDateToTime'
-import useTranslation from 'next-translate/useTranslation'
+import createTranslation from 'next-translate/createTranslation'
 
 export const GetOpeningHours = async () => {
-  const { t } = useTranslation('contact')
+  const { t } = createTranslation('contact')
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/openingHours`,
@@ -96,7 +96,7 @@ export const GetOpeningHours = async () => {
 }
 
 export const UpdateOpeningHours = async (openingHoursDayData: string) => {
-  const { t } = useTranslation('contact')
+  const { t } = createTranslation('contact')
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/openingHours/1`,

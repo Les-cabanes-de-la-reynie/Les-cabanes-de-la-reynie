@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import useTranslation from 'next-translate/useTranslation'
+import createTranslation from 'next-translate/createTranslation'
 import Heading from '@/components/elements/Heading'
 import Button from '@/components/elements/Button'
 import Container from '@/components/elements/Container'
 
 export default function Logements() {
-  const { t } = useTranslation('delivery')
+  const { t } = createTranslation('delivery')
 
   return (
     <Container>

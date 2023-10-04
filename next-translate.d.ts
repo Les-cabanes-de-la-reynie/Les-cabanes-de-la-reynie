@@ -22,8 +22,8 @@ export interface TypeSafeTranslate<Namespace extends keyof TranslationsKeys>
   }
 }
 
-declare module 'next-translate/useTranslation' {
-  export default function useTranslation<
+declare module 'next-translate/createTranslation' {
+  export default function createTranslation<
     Namespace extends keyof TranslationsKeys
   >(namespace: Namespace): TypeSafeTranslate<Namespace>
 }

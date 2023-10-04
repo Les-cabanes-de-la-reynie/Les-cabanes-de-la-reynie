@@ -1,12 +1,12 @@
 import Link from 'next/link'
-import useTranslation from 'next-translate/useTranslation'
+import createTranslation from 'next-translate/createTranslation'
 import FooterNav from './FooterNav'
 import FooterHeading from './FooterHeading'
 import FooterItem from './FooterItem'
 import Container from '@/components/elements/Container'
 
 const Footer = () => {
-  const { lang, t } = useTranslation('footer')
+  const { lang, t } = createTranslation('footer')
 
   return (
     <footer className='box-border w-full border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950'>

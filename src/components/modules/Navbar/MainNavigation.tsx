@@ -1,6 +1,6 @@
 import { KeyboardEvent, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import useTranslation from 'next-translate/useTranslation'
+import createTranslation from 'next-translate/createTranslation'
 import { cn } from '@/utils/cn'
 import { ChevronDown } from 'lucide-react'
 import useToggle from '@/hooks/useToggle'
@@ -17,7 +17,7 @@ const MainNavigation = ({
   isBurgerMenuOpen,
   onCloseBurgerMenu
 }: MainNavigationProps) => {
-  const { t, lang } = useTranslation('common')
+  const { t, lang } = createTranslation('common')
 
   const popupRef = useRef(null as unknown as HTMLUListElement)
   const [isNestedListOpen, handleToggleNestedList, setIsNestedListOpen] =
@@ -54,7 +54,6 @@ const MainNavigation = ({
         <NavItem>
           <Link
             href={`/${lang}`}
-            as={`/${lang}`}
             onClick={onCloseBurgerMenu}
             className='transition-colors hover:text-primary-hover'
           >
@@ -94,7 +93,6 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements/yourte`}
-                as={`/${lang}/logements/yourte`}
                 className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-hover lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={handleClosePopup}
               >
@@ -104,7 +102,6 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements/cabane`}
-                as={`/${lang}/logements/cabane`}
                 className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-hover lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={handleClosePopup}
               >
@@ -114,7 +111,6 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements`}
-                as={`/${lang}/logements`}
                 className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-hover lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={handleClosePopup}
               >
@@ -124,7 +120,6 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements`}
-                as={`/${lang}/logements`}
                 className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-hover lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={handleClosePopup}
                 onBlur={handleClosePopup}
@@ -137,7 +132,6 @@ const MainNavigation = ({
         <NavItem>
           <Link
             href={`/${lang}/contact`}
-            as={`/${lang}/contact`}
             onClick={onCloseBurgerMenu}
             className='transition-colors hover:text-primary-hover'
           >
@@ -147,7 +141,6 @@ const MainNavigation = ({
         <NavItem>
           <Link
             href={`/${lang}/activites`}
-            as={`/${lang}/activites`}
             onClick={onCloseBurgerMenu}
             className='transition-colors hover:text-primary-hover'
           >

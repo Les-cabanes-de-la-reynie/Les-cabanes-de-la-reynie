@@ -1,7 +1,7 @@
 import { Languages } from 'lucide-react'
 import { transformLocaleToCountry } from '@/utils/transformLocaleToCountry'
 import Button from '../Button'
-import useTranslation from 'next-translate/useTranslation'
+import createTranslation from 'next-translate/createTranslation'
 
 interface LanguageSwitcherButtonProps {
   isLocaleListOpen: boolean
@@ -12,7 +12,7 @@ const LanguageSwitcherButton = ({
   isLocaleListOpen,
   onTogglePopup
 }: LanguageSwitcherButtonProps) => {
-  const { lang } = useTranslation('home')
+  const { lang } = createTranslation('home')
 
   return (
     <Button

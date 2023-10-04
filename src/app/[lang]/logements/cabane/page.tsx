@@ -1,9 +1,9 @@
-import useTranslation from 'next-translate/useTranslation'
+import createTranslation from 'next-translate/createTranslation'
 import Heading from '@/components/elements/Heading'
 import Container from '@/components/elements/Container'
 
 export default function Cabane() {
-  const { t } = useTranslation('delivery')
+  const { t } = createTranslation('delivery')
 
   return (
     <Container>

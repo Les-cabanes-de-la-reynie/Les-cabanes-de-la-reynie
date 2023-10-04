@@ -1,7 +1,7 @@
 'use client'
 
 import { FormEvent, useMemo } from 'react'
-import useTranslation from 'next-translate/useTranslation'
+import createTranslation from 'next-translate/createTranslation'
 import TableHeader from '../TableHeader'
 import Button from '@/components/elements/Button'
 import { formatStringTimeIntoDate } from '@/utils/formatStringTimeIntoDate'
@@ -12,8 +12,8 @@ import { useRouter } from 'next/navigation'
 import DayRowEdit from './DayRowEdit'
 
 const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
-  const { t } = useTranslation('contact')
-  const { t: t2 } = useTranslation('common')
+  const { t } = createTranslation('contact')
+  const { t: t2 } = createTranslation('common')
 
   const [isEdit, handleToggleEdit] = useToggle(false)
 

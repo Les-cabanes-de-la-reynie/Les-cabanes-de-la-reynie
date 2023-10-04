@@ -1,11 +1,11 @@
 import { useMemo } from 'react'
-import useTranslation from 'next-translate/useTranslation'
+import createTranslation from 'next-translate/createTranslation'
 import TableHeader from './TableHeader'
 import DayRow from './DayRow'
 import { OpeningHoursFormProps } from './types'
 
 const OpeningHoursTable = ({ openingHoursData }: OpeningHoursFormProps) => {
-  const { t } = useTranslation('contact')
+  const { t } = createTranslation('contact')
 
   const openingHoursDataMemorized = useMemo(
     () =>
