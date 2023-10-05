@@ -3,9 +3,12 @@ import Heading from '@/components/elements/Heading'
 
 const FooterHeading = ({ children }: PropsWithChildren) => {
   return (
-    <Heading level={3} className='mb-4 text-xl font-semibold'>
-      {children}
-    </Heading>
+    <div className='mb-4'>
+      <Heading level={3} className='mb-2 text-xl font-semibold'>
+        {children}
+      </Heading>
+      <div className='h-[2px] w-14 bg-primary' />
+    </div>
   )
 }
 export default FooterHeading
