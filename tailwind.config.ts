@@ -19,14 +19,10 @@ const config: Config = {
           DEFAULT: '#AD2216'
         },
         primary: {
-          // DEFAULT = teal-600
-          // hover = teal-700
-          // dark = teal-900
-          // black = zinc-800
-          DEFAULT: '#0d9488',
-          hover: '#0f766e',
-          dark: '#134e4a',
-          black: '#27272a'
+          DEFAULT: '#105650',
+          hover: '#1E685F',
+          dark: '#003A38',
+          black: '#191919'
         },
         border: {
           // DEFAULT = gray-400
