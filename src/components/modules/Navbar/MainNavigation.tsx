@@ -28,7 +28,9 @@ const MainNavigation = ({
   }
 
   const handleClickOutside = () => {
-    if (isNestedListOpen) {
+    const media = window.matchMedia(`(min-width: 1024px)`)
+
+    if (isNestedListOpen && media.matches) {
       setIsNestedListOpen(false)
     }
   }
@@ -94,7 +96,7 @@ const MainNavigation = ({
               <Link
                 href={`/${lang}/logements/yourte`}
                 className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
-                onClick={handleClosePopup}
+                onClick={onCloseBurgerMenu}
               >
                 Yourte
               </Link>
@@ -103,7 +105,7 @@ const MainNavigation = ({
               <Link
                 href={`/${lang}/logements/cabane`}
                 className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
-                onClick={handleClosePopup}
+                onClick={onCloseBurgerMenu}
               >
                 Cabane
               </Link>
@@ -112,7 +114,7 @@ const MainNavigation = ({
               <Link
                 href={`/${lang}/logements`}
                 className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
-                onClick={handleClosePopup}
+                onClick={onCloseBurgerMenu}
               >
                 Zone Tentes
               </Link>
@@ -121,7 +123,7 @@ const MainNavigation = ({
               <Link
                 href={`/${lang}/logements`}
                 className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
-                onClick={handleClosePopup}
+                onClick={onCloseBurgerMenu}
                 onBlur={handleClosePopup}
               >
                 Zone Camping-cars
