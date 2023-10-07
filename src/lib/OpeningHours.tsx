@@ -12,7 +12,7 @@ export const GetOpeningHours = async () => {
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/openingHours`,
     {
       next: {
-        revalidate: 0
+        revalidate: 30
       }
     }
   )

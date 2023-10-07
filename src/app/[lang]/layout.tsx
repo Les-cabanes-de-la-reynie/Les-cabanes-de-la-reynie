@@ -8,6 +8,7 @@ import Header from '@/components/modules/Header'
 import { Baloo_2 } from 'next/font/google'
 import Footer from '@/components/modules/Footer'
 import Providers from '@/providers'
+import { Toaster } from 'sonner'
 
 const fontFamily = Baloo_2({ display: 'swap', subsets: ['latin'] })
 
@@ -36,6 +37,7 @@ export default function RootLayout({
           'relative flex min-h-screen w-full flex-col bg-zinc-100 dark:bg-zinc-900'
         )}
       >
+        <Toaster richColors position='top-right' />
         <Providers>
           <Header />
           <main id='main' role='main' className='flex flex-1'>

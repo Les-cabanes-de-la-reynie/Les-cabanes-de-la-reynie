@@ -1,25 +1,29 @@
 'use client'
 
-import { FormEvent, useMemo } from 'react'
+import { FormEvent, useMemo, useState } from 'react'
 import createTranslation from 'next-translate/createTranslation'
+import { toast } from 'sonner'
 import TableHeader from '../TableHeader'
 import Button from '@/components/elements/Button'
 import { formatStringTimeIntoDate } from '@/utils/formatStringTimeIntoDate'
 import useToggle from '@/hooks/useToggle'
 import { OpeningHoursFormProps } from '../types'
 import { UpdateOpeningHours } from '@/lib/OpeningHours'
-import { useRouter } from 'next/navigation'
 import DayRowEdit from './DayRowEdit'
 
-const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
+const OpeningHoursForm = ({
+  openingHoursData: incomingData
+}: OpeningHoursFormProps) => {
+  const [openingHoursData, setOpeningHoursData] = useState(incomingData)
+
   const { t } = createTranslation('contact')
   const { t: t2 } = createTranslation('common')
 
   const [isEdit, handleToggleEdit] = useToggle(false)
 
-  const { refresh } = useRouter()
-
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
     const formData = new FormData(e.currentTarget)
 
     const mondayStart = formatStringTimeIntoDate(
@@ -88,10 +92,18 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
       sundayEnd
     })
 
-    const openingHoursData = await UpdateOpeningHours(openingHoursDayData)
+    try {
+      const openingHoursData = await UpdateOpeningHours(openingHoursDayData)
 
-    if (openingHoursData) {
-      refresh()
+      if (openingHoursData) {
+        setOpeningHoursData(openingHoursData)
+        toast.success('Les données ont bien été mis à jour !')
+        handleToggleEdit()
+      }
+    } catch (error) {
+      toast.error(
+        `Attention les données n'ont pas pu être mis à jour. La raison : ${error}`
+      )
     }
   }
 
