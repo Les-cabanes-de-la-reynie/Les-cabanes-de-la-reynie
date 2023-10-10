@@ -21,6 +21,7 @@ const responsive = {
 
 const items = [
   <Image
+    key={1}
     src={fullscreenImage2}
     alt='TODO'
     quality='100'
@@ -30,6 +31,7 @@ const items = [
     role='presentation'
   />,
   <Image
+    key={2}
     src={fullscreenImage3}
     alt='TODO'
     quality='100'
@@ -39,6 +41,7 @@ const items = [
     role='presentation'
   />,
   <Image
+    key={3}
     src={fullscreenImage}
     alt='TODO'
     quality='100'
@@ -48,6 +51,7 @@ const items = [
     role='presentation'
   />,
   <Image
+    key={4}
     src={fullscreenImage4}
     alt='TODO'
     quality='100'
@@ -57,6 +61,7 @@ const items = [
     role='presentation'
   />,
   <Image
+    key={5}
     src={fullscreenImage5}
     alt='TODO'
     quality='100'
@@ -66,6 +71,7 @@ const items = [
     role='presentation'
   />,
   <Image
+    key={6}
     src={fullscreenImage6}
     alt='TODO'
     quality='100'
