@@ -15,21 +15,21 @@ const config: Config = {
     },
     extend: {
       colors: {
-        error: {
-          DEFAULT: '#AD2216'
-        },
         primary: {
           DEFAULT: '#105650',
           hover: '#1E685F',
-          dark: '#003A38',
-          black: '#191919'
+          dark: '#003A38'
         },
         border: {
           // DEFAULT = gray-400
           // dark = teal-900
           DEFAULT: '#9ca3af',
           dark: '#134e4a'
-        }
+        },
+        error: {
+          DEFAULT: '#AD2216'
+        },
+        black: '#191919'
       },
       backgroundImage: {
         delivery:

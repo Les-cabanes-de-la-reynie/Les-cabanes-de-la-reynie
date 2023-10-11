@@ -156,7 +156,7 @@ const OpeningHoursForm = ({
   return (
     <form onSubmit={onSubmit} className='h-full w-full'>
       <table
-        className='w-full flex-grow text-primary-black dark:text-white'
+        className='w-full flex-grow text-black dark:text-white'
         data-test='openingHours'
       >
         <TableHeader day={''} lunch={t('opening')} dinner={t('closing')} />

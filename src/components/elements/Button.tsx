@@ -33,7 +33,7 @@ const Button = ({
     'font-semibold transition-color border-2 rounded relative text-white cursor-pointer select-none px-4 py-2 text-sm md:text-base',
     {
       'border-transparent bg-primary  hover:bg-opacity-80': kind === 'default',
-      'bg-transparent border-zinc-800 dark:border-zinc-200 text-primary-black dark:text-white hover:bg-zinc-300 dark:hover:bg-zinc-700':
+      'bg-transparent border-zinc-800 dark:border-zinc-200 text-black dark:text-white hover:bg-zinc-300 dark:hover:bg-zinc-700':
         kind === 'border',
       'border-transparent bg-red-700 hover:bg-opacity-80': kind === 'delete',
       'border-transparent bg-green-700 hover:bg-opacity-80': kind === 'valid',

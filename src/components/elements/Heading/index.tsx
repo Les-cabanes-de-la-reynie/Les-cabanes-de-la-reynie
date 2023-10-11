@@ -16,28 +16,28 @@ const Heading = ({
   ...rest
 }: HeadingProps) => {
   const h1ClassName = cn(
-    'text-primary-black dark:text-white text-3xl font-bold md:text-4xl',
+    'text-black dark:text-white text-3xl font-bold md:text-4xl',
     {
       'text-error': error
     },
     className
   )
   const h2ClassName = cn(
-    'text-primary-black dark:text-white text-xl font-bold md:text-2xl',
+    'text-black dark:text-white text-xl font-bold md:text-2xl',
     {
       'text-error': error
     },
     className
   )
   const h3ClassName = cn(
-    'text-primary-black dark:text-white text-lg font-bold md:text-xl',
+    'text-black dark:text-white text-lg font-bold md:text-xl',
     {
       'text-error': error
     },
     className
   )
   const h4ClassName = cn(
-    'text-primary-black dark:text-white text-md font-bold md:text-lg',
+    'text-black dark:text-white text-md font-bold md:text-lg',
     {
       'text-error': error
     },

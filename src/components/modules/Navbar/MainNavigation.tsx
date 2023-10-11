@@ -57,7 +57,7 @@ const MainNavigation = ({
           <Link
             href={`/${lang}`}
             onClick={onCloseBurgerMenu}
-            className='transition-colors hover:text-primary-black'
+            className='transition-colors hover:text-black'
           >
             {t('home')}
           </Link>
@@ -72,7 +72,7 @@ const MainNavigation = ({
         >
           <div
             className={cn(
-              'flex max-w-max cursor-pointer items-center gap-2 transition-colors hover:text-primary-black',
+              'flex max-w-max cursor-pointer items-center gap-2 transition-colors hover:text-black',
               {
                 'pb-4 lg:pb-0': isNestedListOpen
               }
@@ -95,7 +95,7 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements/yourte`}
-                className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
+                className='flex max-w-max items-center gap-2 transition-colors hover:text-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={onCloseBurgerMenu}
               >
                 Yourte
@@ -104,7 +104,7 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements/cabane`}
-                className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
+                className='flex max-w-max items-center gap-2 transition-colors hover:text-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={onCloseBurgerMenu}
               >
                 Cabane
@@ -113,7 +113,7 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements`}
-                className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
+                className='flex max-w-max items-center gap-2 transition-colors hover:text-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={onCloseBurgerMenu}
               >
                 Zone Tentes
@@ -122,7 +122,7 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements`}
-                className='flex max-w-max items-center gap-2 transition-colors hover:text-primary-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
+                className='flex max-w-max items-center gap-2 transition-colors hover:text-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={onCloseBurgerMenu}
                 onBlur={handleClosePopup}
               >
@@ -135,7 +135,7 @@ const MainNavigation = ({
           <Link
             href={`/${lang}/contact`}
             onClick={onCloseBurgerMenu}
-            className='transition-colors hover:text-primary-black'
+            className='transition-colors hover:text-black'
           >
             {t('contact')}
           </Link>
@@ -144,7 +144,7 @@ const MainNavigation = ({
           <Link
             href={`/${lang}/activites`}
             onClick={onCloseBurgerMenu}
-            className='transition-colors hover:text-primary-black'
+            className='transition-colors hover:text-black'
           >
             {t('activities')}
           </Link>

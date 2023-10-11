@@ -1,6 +1,6 @@
 'use client'
 
-import { DragEvent } from 'react'
+import { DragEvent, useId } from 'react'
 import Image from 'next/image'
 import fullscreenImage from '../../images/home carousel/forest.jpg'
 import fullscreenImage2 from '../../images/home carousel/forest2.jpg'
@@ -19,76 +19,46 @@ const responsive = {
   1024: { items: 3 }
 }
 
-const items = [
-  <Image
-    key={1}
-    src={fullscreenImage2}
-    alt='TODO'
-    quality='100'
-    priority
-    className='h-60 object-cover px-2'
-    onDragStart={handleDragStart}
-    role='presentation'
-  />,
-  <Image
-    key={2}
-    src={fullscreenImage3}
-    alt='TODO'
-    quality='100'
-    priority
-    className='h-60 object-cover px-2'
-    onDragStart={handleDragStart}
-    role='presentation'
-  />,
-  <Image
-    key={3}
-    src={fullscreenImage}
-    alt='TODO'
-    quality='100'
-    priority
-    className='h-60 object-cover px-2'
-    onDragStart={handleDragStart}
-    role='presentation'
-  />,
-  <Image
-    key={4}
-    src={fullscreenImage4}
-    alt='TODO'
-    quality='100'
-    priority
-    className='h-60 object-cover px-2'
-    onDragStart={handleDragStart}
-    role='presentation'
-  />,
-  <Image
-    key={5}
-    src={fullscreenImage5}
-    alt='TODO'
-    quality='100'
-    priority
-    className='h-60 object-cover px-2'
-    onDragStart={handleDragStart}
-    role='presentation'
-  />,
-  <Image
-    key={6}
-    src={fullscreenImage6}
-    alt='TODO'
-    quality='100'
-    priority
-    className='h-60 object-cover px-2'
-    onDragStart={handleDragStart}
-    role='presentation'
-  />
+const getInnerWidth = () => {
+  try {
+    // if client
+    return window.innerWidth
+  } catch (error) {
+    // if server, set any desired value
+    return 1024
+  }
+}
+
+const data = [
+  fullscreenImage2,
+  fullscreenImage3,
+  fullscreenImage,
+  fullscreenImage4,
+  fullscreenImage5,
+  fullscreenImage6
 ]
 
 const Gallery = () => {
+  const items = data.map((image, i) => (
+    <Image
+      key={`${i}-${useId()}`}
+      src={image}
+      alt='TODO'
+      quality='100'
+      priority
+      className={`h-60 object-cover px-2`}
+      onDragStart={handleDragStart}
+      role='presentation'
+    />
+  ))
   return (
     <AliceCarousel
       mouseTracking
       disableButtonsControls={true}
       items={items}
       responsive={responsive}
+      ssrSilentMode={false}
+      innerWidth={getInnerWidth()}
     />
   )
 }

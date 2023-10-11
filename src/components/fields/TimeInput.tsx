@@ -28,7 +28,7 @@ const TimeInput: ForwardRefRenderFunction<
     'flex flex-none items-center pr-4': !isEdit
   })
   const inputClassName = cn(
-    'block w-full p-2 text-sm rounded-lg text-primary-black bg-white border border-border dark:text-white dark:bg-zinc-900',
+    'block w-full p-2 text-sm rounded-lg text-black bg-white border border-border dark:text-white dark:bg-zinc-900',
     {
       'border-transparent': !isEdit
     },
