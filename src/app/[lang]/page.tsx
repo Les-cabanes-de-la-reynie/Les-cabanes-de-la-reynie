@@ -2,7 +2,7 @@ import Image from 'next/image'
 import fullscreenImage from '../../components/images/home carousel/forest.jpg'
 import PracticalInformation from '@/components/modules/PracticalInformation'
 import Heading from '@/components/elements/Heading'
-import Gallery from '@/components/modules/Gallery'
+import Carousel from '@/components/modules/Carousel'
 
 export default function Home() {
   return (
@@ -28,7 +28,7 @@ export default function Home() {
       <div className='h-72'>
         <PracticalInformation />
       </div>
-      <Gallery />
+      <Carousel />
       <div className='h-72 w-full'>Test</div>
       <div className='h-72 w-full'>Test</div>
       <div className='h-72 w-full'>Test</div>

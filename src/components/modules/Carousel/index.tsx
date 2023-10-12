@@ -38,7 +38,7 @@ const data = [
   fullscreenImage6
 ]
 
-const Gallery = () => {
+const Carousel = () => {
   const items = data.map((image, i) => (
     <Image
       key={`${i}-${useId()}`}
@@ -62,4 +62,4 @@ const Gallery = () => {
     />
   )
 }
-export default Gallery
+export default Carousel
