@@ -3,7 +3,7 @@
 import createTranslation from 'next-translate/createTranslation'
 import Loader from '@/components/elements/Loader'
 
-export default function Loading() {
+const Loading = () => {
   const { t } = createTranslation('common')
   return (
     <div className='flex w-full items-center justify-center'>
@@ -14,3 +14,5 @@ export default function Loading() {
     </div>
   )
 }
+
+export default Loading

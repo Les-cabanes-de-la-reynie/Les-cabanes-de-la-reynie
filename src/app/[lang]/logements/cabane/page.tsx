@@ -2,7 +2,7 @@ import createTranslation from 'next-translate/createTranslation'
 import Heading from '@/components/elements/Heading'
 import Container from '@/components/elements/Container'
 
-export default function Cabane() {
+const Cabane = () => {
   const { t } = createTranslation('delivery')
 
   return (
@@ -16,3 +16,5 @@ export default function Cabane() {
     </Container>
   )
 }
+
+export default Cabane

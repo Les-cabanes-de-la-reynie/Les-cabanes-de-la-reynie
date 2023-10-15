@@ -18,11 +18,7 @@ export const metadata: Metadata = {
     "Bienvenue sur PickN`Eat, le premier site de commande de burger en ligne qui se démarque par sa simplicité d'utilisation et de sa multitude de choix"
 }
 
-export default function RootLayout({
-  children
-}: {
-  children: React.ReactNode
-}) {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const { lang } = createTranslation('navigation')
 
   // Redirect to default locale if lang is not supported. /second-page -> /en/second-page
@@ -49,3 +45,5 @@ export default function RootLayout({
     </html>
   )
 }
+
+export default RootLayout

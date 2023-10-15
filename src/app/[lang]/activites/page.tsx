@@ -2,7 +2,7 @@ import createTranslation from 'next-translate/createTranslation'
 import Heading from '@/components/elements/Heading'
 import Container from '@/components/elements/Container'
 
-export default function Activites() {
+const Activites = () => {
   const { t } = createTranslation('delivery')
 
   return (
@@ -16,3 +16,5 @@ export default function Activites() {
     </Container>
   )
 }
+
+export default Activites

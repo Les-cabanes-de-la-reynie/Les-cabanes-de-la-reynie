@@ -4,7 +4,7 @@ import PracticalInformation from '@/components/modules/PracticalInformation'
 import Heading from '@/components/elements/Heading'
 import Accommodations from '@/components/modules/Accommodations'
 
-export default function Home() {
+const Home = () => {
   return (
     <div className='w-full lg:-mt-[4.5rem]'>
       <div className='w-full'>
@@ -37,3 +37,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home

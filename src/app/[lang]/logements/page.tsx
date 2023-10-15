@@ -4,7 +4,7 @@ import Heading from '@/components/elements/Heading'
 import Button from '@/components/elements/Button'
 import Container from '@/components/elements/Container'
 
-export default function Logements() {
+const Logements = () => {
   const { t } = createTranslation('delivery')
 
   return (
@@ -41,3 +41,5 @@ export default function Logements() {
     </Container>
   )
 }
+
+export default Logements

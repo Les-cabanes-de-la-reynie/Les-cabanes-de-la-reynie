@@ -3,13 +3,7 @@
 import Heading from '@/components/elements/Heading'
 import { useEffect } from 'react'
 
-export default function Error({
-  error,
-  reset
-}: {
-  error: Error
-  reset: () => void
-}) {
+const Error = ({ error, reset }: { error: Error; reset: () => void }) => {
   useEffect(() => {
     // Log the error to an error reporting service
   }, [error])
@@ -30,3 +24,5 @@ export default function Error({
     </div>
   )
 }
+
+export default Error

@@ -4,7 +4,7 @@ import Location from '@/components/modules/Location'
 import OpeningHours from '@/components/modules/OpeningHours'
 import Container from '@/components/elements/Container'
 
-export default function Contact() {
+const Contact = () => {
   const { t } = createTranslation('contact')
 
   return (
@@ -25,3 +25,5 @@ export default function Contact() {
     </Container>
   )
 }
+
+export default Contact
