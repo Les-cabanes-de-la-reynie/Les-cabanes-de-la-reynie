@@ -1,8 +1,8 @@
 'use client'
 
+import { useId, useState } from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import { useId, useState } from 'react'
 import { AccommodationsSliderProps } from './types'
 import AccommodationsSliderSkeleton from './AccommodationsSliderSkeleton'
 
@@ -24,9 +24,11 @@ const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
     })
   }
 
+  const uniqueId = useId()
+
   const carouselItems = data.map((image, i) => (
     <Image
-      key={`carousel-${i}-${useId()}`}
+      key={`carousel-${i}-${uniqueId}`}
       src={image}
       alt='TODO'
       quality='100'
@@ -38,7 +40,7 @@ const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
   ))
   const lighboxItems = data.map((image, i) => (
     <Image
-      key={`lightbox-${i}-${useId()}`}
+      key={`lightbox-${i}-${uniqueId}`}
       src={image}
       alt='TODO'
       quality='100'
