@@ -2,11 +2,11 @@ import Image from 'next/image'
 import fullscreenImage from '../../components/images/home carousel/forest.jpg'
 import PracticalInformation from '@/components/modules/PracticalInformation'
 import Heading from '@/components/elements/Heading'
-import Carousel from '@/components/modules/Carousel'
+import Accommodations from '@/components/modules/Accommodations'
 
 export default function Home() {
   return (
-    <div className='w-full lg:-translate-y-[4.5rem]'>
+    <div className='w-full lg:-mt-[4.5rem]'>
       <div className='w-full'>
         <div className='relative h-96 w-full lg:h-screen'>
           <Image
@@ -28,7 +28,7 @@ export default function Home() {
       <div className='h-72'>
         <PracticalInformation />
       </div>
-      <Carousel />
+      <Accommodations />
       <div className='h-72 w-full'>Test</div>
       <div className='h-72 w-full'>Test</div>
       <div className='h-72 w-full'>Test</div>
