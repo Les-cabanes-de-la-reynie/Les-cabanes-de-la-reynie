@@ -1,10 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import Loader from '@/components/elements/Loader'
 import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client'
+import Loader from '@/components/elements/Loader'
 import Container from '@/components/elements/Container'
-import OpeningHours from '@/components/modules/OpeningHours'
+import OpeningHoursEdit from '@/components/modules/OpeningHours/Edit/OpeningHoursEdit'
 
 const Dashboard = () => {
   const { user } = useUser()
@@ -14,7 +14,7 @@ const Dashboard = () => {
       <p>{user?.name ?? 'PAS CONNECTE'}</p>
       <Link href='/api/auth/logout'>LOGOUT</Link>
       <div>DASHBOARD</div>
-      <OpeningHours isEditable={true} />
+      <OpeningHoursEdit />
     </Container>
   )
 }
