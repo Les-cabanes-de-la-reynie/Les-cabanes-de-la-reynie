@@ -1,5 +1,6 @@
 'use client'
 
+import { Suspense } from 'react'
 import Link from 'next/link'
 import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client'
 import Loader from '@/components/elements/Loader'
@@ -14,7 +15,9 @@ const Dashboard = () => {
       <p>{user?.name ?? 'PAS CONNECTE'}</p>
       <Link href='/api/auth/logout'>LOGOUT</Link>
       <div>DASHBOARD</div>
-      <OpeningHoursEdit />
+      <Suspense fallback={<Loader />}>
+        <OpeningHoursEdit />
+      </Suspense>
     </Container>
   )
 }

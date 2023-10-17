@@ -5,7 +5,7 @@ import Button from '@/components/elements/Button'
 import Container from '@/components/elements/Container'
 
 const Logements = () => {
-  const { t } = createTranslation('delivery')
+  const { t, lang } = createTranslation('delivery')
 
   return (
     <Container>
@@ -33,7 +33,7 @@ const Logements = () => {
         <section className='mb-8 flex flex-grow flex-col items-center justify-center lg:bg-takeAway lg:bg-[length:15rem] lg:bg-right-bottom lg:bg-no-repeat'>
           <Heading level={2}>{t('takeAway')}</Heading>
           <p className='mb-8 mt-4 text-center'>{t('takeAwayContent')}</p>
-          <Link href='/' tabIndex={-1}>
+          <Link href={`/${lang}`} tabIndex={-1}>
             <Button>{t('takeAwayButton')}</Button>
           </Link>
         </section>
