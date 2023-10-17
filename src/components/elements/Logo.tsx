@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import createTranslation from 'next-translate/createTranslation'
 import { cn } from '@/utils/cn'
 import { ClassNameProps } from '@/_types/components'
 
@@ -7,6 +8,8 @@ interface LogoProps extends ClassNameProps {
 }
 
 const Logo = ({ onCloseMenu, className = '' }: LogoProps) => {
+  const { lang } = createTranslation('common')
+
   const classes = cn(
     'box-border cursor-pointer mr-8 border-y-4 border-white text-2xl font-extrabold text-white',
     className
@@ -14,7 +17,7 @@ const Logo = ({ onCloseMenu, className = '' }: LogoProps) => {
 
   return (
     <Link
-      href='/'
+      href={`/${lang}`}
       className={classes}
       onClick={onCloseMenu}
       aria-label='PickN`Eat Logo'
