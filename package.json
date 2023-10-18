@@ -1,5 +1,5 @@
 {
-  "name": "pickneat-frontend",
+  "name": "les-cabanes-de-la-reynie-frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -33,7 +33,6 @@
     "react-leaflet": "^4.2.1",
     "sharp": "^0.32.6",
     "sonner": "^1.0.3",
-    "supports-color": "^8.1.1",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
     "zustand": "^4.4.3"

@@ -1,30 +1,47 @@
-import { cn } from '@/utils/cn'
+import { useMemo } from 'react'
 import Link from 'next/link'
-import { itineraryUrl } from './const'
+import { cn } from '@/utils/cn'
+import { NavigationIcon, PhoneIcon } from 'lucide-react'
+import createTranslation from 'next-translate/createTranslation'
 import {
-  PNE_ADDRESS,
-  PNE_CITY,
-  PNE_PHONE_NUMBER
-} from '@/_constants/restaurantInformation'
+  ESTABLISHMENT_TITLE,
+  CITY,
+  PHONE_NUMBER
+} from '@/_constants/establishmentInformation'
 import Heading from '@/components/elements/Heading'
 
-const Address = () => {
+const Address = ({ position }: { position: number[] }) => {
+  const { t } = createTranslation('contact')
+
+  const [lat, long] = position
+
+  const ITINERARY_URL = useMemo(
+    () =>
+      `https://www.google.fr/maps/dir/${lat},+${long}/La+Reynie+Haute,+19310+Louignac/@44.1892761,1.0389325,8z`,
+    [lat, long]
+  )
+
   return (
     <address className='text-center text-sm'>
       <Heading level={3} className={cn('mb-2 text-primary dark:text-primary')}>
-        PickN`Eat
+        {ESTABLISHMENT_TITLE}
       </Heading>
       <Link
-        href={itineraryUrl}
+        href={ITINERARY_URL}
         target='_blank'
         rel='noreferrer'
         className='mb-2 flex flex-col hover:underline'
       >
-        <span>{PNE_ADDRESS}</span>
-        <span>{PNE_CITY}</span>
+        <span className='flex items-center justify-center'>
+          <NavigationIcon size={15} className='mr-1' />
+          {t('Itinerary')} :
+        </span>
+        <span>{CITY}</span>
       </Link>
       <Link href='tel:+33772348639' className='hover:underline'>
-        <span>&#9742; {PNE_PHONE_NUMBER}</span>
+        <span className='flex items-center justify-center'>
+          <PhoneIcon size={15} className='mr-1' /> {PHONE_NUMBER}
+        </span>
       </Link>
     </address>
   )

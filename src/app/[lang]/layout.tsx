@@ -9,13 +9,13 @@ import { Baloo_2 } from 'next/font/google'
 import Footer from '@/components/modules/Footer'
 import Providers from '@/providers'
 import { Toaster } from 'sonner'
+import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 
 const fontFamily = Baloo_2({ display: 'swap', subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'PickN`Eat',
-  description:
-    "Bienvenue sur PickN`Eat, le premier site de commande de burger en ligne qui se démarque par sa simplicité d'utilisation et de sa multitude de choix"
+  title: ESTABLISHMENT_TITLE,
+  description: `Bienvenue sur ${ESTABLISHMENT_TITLE} !`
 }
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
