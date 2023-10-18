@@ -18,7 +18,7 @@ const Address = ({ position }: { position: number[] }) => {
   const ITINERARY_URL = useMemo(
     () =>
       `https://www.google.fr/maps/dir/${lat},+${long}/La+Reynie+Haute,+19310+Louignac/@44.1892761,1.0389325,8z`,
-    [position]
+    [lat, long]
   )
 
   return (

@@ -21,7 +21,7 @@ const Map = () => {
 
   useEffect(() => {
     const successFunction = (position: GeolocationPosition) => {
-      const { latitude, longitude } = position?.coords
+      const { latitude, longitude } = position.coords
       setUserLocation(
         position?.coords ? [latitude, longitude] : PARIS_DEFAULT_POSITION
       )
