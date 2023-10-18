@@ -16,5 +16,6 @@
   "lunchWeeklyHours": "12:00 - 14:30",
   "lunchWeekendHours": "12:00 - 15:30",
   "dinnerWeeklyHours": "19:00 - 22:30",
-  "dinnerWeekendHours": "19:00 - 23:00"
+  "dinnerWeekendHours": "19:00 - 23:00",
+  "Itinerary": "Itinéraire"
 }
