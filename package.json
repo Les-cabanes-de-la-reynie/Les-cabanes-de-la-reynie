@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prisma:seed": "npx prisma db seed"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^3.2.0",
@@ -38,6 +39,7 @@
     "zustand": "^4.4.3"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.2.0",
     "@types/fslightbox-react": "^1.7.4",
     "@types/leaflet": "^1.9.6",
     "@types/negotiator": "^0.6.1",
@@ -54,5 +56,8 @@
     "prisma": "^5.4.2",
     "server-only": "^0.0.1",
     "typescript": "5.2.2"
+  },
+  "prisma": {
+    "seed": "npx ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   }
 }

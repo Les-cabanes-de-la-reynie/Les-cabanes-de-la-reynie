@@ -10,22 +10,22 @@ datasource db {
   url      = "file:./dev.db"
 }
 
-model openingHours {
+model OpeningHours {
   id Int @id @default(autoincrement())
-  mondayStart DateTime?
-  mondayEnd DateTime?
-  tuesdayStart DateTime?
-  tuesdayEnd DateTime?
-  wednesdayStart DateTime?
-  wednesdayEnd DateTime?
-  thursdayStart DateTime?
-  thursdayEnd DateTime?
-  fridayStart DateTime?
-  fridayEnd DateTime?
-  saturdayStart DateTime?
-  saturdayEnd DateTime?
-  sundayStart DateTime?
-  sundayEnd DateTime?
+  mondayStart DateTime @default(now())
+  mondayEnd DateTime @default(now())
+  tuesdayStart DateTime @default(now())
+  tuesdayEnd DateTime @default(now())
+  wednesdayStart DateTime @default(now())
+  wednesdayEnd DateTime @default(now())
+  thursdayStart DateTime @default(now())
+  thursdayEnd DateTime @default(now())
+  fridayStart DateTime @default(now())
+  fridayEnd DateTime @default(now())
+  saturdayStart DateTime @default(now())
+  saturdayEnd DateTime @default(now())
+  sundayStart DateTime @default(now())
+  sundayEnd DateTime @default(now())
 }
 
 model VisitorCount {
