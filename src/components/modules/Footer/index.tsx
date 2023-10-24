@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import createTranslation from 'next-translate/createTranslation'
+import { useLocale, useTranslations } from 'next-intl'
 import FooterNav from './FooterNav'
 import FooterHeading from './FooterHeading'
 import FooterItem from './FooterItem'
-import Container from '@/components/elements/Container'
+import Container from 'components/elements/Container'
 import {
   FacebookIcon,
   InstagramIcon,
@@ -12,7 +12,8 @@ import {
 } from 'lucide-react'
 
 const Footer = () => {
-  const { lang, t } = createTranslation('footer')
+  const t = useTranslations('Footer')
+  const lang = useLocale()
 
   return (
     <footer className='box-border w-full border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950'>

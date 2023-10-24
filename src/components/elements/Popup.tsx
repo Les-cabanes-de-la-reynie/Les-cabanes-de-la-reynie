@@ -1,7 +1,7 @@
 import { PropsWithChildren, useRef } from 'react'
-import { cn } from '@/utils/cn'
-import { ClassNameProps } from '@/_types/components'
-import useOutsideClick from '@/hooks/useOutsideClick'
+import { cn } from 'utils/cn'
+import { ClassNameProps } from '_types/components'
+import useOutsideClick from 'hooks/useOutsideClick'
 
 interface PopupProps extends PropsWithChildren, ClassNameProps {
   isOpen: boolean

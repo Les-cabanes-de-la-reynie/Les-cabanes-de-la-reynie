@@ -1,5 +1,5 @@
-import { ClassNameProps } from '@/_types/components'
-import { cn } from '@/utils/cn'
+import { ClassNameProps } from '_types/components'
+import { cn } from 'utils/cn'
 import { Loader2 } from 'lucide-react'
 
 const Loader = ({ className }: ClassNameProps) => {

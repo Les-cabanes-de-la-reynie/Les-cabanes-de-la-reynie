@@ -1,4 +1,4 @@
-import { cn } from '@/utils/cn'
+import { cn } from 'utils/cn'
 import MainNavigation from '../Navbar/MainNavigation'
 import SecondNavigation from '../Navbar/SecondNavigation'
 

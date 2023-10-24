@@ -30,12 +30,6 @@ const config: Config = {
           DEFAULT: '#AD2216'
         },
         black: '#191919'
-      },
-      backgroundImage: {
-        delivery:
-          'url("../../components/images/backgrounds/deliveryBackground.svg")',
-        takeAway:
-          'url("../../components/images/backgrounds/takeAwayBackground.svg")'
       }
     }
   },

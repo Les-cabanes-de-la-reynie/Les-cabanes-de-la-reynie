@@ -1,6 +1,6 @@
 import { ForwardRefRenderFunction, forwardRef, useId } from 'react'
 import { CommonInputProps } from './types'
-import { cn } from '@/utils/cn'
+import { cn } from 'utils/cn'
 
 const CheckboxInput: ForwardRefRenderFunction<
   HTMLInputElement,

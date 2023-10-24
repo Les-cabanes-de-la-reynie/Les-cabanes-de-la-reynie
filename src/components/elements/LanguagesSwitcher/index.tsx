@@ -1,6 +1,6 @@
 import LocaleList from './LocaleList'
 import LanguageSwitcherButton from './LanguageSwitcherButton'
-import useToggle from '@/hooks/useToggle'
+import useToggle from 'hooks/useToggle'
 
 const LanguagesSwitcher = () => {
   const [isLocaleListOpen, handleTogglePopup, setIsLocaleListOpen] = useToggle()

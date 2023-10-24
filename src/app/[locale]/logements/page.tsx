@@ -1,11 +1,15 @@
 import Link from 'next/link'
-import createTranslation from 'next-translate/createTranslation'
-import Heading from '@/components/elements/Heading'
-import Button from '@/components/elements/Button'
-import Container from '@/components/elements/Container'
+import { useLocale, useTranslations } from 'next-intl'
+import Heading from 'components/elements/Heading'
+import Button from 'components/elements/Button'
+import Container from 'components/elements/Container'
+import { unstable_setRequestLocale } from 'next-intl/server'
 
-const Logements = () => {
-  const { t, lang } = createTranslation('delivery')
+const Logements = ({ params: { locale } }: { params: { locale: string } }) => {
+  unstable_setRequestLocale(locale)
+
+  const t = useTranslations('Delivery')
+  const lang = useLocale()
 
   return (
     <Container>
@@ -13,7 +17,7 @@ const Logements = () => {
         {t('deliveryMainTitle')}
       </Heading>
       <div className='mb-8 flex flex-grow flex-col text-black dark:text-white'>
-        <section className='mb-8 flex flex-grow flex-col items-center justify-center lg:bg-delivery lg:bg-[length:15rem] lg:bg-left-bottom lg:bg-no-repeat'>
+        <section className='mb-8 flex flex-grow flex-col items-center justify-center'>
           <Heading level={2}>{t('delivery')}</Heading>
           <p className='mb-8 mt-4 text-center'>{t('deliveryContent')}</p>
           <Link
@@ -30,7 +34,7 @@ const Logements = () => {
           <span className='mx-4 uppercase'>{t('or')}</span>
           <span className='inline-block h-px w-24 bg-primary'></span>
         </div>
-        <section className='mb-8 flex flex-grow flex-col items-center justify-center lg:bg-takeAway lg:bg-[length:15rem] lg:bg-right-bottom lg:bg-no-repeat'>
+        <section className='mb-8 flex flex-grow flex-col items-center justify-center'>
           <Heading level={2}>{t('takeAway')}</Heading>
           <p className='mb-8 mt-4 text-center'>{t('takeAwayContent')}</p>
           <Link href={`/${lang}`} tabIndex={-1}>

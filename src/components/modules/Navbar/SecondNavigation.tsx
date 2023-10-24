@@ -1,6 +1,6 @@
-import LanguagesSwitcher from '@/components/elements/LanguagesSwitcher'
+import LanguagesSwitcher from 'components/elements/LanguagesSwitcher'
 import NavItem from './NavItem'
-import { ThemeSwitcher } from '@/components/elements/ThemeSwitcher'
+import { ThemeSwitcher } from 'components/elements/ThemeSwitcher'
 import NavList from './NavList'
 
 interface SecondNavigationProps {

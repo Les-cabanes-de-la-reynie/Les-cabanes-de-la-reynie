@@ -1,4 +1,4 @@
-import { ClassNameProps } from '@/_types/components'
+import { ClassNameProps } from '_types/components'
 import { HTMLProps, ReactNode } from 'react'
 
 export interface UseInputClassNamesResult {

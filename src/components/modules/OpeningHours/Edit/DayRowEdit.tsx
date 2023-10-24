@@ -1,4 +1,4 @@
-import TimeInput from '@/components/fields/TimeInput'
+import TimeInput from 'components/fields/TimeInput'
 import { DayRowEditProps } from '../types'
 
 const DayRowEdit = ({

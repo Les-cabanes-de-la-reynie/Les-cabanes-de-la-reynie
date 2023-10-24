@@ -1,7 +1,7 @@
 'use client'
 
 import { MouseEvent, PropsWithChildren, ComponentPropsWithoutRef } from 'react'
-import { cn } from '@/utils/cn'
+import { cn } from 'utils/cn'
 
 export interface ButtonProps
   extends PropsWithChildren,

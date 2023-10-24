@@ -1,17 +1,17 @@
 import { useMemo } from 'react'
 import Link from 'next/link'
-import { cn } from '@/utils/cn'
+import { useTranslations } from 'next-intl'
+import { cn } from 'utils/cn'
 import { NavigationIcon, PhoneIcon } from 'lucide-react'
-import createTranslation from 'next-translate/createTranslation'
 import {
   ESTABLISHMENT_TITLE,
   CITY,
   PHONE_NUMBER
-} from '@/_constants/establishmentInformation'
-import Heading from '@/components/elements/Heading'
+} from '_constants/establishmentInformation'
+import Heading from 'components/elements/Heading'
 
 const Address = ({ position }: { position: number[] }) => {
-  const { t } = createTranslation('contact')
+  const t = useTranslations('Contact')
 
   const [lat, long] = position
 

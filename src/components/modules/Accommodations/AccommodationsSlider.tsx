@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { AccommodationsSliderProps } from './types'
 import AccommodationsSliderSkeleton from './AccommodationsSliderSkeleton'
 
-const Carousel = dynamic(() => import('@/components/modules/Carousel'), {
+const Carousel = dynamic(() => import('components/modules/Carousel'), {
   loading: () => <AccommodationsSliderSkeleton />,
   ssr: false
 })
