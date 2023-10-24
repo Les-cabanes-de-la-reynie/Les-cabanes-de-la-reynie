@@ -1,23 +1,24 @@
 'use client'
 
 import { FormEvent, useMemo, useState } from 'react'
-import createTranslation from 'next-translate/createTranslation'
+import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 import TableHeader from '../TableHeader'
-import Button from '@/components/elements/Button'
-import { formatStringTimeIntoDate } from '@/utils/formatStringTimeIntoDate'
-import useToggle from '@/hooks/useToggle'
+import { formatStringTimeIntoDate } from 'utils/formatStringTimeIntoDate'
+import useToggle from 'hooks/useToggle'
 import { OpeningHoursFormProps } from '../types'
-import { UpdateOpeningHours } from '@/lib/OpeningHours'
+import { UpdateOpeningHours } from 'lib/OpeningHours'
 import DayRowEdit from './DayRowEdit'
+import CancelButton from './CancelButton'
+import EditButton from './EditButton'
+import UpdateButton from './UpdateButton'
 
 const OpeningHoursForm = ({
   openingHoursData: incomingData
 }: OpeningHoursFormProps) => {
   const [openingHoursData, setOpeningHoursData] = useState(incomingData)
 
-  const { t } = createTranslation('contact')
-  const { t: t2 } = createTranslation('common')
+  const t = useTranslations('Contact')
 
   const [isEdit, handleToggleEdit] = useToggle(false)
 
@@ -135,22 +136,14 @@ const OpeningHoursForm = ({
     () => (
       <div className='mt-4 flex justify-end gap-2'>
         {isEdit ? (
-          <Button onClick={() => handleToggleEdit()} kind='border'>
-            {t2('cancel')}
-          </Button>
+          <CancelButton onClick={handleToggleEdit} />
         ) : (
-          <Button onClick={() => handleToggleEdit()} kind='border'>
-            {t2('edit')}
-          </Button>
+          <EditButton onClick={handleToggleEdit} />
         )}
-        {isEdit && (
-          <Button type='submit' kind='valid'>
-            {t2('update')}
-          </Button>
-        )}
+        {isEdit && <UpdateButton />}
       </div>
     ),
-    [isEdit, handleToggleEdit, t2]
+    [isEdit, handleToggleEdit]
   )
 
   return (

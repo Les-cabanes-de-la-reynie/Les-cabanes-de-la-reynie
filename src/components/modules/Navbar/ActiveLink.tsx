@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { cn } from '@/utils/cn'
-import { ClassNameProps } from '@/_types/components'
+import { cn } from 'utils/cn'
+import { ClassNameProps } from '_types/components'
 
 export interface ActiveLinkProps extends PropsWithChildren, ClassNameProps {
   url: string

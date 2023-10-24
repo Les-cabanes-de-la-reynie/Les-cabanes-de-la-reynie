@@ -1,13 +1,16 @@
 import { Suspense } from 'react'
-import createTranslation from 'next-translate/createTranslation'
-import Heading from '@/components/elements/Heading'
-import Location from '@/components/modules/Location'
-import OpeningHours from '@/components/modules/OpeningHours'
-import Container from '@/components/elements/Container'
-import Loader from '@/components/elements/Loader'
+import Heading from 'components/elements/Heading'
+import Location from 'components/modules/Location'
+import OpeningHours from 'components/modules/OpeningHours'
+import Container from 'components/elements/Container'
+import Loader from 'components/elements/Loader'
+import { useTranslations } from 'next-intl'
+import { unstable_setRequestLocale } from 'next-intl/server'
 
-const Contact = () => {
-  const { t } = createTranslation('contact')
+const Contact = ({ params: { locale } }: { params: { locale: string } }) => {
+  unstable_setRequestLocale(locale)
+
+  const t = useTranslations('Contact')
 
   return (
     <Container>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useTheme } from 'next-themes'
-import { ThemeMode } from '@/_types/theme'
+import { ThemeMode } from '_types/theme'
 import { MoonIcon, SunIcon } from 'lucide-react'
 import Button from './Button'
 

@@ -1,15 +1,15 @@
-import createTranslation from 'next-translate/createTranslation'
-import { OpeningHoursData } from './types'
+import { useLocale } from 'next-intl'
 import { format } from 'date-fns'
 import { enGB, fr } from 'date-fns/locale'
-import { formatStringTimeIntoDate } from '@/utils/formatStringTimeIntoDate'
+import { OpeningHoursData } from './types'
+import { formatStringTimeIntoDate } from 'utils/formatStringTimeIntoDate'
 
 const DayRow = ({
   dayTranslation,
   inputStartValue,
   inputEndValue
 }: OpeningHoursData) => {
-  const { lang } = createTranslation('common')
+  const lang = useLocale()
 
   const startDate =
     lang === 'fr'

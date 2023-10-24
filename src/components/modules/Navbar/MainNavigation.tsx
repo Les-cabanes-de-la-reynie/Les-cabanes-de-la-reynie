@@ -1,12 +1,12 @@
 import { KeyboardEvent, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import createTranslation from 'next-translate/createTranslation'
-import { cn } from '@/utils/cn'
+import { useLocale, useTranslations } from 'next-intl'
 import { ChevronDown } from 'lucide-react'
-import useToggle from '@/hooks/useToggle'
+import useToggle from 'hooks/useToggle'
 import NavItem from './NavItem'
 import NavList from './NavList'
-import useOutsideClick from '@/hooks/useOutsideClick'
+import useOutsideClick from 'hooks/useOutsideClick'
+import { cn } from 'utils/cn'
 
 interface MainNavigationProps {
   isBurgerMenuOpen: boolean
@@ -17,7 +17,8 @@ const MainNavigation = ({
   isBurgerMenuOpen,
   onCloseBurgerMenu
 }: MainNavigationProps) => {
-  const { t, lang } = createTranslation('common')
+  const t = useTranslations('Common')
+  const lang = useLocale()
 
   const popupRef = useRef(null as unknown as HTMLUListElement)
   const [isNestedListOpen, handleToggleNestedList, setIsNestedListOpen] =
@@ -54,11 +55,7 @@ const MainNavigation = ({
     <nav aria-labelledby='Main'>
       <NavList>
         <NavItem>
-          <Link
-            href={`/${lang}`}
-            onClick={onCloseBurgerMenu}
-            className='transition-colors hover:text-black'
-          >
+          <Link href={`/${lang}`} onClick={onCloseBurgerMenu}>
             {t('home')}
           </Link>
         </NavItem>
@@ -71,12 +68,9 @@ const MainNavigation = ({
           tabIndex={0}
         >
           <div
-            className={cn(
-              'flex max-w-max cursor-pointer items-center gap-2 transition-colors hover:text-black',
-              {
-                'pb-4 lg:pb-0': isNestedListOpen
-              }
-            )}
+            className={cn('flex max-w-max cursor-pointer items-center gap-2 ', {
+              'pb-4 lg:pb-0': isNestedListOpen
+            })}
           >
             {t('accommodations')}
             <ChevronDown
@@ -87,7 +81,7 @@ const MainNavigation = ({
           </div>
           <NavList
             className={cn('hidden', {
-              'flex flex-col lg:absolute lg:top-11 lg:rounded-lg lg:bg-primary-dark lg:p-2 lg:shadow-md':
+              'flex flex-col lg:absolute lg:top-14 lg:rounded-lg lg:bg-primary-dark lg:p-2 lg:shadow-md':
                 isNestedListOpen
             })}
             ref={popupRef}
@@ -95,7 +89,7 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements/yourte`}
-                className='flex max-w-max items-center gap-2 transition-colors hover:text-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
+                className='flex max-w-max items-center gap-2 lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={onCloseBurgerMenu}
               >
                 Yourte
@@ -104,7 +98,7 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements/cabane`}
-                className='flex max-w-max items-center gap-2 transition-colors hover:text-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
+                className='flex max-w-max items-center gap-2 lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={onCloseBurgerMenu}
               >
                 Cabane
@@ -113,7 +107,7 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements`}
-                className='flex max-w-max items-center gap-2 transition-colors hover:text-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
+                className='flex max-w-max items-center gap-2 lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={onCloseBurgerMenu}
               >
                 Zone Tentes
@@ -122,7 +116,7 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements`}
-                className='flex max-w-max items-center gap-2 transition-colors hover:text-black lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
+                className='flex max-w-max items-center gap-2 lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
                 onClick={onCloseBurgerMenu}
                 onBlur={handleClosePopup}
               >
@@ -132,20 +126,12 @@ const MainNavigation = ({
           </NavList>
         </NavItem>
         <NavItem>
-          <Link
-            href={`/${lang}/contact`}
-            onClick={onCloseBurgerMenu}
-            className='transition-colors hover:text-black'
-          >
+          <Link href={`/${lang}/contact`} onClick={onCloseBurgerMenu}>
             {t('contact')}
           </Link>
         </NavItem>
         <NavItem>
-          <Link
-            href={`/${lang}/activites`}
-            onClick={onCloseBurgerMenu}
-            className='transition-colors hover:text-black'
-          >
+          <Link href={`/${lang}/activites`} onClick={onCloseBurgerMenu}>
             {t('activities')}
           </Link>
         </NavItem>

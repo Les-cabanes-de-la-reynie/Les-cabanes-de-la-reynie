@@ -1,10 +1,10 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
-import i18n from '../../../../i18n'
-import { transformLocaleToCountry } from '@/utils/transformLocaleToCountry'
+import { useTransition } from 'react'
+import { usePathname, useRouter } from 'next-intl/client'
+import { transformLocaleToCountry } from 'utils/transformLocaleToCountry'
 import Popup from '../Popup'
+import Button from '../Button'
 
 interface LocaleListProps {
   isLocaleListOpen: boolean
@@ -12,32 +12,36 @@ interface LocaleListProps {
 }
 
 const LocaleList = ({ isLocaleListOpen, onClosePopup }: LocaleListProps) => {
-  const pathName = usePathname()
+  const [isPending, startTransition] = useTransition()
+  const router = useRouter()
+  const pathname = usePathname()
 
-  const redirectedPathName = (locale: string) => {
-    if (!pathName) return '/'
-    const segments = pathName.split('/')
-    segments[1] = locale
-    return segments.join('/')
+  const onSelectChange = (locale: string) => {
+    const nextLocale = locale
+    startTransition(() => {
+      router.replace(pathname, { locale: nextLocale })
+    })
+    onClosePopup()
   }
 
   return (
     <Popup isOpen={isLocaleListOpen} cb={onClosePopup} className='select-none'>
       <ul aria-labelledby='language-menu-button'>
-        {i18n.locales.map((locale, i, array) => {
+        {['en', 'fr'].map((locale, i, array) => {
           const lastElement = array[array.length - 1]
           const isLastElement = array.indexOf(lastElement) === i
 
           return (
             <li key={locale}>
-              <Link
-                href={redirectedPathName(locale)}
-                onClick={onClosePopup}
+              <Button
+                kind='headless'
+                onClick={() => onSelectChange(locale)}
                 onBlur={isLastElement ? onClosePopup : undefined}
-                className='block rounded-lg p-2 text-white hover:bg-primary-dark lg:hover:bg-primary-hover'
+                className='block w-full rounded-lg p-2 text-white hover:bg-primary-dark lg:hover:bg-primary-hover'
+                disabled={isPending}
               >
                 {transformLocaleToCountry(locale)}
-              </Link>
+              </Button>
             </li>
           )
         })}

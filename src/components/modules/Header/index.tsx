@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import Logo from '@/components/elements/Logo'
-import BurgerMenu from '@/components/elements/BurgerMenu'
+import Logo from 'components/elements/Logo'
+import BurgerMenu from 'components/elements/BurgerMenu'
 import HeaderContent from './HeaderContent'
-import useToggle from '@/hooks/useToggle'
-import { cn } from '@/utils/cn'
+import useToggle from 'hooks/useToggle'
+import { cn } from 'utils/cn'
 import { DEFAULT_HEADER_CLASSNAME, SCROLL_Y_LIMIT } from './const'
-import Container from '@/components/elements/Container'
+import Container from 'components/elements/Container'
 
 const Header = () => {
   const [headerClassName, setHeaderClassName] = useState(

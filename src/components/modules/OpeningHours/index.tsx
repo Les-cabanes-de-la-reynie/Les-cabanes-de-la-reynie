@@ -1,4 +1,4 @@
-import { GetOpeningHours } from '@/lib/OpeningHours'
+import { GetOpeningHours } from 'lib/OpeningHours'
 import OpeningHoursTable from './OpeningHoursTable'
 
 const OpeningHours = async () => {

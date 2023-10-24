@@ -1,7 +1,7 @@
 import { MenuIcon, X } from 'lucide-react'
-import { cn } from '@/utils/cn'
+import { cn } from 'utils/cn'
 import Button from './Button'
-import { ClassNameProps } from '@/_types/components'
+import { ClassNameProps } from '_types/components'
 
 interface BurgerMenuProps extends ClassNameProps {
   isBurgerMenuOpen: boolean

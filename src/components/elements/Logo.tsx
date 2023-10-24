@@ -1,15 +1,15 @@
 import Link from 'next/link'
-import createTranslation from 'next-translate/createTranslation'
-import { cn } from '@/utils/cn'
-import { ClassNameProps } from '@/_types/components'
-import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
+import { cn } from 'utils/cn'
+import { ClassNameProps } from '_types/components'
+import { ESTABLISHMENT_TITLE } from '_constants/establishmentInformation'
+import { useLocale } from 'next-intl'
 
 interface LogoProps extends ClassNameProps {
   onCloseMenu?: () => void
 }
 
 const Logo = ({ onCloseMenu, className = '' }: LogoProps) => {
-  const { lang } = createTranslation('common')
+  const lang = useLocale()
 
   const classes = cn(
     'flex flex-col box-border cursor-pointer mr-8 border-y-4 border-white text-2xl font-extrabold text-white',

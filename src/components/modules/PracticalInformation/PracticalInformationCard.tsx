@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import Heading from '@/components/elements/Heading'
+import Heading from 'components/elements/Heading'
 
 interface PracticalInformationCardProps extends PropsWithChildren {
   description: string

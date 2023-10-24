@@ -1,4 +1,4 @@
-import { GetOpeningHours } from '@/lib/OpeningHours'
+import { GetOpeningHours } from 'lib/OpeningHours'
 import OpeningHoursForm from './OpeningHoursForm'
 
 const OpeningHoursEdit = async () => {

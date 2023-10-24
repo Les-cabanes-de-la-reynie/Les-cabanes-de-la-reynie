@@ -4,8 +4,8 @@ import FsLightbox from 'fslightbox-react'
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
-import Button from '@/components/elements/Button'
-import Heading from '@/components/elements/Heading'
+import Button from 'components/elements/Button'
+import Heading from 'components/elements/Heading'
 import { CarouselProps } from './types'
 
 const responsive = {

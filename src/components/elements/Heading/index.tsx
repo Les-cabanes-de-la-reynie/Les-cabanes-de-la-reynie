@@ -1,5 +1,5 @@
 import { HTMLProps, PropsWithChildren } from 'react'
-import { cn } from '@/utils/cn'
+import { cn } from 'utils/cn'
 
 export interface HeadingProps
   extends PropsWithChildren,

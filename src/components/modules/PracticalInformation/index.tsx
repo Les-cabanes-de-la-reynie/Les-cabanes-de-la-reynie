@@ -5,7 +5,7 @@ import {
   WifiIcon
 } from 'lucide-react'
 import PracticalInformationCard from './PracticalInformationCard'
-import Heading from '@/components/elements/Heading'
+import Heading from 'components/elements/Heading'
 
 const PracticalInformation = () => {
   return (
