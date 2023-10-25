@@ -24,8 +24,7 @@ const Logo = ({ onCloseMenu, className = '' }: LogoProps) => {
       aria-label={`${ESTABLISHMENT_TITLE} Logo`}
       data-test='mainLogo'
     >
-      <span>Les cabanes</span>
-      <span>de la Reynie</span>
+      <span>LOGO</span>
     </Link>
   )
 }

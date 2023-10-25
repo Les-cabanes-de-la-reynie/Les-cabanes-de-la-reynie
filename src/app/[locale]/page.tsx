@@ -4,6 +4,7 @@ import PracticalInformation from 'components/modules/PracticalInformation'
 import Heading from 'components/elements/Heading'
 import Accommodations from 'components/modules/Accommodations'
 import { unstable_setRequestLocale } from 'next-intl/server'
+import { ESTABLISHMENT_TITLE } from '_constants/establishmentInformation'
 
 const Home = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
@@ -24,7 +25,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
             level={1}
             className='absolute inset-0 flex items-center justify-center text-white'
           >
-            Mon super titre
+            {ESTABLISHMENT_TITLE}
           </Heading>
         </div>
       </div>
