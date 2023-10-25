@@ -6,12 +6,13 @@ import { toast } from 'sonner'
 import TableHeader from '../TableHeader'
 import { formatStringTimeIntoDate } from 'utils/formatStringTimeIntoDate'
 import useToggle from 'hooks/useToggle'
-import { OpeningHoursFormProps } from '../types'
-import { UpdateOpeningHours } from 'lib/OpeningHours'
+import { OpeningHoursData, OpeningHoursFormProps } from '../types'
 import DayRowEdit from './DayRowEdit'
 import CancelButton from './CancelButton'
 import EditButton from './EditButton'
 import UpdateButton from './UpdateButton'
+import { updateOpeningHours } from 'service/openingHours'
+import { formatDateToTime } from 'utils/formatDateToTime'
 
 const OpeningHoursForm = ({
   openingHoursData: incomingData
@@ -94,7 +95,76 @@ const OpeningHoursForm = ({
     })
 
     try {
-      const openingHoursData = await UpdateOpeningHours(openingHoursDayData)
+      const jsonData = await updateOpeningHours(openingHoursDayData)
+
+      const {
+        mondayStart,
+        mondayEnd,
+        tuesdayStart,
+        tuesdayEnd,
+        wednesdayStart,
+        wednesdayEnd,
+        thursdayStart,
+        thursdayEnd,
+        fridayStart,
+        fridayEnd,
+        saturdayStart,
+        saturdayEnd,
+        sundayStart,
+        sundayEnd
+      } = jsonData
+
+      const openingHoursData: OpeningHoursData[] = [
+        {
+          dayTranslation: t('monday'),
+          inputStartName: 'mondayStart',
+          inputStartValue: formatDateToTime(mondayStart),
+          inputEndName: 'mondayEnd',
+          inputEndValue: formatDateToTime(mondayEnd)
+        },
+        {
+          dayTranslation: t('tuesday'),
+          inputStartName: 'tuesdayStart',
+          inputStartValue: formatDateToTime(tuesdayStart),
+          inputEndName: 'tuesdayEnd',
+          inputEndValue: formatDateToTime(tuesdayEnd)
+        },
+        {
+          dayTranslation: t('wednesday'),
+          inputStartName: 'wednesdayStart',
+          inputStartValue: formatDateToTime(wednesdayStart),
+          inputEndName: 'wednesdayEnd',
+          inputEndValue: formatDateToTime(wednesdayEnd)
+        },
+        {
+          dayTranslation: t('thursday'),
+          inputStartName: 'thursdayStart',
+          inputStartValue: formatDateToTime(thursdayStart),
+          inputEndName: 'thursdayEnd',
+          inputEndValue: formatDateToTime(thursdayEnd)
+        },
+        {
+          dayTranslation: t('friday'),
+          inputStartName: 'fridayStart',
+          inputStartValue: formatDateToTime(fridayStart),
+          inputEndName: 'fridayEnd',
+          inputEndValue: formatDateToTime(fridayEnd)
+        },
+        {
+          dayTranslation: t('saturday'),
+          inputStartName: 'saturdayStart',
+          inputStartValue: formatDateToTime(saturdayStart),
+          inputEndName: 'saturdayEnd',
+          inputEndValue: formatDateToTime(saturdayEnd)
+        },
+        {
+          dayTranslation: t('sunday'),
+          inputStartName: 'sundayStart',
+          inputStartValue: formatDateToTime(sundayStart),
+          inputEndName: 'sundayEnd',
+          inputEndValue: formatDateToTime(sundayEnd)
+        }
+      ]
 
       if (openingHoursData) {
         setOpeningHoursData(openingHoursData)
