@@ -1,15 +1,19 @@
 import { useLocale } from 'next-intl'
 import { format } from 'date-fns'
-import { enGB, fr } from 'date-fns/locale'
+import { enGB, enUS, fr } from 'date-fns/locale'
+import { cn } from 'utils/cn'
 import { OpeningHoursData } from './types'
 import { formatStringTimeIntoDate } from 'utils/formatStringTimeIntoDate'
 
 const DayRow = ({
+  day,
   dayTranslation,
   inputStartValue,
   inputEndValue
 }: OpeningHoursData) => {
   const lang = useLocale()
+
+  const today = format(new Date(), 'eeee', { locale: enUS })
 
   const startDate =
     lang === 'fr'
@@ -46,7 +50,7 @@ const DayRow = ({
         )
 
   return (
-    <tr>
+    <tr className={cn({ 'bg-primary text-white': day === today })}>
       <th className='border border-zinc-800 px-2 py-2 align-middle sm:px-4'>
         {dayTranslation}
       </th>

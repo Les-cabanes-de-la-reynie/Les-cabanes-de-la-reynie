@@ -11,6 +11,7 @@ const OpeningHoursTable = ({ openingHoursData }: OpeningHoursFormProps) => {
     () =>
       openingHoursData?.map(
         ({
+          day,
           dayTranslation,
           inputStartName,
           inputStartValue,
@@ -19,6 +20,7 @@ const OpeningHoursTable = ({ openingHoursData }: OpeningHoursFormProps) => {
         }) => (
           <DayRow
             key={dayTranslation}
+            day={day}
             dayTranslation={dayTranslation}
             inputStartName={inputStartName}
             inputStartValue={inputStartValue}

@@ -1,9 +1,6 @@
 import { add, startOfDay } from 'date-fns'
 
-export const formatStringTimeIntoDate = (time: string | null) => {
-  if (!time) {
-    return null
-  }
+export const formatStringTimeIntoDate = (time: string) => {
   const hours = parseInt(time.split(':')[0], 10)
   const minutes = parseInt(time.split(':')[1], 10)
 
