@@ -6,12 +6,17 @@ import { toast } from 'sonner'
 import TableHeader from '../TableHeader'
 import { formatStringTimeIntoDate } from 'utils/formatStringTimeIntoDate'
 import useToggle from 'hooks/useToggle'
-import { OpeningHoursData, OpeningHoursFormProps } from '../types'
+import {
+  DaysOfTheWeekEnum,
+  OpeningHoursData,
+  OpeningHoursDayData,
+  OpeningHoursFormProps
+} from '../types'
 import DayRowEdit from './DayRowEdit'
 import CancelButton from './CancelButton'
 import EditButton from './EditButton'
 import UpdateButton from './UpdateButton'
-import { updateOpeningHours } from 'service/openingHours'
+import { updateOpeningHours } from 'db/queries/openingHours.query'
 import { formatDateToTime } from 'utils/formatDateToTime'
 
 const OpeningHoursForm = ({
@@ -77,7 +82,7 @@ const OpeningHoursForm = ({
       String(formData.get('sundayEnd'))
     )
 
-    const openingHoursDayData = JSON.stringify({
+    const openingHoursDayData: OpeningHoursDayData = {
       mondayStart,
       mondayEnd,
       tuesdayStart,
@@ -92,10 +97,13 @@ const OpeningHoursForm = ({
       saturdayEnd,
       sundayStart,
       sundayEnd
-    })
+    }
 
     try {
-      const jsonData = await updateOpeningHours(openingHoursDayData)
+      const jsonData = await updateOpeningHours({
+        id: 1,
+        body: openingHoursDayData
+      })
 
       const {
         mondayStart,
@@ -116,6 +124,7 @@ const OpeningHoursForm = ({
 
       const openingHoursData: OpeningHoursData[] = [
         {
+          day: DaysOfTheWeekEnum.Monday,
           dayTranslation: t('monday'),
           inputStartName: 'mondayStart',
           inputStartValue: formatDateToTime(mondayStart),
@@ -123,6 +132,7 @@ const OpeningHoursForm = ({
           inputEndValue: formatDateToTime(mondayEnd)
         },
         {
+          day: DaysOfTheWeekEnum.Tuesday,
           dayTranslation: t('tuesday'),
           inputStartName: 'tuesdayStart',
           inputStartValue: formatDateToTime(tuesdayStart),
@@ -130,6 +140,7 @@ const OpeningHoursForm = ({
           inputEndValue: formatDateToTime(tuesdayEnd)
         },
         {
+          day: DaysOfTheWeekEnum.Wednesday,
           dayTranslation: t('wednesday'),
           inputStartName: 'wednesdayStart',
           inputStartValue: formatDateToTime(wednesdayStart),
@@ -137,6 +148,7 @@ const OpeningHoursForm = ({
           inputEndValue: formatDateToTime(wednesdayEnd)
         },
         {
+          day: DaysOfTheWeekEnum.Thursday,
           dayTranslation: t('thursday'),
           inputStartName: 'thursdayStart',
           inputStartValue: formatDateToTime(thursdayStart),
@@ -144,6 +156,7 @@ const OpeningHoursForm = ({
           inputEndValue: formatDateToTime(thursdayEnd)
         },
         {
+          day: DaysOfTheWeekEnum.Friday,
           dayTranslation: t('friday'),
           inputStartName: 'fridayStart',
           inputStartValue: formatDateToTime(fridayStart),
@@ -151,6 +164,7 @@ const OpeningHoursForm = ({
           inputEndValue: formatDateToTime(fridayEnd)
         },
         {
+          day: DaysOfTheWeekEnum.Saturday,
           dayTranslation: t('saturday'),
           inputStartName: 'saturdayStart',
           inputStartValue: formatDateToTime(saturdayStart),
@@ -158,6 +172,7 @@ const OpeningHoursForm = ({
           inputEndValue: formatDateToTime(saturdayEnd)
         },
         {
+          day: DaysOfTheWeekEnum.Sunday,
           dayTranslation: t('sunday'),
           inputStartName: 'sundayStart',
           inputStartValue: formatDateToTime(sundayStart),
@@ -182,6 +197,7 @@ const OpeningHoursForm = ({
     () =>
       openingHoursData?.map(
         ({
+          day,
           dayTranslation,
           inputStartName,
           inputStartValue,
@@ -190,6 +206,7 @@ const OpeningHoursForm = ({
         }) => (
           <DayRowEdit
             key={dayTranslation}
+            day={day}
             dayTranslation={dayTranslation}
             inputStartName={inputStartName}
             inputStartValue={inputStartValue}

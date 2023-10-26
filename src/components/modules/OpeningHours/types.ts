@@ -9,28 +9,29 @@ export enum DaysOfTheWeekEnum {
 }
 
 export interface OpeningHoursData {
+  day: DaysOfTheWeekEnum
   dayTranslation: string
   inputStartName?: string
-  inputStartValue: string | null
+  inputStartValue: string
   inputEndName?: string
-  inputEndValue: string | null
+  inputEndValue: string
 }
 
 export interface OpeningHoursDayData {
-  mondayStart: string | null
-  mondayEnd: string | null
-  tuesdayStart: string | null
-  tuesdayEnd: string | null
-  wednesdayStart: string | null
-  wednesdayEnd: string | null
-  thursdayStart: string | null
-  thursdayEnd: string | null
-  fridayStart: string | null
-  fridayEnd: string | null
-  saturdayStart: string | null
-  saturdayEnd: string | null
-  sundayStart: string | null
-  sundayEnd: string | null
+  mondayStart: Date
+  mondayEnd: Date
+  tuesdayStart: Date
+  tuesdayEnd: Date
+  wednesdayStart: Date
+  wednesdayEnd: Date
+  thursdayStart: Date
+  thursdayEnd: Date
+  fridayStart: Date
+  fridayEnd: Date
+  saturdayStart: Date
+  saturdayEnd: Date
+  sundayStart: Date
+  sundayEnd: Date
 }
 
 export interface OpeningHoursFormProps {
