@@ -17,20 +17,20 @@ export interface OpeningHoursData {
 }
 
 export interface OpeningHoursDayData {
-  mondayStart: string | null
-  mondayEnd: string | null
-  tuesdayStart: string | null
-  tuesdayEnd: string | null
-  wednesdayStart: string | null
-  wednesdayEnd: string | null
-  thursdayStart: string | null
-  thursdayEnd: string | null
-  fridayStart: string | null
-  fridayEnd: string | null
-  saturdayStart: string | null
-  saturdayEnd: string | null
-  sundayStart: string | null
-  sundayEnd: string | null
+  mondayStart: Date | null
+  mondayEnd: Date | null
+  tuesdayStart: Date | null
+  tuesdayEnd: Date | null
+  wednesdayStart: Date | null
+  wednesdayEnd: Date | null
+  thursdayStart: Date | null
+  thursdayEnd: Date | null
+  fridayStart: Date | null
+  fridayEnd: Date | null
+  saturdayStart: Date | null
+  saturdayEnd: Date | null
+  sundayStart: Date | null
+  sundayEnd: Date | null
 }
 
 export interface OpeningHoursFormProps {

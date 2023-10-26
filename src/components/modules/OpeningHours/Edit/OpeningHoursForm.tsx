@@ -6,12 +6,16 @@ import { toast } from 'sonner'
 import TableHeader from '../TableHeader'
 import { formatStringTimeIntoDate } from 'utils/formatStringTimeIntoDate'
 import useToggle from 'hooks/useToggle'
-import { OpeningHoursData, OpeningHoursFormProps } from '../types'
+import {
+  OpeningHoursData,
+  OpeningHoursDayData,
+  OpeningHoursFormProps
+} from '../types'
 import DayRowEdit from './DayRowEdit'
 import CancelButton from './CancelButton'
 import EditButton from './EditButton'
 import UpdateButton from './UpdateButton'
-import { updateOpeningHours } from 'service/openingHours'
+import { updateOpeningHours } from 'db/queries/openingHours.query'
 import { formatDateToTime } from 'utils/formatDateToTime'
 
 const OpeningHoursForm = ({
@@ -77,7 +81,7 @@ const OpeningHoursForm = ({
       String(formData.get('sundayEnd'))
     )
 
-    const openingHoursDayData = JSON.stringify({
+    const openingHoursDayData: OpeningHoursDayData = {
       mondayStart,
       mondayEnd,
       tuesdayStart,
@@ -92,10 +96,13 @@ const OpeningHoursForm = ({
       saturdayEnd,
       sundayStart,
       sundayEnd
-    })
+    }
 
     try {
-      const jsonData = await updateOpeningHours(openingHoursDayData)
+      const jsonData = await updateOpeningHours({
+        id: 1,
+        body: openingHoursDayData
+      })
 
       const {
         mondayStart,

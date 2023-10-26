@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl'
-import { getOpeningHours } from 'service/openingHours'
-import OpeningHoursTable from './OpeningHoursTable'
+import { getOpeningHours } from 'db/queries/openingHours.query'
 import { OpeningHoursData } from './types'
+import OpeningHoursTable from './OpeningHoursTable'
 import { formatDateToTime } from 'utils/formatDateToTime'
 
 const OpeningHours = async () => {
