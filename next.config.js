@@ -7,9 +7,6 @@ const withNextIntl = require('next-intl/plugin')(
 const nextConfig = {
   images: {
     domains: ['res.cloudinary.com']
-  },
-  experimental: {
-    serverActions: true
   }
 }
 
