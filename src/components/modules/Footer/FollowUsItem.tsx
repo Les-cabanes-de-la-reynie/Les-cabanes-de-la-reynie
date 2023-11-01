@@ -9,7 +9,7 @@ const FollowUsItem = ({ children, href }: FollowUsItemProps) => {
   return (
     <Link
       href={href}
-      className='flex h-10 w-10 items-center justify-center rounded-full bg-muted transition-colors hover:bg-primary hover:text-primary-foreground'
+      className='flex h-10 w-10 items-center justify-center rounded-full bg-card transition-colors hover:bg-primary hover:text-primary-foreground'
     >
       {children}
     </Link>

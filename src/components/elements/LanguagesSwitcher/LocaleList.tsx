@@ -6,6 +6,7 @@ import { usePathname, useRouter } from 'next-intl/client'
 import { Button } from '@/components/ui/button'
 import { transformLocaleToCountry } from '@/lib/utils'
 import { Separator } from '@/components/ui/separator'
+import P from '../P'
 
 const LocaleList = () => {
   const [isPending, startTransition] = useTransition()
@@ -21,7 +22,7 @@ const LocaleList = () => {
 
   return (
     <>
-      <p className='mb-2 select-none'>Languages</p>
+      <P className='mb-2 select-none'>Languages</P>
       <Separator className='mb-2' />
       <ul>
         {env.NEXT_PUBLIC_LANGS?.map(locale => {
