@@ -1,11 +1,12 @@
+import { env } from '@/env'
 import createMiddleware from 'next-intl/middleware'
 
 export default createMiddleware({
   // A list of all locales that are supported
-  locales: ['en', 'fr'],
+  locales: env.NEXT_PUBLIC_LANGS,
 
   // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
-  defaultLocale: 'en'
+  defaultLocale: env.NEXT_PUBLIC_LANG
 })
 
 export const config = {

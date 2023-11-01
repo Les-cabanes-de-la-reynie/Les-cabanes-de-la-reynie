@@ -2,11 +2,11 @@ import { KeyboardEvent, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import { ChevronDown } from 'lucide-react'
-import useToggle from 'hooks/useToggle'
+import useToggle from '@/hooks/useToggle'
 import NavItem from './NavItem'
 import NavList from './NavList'
-import useOutsideClick from 'hooks/useOutsideClick'
-import { cn } from 'utils/cn'
+import useOutsideClick from '@/hooks/useOutsideClick'
+import { cn } from '@/lib/utils'
 
 interface MainNavigationProps {
   isBurgerMenuOpen: boolean
@@ -81,7 +81,7 @@ const MainNavigation = ({
           </div>
           <NavList
             className={cn('hidden', {
-              'flex flex-col lg:absolute lg:top-14 lg:rounded-lg lg:bg-primary-dark lg:p-2 lg:shadow-md':
+              'bg-primary-dark flex flex-col lg:absolute lg:top-14 lg:rounded-lg lg:p-2 lg:shadow-md':
                 isNestedListOpen
             })}
             ref={popupRef}
@@ -89,7 +89,7 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements/yourte`}
-                className='flex max-w-max items-center gap-2 lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
+                className='flex max-w-max items-center gap-2 lg:rounded-lg lg:p-2'
                 onClick={onCloseBurgerMenu}
               >
                 Yourte
@@ -98,7 +98,7 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements/cabane`}
-                className='flex max-w-max items-center gap-2 lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
+                className='flex max-w-max items-center gap-2 lg:rounded-lg lg:p-2'
                 onClick={onCloseBurgerMenu}
               >
                 Cabane
@@ -107,7 +107,7 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements`}
-                className='flex max-w-max items-center gap-2 lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
+                className='flex max-w-max items-center gap-2 lg:rounded-lg lg:p-2'
                 onClick={onCloseBurgerMenu}
               >
                 Zone Tentes
@@ -116,7 +116,7 @@ const MainNavigation = ({
             <NavItem className='py-1 pl-5'>
               <Link
                 href={`/${lang}/logements`}
-                className='flex max-w-max items-center gap-2 lg:rounded-lg lg:p-2 lg:hover:bg-primary-hover lg:hover:text-white'
+                className='flex max-w-max items-center gap-2 lg:rounded-lg lg:p-2'
                 onClick={onCloseBurgerMenu}
                 onBlur={handleClosePopup}
               >

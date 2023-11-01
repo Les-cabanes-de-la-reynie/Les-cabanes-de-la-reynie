@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl'
-import Heading from 'components/elements/Heading'
-import Container from 'components/elements/Container'
+import Heading from '@/components/elements/Heading'
+import Container from '@/components/elements/Container'
 import { unstable_setRequestLocale } from 'next-intl/server'
 
 const Yourte = ({ params: { locale } }: { params: { locale: string } }) => {
@@ -13,9 +13,7 @@ const Yourte = ({ params: { locale } }: { params: { locale: string } }) => {
       <Heading level={1} className='my-8 text-center'>
         {t('deliveryMainTitle')}
       </Heading>
-      <div className='mb-8 flex flex-grow flex-col text-black dark:text-white'>
-        Yourte
-      </div>
+      <div className='mb-8 flex flex-grow flex-col'>Yourte</div>
     </Container>
   )
 }

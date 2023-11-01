@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
-import { ClassNameProps } from '_types/components'
-import { cn } from 'utils/cn'
+import { ClassNameProps } from '@/_types/components'
+import { cn } from '@/lib/utils'
 
 interface NavItemProps
   extends PropsWithChildren,
@@ -9,7 +9,7 @@ interface NavItemProps
 
 const NavItem = ({ children, className, ...rest }: NavItemProps) => {
   const classes = cn(
-    'py-4 text-white hover:text-zinc-300 transition-colors select-none lg:p-0',
+    'py-4 select-none lg:p-0 text-primary-foreground',
     className
   )
 

@@ -1,8 +1,8 @@
 import { useTranslations } from 'next-intl'
-import { getOpeningHours } from 'db/queries/openingHours.query'
 import { DaysOfTheWeekEnum, OpeningHoursData } from './types'
 import OpeningHoursTable from './OpeningHoursTable'
-import { formatDateToTime } from 'utils/formatDateToTime'
+import { formatDateToTime } from '@/lib/utils'
+import { getOpeningHours } from '@/db/queries/openingHours.query'
 
 const OpeningHours = async () => {
   const t = useTranslations('Contact')

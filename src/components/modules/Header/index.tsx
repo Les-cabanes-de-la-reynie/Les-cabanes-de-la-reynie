@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import Logo from 'components/elements/Logo'
-import BurgerMenu from 'components/elements/BurgerMenu'
+import Logo from '@/components/elements/Logo'
+import BurgerMenu from '@/components/elements/BurgerMenu'
 import HeaderContent from './HeaderContent'
-import useToggle from 'hooks/useToggle'
-import { cn } from 'utils/cn'
 import { DEFAULT_HEADER_CLASSNAME, SCROLL_Y_LIMIT } from './const'
-import Container from 'components/elements/Container'
+import Container from '@/components/elements/Container'
+import useToggle from '@/hooks/useToggle'
+import { cn } from '@/lib/utils'
 
 const Header = () => {
   const [headerClassName, setHeaderClassName] = useState(
@@ -49,7 +49,7 @@ const Header = () => {
   useEffect(() => {
     setHeaderClassName(
       cn(DEFAULT_HEADER_CLASSNAME, {
-        'lg:bg-primary dark:lg:bg-primary lg:bg-none':
+        'lg:bg-primary lg:bg-none':
           clientWindowHeight > SCROLL_Y_LIMIT || pathWithoutLocale !== '/'
       })
     )

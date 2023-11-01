@@ -33,10 +33,7 @@ const OpeningHoursTable = ({ openingHoursData }: OpeningHoursFormProps) => {
   )
 
   return (
-    <table
-      className='h-full w-full flex-1 text-black dark:text-white'
-      data-test='openingHours'
-    >
+    <table className='h-full w-full flex-1' data-test='openingHours'>
       <TableHeader day={''} lunch={t('opening')} dinner={t('closing')} />
       <tbody className='text-center'>{openingHoursDataMemorized}</tbody>
     </table>

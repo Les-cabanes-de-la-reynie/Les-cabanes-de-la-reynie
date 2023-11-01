@@ -1,7 +1,7 @@
 'use client'
 
-import Heading from 'components/elements/Heading'
 import { useEffect } from 'react'
+import Heading from '@/components/elements/Heading'
 
 const Error = ({ error, reset }: { error: Error; reset: () => void }) => {
   useEffect(() => {

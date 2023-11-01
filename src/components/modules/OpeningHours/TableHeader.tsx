@@ -4,13 +4,9 @@ const TableHeader = ({ day, lunch, dinner }: TableHeaderProps) => {
   return (
     <thead>
       <tr>
-        <th className='h-16 border border-zinc-800 text-lg font-bold'>{day}</th>
-        <th className='h-16 border border-zinc-800 text-lg font-bold '>
-          {lunch}
-        </th>
-        <th className='h-16 border border-zinc-800 text-lg font-bold '>
-          {dinner}
-        </th>
+        <th className='h-16 border text-lg font-bold'>{day}</th>
+        <th className='h-16 border text-lg font-bold '>{lunch}</th>
+        <th className='h-16 border text-lg font-bold '>{dinner}</th>
       </tr>
     </thead>
   )

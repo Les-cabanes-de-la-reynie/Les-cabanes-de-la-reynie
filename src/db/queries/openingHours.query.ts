@@ -1,5 +1,5 @@
-import { OpeningHoursDayData } from 'components/modules/OpeningHours/types'
-import { prisma } from 'db/prisma'
+import { OpeningHoursDayData } from "@/components/modules/OpeningHours/types"
+import { prisma } from "../prisma"
 
 export const getOpeningHours = () => prisma.openingHours.findMany()
 

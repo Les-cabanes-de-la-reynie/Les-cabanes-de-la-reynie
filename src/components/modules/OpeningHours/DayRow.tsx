@@ -1,9 +1,8 @@
 import { useLocale } from 'next-intl'
 import { format } from 'date-fns'
 import { enGB, enUS, fr } from 'date-fns/locale'
-import { cn } from 'utils/cn'
+import { cn, formatStringTimeIntoDate } from '@/lib/utils'
 import { OpeningHoursData } from './types'
-import { formatStringTimeIntoDate } from 'utils/formatStringTimeIntoDate'
 
 const DayRow = ({
   day,
@@ -51,13 +50,13 @@ const DayRow = ({
 
   return (
     <tr className={cn({ 'bg-primary text-white': day === today })}>
-      <th className='border border-zinc-800 px-2 py-2 align-middle sm:px-4'>
+      <th className='border px-2 py-2 align-middle sm:px-4'>
         {dayTranslation}
       </th>
-      <td className='border border-zinc-800 px-2 py-2 align-middle sm:px-4'>
+      <td className='border px-2 py-2 align-middle sm:px-4'>
         <span>{startDate}</span>
       </td>
-      <td className='border border-zinc-800 px-2 py-2 align-middle sm:px-4'>
+      <td className='border px-2 py-2 align-middle sm:px-4'>
         <span>{endDate}</span>
       </td>
     </tr>

@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl'
-import Button from 'components/elements/Button'
+import { Button } from '@/components/ui/button'
 
 interface CancelButtonProps {
   onClick: () => void
@@ -9,7 +9,7 @@ const CancelButton = ({ onClick }: CancelButtonProps) => {
   const t = useTranslations('Common')
 
   return (
-    <Button onClick={() => onClick()} kind='border'>
+    <Button onClick={() => onClick()} variant={'outline'}>
       {t('cancel')}
     </Button>
   )

@@ -1,4 +1,4 @@
-import TimeInput from 'components/fields/TimeInput'
+import { Input } from '@/components/ui/input'
 import { DayRowEditProps } from '../types'
 
 const DayRowEdit = ({
@@ -10,7 +10,8 @@ const DayRowEdit = ({
   isEdit
 }: DayRowEditProps) => {
   const openingValue = isEdit ? (
-    <TimeInput
+    <Input
+      type='time'
       name={inputStartName}
       defaultValue={String(inputStartValue) || ''}
     />
@@ -19,22 +20,22 @@ const DayRowEdit = ({
   )
 
   const closingValue = isEdit ? (
-    <TimeInput name={inputEndName} defaultValue={String(inputEndValue) || ''} />
+    <Input
+      type='time'
+      name={inputEndName}
+      defaultValue={String(inputEndValue) || ''}
+    />
   ) : (
     <span>{String(inputEndValue)}</span>
   )
 
   return (
     <tr>
-      <th className='border border-zinc-800 px-2 py-2 align-middle sm:px-4'>
+      <th className='border px-2 py-2 align-middle sm:px-4'>
         {dayTranslation}
       </th>
-      <td className='border border-zinc-800 px-2 py-2 align-middle sm:px-4'>
-        {openingValue}
-      </td>
-      <td className='border border-zinc-800 px-2 py-2 align-middle sm:px-4'>
-        {closingValue}
-      </td>
+      <td className='border px-2 py-2 align-middle sm:px-4'>{openingValue}</td>
+      <td className='border px-2 py-2 align-middle sm:px-4'>{closingValue}</td>
     </tr>
   )
 }

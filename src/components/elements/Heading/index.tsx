@@ -1,5 +1,5 @@
 import { HTMLProps, PropsWithChildren } from 'react'
-import { cn } from 'utils/cn'
+import { cn } from '@/lib/utils'
 
 export interface HeadingProps
   extends PropsWithChildren,
@@ -16,28 +16,28 @@ const Heading = ({
   ...rest
 }: HeadingProps) => {
   const h1ClassName = cn(
-    'text-black dark:text-white text-3xl font-bold md:text-4xl',
+    'text-3xl font-bold md:text-4xl',
     {
       'text-error': error
     },
     className
   )
   const h2ClassName = cn(
-    'text-black dark:text-white text-xl font-bold md:text-2xl',
+    'text-xl font-bold md:text-2xl',
     {
       'text-error': error
     },
     className
   )
   const h3ClassName = cn(
-    'text-black dark:text-white text-lg font-bold md:text-xl',
+    'text-lg font-bold md:text-xl',
     {
       'text-error': error
     },
     className
   )
   const h4ClassName = cn(
-    'text-black dark:text-white text-md font-bold md:text-lg',
+    'text-md font-bold md:text-lg',
     {
       'text-error': error
     },

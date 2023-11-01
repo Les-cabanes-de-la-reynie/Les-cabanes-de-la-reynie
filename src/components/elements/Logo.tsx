@@ -1,19 +1,17 @@
 import Link from 'next/link'
-import { cn } from 'utils/cn'
-import { ClassNameProps } from '_types/components'
-import { ESTABLISHMENT_TITLE } from '_constants/establishmentInformation'
 import { useLocale } from 'next-intl'
+import { cn } from '@/lib/utils'
+import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 
-interface LogoProps extends ClassNameProps {
+interface LogoProps {
   onCloseMenu?: () => void
 }
 
-const Logo = ({ onCloseMenu, className = '' }: LogoProps) => {
+const Logo = ({ onCloseMenu }: LogoProps) => {
   const lang = useLocale()
 
   const classes = cn(
-    'flex flex-col box-border cursor-pointer mr-8 border-y-4 border-white text-2xl font-extrabold text-white',
-    className
+    'flex flex-col box-border cursor-pointer mr-8 border-y-4 border-white  text-2xl font-extrabold text-white'
   )
 
   return (

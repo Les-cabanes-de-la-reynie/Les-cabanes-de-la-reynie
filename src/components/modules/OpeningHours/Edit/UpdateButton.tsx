@@ -1,11 +1,12 @@
+import { Button } from '@/components/ui/button'
 import { useTranslations } from 'next-intl'
-import Button from 'components/elements/Button'
+
 
 const UpdateButton = () => {
   const t = useTranslations('Common')
 
   return (
-    <Button type='submit' kind='valid'>
+    <Button type='submit' >
       {t('update')}
     </Button>
   )
