@@ -15,7 +15,7 @@ const Contact = ({ params: { locale } }: { params: { locale: string } }) => {
   return (
     <Container>
       <Heading level={1} className='my-8'>
-        {t('restaurantsMainTitle')}
+        {t('contactMainTitle')}
       </Heading>
       <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
         <section className='flex w-full flex-col gap-4 lg:mb-0'>

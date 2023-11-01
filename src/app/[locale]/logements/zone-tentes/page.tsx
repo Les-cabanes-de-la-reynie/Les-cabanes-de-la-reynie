@@ -11,7 +11,7 @@ const Yourte = ({ params: { locale } }: { params: { locale: string } }) => {
   return (
     <Container>
       <Heading level={1} className='my-8 text-center'>
-        Yourte
+        ZONE TENTES
       </Heading>
       <div className='mb-8 flex flex-grow flex-col'>{t('description')}</div>
     </Container>

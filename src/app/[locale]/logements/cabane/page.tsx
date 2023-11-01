@@ -6,14 +6,14 @@ import { unstable_setRequestLocale } from 'next-intl/server'
 const Cabane = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
 
-  const t = useTranslations('Delivery')
+  const t = useTranslations('SEO')
 
   return (
     <Container>
       <Heading level={1} className='my-8 text-center'>
-        {t('deliveryMainTitle')}
+        CABANE
       </Heading>
-      <div className='mb-8 flex flex-grow flex-col'>CABANE</div>
+      <div className='mb-8 flex flex-grow flex-col'>{t('description')}</div>
     </Container>
   )
 }

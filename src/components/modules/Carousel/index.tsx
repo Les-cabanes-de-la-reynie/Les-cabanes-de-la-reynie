@@ -48,7 +48,11 @@ const Carousel = ({
 
   return (
     <>
-      {!!title && <Heading level={2}>{title}</Heading>}
+      {!!title && (
+        <Heading level={2} className='mb-2 pl-4 pr-24'>
+          {title}
+        </Heading>
+      )}
       <AliceCarousel
         responsive={responsive}
         infinite

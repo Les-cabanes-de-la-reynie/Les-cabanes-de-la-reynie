@@ -4,12 +4,7 @@ import FooterNav from './FooterNav'
 import FooterHeading from './FooterHeading'
 import FooterItem from './FooterItem'
 import Container from '@/components/elements/Container'
-import {
-  FacebookIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  TwitterIcon
-} from 'lucide-react'
+import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'lucide-react'
 import FollowUsItem from './FollowUsItem'
 
 const Footer = () => {
@@ -63,11 +58,6 @@ const Footer = () => {
             <FooterItem>
               <FollowUsItem href='https://www.google.fr/'>
                 <LinkedinIcon />
-              </FollowUsItem>
-            </FooterItem>
-            <FooterItem>
-              <FollowUsItem href='https://www.google.fr/'>
-                <InstagramIcon />
               </FollowUsItem>
             </FooterItem>
           </ul>

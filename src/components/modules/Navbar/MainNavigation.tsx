@@ -81,7 +81,7 @@ const MainNavigation = ({
           </div>
           <NavList
             className={cn('hidden', {
-              'bg-primary-dark flex flex-col lg:absolute lg:top-14 lg:rounded-lg lg:p-2 lg:shadow-md':
+              'flex flex-col bg-primary-dark lg:absolute lg:top-14 lg:rounded-lg lg:p-2 lg:shadow-md':
                 isNestedListOpen
             })}
             ref={popupRef}
@@ -106,7 +106,7 @@ const MainNavigation = ({
             </NavItem>
             <NavItem className='py-1 pl-5'>
               <Link
-                href={`/${lang}/logements`}
+                href={`/${lang}/logements/zone-tentes`}
                 className='flex max-w-max items-center gap-2 lg:rounded-lg lg:p-2'
                 onClick={onCloseBurgerMenu}
               >
@@ -115,7 +115,7 @@ const MainNavigation = ({
             </NavItem>
             <NavItem className='py-1 pl-5'>
               <Link
-                href={`/${lang}/logements`}
+                href={`/${lang}/logements/zone-camping-cars`}
                 className='flex max-w-max items-center gap-2 lg:rounded-lg lg:p-2'
                 onClick={onCloseBurgerMenu}
                 onBlur={handleClosePopup}

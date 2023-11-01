@@ -1,39 +1,45 @@
-import {
-  BedDoubleIcon,
-  PawPrintIcon,
-  RefrigeratorIcon,
-  WifiIcon
-} from 'lucide-react'
 import PracticalInformationCard from './PracticalInformationCard'
 import Heading from '@/components/elements/Heading'
 import Container from '@/components/elements/Container'
+import DoubleBedIcon from '@/components/images/practicalInformation/DoubleBedIcon'
+import WifiIcon from '@/components/images/practicalInformation/WifiIcon'
+import PawPrintIcon from '@/components/images/practicalInformation/PawPrintIcon'
+import RefrigeratorIcon from '@/components/images/practicalInformation/RefrigeratorIcon'
+import ShowerIcon from '@/components/images/practicalInformation/ShowerIcon'
+import ToiletIcon from '@/components/images/practicalInformation/ToiletIcon'
 
 const PracticalInformation = () => {
+  const COMMON_ICON_CLASSNAME = 'h-12 w-12 fill-primary'
+
   return (
-    <Container>
+    <Container className='mb-10'>
       <section>
         <Heading level={2} className='mb-8 text-center'>
           Informations pratiques
         </Heading>
         <ul className='flex w-full flex-1 flex-wrap justify-around gap-6'>
           <PracticalInformationCard description='Wifi'>
-            <WifiIcon size={40} className='text-primary' />
+            <WifiIcon className={COMMON_ICON_CLASSNAME} />
           </PracticalInformationCard>
 
-          <PracticalInformationCard description='Animaux non-admis'>
-            <PawPrintIcon size={40} className='text-primary' />
+          <PracticalInformationCard description='Animaux admis'>
+            <PawPrintIcon className={COMMON_ICON_CLASSNAME} />
           </PracticalInformationCard>
 
           <PracticalInformationCard description='Lit king-size 180x200'>
-            <BedDoubleIcon size={40} className='text-primary' />
+            <DoubleBedIcon className={COMMON_ICON_CLASSNAME} />
           </PracticalInformationCard>
 
-          <PracticalInformationCard description='Mini frigo'>
-            <RefrigeratorIcon size={40} className='text-primary' />
+          <PracticalInformationCard description='Frigo'>
+            <RefrigeratorIcon className={COMMON_ICON_CLASSNAME} />
           </PracticalInformationCard>
 
-          <PracticalInformationCard description='Wifi'>
-            <WifiIcon size={40} className='text-primary' />
+          <PracticalInformationCard description='Douche'>
+            <ShowerIcon className={COMMON_ICON_CLASSNAME} />
+          </PracticalInformationCard>
+
+          <PracticalInformationCard description='Toilette'>
+            <ToiletIcon className={COMMON_ICON_CLASSNAME} />
           </PracticalInformationCard>
         </ul>
       </section>
