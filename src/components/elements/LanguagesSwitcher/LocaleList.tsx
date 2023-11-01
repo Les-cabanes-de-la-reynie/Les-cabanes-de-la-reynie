@@ -3,6 +3,7 @@
 import { useTransition } from 'react'
 import { env } from '@/env'
 import { usePathname, useRouter } from 'next-intl/client'
+import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { transformLocaleToCountry } from '@/lib/utils'
 import { Separator } from '@/components/ui/separator'
@@ -12,6 +13,7 @@ const LocaleList = () => {
   const [isPending, startTransition] = useTransition()
   const router = useRouter()
   const pathname = usePathname()
+  const t = useTranslations('Navigation')
 
   const onSelectChange = (locale: string) => {
     const nextLocale = locale
@@ -22,7 +24,7 @@ const LocaleList = () => {
 
   return (
     <>
-      <P className='mb-2 select-none'>Languages</P>
+      <P className='mb-2 select-none'>{t('switchLangTitle')}</P>
       <Separator className='mb-2' />
       <ul>
         {env.NEXT_PUBLIC_LANGS?.map(locale => {

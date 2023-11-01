@@ -3,6 +3,7 @@ import { DaysOfTheWeekEnum, OpeningHoursData } from './types'
 import OpeningHoursTable from './OpeningHoursTable'
 import { formatDateToTime } from '@/lib/utils'
 import { getOpeningHours } from '@/db/queries/openingHours.query'
+import P from '@/components/elements/P'
 
 const OpeningHours = async () => {
   const t = useTranslations('Contact')
@@ -86,8 +87,12 @@ const OpeningHours = async () => {
   ]
 
   return (
-    <div className='flex flex-1 items-center justify-center'>
+    <div className='flex flex-1 flex-col items-center justify-center'>
       <OpeningHoursTable openingHoursData={openingHoursData} />
+      <P className='flex flex-col'>
+        <span>Les arrivées se font entre 16h00 et 20h00</span>
+        <span>Les départs avant 11h00</span>
+      </P>
     </div>
   )
 }

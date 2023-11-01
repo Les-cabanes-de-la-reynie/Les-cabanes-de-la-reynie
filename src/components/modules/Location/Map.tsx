@@ -42,7 +42,7 @@ const Map = () => {
     <MapContainer
       doubleClickZoom={false}
       center={ESTABLISHMENT_POSITION}
-      zoom={7}
+      zoom={6}
       className='relative h-full w-full'
     >
       <TileLayer url={MAP_URL} detectRetina={true} />
