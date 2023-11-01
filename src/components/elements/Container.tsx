@@ -1,6 +1,6 @@
+import { ClassNameProps } from '@/_types/components'
+import { cn } from '@/lib/utils'
 import { PropsWithChildren } from 'react'
-import { ClassNameProps } from '_types/components'
-import { cn } from 'utils/cn'
 
 export interface ContainerProps extends ClassNameProps, PropsWithChildren {
   padding?: boolean

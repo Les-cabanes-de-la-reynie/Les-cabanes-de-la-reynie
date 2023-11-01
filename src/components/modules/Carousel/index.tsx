@@ -4,9 +4,9 @@ import FsLightbox from 'fslightbox-react'
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
-import Button from 'components/elements/Button'
-import Heading from 'components/elements/Heading'
+import Heading from '@/components/elements/Heading'
 import { CarouselProps } from './types'
+import { Button } from '@/components/ui/button'
 
 const responsive = {
   0: { items: 1 },
@@ -15,7 +15,7 @@ const responsive = {
 }
 
 const SLIDER_BUTTONS_COMMON_CLASSNAME =
-  'absolute -top-12 flex h-10 w-10 items-center justify-center rounded-full p-0'
+  'absolute -top-12 flex h-10 w-10 items-center text-primary-foreground justify-center rounded-full p-0 bg-primary'
 
 const Carousel = ({
   carouselItems,
@@ -26,6 +26,7 @@ const Carousel = ({
   const renderPrevButton = ({ isDisabled = false }) => {
     return (
       <Button
+        variant='ghost'
         className={`${SLIDER_BUTTONS_COMMON_CLASSNAME} right-14`}
         disabled={isDisabled}
       >
@@ -36,6 +37,7 @@ const Carousel = ({
   const renderNextButton = ({ isDisabled = false }) => {
     return (
       <Button
+        variant='ghost'
         className={`${SLIDER_BUTTONS_COMMON_CLASSNAME} right-2`}
         disabled={isDisabled}
       >

@@ -4,7 +4,12 @@ import { UserProvider } from '@auth0/nextjs-auth0/client'
 
 const Providers = ({ children }: PropsWithChildren) => {
   return (
-    <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+    <ThemeProvider
+      attribute='class'
+      defaultTheme='system'
+      enableSystem
+      disableTransitionOnChange
+    >
       <UserProvider>{children}</UserProvider>
     </ThemeProvider>
   )

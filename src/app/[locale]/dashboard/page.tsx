@@ -3,9 +3,9 @@
 import { Suspense } from 'react'
 import Link from 'next/link'
 import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client'
-import Loader from 'components/elements/Loader'
-import Container from 'components/elements/Container'
-import OpeningHoursEdit from 'components/modules/OpeningHours/Edit/OpeningHoursEdit'
+import Loader from '@/components/elements/Loader'
+import Container from '@/components/elements/Container'
+import OpeningHoursEdit from '@/components/modules/OpeningHours/Edit/OpeningHoursEdit'
 
 const Dashboard = () => {
   const { user } = useUser()

@@ -4,8 +4,7 @@ import { FormEvent, useMemo, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 import TableHeader from '../TableHeader'
-import { formatStringTimeIntoDate } from 'utils/formatStringTimeIntoDate'
-import useToggle from 'hooks/useToggle'
+import useToggle from '@/hooks/useToggle'
 import {
   DaysOfTheWeekEnum,
   OpeningHoursData,
@@ -16,8 +15,8 @@ import DayRowEdit from './DayRowEdit'
 import CancelButton from './CancelButton'
 import EditButton from './EditButton'
 import UpdateButton from './UpdateButton'
-import { updateOpeningHours } from 'db/queries/openingHours.query'
-import { formatDateToTime } from 'utils/formatDateToTime'
+import { formatDateToTime, formatStringTimeIntoDate } from '@/lib/utils'
+import { updateOpeningHours } from '@/db/queries/openingHours.query'
 
 const OpeningHoursForm = ({
   openingHoursData: incomingData
@@ -235,10 +234,7 @@ const OpeningHoursForm = ({
 
   return (
     <form onSubmit={onSubmit} className='h-full w-full'>
-      <table
-        className='w-full flex-grow text-black dark:text-white'
-        data-test='openingHours'
-      >
+      <table className='w-full flex-grow' data-test='openingHours'>
         <TableHeader day={''} lunch={t('opening')} dinner={t('closing')} />
         <tbody className='text-center'>{openingHoursDataMemorized}</tbody>
       </table>

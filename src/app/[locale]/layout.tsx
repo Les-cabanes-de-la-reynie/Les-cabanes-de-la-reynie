@@ -1,18 +1,17 @@
 import { notFound } from 'next/navigation'
-import { cn } from 'utils/cn'
-import Header from 'components/modules/Header'
+import { cn } from '@/lib/utils'
+import Header from '@/components/modules/Header'
 import { Baloo_2 } from 'next/font/google'
-import Footer from 'components/modules/Footer'
-import Providers from 'providers'
+import Footer from '@/components/modules/Footer'
 import { Toaster } from 'sonner'
-import { ESTABLISHMENT_TITLE } from '_constants/establishmentInformation'
+import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import { ReactNode } from 'react'
 import { NextIntlClientProvider, createTranslator } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
+import Providers from '@/providers'
+import { env } from '@/env'
 
 const fontFamily = Baloo_2({ display: 'swap', subsets: ['latin'] })
-
-const locales = ['en', 'fr']
 
 type RootLayoutProps = {
   children: ReactNode
@@ -28,7 +27,7 @@ async function getMessages(locale: string) {
 }
 
 export async function generateStaticParams() {
-  return ['en', 'fr'].map(locale => ({ locale }))
+  return env.NEXT_PUBLIC_LANGS.map(locale => ({ locale }))
 }
 
 export async function generateMetadata({
@@ -52,7 +51,7 @@ const RootLayout = async ({
   params: { locale }
 }: RootLayoutProps) => {
   // Validate that the incoming `locale` parameter is valid
-  const isValidLocale = locales.some(cur => cur === locale)
+  const isValidLocale = env.NEXT_PUBLIC_LANGS.some(cur => cur === locale)
   if (!isValidLocale) notFound()
 
   unstable_setRequestLocale(locale)
@@ -65,7 +64,7 @@ const RootLayout = async ({
       <body
         className={cn(
           fontFamily.className,
-          'relative flex min-h-screen w-full flex-col bg-zinc-100 dark:bg-zinc-900'
+          'text:foreground relative flex min-h-screen w-full flex-col bg-background'
         )}
       >
         <Toaster richColors position='top-right' />

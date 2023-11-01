@@ -1,6 +1,6 @@
 import { ForwardRefRenderFunction, PropsWithChildren, forwardRef } from 'react'
-import { cn } from 'utils/cn'
-import { ClassNameProps } from '_types/components'
+import { cn } from '@/lib/utils'
+import { ClassNameProps } from '@/_types/components'
 
 interface NavListProps extends PropsWithChildren, ClassNameProps {}
 

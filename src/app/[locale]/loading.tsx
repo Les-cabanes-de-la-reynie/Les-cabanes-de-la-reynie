@@ -1,7 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import Loader from 'components/elements/Loader'
+import Loader from '@/components/elements/Loader'
 
 const Loading = () => {
   const t = useTranslations('Common')

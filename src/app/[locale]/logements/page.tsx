@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
-import Heading from 'components/elements/Heading'
-import Button from 'components/elements/Button'
-import Container from 'components/elements/Container'
+import Heading from '@/components/elements/Heading'
+
+import Container from '@/components/elements/Container'
 import { unstable_setRequestLocale } from 'next-intl/server'
+import { Button } from '@/components/ui/button'
 
 const Logements = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
@@ -16,7 +17,7 @@ const Logements = ({ params: { locale } }: { params: { locale: string } }) => {
       <Heading level={1} className='my-8 text-center'>
         {t('deliveryMainTitle')}
       </Heading>
-      <div className='mb-8 flex flex-grow flex-col text-black dark:text-white'>
+      <div className='mb-8 flex flex-grow flex-col'>
         <section className='mb-8 flex flex-grow flex-col items-center justify-center'>
           <Heading level={2}>{t('delivery')}</Heading>
           <p className='mb-8 mt-4 text-center'>{t('deliveryContent')}</p>

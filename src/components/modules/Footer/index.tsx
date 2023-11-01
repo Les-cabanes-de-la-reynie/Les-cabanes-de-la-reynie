@@ -3,20 +3,21 @@ import { useLocale, useTranslations } from 'next-intl'
 import FooterNav from './FooterNav'
 import FooterHeading from './FooterHeading'
 import FooterItem from './FooterItem'
-import Container from 'components/elements/Container'
+import Container from '@/components/elements/Container'
 import {
   FacebookIcon,
   InstagramIcon,
   LinkedinIcon,
   TwitterIcon
 } from 'lucide-react'
+import FollowUsItem from './FollowUsItem'
 
 const Footer = () => {
   const t = useTranslations('Footer')
   const lang = useLocale()
 
   return (
-    <footer className='box-border w-full border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950'>
+    <footer className='box-border w-full border-t'>
       <Container className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3'>
         <FooterNav>
           <FooterHeading>{t('aboutUs')}</FooterHeading>
@@ -50,36 +51,24 @@ const Footer = () => {
           <FooterHeading> {t('followUs')}</FooterHeading>
           <ul className='flex gap-4'>
             <FooterItem>
-              <Link
-                href='https://www.google.fr/'
-                className='flex h-10 w-10 items-center justify-center rounded-full bg-zinc-200 transition-colors hover:bg-primary hover:text-white dark:bg-zinc-700 dark:hover:bg-primary'
-              >
+              <FollowUsItem href='https://www.google.fr/'>
                 <FacebookIcon />
-              </Link>
+              </FollowUsItem>
             </FooterItem>
             <FooterItem>
-              <Link
-                href='https://www.google.fr/'
-                className='flex h-10 w-10 items-center justify-center rounded-full bg-zinc-200 transition-colors hover:bg-primary hover:text-white dark:bg-zinc-700 dark:hover:bg-primary'
-              >
+              <FollowUsItem href='https://www.google.fr/'>
                 <TwitterIcon />
-              </Link>
+              </FollowUsItem>
             </FooterItem>
             <FooterItem>
-              <Link
-                href='https://www.google.fr/'
-                className='flex h-10 w-10 items-center justify-center rounded-full bg-zinc-200 transition-colors hover:bg-primary hover:text-white dark:bg-zinc-700 dark:hover:bg-primary'
-              >
+              <FollowUsItem href='https://www.google.fr/'>
                 <LinkedinIcon />
-              </Link>
+              </FollowUsItem>
             </FooterItem>
             <FooterItem>
-              <Link
-                href='https://www.google.fr/'
-                className='flex h-10 w-10 items-center justify-center rounded-full bg-zinc-200 transition-colors hover:bg-primary hover:text-white dark:bg-zinc-700 dark:hover:bg-primary'
-              >
+              <FollowUsItem href='https://www.google.fr/'>
                 <InstagramIcon />
-              </Link>
+              </FollowUsItem>
             </FooterItem>
           </ul>
         </FooterNav>
