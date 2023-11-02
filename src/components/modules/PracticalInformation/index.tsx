@@ -17,7 +17,7 @@ const PracticalInformation = () => {
         <Heading level={2} className='mb-8 text-center'>
           Informations pratiques
         </Heading>
-        <ul className='flex w-full flex-1 flex-wrap justify-around gap-6'>
+        <ul className='xs:grid-cols-2 grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4'>
           <PracticalInformationCard description='Wifi'>
             <WifiIcon className={COMMON_ICON_CLASSNAME} />
           </PracticalInformationCard>

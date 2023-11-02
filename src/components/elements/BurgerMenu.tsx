@@ -14,7 +14,7 @@ const BurgerMenu = ({
     <Button
       variant='ghost'
       size='icon'
-      className='rounded-full text-primary-foreground transition-colors lg:hidden'
+      className='rounded-full bg-primary-dark text-primary-foreground lg:hidden'
       onClick={onToggleBurgerMenu}
     >
       {isBurgerMenuOpen ? (

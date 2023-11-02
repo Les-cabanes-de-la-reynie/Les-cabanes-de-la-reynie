@@ -1,7 +1,6 @@
 'use client'
 
-import { FormEvent, useMemo, useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useMemo, useState } from 'react'
 import { toast } from 'sonner'
 import TableHeader from '../TableHeader'
 import useToggle from '@/hooks/useToggle'
@@ -23,62 +22,56 @@ const OpeningHoursForm = ({
 }: OpeningHoursFormProps) => {
   const [openingHoursData, setOpeningHoursData] = useState(incomingData)
 
-  const t = useTranslations('Contact')
-
   const [isEdit, handleToggleEdit] = useToggle(false)
 
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    const formData = new FormData(e.currentTarget)
-
+  const onSubmit = async (formData: FormData) => {
     const mondayStart = formatStringTimeIntoDate(
-      String(formData.get('mondayStart'))
+      String(formData?.get('mondayStart'))
     )
     const mondayEnd = formatStringTimeIntoDate(
-      String(formData.get('mondayEnd'))
+      String(formData?.get('mondayEnd'))
     )
 
     const tuesdayStart = formatStringTimeIntoDate(
-      String(formData.get('tuesdayStart'))
+      String(formData?.get('tuesdayStart'))
     )
     const tuesdayEnd = formatStringTimeIntoDate(
-      String(formData.get('tuesdayEnd'))
+      String(formData?.get('tuesdayEnd'))
     )
 
     const wednesdayStart = formatStringTimeIntoDate(
-      String(formData.get('wednesdayStart'))
+      String(formData?.get('wednesdayStart'))
     )
     const wednesdayEnd = formatStringTimeIntoDate(
-      String(formData.get('wednesdayEnd'))
+      String(formData?.get('wednesdayEnd'))
     )
 
     const thursdayStart = formatStringTimeIntoDate(
-      String(formData.get('thursdayStart'))
+      String(formData?.get('thursdayStart'))
     )
     const thursdayEnd = formatStringTimeIntoDate(
-      String(formData.get('thursdayEnd'))
+      String(formData?.get('thursdayEnd'))
     )
 
     const fridayStart = formatStringTimeIntoDate(
-      String(formData.get('fridayStart'))
+      String(formData?.get('fridayStart'))
     )
     const fridayEnd = formatStringTimeIntoDate(
-      String(formData.get('fridayEnd'))
+      String(formData?.get('fridayEnd'))
     )
 
     const saturdayStart = formatStringTimeIntoDate(
-      String(formData.get('saturdayStart'))
+      String(formData?.get('saturdayStart'))
     )
     const saturdayEnd = formatStringTimeIntoDate(
-      String(formData.get('saturdayEnd'))
+      String(formData?.get('saturdayEnd'))
     )
 
     const sundayStart = formatStringTimeIntoDate(
-      String(formData.get('sundayStart'))
+      String(formData?.get('sundayStart'))
     )
     const sundayEnd = formatStringTimeIntoDate(
-      String(formData.get('sundayEnd'))
+      String(formData?.get('sundayEnd'))
     )
 
     const openingHoursDayData: OpeningHoursDayData = {
@@ -124,7 +117,7 @@ const OpeningHoursForm = ({
       const openingHoursData: OpeningHoursData[] = [
         {
           day: DaysOfTheWeekEnum.Monday,
-          dayTranslation: t('monday'),
+          dayTranslation: 'Lundi',
           inputStartName: 'mondayStart',
           inputStartValue: formatDateToTime(mondayStart),
           inputEndName: 'mondayEnd',
@@ -132,7 +125,7 @@ const OpeningHoursForm = ({
         },
         {
           day: DaysOfTheWeekEnum.Tuesday,
-          dayTranslation: t('tuesday'),
+          dayTranslation: 'Mardi',
           inputStartName: 'tuesdayStart',
           inputStartValue: formatDateToTime(tuesdayStart),
           inputEndName: 'tuesdayEnd',
@@ -140,7 +133,7 @@ const OpeningHoursForm = ({
         },
         {
           day: DaysOfTheWeekEnum.Wednesday,
-          dayTranslation: t('wednesday'),
+          dayTranslation: 'Mercredi',
           inputStartName: 'wednesdayStart',
           inputStartValue: formatDateToTime(wednesdayStart),
           inputEndName: 'wednesdayEnd',
@@ -148,7 +141,7 @@ const OpeningHoursForm = ({
         },
         {
           day: DaysOfTheWeekEnum.Thursday,
-          dayTranslation: t('thursday'),
+          dayTranslation: 'Jeudi',
           inputStartName: 'thursdayStart',
           inputStartValue: formatDateToTime(thursdayStart),
           inputEndName: 'thursdayEnd',
@@ -156,7 +149,7 @@ const OpeningHoursForm = ({
         },
         {
           day: DaysOfTheWeekEnum.Friday,
-          dayTranslation: t('friday'),
+          dayTranslation: 'Vendredi',
           inputStartName: 'fridayStart',
           inputStartValue: formatDateToTime(fridayStart),
           inputEndName: 'fridayEnd',
@@ -164,7 +157,7 @@ const OpeningHoursForm = ({
         },
         {
           day: DaysOfTheWeekEnum.Saturday,
-          dayTranslation: t('saturday'),
+          dayTranslation: 'Samedi',
           inputStartName: 'saturdayStart',
           inputStartValue: formatDateToTime(saturdayStart),
           inputEndName: 'saturdayEnd',
@@ -172,7 +165,7 @@ const OpeningHoursForm = ({
         },
         {
           day: DaysOfTheWeekEnum.Sunday,
-          dayTranslation: t('sunday'),
+          dayTranslation: 'Dimanche',
           inputStartName: 'sundayStart',
           inputStartValue: formatDateToTime(sundayStart),
           inputEndName: 'sundayEnd',
@@ -233,9 +226,12 @@ const OpeningHoursForm = ({
   )
 
   return (
-    <form onSubmit={onSubmit} className='h-full w-full'>
+    <form
+      action={async formData => await onSubmit(formData)}
+      className='h-full w-full'
+    >
       <table className='w-full flex-grow' data-test='openingHours'>
-        <TableHeader day={''} lunch={t('opening')} dinner={t('closing')} />
+        <TableHeader day={''} lunch={'Ouverture'} dinner={'Fermeture'} />
         <tbody className='text-center'>{openingHoursDataMemorized}</tbody>
       </table>
       {editableSection}
