@@ -17,7 +17,7 @@ const Accommodations = () => {
   ]
 
   return (
-    <section>
+    <section className='mx-auto w-full max-w-7xl'>
       <AccommodationsSlider data={data} />
     </section>
   )
