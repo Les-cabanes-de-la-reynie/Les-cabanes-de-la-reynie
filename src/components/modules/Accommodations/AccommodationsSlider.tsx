@@ -53,7 +53,7 @@ const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
       carouselItems={carouselItems}
       lighboxItems={lighboxItems}
       lightboxController={lightboxController}
-      title='Ma super gallery'
+      title='Ma gallery'
     />
   )
 }

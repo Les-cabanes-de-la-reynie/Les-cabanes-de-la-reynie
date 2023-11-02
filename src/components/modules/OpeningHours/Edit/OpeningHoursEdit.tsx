@@ -1,12 +1,9 @@
-import { useTranslations } from 'next-intl'
 import OpeningHoursForm from './OpeningHoursForm'
 import { DaysOfTheWeekEnum, OpeningHoursData } from '../types'
 import { getOpeningHours } from '@/db/queries/openingHours.query'
 import { formatDateToTime } from '@/lib/utils'
 
 const OpeningHoursEdit = async () => {
-  const t = useTranslations('Contact')
-
   const jsonData = await getOpeningHours()
 
   const {
@@ -29,7 +26,7 @@ const OpeningHoursEdit = async () => {
   const openingHoursData: OpeningHoursData[] = [
     {
       day: DaysOfTheWeekEnum.Monday,
-      dayTranslation: t('monday'),
+      dayTranslation: 'Lundi',
       inputStartName: 'mondayStart',
       inputStartValue: formatDateToTime(mondayStart),
       inputEndName: 'mondayEnd',
@@ -37,7 +34,7 @@ const OpeningHoursEdit = async () => {
     },
     {
       day: DaysOfTheWeekEnum.Tuesday,
-      dayTranslation: t('tuesday'),
+      dayTranslation: 'Mardi',
       inputStartName: 'tuesdayStart',
       inputStartValue: formatDateToTime(tuesdayStart),
       inputEndName: 'tuesdayEnd',
@@ -45,7 +42,7 @@ const OpeningHoursEdit = async () => {
     },
     {
       day: DaysOfTheWeekEnum.Wednesday,
-      dayTranslation: t('wednesday'),
+      dayTranslation: 'Mercredi',
       inputStartName: 'wednesdayStart',
       inputStartValue: formatDateToTime(wednesdayStart),
       inputEndName: 'wednesdayEnd',
@@ -53,7 +50,7 @@ const OpeningHoursEdit = async () => {
     },
     {
       day: DaysOfTheWeekEnum.Thursday,
-      dayTranslation: t('thursday'),
+      dayTranslation: 'Jeudi',
       inputStartName: 'thursdayStart',
       inputStartValue: formatDateToTime(thursdayStart),
       inputEndName: 'thursdayEnd',
@@ -61,7 +58,7 @@ const OpeningHoursEdit = async () => {
     },
     {
       day: DaysOfTheWeekEnum.Friday,
-      dayTranslation: t('friday'),
+      dayTranslation: 'Vendredi',
       inputStartName: 'fridayStart',
       inputStartValue: formatDateToTime(fridayStart),
       inputEndName: 'fridayEnd',
@@ -69,7 +66,7 @@ const OpeningHoursEdit = async () => {
     },
     {
       day: DaysOfTheWeekEnum.Saturday,
-      dayTranslation: t('saturday'),
+      dayTranslation: 'Samedi',
       inputStartName: 'saturdayStart',
       inputStartValue: formatDateToTime(saturdayStart),
       inputEndName: 'saturdayEnd',
@@ -77,7 +74,7 @@ const OpeningHoursEdit = async () => {
     },
     {
       day: DaysOfTheWeekEnum.Sunday,
-      dayTranslation: t('sunday'),
+      dayTranslation: 'Dimanche',
       inputStartName: 'sundayStart',
       inputStartValue: formatDateToTime(sundayStart),
       inputEndName: 'sundayEnd',
