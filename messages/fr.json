@@ -48,9 +48,10 @@
   },
   "Navigation": {
     "switchLangTitle": "Langues",
-    "themeSwitcherTitle": "Changer de theme",
-    "darkModeTheme": "Thème sombre",
-    "lightModeTheme": "Thème clair",
+    "themeSwitcherTitle": "Changer de thème",
+    "darkModeTheme": "Sombre",
+    "lightModeTheme": "Clair",
+    "systemModeTheme": "Système",
     "login": "Se connecter",
     "logout": "Se déconnecter",
     "profile": "Votre profil",

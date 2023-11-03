@@ -49,8 +49,9 @@
   "Navigation": {
     "switchLangTitle": "Languages",
     "themeSwitcherTitle": "Change the theme",
-    "darkModeTheme": "Night Mode",
-    "lightModeTheme": "Day Mode",
+    "darkModeTheme": "Dark",
+    "lightModeTheme": "Light",
+    "systemModeTheme": "System",
     "login": "Login",
     "logout": "Logout",
     "profile": "Your profile",
