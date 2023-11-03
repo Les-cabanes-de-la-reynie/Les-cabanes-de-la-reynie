@@ -18,7 +18,7 @@ const SecondNavigation = ({ handleCloseBurgerMenu }: SecondNavigationProps) => {
           <LanguagesSwitcher />
         </NavItem>
         <NavItem>
-          <ThemeSwitcher onBlur={handleCloseBurgerMenu} />
+          <ThemeSwitcher handleCloseBurgerMenu={handleCloseBurgerMenu} />
         </NavItem>
       </NavList>
     </nav>
