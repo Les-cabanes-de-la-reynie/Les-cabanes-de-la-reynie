@@ -7,6 +7,7 @@ import 'react-alice-carousel/lib/alice-carousel.css'
 import Heading from '@/components/elements/Heading'
 import { CarouselProps } from './types'
 import { Button } from '@/components/ui/button'
+import { useTranslations } from 'next-intl'
 
 const responsive = {
   0: { items: 1 },
@@ -23,12 +24,15 @@ const Carousel = ({
   lightboxController,
   title = ''
 }: CarouselProps) => {
+  const t = useTranslations('Carousel')
+
   const renderPrevButton = ({ isDisabled = false }) => {
     return (
       <Button
         variant='ghost'
         className={`${SLIDER_BUTTONS_COMMON_CLASSNAME} right-14`}
         disabled={isDisabled}
+        aria-label={t('prevButton')}
       >
         <ChevronLeftIcon />
       </Button>
@@ -40,6 +44,7 @@ const Carousel = ({
         variant='ghost'
         className={`${SLIDER_BUTTONS_COMMON_CLASSNAME} right-2`}
         disabled={isDisabled}
+        aria-label={t('nextButton')}
       >
         <ChevronRightIcon />
       </Button>
