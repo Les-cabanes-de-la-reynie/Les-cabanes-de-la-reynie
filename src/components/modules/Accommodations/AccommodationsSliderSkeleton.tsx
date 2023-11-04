@@ -1,10 +1,15 @@
+import { Skeleton } from '@/components/ui/skeleton'
+
 const AccommodationsSliderSkeleton = () => {
   return (
-    <div className='box-border grid h-72 w-full animate-pulse grid-flow-col grid-cols-1 gap-2 overflow-auto px-2 sm:grid-cols-2 lg:grid-cols-3'>
-      <div className='h-60'></div>
-      <div className='h-60'></div>
-      <div className='h-60'></div>
-    </div>
+    <Skeleton className='mb-5 bg-transparent'>
+      <Skeleton className='mb-4 h-[36px] bg-popover pl-4'></Skeleton>
+      <Skeleton className='grid w-full grid-flow-col grid-cols-1 gap-2 overflow-auto bg-transparent sm:grid-cols-2 lg:grid-cols-3'>
+        <Skeleton className='mx-1 h-60 bg-popover object-cover'></Skeleton>
+        <Skeleton className='mx-1 h-60 bg-popover object-cover'></Skeleton>
+        <Skeleton className='mx-1 h-60 bg-popover object-cover'></Skeleton>
+      </Skeleton>
+    </Skeleton>
   )
 }
 export default AccommodationsSliderSkeleton
