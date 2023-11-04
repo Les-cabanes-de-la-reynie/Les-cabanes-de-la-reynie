@@ -6,8 +6,7 @@ import {
 } from '@/components/ui/popover'
 import LocaleList from './LocaleList'
 import { Button } from '@/components/ui/button'
-import { PopoverClose } from '@radix-ui/react-popover'
-import { X } from 'lucide-react'
+import PopoverCloseButton from '../PopoverCloseButton'
 
 const LanguagesSwitcher = () => {
   return (
@@ -23,12 +22,7 @@ const LanguagesSwitcher = () => {
       </PopoverTrigger>
       <PopoverContent className='w-36'>
         <LocaleList />
-        <PopoverClose
-          className='absolute right-[7px] top-[7px] inline-flex h-[25px] w-[25px] cursor-pointer items-center justify-center rounded-full border outline-none transition-colors hover:text-primary focus:shadow-[0_0_0_2px]'
-          aria-label='Close'
-        >
-          <X size={16} />
-        </PopoverClose>
+        <PopoverCloseButton />
       </PopoverContent>
     </Popover>
   )

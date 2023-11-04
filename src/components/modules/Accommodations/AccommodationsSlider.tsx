@@ -32,7 +32,6 @@ const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
       src={image}
       alt='TODO'
       quality='100'
-      priority
       className='h-60 cursor-pointer object-cover px-2'
       onClick={() => openLightboxOnSource(i)}
       role='presentation'
@@ -44,7 +43,6 @@ const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
       src={image}
       alt='TODO'
       quality='100'
-      priority
     />
   ))
 
