@@ -29,20 +29,23 @@ const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
   const carouselItems = data.map((image, i) => (
     <Image
       key={`carousel-${i}-${uniqueId}`}
-      src={image}
       alt={`Our fabulous place ${i}`}
-      quality='100'
+      src={image}
+      sizes='(min-width: 60em) 24vw,
+              (min-width: 28em) 45vw,
+              100vw'
+      priority
       className='h-60 cursor-pointer object-cover px-2'
       onClick={() => openLightboxOnSource(i)}
-      role='presentation'
     />
   ))
   const lighboxItems = data.map((image, i) => (
     <Image
       key={`lightbox-${i}-${uniqueId}`}
-      src={image}
       alt={`Our fabulous place ${i}`}
-      quality='100'
+      src={image}
+      sizes='100vw'
+      quality={100}
     />
   ))
 
