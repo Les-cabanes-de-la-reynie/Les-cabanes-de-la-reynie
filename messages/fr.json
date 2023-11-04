@@ -48,10 +48,6 @@
   },
   "Navigation": {
     "switchLangTitle": "Langues",
-    "themeSwitcherTitle": "Thème",
-    "darkModeTheme": "Sombre",
-    "lightModeTheme": "Clair",
-    "systemModeTheme": "Système",
     "login": "Se connecter",
     "logout": "Se déconnecter",
     "profile": "Votre profil",
@@ -59,5 +55,12 @@
     "closeBurgerMenu": "Fermer",
     "openBurgerMenuTitle": "Ouvrir le menu",
     "closeBurgerMenuTitle": "Fermer le menu"
+  },
+  "ThemeSwitcher": {
+    "themeSwitcherAccessibleText": "Changer de thème",
+    "themeSwitcherTitle": "Thème",
+    "darkModeTheme": "Sombre",
+    "lightModeTheme": "Clair",
+    "systemModeTheme": "Système"
   }
 }
