@@ -1,5 +1,8 @@
 import { HTMLProps, PropsWithChildren } from 'react'
 import { cn } from '@/lib/utils'
+import { Dancing_Script } from 'next/font/google'
+
+const fontFamily = Dancing_Script({ display: 'swap', subsets: ['latin'] })
 
 export interface HeadingProps
   extends PropsWithChildren,
@@ -23,6 +26,7 @@ const Heading = ({
     className
   )
   const h2ClassName = cn(
+    fontFamily.className,
     'scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0',
     {
       'text-error': error

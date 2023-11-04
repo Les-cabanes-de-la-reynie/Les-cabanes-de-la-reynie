@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import Header from '@/components/modules/Header'
-import { Baloo_2 } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 import Footer from '@/components/modules/Footer'
 import { Toaster } from 'sonner'
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
@@ -11,7 +11,12 @@ import { unstable_setRequestLocale } from 'next-intl/server'
 import Providers from '@/providers'
 import { env } from '@/env'
 
-const fontFamily = Baloo_2({ display: 'swap', subsets: ['latin'] })
+const fontFamily = Roboto({
+  weight: ['400', '500', '700', '900'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap'
+})
 
 type RootLayoutProps = {
   children: ReactNode
