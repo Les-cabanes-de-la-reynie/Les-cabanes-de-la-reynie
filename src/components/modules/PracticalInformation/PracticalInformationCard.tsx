@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import Heading from '@/components/elements/Heading'
+import P from '@/components/elements/P'
 
 interface PracticalInformationCardProps extends PropsWithChildren {
   description: string
@@ -12,9 +12,7 @@ const PracticalInformationCard = ({
   return (
     <li className='flex flex-col items-center rounded-lg border border-muted bg-popover p-4 text-center'>
       {children}
-      <Heading level={4} className='mt-6 font-normal'>
-        {description}
-      </Heading>
+      <P className='mt-6 font-normal'>{description}</P>
     </li>
   )
 }

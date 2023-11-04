@@ -32,13 +32,13 @@ const Footer = () => {
           <FooterHeading>Dashboard</FooterHeading>
           <ul>
             <FooterItem>
-              <Link href='/api/auth/logout'>LOGOUT</Link>
+              <Link href='/api/auth/logout'>Logout</Link>
             </FooterItem>
             <FooterItem>
-              <Link href='/api/auth/login'>LOGIN</Link>
+              <Link href='/api/auth/login'>Login</Link>
             </FooterItem>
             <FooterItem>
-              <Link href={`/${lang}/dashboard`}>Espace ADMIN</Link>
+              <Link href={`/${lang}/dashboard`}>Espace admin</Link>
             </FooterItem>
           </ul>
         </FooterNav>
@@ -46,18 +46,27 @@ const Footer = () => {
           <FooterHeading> {t('followUs')}</FooterHeading>
           <ul className='flex gap-4'>
             <FooterItem>
-              <FollowUsItem href='https://www.google.fr/'>
-                <FacebookIcon />
+              <FollowUsItem
+                href='https://www.google.fr/'
+                aria-label={t('facebookButton')}
+              >
+                <FacebookIcon aria-hidden='true' focusable='false' />
               </FollowUsItem>
             </FooterItem>
             <FooterItem>
-              <FollowUsItem href='https://www.google.fr/'>
-                <TwitterIcon />
+              <FollowUsItem
+                href='https://www.google.fr/'
+                aria-label={t('xButton')}
+              >
+                <TwitterIcon aria-hidden='true' focusable='false' />
               </FollowUsItem>
             </FooterItem>
             <FooterItem>
-              <FollowUsItem href='https://www.google.fr/'>
-                <LinkedinIcon />
+              <FollowUsItem
+                href='https://www.google.fr/'
+                aria-label={t('linkedinButton')}
+              >
+                <LinkedinIcon aria-hidden='true' focusable='false' />
               </FollowUsItem>
             </FooterItem>
           </ul>

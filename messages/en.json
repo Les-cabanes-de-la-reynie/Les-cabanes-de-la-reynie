@@ -44,7 +44,10 @@
     "followUs": "Follow Us",
     "establishmentFeedback": "Establishment Feedback",
     "frequentlyAskedQuestions": "Frequently Asked Questions",
-    "sendAnEmail": "Send an email"
+    "sendAnEmail": "Send an email",
+    "facebookButton": "Read more about our Facebook page",
+    "xButton": "Read more about our X page",
+    "linkedinButton": "Read more about our Linkedin page"
   },
   "Navigation": {
     "switchLangTitle": "Languages",
@@ -62,5 +65,9 @@
     "darkModeTheme": "Dark",
     "lightModeTheme": "Light",
     "systemModeTheme": "System"
+  },
+  "Carousel": {
+    "prevButton": "Image précédente",
+    "nextButton": "Image suivante"
   }
 }

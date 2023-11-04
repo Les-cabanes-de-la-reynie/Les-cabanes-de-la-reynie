@@ -30,7 +30,7 @@ const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
     <Image
       key={`carousel-${i}-${uniqueId}`}
       src={image}
-      alt='TODO'
+      alt={`Our fabulous place ${i}`}
       quality='100'
       className='h-60 cursor-pointer object-cover px-2'
       onClick={() => openLightboxOnSource(i)}
@@ -41,7 +41,7 @@ const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
     <Image
       key={`lightbox-${i}-${uniqueId}`}
       src={image}
-      alt='TODO'
+      alt={`Our fabulous place ${i}`}
       quality='100'
     />
   ))
