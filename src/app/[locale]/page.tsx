@@ -24,7 +24,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
           />
           <Heading
             level={1}
-            className='absolute inset-0 flex items-center justify-center p-4 text-center text-primary-foreground'
+            className='absolute inset-0 flex items-center justify-center p-4 text-center text-5xl text-primary-foreground lg:text-6xl'
           >
             {ESTABLISHMENT_TITLE}
           </Heading>
