@@ -35,6 +35,7 @@ const LocaleList = () => {
                 className='w-full select-none justify-start'
                 onClick={() => onSelectChange(locale)}
                 disabled={isPending}
+                aria-label={`Change the language by ${locale}`}
               >
                 {transformLocaleToCountry(locale)}
               </Button>

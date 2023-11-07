@@ -22,6 +22,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
             fill
             sizes='100vw'
             className='object-cover'
+            priority
           />
           <Heading
             level={1}
