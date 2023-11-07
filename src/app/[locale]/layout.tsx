@@ -72,7 +72,7 @@ const RootLayout = async ({
           'text:foreground relative flex min-h-screen w-full flex-col bg-background'
         )}
       >
-        <Toaster richColors position='top-right' />
+        <Toaster richColors position='top-right' expand={true} />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
             <Header />
