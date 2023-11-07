@@ -68,7 +68,6 @@ const onOpeningHoursSubmit = async (formData: FormData) => {
     }
 
     await updateOpeningHours({
-      id: 1,
       body: openingHoursDayData
     })
 

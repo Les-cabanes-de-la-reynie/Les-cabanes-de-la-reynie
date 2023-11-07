@@ -1,14 +1,19 @@
-import { OpeningHoursDayData } from "@/components/modules/OpeningHours/types"
-import { prisma } from "../prisma"
+import { OpeningHoursDayData } from '@/components/modules/OpeningHours/types'
+import { prisma } from '../prisma'
 
-export const getOpeningHours = () => prisma.openingHours.findMany()
+export const getOpeningHours = async () =>
+  await prisma.openingHours.findMany({
+    where: {
+      id: 1
+    }
+  })
 
-interface updateOpeningHoursProps {
-  id: number
+export const updateOpeningHours = async ({
+  body
+}: {
   body: OpeningHoursDayData
-}
-export const updateOpeningHours = ({ id, body }: updateOpeningHoursProps) =>
-  prisma.openingHours.update({
-    where: { id },
-    data: body
+}) =>
+  await prisma.openingHours.update({
+    data: body,
+    where: { id: 1 }
   })
