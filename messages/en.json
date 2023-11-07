@@ -12,6 +12,10 @@
   "SEO": {
     "description": "Welcome to Les cabanes de la Reynie"
   },
+  "Home": {
+    "practicalInformation": "Practical Information",
+    "sliderTitle": "My gallery"
+  },
   "Contact": {
     "contactMainTitle": "Find Les cabanes de la Reynie",
     "location": "Our location",
