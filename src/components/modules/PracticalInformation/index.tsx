@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import PracticalInformationCard from './PracticalInformationCard'
 import Heading from '@/components/elements/Heading'
 import Container from '@/components/elements/Container'
@@ -9,13 +10,15 @@ import ShowerIcon from '@/components/images/practicalInformation/ShowerIcon'
 import ToiletIcon from '@/components/images/practicalInformation/ToiletIcon'
 
 const PracticalInformation = () => {
+  const t = useTranslations('Home')
+
   const COMMON_ICON_CLASSNAME = 'h-12 w-12 fill-primary'
 
   return (
     <Container className='mb-10'>
       <section>
         <Heading level={2} className='mb-8 text-center'>
-          Informations pratiques
+          {t('practicalInformation')}
         </Heading>
         <ul className='grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4'>
           <PracticalInformationCard description='Wifi'>

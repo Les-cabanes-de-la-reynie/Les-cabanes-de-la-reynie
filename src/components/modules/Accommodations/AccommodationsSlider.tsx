@@ -3,6 +3,7 @@
 import { useId, useState } from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import { AccommodationsSliderProps } from './types'
 import AccommodationsSliderSkeleton from './AccommodationsSliderSkeleton'
 
@@ -12,6 +13,8 @@ const Carousel = dynamic(() => import('@/components/modules/Carousel'), {
 })
 
 const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
+  const t = useTranslations('Home')
+
   const [lightboxController, setLightboxController] = useState({
     toggler: false,
     sourceIndex: 0
@@ -54,7 +57,7 @@ const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
       carouselItems={carouselItems}
       lighboxItems={lighboxItems}
       lightboxController={lightboxController}
-      title='Ma gallery'
+      title={t('sliderTitle')}
     />
   )
 }

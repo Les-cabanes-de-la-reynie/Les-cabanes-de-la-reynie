@@ -10,7 +10,11 @@
     "edit": "Modifier"
   },
   "SEO": {
-    "description": "Welcome to Les cabanes de la Reynie"
+    "description": "Bienvenue sur Les cabanes de la Reynie"
+  },
+  "Home": {
+    "practicalInformation": "Informations pratiques",
+    "sliderTitle": "Ma galerie"
   },
   "Contact": {
     "contactMainTitle": "Trouver Les cabanes de la Reynie",
