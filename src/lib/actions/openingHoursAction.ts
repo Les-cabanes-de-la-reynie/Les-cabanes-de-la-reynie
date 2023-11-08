@@ -1,11 +1,28 @@
 'use server'
 
 import { OpeningHoursDayData } from '@/components/modules/OpeningHours/types'
-import { updateOpeningHours } from '@/db/queries/openingHours.query'
 import { formatStringTimeIntoDate } from '@/lib/utils'
 import { revalidatePath } from 'next/cache'
+import { prisma } from '../prisma'
 
-const onOpeningHoursSubmit = async (formData: FormData) => {
+export const getOpeningHours = async () =>
+  await prisma.openingHours.findMany({
+    where: {
+      id: 1
+    }
+  })
+
+export const updateOpeningHours = async ({
+  body
+}: {
+  body: OpeningHoursDayData
+}) =>
+  await prisma.openingHours.update({
+    data: body,
+    where: { id: 1 }
+  })
+
+const openingHoursAction = async (formData: FormData) => {
   try {
     const mondayStart = formatStringTimeIntoDate(
       String(formData?.get('mondayStart'))
@@ -77,4 +94,4 @@ const onOpeningHoursSubmit = async (formData: FormData) => {
   }
 }
 
-export default onOpeningHoursSubmit
+export default openingHoursAction

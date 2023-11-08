@@ -1,7 +1,7 @@
 import OpeningHoursForm from './OpeningHoursForm'
 import { DaysOfTheWeekEnum, OpeningHoursData } from '../types'
-import { getOpeningHours } from '@/db/queries/openingHours.query'
 import { formatDateToTime } from '@/lib/utils'
+import { getOpeningHours } from '@/lib/actions/openingHoursAction'
 
 const OpeningHoursEdit = async () => {
   const jsonData = await getOpeningHours()
