@@ -4,7 +4,7 @@ import { formatDateToTime } from '@/lib/utils'
 import { getOpeningHours } from '@/lib/actions/openingHoursAction'
 
 const OpeningHoursEdit = async () => {
-  const jsonData = await getOpeningHours()
+  const data = await getOpeningHours()
 
   const {
     mondayStart,
@@ -21,7 +21,7 @@ const OpeningHoursEdit = async () => {
     saturdayEnd,
     sundayStart,
     sundayEnd
-  } = jsonData[0]
+  } = data[0]
 
   const openingHoursData: OpeningHoursData[] = [
     {
