@@ -9,7 +9,7 @@ import CancelButton from './CancelButton'
 import EditButton from './EditButton'
 import UpdateButton from './UpdateButton'
 import { toast } from 'sonner'
-import onOpeningHoursSubmit from '@/actions/openingHoursAction'
+import openingHoursAction from '@/lib/actions/openingHoursAction'
 
 const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
   const [isEdit, handleToggleEdit] = useToggle(false)
@@ -31,7 +31,7 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
   return (
     <form
       action={async formData => {
-        const error = await onOpeningHoursSubmit(formData)
+        const error = await openingHoursAction(formData)
 
         if (error) {
           return toast.error(
