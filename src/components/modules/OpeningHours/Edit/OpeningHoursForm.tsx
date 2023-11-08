@@ -9,7 +9,7 @@ import CancelButton from './CancelButton'
 import EditButton from './EditButton'
 import UpdateButton from './UpdateButton'
 import { toast } from 'sonner'
-import openingHoursAction from '@/lib/actions/openingHoursAction'
+import { openingHoursAction } from '@/lib/actions/openingHoursAction'
 
 const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
   const [isEdit, handleToggleEdit] = useToggle(false)

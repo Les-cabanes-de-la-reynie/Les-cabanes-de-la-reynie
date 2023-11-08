@@ -12,17 +12,13 @@ export const getOpeningHours = async () =>
     }
   })
 
-export const updateOpeningHours = async ({
-  body
-}: {
-  body: OpeningHoursDayData
-}) =>
+const updateOpeningHours = async ({ body }: { body: OpeningHoursDayData }) =>
   await prisma.openingHours.update({
-    data: body,
+    data: JSON.parse(JSON.stringify(body)),
     where: { id: 1 }
   })
 
-const openingHoursAction = async (formData: FormData) => {
+export const openingHoursAction = async (formData: FormData) => {
   try {
     const mondayStart = formatStringTimeIntoDate(
       String(formData?.get('mondayStart'))
@@ -93,5 +89,3 @@ const openingHoursAction = async (formData: FormData) => {
     return error
   }
 }
-
-export default openingHoursAction
