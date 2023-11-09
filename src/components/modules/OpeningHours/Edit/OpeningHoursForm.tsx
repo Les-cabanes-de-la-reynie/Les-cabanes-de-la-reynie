@@ -3,13 +3,15 @@
 import { FormEvent, useMemo } from 'react'
 import TableHeader from '../TableHeader'
 import useToggle from '@/hooks/useToggle'
-import { OpeningHoursFormProps } from '../types'
+import { OpeningHoursDayData, OpeningHoursFormProps } from '../types'
 import DayRowEdit from './DayRowEdit'
 import CancelButton from './CancelButton'
 import EditButton from './EditButton'
 import UpdateButton from './UpdateButton'
 import { toast } from 'sonner'
-import { openingHoursAction } from '@/lib/actions/openingHours.action'
+import prisma from '@/lib/prisma'
+import { formatStringTimeIntoDate } from '@/lib/utils'
+import { revalidatePath } from 'next/cache'
 
 const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
   const [isEdit, handleToggleEdit] = useToggle(false)
@@ -27,6 +29,26 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
     ),
     [isEdit, handleToggleEdit]
   )
+
+  const openingHoursAction = async (formData: FormData) => {
+    try {
+      const arrFormData = Array.from(formData).map(([key, value]) => [
+        key,
+        formatStringTimeIntoDate(String(value))
+      ])
+      const openingHoursDayData: OpeningHoursDayData =
+        Object.fromEntries(arrFormData)
+
+      await prisma.openingHours.update({
+        where: { id: 1 },
+        data: openingHoursDayData
+      })
+
+      revalidatePath('/contact')
+    } catch (error) {
+      return error
+    }
+  }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
