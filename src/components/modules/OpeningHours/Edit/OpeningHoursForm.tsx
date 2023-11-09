@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo } from 'react'
+import { FormEvent, useMemo } from 'react'
 import TableHeader from '../TableHeader'
 import useToggle from '@/hooks/useToggle'
 import { OpeningHoursFormProps } from '../types'
@@ -28,22 +28,25 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
     [isEdit, handleToggleEdit]
   )
 
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const formData = new FormData(e.currentTarget)
+
+    const error = await openingHoursAction(formData)
+
+    if (error) {
+      return toast.error(
+        `Attention les données n'ont pas pu être mis à jour. La raison : ${error}`
+      )
+    }
+
+    toast.success('Les données ont bien été mis à jour !')
+    handleToggleEdit()
+  }
+
   return (
-    <form
-      action={async formData => {
-        const error = await openingHoursAction(formData)
-
-        if (error) {
-          return toast.error(
-            `Attention les données n'ont pas pu être mis à jour. La raison : ${error}`
-          )
-        }
-
-        toast.success('Les données ont bien été mis à jour !')
-        handleToggleEdit()
-      }}
-      className='h-full w-full'
-    >
+    <form onSubmit={handleSubmit} className='h-full w-full'>
       <table className='w-full flex-grow' data-test='openingHours'>
         <TableHeader day={''} lunch={'Ouverture'} dinner={'Fermeture'} />
         <tbody className='text-center'>
