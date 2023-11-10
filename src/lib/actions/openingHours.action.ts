@@ -20,7 +20,7 @@ export const openingHoursAction = async (formData: FormData) => {
 
     await prisma.openingHours.update({
       where: { id: 1 },
-      data: JSON.parse(JSON.stringify(openingHoursDayData))
+      data: openingHoursDayData
     })
   } catch (error) {
     return error
