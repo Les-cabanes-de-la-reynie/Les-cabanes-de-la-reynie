@@ -37,9 +37,11 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
     const error = await openingHoursAction(formData)
 
     if (error) {
-      return toast.error(
+      toast.error(
         `Attention les données n'ont pas pu être mis à jour. La raison : ${error}`
       )
+
+      return
     }
 
     handleToggleEdit()
