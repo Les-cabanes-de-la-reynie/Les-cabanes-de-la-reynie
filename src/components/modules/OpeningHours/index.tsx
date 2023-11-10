@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl'
 import { DaysOfTheWeekEnum, OpeningHoursData } from './types'
 import OpeningHoursTable from './OpeningHoursTable'
 import { formatDateToTime } from '@/lib/utils'
-import { getOpeningHours } from '@/lib/actions/openingHoursAction'
+import { getOpeningHours } from '@/lib/queries/getOpeningHours'
 import P from '@/components/elements/P'
 
 const OpeningHours = async () => {

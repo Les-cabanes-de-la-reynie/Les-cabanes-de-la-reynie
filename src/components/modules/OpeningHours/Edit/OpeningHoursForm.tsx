@@ -1,6 +1,7 @@
 'use client'
 
-import { useMemo } from 'react'
+import { FormEventHandler, useMemo } from 'react'
+import { useRouter } from 'next/navigation'
 import TableHeader from '../TableHeader'
 import useToggle from '@/hooks/useToggle'
 import { OpeningHoursFormProps } from '../types'
@@ -9,10 +10,11 @@ import CancelButton from './CancelButton'
 import EditButton from './EditButton'
 import UpdateButton from './UpdateButton'
 import { toast } from 'sonner'
-import { openingHoursAction } from '@/lib/actions/openingHoursAction'
+import { openingHoursAction } from '@/lib/actions/openingHours.action'
 
 const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
   const [isEdit, handleToggleEdit] = useToggle(false)
+  const router = useRouter()
 
   const editableSection = useMemo(
     () => (
@@ -28,22 +30,27 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
     [isEdit, handleToggleEdit]
   )
 
+  const onSubmit: FormEventHandler<HTMLFormElement> = async e => {
+    e.preventDefault()
+
+    const formData = new FormData(e.currentTarget)
+    const error = await openingHoursAction(formData)
+
+    if (error) {
+      return toast.error(
+        `Attention les données n'ont pas pu être mis à jour. La raison : ${error}`
+      )
+    }
+
+    handleToggleEdit()
+
+    router.refresh()
+
+    toast.success('Les données ont bien été mis à jour !')
+  }
+
   return (
-    <form
-      action={async formData => {
-        const error = await openingHoursAction(formData)
-
-        if (error) {
-          return toast.error(
-            `Attention les données n'ont pas pu être mis à jour. La raison : ${error}`
-          )
-        }
-
-        toast.success('Les données ont bien été mis à jour !')
-        handleToggleEdit()
-      }}
-      className='h-full w-full'
-    >
+    <form onSubmit={onSubmit} className='h-full w-full'>
       <table className='w-full flex-grow' data-test='openingHours'>
         <TableHeader day={''} lunch={'Ouverture'} dinner={'Fermeture'} />
         <tbody className='text-center'>
