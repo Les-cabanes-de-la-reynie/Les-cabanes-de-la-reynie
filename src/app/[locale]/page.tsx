@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import fullscreenImage from '../../components/images/homeCarousel/forest.jpg'
+import fullscreenImage from '../../components/images/homeCarousel/forest.webp'
 import PracticalInformation from '@/components/modules/PracticalInformation'
 import Heading from '@/components/elements/Heading'
 import Accommodations from '@/components/modules/Accommodations'

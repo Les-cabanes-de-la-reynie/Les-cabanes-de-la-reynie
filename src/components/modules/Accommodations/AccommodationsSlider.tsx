@@ -34,9 +34,7 @@ const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
       key={`carousel-${i}-${uniqueId}`}
       alt={`Our fabulous place ${i}`}
       src={image}
-      sizes='(min-width: 60em) 24vw,
-              (min-width: 28em) 45vw,
-              100vw'
+      sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
       priority
       className='h-60 cursor-pointer object-cover px-2'
       onClick={() => openLightboxOnSource(i)}

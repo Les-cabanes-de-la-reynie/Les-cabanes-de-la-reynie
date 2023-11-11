@@ -26,7 +26,7 @@ const LocaleList = () => {
     <>
       <P className='mb-2 select-none'>{t('switchLangTitle')}</P>
       <Separator className='mb-2' />
-      <ul>
+      <ul aria-labelledby='language-menu-button'>
         {env.NEXT_PUBLIC_LANGS?.map(locale => {
           return (
             <li key={locale}>
@@ -35,7 +35,6 @@ const LocaleList = () => {
                 className='w-full select-none justify-start'
                 onClick={() => onSelectChange(locale)}
                 disabled={isPending}
-                aria-label={`Change the language by ${locale}`}
               >
                 {transformLocaleToCountry(locale)}
               </Button>
