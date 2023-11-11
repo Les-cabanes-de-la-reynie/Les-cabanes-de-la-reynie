@@ -15,7 +15,6 @@ const LanguagesSwitcher = () => {
         <Button
           variant='ghost'
           className='text-primary-foreground hover:bg-primary'
-          aria-label='Language switcher button'
         >
           <LanguageSwitcherButton />
         </Button>

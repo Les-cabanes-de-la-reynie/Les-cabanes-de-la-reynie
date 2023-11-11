@@ -1,10 +1,10 @@
 import AccommodationsSlider from './AccommodationsSlider'
-import fullscreenImage from '../../images/homeCarousel/forest.jpg'
-import fullscreenImage2 from '../../images/homeCarousel/forest2.jpg'
-import fullscreenImage3 from '../../images/homeCarousel/forest3.jpg'
-import fullscreenImage4 from '../../images/homeCarousel/forest4.jpg'
-import fullscreenImage5 from '../../images/homeCarousel/forest5.jpg'
-import fullscreenImage6 from '../../images/homeCarousel/forest6.jpg'
+import fullscreenImage from '../../images/homeCarousel/forest.webp'
+import fullscreenImage2 from '../../images/homeCarousel/forest2.webp'
+import fullscreenImage3 from '../../images/homeCarousel/forest3.webp'
+import fullscreenImage4 from '../../images/homeCarousel/forest4.webp'
+import fullscreenImage5 from '../../images/homeCarousel/forest5.webp'
+import fullscreenImage6 from '../../images/homeCarousel/forest6.webp'
 
 const Accommodations = () => {
   const data = [
