@@ -32,10 +32,10 @@ const Footer = () => {
           <FooterHeading>Dashboard</FooterHeading>
           <ul>
             <FooterItem>
-              <Link href='/api/auth/logout'>Logout</Link>
+              <Link href={`/${lang}`}>Item 1</Link>
             </FooterItem>
             <FooterItem>
-              <Link href='/api/auth/login'>Login</Link>
+              <Link href={`/${lang}`}>Item 2</Link>
             </FooterItem>
             <FooterItem>
               <Link href={`/${lang}/dashboard`}>Espace admin</Link>
