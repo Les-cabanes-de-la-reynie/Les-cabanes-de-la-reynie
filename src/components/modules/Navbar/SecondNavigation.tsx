@@ -2,6 +2,7 @@ import LanguagesSwitcher from '@/components/elements/LanguagesSwitcher'
 import NavItem from './NavItem'
 import { ThemeSwitcher } from '@/components/elements/ThemeSwitcher'
 import NavList from './NavList'
+import Profile from '@/components/elements/Profile'
 
 interface SecondNavigationProps {
   handleCloseBurgerMenu: () => void
@@ -19,6 +20,9 @@ const SecondNavigation = ({ handleCloseBurgerMenu }: SecondNavigationProps) => {
         </NavItem>
         <NavItem>
           <ThemeSwitcher handleCloseBurgerMenu={handleCloseBurgerMenu} />
+        </NavItem>
+        <NavItem>
+          <Profile />
         </NavItem>
       </NavList>
     </nav>

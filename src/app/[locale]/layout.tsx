@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import { createTranslator } from 'next-intl'
 import { cn } from '@/lib/utils'
 import Header from '@/components/modules/Header'
 import { Roboto } from 'next/font/google'
@@ -6,7 +7,6 @@ import Footer from '@/components/modules/Footer'
 import { Toaster } from 'sonner'
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import { ReactNode } from 'react'
-import { NextIntlClientProvider, createTranslator } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import Providers from '@/providers'
 import { env } from '@/env'
@@ -73,15 +73,13 @@ const RootLayout = async ({
         )}
       >
         <Toaster richColors position='top-right' expand={true} />
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Providers>
-            <Header />
-            <main id='main' role='main' className='flex flex-1'>
-              {children}
-            </main>
-            <Footer />
-          </Providers>
-        </NextIntlClientProvider>
+        <Providers locale={locale} messages={messages}>
+          <Header />
+          <main id='main' role='main' className='flex flex-1'>
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )
