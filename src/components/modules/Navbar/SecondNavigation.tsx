@@ -22,7 +22,7 @@ const SecondNavigation = ({ handleCloseBurgerMenu }: SecondNavigationProps) => {
           <ThemeSwitcher handleCloseBurgerMenu={handleCloseBurgerMenu} />
         </NavItem>
         <NavItem>
-          <Profile />
+          <Profile handleCloseBurgerMenu={handleCloseBurgerMenu} />
         </NavItem>
       </NavList>
     </nav>

@@ -13,7 +13,11 @@ import PopoverCloseButton from './PopoverCloseButton'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 
-const Profile = () => {
+interface ProfileProps {
+  handleCloseBurgerMenu: () => void
+}
+
+const Profile = ({ handleCloseBurgerMenu }: ProfileProps) => {
   const { user, isLoading } = useUser()
 
   const t = useTranslations('Navigation')
@@ -49,7 +53,7 @@ const Profile = () => {
             </Button>
           </div>
         </>
-        <PopoverCloseButton />
+        <PopoverCloseButton onPopoverClose={handleCloseBurgerMenu} />
       </PopoverContent>
     </Popover>
   )

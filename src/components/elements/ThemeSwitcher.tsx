@@ -61,7 +61,7 @@ export const ThemeSwitcher = ({
             {t('systemModeTheme')}
           </Button>
         </>
-        <PopoverCloseButton onClick={handleCloseBurgerMenu} />
+        <PopoverCloseButton onPopoverClose={handleCloseBurgerMenu} />
       </PopoverContent>
     </Popover>
   )
