@@ -1,6 +1,5 @@
 import Image from 'next/image'
-import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client'
-import Loader from './Loader'
+import { useUser } from '@auth0/nextjs-auth0/client'
 import {
   Popover,
   PopoverContent,
@@ -18,12 +17,12 @@ interface ProfileProps {
 }
 
 const Profile = ({ handleCloseBurgerMenu }: ProfileProps) => {
-  const { user, isLoading } = useUser()
+  const { user, error } = useUser()
 
   const t = useTranslations('Navigation')
 
-  if (isLoading) {
-    return <Loader />
+  if (error || !user?.email) {
+    return null
   }
 
   return (
@@ -58,4 +57,4 @@ const Profile = ({ handleCloseBurgerMenu }: ProfileProps) => {
     </Popover>
   )
 }
-export default withPageAuthRequired(Profile)
+export default Profile
