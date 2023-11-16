@@ -3,7 +3,7 @@ import { useLocale } from 'next-intl'
 import { cn } from '@/lib/utils'
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 
-interface LogoProps {
+type LogoProps = {
   onCloseMenu?: () => void
 }
 

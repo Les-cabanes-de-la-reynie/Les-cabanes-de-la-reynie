@@ -1,9 +1,7 @@
 import { ClassNameProps } from '@/_types/components'
 import { cn } from '@/lib/utils'
 
-interface RefrigeratorIconProps extends ClassNameProps {}
-
-const RefrigeratorIcon = ({ className }: RefrigeratorIconProps) => {
+const RefrigeratorIcon = ({ className }: ClassNameProps) => {
   return (
     <svg className={cn(className)} viewBox='0 0 74.48 122.88'>
       <g>

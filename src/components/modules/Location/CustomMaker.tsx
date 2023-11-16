@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, PropsWithChildren } from 'react'
 import { Marker, Popup } from 'react-leaflet'
 
-export interface CustomMarkerProps extends PropsWithChildren {
+export type CustomMarkerProps = PropsWithChildren & {
   position: [number, number]
   open: boolean
 }

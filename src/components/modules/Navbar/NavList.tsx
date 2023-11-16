@@ -2,7 +2,7 @@ import { ForwardRefRenderFunction, PropsWithChildren, forwardRef } from 'react'
 import { cn } from '@/lib/utils'
 import { ClassNameProps } from '@/_types/components'
 
-interface NavListProps extends PropsWithChildren, ClassNameProps {}
+type NavListProps = PropsWithChildren & ClassNameProps
 
 const NavList: ForwardRefRenderFunction<HTMLUListElement, NavListProps> = (
   { children, className },

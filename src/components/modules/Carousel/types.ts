@@ -1,6 +1,6 @@
 import { LightboxController } from '../Accommodations/types'
 
-export interface CarouselProps {
+export type CarouselProps = {
   carouselItems: JSX.Element[]
   lighboxItems: JSX.Element[]
   lightboxController: LightboxController

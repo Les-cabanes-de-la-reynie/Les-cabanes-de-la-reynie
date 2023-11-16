@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react'
 import { ClassNameProps } from '@/_types/components'
 import { cn } from '@/lib/utils'
 
-interface PProps extends PropsWithChildren, ClassNameProps {}
+type PProps = PropsWithChildren & ClassNameProps
 
 const P = ({ children, className, ...rest }: PProps) => {
   const classes = cn('leading-7 [&:not(:first-child)]:mt-6', className)

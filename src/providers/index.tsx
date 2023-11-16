@@ -3,7 +3,7 @@ import { ThemeProvider } from './theme-provider'
 import { UserProvider } from '@auth0/nextjs-auth0/client'
 import { NextIntlClientProvider } from 'next-intl'
 
-interface ProvidersProps extends PropsWithChildren {
+type ProvidersProps = PropsWithChildren & {
   locale: string
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   messages: any

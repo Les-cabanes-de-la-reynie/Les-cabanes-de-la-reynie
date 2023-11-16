@@ -1,10 +1,10 @@
 import { StaticImageData } from 'next/image'
 
-export interface AccommodationsSliderProps {
+export type AccommodationsSliderProps = {
   data: StaticImageData[]
 }
 
-export interface LightboxController {
+export type LightboxController = {
   toggler: boolean
   sourceIndex: number
 }

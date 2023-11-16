@@ -1,10 +1,9 @@
-'use client'
-
 import { useLocale } from 'next-intl'
 import { format } from 'date-fns'
-import { enGB, enUS, fr } from 'date-fns/locale'
-import { cn, formatStringTimeIntoDate } from '@/lib/utils'
+import { enGB, fr } from 'date-fns/locale'
+import { formatStringTimeIntoDate } from '@/lib/utils'
 import { OpeningHoursData } from './types'
+import TableRow from './TableRow'
 
 const DayRow = ({
   day,
@@ -13,8 +12,6 @@ const DayRow = ({
   inputEndValue
 }: OpeningHoursData) => {
   const lang = useLocale()
-
-  const today = format(new Date(), 'eeee', { locale: enUS })
 
   const startDate =
     lang === 'fr'
@@ -51,7 +48,7 @@ const DayRow = ({
         )
 
   return (
-    <tr className={cn({ 'bg-primary text-white': day === today })}>
+    <TableRow day={day}>
       <th className='border px-2 py-2 align-middle sm:px-4'>
         {dayTranslation}
       </th>
@@ -61,7 +58,7 @@ const DayRow = ({
       <td className='border px-2 py-2 align-middle sm:px-4'>
         <span>{endDate}</span>
       </td>
-    </tr>
+    </TableRow>
   )
 }
 export default DayRow

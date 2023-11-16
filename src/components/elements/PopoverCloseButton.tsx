@@ -2,7 +2,7 @@ import { KeyboardEvent } from 'react'
 import { PopoverClose } from '@radix-ui/react-popover'
 import { X } from 'lucide-react'
 
-interface PopoverCloseButtonProps {
+type PopoverCloseButtonProps = {
   onPopoverClose?: () => void
 }
 

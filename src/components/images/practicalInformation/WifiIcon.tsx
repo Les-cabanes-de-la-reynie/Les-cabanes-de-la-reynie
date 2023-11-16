@@ -1,9 +1,7 @@
 import { ClassNameProps } from '@/_types/components'
 import { cn } from '@/lib/utils'
 
-interface WifiIconProps extends ClassNameProps {}
-
-const WifiIcon = ({ className }: WifiIconProps) => {
+const WifiIcon = ({ className }: ClassNameProps) => {
   return (
     <svg className={cn(className)} viewBox='0 0 122.88 94.72'>
       <g>

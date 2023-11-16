@@ -4,7 +4,7 @@ import { ThemeSwitcher } from '@/components/elements/ThemeSwitcher'
 import NavList from './NavList'
 import Profile from '@/components/elements/Profile'
 
-interface SecondNavigationProps {
+type SecondNavigationProps = {
   handleCloseBurgerMenu: () => void
 }
 

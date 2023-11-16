@@ -1,9 +1,7 @@
 import { ClassNameProps } from '@/_types/components'
 import { cn } from '@/lib/utils'
 
-interface PawPrintIconProps extends ClassNameProps {}
-
-const PawPrintIcon = ({ className }: PawPrintIconProps) => {
+const PawPrintIcon = ({ className }: ClassNameProps) => {
   return (
     <svg
       className={cn(className)}

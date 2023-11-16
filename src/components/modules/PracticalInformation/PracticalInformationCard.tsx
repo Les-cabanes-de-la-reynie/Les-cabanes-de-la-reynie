@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react'
 import P from '@/components/elements/P'
 
-interface PracticalInformationCardProps extends PropsWithChildren {
+type PracticalInformationCardProps = PropsWithChildren & {
   description: string
 }
 

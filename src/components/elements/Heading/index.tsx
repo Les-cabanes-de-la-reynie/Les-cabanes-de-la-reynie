@@ -4,12 +4,11 @@ import { Dancing_Script } from 'next/font/google'
 
 const fontFamily = Dancing_Script({ display: 'swap', subsets: ['latin'] })
 
-export interface HeadingProps
-  extends PropsWithChildren,
-    HTMLProps<HTMLHeadingElement> {
-  level: number
-  error?: boolean
-}
+export type HeadingProps = PropsWithChildren &
+  HTMLProps<HTMLHeadingElement> & {
+    level: number
+    error?: boolean
+  }
 
 const Heading = ({
   children,
