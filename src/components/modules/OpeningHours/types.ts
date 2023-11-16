@@ -17,7 +17,7 @@ export type OpeningHoursData = {
   inputEndValue: string
 }
 
-export type OpeningHoursDayData = {
+export type OpeningHoursWeekData = {
   mondayStart: Date
   mondayEnd: Date
   tuesdayStart: Date

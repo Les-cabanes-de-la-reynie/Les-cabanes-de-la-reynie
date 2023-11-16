@@ -4,8 +4,6 @@ import { formatDateToTime } from '@/lib/utils'
 import { getOpeningHours } from '@/lib/queries/getOpeningHours'
 
 const OpeningHoursEdit = async () => {
-  const data = await getOpeningHours()
-
   const {
     mondayStart,
     mondayEnd,
@@ -21,7 +19,7 @@ const OpeningHoursEdit = async () => {
     saturdayEnd,
     sundayStart,
     sundayEnd
-  } = data[0]
+  } = await getOpeningHours()
 
   const openingHoursData: OpeningHoursData[] = [
     {
