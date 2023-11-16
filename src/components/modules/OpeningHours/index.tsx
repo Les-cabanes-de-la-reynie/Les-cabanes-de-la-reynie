@@ -8,8 +8,6 @@ import P from '@/components/elements/P'
 const OpeningHours = async () => {
   const t = useTranslations('Contact')
 
-  const jsonData = await getOpeningHours()
-
   const {
     mondayStart,
     mondayEnd,
@@ -25,7 +23,7 @@ const OpeningHours = async () => {
     saturdayEnd,
     sundayStart,
     sundayEnd
-  } = jsonData[0]
+  } = await getOpeningHours()
 
   const openingHoursData: OpeningHoursData[] = [
     {
