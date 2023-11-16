@@ -11,9 +11,9 @@ const AccommodationsSliderSkeleton = () => {
         </div>
       </div>
       <div className='grid w-full grid-flow-col grid-cols-1 gap-2 overflow-auto sm:grid-cols-2 lg:grid-cols-3'>
-        <Skeleton className='mx-1 h-60 object-cover'></Skeleton>
-        <Skeleton className='mx-1 h-60 object-cover'></Skeleton>
-        <Skeleton className='mx-1 h-60 object-cover'></Skeleton>
+        <Skeleton className='mx-1 h-60 rounded-lg object-cover'></Skeleton>
+        <Skeleton className='mx-1 h-60 rounded-lg object-cover'></Skeleton>
+        <Skeleton className='mx-1 h-60 rounded-lg object-cover'></Skeleton>
       </div>
     </div>
   )

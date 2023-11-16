@@ -8,7 +8,7 @@ type NavItemProps = PropsWithChildren &
 
 const NavItem = ({ children, className, ...rest }: NavItemProps) => {
   const classes = cn(
-    'py-4 select-none lg:p-0 text-primary-foreground hover:text-ring',
+    'py-4 select-none lg:p-0 text-primary-foreground hover:text-ring transition-colors',
     className
   )
 

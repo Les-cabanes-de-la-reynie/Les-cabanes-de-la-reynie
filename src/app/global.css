@@ -57,6 +57,7 @@ html {
   scrollbar-width: thin;
 }
 
+/* Leaflet map  */
 .leaflet-control {
   z-index: 0 !important;
 }
@@ -66,4 +67,9 @@ html {
 .leaflet-top,
 .leaflet-bottom {
   z-index: 0 !important;
+}
+
+/* Alice carousel */
+.alice-carousel__stage li {
+  padding: 0 0.5rem;
 }
