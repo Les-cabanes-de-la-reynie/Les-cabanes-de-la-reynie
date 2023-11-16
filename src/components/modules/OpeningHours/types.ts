@@ -8,7 +8,7 @@ export enum DaysOfTheWeekEnum {
   Sunday = 'Sunday'
 }
 
-export interface OpeningHoursData {
+export type OpeningHoursData = {
   day: DaysOfTheWeekEnum
   dayTranslation: string
   inputStartName?: string
@@ -17,7 +17,7 @@ export interface OpeningHoursData {
   inputEndValue: string
 }
 
-export interface OpeningHoursDayData {
+export type OpeningHoursDayData = {
   mondayStart: Date
   mondayEnd: Date
   tuesdayStart: Date
@@ -34,16 +34,16 @@ export interface OpeningHoursDayData {
   sundayEnd: Date
 }
 
-export interface OpeningHoursFormProps {
+export type OpeningHoursFormProps = {
   openingHoursData: OpeningHoursData[]
 }
 
-export interface TableHeaderProps {
+export type TableHeaderProps = {
   day: string
   lunch: string
   dinner: string
 }
 
-export interface DayRowEditProps extends OpeningHoursData {
+export type DayRowEditProps = OpeningHoursData & {
   isEdit: boolean
 }

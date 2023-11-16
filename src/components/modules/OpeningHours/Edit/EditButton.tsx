@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 
-interface EditButtonProps {
+type EditButtonProps = {
   onClick: () => void
 }
 

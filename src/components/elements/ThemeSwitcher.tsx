@@ -11,7 +11,7 @@ import { Separator } from '@/components/ui/separator'
 import { useTranslations } from 'next-intl'
 import PopoverCloseButton from './PopoverCloseButton'
 
-interface ThemeSwitcherProps {
+type ThemeSwitcherProps = {
   handleCloseBurgerMenu: () => void
 }
 

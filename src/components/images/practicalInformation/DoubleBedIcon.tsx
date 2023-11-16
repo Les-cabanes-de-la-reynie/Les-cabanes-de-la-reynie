@@ -1,9 +1,7 @@
 import { ClassNameProps } from '@/_types/components'
 import { cn } from '@/lib/utils'
 
-interface DoubleBedIconProps extends ClassNameProps {}
-
-const DoubleBedIcon = ({ className }: DoubleBedIconProps) => {
+const DoubleBedIcon = ({ className }: ClassNameProps) => {
   return (
     <svg className={cn(className)} viewBox='0 0 122.88 99.94'>
       <g>

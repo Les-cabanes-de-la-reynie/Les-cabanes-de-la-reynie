@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react'
 import Link from 'next/link'
 
-interface FollowUsItemProps extends PropsWithChildren {
+type FollowUsItemProps = PropsWithChildren & {
   href: string
 }
 

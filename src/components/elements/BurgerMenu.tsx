@@ -2,7 +2,7 @@ import { MenuIcon, X } from 'lucide-react'
 import { Button } from '../ui/button'
 import { useTranslations } from 'next-intl'
 
-interface BurgerMenuProps {
+type BurgerMenuProps = {
   isBurgerMenuOpen: boolean
   onToggleBurgerMenu: () => void
 }

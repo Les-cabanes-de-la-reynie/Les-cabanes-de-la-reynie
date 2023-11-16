@@ -1,4 +1,3 @@
-import { useMemo } from 'react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { cn } from '@/lib/utils'
@@ -12,16 +11,17 @@ import {
 } from '@/_constants/establishmentInformation'
 import Heading from '@/components/elements/Heading'
 
-const Address = ({ position }: { position: number[] }) => {
+type AddressProps = {
+  position: number[]
+}
+
+const Address = ({ position }: AddressProps) => {
   const t = useTranslations('Contact')
 
   const [lat, long] = position
 
-  const ITINERARY_URL = useMemo(
-    () =>
-      `https://www.google.fr/maps/dir/${lat},+${long}/La+Reynie+Haute,+19310+Louignac/@44.1892761,1.0389325,8z`,
-    [lat, long]
-  )
+  const COUNTRY_PHONE_CODE = 33
+  const FORMATED_PHONE_NUMBER = PHONE_NUMBER.slice(1).replaceAll(' ', '')
 
   return (
     <address className='text-center text-sm'>
@@ -29,7 +29,7 @@ const Address = ({ position }: { position: number[] }) => {
         {ESTABLISHMENT_TITLE}
       </Heading>
       <Link
-        href={ITINERARY_URL}
+        href={`https://www.google.fr/maps/dir/${lat},+${long}/La+Reynie+Haute,+19310+Louignac/@44.1892761,1.0389325,8z`}
         target='_blank'
         rel='noreferrer'
         className='mb-2 flex flex-col hover:underline'
@@ -47,7 +47,10 @@ const Address = ({ position }: { position: number[] }) => {
           <span>{ADDRESS_COUNTRY}</span>
         </div>
       </Link>
-      <Link href={`tel:${PHONE_NUMBER}`} className='hover:underline'>
+      <Link
+        href={`tel:+${COUNTRY_PHONE_CODE}${FORMATED_PHONE_NUMBER}`}
+        className='hover:underline'
+      >
         <span className='flex items-center justify-center'>
           <PhoneIcon size={15} className='mr-1' />
           <span itemProp='telephone'>{PHONE_NUMBER}</span>

@@ -2,10 +2,11 @@ import { ClassNameProps } from '@/_types/components'
 import { cn } from '@/lib/utils'
 import { PropsWithChildren } from 'react'
 
-export interface ContainerProps extends ClassNameProps, PropsWithChildren {
-  padding?: boolean
-  center?: boolean
-}
+export type ContainerProps = ClassNameProps &
+  PropsWithChildren & {
+    padding?: boolean
+    center?: boolean
+  }
 
 const Container = ({
   padding = true,

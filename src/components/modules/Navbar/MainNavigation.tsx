@@ -8,7 +8,7 @@ import NavList from './NavList'
 import useOutsideClick from '@/hooks/useOutsideClick'
 import { cn } from '@/lib/utils'
 
-interface MainNavigationProps {
+type MainNavigationProps = {
   isBurgerMenuOpen: boolean
   onCloseBurgerMenu: () => void
 }

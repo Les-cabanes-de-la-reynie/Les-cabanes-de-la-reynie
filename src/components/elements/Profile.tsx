@@ -12,7 +12,7 @@ import PopoverCloseButton from './PopoverCloseButton'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 
-interface ProfileProps {
+type ProfileProps = {
   handleCloseBurgerMenu: () => void
 }
 

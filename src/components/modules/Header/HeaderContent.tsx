@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils'
 import MainNavigation from '../Navbar/MainNavigation'
 import SecondNavigation from '../Navbar/SecondNavigation'
 
-interface HeaderContentProps {
+type HeaderContentProps = {
   isBurgerMenuOpen: boolean
   handleCloseBurgerMenu: () => void
 }
