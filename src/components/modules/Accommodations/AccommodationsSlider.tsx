@@ -36,7 +36,7 @@ const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
       src={image}
       sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
       priority
-      className='h-60 cursor-pointer object-cover px-2'
+      className='h-60 cursor-pointer rounded-lg object-cover'
       onClick={() => openLightboxOnSource(i)}
     />
   ))

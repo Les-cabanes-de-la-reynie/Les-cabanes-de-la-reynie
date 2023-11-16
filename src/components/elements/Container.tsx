@@ -15,7 +15,7 @@ const Container = ({
   children
 }: ContainerProps) => {
   const classes = cn(
-    'relative mx-auto box-border flex w-full max-w-7xl flex-1 flex-col',
+    'relative mx-auto box-border flex w-full max-w-screen-2xl flex-1 flex-col',
     {
       'p-4 md:p-6': padding,
       'justify-center items-center': center

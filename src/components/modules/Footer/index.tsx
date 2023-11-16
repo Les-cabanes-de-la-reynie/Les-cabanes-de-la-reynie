@@ -11,6 +11,8 @@ const Footer = () => {
   const t = useTranslations('Footer')
   const lang = useLocale()
 
+  const COMMON_ICON_CLASSNAME = 'fill-card-foreground text-transparent'
+
   return (
     <footer className='box-border w-full border-t'>
       <Container className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3'>
@@ -50,7 +52,11 @@ const Footer = () => {
                 href='https://www.google.fr/'
                 aria-label={t('facebookButton')}
               >
-                <FacebookIcon aria-hidden='true' focusable='false' />
+                <FacebookIcon
+                  aria-hidden='true'
+                  focusable='false'
+                  className={COMMON_ICON_CLASSNAME}
+                />
               </FollowUsItem>
             </FooterItem>
             <FooterItem>
@@ -58,7 +64,11 @@ const Footer = () => {
                 href='https://www.google.fr/'
                 aria-label={t('xButton')}
               >
-                <TwitterIcon aria-hidden='true' focusable='false' />
+                <TwitterIcon
+                  aria-hidden='true'
+                  focusable='false'
+                  className={COMMON_ICON_CLASSNAME}
+                />
               </FollowUsItem>
             </FooterItem>
             <FooterItem>
@@ -66,7 +76,11 @@ const Footer = () => {
                 href='https://www.google.fr/'
                 aria-label={t('linkedinButton')}
               >
-                <LinkedinIcon aria-hidden='true' focusable='false' />
+                <LinkedinIcon
+                  aria-hidden='true'
+                  focusable='false'
+                  className={COMMON_ICON_CLASSNAME}
+                />
               </FollowUsItem>
             </FooterItem>
           </ul>
