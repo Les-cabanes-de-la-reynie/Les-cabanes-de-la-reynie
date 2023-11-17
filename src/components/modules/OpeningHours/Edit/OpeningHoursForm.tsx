@@ -32,8 +32,6 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
   )
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async e => {
-    e.preventDefault()
-
     const formData = new FormData(e.currentTarget)
     const error = await openingHoursAction(formData)
 
