@@ -39,7 +39,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
         <div className='h-72 w-full'>Test</div>
       </Container>
 
-      <div className='bg-customImg1 h-96 w-full select-none bg-fixed bg-center'></div>
+      <div className='h-96 w-full select-none bg-customImg1 bg-fixed bg-center'></div>
 
       <Container>
         <div className='h-72 w-full'>Test</div>

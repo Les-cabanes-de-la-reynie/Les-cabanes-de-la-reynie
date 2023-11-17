@@ -3,6 +3,7 @@
 import { OpeningHoursWeekData } from '@/components/modules/OpeningHours/types'
 import { formatStringTimeIntoDate } from '@/lib/utils'
 import prisma from '../prisma'
+import { revalidatePath } from 'next/cache'
 
 export const openingHoursAction = async (formData: FormData) => {
   try {
@@ -22,6 +23,9 @@ export const openingHoursAction = async (formData: FormData) => {
       where: { id: 1 },
       data: OpeningHoursWeekData
     })
+
+    revalidatePath('/[locale]/dashboard', 'layout')
+    revalidatePath('/[locale]/contact', 'layout')
   } catch (error) {
     return error
   }
