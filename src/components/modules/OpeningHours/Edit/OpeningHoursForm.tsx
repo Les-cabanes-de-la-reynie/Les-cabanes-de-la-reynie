@@ -1,6 +1,6 @@
 'use client'
 
-import { FormEventHandler, useMemo } from 'react'
+import { FormEventHandler, useMemo, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import TableHeader from '../TableHeader'
 import useToggle from '@/hooks/useToggle'
@@ -13,6 +13,7 @@ import { toast } from 'sonner'
 import { openingHoursAction } from '@/lib/actions/openingHours.action'
 
 const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
+  const [, startTransition] = useTransition()
   const [isEdit, handleToggleEdit] = useToggle(false)
   const router = useRouter()
 
@@ -30,7 +31,7 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
     [isEdit, handleToggleEdit]
   )
 
-  const onSubmit: FormEventHandler<HTMLFormElement> = async e => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async e => {
     e.preventDefault()
 
     const formData = new FormData(e.currentTarget)
@@ -52,7 +53,10 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
   }
 
   return (
-    <form onSubmit={onSubmit} className='h-full w-full'>
+    <form
+      onSubmit={e => startTransition(() => handleSubmit(e))}
+      className='h-full w-full'
+    >
       <table className='w-full flex-grow' data-test='openingHours'>
         <TableHeader day={''} lunch={'Ouverture'} dinner={'Fermeture'} />
         <tbody className='text-center'>
