@@ -4,13 +4,14 @@ import { FormEventHandler, useMemo, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import TableHeader from '../TableHeader'
 import useToggle from '@/hooks/useToggle'
-import { OpeningHoursFormProps } from '../types'
+import { OpeningHoursFormProps, OpeningHoursWeekData } from '../types'
 import DayRowEdit from './DayRowEdit'
 import CancelButton from './CancelButton'
 import EditButton from './EditButton'
 import UpdateButton from './UpdateButton'
 import { toast } from 'sonner'
 import { openingHoursAction } from '@/lib/actions/openingHours.action'
+import { formatStringTimeIntoDate } from '@/lib/utils'
 
 const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
   const [, startTransition] = useTransition()
@@ -33,7 +34,22 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async e => {
     const formData = new FormData(e.currentTarget)
-    const error = await openingHoursAction(formData)
+
+    const allFormData = Array.from(formData) as [
+      [keyof OpeningHoursWeekData, string]
+    ]
+
+    const OpeningHoursWeekData = allFormData.reduce((acc, curr) => {
+      const [key, value] = curr
+
+      acc[key] = formatStringTimeIntoDate(value)
+
+      return acc
+    }, {} as OpeningHoursWeekData)
+
+    const data = JSON.parse(JSON.stringify(OpeningHoursWeekData))
+
+    const error = await openingHoursAction(data)
 
     if (error) {
       toast.error(
