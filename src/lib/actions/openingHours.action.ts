@@ -21,7 +21,7 @@ export const openingHoursAction = async (formData: FormData) => {
 
     await prisma.openingHours.update({
       where: { id: 1 },
-      data: OpeningHoursWeekData
+      data: JSON.parse(JSON.stringify(OpeningHoursWeekData))
     })
 
     revalidatePath('/[locale]/dashboard', 'layout')

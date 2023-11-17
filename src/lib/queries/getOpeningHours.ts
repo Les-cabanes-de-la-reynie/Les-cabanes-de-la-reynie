@@ -23,7 +23,7 @@ export const getOpeningHours = async () => {
     saturdayEnd,
     sundayStart,
     sundayEnd
-  } = data[0] as OpeningHoursWeekData
+  } = JSON.parse(JSON.stringify(data[0] as OpeningHoursWeekData))
 
   return {
     mondayStart,
