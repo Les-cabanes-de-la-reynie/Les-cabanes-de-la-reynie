@@ -2,14 +2,21 @@ import Image, { StaticImageData } from 'next/image'
 import { useTranslations } from 'next-intl'
 import Heading from '@/components/elements/Heading'
 import P from '@/components/elements/P'
-import { Button } from '@/components/ui/button'
+import Container from '@/components/elements/Container'
+import AccommodationsPopover from './AccommodationsPopover'
+import { BookEntity } from './types'
 
 type AccommodationsHeaderProps = {
   image: StaticImageData
   title: string
+  bookList: BookEntity[]
 }
 
-const AccommodationsHeader = ({ image, title }: AccommodationsHeaderProps) => {
+const AccommodationsHeader = ({
+  image,
+  title,
+  bookList
+}: AccommodationsHeaderProps) => {
   const t = useTranslations('Common')
 
   return (
@@ -26,12 +33,14 @@ const AccommodationsHeader = ({ image, title }: AccommodationsHeaderProps) => {
           priority
         />
       </div>
-      <div className='m-16 flex flex-col justify-center'>
-        <Heading level={1}>{title}</Heading>
+      <Container className='flex flex-col justify-center lg:p-10'>
+        <Heading level={1} className='mt-4 lg:mt-0'>
+          {title}
+        </Heading>
+
         <Heading level={2} className='mt-10'>
           {t('description')}
         </Heading>
-
         <P>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
           libero pariatur quod sapiente, molestiae incidunt facere qui impedit
@@ -50,8 +59,8 @@ const AccommodationsHeader = ({ image, title }: AccommodationsHeaderProps) => {
         </Heading>
         <P>Tarif unique : 175€</P>
 
-        <Button className='mt-10 lg:w-max'>{t('bookYourStay')}</Button>
-      </div>
+        <AccommodationsPopover bookList={bookList} />
+      </Container>
     </header>
   )
 }
