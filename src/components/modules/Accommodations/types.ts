@@ -8,3 +8,8 @@ export type LightboxController = {
   toggler: boolean
   sourceIndex: number
 }
+
+export type BookEntity = {
+  title: string
+  href: string
+}
