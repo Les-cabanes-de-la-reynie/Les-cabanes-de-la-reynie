@@ -7,7 +7,10 @@
     "loading": "Loading",
     "update": "Update",
     "cancel": "Cancel",
-    "edit": "Edit"
+    "edit": "Edit",
+    "description": "Description",
+    "price": "Price",
+    "bookYourStay": "Book your stay"
   },
   "SEO": {
     "description": "Welcome to Les cabanes de la Reynie"
