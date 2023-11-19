@@ -7,7 +7,10 @@
     "loading": "Chargement",
     "update": "Mettre à jour",
     "cancel": "Annuler",
-    "edit": "Modifier"
+    "edit": "Modifier",
+    "description": "Description",
+    "price": "Prix",
+    "bookYourStay": "Réservez votre séjour"
   },
   "SEO": {
     "description": "Bienvenue sur Les cabanes de la Reynie"

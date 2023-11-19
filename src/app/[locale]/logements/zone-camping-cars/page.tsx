@@ -1,21 +1,21 @@
-import { useTranslations } from 'next-intl'
-import Heading from '@/components/elements/Heading'
-import Container from '@/components/elements/Container'
 import { unstable_setRequestLocale } from 'next-intl/server'
+import myImg from '../../../../components/images/homeCarousel/forest4.webp'
+import AccommodationsHeader from '@/components/modules/Accommodations/AccommodationsHeader'
+import PracticalInformation from '@/components/modules/PracticalInformation'
 
-const Yourte = ({ params: { locale } }: { params: { locale: string } }) => {
+const CampingCarsZone = ({
+  params: { locale }
+}: {
+  params: { locale: string }
+}) => {
   unstable_setRequestLocale(locale)
 
-  const t = useTranslations('SEO')
-
   return (
-    <Container>
-      <Heading level={1} className='my-8 text-center'>
-        ZONE CAMPING CARS
-      </Heading>
-      <div className='mb-8 flex flex-grow flex-col'>{t('description')}</div>
-    </Container>
+    <main>
+      <AccommodationsHeader image={myImg} title='Zone camping cars' />
+      <PracticalInformation />
+    </main>
   )
 }
 
-export default Yourte
+export default CampingCarsZone
