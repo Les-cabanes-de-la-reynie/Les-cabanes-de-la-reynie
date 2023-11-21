@@ -2,7 +2,7 @@
 
 import { useTransition } from 'react'
 import { env } from '@/env'
-import { usePathname, useRouter } from 'next-intl/client'
+import { usePathname, useRouter } from '../../../navigation'
 import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { transformLocaleToCountry } from '@/lib/utils'
