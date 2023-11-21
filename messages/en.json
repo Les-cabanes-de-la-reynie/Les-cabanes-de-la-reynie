@@ -75,7 +75,7 @@
     "systemModeTheme": "System"
   },
   "Carousel": {
-    "prevButton": "Image précédente",
-    "nextButton": "Image suivante"
+    "prevButton": "Previous image",
+    "nextButton": "Next image"
   }
 }
