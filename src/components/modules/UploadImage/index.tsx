@@ -20,7 +20,8 @@ const UploadImage = () => {
         Upload image
       </Heading>
       <P>
-        Il faudrait dans l'idéal mettre des images uniquement en format WEBP
+        Il faudrait mettre dans la mesure du possible des images uniquement en
+        format WEBP
       </P>
 
       <Heading level={3} className='mt-4'>
