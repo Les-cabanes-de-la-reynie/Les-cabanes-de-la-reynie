@@ -24,7 +24,7 @@
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@t3-oss/env-nextjs": "^0.7.1",
-    "@uploadthing/react": "^6.0.0",
+    "@uploadthing/react": "^6.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
@@ -43,10 +43,10 @@
     "react-hook-form": "^7.48.2",
     "react-leaflet": "^4.2.1",
     "sharp": "^0.32.6",
-    "sonner": "^1.2.0",
+    "sonner": "^1.2.2",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7",
-    "uploadthing": "^6.0.1",
+    "uploadthing": "^6.0.3",
     "zod": "^3.22.4"
   },
   "devDependencies": {
