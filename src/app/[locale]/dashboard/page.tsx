@@ -11,16 +11,18 @@ const Dashboard = ({ params: { locale } }: { params: { locale: string } }) => {
 
   return (
     <Container>
-      <Heading level={1} className='mt-4'>
+      <Heading level={1} className='my-4'>
         Dashboard
       </Heading>
 
-      <Heading level={2} className='my-8'>
-        Opening hours
-      </Heading>
-      <Suspense fallback={<Loader />}>
-        <OpeningHoursEdit />
-      </Suspense>
+      <section>
+        <Heading level={2} className='my-8'>
+          Opening hours
+        </Heading>
+        <Suspense fallback={<Loader />}>
+          <OpeningHoursEdit />
+        </Suspense>
+      </section>
 
       <UploadImage />
     </Container>
