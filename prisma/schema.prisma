@@ -32,3 +32,10 @@ model VisitorCount {
   id Int @id @default(autoincrement())
   count Int
 }
+
+model Image {
+  id       String @id @default(cuid())
+  imageKey String
+  imageUrl String
+  category String
+}

@@ -31,5 +31,8 @@ export const formatStringTimeIntoDate = (time: string) => {
   return completDate
 }
 
-export const formatDateToTime = (incomingDate: Date) =>
-  format(new Date(incomingDate), 'HH:mm')
+export const formatDateToTime = (incomingDate: Date) => {
+  const dateWithoutTimeZone = new Date(incomingDate.toISOString().slice(0, -1))
+
+  return format(dateWithoutTimeZone, 'HH:mm')
+}
