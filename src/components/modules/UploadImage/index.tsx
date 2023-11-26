@@ -5,6 +5,12 @@ import P from '@/components/elements/P'
 import { Separator } from '@/components/ui/separator'
 import { useUser } from '@auth0/nextjs-auth0/client'
 import UploadImageCard from './UploadImageCard'
+import {
+  CABANE_HEADER_KEY,
+  CABANE_SLIDER_KEY,
+  YOURTE_HEADER_KEY,
+  YOURTE_SLIDER_KEY
+} from '@/_constants/uploadImage'
 
 const UploadImage = () => {
   const { user, error } = useUser()
@@ -31,13 +37,13 @@ const UploadImage = () => {
           <Heading level={4} className='mt-2'>
             Header image
           </Heading>
-          <UploadImageCard endpoint='yourteHeader' />
+          <UploadImageCard endpoint={YOURTE_HEADER_KEY} />
         </div>
         <div className='w-full'>
           <Heading level={4} className='mt-2'>
             Slider images
           </Heading>
-          <UploadImageCard endpoint='yourteSlider' />
+          <UploadImageCard endpoint={YOURTE_SLIDER_KEY} />
         </div>
       </div>
 
@@ -52,13 +58,13 @@ const UploadImage = () => {
           <Heading level={4} className='mt-2'>
             Header image
           </Heading>
-          <UploadImageCard endpoint='cabaneHeader' />
+          <UploadImageCard endpoint={CABANE_HEADER_KEY} />
         </div>
         <div className='w-full'>
           <Heading level={4} className='mt-2'>
             Slider images
           </Heading>
-          <UploadImageCard endpoint='cabaneSlider' />
+          <UploadImageCard endpoint={CABANE_SLIDER_KEY} />
         </div>
       </div>
     </section>

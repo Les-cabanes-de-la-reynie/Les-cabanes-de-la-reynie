@@ -2,7 +2,7 @@
 
 import { OpeningHoursWeekData } from '@/components/modules/OpeningHours/types'
 import { formatStringTimeIntoDate } from '@/lib/utils'
-import prisma from '../prisma'
+import prisma from '../../lib/prisma'
 import { revalidatePath } from 'next/cache'
 
 export const openingHoursAction = async (formData: FormData) => {

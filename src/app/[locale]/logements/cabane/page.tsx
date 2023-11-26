@@ -15,7 +15,11 @@ const Cabane = ({ params: { locale } }: { params: { locale: string } }) => {
 
   return (
     <main className='w-full'>
-      <AccommodationsHeader image={myImg} title='Cabane' bookList={bookList} />
+      <AccommodationsHeader
+        headerImageUrl={myImg}
+        title='Cabane'
+        bookList={bookList}
+      />
       <PracticalInformation />
       <Accommodations />
     </main>

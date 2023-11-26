@@ -1,5 +1,5 @@
 import { OpeningHoursWeekData } from '@/components/modules/OpeningHours/types'
-import prisma from '../prisma'
+import prisma from '../../lib/prisma'
 
 export const getOpeningHours = async () => {
   const data = await prisma.openingHours.findMany({
