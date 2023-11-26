@@ -1,8 +1,18 @@
+import {
+  CABANE_HEADER_KEY,
+  CABANE_SLIDER_KEY,
+  YOURTE_HEADER_KEY,
+  YOURTE_SLIDER_KEY
+} from '@/_constants/uploadImage'
 import { UploadDropzone } from '@/lib/uploadthing'
 import { toast } from 'sonner'
 
 type UploadImageCardProps = {
-  endpoint: 'yourteHeader' | 'yourteSlider' | 'cabaneHeader' | 'cabaneSlider'
+  endpoint:
+    | typeof YOURTE_HEADER_KEY
+    | typeof YOURTE_SLIDER_KEY
+    | typeof CABANE_HEADER_KEY
+    | typeof CABANE_SLIDER_KEY
 }
 
 const UploadImageCard = ({ endpoint }: UploadImageCardProps) => {

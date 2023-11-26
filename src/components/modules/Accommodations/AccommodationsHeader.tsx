@@ -7,13 +7,13 @@ import AccommodationsPopover from './AccommodationsPopover'
 import { BookEntity } from './types'
 
 type AccommodationsHeaderProps = {
-  image: StaticImageData
+  headerImageUrl: string | StaticImageData
   title: string
   bookList: BookEntity[]
 }
 
 const AccommodationsHeader = ({
-  image,
+  headerImageUrl,
   title,
   bookList
 }: AccommodationsHeaderProps) => {
@@ -21,11 +21,10 @@ const AccommodationsHeader = ({
 
   return (
     <header className='grid grid-cols-1 lg:min-h-screen lg:grid-cols-2'>
-      <div className='relative h-96 w-full select-none lg:h-screen'>
+      <div className='relative h-96 w-full select-none bg-popover lg:h-screen'>
         <Image
           alt='TODO'
-          src={image}
-          placeholder='blur'
+          src={headerImageUrl}
           quality={100}
           fill
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw'

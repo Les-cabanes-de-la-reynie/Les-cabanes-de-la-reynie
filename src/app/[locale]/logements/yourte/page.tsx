@@ -1,10 +1,14 @@
 import { unstable_setRequestLocale } from 'next-intl/server'
 import AccommodationsHeader from '@/components/modules/Accommodations/AccommodationsHeader'
-import myImg from '../../../../components/images/homeCarousel/forest6.webp'
 import PracticalInformation from '@/components/modules/PracticalInformation'
 import Accommodations from '@/components/modules/Accommodations'
+import { getYourteHeaderImage } from '@/services/queries/images'
 
-const Yourte = ({ params: { locale } }: { params: { locale: string } }) => {
+const Yourte = async ({
+  params: { locale }
+}: {
+  params: { locale: string }
+}) => {
   unstable_setRequestLocale(locale)
 
   const bookList = [
@@ -13,9 +17,16 @@ const Yourte = ({ params: { locale } }: { params: { locale: string } }) => {
     { title: 'Airbnb 3', href: 'https://www.airbnb.fr/' }
   ]
 
+  const yourteHeaderImage = await getYourteHeaderImage()
+  const lastYourteHeaderImage = yourteHeaderImage.at(-1)
+
   return (
     <main className='w-full'>
-      <AccommodationsHeader image={myImg} title='Yourte' bookList={bookList} />
+      <AccommodationsHeader
+        headerImageUrl={lastYourteHeaderImage?.imageUrl ?? ''}
+        title='Yourte'
+        bookList={bookList}
+      />
       <PracticalInformation />
       <Accommodations />
     </main>

@@ -100,27 +100,9 @@ const MainNavigation = ({
                 href={`/${lang}/logements/cabane`}
                 className='flex max-w-max items-center gap-2 py-1 lg:rounded-lg lg:p-2'
                 onClick={onCloseBurgerMenu}
-              >
-                Cabane
-              </Link>
-            </NavItem>
-            <NavItem className='py-0 pl-5'>
-              <Link
-                href={`/${lang}/logements/zone-tentes`}
-                className='flex max-w-max items-center gap-2 py-1 lg:rounded-lg lg:p-2'
-                onClick={onCloseBurgerMenu}
-              >
-                Zone Tentes
-              </Link>
-            </NavItem>
-            <NavItem className='py-0 pl-5'>
-              <Link
-                href={`/${lang}/logements/zone-camping-cars`}
-                className='flex max-w-max items-center gap-2 py-1 lg:rounded-lg lg:p-2'
-                onClick={onCloseBurgerMenu}
                 onBlur={handleClosePopup}
               >
-                Zone Camping-cars
+                Cabane
               </Link>
             </NavItem>
           </NavList>
