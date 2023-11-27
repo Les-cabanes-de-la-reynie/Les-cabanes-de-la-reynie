@@ -6,8 +6,9 @@ import {
 } from '@/_constants/uploadImage'
 import { UploadDropzone } from '@/lib/uploadthing'
 import { toast } from 'sonner'
+import { uploadImageAction } from '@/services/actions/uploadImage.action'
 
-type UploadImageCardProps = {
+type UploadHeaderCardProps = {
   endpoint:
     | typeof YOURTE_HEADER_KEY
     | typeof YOURTE_SLIDER_KEY
@@ -15,11 +16,17 @@ type UploadImageCardProps = {
     | typeof CABANE_SLIDER_KEY
 }
 
-const UploadImageCard = ({ endpoint }: UploadImageCardProps) => {
+const UploadHeaderCard = ({ endpoint }: UploadHeaderCardProps) => {
   return (
     <UploadDropzone
       endpoint={endpoint}
-      onClientUploadComplete={() => toast.success('Upload Completed')}
+      onClientUploadComplete={async res => {
+        const { key, url } = res[0]
+
+        await uploadImageAction({ key, url, category: endpoint })
+
+        toast.success('Upload Completed')
+      }}
       onUploadError={(error: Error) => {
         toast.error(`ERROR! ${error.message}`)
       }}
@@ -31,4 +38,4 @@ const UploadImageCard = ({ endpoint }: UploadImageCardProps) => {
     />
   )
 }
-export default UploadImageCard
+export default UploadHeaderCard
