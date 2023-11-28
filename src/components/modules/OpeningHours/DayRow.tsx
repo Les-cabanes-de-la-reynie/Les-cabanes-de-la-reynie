@@ -1,7 +1,9 @@
 import { useLocale } from 'next-intl'
 import { format } from 'date-fns'
-import { enGB, fr } from 'date-fns/locale'
-import { formatStringTimeIntoDate } from '@/lib/utils'
+import {
+  convertDateWithoutTimeZone,
+  formatStringTimeIntoDate
+} from '@/lib/utils'
 import { OpeningHoursData } from './types'
 import TableRow from './TableRow'
 
@@ -13,39 +15,22 @@ const DayRow = ({
 }: OpeningHoursData) => {
   const lang = useLocale()
 
+  const startDateWithoutTimeZone = convertDateWithoutTimeZone(
+    formatStringTimeIntoDate(inputStartValue)
+  )
+  const endDateWithoutTimeZone = convertDateWithoutTimeZone(
+    formatStringTimeIntoDate(inputEndValue)
+  )
+
   const startDate =
     lang === 'fr'
-      ? format(
-          new Date(formatStringTimeIntoDate(inputStartValue) as Date),
-          'HH:mm',
-          {
-            locale: fr
-          }
-        )
-      : format(
-          new Date(formatStringTimeIntoDate(inputStartValue) as Date),
-          'h:mm aaaa',
-          {
-            locale: enGB
-          }
-        )
+      ? format(startDateWithoutTimeZone, 'HH:mm')
+      : format(startDateWithoutTimeZone, 'h:mm aaaa')
 
   const endDate =
     lang === 'fr'
-      ? format(
-          new Date(formatStringTimeIntoDate(inputEndValue) as Date),
-          'HH:mm',
-          {
-            locale: fr
-          }
-        )
-      : format(
-          new Date(formatStringTimeIntoDate(inputEndValue) as Date),
-          'h:mm aaaa',
-          {
-            locale: enGB
-          }
-        )
+      ? format(endDateWithoutTimeZone, 'HH:mm')
+      : format(endDateWithoutTimeZone, 'h:mm aaaa')
 
   return (
     <TableRow day={day}>
