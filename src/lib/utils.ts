@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { add, format, startOfDay } from 'date-fns'
+import { format } from 'date-fns'
 
 export const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs))
@@ -18,21 +18,14 @@ export const isoToEmoji = (code: string) =>
     .map(emojiCode => String.fromCodePoint(emojiCode))
     .join('')
 
-export const formatStringTimeIntoDate = (time: string) => {
-  const hours = parseInt(time.split(':')[0], 10)
-  const minutes = parseInt(time.split(':')[1], 10)
+export const formatStringTimeIntoDate = (time: string) =>
+  new Date(`2023-11-27T${time}:00.000Z`)
 
-  // Generate new date that start at midnight and add incoming time on it
-  const completDate = add(startOfDay(new Date()), {
-    hours: hours,
-    minutes: minutes
-  })
-
-  return completDate
-}
+export const convertDateWithoutTimeZone = (incomingDate: Date) =>
+  new Date(incomingDate.toISOString().slice(0, -1))
 
 export const formatDateToTime = (incomingDate: Date) => {
-  const dateWithoutTimeZone = new Date(incomingDate.toISOString().slice(0, -1))
+  const dateWithoutTimeZone = convertDateWithoutTimeZone(incomingDate)
 
   return format(dateWithoutTimeZone, 'HH:mm')
 }
