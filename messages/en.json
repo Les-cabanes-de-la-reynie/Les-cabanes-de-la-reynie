@@ -10,7 +10,9 @@
     "edit": "Edit",
     "description": "Description",
     "price": "Price",
-    "bookYourStay": "Book your stay"
+    "bookYourStay": "Book your stay",
+    "yurt": "Yurt",
+    "hut": "Hut"
   },
   "SEO": {
     "description": "Welcome to Les cabanes de la Reynie"
