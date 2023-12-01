@@ -92,7 +92,7 @@ const MainNavigation = ({
                 className='flex max-w-max items-center gap-2 py-1 lg:rounded-lg'
                 onClick={onCloseBurgerMenu}
               >
-                Yourte
+                {t('yurt')}
               </Link>
             </NavItem>
             <NavItem className='py-0 pl-5'>
@@ -102,7 +102,7 @@ const MainNavigation = ({
                 onClick={onCloseBurgerMenu}
                 onBlur={handleClosePopup}
               >
-                Cabane
+                {t('hut')}
               </Link>
             </NavItem>
           </NavList>

@@ -10,7 +10,9 @@
     "edit": "Modifier",
     "description": "Description",
     "price": "Prix",
-    "bookYourStay": "Réservez votre séjour"
+    "bookYourStay": "Réservez votre séjour",
+    "yurt": "Yourte",
+    "hut": "Cabane"
   },
   "SEO": {
     "description": "Bienvenue sur Les cabanes de la Reynie"
