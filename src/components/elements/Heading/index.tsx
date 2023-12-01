@@ -1,8 +1,13 @@
 import { HTMLProps, PropsWithChildren } from 'react'
 import { cn } from '@/lib/utils'
-import { Dancing_Script } from 'next/font/google'
+import { Kaushan_Script } from 'next/font/google'
 
-const fontFamily = Dancing_Script({ display: 'swap', subsets: ['latin'] })
+const fontFamily = Kaushan_Script({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+  variable: '--font-kaushan-script'
+})
 
 export type HeadingProps = PropsWithChildren &
   HTMLProps<HTMLHeadingElement> & {
@@ -25,8 +30,8 @@ const Heading = ({
     className
   )
   const h2ClassName = cn(
-    fontFamily.className,
-    'scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0',
+    fontFamily.variable,
+    'scroll-m-20 text-3xl font-title tracking-tight first:mt-0',
     {
       'text-error': error
     },
