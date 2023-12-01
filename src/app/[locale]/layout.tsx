@@ -12,10 +12,10 @@ import Providers from '@/providers'
 import { env } from '@/env'
 
 const fontFamily = Roboto({
-  weight: ['400', '500', '700', '900'],
-  style: ['normal', 'italic'],
   subsets: ['latin'],
-  display: 'swap'
+  weight: ['400', '500', '700', '900'],
+  display: 'swap',
+  variable: '--font-roboto'
 })
 
 type RootLayoutProps = {
@@ -68,8 +68,8 @@ const RootLayout = async ({
     <html suppressHydrationWarning lang={locale}>
       <body
         className={cn(
-          fontFamily.className,
-          'text:foreground relative flex min-h-screen w-full flex-col bg-background'
+          fontFamily.variable,
+          'text:foreground relative flex min-h-screen w-full flex-col bg-background font-sans'
         )}
       >
         <Toaster richColors position='top-right' expand={true} />

@@ -1,4 +1,3 @@
-const { fontFamily } = require('tailwindcss/defaultTheme')
 const defaultTheme = require('tailwindcss/defaultTheme')
 import { withUt } from 'uploadthing/tw'
 
@@ -25,7 +24,8 @@ module.exports = withUt({
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans]
+        sans: ['var(--font-roboto)'],
+        title: ['var(--font-kaushan-script)']
       },
       colors: {
         border: 'hsl(var(--border))',
