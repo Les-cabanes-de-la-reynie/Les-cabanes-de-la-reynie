@@ -7,6 +7,16 @@ import { revalidatePath } from 'next/cache'
 
 export const openingHoursAction = async (formData: FormData) => {
   try {
+    const openingHours = await prisma.openingHours.findUnique({
+      where: {
+        id: 1
+      }
+    })
+
+    if (!openingHours) {
+      throw new Error('OpeningHours not found')
+    }
+
     const allFormData = Array.from(formData) as [
       [keyof OpeningHoursWeekData, string]
     ]
@@ -23,10 +33,12 @@ export const openingHoursAction = async (formData: FormData) => {
       where: { id: 1 },
       data: OpeningHoursWeekData
     })
-
-    revalidatePath('/[locale]/dashboard', 'layout')
-    revalidatePath('/[locale]/contact', 'layout')
   } catch (error) {
-    return error
+    return {
+      message: `Database Error: Failed to Update Opening hours. Reason: ${error}`
+    }
   }
+
+  revalidatePath('/[locale]/dashboard', 'layout')
+  revalidatePath('/[locale]/contact', 'layout')
 }
