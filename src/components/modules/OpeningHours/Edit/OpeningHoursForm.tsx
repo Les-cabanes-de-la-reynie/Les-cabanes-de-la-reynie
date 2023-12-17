@@ -1,20 +1,18 @@
 'use client'
 
 import { FormEventHandler, useMemo } from 'react'
-import { useRouter } from 'next/navigation'
 import TableHeader from '../TableHeader'
 import useToggle from '@/hooks/useToggle'
 import { OpeningHoursFormProps } from '../types'
 import DayRowEdit from './DayRowEdit'
 import CancelButton from './CancelButton'
 import EditButton from './EditButton'
-import UpdateButton from './UpdateButton'
+import SubmitButton from './SubmitButton'
 import { toast } from 'sonner'
 import { openingHoursAction } from '@/services/actions/openingHours.action'
 
 const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
   const [isEdit, handleToggleEdit] = useToggle(false)
-  const router = useRouter()
 
   const editableSection = useMemo(
     () => (
@@ -24,7 +22,7 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
         ) : (
           <EditButton onClick={handleToggleEdit} />
         )}
-        {isEdit && <UpdateButton />}
+        {isEdit && <SubmitButton>Mettre à jour</SubmitButton>}
       </div>
     ),
     [isEdit, handleToggleEdit]
@@ -36,7 +34,7 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
     const formData = new FormData(e.currentTarget)
     const error = await openingHoursAction(formData)
 
-    if (error) {
+    if (error?.message) {
       toast.error(
         `Attention les données n'ont pas pu être mis à jour. La raison : ${error}`
       )
@@ -45,8 +43,6 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
     }
 
     handleToggleEdit()
-
-    router.refresh()
 
     toast.success('Les données ont bien été mis à jour !')
   }
