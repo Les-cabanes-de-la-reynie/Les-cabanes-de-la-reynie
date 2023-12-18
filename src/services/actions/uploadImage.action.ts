@@ -1,6 +1,6 @@
 'use server'
 
-import prisma from '../../lib/prisma'
+import { db } from '@/lib/prisma'
 import { revalidatePath } from 'next/cache'
 
 type uploadImageActionProps = {
@@ -16,14 +16,14 @@ export const uploadImageAction = async ({
 }: uploadImageActionProps) => {
   try {
     // Delete old images in specific category
-    await prisma.image.deleteMany({
+    await db.image.deleteMany({
       where: {
         category
       }
     })
 
     // Create new image in specific category
-    await prisma.image.create({
+    await db.image.create({
       data: {
         imageKey: key,
         imageUrl: url,

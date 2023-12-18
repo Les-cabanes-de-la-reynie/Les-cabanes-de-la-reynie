@@ -1,12 +1,12 @@
 import { OpeningHoursWeekData } from '@/components/modules/OpeningHours/types'
-import prisma from '../../lib/prisma'
+import { db } from '@/lib/prisma'
 import { unstable_noStore as noStore } from 'next/cache'
 
 export const getOpeningHours = async () => {
   // equivalent to doing fetch, cache: no-store
   noStore()
 
-  const data = await prisma.openingHours.findMany({
+  const data = await db.openingHours.findMany({
     where: {
       id: 1
     }
