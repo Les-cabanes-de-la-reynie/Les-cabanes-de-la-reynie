@@ -2,12 +2,12 @@
 
 import { OpeningHoursWeekData } from '@/components/modules/OpeningHours/types'
 import { formatStringTimeIntoDate } from '@/lib/utils'
-import prisma from '../../lib/prisma'
+import { db } from '@/lib/prisma'
 import { revalidatePath } from 'next/cache'
 
 export const openingHoursAction = async (formData: FormData) => {
   try {
-    const openingHours = await prisma.openingHours.findUnique({
+    const openingHours = await db.openingHours.findUnique({
       where: {
         id: 1
       }
@@ -29,7 +29,7 @@ export const openingHoursAction = async (formData: FormData) => {
       return acc
     }, {} as OpeningHoursWeekData)
 
-    await prisma.openingHours.update({
+    await db.openingHours.update({
       where: { id: 1 },
       data: OpeningHoursWeekData
     })
