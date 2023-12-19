@@ -30,7 +30,8 @@ You can also switch between dark and light mode.
 - Styling: TailwindCSS
 - Design System & Components: ShadCN / Radix UI + CVA + Custom component
 - ORM: Prisma
-- Database: SQLITE
+- Database: PostgreSQL with [neon.tech](https://neon.tech/) (connection with
+  github account)
 - i18n: next-intl (FR & EN)
 - Authentication: Auth0 (admin page)
 - Upload image: uploadthing (admin page only)

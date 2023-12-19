@@ -1,7 +1,10 @@
 import { OpeningHoursWeekData } from '@/components/modules/OpeningHours/types'
 import { db } from '@/lib/prisma'
+import { unstable_noStore } from 'next/cache'
 
 export const getOpeningHours = async () => {
+  unstable_noStore()
+
   const data = await db.openingHours.findMany({
     where: {
       id: 1

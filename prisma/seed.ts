@@ -4,7 +4,6 @@ const prisma = new PrismaClient()
 
 const main = async () => {
   const openingHours = {
-    id: 1,
     mondayStart: '2023-11-24T08:00:00.000Z',
     mondayEnd: '2023-11-24T20:00:00.000Z',
     tuesdayStart: '2023-11-24T08:00:00.000Z',
