@@ -36,7 +36,7 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
 
     if (error?.message) {
       toast.error(
-        `Attention les données n'ont pas pu être mis à jour. La raison : ${error}`
+        `Attention les données n'ont pas pu être mis à jour. La raison : ${error?.message}`
       )
 
       return
