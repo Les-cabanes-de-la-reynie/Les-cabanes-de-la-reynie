@@ -7,16 +7,6 @@ import { revalidatePath } from 'next/cache'
 
 export const openingHoursAction = async (formData: FormData) => {
   try {
-    const openingHours = await db.openingHours.findUnique({
-      where: {
-        id: 1
-      }
-    })
-
-    if (!openingHours) {
-      throw new Error('OpeningHours not found')
-    }
-
     const allFormData = Array.from(formData) as [
       [keyof OpeningHoursWeekData, string]
     ]
