@@ -6,7 +6,7 @@ import {
 } from '@/_constants/uploadImage'
 import { UploadDropzone } from '@/lib/uploadthing'
 import { toast } from 'sonner'
-import { uploadImageAction } from '@/services/actions/uploadImage.action'
+import { updateUploadImage } from '@/services/actions/updateUploadImage'
 
 type UploadHeaderCardProps = {
   endpoint:
@@ -23,12 +23,12 @@ const UploadHeaderCard = ({ endpoint }: UploadHeaderCardProps) => {
       onClientUploadComplete={async res => {
         const { key, url } = res[0]
 
-        await uploadImageAction({ key, url, category: endpoint })
+        await updateUploadImage({ key, url, category: endpoint })
 
-        toast.success('Upload Completed')
+        toast.success('Success ! Your upload is completed')
       }}
       onUploadError={(error: Error) => {
-        toast.error(`ERROR! ${error.message}`)
+        toast.error(`Upload failed ! Reason: ${error.message}`)
       }}
       appearance={{
         button: 'ut-uploading:cursor-not-allowed rounded-lg bg-primary-dark',

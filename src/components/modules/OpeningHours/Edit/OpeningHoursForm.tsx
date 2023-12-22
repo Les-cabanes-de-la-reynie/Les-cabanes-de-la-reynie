@@ -1,6 +1,6 @@
 'use client'
 
-import { FormEventHandler, useMemo } from 'react'
+import { useMemo } from 'react'
 import TableHeader from '../TableHeader'
 import useToggle from '@/hooks/useToggle'
 import { OpeningHoursFormProps } from '../types'
@@ -9,7 +9,7 @@ import CancelButton from './CancelButton'
 import EditButton from './EditButton'
 import SubmitButton from './SubmitButton'
 import { toast } from 'sonner'
-import { openingHoursAction } from '@/services/actions/openingHours.action'
+import { updateOpeningHours } from '@/services/actions/updateOpeningHours'
 
 const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
   const [isEdit, handleToggleEdit] = useToggle(false)
@@ -28,27 +28,21 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
     [isEdit, handleToggleEdit]
   )
 
-  const onSubmit: FormEventHandler<HTMLFormElement> = async e => {
-    e.preventDefault()
-
-    const formData = new FormData(e.currentTarget)
-    const error = await openingHoursAction(formData)
-
-    if (error?.message) {
-      toast.error(
-        `Attention les données n'ont pas pu être mis à jour. La raison : ${error?.message}`
-      )
-
-      return
-    }
-
-    handleToggleEdit()
-
-    toast.success('Les données ont bien été mis à jour !')
-  }
-
   return (
-    <form onSubmit={onSubmit} className='h-full w-full'>
+    <form
+      action={async formData => {
+        const error = await updateOpeningHours(formData)
+
+        if (error?.message) {
+          return toast.error(error.message)
+        }
+
+        handleToggleEdit()
+
+        toast.success('Success ! The opening hours has been saved')
+      }}
+      className='h-full w-full'
+    >
       <table className='w-full flex-grow' data-test='openingHours'>
         <TableHeader day={''} lunch={'Ouverture'} dinner={'Fermeture'} />
         <tbody className='text-center'>
