@@ -1,11 +1,11 @@
 'use server'
 
-import { OpeningHoursWeekData } from '@/components/modules/OpeningHours/types'
-import { formatStringTimeIntoDate } from '@/lib/utils'
-import { db } from '@/lib/prisma'
 import { revalidatePath } from 'next/cache'
+import { db } from '@/lib/prisma'
+import { formatStringTimeIntoDate } from '@/lib/utils'
+import { OpeningHoursWeekData } from '@/components/modules/OpeningHours/types'
 
-export const openingHoursAction = async (formData: FormData) => {
+export const updateOpeningHours = async (formData: FormData) => {
   try {
     const allFormData = Array.from(formData) as [
       [keyof OpeningHoursWeekData, string]
@@ -25,7 +25,7 @@ export const openingHoursAction = async (formData: FormData) => {
     })
   } catch (error) {
     return {
-      message: `Database Error: Failed to Update Opening hours. Reason: ${error}`
+      message: `Update failed ! Reason: ${error}`
     }
   }
 

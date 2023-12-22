@@ -3,17 +3,17 @@
 import { db } from '@/lib/prisma'
 import { revalidatePath } from 'next/cache'
 
-type uploadImageActionProps = {
+type updateUploadImageProps = {
   key: string
   url: string
   category: string
 }
 
-export const uploadImageAction = async ({
+export const updateUploadImage = async ({
   key,
   url,
   category
-}: uploadImageActionProps) => {
+}: updateUploadImageProps) => {
   try {
     // Delete old images in specific category
     await db.image.deleteMany({
