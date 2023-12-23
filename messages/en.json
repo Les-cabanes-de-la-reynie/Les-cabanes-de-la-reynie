@@ -12,15 +12,14 @@
     "price": "Price",
     "bookYourStay": "Book your stay",
     "yurt": "Yurt",
-    "hut": "Hut"
+    "hut": "Hut",
+    "practicalInformation": "Practical Information",
+    "sliderTitle": "My gallery"
   },
   "SEO": {
     "description": "Welcome to Les cabanes de la Reynie"
   },
-  "Home": {
-    "practicalInformation": "Practical Information",
-    "sliderTitle": "My gallery"
-  },
+  "Home": {},
   "Accommodations": { "bookList": "Book list" },
   "Contact": {
     "contactMainTitle": "Find Les cabanes de la Reynie",
@@ -37,7 +36,11 @@
     "friday": "Friday",
     "saturday": "Saturday",
     "sunday": "Sunday",
-    "Itinerary": "Itinerary"
+    "Itinerary": "Itinerary",
+    "geoLocationFound": "Your geolocation has been found !",
+    "geoLocationNotFound": "Geolocation not found",
+    "confirmLocationDescription": "For a better user experience on our site, we need to know your location. You can activate it at the top of this page or in your browser settings.",
+    "confirmLocationButton": "See itinerary"
   },
   "Errors": {
     "shortError404": "404 error",

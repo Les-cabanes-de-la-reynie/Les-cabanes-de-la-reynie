@@ -10,7 +10,7 @@ import ShowerIcon from '@/components/images/practicalInformation/ShowerIcon'
 import ToiletIcon from '@/components/images/practicalInformation/ToiletIcon'
 
 const PracticalInformation = () => {
-  const t = useTranslations('Home')
+  const t = useTranslations('Common')
 
   const COMMON_ICON_CLASSNAME = 'h-12 w-12 fill-primary'
 

@@ -13,7 +13,7 @@ const Carousel = dynamic(() => import('@/components/modules/Carousel'), {
 })
 
 const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
-  const t = useTranslations('Home')
+  const t = useTranslations('Common')
 
   const [lightboxController, setLightboxController] = useState({
     toggler: false,

@@ -72,7 +72,7 @@ const RootLayout = async ({
           'text:foreground relative flex min-h-screen w-full flex-col bg-background font-sans'
         )}
       >
-        <Toaster richColors position='top-right' expand={true} />
+        <Toaster richColors position='top-right' expand={true} closeButton />
         <Providers locale={locale} messages={messages}>
           <Header />
           <main id='main' role='main' className='flex flex-1'>
