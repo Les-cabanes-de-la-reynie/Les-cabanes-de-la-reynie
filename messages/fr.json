@@ -12,15 +12,14 @@
     "price": "Prix",
     "bookYourStay": "Réservez votre séjour",
     "yurt": "Yourte",
-    "hut": "Cabane"
+    "hut": "Cabane",
+    "practicalInformation": "Informations pratiques",
+    "sliderTitle": "Ma galerie"
   },
   "SEO": {
     "description": "Bienvenue sur Les cabanes de la Reynie"
   },
-  "Home": {
-    "practicalInformation": "Informations pratiques",
-    "sliderTitle": "Ma galerie"
-  },
+  "Home": {},
   "Accommodations": { "bookList": "Liste des choix pour réserver" },
   "Contact": {
     "contactMainTitle": "Trouver Les cabanes de la Reynie",
@@ -37,7 +36,11 @@
     "friday": "Vendredi",
     "saturday": "Samedi",
     "sunday": "Dimanche",
-    "Itinerary": "Itinéraire"
+    "Itinerary": "Itinéraire",
+    "geoLocationFound": "Votre localisation a été trouvée !",
+    "geoLocationNotFound": "Localisation n'a pas été trouvée",
+    "confirmLocationDescription": "Pour une meilleure expérience utilisateur sur notre site, nous avons besoin connaitre votre localisation. Vous pouvez l'activer en haut de cette page ou dans les paramètres de votre navigateur.",
+    "confirmLocationButton": "Voir itinéraire"
   },
   "Errors": {
     "shortError404": "Erreur 404",
