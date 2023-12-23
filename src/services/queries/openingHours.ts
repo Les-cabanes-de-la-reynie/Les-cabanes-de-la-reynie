@@ -1,4 +1,4 @@
-import { OpeningHoursWeekData } from '@/components/modules/OpeningHours/types'
+import { OpeningHoursData } from '@/components/modules/OpeningHours/types'
 import { db } from '@/lib/prisma'
 import { unstable_noStore } from 'next/cache'
 
@@ -26,7 +26,7 @@ export const getOpeningHours = async () => {
     saturdayEnd,
     sundayStart,
     sundayEnd
-  } = data[0] as OpeningHoursWeekData
+  } = data[0] as OpeningHoursData
 
   return {
     mondayStart,

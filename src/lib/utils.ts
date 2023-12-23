@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { format } from 'date-fns'
+import { OpeningHoursData } from '@/components/modules/OpeningHours/types'
 
 export const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs))
@@ -28,4 +29,18 @@ export const formatDateToTime = (incomingDate: Date) => {
   const dateWithoutTimeZone = convertDateWithoutTimeZone(incomingDate)
 
   return format(dateWithoutTimeZone, 'HH:mm')
+}
+
+export const formatFormDataIntoOpeningHoursData = (formData: FormData) => {
+  const allFormData = Array.from(formData) as [[keyof OpeningHoursData, string]]
+
+  const openingHoursData = allFormData.reduce((acc, curr) => {
+    const [key, value] = curr
+
+    acc[key] = formatStringTimeIntoDate(value)
+
+    return acc
+  }, {} as OpeningHoursData)
+
+  return openingHoursData
 }
