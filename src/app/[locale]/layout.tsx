@@ -9,7 +9,7 @@ import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import { ReactNode } from 'react'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import Providers from '@/providers'
-import { env } from '@/env'
+import { env } from '@/lib/env'
 
 const fontFamily = Roboto({
   subsets: ['latin'],

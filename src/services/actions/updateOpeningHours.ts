@@ -2,33 +2,20 @@
 
 import { revalidatePath } from 'next/cache'
 import { db } from '@/lib/prisma'
-import { formatStringTimeIntoDate } from '@/lib/utils'
-import { OpeningHoursWeekData } from '@/components/modules/OpeningHours/types'
+import { OpeningHoursData } from '@/components/modules/OpeningHours/types'
+import { authenticatedAction } from '@/lib/safe-actions'
+import { z } from 'zod'
+import { OpeningHoursDataSchema } from '@/models/OpeningHours'
 
-export const updateOpeningHours = async (formData: FormData) => {
-  try {
-    const allFormData = Array.from(formData) as [
-      [keyof OpeningHoursWeekData, string]
-    ]
-
-    const OpeningHoursWeekData = allFormData.reduce((acc, curr) => {
-      const [key, value] = curr
-
-      acc[key] = formatStringTimeIntoDate(value)
-
-      return acc
-    }, {} as OpeningHoursWeekData)
-
+export const updateOpeningHours = authenticatedAction(
+  z.object(OpeningHoursDataSchema),
+  async (openingHoursData: OpeningHoursData) => {
     await db.openingHours.update({
       where: { id: 1 },
-      data: OpeningHoursWeekData
+      data: openingHoursData
     })
-  } catch (error) {
-    return {
-      message: `Update failed ! Reason: ${error}`
-    }
-  }
 
-  revalidatePath('/[locale]/dashboard', 'layout')
-  revalidatePath('/[locale]/contact', 'layout')
-}
+    revalidatePath('/[locale]/dashboard', 'layout')
+    revalidatePath('/[locale]/contact', 'layout')
+  }
+)

@@ -1,6 +1,6 @@
 import createMiddleware from 'next-intl/middleware'
 import { pathnames, locales } from './config'
-import { env } from './env'
+import { env } from './lib/env'
 
 export default createMiddleware({
   defaultLocale: env.NEXT_PUBLIC_LANG,

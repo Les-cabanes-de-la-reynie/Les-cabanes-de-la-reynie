@@ -3,10 +3,10 @@
 import { format } from 'date-fns'
 import { enUS } from 'date-fns/locale'
 import { cn } from '@/lib/utils'
-import { OpeningHoursData } from './types'
+import { OpeningHoursRowData } from './types'
 import { PropsWithChildren } from 'react'
 
-type TableRowProps = Pick<OpeningHoursData, 'day'> & PropsWithChildren
+type TableRowProps = Pick<OpeningHoursRowData, 'day'> & PropsWithChildren
 
 const TableRow = ({ day, children }: TableRowProps) => {
   const today = format(new Date(), 'eeee', { locale: enUS })

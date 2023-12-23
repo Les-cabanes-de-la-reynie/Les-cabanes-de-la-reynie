@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl'
-import { DaysOfTheWeekEnum, OpeningHoursData } from './types'
+import { DaysOfTheWeekEnum, OpeningHoursRowData } from './types'
 import OpeningHoursTable from './OpeningHoursTable'
 import { formatDateToTime } from '@/lib/utils'
 import { getOpeningHours } from '@/services/queries/openingHours'
@@ -25,7 +25,7 @@ const OpeningHours = async () => {
     sundayEnd
   } = await getOpeningHours()
 
-  const openingHoursData: OpeningHoursData[] = [
+  const openingHoursData: OpeningHoursRowData[] = [
     {
       day: DaysOfTheWeekEnum.Monday,
       dayTranslation: t('monday'),

@@ -1,5 +1,5 @@
 import OpeningHoursForm from './OpeningHoursForm'
-import { DaysOfTheWeekEnum, OpeningHoursData } from '../types'
+import { DaysOfTheWeekEnum, OpeningHoursRowData } from '../types'
 import { formatDateToTime } from '@/lib/utils'
 import { getOpeningHours } from '@/services/queries/openingHours'
 
@@ -21,7 +21,7 @@ const OpeningHoursEdit = async () => {
     sundayEnd
   } = await getOpeningHours()
 
-  const openingHoursData: OpeningHoursData[] = [
+  const openingHoursData: OpeningHoursRowData[] = [
     {
       day: DaysOfTheWeekEnum.Monday,
       dayTranslation: 'Lundi',

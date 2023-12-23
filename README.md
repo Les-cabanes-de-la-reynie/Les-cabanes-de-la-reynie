@@ -25,7 +25,7 @@ You can also switch between dark and light mode.
 ## Techinal website details
 
 - UI: React
-- Framework: NextJS (App directory)
+- Framework: NextJS (App directory & Server actions with next-safe-action)
 - Language: TypeScript
 - Styling: TailwindCSS
 - Design System & Components: ShadCN / Radix UI + CVA + Custom component

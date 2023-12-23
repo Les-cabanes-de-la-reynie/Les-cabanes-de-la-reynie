@@ -4,7 +4,7 @@ import {
   convertDateWithoutTimeZone,
   formatStringTimeIntoDate
 } from '@/lib/utils'
-import { OpeningHoursData } from './types'
+import { OpeningHoursRowData } from './types'
 import TableRow from './TableRow'
 
 const DayRow = ({
@@ -12,7 +12,7 @@ const DayRow = ({
   dayTranslation,
   inputStartValue,
   inputEndValue
-}: OpeningHoursData) => {
+}: OpeningHoursRowData) => {
   const lang = useLocale()
 
   const startDateWithoutTimeZone = convertDateWithoutTimeZone(

@@ -10,6 +10,7 @@ import EditButton from './EditButton'
 import SubmitButton from './SubmitButton'
 import { toast } from 'sonner'
 import { updateOpeningHours } from '@/services/actions/updateOpeningHours'
+import { formatFormDataIntoOpeningHoursData } from '@/lib/utils'
 
 const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
   const [isEdit, handleToggleEdit] = useToggle(false)
@@ -31,15 +32,30 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
   return (
     <form
       action={async formData => {
-        const error = await updateOpeningHours(formData)
+        try {
+          const openingHoursData = formatFormDataIntoOpeningHoursData(formData)
 
-        if (error?.message) {
-          return toast.error(error.message)
+          const { validationError, serverError } =
+            await updateOpeningHours(openingHoursData)
+
+          if (validationError) {
+            return toast.error(
+              'There was an error updating opening hours. Data are maybe invalid'
+            )
+          }
+
+          if (serverError) {
+            return toast.error(serverError)
+          }
+
+          handleToggleEdit()
+
+          toast.success('Success ! The opening hours has been saved')
+        } catch (error) {
+          return toast.error(
+            `Something went wrong! Cannot update opening hours. ${error}`
+          )
         }
-
-        handleToggleEdit()
-
-        toast.success('Success ! The opening hours has been saved')
       }}
       className='h-full w-full'
     >
