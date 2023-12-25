@@ -1,30 +1,35 @@
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import Heading from '@/components/elements/Heading'
 import P from '@/components/elements/P'
 import Container from '@/components/elements/Container'
 import AccommodationsPopover from './AccommodationsPopover'
 import { BookEntity } from './types'
+import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
+import { getUploadedImages } from '@/services/queries/uploadedImages'
 
 type AccommodationsHeaderProps = {
-  headerImageUrl: string | StaticImageData
   title: string
+  uploadImageCategoryKey: UploadImageCategoryKeyEnum
   bookList: BookEntity[]
 }
 
-const AccommodationsHeader = ({
-  headerImageUrl,
+const AccommodationsHeader = async ({
   title,
+  uploadImageCategoryKey,
   bookList
 }: AccommodationsHeaderProps) => {
   const t = useTranslations('Common')
+
+  const hutHeaderImages = await getUploadedImages(uploadImageCategoryKey)
+  const lastHutHeaderImage = hutHeaderImages.at(-1)
 
   return (
     <header className='grid grid-cols-1 lg:grid-cols-2'>
       <div className='relative h-96 w-full select-none bg-popover lg:h-[calc(100vh-4.5rem)]'>
         <Image
           alt={`Main ${title} landscape`}
-          src={headerImageUrl}
+          src={lastHutHeaderImage?.imageUrl ?? ''}
           quality={100}
           fill
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw'
