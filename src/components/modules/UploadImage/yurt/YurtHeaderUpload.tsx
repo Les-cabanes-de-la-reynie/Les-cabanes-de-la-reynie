@@ -1,15 +1,15 @@
 import Heading from '@/components/elements/Heading'
 import UploadHeaderCard from '../UploadHeaderCard'
-import { YOURTE_HEADER_KEY } from '@/_constants/uploadImage'
+import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 
-const YourteHeaderUpload = () => {
+const YurtHeaderUpload = () => {
   return (
     <div className='w-full'>
       <Heading level={4} className='mt-2'>
         Header image
       </Heading>
-      <UploadHeaderCard endpoint={YOURTE_HEADER_KEY} />
+      <UploadHeaderCard endpoint={UploadImageCategoryKeyEnum.YurtHeader} />
     </div>
   )
 }
-export default YourteHeaderUpload
+export default YurtHeaderUpload

@@ -2,7 +2,8 @@ import { unstable_setRequestLocale } from 'next-intl/server'
 import AccommodationsHeader from '@/components/modules/Accommodations/AccommodationsHeader'
 import PracticalInformation from '@/components/modules/PracticalInformation'
 import Accommodations from '@/components/modules/Accommodations'
-import { getYourteHeaderImage } from '@/services/queries/images'
+import { getUploadedImages } from '@/services/queries/uploadedImages'
+import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 
 const Yourte = async ({
   params: { locale }
@@ -17,13 +18,15 @@ const Yourte = async ({
     { title: 'Airbnb 3', href: 'https://www.airbnb.fr/' }
   ]
 
-  const yourteHeaderImage = await getYourteHeaderImage()
-  const lastYourteHeaderImage = yourteHeaderImage.at(-1)
+  const yurtHeaderImages = await getUploadedImages(
+    UploadImageCategoryKeyEnum.YurtHeader
+  )
+  const lastYurtHeaderImage = yurtHeaderImages.at(-1)
 
   return (
     <main className='w-full'>
       <AccommodationsHeader
-        headerImageUrl={lastYourteHeaderImage?.imageUrl ?? ''}
+        headerImageUrl={lastYurtHeaderImage?.imageUrl ?? ''}
         title='Yourte'
         bookList={bookList}
       />

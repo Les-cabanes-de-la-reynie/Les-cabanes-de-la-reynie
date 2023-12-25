@@ -2,32 +2,46 @@
 
 import { db } from '@/lib/prisma'
 import { revalidatePath } from 'next/cache'
+import { getUploadedImages } from '../queries/uploadedImages'
+import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
+import { utapi } from '@/lib/utapiUploadthing'
 
-type updateUploadImageProps = {
+type UpdateUploadImageProps = {
   key: string
   url: string
-  category: string
+  category: UploadImageCategoryKeyEnum
 }
 
 export const updateUploadImage = async ({
   key,
   url,
   category
-}: updateUploadImageProps) => {
+}: UpdateUploadImageProps) => {
   try {
-    // Delete old images in specific category
-    await db.image.deleteMany({
-      where: {
-        category
-      }
-    })
+    const uploadedImages = await getUploadedImages(category)
+
+    const lastUploadedImage = uploadedImages.at(-1)
+
+    // Delete old image in uploadthing (https://uploadthing.com/) by his key
+    if (lastUploadedImage && 'imageKey' in lastUploadedImage) {
+      await utapi.deleteFiles(lastUploadedImage.imageKey)
+    }
+
+    // Delete old images in postgre database
+    if (lastUploadedImage && 'id' in lastUploadedImage) {
+      await db.image.deleteMany({
+        where: {
+          id: lastUploadedImage.id
+        }
+      })
+    }
 
     // Create new image in specific category
     await db.image.create({
       data: {
         imageKey: key,
         imageUrl: url,
-        category: category
+        category
       }
     })
 

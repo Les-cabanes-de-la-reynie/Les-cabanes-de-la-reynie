@@ -3,16 +3,16 @@
 import Heading from '@/components/elements/Heading'
 import P from '@/components/elements/P'
 import { Separator } from '@/components/ui/separator'
+import YurtHeaderUpload from './yurt/YurtHeaderUpload'
+import YurtSliderUpload from './yurt/YurtSliderUpload'
+import HutHeaderUpload from './hut/HutHeaderUpload'
+import HutSliderUpload from './hut/HutSliderUpload'
 import { useUser } from '@auth0/nextjs-auth0/client'
-import YourteHeaderUpload from './yourte/YourteHeaderUpload'
-import YourteSliderUpload from './yourte/YourteSliderUpload'
-import CabaneHeaderUpload from './cabane/CabaneHeaderUpload'
-import CabaneSliderUpload from './cabane/CabaneSliderUpload'
 
 const UploadImage = () => {
   const { user, error } = useUser()
 
-  if (error || !user?.email) {
+  if (error || !user?.email_verified) {
     return null
   }
 
@@ -30,8 +30,8 @@ const UploadImage = () => {
         Yourte
       </Heading>
       <div className='flex flex-col justify-between gap-8 md:flex-row'>
-        <YourteHeaderUpload />
-        <YourteSliderUpload />
+        <YurtHeaderUpload />
+        <YurtSliderUpload />
       </div>
 
       <Separator className='my-10' />
@@ -41,8 +41,8 @@ const UploadImage = () => {
       </Heading>
 
       <div className='flex flex-col justify-between gap-8 md:flex-row'>
-        <CabaneHeaderUpload />
-        <CabaneSliderUpload />
+        <HutHeaderUpload />
+        <HutSliderUpload />
       </div>
     </section>
   )
