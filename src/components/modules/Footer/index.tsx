@@ -34,7 +34,7 @@ const Footer = () => {
           <FooterHeading>Dashboard</FooterHeading>
           <ul>
             <FooterItem>
-              <Link href={`/api/auth/login`}>Item 1</Link>
+              <Link href={`/${lang}`}>Item 1</Link>
             </FooterItem>
             <FooterItem>
               <Link href={`/${lang}`}>Item 2</Link>

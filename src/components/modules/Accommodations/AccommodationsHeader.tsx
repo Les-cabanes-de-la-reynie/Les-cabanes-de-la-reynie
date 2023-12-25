@@ -20,7 +20,7 @@ const AccommodationsHeader = ({
   const t = useTranslations('Common')
 
   return (
-    <header className='grid grid-cols-1 lg:min-h-screen lg:grid-cols-2'>
+    <header className='grid grid-cols-1 lg:h-screen lg:grid-cols-2'>
       <div className='relative h-96 w-full select-none bg-popover lg:h-screen'>
         <Image
           alt='TODO'
