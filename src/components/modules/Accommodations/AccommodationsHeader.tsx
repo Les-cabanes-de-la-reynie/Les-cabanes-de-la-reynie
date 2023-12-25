@@ -20,10 +20,10 @@ const AccommodationsHeader = ({
   const t = useTranslations('Common')
 
   return (
-    <header className='grid grid-cols-1 lg:h-screen lg:grid-cols-2'>
-      <div className='relative h-96 w-full select-none bg-popover lg:h-screen'>
+    <header className='grid grid-cols-1 lg:grid-cols-2'>
+      <div className='relative h-96 w-full select-none bg-popover lg:h-[calc(100vh-4.5rem)]'>
         <Image
-          alt='TODO'
+          alt={`Main ${title} landscape`}
           src={headerImageUrl}
           quality={100}
           fill
