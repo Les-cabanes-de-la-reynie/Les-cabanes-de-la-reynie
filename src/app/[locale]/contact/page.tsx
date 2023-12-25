@@ -1,11 +1,9 @@
-import { Suspense } from 'react'
+import { useTranslations } from 'next-intl'
+import { unstable_setRequestLocale } from 'next-intl/server'
 import Heading from '@/components/elements/Heading'
 import Location from '@/components/modules/Location'
 import OpeningHours from '@/components/modules/OpeningHours'
 import Container from '@/components/elements/Container'
-import Loader from '@/components/elements/Loader'
-import { useTranslations } from 'next-intl'
-import { unstable_setRequestLocale } from 'next-intl/server'
 
 const Contact = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
@@ -24,9 +22,7 @@ const Contact = ({ params: { locale } }: { params: { locale: string } }) => {
         </section>
         <section className='flex w-full flex-col gap-4 lg:mb-0'>
           <Heading level={2}>{t('openingHours')}</Heading>
-          <Suspense fallback={<Loader />}>
-            <OpeningHours />
-          </Suspense>
+          <OpeningHours />
         </section>
       </div>
     </Container>
