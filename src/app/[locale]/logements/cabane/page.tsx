@@ -1,11 +1,14 @@
+import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
-import myImg from '../../../../components/images/homeCarousel/forest5.webp'
 import AccommodationsHeader from '@/components/modules/Accommodations/AccommodationsHeader'
 import PracticalInformation from '@/components/modules/PracticalInformation'
 import Accommodations from '@/components/modules/Accommodations'
+import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 
-const Cabane = ({ params: { locale } }: { params: { locale: string } }) => {
+const Hut = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
+
+  const t = useTranslations('Common')
 
   const bookList = [
     { title: 'Airbnb', href: 'https://www.airbnb.fr/' },
@@ -16,8 +19,8 @@ const Cabane = ({ params: { locale } }: { params: { locale: string } }) => {
   return (
     <main className='w-full'>
       <AccommodationsHeader
-        headerImageUrl={myImg}
-        title='Cabane'
+        title={t('hut')}
+        uploadImageCategoryKey={UploadImageCategoryKeyEnum.HutHeader}
         bookList={bookList}
       />
       <PracticalInformation />
@@ -26,4 +29,4 @@ const Cabane = ({ params: { locale } }: { params: { locale: string } }) => {
   )
 }
 
-export default Cabane
+export default Hut
