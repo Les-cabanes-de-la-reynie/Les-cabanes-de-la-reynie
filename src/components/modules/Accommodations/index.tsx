@@ -1,4 +1,6 @@
+import { Suspense } from 'react'
 import AccommodationsSlider from './AccommodationsSlider'
+import AccommodationsSliderSkeleton from './AccommodationsSliderSkeleton'
 import fullscreenImage from '../../images/homeCarousel/forest.webp'
 import fullscreenImage2 from '../../images/homeCarousel/forest2.webp'
 import fullscreenImage3 from '../../images/homeCarousel/forest3.webp'
@@ -18,7 +20,9 @@ const Accommodations = () => {
 
   return (
     <section className='mx-auto w-full max-w-screen-2xl py-14'>
-      <AccommodationsSlider data={data} />
+      <Suspense fallback={<AccommodationsSliderSkeleton />}>
+        <AccommodationsSlider data={data} />
+      </Suspense>
     </section>
   )
 }

@@ -31,7 +31,7 @@ const Footer = () => {
           </ul>
         </FooterNav>
         <FooterNav>
-          <FooterHeading>Dashboard</FooterHeading>
+          <FooterHeading>Admin</FooterHeading>
           <ul>
             <FooterItem>
               <Link href={`/api/auth/login`}>Item 1</Link>
@@ -40,7 +40,7 @@ const Footer = () => {
               <Link href={`/${lang}`}>Item 2</Link>
             </FooterItem>
             <FooterItem>
-              <Link href={`/${lang}/dashboard`}>Espace admin</Link>
+              <Link href={`/${lang}/admin`}>Espace admin</Link>
             </FooterItem>
           </ul>
         </FooterNav>

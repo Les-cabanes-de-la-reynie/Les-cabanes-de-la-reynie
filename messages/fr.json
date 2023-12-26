@@ -27,9 +27,7 @@
     "contactMainTitle": "Trouver Les cabanes de la Reynie",
     "location": "Nous trouver",
     "openingHours": "Les horaires",
-    "open": "Ouvert",
     "opening": "Ouverture",
-    "closed": "Fermé",
     "closing": "Fermeture",
     "monday": "Lundi",
     "tuesday": "Mardi",
@@ -66,12 +64,10 @@
   },
   "Navigation": {
     "switchLangTitle": "Langues",
-    "login": "Se connecter",
     "logout": "Se déconnecter",
     "profile": "Votre profil",
-    "openBurgerMenu": "Menu",
-    "openBurgerMenuTitle": "Ouvrir le menu",
-    "closeBurgerMenuTitle": "Fermer le menu"
+    "openBurgerMenu": "Ouvrir le menu",
+    "closeBurgerMenu": "Fermer le menu"
   },
   "ThemeSwitcher": {
     "themeSwitcherAccessibleText": "Changer de thème",

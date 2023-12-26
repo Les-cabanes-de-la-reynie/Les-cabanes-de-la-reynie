@@ -6,13 +6,13 @@ import { unstable_setRequestLocale } from 'next-intl/server'
 import Heading from '@/components/elements/Heading'
 import UploadImage from '@/components/modules/UploadImage'
 
-const Dashboard = ({ params: { locale } }: { params: { locale: string } }) => {
+const Admin = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
 
   return (
     <Container>
-      <Heading level={1} className='my-4'>
-        Dashboard
+      <Heading level={1} className='mb-8 mt-4 text-center'>
+        Admin
       </Heading>
 
       <section>
@@ -29,4 +29,4 @@ const Dashboard = ({ params: { locale } }: { params: { locale: string } }) => {
   )
 }
 
-export default Dashboard
+export default Admin

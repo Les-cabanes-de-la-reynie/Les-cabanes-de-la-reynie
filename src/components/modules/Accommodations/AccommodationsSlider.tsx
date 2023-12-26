@@ -1,16 +1,10 @@
 'use client'
 
 import { useId, useState } from 'react'
-import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { AccommodationsSliderProps } from './types'
-import AccommodationsSliderSkeleton from './AccommodationsSliderSkeleton'
-
-const Carousel = dynamic(() => import('@/components/modules/Carousel'), {
-  loading: () => <AccommodationsSliderSkeleton />,
-  ssr: false
-})
+import Carousel from '../Carousel'
 
 const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
   const t = useTranslations('Common')
