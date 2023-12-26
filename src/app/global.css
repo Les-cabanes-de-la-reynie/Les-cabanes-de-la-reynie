@@ -68,8 +68,3 @@ html {
 .leaflet-bottom {
   z-index: 0 !important;
 }
-
-/* Alice carousel */
-.alice-carousel__stage li {
-  padding: 0 0.5rem;
-}

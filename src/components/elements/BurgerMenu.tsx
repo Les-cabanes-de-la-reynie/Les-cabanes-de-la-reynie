@@ -19,9 +19,7 @@ const BurgerMenu = ({
       size='icon'
       className='rounded-full bg-primary-dark text-primary-foreground hover:bg-primary lg:hidden'
       onClick={onToggleBurgerMenu}
-      aria-label={
-        isBurgerMenuOpen ? t('closeBurgerMenuTitle') : t('openBurgerMenuTitle')
-      }
+      aria-label={isBurgerMenuOpen ? t('closeBurgerMenu') : t('openBurgerMenu')}
       aria-expanded={isBurgerMenuOpen}
     >
       {isBurgerMenuOpen ? (

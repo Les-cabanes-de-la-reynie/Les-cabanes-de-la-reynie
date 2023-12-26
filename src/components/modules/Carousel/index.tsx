@@ -1,22 +1,17 @@
-'use client'
-
+import { useTranslations } from 'next-intl'
 import FsLightbox from 'fslightbox-react'
-import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
-import AliceCarousel from 'react-alice-carousel'
-import 'react-alice-carousel/lib/alice-carousel.css'
+import {
+  Carousel as EmblaCarousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from '@/components/ui/carousel'
 import Heading from '@/components/elements/Heading'
 import { CarouselProps } from './types'
-import { Button } from '@/components/ui/button'
-import { useTranslations } from 'next-intl'
-
-const responsive = {
-  0: { items: 1 },
-  640: { items: 2 },
-  1024: { items: 3 }
-}
 
 const SLIDER_BUTTONS_COMMON_CLASSNAME =
-  'absolute -top-12 flex h-10 w-10 items-center text-primary-foreground justify-center rounded-full p-0 bg-primary'
+  'absolute -top-8 flex h-10 w-10 items-center text-primary-foreground justify-center rounded-full p-0 bg-primary'
 
 const Carousel = ({
   carouselItems,
@@ -26,31 +21,6 @@ const Carousel = ({
 }: CarouselProps) => {
   const t = useTranslations('Carousel')
 
-  const renderPrevButton = ({ isDisabled = false }) => {
-    return (
-      <Button
-        variant='ghost'
-        className={`${SLIDER_BUTTONS_COMMON_CLASSNAME} right-14`}
-        disabled={isDisabled}
-        aria-label={t('prevButton')}
-      >
-        <ChevronLeftIcon />
-      </Button>
-    )
-  }
-  const renderNextButton = ({ isDisabled = false }) => {
-    return (
-      <Button
-        variant='ghost'
-        className={`${SLIDER_BUTTONS_COMMON_CLASSNAME} right-2`}
-        disabled={isDisabled}
-        aria-label={t('nextButton')}
-      >
-        <ChevronRightIcon />
-      </Button>
-    )
-  }
-
   return (
     <>
       {!!title && (
@@ -58,16 +28,33 @@ const Carousel = ({
           {title}
         </Heading>
       )}
-      <AliceCarousel
-        responsive={responsive}
-        infinite
-        disableSlideInfo={false}
-        disableDotsControls
-        keyboardNavigation
-        renderPrevButton={renderPrevButton}
-        renderNextButton={renderNextButton}
-        items={carouselItems}
-      />
+      <EmblaCarousel
+        className='w-full px-2'
+        opts={{
+          align: 'start',
+          loop: true
+        }}
+      >
+        <CarouselContent>
+          {carouselItems.map((carouselItem, index) => (
+            <CarouselItem
+              key={`${carouselItem.key}-${index}`}
+              className='md:basis-1/2 lg:basis-1/3'
+            >
+              {carouselItem}
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious
+          className={`${SLIDER_BUTTONS_COMMON_CLASSNAME} left-[unset] right-14`}
+          aria-label={t('prevButton')}
+        />
+        <CarouselNext
+          className={`${SLIDER_BUTTONS_COMMON_CLASSNAME} right-2`}
+          aria-label={t('nextButton')}
+        />
+      </EmblaCarousel>
+
       <FsLightbox
         toggler={lightboxController.toggler}
         sourceIndex={lightboxController.sourceIndex}

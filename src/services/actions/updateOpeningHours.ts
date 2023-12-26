@@ -15,7 +15,7 @@ export const updateOpeningHours = authenticatedAction(
       data: openingHoursData
     })
 
-    revalidatePath('/[locale]/dashboard', 'layout')
+    revalidatePath('/[locale]/admin', 'layout')
     revalidatePath('/[locale]/contact', 'layout')
   }
 )
