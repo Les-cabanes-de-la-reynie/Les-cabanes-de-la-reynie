@@ -31,7 +31,12 @@ const ItineraryAlertDialog = () => {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(successFunction)
     } else {
-      toast.error('Geolocation is not supported by this browser.')
+      toast.error('Geolocation is not supported by this browser.', {
+        action: {
+          label: tCommon('close'),
+          onClick: () => toast.dismiss()
+        }
+      })
     }
   }
 

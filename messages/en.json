@@ -8,6 +8,8 @@
     "update": "Update",
     "cancel": "Cancel",
     "edit": "Edit",
+    "open": "Open",
+    "close": "Close",
     "description": "Description",
     "price": "Price",
     "bookYourStay": "Book your stay",
@@ -68,7 +70,6 @@
     "logout": "Logout",
     "profile": "Your profile",
     "openBurgerMenu": "Menu",
-    "closeBurgerMenu": "Close",
     "openBurgerMenuTitle": "Open the menu",
     "closeBurgerMenuTitle": "Close the menu"
   },

@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
+import { useTranslations } from 'next-intl'
 import TableHeader from '../TableHeader'
 import useToggle from '@/hooks/useToggle'
 import { OpeningHoursFormProps } from '../types'
@@ -14,6 +15,8 @@ import { formatFormDataIntoOpeningHoursData } from '@/lib/utils'
 
 const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
   const [isEdit, handleToggleEdit] = useToggle(false)
+
+  const t = useTranslations('Common')
 
   const editableSection = useMemo(
     () => (
@@ -40,20 +43,42 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
 
           if (validationError) {
             return toast.error(
-              'There was an error updating opening hours. Data are maybe invalid'
+              'There was an error updating opening hours. Data are maybe invalid',
+              {
+                action: {
+                  label: t('close'),
+                  onClick: () => toast.dismiss()
+                }
+              }
             )
           }
 
           if (serverError) {
-            return toast.error(serverError)
+            return toast.error(serverError, {
+              action: {
+                label: t('close'),
+                onClick: () => toast.dismiss()
+              }
+            })
           }
 
           handleToggleEdit()
 
-          toast.success('Success ! The opening hours has been saved')
+          toast.success('Success ! The opening hours has been saved', {
+            action: {
+              label: t('close'),
+              onClick: () => toast.dismiss()
+            }
+          })
         } catch (error) {
           return toast.error(
-            `Something went wrong! Cannot update opening hours. ${error}`
+            `Something went wrong! Cannot update opening hours. ${error}`,
+            {
+              action: {
+                label: t('close'),
+                onClick: () => toast.dismiss()
+              }
+            }
           )
         }
       }}

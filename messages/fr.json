@@ -8,6 +8,8 @@
     "update": "Mettre à jour",
     "cancel": "Annuler",
     "edit": "Modifier",
+    "open": "Ouvert",
+    "close": "Fermer",
     "description": "Description",
     "price": "Prix",
     "bookYourStay": "Réservez votre séjour",
@@ -68,7 +70,6 @@
     "logout": "Se déconnecter",
     "profile": "Votre profil",
     "openBurgerMenu": "Menu",
-    "closeBurgerMenu": "Fermer",
     "openBurgerMenuTitle": "Ouvrir le menu",
     "closeBurgerMenuTitle": "Fermer le menu"
   },
