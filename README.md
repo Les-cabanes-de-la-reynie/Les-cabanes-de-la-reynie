@@ -39,7 +39,6 @@ You can also switch between dark and light mode.
 - Dark mode: next-themes
 - Linting: Eslint
 - Formating: Prettier
-- Toast library: Sonner
 
 ## Hosting
 

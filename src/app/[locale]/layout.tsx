@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 import Header from '@/components/modules/Header'
 import { Roboto } from 'next/font/google'
 import Footer from '@/components/modules/Footer'
-import { Toaster } from 'sonner'
+import { Toaster } from '@/components/ui/sonner'
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import { ReactNode } from 'react'
 import { unstable_setRequestLocale } from 'next-intl/server'
@@ -72,7 +72,6 @@ const RootLayout = async ({
           'text:foreground relative flex min-h-screen w-full flex-col bg-background font-sans'
         )}
       >
-        <Toaster richColors position='top-right' expand={true} closeButton />
         <Providers locale={locale} messages={messages}>
           <Header />
           <main id='main' role='main' className='flex flex-1'>
@@ -80,6 +79,7 @@ const RootLayout = async ({
           </main>
           <Footer />
         </Providers>
+        <Toaster richColors position='top-right' expand={true} />
       </body>
     </html>
   )
