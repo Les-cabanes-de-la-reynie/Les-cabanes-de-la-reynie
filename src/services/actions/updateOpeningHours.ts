@@ -3,7 +3,7 @@
 import { revalidatePath } from 'next/cache'
 import { db } from '@/lib/prisma'
 import { OpeningHoursData } from '@/components/modules/OpeningHours/types'
-import { authenticatedAction } from '@/lib/safe-actions'
+import { authenticatedAction } from '@/lib/safeActions'
 import { z } from 'zod'
 import { OpeningHoursDataSchema } from '@/models/OpeningHours'
 

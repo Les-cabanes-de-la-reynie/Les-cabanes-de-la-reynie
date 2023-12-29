@@ -7,7 +7,7 @@ const OpeningHoursTable = ({ openingHoursData }: OpeningHoursFormProps) => {
   const t = useTranslations('Contact')
 
   return (
-    <table className='h-full w-full flex-1' data-test='openingHours'>
+    <table className='h-full w-full flex-1'>
       <TableHeader day={''} lunch={t('opening')} dinner={t('closing')} />
       <tbody className='text-center'>
         {openingHoursData?.map(

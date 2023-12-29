@@ -63,14 +63,14 @@ const MainNavigation = ({
           className={cn({
             'pb-0': isNestedListOpen
           })}
-          onClick={handleToggleNestedList}
-          onKeyDown={handleKeyDown}
-          tabIndex={0}
         >
           <div
             className={cn('flex max-w-max cursor-pointer items-center gap-2 ', {
               'pb-4 lg:pb-0': isNestedListOpen
             })}
+            onClick={handleToggleNestedList}
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
           >
             {t('accommodations')}
             <ChevronDown
@@ -91,6 +91,7 @@ const MainNavigation = ({
                 href={`/${lang}/logements/yourte`}
                 className='flex max-w-max items-center gap-2 py-1 lg:rounded-lg'
                 onClick={onCloseBurgerMenu}
+                data-test='header-yurt-link'
               >
                 {t('yurt')}
               </Link>
@@ -101,6 +102,7 @@ const MainNavigation = ({
                 className='flex max-w-max items-center gap-2 py-1 lg:rounded-lg'
                 onClick={onCloseBurgerMenu}
                 onBlur={handleClosePopup}
+                data-test='header-hut-link'
               >
                 {t('hut')}
               </Link>

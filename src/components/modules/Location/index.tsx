@@ -8,10 +8,7 @@ const Map = dynamic(() => import('./Map'), {
 
 const Location = () => {
   return (
-    <div
-      className='relative flex h-96 w-full flex-grow items-center justify-center'
-      data-test='locationContainer'
-    >
+    <div className='relative flex h-96 w-full flex-grow items-center justify-center'>
       <Map />
     </div>
   )

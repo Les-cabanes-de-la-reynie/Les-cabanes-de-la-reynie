@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "playwright test --ui",
+    "test:write": "playwright codegen --viewport-size=320,900 http://localhost:3000/fr",
+    "test:run": "playwright test",
     "prisma:seed": "prisma db seed",
     "vercel-build": "prisma generate && prisma migrate deploy && next build"
   },
@@ -51,6 +54,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.40.1",
     "@types/fslightbox-react": "^1.7.7",
     "@types/leaflet": "^1.9.8",
     "@types/node": "^20",
