@@ -20,7 +20,7 @@ const Logo = ({ onCloseMenu }: LogoProps) => {
       className={classes}
       onClick={onCloseMenu}
       aria-label={`${ESTABLISHMENT_TITLE} Logo`}
-      data-test='mainLogo'
+      data-test='app-main-logo'
     >
       <span>LOGO</span>
     </Link>

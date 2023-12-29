@@ -84,7 +84,7 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
       }}
       className='h-full w-full'
     >
-      <table className='w-full flex-grow' data-test='openingHours'>
+      <table className='w-full flex-grow'>
         <TableHeader day={''} lunch={'Ouverture'} dinner={'Fermeture'} />
         <tbody className='text-center'>
           {openingHoursData?.map(
