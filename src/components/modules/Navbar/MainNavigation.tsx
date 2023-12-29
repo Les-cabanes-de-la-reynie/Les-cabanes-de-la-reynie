@@ -63,14 +63,14 @@ const MainNavigation = ({
           className={cn({
             'pb-0': isNestedListOpen
           })}
+          onClick={handleToggleNestedList}
+          onKeyDown={handleKeyDown}
+          tabIndex={0}
         >
           <div
             className={cn('flex max-w-max cursor-pointer items-center gap-2 ', {
               'pb-4 lg:pb-0': isNestedListOpen
             })}
-            onClick={handleToggleNestedList}
-            onKeyDown={handleKeyDown}
-            tabIndex={0}
           >
             {t('accommodations')}
             <ChevronDown
