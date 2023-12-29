@@ -1,14 +1,15 @@
-import { test, expect, Page } from '@playwright/test'
+import { test, expect } from '@playwright/test'
 import {
   DESKTOP_VIEWPORT,
   MOBILE_VIEWPORT,
-  baseURL
+  frenchURL
 } from '../playwright.config'
+import { closeBurgerMenu, openBurgerMenu } from './commons'
 
 const HOME_PAGE_H1_TEXT = 'Les cabanes de la Reynie'
 
 test.beforeEach(async ({ page }) => {
-  await page.goto(baseURL)
+  await page.goto(frenchURL)
 })
 
 test.describe('Header navigation', () => {
@@ -17,7 +18,7 @@ test.describe('Header navigation', () => {
     test.use({ viewport: MOBILE_VIEWPORT })
 
     test('should be in the home page on load', async ({ page }) => {
-      await expect(page).toHaveURL(baseURL)
+      await expect(page).toHaveURL(frenchURL)
       await expect(
         page.getByRole('heading', { name: HOME_PAGE_H1_TEXT })
       ).toBeVisible()
@@ -27,7 +28,7 @@ test.describe('Header navigation', () => {
       page
     }) => {
       await page.locator('[data-test="app-main-logo"]').click()
-      await expect(page).toHaveURL(baseURL)
+      await expect(page).toHaveURL(frenchURL)
       await expect(
         page.getByRole('heading', { name: HOME_PAGE_H1_TEXT })
       ).toBeVisible()
@@ -53,13 +54,13 @@ test.describe('Header navigation', () => {
     }) => {
       await openBurgerMenu(page)
       await page.getByRole('link', { name: 'Accueil' }).click()
-      await expect(page).toHaveURL(baseURL)
+      await expect(page).toHaveURL(frenchURL)
     })
 
     test('should open a popover with Yurt and Hut links', async ({ page }) => {
       await openBurgerMenu(page)
       await page.getByText('Logements').click()
-      await expect(page).toHaveURL(baseURL)
+      await expect(page).toHaveURL(frenchURL)
 
       // Check if Yurt/Yourte exist
       await expect(page.getByRole('link', { name: 'Yourte' })).toBeVisible()
@@ -76,7 +77,7 @@ test.describe('Header navigation', () => {
       await openBurgerMenu(page)
       await page.getByText('Logements').click()
       await page.locator('[data-test="header-yurt-link"]').click()
-      await expect(page).toHaveURL(`${baseURL}/logements/yourte`)
+      await expect(page).toHaveURL(`${frenchURL}/logements/yourte`)
       await expect(page.getByRole('heading', { name: 'Yourte' })).toBeAttached()
     })
 
@@ -84,7 +85,7 @@ test.describe('Header navigation', () => {
       await openBurgerMenu(page)
       await page.getByText('Logements').click()
       await page.locator('[data-test="header-hut-link"]').click()
-      await expect(page).toHaveURL(`${baseURL}/logements/cabane`)
+      await expect(page).toHaveURL(`${frenchURL}/logements/cabane`)
       await expect(page.getByRole('heading', { name: 'Cabane' })).toBeAttached()
     })
 
@@ -93,7 +94,7 @@ test.describe('Header navigation', () => {
     }) => {
       await openBurgerMenu(page)
       await page.getByRole('link', { name: 'Contact' }).click()
-      await expect(page).toHaveURL(`${baseURL}/contact`)
+      await expect(page).toHaveURL(`${frenchURL}/contact`)
 
       await expect(
         page.getByRole('heading', {
@@ -107,7 +108,7 @@ test.describe('Header navigation', () => {
     }) => {
       await openBurgerMenu(page)
       await page.getByRole('link', { name: 'Activités' }).click()
-      await expect(page).toHaveURL(`${baseURL}/activites`)
+      await expect(page).toHaveURL(`${frenchURL}/activites`)
 
       await expect(
         page.getByRole('heading', {
@@ -122,7 +123,7 @@ test.describe('Header navigation', () => {
     test.use({ viewport: DESKTOP_VIEWPORT })
 
     test('should be in the home page on load', async ({ page }) => {
-      await expect(page).toHaveURL(baseURL)
+      await expect(page).toHaveURL(frenchURL)
       await expect(
         page.getByRole('heading', { name: HOME_PAGE_H1_TEXT })
       ).toBeVisible()
@@ -132,7 +133,7 @@ test.describe('Header navigation', () => {
       page
     }) => {
       await page.locator('[data-test="app-main-logo"]').click()
-      await expect(page).toHaveURL(baseURL)
+      await expect(page).toHaveURL(frenchURL)
       await expect(
         page.getByRole('heading', { name: HOME_PAGE_H1_TEXT })
       ).toBeVisible()
@@ -142,12 +143,12 @@ test.describe('Header navigation', () => {
       page
     }) => {
       await page.getByRole('link', { name: 'Accueil' }).click()
-      await expect(page).toHaveURL(baseURL)
+      await expect(page).toHaveURL(frenchURL)
     })
 
     test('should open a popover with Yurt and Hut links', async ({ page }) => {
       await page.getByText('Logements').click()
-      await expect(page).toHaveURL(baseURL)
+      await expect(page).toHaveURL(frenchURL)
 
       // Check if Yurt/Yourte exist
       await expect(page.getByRole('link', { name: 'Yourte' })).toBeVisible()
@@ -163,14 +164,14 @@ test.describe('Header navigation', () => {
     }) => {
       await page.getByText('Logements').click()
       await page.locator('[data-test="header-yurt-link"]').click()
-      await expect(page).toHaveURL(`${baseURL}/logements/yourte`)
+      await expect(page).toHaveURL(`${frenchURL}/logements/yourte`)
       await expect(page.getByRole('heading', { name: 'Yourte' })).toBeVisible()
     })
 
     test('should be in the hut page after clicked on Hut', async ({ page }) => {
       await page.getByText('Logements').click()
       await page.locator('[data-test="header-hut-link"]').click()
-      await expect(page).toHaveURL(`${baseURL}/logements/cabane`)
+      await expect(page).toHaveURL(`${frenchURL}/logements/cabane`)
       await expect(page.getByRole('heading', { name: 'Cabane' })).toBeVisible()
     })
 
@@ -178,7 +179,7 @@ test.describe('Header navigation', () => {
       page
     }) => {
       await page.getByRole('link', { name: 'Contact' }).click()
-      await expect(page).toHaveURL(`${baseURL}/contact`)
+      await expect(page).toHaveURL(`${frenchURL}/contact`)
 
       await expect(
         page.getByRole('heading', {
@@ -191,7 +192,7 @@ test.describe('Header navigation', () => {
       page
     }) => {
       await page.getByRole('link', { name: 'Activités' }).click()
-      await expect(page).toHaveURL(`${baseURL}/activites`)
+      await expect(page).toHaveURL(`${frenchURL}/activites`)
 
       await expect(
         page.getByRole('heading', {
@@ -201,10 +202,3 @@ test.describe('Header navigation', () => {
     })
   })
 })
-
-const openBurgerMenu = async (page: Page) => {
-  return page.getByLabel('Ouvrir le menu').click()
-}
-const closeBurgerMenu = async (page: Page) => {
-  return page.getByLabel('Fermer le menu').click()
-}

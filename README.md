@@ -24,7 +24,7 @@ To book, you have to sign up in other plaform like Airbnb or other.
 The website is responsive and should works on **smartphone**, **tablet** and
 **desktop**.
 
-You can switch between **French** or **English** languages by the language
+You can switch between **French** or **English** languages by the languages
 switcher in the header of the application.
 
 You can also switch between **Dark** and **Light** mode.

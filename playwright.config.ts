@@ -1,7 +1,9 @@
 import { defineConfig, devices } from '@playwright/test'
 
 const PORT = process.env.PORT || 3000
-export const baseURL = `http://localhost:${PORT}/fr`
+export const baseURL = `http://localhost:${PORT}`
+export const frenchURL = `${baseURL}/fr`
+export const englishURL = `${baseURL}/en`
 
 export const DESKTOP_VIEWPORT = { width: 1920, height: 1080 }
 export const MOBILE_VIEWPORT = { width: 320, height: 900 }
