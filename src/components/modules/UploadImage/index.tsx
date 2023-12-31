@@ -2,7 +2,6 @@
 
 import Heading from '@/components/elements/Heading'
 import P from '@/components/elements/P'
-import { Separator } from '@/components/ui/separator'
 import YurtHeaderUpload from './yurt/YurtHeaderUpload'
 import YurtSliderUpload from './yurt/YurtSliderUpload'
 import HutHeaderUpload from './hut/HutHeaderUpload'
@@ -33,8 +32,6 @@ const UploadImage = () => {
         <YurtHeaderUpload />
         <YurtSliderUpload />
       </div>
-
-      <Separator className='my-10' />
 
       <Heading level={3} className='mt-4'>
         Cabane

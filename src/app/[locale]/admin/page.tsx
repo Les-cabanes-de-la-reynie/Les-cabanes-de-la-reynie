@@ -5,6 +5,7 @@ import OpeningHoursEdit from '@/components/modules/OpeningHours/Edit/OpeningHour
 import { unstable_setRequestLocale } from 'next-intl/server'
 import Heading from '@/components/elements/Heading'
 import UploadImage from '@/components/modules/UploadImage'
+import { Separator } from '@/components/ui/separator'
 
 const Admin = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
@@ -23,6 +24,8 @@ const Admin = ({ params: { locale } }: { params: { locale: string } }) => {
           <OpeningHoursEdit />
         </Suspense>
       </section>
+
+      <Separator className='my-10' />
 
       <UploadImage />
     </Container>
