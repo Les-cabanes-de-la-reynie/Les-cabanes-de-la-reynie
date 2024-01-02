@@ -6,7 +6,7 @@ import Container from '@/components/elements/Container'
 import AccommodationsPopover from './AccommodationsPopover'
 import { BookEntity } from './types'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
-import { getUploadedImages } from '@/services/queries/uploadedImages'
+import { getUploadedImagesByCategory } from '@/services/queries/uploadedImagesByCategory'
 
 type AccommodationsHeaderProps = {
   title: string
@@ -21,15 +21,15 @@ const AccommodationsHeader = async ({
 }: AccommodationsHeaderProps) => {
   const t = useTranslations('Common')
 
-  const hutHeaderImages = await getUploadedImages(uploadImageCategoryKey)
-  const lastHutHeaderImage = hutHeaderImages.at(-1)
+  const headerImages = await getUploadedImagesByCategory(uploadImageCategoryKey)
+  const lastHeaderImage = headerImages.at(-1)
 
   return (
     <header className='grid grid-cols-1 lg:grid-cols-2'>
       <div className='relative h-96 w-full select-none bg-popover lg:h-[calc(100vh-4.5rem)]'>
         <Image
           alt={`Main ${title} landscape`}
-          src={lastHutHeaderImage?.imageUrl ?? ''}
+          src={lastHeaderImage?.imageUrl ?? ''}
           quality={100}
           fill
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw'

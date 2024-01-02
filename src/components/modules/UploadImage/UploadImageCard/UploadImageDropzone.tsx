@@ -1,14 +1,17 @@
+'use client'
+
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 import { UploadDropzone } from '@/lib/uploadthing'
-import { updateUploadImage } from '@/services/actions/updateUploadImage'
+import { updateMultipleUploadedImage } from '@/services/actions/UpdateMultipleUploadedImage'
+import { updateSingleUploadedImage } from '@/services/actions/UpdateSingleUploadedImage'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 
-type UploadHeaderCardProps = {
+type UploadImageDropzoneProps = {
   endpoint: UploadImageCategoryKeyEnum
 }
 
-const UploadHeaderCard = ({ endpoint }: UploadHeaderCardProps) => {
+const UploadImageDropzone = ({ endpoint }: UploadImageDropzoneProps) => {
   const t = useTranslations('Common')
 
   return (
@@ -17,7 +20,15 @@ const UploadHeaderCard = ({ endpoint }: UploadHeaderCardProps) => {
       onClientUploadComplete={async res => {
         const { key, url } = res[0]
 
-        await updateUploadImage({ key, url, category: endpoint })
+        if (
+          endpoint ===
+          (UploadImageCategoryKeyEnum.YurtSlider ||
+            UploadImageCategoryKeyEnum.HutSlider)
+        ) {
+          await updateMultipleUploadedImage({ key, url, category: endpoint })
+        } else {
+          await updateSingleUploadedImage({ key, url, category: endpoint })
+        }
 
         toast.success('Success ! Your upload is completed', {
           action: {
@@ -42,4 +53,4 @@ const UploadHeaderCard = ({ endpoint }: UploadHeaderCardProps) => {
     />
   )
 }
-export default UploadHeaderCard
+export default UploadImageDropzone
