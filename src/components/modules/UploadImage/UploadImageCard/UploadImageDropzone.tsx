@@ -3,9 +3,9 @@
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 import { UploadDropzone } from '@/lib/uploadthing'
-import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import { updateMultipleUploadedImage } from '@/services/actions/updateMultipleUploadedImage'
 import { updateSingleUploadedImage } from '@/services/actions/updateSingleUploadedImage'
+import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 
 type UploadImageDropzoneProps = {
   endpoint: UploadImageCategoryKeyEnum
