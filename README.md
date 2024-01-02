@@ -50,8 +50,6 @@ You can also switch between **Dark** and **Light** mode.
 
 ## Project
 
-Remove this comment
-
 ### Env file
 
 Before start the project, be sure that you had correctly add all information in
