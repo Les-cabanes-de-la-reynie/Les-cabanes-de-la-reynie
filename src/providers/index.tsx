@@ -21,7 +21,7 @@ const Providers = ({ locale, messages, children }: ProvidersProps) => {
         enableSystem
         disableTransitionOnChange
       >
-        <UserProvider loginUrl='/api/auth/login' profileUrl='/api/auth/me'>
+        <UserProvider>
           <NextSSRPlugin
             /**
              * The `extractRouterConfig` will extract **only** the route configs

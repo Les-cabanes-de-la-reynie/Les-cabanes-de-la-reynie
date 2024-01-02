@@ -1,19 +1,25 @@
-'use client'
-
 import Heading from '@/components/elements/Heading'
 import P from '@/components/elements/P'
-import YurtHeaderUpload from './yurt/YurtHeaderUpload'
-import YurtSliderUpload from './yurt/YurtSliderUpload'
-import HutHeaderUpload from './hut/HutHeaderUpload'
-import HutSliderUpload from './hut/HutSliderUpload'
-import { useUser } from '@auth0/nextjs-auth0/client'
+import UploadImageCategory from './UploadImageCategory'
+import { getUploadedImages } from '@/services/queries/uploadedImages'
+import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 
-const UploadImage = () => {
-  const { user, error } = useUser()
+const UploadImage = async () => {
+  const uploadedImages = await getUploadedImages()
 
-  if (error || !user?.email_verified) {
-    return null
-  }
+  const yurtHeaderImage = uploadedImages.filter(
+    ({ category }) => category === UploadImageCategoryKeyEnum.YurtHeader
+  )
+  const yurtSliderImages = uploadedImages.filter(
+    ({ category }) => category === UploadImageCategoryKeyEnum.YurtSlider
+  )
+
+  const hutHeaderImage = uploadedImages.filter(
+    ({ category }) => category === UploadImageCategoryKeyEnum.HutHeader
+  )
+  const hutSliderImages = uploadedImages.filter(
+    ({ category }) => category === UploadImageCategoryKeyEnum.HutSlider
+  )
 
   return (
     <section>
@@ -24,22 +30,38 @@ const UploadImage = () => {
         Il faudrait mettre dans la mesure du possible des images uniquement en
         format WEBP
       </P>
+      <P>Il faut upload les images un par un pour le moment</P>
 
       <Heading level={3} className='mt-4'>
         Yourte
       </Heading>
       <div className='flex flex-col justify-between gap-8 md:flex-row'>
-        <YurtHeaderUpload />
-        <YurtSliderUpload />
+        <UploadImageCategory
+          title='Header image'
+          category={UploadImageCategoryKeyEnum.YurtHeader}
+          images={yurtHeaderImage}
+        />
+        <UploadImageCategory
+          title='Slider images'
+          category={UploadImageCategoryKeyEnum.YurtSlider}
+          images={yurtSliderImages}
+        />
       </div>
 
       <Heading level={3} className='mt-4'>
         Cabane
       </Heading>
-
       <div className='flex flex-col justify-between gap-8 md:flex-row'>
-        <HutHeaderUpload />
-        <HutSliderUpload />
+        <UploadImageCategory
+          title='Header image'
+          category={UploadImageCategoryKeyEnum.HutHeader}
+          images={hutHeaderImage}
+        />
+        <UploadImageCategory
+          title='Slider images'
+          category={UploadImageCategoryKeyEnum.HutSlider}
+          images={hutSliderImages}
+        />
       </div>
     </section>
   )

@@ -2,23 +2,23 @@
 
 import { db } from '@/lib/prisma'
 import { revalidatePath } from 'next/cache'
-import { getUploadedImages } from '../queries/uploadedImages'
+import { getUploadedImagesByCategory } from '../queries/uploadedImagesByCategory'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import { utapi } from '@/lib/utapiUploadthing'
 
-type UpdateUploadImageProps = {
+type UpdateSingleUploadedImageProps = {
   key: string
   url: string
   category: UploadImageCategoryKeyEnum
 }
 
-export const updateUploadImage = async ({
+export const updateSingleUploadedImage = async ({
   key,
   url,
   category
-}: UpdateUploadImageProps) => {
+}: UpdateSingleUploadedImageProps) => {
   try {
-    const uploadedImages = await getUploadedImages(category)
+    const uploadedImages = await getUploadedImagesByCategory(category)
 
     const lastUploadedImage = uploadedImages.at(-1)
 
