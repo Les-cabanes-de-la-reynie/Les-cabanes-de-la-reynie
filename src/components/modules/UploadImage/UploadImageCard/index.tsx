@@ -1,5 +1,5 @@
 import { UploadImage, UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
-import UploadImageDropzone from './UploadImageDropzone'
+import UploadImageDropZone from './UploadImageDropZone'
 import PreviewImageList from './PreviewImageList'
 
 type UploadImageCardProps = {
@@ -10,7 +10,7 @@ type UploadImageCardProps = {
 const UploadImageCard = async ({ endpoint, images }: UploadImageCardProps) => {
   return (
     <div>
-      <UploadImageDropzone endpoint={endpoint} />
+      <UploadImageDropZone endpoint={endpoint} />
 
       <PreviewImageList images={images} />
     </div>
