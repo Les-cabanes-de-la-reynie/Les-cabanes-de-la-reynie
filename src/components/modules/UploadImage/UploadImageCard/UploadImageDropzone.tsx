@@ -7,11 +7,11 @@ import { updateMultipleUploadedImage } from '@/services/actions/updateMultipleUp
 import { updateSingleUploadedImage } from '@/services/actions/updateSingleUploadedImage'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 
-type UploadImageDropZoneProps = {
+type UploadImageDropzoneProps = {
   endpoint: UploadImageCategoryKeyEnum
 }
 
-const UploadImageDropZone = ({ endpoint }: UploadImageDropZoneProps) => {
+const UploadImageDropzone = ({ endpoint }: UploadImageDropzoneProps) => {
   const t = useTranslations('Common')
 
   return (
@@ -53,4 +53,4 @@ const UploadImageDropZone = ({ endpoint }: UploadImageDropZoneProps) => {
     />
   )
 }
-export default UploadImageDropZone
+export default UploadImageDropzone
