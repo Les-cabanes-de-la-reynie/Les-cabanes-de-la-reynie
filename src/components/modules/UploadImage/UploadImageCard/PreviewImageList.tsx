@@ -6,7 +6,6 @@ import PreviewImageItem from './PreviewImageItem'
 import { useOptimistic, useTransition } from 'react'
 import { deleteUploadedImage } from '@/services/actions/deleteUploadedImage'
 import { toast } from 'sonner'
-import Loader from '@/components/elements/Loader'
 
 type PreviewImageListProps = { images: UploadImage[] }
 
