@@ -11,3 +11,5 @@ export type UploadImage = {
   imageUrl: string
   category: string
 }
+
+export type DeleteUploadImage = Pick<UploadImage, 'id' | 'imageKey'>
