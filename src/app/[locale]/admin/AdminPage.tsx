@@ -5,7 +5,6 @@ import Container from '@/components/elements/Container'
 import Heading from '@/components/elements/Heading'
 import Loader from '@/components/elements/Loader'
 import OpeningHoursEdit from '@/components/modules/OpeningHours/Edit/OpeningHoursEdit'
-import { Separator } from '@/components/ui/separator'
 import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 import UploadImage from '@/components/modules/UploadImage'
 
@@ -24,7 +23,7 @@ const AdminPage: NextPage = withPageAuthRequired(
             <OpeningHoursEdit />
           </Suspense>
         </section>
-        <Separator className='my-10' />
+
         <UploadImage />
       </Container>
     )

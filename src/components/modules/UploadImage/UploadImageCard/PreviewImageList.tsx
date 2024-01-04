@@ -65,14 +65,13 @@ const PreviewImageList = ({ images }: PreviewImageListProps) => {
 
   return (
     <ul className='mt-4 flex flex-wrap gap-4'>
-      {isPending && <Loader />}
-
       {optiUploadedImages?.length > 0
         ? optiUploadedImages.map(image => (
             <PreviewImageItem
               key={image.id}
               image={image}
               deleteUploadedImage={handleDeleteUploadedImage}
+              isLoading={isPending}
             />
           ))
         : 'Empty'}

@@ -3,6 +3,7 @@ import P from '@/components/elements/P'
 import UploadImageCategory from './UploadImageCategory'
 import { getUploadedImages } from '@/services/queries/uploadedImages'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
+import { Separator } from '@/components/ui/separator'
 
 const UploadImage = async () => {
   const uploadedImages = await getUploadedImages()
@@ -32,7 +33,7 @@ const UploadImage = async () => {
       </P>
       <P>Il faut upload les images un par un pour le moment</P>
 
-      <Heading level={3} className='mt-4'>
+      <Heading level={3} className='mt-8'>
         Yourte
       </Heading>
       <div className='flex flex-col justify-between gap-8 md:flex-row'>
@@ -48,7 +49,9 @@ const UploadImage = async () => {
         />
       </div>
 
-      <Heading level={3} className='mt-4'>
+      <Separator className='my-10' />
+
+      <Heading level={3} className='mt-8'>
         Cabane
       </Heading>
       <div className='flex flex-col justify-between gap-8 md:flex-row'>

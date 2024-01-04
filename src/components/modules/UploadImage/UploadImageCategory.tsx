@@ -15,7 +15,7 @@ const UploadImageCategory = ({
 }: UploadImageCategoryProps) => {
   return (
     <section className='w-full'>
-      <Heading level={4} className='mt-2'>
+      <Heading level={4} className='mt-2 text-center'>
         {title}
       </Heading>
       <UploadImageCard endpoint={category} images={images} />

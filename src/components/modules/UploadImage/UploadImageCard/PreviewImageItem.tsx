@@ -2,28 +2,38 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { X } from 'lucide-react'
 import { DeleteUploadImage, UploadImage } from '@/_types/uploadImage'
+import Loader from '@/components/elements/Loader'
+import { Skeleton } from '@/components/ui/skeleton'
 
 type PreviewImageItemProps = {
   image: UploadImage
   deleteUploadedImage: ({ id, imageKey }: DeleteUploadImage) => Promise<void>
+  isLoading: boolean
 }
 
 const PreviewImageItem = ({
   image,
-  deleteUploadedImage
+  deleteUploadedImage,
+  isLoading
 }: PreviewImageItemProps) => {
   const { id, imageUrl, imageKey } = image
 
   const handleDeleteUploadedImage = () => deleteUploadedImage({ id, imageKey })
 
+  if (isLoading)
+    return (
+      <Skeleton className='relative flex h-28 w-36 items-center justify-center'>
+        <Loader />
+      </Skeleton>
+    )
+
   return (
-    <li className='relative'>
+    <li className='relative h-28 w-36 select-none bg-popover'>
       <Image
         alt={`preview-${id}`}
         src={imageUrl}
-        width={150}
-        height={150}
-        className='rounded-md'
+        fill
+        className='rounded-md object-cover'
       />
       <Button
         size='icon'
