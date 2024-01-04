@@ -14,6 +14,8 @@ const PreviewImageItem = ({
 }: PreviewImageItemProps) => {
   const { id, imageUrl, imageKey } = image
 
+  const handleDeleteUploadedImage = () => deleteUploadedImage({ id, imageKey })
+
   return (
     <li className='relative'>
       <Image
@@ -27,7 +29,7 @@ const PreviewImageItem = ({
         size='icon'
         variant='destructive'
         className='absolute right-0 top-0 p-2'
-        onClick={() => deleteUploadedImage({ id, imageKey })}
+        onClick={handleDeleteUploadedImage}
       >
         <X className='h-5 w-5' />
       </Button>
