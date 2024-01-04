@@ -3,8 +3,8 @@
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
-import { updateMultipleUploadedImage } from '@/services/actions/updateMultipleUploadedImage'
-import { updateSingleUploadedImage } from '@/services/actions/updateSingleUploadedImage'
+import { updateMultipleUploadedImage } from '@/services/actions/test1'
+import { updateSingleUploadedImage } from '@/services/actions/test2'
 import { UploadDropzone } from '@/lib/uploadthing'
 
 type UploadImageDropzoneProps = {
