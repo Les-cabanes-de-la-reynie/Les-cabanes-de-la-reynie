@@ -20,7 +20,7 @@ export const deleteUploadedImage = authenticatedAction(
       }
     })
 
-    revalidatePath('/[locale]/admin', 'layout')
     revalidatePath('/[locale]/logements', 'layout')
+    revalidatePath('/[locale]/admin', 'layout')
   }
 )

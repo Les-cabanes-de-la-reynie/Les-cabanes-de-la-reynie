@@ -46,6 +46,7 @@ export const updateSingleUploadedImage = async ({
     })
 
     revalidatePath('/[locale]/logements', 'layout')
+    revalidatePath('/[locale]/admin', 'layout')
   } catch (error) {
     return error
   }
