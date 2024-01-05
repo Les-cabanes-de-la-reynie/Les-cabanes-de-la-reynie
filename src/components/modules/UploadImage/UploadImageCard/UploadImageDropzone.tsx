@@ -21,9 +21,8 @@ const UploadImageDropzone = ({ endpoint }: UploadImageDropzoneProps) => {
         const { key, url } = res[0]
 
         if (
-          endpoint ===
-          (UploadImageCategoryKeyEnum.YurtSlider ||
-            UploadImageCategoryKeyEnum.HutSlider)
+          endpoint === UploadImageCategoryKeyEnum.YurtSlider ||
+          endpoint === UploadImageCategoryKeyEnum.HutSlider
         ) {
           await updateMultipleUploadedImage({ key, url, category: endpoint })
         } else {

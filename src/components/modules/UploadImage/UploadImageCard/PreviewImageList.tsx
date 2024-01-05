@@ -1,9 +1,9 @@
 'use client'
 
+import { useTransition } from 'react'
 import { useTranslations } from 'next-intl'
 import { DeleteUploadImage, UploadImage } from '@/_types/uploadImage'
 import PreviewImageItem from './PreviewImageItem'
-import { useOptimistic, useTransition } from 'react'
 import { deleteUploadedImage } from '@/services/actions/deleteUploadedImage'
 import { toast } from 'sonner'
 
@@ -13,20 +13,12 @@ const PreviewImageList = ({ images }: PreviewImageListProps) => {
   const t = useTranslations('Common')
 
   const [isPending, startTransition] = useTransition()
-  const [optiUploadedImages, removeOptiUploadedImage] = useOptimistic(
-    images || [],
-    (state: UploadImage[], deleteId: string) =>
-      [...state].filter(uploadedImage => uploadedImage?.id !== deleteId)
-  )
 
   const handleDeleteUploadedImage = async ({
     id,
     imageKey
   }: DeleteUploadImage) => {
     startTransition(async () => {
-      // Fast update UI
-      removeOptiUploadedImage(id)
-
       // Update database
       const { validationError, serverError } = await deleteUploadedImage({
         id,
@@ -64,8 +56,8 @@ const PreviewImageList = ({ images }: PreviewImageListProps) => {
 
   return (
     <ul className='mt-4 flex flex-wrap gap-4'>
-      {optiUploadedImages?.length > 0
-        ? optiUploadedImages.map(image => (
+      {images?.length > 0
+        ? images.map(image => (
             <PreviewImageItem
               key={image.id}
               image={image}
