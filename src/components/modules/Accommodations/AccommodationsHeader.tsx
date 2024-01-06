@@ -21,7 +21,9 @@ const AccommodationsHeader = async ({
 }: AccommodationsHeaderProps) => {
   const t = useTranslations('Common')
 
-  const headerImages = await getUploadedImagesByCategory(uploadImageCategoryKey)
+  const headerImages = await getUploadedImagesByCategory({
+    category: uploadImageCategoryKey
+  })
   const lastHeaderImage = headerImages.at(-1)
 
   return (

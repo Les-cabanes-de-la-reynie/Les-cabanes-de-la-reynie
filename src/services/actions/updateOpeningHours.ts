@@ -4,11 +4,10 @@ import { revalidatePath } from 'next/cache'
 import { db } from '@/lib/prisma'
 import { OpeningHoursData } from '@/components/modules/OpeningHours/types'
 import { authenticatedAction } from '@/lib/safeActions'
-import { z } from 'zod'
 import { OpeningHoursDataSchema } from '@/models/OpeningHours'
 
 export const updateOpeningHours = authenticatedAction(
-  z.object(OpeningHoursDataSchema),
+  OpeningHoursDataSchema,
   async (openingHoursData: OpeningHoursData) => {
     await db.openingHours.update({
       where: { id: 1 },
