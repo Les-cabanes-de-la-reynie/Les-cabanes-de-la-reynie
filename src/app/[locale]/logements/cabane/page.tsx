@@ -1,7 +1,9 @@
+import { Suspense } from 'react'
 import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import AccommodationsHeader from '@/components/modules/Accommodations/AccommodationsHeader'
 import PracticalInformation from '@/components/modules/PracticalInformation'
+import AccommodationsSliderSkeleton from '@/components/modules/Accommodations/AccommodationsSliderSkeleton'
 import Accommodations from '@/components/modules/Accommodations'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 
@@ -24,7 +26,10 @@ const Hut = ({ params: { locale } }: { params: { locale: string } }) => {
         bookList={bookList}
       />
       <PracticalInformation />
-      <Accommodations />
+
+      <Suspense fallback={<AccommodationsSliderSkeleton />}>
+        <Accommodations />
+      </Suspense>
     </main>
   )
 }

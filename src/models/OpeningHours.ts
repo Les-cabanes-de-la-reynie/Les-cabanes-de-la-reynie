@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const OpeningHoursDataSchema = {
+export const OpeningHoursDataSchema = z.object({
   mondayStart: z.date(),
   mondayEnd: z.date(),
   tuesdayStart: z.date(),
@@ -15,4 +15,4 @@ export const OpeningHoursDataSchema = {
   saturdayEnd: z.date(),
   sundayStart: z.date(),
   sundayEnd: z.date()
-}
+})

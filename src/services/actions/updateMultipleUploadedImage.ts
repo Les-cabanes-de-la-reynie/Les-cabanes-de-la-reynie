@@ -2,12 +2,11 @@
 
 import { revalidatePath } from 'next/cache'
 import { db } from '@/lib/prisma'
-import { z } from 'zod'
 import { authenticatedAction } from '@/lib/safeActions'
 import { UpdateUploadedImageCommonSchema } from '@/models/UploadedImages'
 
 export const updateMultipleUploadedImage = authenticatedAction(
-  z.object(UpdateUploadedImageCommonSchema),
+  UpdateUploadedImageCommonSchema,
   async ({ key, url, category }) => {
     try {
       // Create new image in specific category

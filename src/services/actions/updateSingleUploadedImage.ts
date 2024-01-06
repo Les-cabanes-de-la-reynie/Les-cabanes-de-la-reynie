@@ -2,17 +2,16 @@
 
 import { revalidatePath } from 'next/cache'
 import { db } from '@/lib/prisma'
-import { z } from 'zod'
 import { getUploadedImagesByCategory } from '../queries/uploadedImagesByCategory'
 import { utapi } from '@/lib/utapiUploadthing'
 import { authenticatedAction } from '@/lib/safeActions'
 import { UpdateUploadedImageCommonSchema } from '@/models/UploadedImages'
 
 export const updateSingleUploadedImage = authenticatedAction(
-  z.object(UpdateUploadedImageCommonSchema),
+  UpdateUploadedImageCommonSchema,
   async ({ key, url, category }) => {
     try {
-      const uploadedImages = await getUploadedImagesByCategory(category)
+      const uploadedImages = await getUploadedImagesByCategory({ category })
 
       const lastUploadedImage = uploadedImages.at(-1)
 
