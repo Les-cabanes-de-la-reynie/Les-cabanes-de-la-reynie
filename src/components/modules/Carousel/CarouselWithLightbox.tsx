@@ -1,12 +1,15 @@
 'use client'
 
 import { useId, useState } from 'react'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { useTranslations } from 'next-intl'
-import { AccommodationsSliderProps } from './types'
-import Carousel from '../Carousel'
+import Carousel from '.'
 
-const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
+type CarouselWithLightboxProps = {
+  data: StaticImageData[]
+}
+
+const CarouselWithLightbox = ({ data }: CarouselWithLightboxProps) => {
   const t = useTranslations('Common')
 
   const [lightboxController, setLightboxController] = useState({
@@ -53,4 +56,4 @@ const AccommodationsSlider = ({ data }: AccommodationsSliderProps) => {
     />
   )
 }
-export default AccommodationsSlider
+export default CarouselWithLightbox

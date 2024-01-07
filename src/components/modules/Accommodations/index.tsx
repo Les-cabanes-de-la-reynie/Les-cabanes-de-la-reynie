@@ -1,4 +1,4 @@
-import AccommodationsSlider from './AccommodationsSlider'
+import CarouselWithLightbox from '../Carousel/CarouselWithLightbox'
 import fullscreenImage from '../../images/homeCarousel/forest.webp'
 import fullscreenImage2 from '../../images/homeCarousel/forest2.webp'
 import fullscreenImage3 from '../../images/homeCarousel/forest3.webp'
@@ -18,7 +18,7 @@ const Accommodations = () => {
 
   return (
     <section className='mx-auto w-full max-w-screen-2xl py-14'>
-      <AccommodationsSlider data={data} />
+      <CarouselWithLightbox data={data} />
     </section>
   )
 }

@@ -1,4 +1,5 @@
 export enum UploadImageCategoryKeyEnum {
+  HomeSlider = 'homeSlider',
   YurtHeader = 'yurtHeader',
   YurtSlider = 'yurtSlider',
   HutHeader = 'hutHeader',

@@ -6,7 +6,7 @@ import Accommodations from '@/components/modules/Accommodations'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import Container from '@/components/elements/Container'
-import AccommodationsSliderSkeleton from '@/components/modules/Accommodations/AccommodationsSliderSkeleton'
+import CarouselWithLightboxSkeleton from '@/components/modules/Carousel/CarouselWithLightboxSkeleton'
 
 const Home = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
@@ -34,7 +34,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
         </div>
       </div>
 
-      <Suspense fallback={<AccommodationsSliderSkeleton />}>
+      <Suspense fallback={<CarouselWithLightboxSkeleton />}>
         <Accommodations />
       </Suspense>
 

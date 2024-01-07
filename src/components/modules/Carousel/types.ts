@@ -1,4 +1,7 @@
-import { LightboxController } from '../Accommodations/types'
+type LightboxController = {
+  toggler: boolean
+  sourceIndex: number
+}
 
 export type CarouselProps = {
   carouselItems: JSX.Element[]

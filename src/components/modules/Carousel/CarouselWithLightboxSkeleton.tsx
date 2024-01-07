@@ -1,6 +1,6 @@
 import { Skeleton } from '@/components/ui/skeleton'
 
-const AccommodationsSliderSkeleton = () => {
+const CarouselWithLightboxSkeleton = () => {
   return (
     <div className='mb-5'>
       <div className='mb-2 flex items-center justify-between pl-4'>
@@ -18,4 +18,4 @@ const AccommodationsSliderSkeleton = () => {
     </div>
   )
 }
-export default AccommodationsSliderSkeleton
+export default CarouselWithLightboxSkeleton
