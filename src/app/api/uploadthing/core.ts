@@ -20,32 +20,30 @@ const authCallback = async () => {
 // FileRouter for your app, can contain multiple FileRoutes
 export const ourFileRouter = {
   // Define as many FileRoutes as you like, each with a unique routeSlug
-  yurtHeader: f({ image: { maxFileSize: '4MB' } })
-    // Set permissions and file types for this FileRoute
+  homeSlider: f({ image: { maxFileSize: '4MB' } })
     .middleware(authCallback)
     .onUploadComplete(async ({ metadata }) => {
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
+      return { uploadedBy: metadata.userEmail }
+    }),
+  yurtHeader: f({ image: { maxFileSize: '4MB' } })
+    .middleware(authCallback)
+    .onUploadComplete(async ({ metadata }) => {
       return { uploadedBy: metadata.userEmail }
     }),
   yurtSlider: f({ image: { maxFileSize: '4MB' } })
-    // Set permissions and file types for this FileRoute
     .middleware(authCallback)
     .onUploadComplete(async ({ metadata }) => {
-      // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
       return { uploadedBy: metadata.userEmail }
     }),
   hutHeader: f({ image: { maxFileSize: '4MB' } })
-    // Set permissions and file types for this FileRoute
     .middleware(authCallback)
     .onUploadComplete(async ({ metadata }) => {
-      // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
       return { uploadedBy: metadata.userEmail }
     }),
   hutSlider: f({ image: { maxFileSize: '4MB' } })
-    // Set permissions and file types for this FileRoute
     .middleware(authCallback)
     .onUploadComplete(async ({ metadata }) => {
-      // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
       return { uploadedBy: metadata.userEmail }
     })
 } satisfies FileRouter

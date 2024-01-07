@@ -2,25 +2,26 @@ import Heading from '@/components/elements/Heading'
 import P from '@/components/elements/P'
 import UploadImageCategory from './UploadImageCategory'
 import { getUploadedImages } from '@/services/queries/uploadedImages'
-import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
+import { UploadImage, UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import { Separator } from '@/components/ui/separator'
+
+type UploadedImagesCategories = {
+  [key: string]: UploadImage[]
+}
 
 const UploadImage = async () => {
   const uploadedImages = await getUploadedImages()
 
-  const yurtHeaderImage = uploadedImages.filter(
-    ({ category }) => category === UploadImageCategoryKeyEnum.YurtHeader
-  )
-  const yurtSliderImages = uploadedImages.filter(
-    ({ category }) => category === UploadImageCategoryKeyEnum.YurtSlider
-  )
+  const uploadedImagesCategories = uploadedImages.reduce((acc, curr) => {
+    const { category } = curr
 
-  const hutHeaderImage = uploadedImages.filter(
-    ({ category }) => category === UploadImageCategoryKeyEnum.HutHeader
-  )
-  const hutSliderImages = uploadedImages.filter(
-    ({ category }) => category === UploadImageCategoryKeyEnum.HutSlider
-  )
+    if (!(category in acc)) {
+      acc[category] = []
+    }
+    acc[category].push(curr)
+
+    return acc
+  }, {} as UploadedImagesCategories)
 
   return (
     <section>
@@ -34,18 +35,31 @@ const UploadImage = async () => {
       <P>Il faut upload les images un par un pour le moment</P>
 
       <Heading level={3} className='mt-8'>
+        Home
+      </Heading>
+      <div className='flex flex-col justify-between gap-8 md:flex-row'>
+        <UploadImageCategory
+          title='Slider images'
+          category={UploadImageCategoryKeyEnum.HomeSlider}
+          images={uploadedImagesCategories.homeSlider}
+        />
+      </div>
+
+      <Separator className='my-10' />
+
+      <Heading level={3} className='mt-8'>
         Yourte
       </Heading>
       <div className='flex flex-col justify-between gap-8 md:flex-row'>
         <UploadImageCategory
           title='Header image'
           category={UploadImageCategoryKeyEnum.YurtHeader}
-          images={yurtHeaderImage}
+          images={uploadedImagesCategories.yurtHeader}
         />
         <UploadImageCategory
           title='Slider images'
           category={UploadImageCategoryKeyEnum.YurtSlider}
-          images={yurtSliderImages}
+          images={uploadedImagesCategories.yurtSlider}
         />
       </div>
 
@@ -58,12 +72,12 @@ const UploadImage = async () => {
         <UploadImageCategory
           title='Header image'
           category={UploadImageCategoryKeyEnum.HutHeader}
-          images={hutHeaderImage}
+          images={uploadedImagesCategories.hutHeader}
         />
         <UploadImageCategory
           title='Slider images'
           category={UploadImageCategoryKeyEnum.HutSlider}
-          images={hutSliderImages}
+          images={uploadedImagesCategories.hutSlider}
         />
       </div>
     </section>

@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import AccommodationsHeader from '@/components/modules/Accommodations/AccommodationsHeader'
 import PracticalInformation from '@/components/modules/PracticalInformation'
-import AccommodationsSliderSkeleton from '@/components/modules/Accommodations/AccommodationsSliderSkeleton'
+import CarouselWithLightboxSkeleton from '@/components/modules/Carousel/CarouselWithLightboxSkeleton'
 import Accommodations from '@/components/modules/Accommodations'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 
@@ -27,7 +27,7 @@ const Hut = ({ params: { locale } }: { params: { locale: string } }) => {
       />
       <PracticalInformation />
 
-      <Suspense fallback={<AccommodationsSliderSkeleton />}>
+      <Suspense fallback={<CarouselWithLightboxSkeleton />}>
         <Accommodations />
       </Suspense>
     </main>

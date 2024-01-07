@@ -20,10 +20,12 @@ const UploadImageDropzone = ({ endpoint }: UploadImageDropzoneProps) => {
       onClientUploadComplete={async res => {
         const { key, url } = res[0]
 
-        if (
+        const isSlider =
+          endpoint === UploadImageCategoryKeyEnum.HomeSlider ||
           endpoint === UploadImageCategoryKeyEnum.YurtSlider ||
           endpoint === UploadImageCategoryKeyEnum.HutSlider
-        ) {
+
+        if (isSlider) {
           await updateMultipleUploadedImage({ key, url, category: endpoint })
         } else {
           await updateSingleUploadedImage({ key, url, category: endpoint })

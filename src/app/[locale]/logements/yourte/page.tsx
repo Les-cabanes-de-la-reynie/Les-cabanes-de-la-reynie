@@ -5,7 +5,7 @@ import AccommodationsHeader from '@/components/modules/Accommodations/Accommodat
 import PracticalInformation from '@/components/modules/PracticalInformation'
 import Accommodations from '@/components/modules/Accommodations'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
-import AccommodationsSliderSkeleton from '@/components/modules/Accommodations/AccommodationsSliderSkeleton'
+import CarouselWithLightboxSkeleton from '@/components/modules/Carousel/CarouselWithLightboxSkeleton'
 
 const Yurt = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
@@ -27,7 +27,7 @@ const Yurt = ({ params: { locale } }: { params: { locale: string } }) => {
       />
       <PracticalInformation />
 
-      <Suspense fallback={<AccommodationsSliderSkeleton />}>
+      <Suspense fallback={<CarouselWithLightboxSkeleton />}>
         <Accommodations />
       </Suspense>
     </main>
