@@ -38,10 +38,10 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
         try {
           const openingHoursData = formatFormDataIntoOpeningHoursData(formData)
 
-          const { validationError, serverError } =
+          const { validationErrors, serverError } =
             await updateOpeningHours(openingHoursData)
 
-          if (validationError) {
+          if (validationErrors) {
             return toast.error(
               'There was an error updating opening hours. Data are maybe invalid',
               {

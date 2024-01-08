@@ -6,13 +6,9 @@ export class ActionError extends Error {}
 export const authenticatedAction = createSafeActionClient({
   handleReturnedServerError(error) {
     if (error instanceof ActionError) {
-      return {
-        serverError: error.message
-      }
+      return error.message
     }
-    return {
-      serverError: 'Something went wrong ! Maybe forgot to be logged ?'
-    }
+    return 'Something went wrong ! Maybe forgot to be logged ?'
   },
   async middleware() {
     // This code runs on your server before action
