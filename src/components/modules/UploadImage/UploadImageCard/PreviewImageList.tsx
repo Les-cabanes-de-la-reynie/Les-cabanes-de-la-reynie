@@ -20,12 +20,12 @@ const PreviewImageList = ({ images }: PreviewImageListProps) => {
   }: DeleteUploadImage) => {
     startTransition(async () => {
       // Update database
-      const { validationError, serverError } = await deleteUploadedImage({
+      const { validationErrors, serverError } = await deleteUploadedImage({
         id,
         imageKey
       })
 
-      if (validationError) {
+      if (validationErrors) {
         toast.error('There was an error deleting uploaded image.', {
           action: {
             label: t('close'),
