@@ -26,15 +26,15 @@ const main = async () => {
 
   await prisma.visitorCount.create({ data: { count: 0 } })
 
-  // await prisma.address.create({
-  //   data: {
-  //     address: '',
-  //     postalCode: '19310',
-  //     city: 'Louignac',
-  //     country: 'France',
-  //     phone: '0611805351'
-  //   }
-  // })
+  await prisma.address.create({
+    data: {
+      address: '',
+      postalCode: '19310',
+      city: 'Louignac',
+      country: 'France',
+      phone: '0611805351'
+    }
+  })
 }
 
 main()
