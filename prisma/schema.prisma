@@ -34,8 +34,17 @@ model VisitorCount {
 }
 
 model Image {
-  id       String @id @default(cuid())
+  id String @id @default(cuid())
   imageKey String
   imageUrl String
   category String
+}
+
+model Address {
+  id String @id @default(cuid())
+  address String
+  postalCode String
+  city String
+  country String
+  phone String
 }

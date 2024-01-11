@@ -79,6 +79,20 @@ If you need to change some colors, this project use **shadcn ui** and
 **tailwind** so you can change colors in _src/app/global.css_ and other
 configurations in the **tailwind.config.ts** file.
 
+## Database
+
+PostgreSQL database is deployed on [neon.tech](https://neon.tech/).
+
+To update the database with Prisma, you have to delete the migrations folder and
+type in the terminal:
+
+```bash
+npx prisma migrate dev
+```
+
+**WATCH OUT** this operation can delete all data in the database ! But there's a
+seed file in **prisma** folder (seed.ts).
+
 ## Hosting
 
 The website is hosting in Vercel (name domaine in coming).
@@ -93,7 +107,7 @@ We need to **prisma generate** + **prisma migrate deploy** before the classic
 **next build**. You can change it in the package.json. A seed is available with:
 
 ```bash
-prisma:seed
+npm run prisma:seed
 ```
 
 ## E2E Tests

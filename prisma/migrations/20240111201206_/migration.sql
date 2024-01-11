@@ -36,3 +36,15 @@ CREATE TABLE "Image" (
 
     CONSTRAINT "Image_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateTable
+CREATE TABLE "Address" (
+    "id" TEXT NOT NULL,
+    "address" TEXT NOT NULL,
+    "postalCode" TEXT NOT NULL,
+    "city" TEXT NOT NULL,
+    "country" TEXT NOT NULL,
+    "phone" TEXT NOT NULL,
+
+    CONSTRAINT "Address_pkey" PRIMARY KEY ("id")
+);
