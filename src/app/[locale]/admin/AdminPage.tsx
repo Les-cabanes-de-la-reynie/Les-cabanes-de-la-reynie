@@ -7,6 +7,7 @@ import Loader from '@/components/elements/Loader'
 import OpeningHoursEdit from '@/components/modules/OpeningHours/Edit/OpeningHoursEdit'
 import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 import UploadImage from '@/components/modules/UploadImage'
+import AddressInformation from '@/components/modules/AddressInformation'
 
 const AdminPage: NextPage = withPageAuthRequired(
   async () => {
@@ -15,6 +16,14 @@ const AdminPage: NextPage = withPageAuthRequired(
         <Heading level={1} className='mb-8 mt-4 text-center'>
           Admin
         </Heading>
+
+        <section>
+          <Heading level={2} className='my-8'>
+            Address information
+          </Heading>
+          <AddressInformation />
+        </section>
+
         <section>
           <Heading level={2} className='my-8'>
             Opening hours

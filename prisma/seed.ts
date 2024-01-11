@@ -1,4 +1,3 @@
-import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -21,22 +20,21 @@ const main = async () => {
     sundayEnd: '2023-11-24T20:00:00.000Z'
   } as const
 
-  const yurtHeaderImage = {
-    imageKey: '4f61bfe9-89ef-4d30-8c17-f811c2ee1afb-b7gpjb.webp',
-    imageUrl:
-      'https://utfs.io/f/19e79594-ed0b-41b4-a74e-0a6c5eda386a-b7gpjb.webp',
-    category: UploadImageCategoryKeyEnum.YurtHeader
-  } as const
-
   await prisma.openingHours.create({
     data: openingHours
   })
 
   await prisma.visitorCount.create({ data: { count: 0 } })
 
-  await prisma.image.create({
-    data: { ...yurtHeaderImage }
-  })
+  // await prisma.address.create({
+  //   data: {
+  //     address: '',
+  //     postalCode: '19310',
+  //     city: 'Louignac',
+  //     country: 'France',
+  //     phone: '0611805351'
+  //   }
+  // })
 }
 
 main()

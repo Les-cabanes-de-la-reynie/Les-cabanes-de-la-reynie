@@ -2,8 +2,8 @@ import { useTranslations } from 'next-intl'
 import { NavigationIcon } from 'lucide-react'
 import {
   POSTAL_CODE,
-  ADDRESS_LOCALITY,
-  ADDRESS_COUNTRY
+  CITY,
+  COUNTRY
 } from '@/_constants/establishmentInformation'
 
 const Itinerary = () => {
@@ -22,8 +22,8 @@ const Itinerary = () => {
       </span>
       <div>
         <span itemProp='postalCode'>{POSTAL_CODE} &nbsp;</span>
-        <span itemProp='addressLocality'>{ADDRESS_LOCALITY}, &nbsp;</span>
-        <span>{ADDRESS_COUNTRY}</span>
+        <span itemProp='addressLocality'>{CITY}, &nbsp;</span>
+        <span>{COUNTRY}</span>
       </div>
     </div>
   )
