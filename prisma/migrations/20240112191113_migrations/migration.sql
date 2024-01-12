@@ -39,7 +39,7 @@ CREATE TABLE "Image" (
 
 -- CreateTable
 CREATE TABLE "Address" (
-    "id" TEXT NOT NULL,
+    "id" SERIAL NOT NULL,
     "address" TEXT NOT NULL,
     "postalCode" TEXT NOT NULL,
     "city" TEXT NOT NULL,

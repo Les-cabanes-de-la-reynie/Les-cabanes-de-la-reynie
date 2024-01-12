@@ -1,4 +1,3 @@
-import { OpeningHoursData } from '@/components/modules/OpeningHours/types'
 import { db } from '@/lib/prisma'
 
 export const getOpeningHours = async () => {
@@ -23,7 +22,7 @@ export const getOpeningHours = async () => {
     saturdayEnd,
     sundayStart,
     sundayEnd
-  } = data[0] as OpeningHoursData
+  } = data[0]
 
   return {
     mondayStart,

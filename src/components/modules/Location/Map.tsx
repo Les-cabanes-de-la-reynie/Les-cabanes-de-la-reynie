@@ -7,8 +7,11 @@ import 'leaflet-defaulticon-compatibility'
 import { MAP_URL, ESTABLISHMENT_POSITION } from './const'
 import CustomMarker from './CustomMaker'
 import Address from './CustomMaker/Address'
+import { Address as AddressType } from '@/_types/address'
 
-const Map = () => {
+type MapProps = { address: AddressType }
+
+const Map = ({ address }: MapProps) => {
   return (
     <MapContainer
       doubleClickZoom={false}
@@ -18,7 +21,7 @@ const Map = () => {
     >
       <TileLayer url={MAP_URL} detectRetina={true} />
       <CustomMarker position={ESTABLISHMENT_POSITION} open>
-        <Address />
+        <Address address={address} />
       </CustomMarker>
     </MapContainer>
   )

@@ -19,7 +19,7 @@ import CancelButton from '@/components/elements/CancelButton'
 import EditButton from '@/components/elements/EditButton'
 import SubmitButton from '@/components/elements/SubmitButton'
 import P from '@/components/elements/P'
-import { AddressInformationFormSchema } from '@/models/AddressInformation'
+import { AddressFormSchema } from '@/models/Address'
 
 const AddressInformation = () => {
   const [isEdit, handleToggleEdit] = useToggle(false)
@@ -38,8 +38,8 @@ const AddressInformation = () => {
     [isEdit, handleToggleEdit]
   )
 
-  const form = useForm<z.infer<typeof AddressInformationFormSchema>>({
-    resolver: zodResolver(AddressInformationFormSchema),
+  const form = useForm<z.infer<typeof AddressFormSchema>>({
+    resolver: zodResolver(AddressFormSchema),
     defaultValues: {
       address: '',
       postalCode: '',
@@ -50,7 +50,7 @@ const AddressInformation = () => {
     disabled: !isEdit
   })
 
-  // const onSubmit = (data: z.infer<typeof AddressInformationFormSchema>) => {}
+  // const onSubmit = (data: z.infer<typeof AddressFormSchema>) => {}
 
   return (
     <>

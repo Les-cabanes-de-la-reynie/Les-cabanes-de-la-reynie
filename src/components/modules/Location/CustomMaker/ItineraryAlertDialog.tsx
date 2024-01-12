@@ -14,8 +14,11 @@ import {
 import { toast } from 'sonner'
 import Itinerary from './Itinerary'
 import Link from 'next/link'
+import { Address } from '@/_types/address'
 
-const ItineraryAlertDialog = () => {
+type ItineraryAlertDialogProps = { address: Address }
+
+const ItineraryAlertDialog = ({ address }: ItineraryAlertDialogProps) => {
   const tContact = useTranslations('Contact')
   const tCommon = useTranslations('Common')
 
@@ -46,7 +49,7 @@ const ItineraryAlertDialog = () => {
   return (
     <AlertDialog>
       <AlertDialogTrigger onClick={getUserLocation}>
-        <Itinerary />
+        <Itinerary address={address} />
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

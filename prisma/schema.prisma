@@ -41,7 +41,7 @@ model Image {
 }
 
 model Address {
-  id String @id @default(cuid())
+  id Int @id @default(autoincrement())
   address String
   postalCode String
   city String
