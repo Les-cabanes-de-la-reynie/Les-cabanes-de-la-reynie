@@ -1,3 +1,6 @@
+import { OpeningHoursDataSchema } from '@/models/OpeningHours'
+import { z } from 'zod'
+
 export enum DaysOfTheWeekEnum {
   Monday = 'Monday',
   Tuesday = 'Tuesday',
@@ -17,22 +20,7 @@ export type OpeningHoursRowData = {
   inputEndValue: string
 }
 
-export type OpeningHoursData = {
-  mondayStart: Date
-  mondayEnd: Date
-  tuesdayStart: Date
-  tuesdayEnd: Date
-  wednesdayStart: Date
-  wednesdayEnd: Date
-  thursdayStart: Date
-  thursdayEnd: Date
-  fridayStart: Date
-  fridayEnd: Date
-  saturdayStart: Date
-  saturdayEnd: Date
-  sundayStart: Date
-  sundayEnd: Date
-}
+export type OpeningHoursData = z.infer<typeof OpeningHoursDataSchema>
 
 export type OpeningHoursFormProps = {
   openingHoursData: OpeningHoursRowData[]

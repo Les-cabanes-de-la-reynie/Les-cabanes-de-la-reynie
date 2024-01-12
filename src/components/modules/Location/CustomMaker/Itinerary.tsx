@@ -1,13 +1,13 @@
 import { useTranslations } from 'next-intl'
 import { NavigationIcon } from 'lucide-react'
-import {
-  POSTAL_CODE,
-  CITY,
-  COUNTRY
-} from '@/_constants/establishmentInformation'
+import { Address } from '@/_types/address'
 
-const Itinerary = () => {
+type ItineraryProps = { address: Address }
+
+const Itinerary = ({ address }: ItineraryProps) => {
   const tContact = useTranslations('Contact')
+
+  const { postalCode, city, country } = address
 
   return (
     <div
@@ -21,9 +21,9 @@ const Itinerary = () => {
         {tContact('Itinerary')} :
       </span>
       <div>
-        <span itemProp='postalCode'>{POSTAL_CODE} &nbsp;</span>
-        <span itemProp='addressLocality'>{CITY}, &nbsp;</span>
-        <span>{COUNTRY}</span>
+        <span itemProp='postalCode'>{postalCode} &nbsp;</span>
+        <span itemProp='addressLocality'>{city}, &nbsp;</span>
+        <span>{country}</span>
       </div>
     </div>
   )
