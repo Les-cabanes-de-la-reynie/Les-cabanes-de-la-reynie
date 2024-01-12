@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react'
+import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import {
   AlertDialog,
@@ -49,9 +49,7 @@ const ItineraryAlertDialog = ({ address }: ItineraryAlertDialogProps) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger onClick={getUserLocation}>
-        <Suspense>
-          <Itinerary address={address} />
-        </Suspense>
+        <Itinerary address={address} />
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

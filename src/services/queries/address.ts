@@ -1,5 +1,4 @@
 import { db } from '@/lib/prisma'
-import { Address } from '@/_types/address'
 
 export const getAddress = async () => {
   const data = await db.address.findMany({
@@ -8,5 +7,5 @@ export const getAddress = async () => {
     }
   })
 
-  return data[0] as Address
+  return data[0]
 }
