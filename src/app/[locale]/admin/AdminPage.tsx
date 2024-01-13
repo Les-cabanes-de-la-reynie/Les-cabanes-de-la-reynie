@@ -21,7 +21,9 @@ const AdminPage: NextPage = withPageAuthRequired(
           <Heading level={2} className='my-8'>
             Address information
           </Heading>
-          <AddressInformation />
+          <Suspense fallback={<Loader />}>
+            <AddressInformation />
+          </Suspense>
         </section>
 
         <section>
