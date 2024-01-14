@@ -31,22 +31,26 @@ You can also switch between **Dark** and **Light** mode.
 
 ## Techinal details summary
 
-- UI: React
-- Framework: NextJS (App directory & Server actions with next-safe-action)
-- Language: TypeScript
-- Styling: TailwindCSS
-- Design System & Components: ShadCN / Radix UI + CVA + Custom component
-- ORM: Prisma
+- UI: [React](https://react.dev/)
+- Framework: [Next.js](https://nextjs.org/docs) (App directory & Server actions
+  with next-safe-action)
+- Language: [TypeScript](https://www.typescriptlang.org/fr/docs/)
+- Styling: [TailwindCSS](https://tailwindcss.com/)
+- Design System & Components: [ShadCN](https://ui.shadcn.com/) /
+  [Radix UI](https://www.radix-ui.com/) + [CVA](https://cva.style/docs) + Custom
+  component
+- ORM: [Prisma](https://www.prisma.io/)
 - Database: PostgreSQL with [neon.tech](https://neon.tech/) (connection with
   github account)
-- E2E Tests: Playwright
-- i18n: next-intl (FR & EN)
-- Authentication: Auth0 (admin page)
-- Upload image: uploadthing (admin page only)
-- Map: Leaflet + Mapbox (a key for mapbox is mandatory)
-- Dark mode: next-themes
-- Linting: Eslint
-- Formating: Prettier
+- E2E Tests: [Playwright](https://playwright.dev/)
+- i18n: [next-intl](https://next-intl-docs.vercel.app/) (FR & EN)
+- Authentication: [Auth0](https://auth0.com/) (admin page)
+- Upload image: [uploadthing](https://uploadthing.com/) (admin page only)
+- Map: [Leaflet](https://leafletjs.com/) + [Mapbox](https://www.mapbox.com/) (a
+  **key** for mapbox is mandatory)
+- Dark mode: [next-themes](https://github.com/pacocoursey/next-themes)
+- Linting: [Eslint](https://eslint.org/)
+- Formating: [Prettier](https://prettier.io/)
 
 ## Project
 

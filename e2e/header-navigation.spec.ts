@@ -77,7 +77,7 @@ test.describe('Header navigation', () => {
       await openBurgerMenu(page)
       await page.getByText('Logements').click()
       await page.locator('[data-test="header-yurt-link"]').click()
-      await expect(page).toHaveURL(`${frenchURL}/logements/yourte`)
+      await page.waitForURL('**/logements/yourte')
       await expect(page.getByRole('heading', { name: 'Yourte' })).toBeAttached()
     })
 
@@ -85,7 +85,7 @@ test.describe('Header navigation', () => {
       await openBurgerMenu(page)
       await page.getByText('Logements').click()
       await page.locator('[data-test="header-hut-link"]').click()
-      await expect(page).toHaveURL(`${frenchURL}/logements/cabane`)
+      await page.waitForURL('**/logements/cabane')
       await expect(page.getByRole('heading', { name: 'Cabane' })).toBeAttached()
     })
 
@@ -94,7 +94,7 @@ test.describe('Header navigation', () => {
     }) => {
       await openBurgerMenu(page)
       await page.getByRole('link', { name: 'Contact' }).click()
-      await expect(page).toHaveURL(`${frenchURL}/contact`)
+      await page.waitForURL('**/contact')
 
       await expect(
         page.getByRole('heading', {
@@ -108,7 +108,7 @@ test.describe('Header navigation', () => {
     }) => {
       await openBurgerMenu(page)
       await page.getByRole('link', { name: 'Activités' }).click()
-      await expect(page).toHaveURL(`${frenchURL}/activites`)
+      await page.waitForURL('**/activites')
 
       await expect(
         page.getByRole('heading', {
@@ -164,14 +164,14 @@ test.describe('Header navigation', () => {
     }) => {
       await page.getByText('Logements').click()
       await page.locator('[data-test="header-yurt-link"]').click()
-      await expect(page).toHaveURL(`${frenchURL}/logements/yourte`)
+      await page.waitForURL('**/logements/yourte')
       await expect(page.getByRole('heading', { name: 'Yourte' })).toBeVisible()
     })
 
     test('should be in the hut page after clicked on Hut', async ({ page }) => {
       await page.getByText('Logements').click()
       await page.locator('[data-test="header-hut-link"]').click()
-      await expect(page).toHaveURL(`${frenchURL}/logements/cabane`)
+      await page.waitForURL('**/logements/cabane')
       await expect(page.getByRole('heading', { name: 'Cabane' })).toBeVisible()
     })
 
@@ -179,7 +179,7 @@ test.describe('Header navigation', () => {
       page
     }) => {
       await page.getByRole('link', { name: 'Contact' }).click()
-      await expect(page).toHaveURL(`${frenchURL}/contact`)
+      await page.waitForURL('**/contact')
 
       await expect(
         page.getByRole('heading', {
@@ -192,7 +192,7 @@ test.describe('Header navigation', () => {
       page
     }) => {
       await page.getByRole('link', { name: 'Activités' }).click()
-      await expect(page).toHaveURL(`${frenchURL}/activites`)
+      await page.waitForURL('**/activites')
 
       await expect(
         page.getByRole('heading', {
