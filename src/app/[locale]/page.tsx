@@ -1,4 +1,3 @@
-import { Suspense } from 'react'
 import Image from 'next/image'
 import fullscreenImage from '../../components/images/homeCarousel/forest.webp'
 import Heading from '@/components/elements/Heading'
@@ -6,7 +5,7 @@ import Accommodations from '@/components/modules/Accommodations'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import Container from '@/components/elements/Container'
-import CarouselWithLightboxSkeleton from '@/components/modules/Carousel/CarouselWithLightboxSkeleton'
+import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 
 const Home = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
@@ -34,9 +33,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
         </div>
       </div>
 
-      <Suspense fallback={<CarouselWithLightboxSkeleton />}>
-        <Accommodations />
-      </Suspense>
+      <Accommodations category={UploadImageCategoryKeyEnum.HomeSlider} />
 
       <Container>
         <div className='h-72 w-full'>Test</div>
