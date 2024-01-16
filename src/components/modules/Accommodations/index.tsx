@@ -1,25 +1,18 @@
 import CarouselWithLightbox from '../Carousel/CarouselWithLightbox'
-import fullscreenImage from '../../images/homeCarousel/forest.webp'
-import fullscreenImage2 from '../../images/homeCarousel/forest2.webp'
-import fullscreenImage3 from '../../images/homeCarousel/forest3.webp'
-import fullscreenImage4 from '../../images/homeCarousel/forest4.webp'
-import fullscreenImage5 from '../../images/homeCarousel/forest5.webp'
-import fullscreenImage6 from '../../images/homeCarousel/forest6.webp'
+import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
+import { getUploadedImagesByCategory } from '@/services/queries/uploadedImagesByCategory'
 
-const Accommodations = () => {
-  const data = [
-    fullscreenImage2,
-    fullscreenImage3,
-    fullscreenImage,
-    fullscreenImage4,
-    fullscreenImage5,
-    fullscreenImage6
-  ]
+type AccommodationsProps = {
+  category: UploadImageCategoryKeyEnum
+}
 
-  return (
+const Accommodations = async ({ category }: AccommodationsProps) => {
+  const images = await getUploadedImagesByCategory({ category })
+
+  return images?.length ? (
     <section className='mx-auto w-full max-w-screen-2xl py-14'>
-      <CarouselWithLightbox data={data} />
+      <CarouselWithLightbox data={images} />
     </section>
-  )
+  ) : null
 }
 export default Accommodations
