@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation'
-import { createTranslator } from 'next-intl'
 import { cn } from '@/lib/utils'
 import Header from '@/components/modules/Header'
 import { Roboto } from 'next/font/google'
@@ -7,7 +6,7 @@ import Footer from '@/components/modules/Footer'
 import { Toaster } from '@/components/ui/sonner'
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import { ReactNode } from 'react'
-import { unstable_setRequestLocale } from 'next-intl/server'
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
 import Providers from '@/providers'
 import { env } from '@/lib/env'
 
@@ -38,27 +37,18 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params: { locale }
 }: RootLayoutProps) {
-  const messages = await getMessages(locale)
-
-  // You can use the core (non-React) APIs when you have to use next-intl
-  // outside of components. Potentially this will be simplified in the future
-  // (see https://next-intl-docs.vercel.app/docs/next-13/server-components).
-  const t = createTranslator({ locale, messages })
+  const t = await getTranslations({ locale, namespace: 'SEO' })
 
   return {
     title: ESTABLISHMENT_TITLE,
-    description: t('SEO.description')
+    description: t('homeDescription')
   }
 }
 
-const RootLayout = async ({
+const LocaleLayout = async ({
   children,
   params: { locale }
 }: RootLayoutProps) => {
-  // Validate that the incoming `locale` parameter is valid
-  const isValidLocale = env.NEXT_PUBLIC_LANGS.some(cur => cur === locale)
-  if (!isValidLocale) notFound()
-
   unstable_setRequestLocale(locale)
 
   const messages = await getMessages(locale)
@@ -85,4 +75,4 @@ const RootLayout = async ({
   )
 }
 
-export default RootLayout
+export default LocaleLayout

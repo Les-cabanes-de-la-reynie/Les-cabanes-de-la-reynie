@@ -19,7 +19,7 @@
     "sliderTitle": "My gallery"
   },
   "SEO": {
-    "description": "Welcome to Les cabanes de la Reynie"
+    "homeDescription": "Welcome to Les cabanes de la Reynie"
   },
   "Home": {},
   "Accommodations": { "bookList": "Book list" },

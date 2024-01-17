@@ -13,7 +13,7 @@ const Activites = ({ params: { locale } }: { params: { locale: string } }) => {
       <Heading level={1} className='my-8 text-center'>
         ACTIVITES
       </Heading>
-      <div className='mb-8 flex flex-grow flex-col'>{t('description')}</div>
+      <div className='mb-8 flex flex-grow flex-col'>{t('homeDescription')}</div>
     </Container>
   )
 }

@@ -34,7 +34,7 @@ const CarouselWithLightbox = ({ data }: CarouselWithLightboxProps) => {
   const carouselItems = data.map(({ id, imageUrl }, i) => (
     <div
       key={`carousel-${i}-${id}`}
-      className='relative h-60 cursor-pointer rounded-lg'
+      className='relative h-60 cursor-pointer rounded-lg bg-popover'
     >
       <Image
         alt={`Our fabulous place ${i}`}
