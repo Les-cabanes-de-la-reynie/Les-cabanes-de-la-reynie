@@ -1,9 +1,25 @@
 import { useTranslations } from 'next-intl'
-import { unstable_setRequestLocale } from 'next-intl/server'
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
+import { env } from '@/lib/env'
 import Heading from '@/components/elements/Heading'
 import Location from '@/components/modules/Location'
 import OpeningHours from '@/components/modules/OpeningHours'
 import Container from '@/components/elements/Container'
+import { RootLayoutProps } from '../layout'
+
+export async function generateStaticParams() {
+  return env.NEXT_PUBLIC_LANGS.map(locale => ({ locale }))
+}
+
+export async function generateMetadata({
+  params: { locale }
+}: RootLayoutProps) {
+  const t = await getTranslations({ locale, namespace: 'Common' })
+
+  return {
+    title: t('contact')
+  }
+}
 
 const Contact = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)

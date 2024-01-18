@@ -17,7 +17,7 @@ const fontFamily = Roboto({
   variable: '--font-roboto'
 })
 
-type RootLayoutProps = {
+export type RootLayoutProps = {
   children: ReactNode
   params: { locale: string }
 }
@@ -40,7 +40,10 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'SEO' })
 
   return {
-    title: ESTABLISHMENT_TITLE,
+    title: {
+      default: ESTABLISHMENT_TITLE,
+      template: `%s - ${ESTABLISHMENT_TITLE}`
+    },
     description: t('homeDescription')
   }
 }

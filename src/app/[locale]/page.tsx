@@ -18,9 +18,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
             alt='paysage typique dans "Les cabanes de la Reynie"'
             src={fullscreenImage}
             placeholder='blur'
-            quality={100}
             fill
-            sizes='100vw'
             className='object-cover'
             priority
           />

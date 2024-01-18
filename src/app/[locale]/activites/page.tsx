@@ -1,7 +1,23 @@
+import { useTranslations } from 'next-intl'
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
+import { env } from '@/lib/env'
 import Heading from '@/components/elements/Heading'
 import Container from '@/components/elements/Container'
-import { useTranslations } from 'next-intl'
-import { unstable_setRequestLocale } from 'next-intl/server'
+import { RootLayoutProps } from '../layout'
+
+export async function generateStaticParams() {
+  return env.NEXT_PUBLIC_LANGS.map(locale => ({ locale }))
+}
+
+export async function generateMetadata({
+  params: { locale }
+}: RootLayoutProps) {
+  const t = await getTranslations({ locale, namespace: 'Common' })
+
+  return {
+    title: t('activities')
+  }
+}
 
 const Activites = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)

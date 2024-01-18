@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl'
-import dynamic from 'next/dynamic'
+import FsLightbox from 'fslightbox-react'
 import {
   Carousel as EmblaCarousel,
   CarouselContent,
@@ -9,8 +9,6 @@ import {
 } from '@/components/ui/carousel'
 import Heading from '@/components/elements/Heading'
 import { CarouselProps } from './types'
-
-const FsLightbox = dynamic(() => import('fslightbox-react'))
 
 const SLIDER_BUTTONS_COMMON_CLASSNAME =
   'absolute -top-8 flex h-10 w-10 items-center text-primary-foreground justify-center rounded-full p-0 bg-primary'

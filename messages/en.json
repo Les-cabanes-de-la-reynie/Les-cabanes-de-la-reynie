@@ -43,11 +43,11 @@
     "confirmLocationButton": "See itinerary"
   },
   "Errors": {
-    "shortError404": "404 error",
-    "longError404": "Woops ! This page is not found",
-    "shortError500": "500 error",
-    "longError500": "Woops ! The server has problems !",
-    "backButtonMessage": "Go back to the previous page"
+    "shortError404": "404 - Page not found",
+    "longError404": "The page you are looking for might have been removed had its name changed or is temporarily unavailable",
+    "shortError500": "500 - Server error",
+    "longError500": "Try to refresh this page or feel free to contact us if the problem persists",
+    "backButtonMessage": "Go to homepage"
   },
   "Footer": {
     "aboutUs": "About Us",

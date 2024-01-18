@@ -66,7 +66,7 @@ const ItineraryAlertDialog = ({ address }: ItineraryAlertDialogProps) => {
         <AlertDialogFooter>
           <AlertDialogCancel>{tCommon('cancel')}</AlertDialogCancel>
           <AlertDialogAction asChild>
-            <Link href={locationLink} target='_blank' rel='noreferrer'>
+            <Link href={locationLink} target='_blank' rel='noopener noreferrer'>
               {tContact('confirmLocationButton')}
             </Link>
           </AlertDialogAction>

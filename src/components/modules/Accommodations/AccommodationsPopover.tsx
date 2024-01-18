@@ -37,7 +37,7 @@ const AccommodationsPopover = ({ bookList }: AccommodationsPopoverProps) => {
             {bookList?.map(({ title, href }) => (
               <li key={`${title}-${href}`}>
                 <Button asChild>
-                  <Link href={href} target='_blank'>
+                  <Link href={href} target='_blank' rel='noopener noreferrer'>
                     {title}
                   </Link>
                 </Button>
