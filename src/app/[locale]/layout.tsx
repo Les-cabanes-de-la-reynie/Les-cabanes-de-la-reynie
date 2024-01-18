@@ -17,11 +17,6 @@ const fontFamily = Roboto({
   variable: '--font-roboto'
 })
 
-export type RootLayoutProps = {
-  children: ReactNode
-  params: { locale: string }
-}
-
 async function getMessages(locale: string) {
   try {
     return (await import(`../../../messages/${locale}.json`)).default
@@ -36,7 +31,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params: { locale }
-}: RootLayoutProps) {
+}: {
+  params: { locale: string }
+}) {
   const t = await getTranslations({ locale, namespace: 'SEO' })
 
   return {
@@ -51,7 +48,10 @@ export async function generateMetadata({
 const LocaleLayout = async ({
   children,
   params: { locale }
-}: RootLayoutProps) => {
+}: {
+  children: ReactNode
+  params: { locale: string }
+}) => {
   unstable_setRequestLocale(locale)
 
   const messages = await getMessages(locale)

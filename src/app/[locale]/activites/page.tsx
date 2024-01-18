@@ -2,7 +2,6 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
 import { env } from '@/lib/env'
 import Heading from '@/components/elements/Heading'
 import Container from '@/components/elements/Container'
-import { RootLayoutProps } from '../layout'
 
 export async function generateStaticParams() {
   return env.NEXT_PUBLIC_LANGS.map(locale => ({ locale }))
@@ -10,7 +9,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params: { locale }
-}: RootLayoutProps) {
+}: {
+  params: { locale: string }
+}) {
   const t = await getTranslations({ locale, namespace: 'Common' })
 
   return {

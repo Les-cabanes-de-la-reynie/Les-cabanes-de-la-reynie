@@ -5,7 +5,6 @@ import AccommodationsHeader from '@/components/modules/Accommodations/Accommodat
 import PracticalInformation from '@/components/modules/PracticalInformation'
 import Accommodations from '@/components/modules/Accommodations'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
-import { RootLayoutProps } from '../../layout'
 
 export async function generateStaticParams() {
   return env.NEXT_PUBLIC_LANGS.map(locale => ({ locale }))
@@ -13,7 +12,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params: { locale }
-}: RootLayoutProps) {
+}: {
+  params: { locale: string }
+}) {
   const t = await getTranslations({ locale, namespace: 'Common' })
 
   return {
