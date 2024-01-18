@@ -1,9 +1,26 @@
 import { useTranslations } from 'next-intl'
-import { unstable_setRequestLocale } from 'next-intl/server'
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
+import { env } from '@/lib/env'
 import AccommodationsHeader from '@/components/modules/Accommodations/AccommodationsHeader'
 import PracticalInformation from '@/components/modules/PracticalInformation'
 import Accommodations from '@/components/modules/Accommodations'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
+
+export async function generateStaticParams() {
+  return env.NEXT_PUBLIC_LANGS.map(locale => ({ locale }))
+}
+
+export async function generateMetadata({
+  params: { locale }
+}: {
+  params: { locale: string }
+}) {
+  const t = await getTranslations({ locale, namespace: 'Common' })
+
+  return {
+    title: t('yurt')
+  }
+}
 
 const Yurt = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)

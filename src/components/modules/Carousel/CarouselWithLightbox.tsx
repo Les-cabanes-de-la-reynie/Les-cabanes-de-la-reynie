@@ -40,7 +40,6 @@ const CarouselWithLightbox = ({ data }: CarouselWithLightboxProps) => {
         alt={`Our fabulous place ${i}`}
         src={imageUrl}
         sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-        priority
         fill
         className='rounded-lg object-cover'
         onClick={() => openLightboxOnSource(i)}

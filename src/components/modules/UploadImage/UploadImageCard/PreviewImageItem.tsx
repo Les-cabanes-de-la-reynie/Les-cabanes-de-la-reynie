@@ -36,7 +36,6 @@ const PreviewImageItem = ({
         className='rounded-md object-cover'
         quality={50}
         sizes='50vw'
-        priority
       />
       <Button
         size='icon'
