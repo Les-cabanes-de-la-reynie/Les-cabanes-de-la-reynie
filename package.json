@@ -27,7 +27,7 @@
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@t3-oss/env-nextjs": "^0.7.3",
-    "@uploadthing/react": "^6.1.0",
+    "@uploadthing/react": "^6.2.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^0.2.0",
@@ -37,8 +37,8 @@
     "leaflet": "^1.9.4",
     "leaflet-geosearch": "^3.11.0",
     "lucide-react": "^0.312.0",
-    "next": "14.0.4",
-    "next-intl": "^3.4.4",
+    "next": "14.1.0",
+    "next-intl": "^3.4.5",
     "next-safe-action": "^6.0.1",
     "next-themes": "^0.2.1",
     "react": "^18",
@@ -49,7 +49,7 @@
     "sonner": "^1.3.1",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
-    "uploadthing": "^6.1.1",
+    "uploadthing": "^6.2.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
@@ -63,7 +63,7 @@
     "@typescript-eslint/parser": "^6.19.0",
     "autoprefixer": "^10",
     "eslint": "^8.56.0",
-    "eslint-config-next": "^14.0.4",
+    "eslint-config-next": "^14.1.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",
     "postcss": "^8",
@@ -75,10 +75,5 @@
   },
   "prisma": {
     "seed": "npx ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
-  },
-  "overrides": {
-    "@uploadthing/react": {
-      "next": "^14.0.4"
-    }
   }
 }
