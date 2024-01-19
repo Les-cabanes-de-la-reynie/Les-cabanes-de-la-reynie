@@ -2,8 +2,6 @@
 
 import { MapContainer, TileLayer } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
-import 'leaflet-defaulticon-compatibility'
 import { MAP_URL, ESTABLISHMENT_POSITION } from './const'
 import CustomMarker from './CustomMaker'
 import Address from './CustomMaker/Address'
