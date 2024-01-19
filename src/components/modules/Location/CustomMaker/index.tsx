@@ -2,6 +2,16 @@
 
 import React, { useEffect, useRef, PropsWithChildren } from 'react'
 import { Marker, Popup } from 'react-leaflet'
+import { Icon } from 'leaflet'
+import MarkerIcon2X from 'leaflet/dist/images/marker-icon-2x.png'
+import MarkerIcon from 'leaflet/dist/images/marker-icon.png'
+import MarkerShadow from 'leaflet/dist/images/marker-shadow.png'
+
+Icon.Default.mergeOptions({
+  iconRetinaUrl: MarkerIcon2X.src,
+  iconUrl: MarkerIcon.src,
+  shadowUrl: MarkerShadow.src
+})
 
 export type CustomMarkerProps = PropsWithChildren & {
   position: [number, number]
