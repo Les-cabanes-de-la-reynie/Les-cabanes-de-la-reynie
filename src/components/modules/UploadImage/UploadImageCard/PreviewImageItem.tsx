@@ -4,6 +4,16 @@ import { X } from 'lucide-react'
 import { DeleteUploadImage, UploadImage } from '@/_types/uploadImage'
 import Loader from '@/components/elements/Loader'
 import { Skeleton } from '@/components/ui/skeleton'
+import {
+  AlertDialog,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger
+} from '@/components/ui/alert-dialog'
 
 type PreviewImageItemProps = {
   image: UploadImage
@@ -37,14 +47,34 @@ const PreviewImageItem = ({
         quality={50}
         sizes='50vw'
       />
-      <Button
-        size='icon'
-        variant='destructive'
-        className='absolute right-0 top-0 p-2'
-        onClick={handleDeleteUploadedImage}
-      >
-        <X className='h-5 w-5' />
-      </Button>
+      <AlertDialog>
+        <AlertDialogTrigger asChild>
+          <Button
+            size='icon'
+            variant='destructive'
+            className='absolute right-0 top-0 p-2'
+          >
+            <X className='h-5 w-5' />
+          </Button>
+        </AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              Êtes-vous sûrs de vouloir supprimer cette image ?
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              Cette action ne peut être annulée. Cette action supprimera
+              définitivement votre image.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Annuler</AlertDialogCancel>
+            <Button variant={'destructive'} onClick={handleDeleteUploadedImage}>
+              Supprimer
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </li>
   )
 }
