@@ -13,7 +13,7 @@ import { CarouselProps } from './types'
 const FsLightbox = dynamic(() => import('fslightbox-react'))
 
 const SLIDER_BUTTONS_COMMON_CLASSNAME =
-  'absolute -top-8 flex h-10 w-10 items-center text-primary-foreground justify-center rounded-full p-0 bg-primary'
+  'h-10 w-10 absolute -top-8 flex items-center justify-center rounded-full p-0'
 
 const Carousel = ({
   carouselItems,
@@ -48,10 +48,12 @@ const Carousel = ({
           ))}
         </CarouselContent>
         <CarouselPrevious
+          variant={'default'}
           className={`${SLIDER_BUTTONS_COMMON_CLASSNAME} left-[unset] right-14`}
           aria-label={t('prevButton')}
         />
         <CarouselNext
+          variant={'default'}
           className={`${SLIDER_BUTTONS_COMMON_CLASSNAME} right-2`}
           aria-label={t('nextButton')}
         />
