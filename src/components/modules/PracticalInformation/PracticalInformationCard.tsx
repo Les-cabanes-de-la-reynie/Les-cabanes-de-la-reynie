@@ -10,7 +10,7 @@ const PracticalInformationCard = ({
   description
 }: PracticalInformationCardProps) => {
   return (
-    <li className='flex flex-col items-center rounded-lg border border-muted bg-popover p-4 text-center'>
+    <li className='flex flex-col items-center rounded-lg bg-popover p-4 text-center'>
       {children}
       <P className='mt-6 font-normal'>{description}</P>
     </li>
