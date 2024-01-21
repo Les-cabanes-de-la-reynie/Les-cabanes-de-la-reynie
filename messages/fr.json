@@ -60,7 +60,9 @@
     "sendAnEmail": "Nous envoyer un e-mail",
     "facebookButton": "En savoir plus avec notre page Facebook",
     "xButton": "En savoir plus avec notre page X",
-    "linkedinButton": "En savoir plus avec notre page Linkedin"
+    "linkedinButton": "En savoir plus avec notre page Linkedin",
+    "allRightsReserved": "Tous droits réservés",
+    "developedBy": "Développé par"
   },
   "Navigation": {
     "switchLangTitle": "Langues",

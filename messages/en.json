@@ -60,7 +60,9 @@
     "sendAnEmail": "Send an email",
     "facebookButton": "Read more about our Facebook page",
     "xButton": "Read more about our X page",
-    "linkedinButton": "Read more about our Linkedin page"
+    "linkedinButton": "Read more about our Linkedin page",
+    "allRightsReserved": "All Rights Reserved",
+    "developedBy": "Developed by"
   },
   "Navigation": {
     "switchLangTitle": "Languages",

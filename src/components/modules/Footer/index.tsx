@@ -6,6 +6,7 @@ import FooterItem from './FooterItem'
 import Container from '@/components/elements/Container'
 import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'lucide-react'
 import FollowUsItem from './FollowUsItem'
+import FooterCopyright from './FooterCopyright'
 
 const Footer = () => {
   const t = useTranslations('Footer')
@@ -86,6 +87,8 @@ const Footer = () => {
           </ul>
         </FooterNav>
       </Container>
+
+      <FooterCopyright />
     </footer>
   )
 }
