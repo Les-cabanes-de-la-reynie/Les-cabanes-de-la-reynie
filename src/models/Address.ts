@@ -8,9 +8,9 @@ export const AddressFormSchema = z.object({
   phone: z
     .string()
     .min(10, {
-      message: 'Invalid phone length.'
+      message: 'Numéro de téléphone invalide. Pas assez de caractères.'
     })
     .max(10, {
-      message: 'Invalid phone length.'
+      message: 'Numéro de téléphone invalide. Trop de caractères.'
     })
 })

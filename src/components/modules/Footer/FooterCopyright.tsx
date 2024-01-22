@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import { useTranslations } from 'next-intl'
-import { format } from 'date-fns'
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
+import { format } from 'date-fns'
+import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 
 const FooterCopyright = () => {
   const t = useTranslations('Footer')
@@ -9,7 +9,7 @@ const FooterCopyright = () => {
   const year = format(new Date(), 'y')
 
   return (
-    <p className='px-4 text-center md:px-6'>
+    <p className='px-4 text-center text-sm md:px-6'>
       © {year} <b>{ESTABLISHMENT_TITLE.toLocaleUpperCase()}</b> |{' '}
       {t('allRightsReserved')} | {t('developedBy')}
       <Link

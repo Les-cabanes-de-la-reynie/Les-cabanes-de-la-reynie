@@ -1,6 +1,6 @@
 import P from '@/components/elements/P'
-import AddressInformationForm from './AddressInformationForm'
 import { getAddress } from '@/services/queries/address'
+import AddressInformationForm from './AddressInformationForm'
 
 const AddressInformation = async () => {
   const address = await getAddress()
@@ -8,8 +8,8 @@ const AddressInformation = async () => {
   return (
     <>
       <P className='mb-5'>
-        Les informations ici vont servir à mettre à jour la popover de la map
-        sur la page Contact
+        Les informations ici vont être affichées sur la carte dans la page
+        contact
       </P>
 
       <AddressInformationForm address={address} />

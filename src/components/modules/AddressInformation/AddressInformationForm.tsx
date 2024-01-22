@@ -1,12 +1,12 @@
 'use client'
 
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import * as z from 'zod'
+import { Address } from '@/_types/address'
+import CancelButton from '@/components/elements/CancelButton'
+import EditButton from '@/components/elements/EditButton'
+import SubmitButton from '@/components/elements/SubmitButton'
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -14,18 +14,23 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import useToggle from '@/hooks/useToggle'
-import { useMemo } from 'react'
-import CancelButton from '@/components/elements/CancelButton'
-import EditButton from '@/components/elements/EditButton'
-import SubmitButton from '@/components/elements/SubmitButton'
 import { AddressFormSchema } from '@/models/Address'
-import { Address } from '@/_types/address'
+import { updateAddressInformation } from '@/services/actions/updateAddressInformation'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
+import { useMemo, useTransition } from 'react'
+import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
+import * as z from 'zod'
 
 type AddressInformationFormProps = {
   address: Address
 }
 
 const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
+  const t = useTranslations('Common')
+
+  const [isPending, startTransition] = useTransition()
   const [isEdit, handleToggleEdit] = useToggle(false)
 
   const editableSection = useMemo(
@@ -36,10 +41,12 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
         ) : (
           <EditButton onClick={handleToggleEdit} />
         )}
-        {isEdit && <SubmitButton>Mettre à jour</SubmitButton>}
+        {isEdit && (
+          <SubmitButton disabled={isPending}>Mettre à jour</SubmitButton>
+        )}
       </div>
     ),
-    [isEdit, handleToggleEdit]
+    [isEdit, handleToggleEdit, isPending]
   )
 
   const form = useForm<z.infer<typeof AddressFormSchema>>({
@@ -48,18 +55,50 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
     disabled: !isEdit
   })
 
-  // const onSubmit = (data: z.infer<typeof AddressFormSchema>) => {}
+  const onSubmit = (data: z.infer<typeof AddressFormSchema>) => {
+    startTransition(async () => {
+      const { validationErrors, serverError } =
+        await updateAddressInformation(data)
+
+      if (validationErrors) {
+        toast.error('There was an error updating address.', {
+          action: {
+            label: t('close'),
+            onClick: () => toast.dismiss()
+          }
+        })
+        return
+      }
+
+      if (serverError) {
+        toast.error(serverError, {
+          action: {
+            label: t('close'),
+            onClick: () => toast.dismiss()
+          }
+        })
+        return
+      }
+
+      toast.success('Success ! Address information updated', {
+        action: {
+          label: t('close'),
+          onClick: () => toast.dismiss()
+        }
+      })
+      handleToggleEdit()
+    })
+  }
 
   return (
     <Form {...form}>
-      {/* <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'> */}
-      <form className='space-y-6'>
+      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
         <FormField
           control={form.control}
           name='address'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Address</FormLabel>
+              <FormLabel>Address (non obligatoire)</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -72,9 +111,9 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='postalCode'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Postal Code</FormLabel>
+              <FormLabel>Postal Code *</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input required {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -85,9 +124,9 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='city'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>City</FormLabel>
+              <FormLabel>City *</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input required {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -98,9 +137,9 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='country'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Country</FormLabel>
+              <FormLabel>Country *</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input required {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -111,13 +150,10 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='phone'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Phone</FormLabel>
+              <FormLabel>Phone *</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input type='number' required {...field} />
               </FormControl>
-              <FormDescription>
-                Il faut écrire le numéro de cette manière : 0650403020
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
