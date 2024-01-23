@@ -1,11 +1,11 @@
 'use client'
 
-import { MapContainer, TileLayer } from 'react-leaflet'
+import { Address as AddressType } from '@/_types/address'
 import 'leaflet/dist/leaflet.css'
-import { MAP_URL, ESTABLISHMENT_POSITION } from './const'
+import { MapContainer, TileLayer } from 'react-leaflet'
 import CustomMarker from './CustomMaker'
 import Address from './CustomMaker/Address'
-import { Address as AddressType } from '@/_types/address'
+import { ESTABLISHMENT_POSITION, MAP_URL } from './const'
 
 type MapProps = { address: AddressType }
 
@@ -18,7 +18,7 @@ const Map = ({ address }: MapProps) => {
       className='relative h-full w-full'
     >
       <TileLayer url={MAP_URL} detectRetina={true} />
-      <CustomMarker position={ESTABLISHMENT_POSITION} open>
+      <CustomMarker>
         <Address address={address} />
       </CustomMarker>
     </MapContainer>
