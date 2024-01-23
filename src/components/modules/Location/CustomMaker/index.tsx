@@ -1,11 +1,10 @@
-'use client'
-
-import React, { useEffect, useRef, PropsWithChildren } from 'react'
-import { Marker, Popup } from 'react-leaflet'
 import { Icon } from 'leaflet'
 import MarkerIcon2X from 'leaflet/dist/images/marker-icon-2x.png'
 import MarkerIcon from 'leaflet/dist/images/marker-icon.png'
 import MarkerShadow from 'leaflet/dist/images/marker-shadow.png'
+import { PropsWithChildren, useEffect, useRef } from 'react'
+import { Marker, Popup } from 'react-leaflet'
+import { ESTABLISHMENT_POSITION } from '../const'
 
 Icon.Default.mergeOptions({
   iconRetinaUrl: MarkerIcon2X.src,
@@ -13,30 +12,19 @@ Icon.Default.mergeOptions({
   shadowUrl: MarkerShadow.src
 })
 
-export type CustomMarkerProps = PropsWithChildren & {
-  position: [number, number]
-  open: boolean
-}
+export type CustomMarkerProps = PropsWithChildren
 
-const CustomMarker = ({
-  position,
-  open = false,
-  children
-}: CustomMarkerProps) => {
+const CustomMarker = ({ children }: CustomMarkerProps) => {
   const markerRef = useRef<L.Marker | null>(null)
 
   useEffect(() => {
-    if (
-      open &&
-      markerRef.current !== null &&
-      !markerRef.current?.isPopupOpen()
-    ) {
+    if (markerRef.current !== null && !markerRef.current?.isPopupOpen()) {
       markerRef.current?.openPopup()
     }
-  }, [open])
+  }, [])
 
   return (
-    <Marker ref={markerRef} position={position}>
+    <Marker ref={markerRef} position={ESTABLISHMENT_POSITION}>
       <Popup>{children}</Popup>
     </Marker>
   )
