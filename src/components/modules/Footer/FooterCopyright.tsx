@@ -9,7 +9,7 @@ const FooterCopyright = () => {
   const year = format(new Date(), 'y')
 
   return (
-    <p className='px-4 text-center text-sm md:px-6'>
+    <p className='px-4 py-2 text-center text-sm md:px-6'>
       © {year} <b>{ESTABLISHMENT_TITLE.toLocaleUpperCase()}</b> |{' '}
       {t('allRightsReserved')} | {t('developedBy')}
       <Link

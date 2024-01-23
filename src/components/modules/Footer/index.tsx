@@ -1,12 +1,12 @@
-import Link from 'next/link'
-import { useLocale, useTranslations } from 'next-intl'
-import FooterNav from './FooterNav'
-import FooterHeading from './FooterHeading'
-import FooterItem from './FooterItem'
 import Container from '@/components/elements/Container'
 import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'lucide-react'
+import { useLocale, useTranslations } from 'next-intl'
+import Link from 'next/link'
 import FollowUsItem from './FollowUsItem'
 import FooterCopyright from './FooterCopyright'
+import FooterHeading from './FooterHeading'
+import FooterItem from './FooterItem'
+import FooterNav from './FooterNav'
 
 const Footer = () => {
   const t = useTranslations('Footer')
@@ -15,8 +15,8 @@ const Footer = () => {
   const COMMON_ICON_CLASSNAME = 'fill-card-foreground text-transparent'
 
   return (
-    <footer className='box-border w-full border-t'>
-      <Container className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3'>
+    <footer className='box-border w-full border-t md:px-6 md:pt-6'>
+      <Container className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 md:p-0'>
         <FooterNav>
           <FooterHeading>{t('aboutUs')}</FooterHeading>
           <ul>

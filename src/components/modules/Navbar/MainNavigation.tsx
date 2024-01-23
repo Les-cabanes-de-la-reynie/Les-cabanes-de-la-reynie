@@ -1,12 +1,12 @@
-import { KeyboardEvent, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { useLocale, useTranslations } from 'next-intl'
-import { ChevronDown } from 'lucide-react'
+import useOutsideClick from '@/hooks/useOutsideClick'
 import useToggle from '@/hooks/useToggle'
+import { cn } from '@/lib/utils'
+import { ChevronDown } from 'lucide-react'
+import { useLocale, useTranslations } from 'next-intl'
+import Link from 'next/link'
+import { KeyboardEvent, useEffect, useRef } from 'react'
 import NavItem from './NavItem'
 import NavList from './NavList'
-import useOutsideClick from '@/hooks/useOutsideClick'
-import { cn } from '@/lib/utils'
 
 type MainNavigationProps = {
   isBurgerMenuOpen: boolean
@@ -51,15 +51,24 @@ const MainNavigation = ({
     }
   }, [isBurgerMenuOpen, setIsNestedListOpen])
 
+  const navLinks = {
+    home: `/${lang}`,
+    yurt: `/${lang}/logements/yourte`,
+    hut: `/${lang}/logements/cabane`,
+    contact: `/${lang}/contact`,
+    activities: `/${lang}/activites`
+  }
+
   return (
     <nav aria-labelledby='Main'>
       <NavList>
-        <NavItem>
-          <Link href={`/${lang}`} onClick={onCloseBurgerMenu}>
+        <NavItem routes={[navLinks.home]}>
+          <Link href={navLinks.home} onClick={onCloseBurgerMenu}>
             {t('home')}
           </Link>
         </NavItem>
         <NavItem
+          routes={[navLinks.yurt, navLinks.hut]}
           className={cn({
             'pb-0': isNestedListOpen
           })}
@@ -86,9 +95,9 @@ const MainNavigation = ({
             })}
             ref={popupRef}
           >
-            <NavItem className='py-0 pl-5'>
+            <NavItem routes={[navLinks.yurt]} className='py-0 pl-5'>
               <Link
-                href={`/${lang}/logements/yourte`}
+                href={navLinks.yurt}
                 className='flex max-w-max items-center gap-2 py-1 lg:rounded-lg'
                 onClick={onCloseBurgerMenu}
                 data-test='header-yurt-link'
@@ -96,9 +105,9 @@ const MainNavigation = ({
                 {t('yurt')}
               </Link>
             </NavItem>
-            <NavItem className='py-0 pl-5'>
+            <NavItem routes={[navLinks.hut]} className='py-0 pl-5'>
               <Link
-                href={`/${lang}/logements/cabane`}
+                href={navLinks.hut}
                 className='flex max-w-max items-center gap-2 py-1 lg:rounded-lg'
                 onClick={onCloseBurgerMenu}
                 onBlur={handleClosePopup}
@@ -109,13 +118,13 @@ const MainNavigation = ({
             </NavItem>
           </NavList>
         </NavItem>
-        <NavItem>
-          <Link href={`/${lang}/contact`} onClick={onCloseBurgerMenu}>
+        <NavItem routes={[navLinks.contact]}>
+          <Link href={navLinks.contact} onClick={onCloseBurgerMenu}>
             {t('contact')}
           </Link>
         </NavItem>
-        <NavItem>
-          <Link href={`/${lang}/activites`} onClick={onCloseBurgerMenu}>
+        <NavItem routes={[navLinks.activities]}>
+          <Link href={navLinks.activities} onClick={onCloseBurgerMenu}>
             {t('activities')}
           </Link>
         </NavItem>
