@@ -11,7 +11,7 @@
     --card: 167, 63%, 93%;
     --card-foreground: 240 10% 3.9%;
     --muted: 166, 62%, 88%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted-foreground: 0, 0%, 28%;
     --primary: 174, 63%, 21%;
     --primary-dark: 175, 80%, 16%;
     --primary-foreground: 165, 67%, 99%;
@@ -31,7 +31,7 @@
     --card: 174, 55%, 11%;
     --card-foreground: 0 0% 95%;
     --muted: 176, 93%, 12%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted-foreground: 0, 0%, 78%;
     --primary: 174, 63%, 21%;
     --primary-dark: 175, 80%, 16%;
     --primary-foreground: 165, 67%, 99%;

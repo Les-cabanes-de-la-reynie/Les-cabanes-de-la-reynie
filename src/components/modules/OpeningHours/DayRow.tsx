@@ -1,11 +1,11 @@
-import { useLocale } from 'next-intl'
-import { format } from 'date-fns'
 import {
   convertDateWithoutTimeZone,
   formatStringTimeIntoDate
 } from '@/lib/utils'
-import { OpeningHoursRowData } from './types'
+import { format } from 'date-fns'
+import { useLocale } from 'next-intl'
 import TableRow from './TableRow'
+import { OpeningHoursRowData } from './types'
 
 const DayRow = ({
   day,

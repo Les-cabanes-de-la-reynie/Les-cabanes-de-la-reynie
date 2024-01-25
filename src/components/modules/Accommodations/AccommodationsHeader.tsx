@@ -1,12 +1,12 @@
-import Image from 'next/image'
-import { useTranslations } from 'next-intl'
+import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
+import Container from '@/components/elements/Container'
 import Heading from '@/components/elements/Heading'
 import P from '@/components/elements/P'
-import Container from '@/components/elements/Container'
+import { getUploadedImagesByCategory } from '@/services/queries/uploadedImagesByCategory'
+import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 import AccommodationsPopover from './AccommodationsPopover'
 import { BookEntity } from './types'
-import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
-import { getUploadedImagesByCategory } from '@/services/queries/uploadedImagesByCategory'
 
 type AccommodationsHeaderProps = {
   title: string
@@ -47,13 +47,13 @@ const AccommodationsHeader = async ({
         <Heading level={2} className='mt-10'>
           {t('description')}
         </Heading>
-        <P>
+        <P className='text-muted-foreground'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
           libero pariatur quod sapiente, molestiae incidunt facere qui impedit
           at voluptates ratione, unde, quis tempore quasi reiciendis doloribus.
           Cupiditate, atque animi.
         </P>
-        <P className='italic'>
+        <P className='italic text-muted-foreground'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
           libero pariatur quod sapiente, molestiae incidunt facere qui impedit
           at voluptates ratione, unde, quis tempore quasi reiciendis doloribus.
