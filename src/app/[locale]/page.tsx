@@ -23,7 +23,10 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
             priority
           />
           <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 p-4 text-center'>
-            <Heading level={1} className='text-5xl lg:text-6xl'>
+            <Heading
+              level={1}
+              className='text-5xl text-primary-foreground lg:text-6xl'
+            >
               {ESTABLISHMENT_TITLE}
             </Heading>
           </div>
