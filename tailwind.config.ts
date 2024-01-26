@@ -24,8 +24,8 @@ module.exports = withUt({
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-roboto)'],
-        title: ['var(--font-kaushan-script)']
+        sans: ['var(--font-primary)'],
+        title: ['var(--font-secondary)']
       },
       colors: {
         border: 'hsl(var(--border))',

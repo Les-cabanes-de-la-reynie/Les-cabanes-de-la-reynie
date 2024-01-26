@@ -1,17 +1,17 @@
 'use client'
 
-import { useMemo } from 'react'
-import { useTranslations } from 'next-intl'
-import TableHeader from '../TableHeader'
 import useToggle from '@/hooks/useToggle'
-import { OpeningHoursFormProps } from '../types'
-import DayRowEdit from './DayRowEdit'
+import { formatFormDataIntoOpeningHoursData } from '@/lib/utils'
+import { updateOpeningHours } from '@/services/actions/updateOpeningHours'
+import { useTranslations } from 'next-intl'
+import { useMemo } from 'react'
+import { toast } from 'sonner'
 import CancelButton from '../../../elements/CancelButton'
 import EditButton from '../../../elements/EditButton'
 import SubmitButton from '../../../elements/SubmitButton'
-import { toast } from 'sonner'
-import { updateOpeningHours } from '@/services/actions/updateOpeningHours'
-import { formatFormDataIntoOpeningHoursData } from '@/lib/utils'
+import TableHeader from '../TableHeader'
+import { OpeningHoursFormProps } from '../types'
+import DayRowEdit from './DayRowEdit'
 
 const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
   const [isEdit, handleToggleEdit] = useToggle(false)
@@ -85,7 +85,7 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
       className='h-full w-full'
     >
       <table className='w-full flex-grow'>
-        <TableHeader day={''} lunch={'Ouverture'} dinner={'Fermeture'} />
+        <TableHeader day={''} opening={'Ouverture'} closing={'Fermeture'} />
         <tbody className='text-center'>
           {openingHoursData?.map(
             ({

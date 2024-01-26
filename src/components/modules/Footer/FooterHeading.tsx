@@ -1,5 +1,5 @@
-import { PropsWithChildren } from 'react'
 import Heading from '@/components/elements/Heading'
+import { PropsWithChildren } from 'react'
 
 const FooterHeading = ({ children }: PropsWithChildren) => {
   return (

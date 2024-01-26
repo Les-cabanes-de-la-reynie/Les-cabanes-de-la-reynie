@@ -1,12 +1,12 @@
 import { TableHeaderProps } from './types'
 
-const TableHeader = ({ day, lunch, dinner }: TableHeaderProps) => {
+const TableHeader = ({ day, opening, closing }: TableHeaderProps) => {
   return (
     <thead>
       <tr>
-        <th className='h-16 border text-lg font-bold'>{day}</th>
-        <th className='h-16 border text-lg font-bold '>{lunch}</th>
-        <th className='h-16 border text-lg font-bold '>{dinner}</th>
+        <th className='h-16 border text-lg'>{day}</th>
+        <th className='h-16 border text-lg '>{opening}</th>
+        <th className='h-16 border text-lg '>{closing}</th>
       </tr>
     </thead>
   )

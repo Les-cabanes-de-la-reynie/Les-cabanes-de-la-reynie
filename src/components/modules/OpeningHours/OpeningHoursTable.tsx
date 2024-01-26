@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl'
-import TableHeader from './TableHeader'
 import DayRow from './DayRow'
+import TableHeader from './TableHeader'
 import { OpeningHoursFormProps } from './types'
 
 const OpeningHoursTable = ({ openingHoursData }: OpeningHoursFormProps) => {
@@ -8,7 +8,7 @@ const OpeningHoursTable = ({ openingHoursData }: OpeningHoursFormProps) => {
 
   return (
     <table className='h-full w-full flex-1'>
-      <TableHeader day={''} lunch={t('opening')} dinner={t('closing')} />
+      <TableHeader day={''} opening={t('opening')} closing={t('closing')} />
       <tbody className='text-center'>
         {openingHoursData?.map(
           ({

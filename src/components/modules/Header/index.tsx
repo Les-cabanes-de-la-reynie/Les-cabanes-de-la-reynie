@@ -1,14 +1,14 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
-import Logo from '@/components/elements/Logo'
 import BurgerMenu from '@/components/elements/BurgerMenu'
-import HeaderContent from './HeaderContent'
-import { DEFAULT_HEADER_CLASSNAME, SCROLL_Y_LIMIT } from './const'
 import Container from '@/components/elements/Container'
+import Logo from '@/components/elements/Logo'
 import useToggle from '@/hooks/useToggle'
 import { cn } from '@/lib/utils'
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import HeaderContent from './HeaderContent'
+import { DEFAULT_HEADER_CLASSNAME, SCROLL_Y_LIMIT } from './const'
 
 const Header = () => {
   const [headerClassName, setHeaderClassName] = useState(

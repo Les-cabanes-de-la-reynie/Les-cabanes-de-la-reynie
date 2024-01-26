@@ -28,8 +28,8 @@ export type OpeningHoursFormProps = {
 
 export type TableHeaderProps = {
   day: string
-  lunch: string
-  dinner: string
+  opening: string
+  closing: string
 }
 
 export type DayRowEditProps = OpeningHoursRowData & {

@@ -1,11 +1,11 @@
-import Image from 'next/image'
-import fullscreenImage from '../../components/images/homeCarousel/forest.webp'
+import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
+import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
+import Container from '@/components/elements/Container'
 import Heading from '@/components/elements/Heading'
 import Accommodations from '@/components/modules/Accommodations'
 import { unstable_setRequestLocale } from 'next-intl/server'
-import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
-import Container from '@/components/elements/Container'
-import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
+import Image from 'next/image'
+import fullscreenImage from '../../components/images/homeCarousel/forest.webp'
 
 const Home = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
@@ -22,12 +22,11 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
             className='object-cover'
             priority
           />
-          <Heading
-            level={1}
-            className='absolute inset-0 flex items-center justify-center p-4 text-center text-5xl text-primary-foreground lg:text-6xl'
-          >
-            {ESTABLISHMENT_TITLE}
-          </Heading>
+          <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 p-4 text-center'>
+            <Heading level={1} className='text-5xl lg:text-6xl'>
+              {ESTABLISHMENT_TITLE}
+            </Heading>
+          </div>
         </div>
       </div>
 

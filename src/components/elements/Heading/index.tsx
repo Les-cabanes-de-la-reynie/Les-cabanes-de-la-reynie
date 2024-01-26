@@ -1,12 +1,12 @@
-import { HTMLProps, PropsWithChildren } from 'react'
 import { cn } from '@/lib/utils'
-import { Kaushan_Script } from 'next/font/google'
+import { Galada } from 'next/font/google'
+import { HTMLProps, PropsWithChildren } from 'react'
 
-const fontFamily = Kaushan_Script({
+const fontFamily = Galada({
   subsets: ['latin'],
   weight: '400',
   display: 'swap',
-  variable: '--font-kaushan-script'
+  variable: '--font-secondary'
 })
 
 export type HeadingProps = PropsWithChildren &
