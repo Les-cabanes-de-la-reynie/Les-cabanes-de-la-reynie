@@ -1,20 +1,20 @@
-import { notFound } from 'next/navigation'
-import { cn } from '@/lib/utils'
-import Header from '@/components/modules/Header'
-import { Roboto } from 'next/font/google'
-import Footer from '@/components/modules/Footer'
-import { Toaster } from '@/components/ui/sonner'
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
-import { ReactNode } from 'react'
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
-import Providers from '@/providers'
+import Footer from '@/components/modules/Footer'
+import Header from '@/components/modules/Header'
+import { Toaster } from '@/components/ui/sonner'
 import { env } from '@/lib/env'
+import { cn } from '@/lib/utils'
+import Providers from '@/providers'
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
+import { Poppins } from 'next/font/google'
+import { notFound } from 'next/navigation'
+import { ReactNode } from 'react'
 
-const fontFamily = Roboto({
+const fontFamily = Poppins({
   subsets: ['latin'],
-  weight: ['400', '500', '700', '900'],
+  weight: ['400', '500', '600', '700', '800', '900'],
   display: 'swap',
-  variable: '--font-roboto'
+  variable: '--font-primary'
 })
 
 async function getMessages(locale: string) {

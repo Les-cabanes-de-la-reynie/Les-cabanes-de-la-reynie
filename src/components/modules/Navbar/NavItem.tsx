@@ -17,7 +17,7 @@ const NavItem = ({ routes, children, className, ...rest }: NavItemProps) => {
   const classes = cn(
     'py-4 select-none lg:p-0 text-primary-foreground lg:hover:text-ring transition-colors',
     {
-      'text-ring lg:border-b-2 lg:border-ring w-max lg:text-primary-foreground':
+      'lg:border-b-2 lg:border-ring lg:w-max lg:text-primary-foreground':
         routes?.includes(currentRoute)
     },
     className

@@ -1,13 +1,13 @@
-import { Suspense } from 'react'
-import { NextPage } from 'next'
-import { useLocale } from 'next-intl'
 import Container from '@/components/elements/Container'
 import Heading from '@/components/elements/Heading'
 import Loader from '@/components/elements/Loader'
-import OpeningHoursEdit from '@/components/modules/OpeningHours/Edit/OpeningHoursEdit'
-import { withPageAuthRequired } from '@auth0/nextjs-auth0'
-import UploadImage from '@/components/modules/UploadImage'
 import AddressInformation from '@/components/modules/AddressInformation'
+import OpeningHoursEdit from '@/components/modules/OpeningHours/Edit/OpeningHoursEdit'
+import UploadImage from '@/components/modules/UploadImage'
+import { withPageAuthRequired } from '@auth0/nextjs-auth0'
+import { NextPage } from 'next'
+import { useLocale } from 'next-intl'
+import { Suspense } from 'react'
 
 const AdminPage: NextPage = withPageAuthRequired(
   async () => {
