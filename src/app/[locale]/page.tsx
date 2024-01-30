@@ -15,7 +15,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
       <div className='w-full select-none'>
         <div className='relative h-96 w-full select-none lg:h-screen'>
           <Image
-            alt='paysage typique dans "Les cabanes de la Reynie"'
+            alt='Paysage typique dans "Les cabanes de la Reynie"'
             src={fullscreenImage}
             placeholder='blur'
             fill
