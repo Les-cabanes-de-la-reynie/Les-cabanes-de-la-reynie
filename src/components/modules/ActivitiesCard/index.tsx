@@ -12,10 +12,12 @@ type ActivitiesCardProps = {
 const ActivitiesCard = ({ title, image, alt }: ActivitiesCardProps) => {
   const lang = useLocale()
 
+  const formattedTitle = title.toLocaleLowerCase().split(' ').join('-')
+
   return (
     <li>
       <Link
-        href={`/${lang}/activites/${title.toLocaleLowerCase().split(' ').join('-')}`}
+        href={`/${lang}/activites/${formattedTitle}`}
         className='group relative flex h-60 flex-col items-center overflow-hidden rounded-lg text-center text-muted-foreground'
       >
         <Image
