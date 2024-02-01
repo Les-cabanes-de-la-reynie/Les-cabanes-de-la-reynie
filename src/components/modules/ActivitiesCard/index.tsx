@@ -12,11 +12,13 @@ type ActivitiesCardProps = {
 const ActivitiesCard = ({ title, image, alt }: ActivitiesCardProps) => {
   const lang = useLocale()
 
+  const formattedTitle = title.toLocaleLowerCase().split(' ').join('-')
+
   return (
     <li>
       <Link
-        href={`/${lang}`}
-        className='group relative flex h-60 flex-col items-center overflow-hidden rounded-lg bg-popover text-center text-muted-foreground'
+        href={`/${lang}/activites/${formattedTitle}`}
+        className='group relative flex h-60 flex-col items-center overflow-hidden rounded-lg text-center text-muted-foreground'
       >
         <Image
           alt={alt}
@@ -28,9 +30,9 @@ const ActivitiesCard = ({ title, image, alt }: ActivitiesCardProps) => {
         />
         <Heading
           level={3}
-          className='absolute flex h-full w-full items-end bg-black bg-opacity-20 pb-4 font-bold transition-colors hover:bg-opacity-50 focus:bg-opacity-50'
+          className='absolute flex h-full w-full items-end bg-black bg-opacity-20 pb-4 font-bold transition-colors hover:lg:bg-opacity-50'
         >
-          <span className='relative inline-block w-full before:absolute before:-inset-1 before:block before:-skew-y-[4deg] before:bg-primary before:transition-all group-hover:before:-inset-10 group-hover:before:bg-primary-dark'>
+          <span className='relative inline-block w-full before:absolute before:inset-0 before:block before:-skew-y-[4deg] before:bg-primary before:transition-all group-hover:lg:before:-inset-10 group-hover:lg:before:bg-primary-dark'>
             <span className='relative p-2 text-white'>{title}</span>
           </span>
         </Heading>
