@@ -1,13 +1,13 @@
-import dynamic from 'next/dynamic'
-import { useTranslations } from 'next-intl'
+import Heading from '@/components/elements/Heading'
 import {
-  Carousel as EmblaCarousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious
+  CarouselPrevious,
+  Carousel as EmblaCarousel
 } from '@/components/ui/carousel'
-import Heading from '@/components/elements/Heading'
+import { useTranslations } from 'next-intl'
+import dynamic from 'next/dynamic'
 import { CarouselProps } from './types'
 
 const FsLightbox = dynamic(() => import('fslightbox-react'))
@@ -30,18 +30,19 @@ const Carousel = ({
           {title}
         </Heading>
       )}
+
       <EmblaCarousel
-        className='w-full px-2'
+        className='w-full'
         opts={{
           align: 'start',
           loop: true
         }}
       >
-        <CarouselContent>
+        <CarouselContent className='ml-0'>
           {carouselItems.map((carouselItem, index) => (
             <CarouselItem
               key={`${carouselItem.key}-${index}`}
-              className='md:basis-1/2 lg:basis-1/3'
+              className='px-4 md:basis-1/2 lg:basis-1/3'
             >
               {carouselItem}
             </CarouselItem>
