@@ -52,11 +52,13 @@ const Carousel = ({
           variant={'default'}
           className={`${SLIDER_BUTTONS_COMMON_CLASSNAME} left-[unset] right-14`}
           aria-label={t('prevButton')}
+          data-testid='carouselPreviousButton'
         />
         <CarouselNext
           variant={'default'}
           className={`${SLIDER_BUTTONS_COMMON_CLASSNAME} right-2`}
           aria-label={t('nextButton')}
+          data-testid='carouselNextButton'
         />
       </EmblaCarousel>
 
