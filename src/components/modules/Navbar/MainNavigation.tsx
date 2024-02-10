@@ -100,7 +100,7 @@ const MainNavigation = ({
                 href={navLinks.yurt}
                 className='flex max-w-max items-center gap-2 py-1 lg:rounded-lg'
                 onClick={onCloseBurgerMenu}
-                data-test='header-yurt-link'
+                data-testid='header-yurt-link'
               >
                 {t('yurt')}
               </Link>
@@ -111,7 +111,7 @@ const MainNavigation = ({
                 className='flex max-w-max items-center gap-2 py-1 lg:rounded-lg'
                 onClick={onCloseBurgerMenu}
                 onBlur={handleClosePopup}
-                data-test='header-hut-link'
+                data-testid='header-hut-link'
               >
                 {t('hut')}
               </Link>

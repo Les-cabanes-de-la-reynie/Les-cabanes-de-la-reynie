@@ -22,6 +22,7 @@ test.describe('Carousel', () => {
       await expect(closeFslightboxButton).not.toBeVisible()
       await expect(fullscreenFslightboxButton).not.toBeVisible()
 
+      // Open image with fslightbox
       await firstImage.click({ delay: 1000 })
 
       await expect(closeFslightboxButton).toBeVisible()
@@ -34,8 +35,8 @@ test.describe('Carousel', () => {
       await expect(page).toHaveURL(frenchURL)
 
       const firstImage = page.getByRole('img', { name: 'Our fabulous place 0' })
-      const nextButton = page.getByTestId('carouselNextButton')
-      const previousButton = page.getByTestId('carouselPreviousButton')
+      const nextButton = page.getByTestId('carousel-next-button')
+      const previousButton = page.getByTestId('carousel-previous-button')
 
       await expect(firstImage).toBeInViewport()
 

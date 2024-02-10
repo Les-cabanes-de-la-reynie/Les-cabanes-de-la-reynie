@@ -1,6 +1,6 @@
-import { useTranslations } from 'next-intl'
-import { NavigationIcon } from 'lucide-react'
 import { Address } from '@/_types/address'
+import { NavigationIcon } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 type ItineraryProps = { address: Address }
 
