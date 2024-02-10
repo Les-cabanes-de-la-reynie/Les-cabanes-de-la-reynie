@@ -1,9 +1,9 @@
-import Link from 'next/link'
-import { cn } from '@/lib/utils'
-import { PhoneIcon } from 'lucide-react'
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import { Address } from '@/_types/address'
 import Heading from '@/components/elements/Heading'
+import { cn } from '@/lib/utils'
+import { PhoneIcon } from 'lucide-react'
+import Link from 'next/link'
 import ItineraryAlertDialog from './ItineraryAlertDialog'
 
 type AddressProps = { address: Address }
@@ -39,6 +39,7 @@ const Address = ({ address }: AddressProps) => {
       <Link
         href={`tel:+${FRENCH_PHONE_CODE}${phoneNumberWithoutZero}`}
         className='hover:underline'
+        data-testid='phone-number'
       >
         <span className='flex items-center justify-center text-primary dark:text-primary'>
           <PhoneIcon size={15} className='mr-1' />

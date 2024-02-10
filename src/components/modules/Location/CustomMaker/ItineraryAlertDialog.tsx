@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { Address } from '@/_types/address'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -11,10 +10,11 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger
 } from '@/components/ui/alert-dialog'
+import { useTranslations } from 'next-intl'
+import Link from 'next/link'
+import { useState } from 'react'
 import { toast } from 'sonner'
 import Itinerary from './Itinerary'
-import Link from 'next/link'
-import { Address } from '@/_types/address'
 
 type ItineraryAlertDialogProps = { address: Address }
 
@@ -48,7 +48,10 @@ const ItineraryAlertDialog = ({ address }: ItineraryAlertDialogProps) => {
 
   return (
     <AlertDialog>
-      <AlertDialogTrigger onClick={getUserLocation}>
+      <AlertDialogTrigger
+        onClick={getUserLocation}
+        data-testid='itinerary-link'
+      >
         <Itinerary address={address} />
       </AlertDialogTrigger>
       <AlertDialogContent>

@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import { useLocale } from 'next-intl'
-import { cn } from '@/lib/utils'
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
+import { cn } from '@/lib/utils'
+import { useLocale } from 'next-intl'
+import Link from 'next/link'
 
 type LogoProps = {
   onCloseMenu?: () => void
@@ -20,7 +20,7 @@ const Logo = ({ onCloseMenu }: LogoProps) => {
       className={classes}
       onClick={onCloseMenu}
       aria-label={`${ESTABLISHMENT_TITLE} Logo`}
-      data-test='app-main-logo'
+      data-testid='app-main-logo'
     >
       <span>LOGO</span>
     </Link>
