@@ -6,13 +6,13 @@ import { env } from '@/lib/env'
 import { cn } from '@/lib/utils'
 import Providers from '@/providers'
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
-import { Poppins } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { ReactNode } from 'react'
 
-const fontFamily = Poppins({
+const fontFamily = Roboto({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: ['300', '400', '500', '700', '900'],
   display: 'swap',
   variable: '--font-primary'
 })
