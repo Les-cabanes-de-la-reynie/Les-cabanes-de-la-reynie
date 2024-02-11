@@ -1,10 +1,10 @@
-import { PropsWithChildren } from 'react'
-import { NextIntlClientProvider } from 'next-intl'
-import { NextSSRPlugin } from '@uploadthing/react/next-ssr-plugin'
-import { extractRouterConfig } from 'uploadthing/server'
 import { ourFileRouter } from '@/app/api/uploadthing/core'
-import { ThemeProvider } from './theme-provider'
 import { UserProvider } from '@auth0/nextjs-auth0/client'
+import { NextSSRPlugin } from '@uploadthing/react/next-ssr-plugin'
+import { NextIntlClientProvider } from 'next-intl'
+import { PropsWithChildren } from 'react'
+import { extractRouterConfig } from 'uploadthing/server'
+import { ThemeProvider } from './theme-provider'
 
 type ProvidersProps = PropsWithChildren & {
   locale: string

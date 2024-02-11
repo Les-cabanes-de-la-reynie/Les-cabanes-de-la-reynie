@@ -1,11 +1,11 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
-import { toast } from 'sonner'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
+import { UploadDropzone } from '@/lib/uploadthing'
 import { updateMultipleUploadedImage } from '@/services/actions/updateMultipleUploadedImage'
 import { updateSingleUploadedImage } from '@/services/actions/updateSingleUploadedImage'
-import { UploadDropzone } from '@/lib/uploadthing'
+import { useTranslations } from 'next-intl'
+import { toast } from 'sonner'
 
 type UploadImageDropzoneProps = {
   endpoint: UploadImageCategoryKeyEnum
