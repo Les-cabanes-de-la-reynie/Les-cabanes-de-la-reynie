@@ -12,7 +12,7 @@ const authCallback = async () => {
   const isEmailVerified = user?.user.email_verified
 
   // If you throw, the user will not be able to upload
-  if (!user || !isEmailVerified) throw new UploadThingError('Unauthorized')
+  if (!userEmail || !isEmailVerified) throw new UploadThingError('Unauthorized')
 
   // Whatever is returned here is accessible in onUploadComplete as `metadata`
   return { userEmail: userEmail }
