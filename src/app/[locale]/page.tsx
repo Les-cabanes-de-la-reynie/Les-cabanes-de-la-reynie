@@ -1,7 +1,7 @@
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import Container from '@/components/elements/Container'
-import Accommodations from '@/components/modules/Accommodations'
+import AccommodationsSlider from '@/components/modules/Accommodations/AccommodationsSlider'
 import HeroBanner from '@/components/modules/HeroBanner'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import Image from 'next/image'
@@ -23,7 +23,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
         />
       </HeroBanner>
 
-      <Accommodations category={UploadImageCategoryKeyEnum.HomeSlider} />
+      <AccommodationsSlider category={UploadImageCategoryKeyEnum.HomeSlider} />
 
       <Container>
         <div className='h-72 w-full'>Test</div>

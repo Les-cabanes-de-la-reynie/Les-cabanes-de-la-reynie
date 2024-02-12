@@ -35,7 +35,9 @@ const AdminPage: NextPage = withPageAuthRequired(
           </Suspense>
         </section>
 
-        <UploadImage />
+        <section>
+          <UploadImage />
+        </section>
       </Container>
     )
   },

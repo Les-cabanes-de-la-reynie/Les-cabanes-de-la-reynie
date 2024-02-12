@@ -1,12 +1,14 @@
-import CarouselWithLightbox from '../Carousel/CarouselWithLightbox'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import { getUploadedImagesByCategory } from '@/services/queries/uploadedImagesByCategory'
+import CarouselWithLightbox from '../Carousel/CarouselWithLightbox'
 
-type AccommodationsProps = {
+type AccommodationsSliderProps = {
   category: UploadImageCategoryKeyEnum
 }
 
-const Accommodations = async ({ category }: AccommodationsProps) => {
+const AccommodationsSlider = async ({
+  category
+}: AccommodationsSliderProps) => {
   const images = await getUploadedImagesByCategory({ category })
 
   return images?.length ? (
@@ -15,4 +17,4 @@ const Accommodations = async ({ category }: AccommodationsProps) => {
     </section>
   ) : null
 }
-export default Accommodations
+export default AccommodationsSlider
