@@ -1,10 +1,17 @@
+import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
+import Heading from '@/components/elements/Heading'
+import P from '@/components/elements/P'
+import headerImage from '@/components/images/homeCarousel/forest4.webp'
+import AccommodationsHeader from '@/components/modules/Accommodations/AccommodationsHeader'
+import AccommodationsHeaderContent from '@/components/modules/Accommodations/AccommodationsHeader/AccommodationsHeaderContent'
+import AccommodationsHeaderImage from '@/components/modules/Accommodations/AccommodationsHeader/AccommodationsHeaderImage'
+import AccommodationsPopover from '@/components/modules/Accommodations/AccommodationsPopover'
+import AccommodationsSlider from '@/components/modules/Accommodations/AccommodationsSlider'
+import PracticalInformation from '@/components/modules/PracticalInformation'
+import { env } from '@/lib/env'
 import { useTranslations } from 'next-intl'
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
-import { env } from '@/lib/env'
-import AccommodationsHeader from '@/components/modules/Accommodations/AccommodationsHeader'
-import PracticalInformation from '@/components/modules/PracticalInformation'
-import Accommodations from '@/components/modules/Accommodations'
-import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
+import Image from 'next/image'
 
 export async function generateStaticParams() {
   return env.NEXT_PUBLIC_LANGS.map(locale => ({ locale }))
@@ -35,14 +42,50 @@ const Yurt = ({ params: { locale } }: { params: { locale: string } }) => {
 
   return (
     <main className='w-full'>
-      <AccommodationsHeader
-        title={t('yurt')}
-        uploadImageCategoryKey={UploadImageCategoryKeyEnum.YurtHeader}
-        bookList={bookList}
-      />
+      <AccommodationsHeader>
+        <AccommodationsHeaderImage>
+          <Image
+            alt={`Main ${t('hut')} landscape`}
+            src={headerImage}
+            placeholder='blur'
+            fill
+            className='object-cover'
+            priority
+          />
+        </AccommodationsHeaderImage>
+        <AccommodationsHeaderContent>
+          <Heading level={1} className='mt-4 lg:mt-0'>
+            {t('hut')}
+          </Heading>
+
+          <Heading level={2} className='mt-10'>
+            {t('description')}
+          </Heading>
+          <P className='text-muted-foreground'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+            libero pariatur quod sapiente, molestiae incidunt facere qui impedit
+            at voluptates ratione, unde, quis tempore quasi reiciendis
+            doloribus. Cupiditate, atque animi.
+          </P>
+          <P className='italic text-muted-foreground'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+            libero pariatur quod sapiente, molestiae incidunt facere qui impedit
+            at voluptates ratione, unde, quis tempore quasi reiciendis
+            doloribus. Cupiditate, atque animi.
+          </P>
+
+          <Heading level={2} className='mt-10'>
+            {t('price')}
+          </Heading>
+          <P>Tarif unique : 175€</P>
+
+          <AccommodationsPopover bookList={bookList} />
+        </AccommodationsHeaderContent>
+      </AccommodationsHeader>
+
       <PracticalInformation />
 
-      <Accommodations category={UploadImageCategoryKeyEnum.YurtSlider} />
+      <AccommodationsSlider category={UploadImageCategoryKeyEnum.YurtSlider} />
     </main>
   )
 }

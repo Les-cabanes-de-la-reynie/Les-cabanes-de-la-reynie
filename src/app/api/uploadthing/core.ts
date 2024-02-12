@@ -27,17 +27,7 @@ export const ourFileRouter = {
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
       return { uploadedBy: metadata.userEmail }
     }),
-  yurtHeader: f({ image: { maxFileSize: '4MB', maxFileCount: 1 } })
-    .middleware(authCallback)
-    .onUploadComplete(async ({ metadata }) => {
-      return { uploadedBy: metadata.userEmail }
-    }),
   yurtSlider: f({ image: { maxFileSize: '4MB', maxFileCount: 1 } })
-    .middleware(authCallback)
-    .onUploadComplete(async ({ metadata }) => {
-      return { uploadedBy: metadata.userEmail }
-    }),
-  hutHeader: f({ image: { maxFileSize: '4MB', maxFileCount: 1 } })
     .middleware(authCallback)
     .onUploadComplete(async ({ metadata }) => {
       return { uploadedBy: metadata.userEmail }
