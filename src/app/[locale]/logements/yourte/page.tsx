@@ -45,7 +45,7 @@ const Yurt = ({ params: { locale } }: { params: { locale: string } }) => {
       <AccommodationsHeader>
         <AccommodationsHeaderImage>
           <Image
-            alt={`Main ${t('hut')} landscape`}
+            alt={`Main ${t('yurt')} landscape`}
             src={headerImage}
             placeholder='blur'
             fill
@@ -55,7 +55,7 @@ const Yurt = ({ params: { locale } }: { params: { locale: string } }) => {
         </AccommodationsHeaderImage>
         <AccommodationsHeaderContent>
           <Heading level={1} className='mt-4 lg:mt-0'>
-            {t('hut')}
+            {t('yurt')}
           </Heading>
 
           <Heading level={2} className='mt-10'>
