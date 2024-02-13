@@ -17,8 +17,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
           alt='Paysage typique dans "Les cabanes de la Reynie"'
           src={fullscreenImage}
           placeholder='blur'
-          fill
-          className='object-cover'
+          className='h-full object-cover'
           priority
         />
       </HeroBanner>

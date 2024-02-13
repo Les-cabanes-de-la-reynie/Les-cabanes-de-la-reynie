@@ -2,8 +2,7 @@
 
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import { UploadDropzone } from '@/lib/uploadthing'
-import { updateMultipleUploadedImage } from '@/services/actions/updateMultipleUploadedImage'
-import { updateSingleUploadedImage } from '@/services/actions/updateSingleUploadedImage'
+import { updateUploadedImage } from '@/services/actions/updateUploadedImage'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 
@@ -20,16 +19,7 @@ const UploadImageDropzone = ({ endpoint }: UploadImageDropzoneProps) => {
       onClientUploadComplete={async res => {
         const { key, url } = res[0]
 
-        const isSlider =
-          endpoint === UploadImageCategoryKeyEnum.HomeSlider ||
-          endpoint === UploadImageCategoryKeyEnum.YurtSlider ||
-          endpoint === UploadImageCategoryKeyEnum.HutSlider
-
-        if (isSlider) {
-          await updateMultipleUploadedImage({ key, url, category: endpoint })
-        } else {
-          await updateSingleUploadedImage({ key, url, category: endpoint })
-        }
+        await updateUploadedImage({ key, url, category: endpoint })
 
         toast.success('Success ! Your upload is completed', {
           action: {

@@ -1,10 +1,10 @@
 'use server'
 
-import { revalidatePath } from 'next/cache'
 import { db } from '@/lib/prisma'
-import { utapi } from '@/lib/utapiUploadthing'
 import { authenticatedAction } from '@/lib/safeActions'
+import { utapi } from '@/lib/utapiUploadthing'
 import { DeleteUploadedImageSchema } from '@/models/UploadedImages'
+import { revalidatePath } from 'next/cache'
 
 export const deleteUploadedImage = authenticatedAction(
   DeleteUploadedImageSchema,
@@ -21,5 +21,6 @@ export const deleteUploadedImage = authenticatedAction(
 
     revalidatePath('/[locale]/logements', 'layout')
     revalidatePath('/[locale]/admin', 'layout')
+    revalidatePath('/[locale]', 'layout')
   }
 )

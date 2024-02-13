@@ -1,11 +1,11 @@
 'use server'
 
-import { revalidatePath } from 'next/cache'
 import { db } from '@/lib/prisma'
 import { authenticatedAction } from '@/lib/safeActions'
 import { UpdateUploadedImageCommonSchema } from '@/models/UploadedImages'
+import { revalidatePath } from 'next/cache'
 
-export const updateMultipleUploadedImage = authenticatedAction(
+export const updateUploadedImage = authenticatedAction(
   UpdateUploadedImageCommonSchema,
   async ({ key, url, category }) => {
     try {
@@ -20,6 +20,7 @@ export const updateMultipleUploadedImage = authenticatedAction(
 
       revalidatePath('/[locale]/logements', 'layout')
       revalidatePath('/[locale]/admin', 'layout')
+      revalidatePath('/[locale]', 'layout')
     } catch (error) {
       return error
     }
