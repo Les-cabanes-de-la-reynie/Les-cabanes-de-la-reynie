@@ -17,7 +17,7 @@ const AdminPage: NextPage = withPageAuthRequired(
           Admin
         </Heading>
 
-        <section>
+        <section className='mb-8'>
           <Heading level={2} className='my-8'>
             Address information
           </Heading>
@@ -26,7 +26,7 @@ const AdminPage: NextPage = withPageAuthRequired(
           </Suspense>
         </section>
 
-        <section>
+        <section className='mb-8'>
           <Heading level={2} className='my-8'>
             Opening hours
           </Heading>
@@ -35,7 +35,7 @@ const AdminPage: NextPage = withPageAuthRequired(
           </Suspense>
         </section>
 
-        <section>
+        <section className='mb-8'>
           <UploadImage />
         </section>
       </Container>
