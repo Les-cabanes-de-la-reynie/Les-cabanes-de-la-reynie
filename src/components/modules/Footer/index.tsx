@@ -15,7 +15,7 @@ const Footer = () => {
   const lang = useLocale()
 
   const COMMON_ICON_CLASSNAME =
-    'fill-card-foreground transition-colors hover:fill-primary h-8 w-8'
+    'fill-card-foreground transition-colors hover:fill-primary h-7 w-7'
 
   return (
     <footer className='box-border w-full border-t md:px-6 md:pt-6'>
