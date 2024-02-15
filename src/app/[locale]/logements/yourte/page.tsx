@@ -48,7 +48,8 @@ const Yurt = ({ params: { locale } }: { params: { locale: string } }) => {
             alt={`Main ${t('yurt')} landscape`}
             src={headerImage}
             placeholder='blur'
-            className='h-full object-cover'
+            fill
+            className='object-cover'
             priority
           />
         </AccommodationsHeaderImage>

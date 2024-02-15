@@ -48,7 +48,8 @@ const Hut = ({ params: { locale } }: { params: { locale: string } }) => {
             alt={`Main ${t('hut')} landscape`}
             src={headerImage}
             placeholder='blur'
-            className='h-full object-cover'
+            fill
+            className='object-cover'
             priority
           />
         </AccommodationsHeaderImage>
