@@ -1,13 +1,13 @@
+import Container from '@/components/elements/Container'
+import Heading from '@/components/elements/Heading'
+import DoubleBedIcon from '@/components/images/icons/practicalInformation/DoubleBedIcon'
+import PawPrintIcon from '@/components/images/icons/practicalInformation/PawPrintIcon'
+import RefrigeratorIcon from '@/components/images/icons/practicalInformation/RefrigeratorIcon'
+import ShowerIcon from '@/components/images/icons/practicalInformation/ShowerIcon'
+import ToiletIcon from '@/components/images/icons/practicalInformation/ToiletIcon'
+import WifiIcon from '@/components/images/icons/practicalInformation/WifiIcon'
 import { useTranslations } from 'next-intl'
 import PracticalInformationCard from './PracticalInformationCard'
-import Heading from '@/components/elements/Heading'
-import Container from '@/components/elements/Container'
-import DoubleBedIcon from '@/components/images/practicalInformation/DoubleBedIcon'
-import WifiIcon from '@/components/images/practicalInformation/WifiIcon'
-import PawPrintIcon from '@/components/images/practicalInformation/PawPrintIcon'
-import RefrigeratorIcon from '@/components/images/practicalInformation/RefrigeratorIcon'
-import ShowerIcon from '@/components/images/practicalInformation/ShowerIcon'
-import ToiletIcon from '@/components/images/practicalInformation/ToiletIcon'
 
 const PracticalInformation = () => {
   const t = useTranslations('Common')

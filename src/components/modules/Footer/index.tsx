@@ -1,5 +1,7 @@
 import Container from '@/components/elements/Container'
-import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'lucide-react'
+import FacebookIcon from '@/components/images/icons/socialMedia/FacebookIcon'
+import InstagramIcon from '@/components/images/icons/socialMedia/InstagramIcon'
+import LinkedInIcon from '@/components/images/icons/socialMedia/LinkedInIcon'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import FollowUsItem from './FollowUsItem'
@@ -12,7 +14,8 @@ const Footer = () => {
   const t = useTranslations('Footer')
   const lang = useLocale()
 
-  const COMMON_ICON_CLASSNAME = 'fill-card-foreground text-transparent'
+  const COMMON_ICON_CLASSNAME =
+    'fill-card-foreground transition-colors hover:fill-primary h-7 w-7'
 
   return (
     <footer className='box-border w-full border-t md:px-6 md:pt-6'>
@@ -47,29 +50,21 @@ const Footer = () => {
         </FooterNav>
         <FooterNav>
           <FooterHeading> {t('followUs')}</FooterHeading>
-          <ul className='flex gap-4'>
+          <ul className='flex gap-6'>
             <FooterItem>
               <FollowUsItem
                 href='https://www.google.fr/'
                 aria-label={t('facebookButton')}
               >
-                <FacebookIcon
-                  aria-hidden='true'
-                  focusable='false'
-                  className={COMMON_ICON_CLASSNAME}
-                />
+                <FacebookIcon className={COMMON_ICON_CLASSNAME} />
               </FollowUsItem>
             </FooterItem>
             <FooterItem>
               <FollowUsItem
                 href='https://www.google.fr/'
-                aria-label={t('xButton')}
+                aria-label={t('instagramButton')}
               >
-                <TwitterIcon
-                  aria-hidden='true'
-                  focusable='false'
-                  className={COMMON_ICON_CLASSNAME}
-                />
+                <InstagramIcon className={COMMON_ICON_CLASSNAME} />
               </FollowUsItem>
             </FooterItem>
             <FooterItem>
@@ -77,11 +72,7 @@ const Footer = () => {
                 href='https://www.google.fr/'
                 aria-label={t('linkedinButton')}
               >
-                <LinkedinIcon
-                  aria-hidden='true'
-                  focusable='false'
-                  className={COMMON_ICON_CLASSNAME}
-                />
+                <LinkedInIcon className={COMMON_ICON_CLASSNAME} />
               </FollowUsItem>
             </FooterItem>
           </ul>
