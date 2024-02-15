@@ -1,7 +1,7 @@
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import Heading from '@/components/elements/Heading'
 import P from '@/components/elements/P'
-import headerImage from '@/components/images/homeCarousel/forest4.webp'
+import headerImage from '@/components/images/hutAndYurt/cabane-porte.jpg'
 import AccommodationsHeader from '@/components/modules/Accommodations/AccommodationsHeader'
 import AccommodationsHeaderContent from '@/components/modules/Accommodations/AccommodationsHeader/AccommodationsHeaderContent'
 import AccommodationsHeaderImage from '@/components/modules/Accommodations/AccommodationsHeader/AccommodationsHeaderImage'

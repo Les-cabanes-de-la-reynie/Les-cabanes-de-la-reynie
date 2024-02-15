@@ -5,7 +5,7 @@ import AccommodationsSlider from '@/components/modules/Accommodations/Accommodat
 import HeroBanner from '@/components/modules/HeroBanner'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import Image from 'next/image'
-import fullscreenImage from '../../components/images/homeCarousel/forest.webp'
+import fullscreenImage from '../../components/images/hutAndYurt/cabane-ext.jpg'
 
 const Home = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
@@ -17,7 +17,8 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
           alt='Paysage typique dans "Les cabanes de la Reynie"'
           src={fullscreenImage}
           placeholder='blur'
-          className='h-full object-cover'
+          fill
+          className='object-cover'
           priority
         />
       </HeroBanner>
@@ -28,7 +29,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
         <div className='h-72 w-full'>Test</div>
       </Container>
 
-      <div className='h-96 w-full select-none bg-customImg1 bg-fixed bg-center'></div>
+      <div className='h-96 w-full select-none bg-customImg1 bg-cover bg-fixed bg-center'></div>
 
       <Container>
         <div className='h-72 w-full'>Test</div>

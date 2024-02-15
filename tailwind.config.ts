@@ -75,7 +75,7 @@ module.exports = withUt({
         'accordion-up': 'accordion-up 0.2s ease-out'
       },
       backgroundImage: {
-        customImg1: 'url("../components/images/homeCarousel/forest5.webp")'
+        customImg1: 'url("../components/images/hutAndYurt/cabane-fenetres.jpg")'
       }
     }
   },
