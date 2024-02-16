@@ -17,6 +17,7 @@ const QueFaireDansLePerigordNoir = () => {
           src={forest}
           placeholder='blur'
           fill
+          sizes='100vw'
           className='object-cover'
           priority
         />

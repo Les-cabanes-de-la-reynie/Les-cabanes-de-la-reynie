@@ -1,7 +1,7 @@
-import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-import { format } from 'date-fns'
 import { OpeningHoursData } from '@/components/modules/OpeningHours/types'
+import { clsx, type ClassValue } from 'clsx'
+import { format } from 'date-fns'
+import { twMerge } from 'tailwind-merge'
 
 export const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs))

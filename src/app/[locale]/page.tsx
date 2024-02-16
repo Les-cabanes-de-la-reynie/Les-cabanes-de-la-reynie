@@ -18,6 +18,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
           src={fullscreenImage}
           placeholder='blur'
           fill
+          sizes='100vw'
           className='object-cover'
           priority
         />
