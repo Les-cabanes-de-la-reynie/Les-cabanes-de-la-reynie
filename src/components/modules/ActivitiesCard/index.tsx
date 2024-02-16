@@ -25,7 +25,7 @@ const ActivitiesCard = ({ title, image, alt }: ActivitiesCardProps) => {
           src={image}
           placeholder='blur'
           fill
-          sizes='(max-width: 475px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1200px) 25vw'
+          sizes='(min-width: 1280px) 278px, (min-width: 1040px) calc(12.73vw + 118px), (min-width: 800px) 33.18vw, (min-width: 540px) 50vw, calc(100vw - 16px)'
           className='object-cover'
         />
         <Heading

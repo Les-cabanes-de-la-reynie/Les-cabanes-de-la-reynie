@@ -1,10 +1,10 @@
 'use client'
 
-import { useState } from 'react'
-import Image from 'next/image'
-import dynamic from 'next/dynamic'
-import { useTranslations } from 'next-intl'
 import { UploadImage } from '@/_types/uploadImage'
+import { useTranslations } from 'next-intl'
+import dynamic from 'next/dynamic'
+import Image from 'next/image'
+import { useState } from 'react'
 import CarouselWithLightboxSkeleton from './CarouselWithLightboxSkeleton'
 
 const Carousel = dynamic(() => import('.'), {
@@ -34,7 +34,7 @@ const CarouselWithLightbox = ({ data }: CarouselWithLightboxProps) => {
   const carouselItems = data.map(({ id, imageUrl }, i) => (
     <div
       key={`carousel-${i}-${id}`}
-      className='relative h-60 cursor-pointer rounded-lg bg-popover'
+      className='relative h-60 cursor-pointer overflow-hidden rounded-lg bg-popover'
     >
       <Image
         alt={`Our fabulous place ${i}`}

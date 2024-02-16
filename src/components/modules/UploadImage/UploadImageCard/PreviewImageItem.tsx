@@ -1,9 +1,5 @@
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-import { X } from 'lucide-react'
 import { DeleteUploadImage, UploadImage } from '@/_types/uploadImage'
 import Loader from '@/components/elements/Loader'
-import { Skeleton } from '@/components/ui/skeleton'
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -14,6 +10,10 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger
 } from '@/components/ui/alert-dialog'
+import { Button } from '@/components/ui/button'
+import { Skeleton } from '@/components/ui/skeleton'
+import { X } from 'lucide-react'
+import Image from 'next/image'
 
 type PreviewImageItemProps = {
   image: UploadImage
@@ -38,14 +38,14 @@ const PreviewImageItem = ({
     )
 
   return (
-    <li className='relative h-28 w-36 select-none bg-popover'>
+    <li className='relative h-28 w-36 select-none overflow-hidden bg-popover'>
       <Image
         alt={`preview-${id}`}
         src={imageUrl}
         fill
+        sizes='33vw'
         className='rounded-md object-cover'
         quality={50}
-        sizes='50vw'
       />
       <AlertDialog>
         <AlertDialogTrigger asChild>
