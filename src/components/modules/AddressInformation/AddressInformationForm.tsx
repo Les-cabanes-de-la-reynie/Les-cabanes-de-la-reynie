@@ -95,10 +95,10 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
       <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
         <FormField
           control={form.control}
-          name='address'
+          name='streetAddress'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Address (non obligatoire)</FormLabel>
+              <FormLabel>Address</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -153,6 +153,19 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
               <FormLabel>Phone *</FormLabel>
               <FormControl>
                 <Input type='number' required {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name='email'
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email *</FormLabel>
+              <FormControl>
+                <Input type='email' required {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

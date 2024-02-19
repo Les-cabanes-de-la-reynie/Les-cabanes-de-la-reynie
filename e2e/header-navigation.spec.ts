@@ -36,55 +36,81 @@ test.describe('Header navigation', () => {
 
     test('should open and close the burger menu', async ({ page }) => {
       // Burger menu is closed by default
-      await expect(
-        page.getByRole('link', { name: 'Accueil' })
-      ).not.toBeVisible()
+      const homeLink = page
+        .getByTestId('header-main-navigation')
+        .getByRole('link', { name: 'Accueil' })
+
+      await expect(homeLink).not.toBeVisible()
 
       await openBurgerMenu(page)
-      await expect(page.getByRole('link', { name: 'Accueil' })).toBeVisible()
+      await expect(homeLink).toBeVisible()
 
       await closeBurgerMenu(page)
-      await expect(
-        page.getByRole('link', { name: 'Accueil' })
-      ).not.toBeVisible()
+      await expect(homeLink).not.toBeVisible()
     })
 
     test('should be in the home page after clicked on Home', async ({
       page
     }) => {
+      const homeLink = page
+        .getByTestId('header-main-navigation')
+        .getByRole('link', { name: 'Accueil' })
+
       await openBurgerMenu(page)
-      await page.getByRole('link', { name: 'Accueil' }).click()
+      await homeLink.click()
       await expect(page).toHaveURL(frenchURL)
     })
 
     test('should open a popover with Yurt and Hut links', async ({ page }) => {
+      const accommodationsLink = page
+        .getByTestId('header-main-navigation')
+        .getByText('Logements')
+      const yurtLink = page
+        .getByTestId('header-main-navigation')
+        .getByRole('link', { name: 'Yourte' })
+      const hutLink = page
+        .getByTestId('header-main-navigation')
+        .getByRole('link', { name: 'Cabane' })
+
       await openBurgerMenu(page)
-      await page.getByText('Logements').click()
+      await accommodationsLink.click()
       await expect(page).toHaveURL(frenchURL)
 
       // Check if Yurt/Yourte exist
-      await expect(page.getByRole('link', { name: 'Yourte' })).toBeVisible()
+      await expect(yurtLink).toBeVisible()
 
       // Check if Hut/Cabane exist
-      await expect(
-        page.getByRole('link', { name: 'Cabane', exact: true })
-      ).toBeVisible()
+      await expect(hutLink).toBeVisible()
     })
 
     test('should be in the yurt page after clicked on Yurt', async ({
       page
     }) => {
+      const accommodationsLink = page
+        .getByTestId('header-main-navigation')
+        .getByText('Logements')
+      const yurtLink = page
+        .getByTestId('header-main-navigation')
+        .getByRole('link', { name: 'Yourte' })
+
       await openBurgerMenu(page)
-      await page.getByText('Logements').click()
-      await page.getByTestId('header-yurt-link').click()
+      await accommodationsLink.click()
+      await yurtLink.click()
       await page.waitForURL('**/logements/yourte')
       await expect(page.getByRole('heading', { name: 'Yourte' })).toBeAttached()
     })
 
     test('should be in the hut page after clicked on Hut', async ({ page }) => {
+      const accommodationsLink = page
+        .getByTestId('header-main-navigation')
+        .getByText('Logements')
+      const hutLink = page
+        .getByTestId('header-main-navigation')
+        .getByRole('link', { name: 'Cabane' })
+
       await openBurgerMenu(page)
-      await page.getByText('Logements').click()
-      await page.getByTestId('header-hut-link').click()
+      await accommodationsLink.click()
+      await hutLink.click()
       await page.waitForURL('**/logements/cabane')
       await expect(page.getByRole('heading', { name: 'Cabane' })).toBeAttached()
     })
@@ -92,8 +118,12 @@ test.describe('Header navigation', () => {
     test('should be in the contact page after clicked on Contact', async ({
       page
     }) => {
+      const contactLink = page
+        .getByTestId('header-main-navigation')
+        .getByRole('link', { name: 'Contact' })
+
       await openBurgerMenu(page)
-      await page.getByRole('link', { name: 'Contact' }).click()
+      await contactLink.click()
       await page.waitForURL('**/contact')
 
       await expect(
@@ -106,8 +136,12 @@ test.describe('Header navigation', () => {
     test('should be in the activity page after clicked on Activity', async ({
       page
     }) => {
+      const activitiesLink = page
+        .getByTestId('header-main-navigation')
+        .getByRole('link', { name: 'Activités' })
+
       await openBurgerMenu(page)
-      await page.getByRole('link', { name: 'Activités' }).click()
+      await activitiesLink.click()
       await page.waitForURL('**/activites')
 
       await expect(
@@ -142,35 +176,61 @@ test.describe('Header navigation', () => {
     test('should be in the home page after clicked on Home', async ({
       page
     }) => {
-      await page.getByRole('link', { name: 'Accueil' }).click()
+      const homeLink = page
+        .getByTestId('header-main-navigation')
+        .getByRole('link', { name: 'Accueil' })
+
+      await homeLink.click()
       await expect(page).toHaveURL(frenchURL)
     })
 
     test('should open a popover with Yurt and Hut links', async ({ page }) => {
-      await page.getByText('Logements').click()
+      const accommodationsLink = page
+        .getByTestId('header-main-navigation')
+        .getByText('Logements')
+      const yurtLink = page
+        .getByTestId('header-main-navigation')
+        .getByRole('link', { name: 'Yourte' })
+      const hutLink = page
+        .getByTestId('header-main-navigation')
+        .getByRole('link', { name: 'Cabane' })
+
+      await accommodationsLink.click()
       await expect(page).toHaveURL(frenchURL)
 
       // Check if Yurt/Yourte exist
-      await expect(page.getByRole('link', { name: 'Yourte' })).toBeVisible()
+      await expect(yurtLink).toBeVisible()
 
       // Check if Hut/Cabane exist
-      await expect(
-        page.getByRole('link', { name: 'Cabane', exact: true })
-      ).toBeVisible()
+      await expect(hutLink).toBeVisible()
     })
 
     test('should be in the yurt page after clicked on Yurt', async ({
       page
     }) => {
-      await page.getByText('Logements').click()
-      await page.getByTestId('header-yurt-link').click()
+      const accommodationsLink = page
+        .getByTestId('header-main-navigation')
+        .getByText('Logements')
+      const yurtLink = page
+        .getByTestId('header-main-navigation')
+        .getByRole('link', { name: 'Yourte' })
+
+      await accommodationsLink.click()
+      await yurtLink.click()
       await page.waitForURL('**/logements/yourte')
       await expect(page.getByRole('heading', { name: 'Yourte' })).toBeVisible()
     })
 
     test('should be in the hut page after clicked on Hut', async ({ page }) => {
-      await page.getByText('Logements').click()
-      await page.getByTestId('header-hut-link').click()
+      const accommodationsLink = page
+        .getByTestId('header-main-navigation')
+        .getByText('Logements')
+      const hutLink = page
+        .getByTestId('header-main-navigation')
+        .getByRole('link', { name: 'Cabane' })
+
+      await accommodationsLink.click()
+      await hutLink.click()
       await page.waitForURL('**/logements/cabane')
       await expect(page.getByRole('heading', { name: 'Cabane' })).toBeVisible()
     })
@@ -178,7 +238,11 @@ test.describe('Header navigation', () => {
     test('should be in the contact page after clicked on Contact', async ({
       page
     }) => {
-      await page.getByRole('link', { name: 'Contact' }).click()
+      const contactLink = page
+        .getByTestId('header-main-navigation')
+        .getByRole('link', { name: 'Contact' })
+
+      await contactLink.click()
       await page.waitForURL('**/contact')
 
       await expect(
@@ -191,7 +255,11 @@ test.describe('Header navigation', () => {
     test('should be in the activity page after clicked on Activity', async ({
       page
     }) => {
-      await page.getByRole('link', { name: 'Activités' }).click()
+      const activitiesLink = page
+        .getByTestId('header-main-navigation')
+        .getByRole('link', { name: 'Activités' })
+
+      await activitiesLink.click()
       await page.waitForURL('**/activites')
 
       await expect(

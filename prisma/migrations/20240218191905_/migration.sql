@@ -40,11 +40,12 @@ CREATE TABLE "Image" (
 -- CreateTable
 CREATE TABLE "Address" (
     "id" SERIAL NOT NULL,
-    "address" TEXT NOT NULL,
+    "streetAddress" TEXT NOT NULL,
     "postalCode" TEXT NOT NULL,
     "city" TEXT NOT NULL,
     "country" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
 
     CONSTRAINT "Address_pkey" PRIMARY KEY ("id")
 );

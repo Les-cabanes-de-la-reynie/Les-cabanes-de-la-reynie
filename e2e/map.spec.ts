@@ -40,6 +40,10 @@ test.describe('Map', () => {
     test('should display the phone number on the popup', async ({ page }) => {
       await expect(page.getByTestId('phone-number')).toBeVisible()
     })
+
+    test('should display the email on the popup', async ({ page }) => {
+      await expect(page.getByTestId('map-address-email')).toBeVisible()
+    })
   })
 
   test.describe('Desktop', () => {
@@ -69,6 +73,10 @@ test.describe('Map', () => {
 
     test('should display the phone number on the popup', async ({ page }) => {
       await expect(page.getByTestId('phone-number')).toBeVisible()
+    })
+
+    test('should display the email on the popup', async ({ page }) => {
+      await expect(page.getByTestId('map-address-email')).toBeVisible()
     })
   })
 })
