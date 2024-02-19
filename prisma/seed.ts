@@ -3,7 +3,24 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 const main = async () => {
-  const openingHours = {
+  // Delete existing data
+  await prisma.visitorCount.deleteMany()
+  await prisma.address.deleteMany()
+  await prisma.openingHours.deleteMany()
+
+  // Default data
+  const visitorCountData = { id: 1, count: 0 }
+  const addressData = {
+    id: 1,
+    streetAddress: '',
+    postalCode: '19310',
+    city: 'Louignac',
+    country: 'France',
+    phone: '0611805351',
+    email: 'example-les-cabanes-de-la-reynie@hotmail.fr'
+  }
+  const openingHoursData = {
+    id: 1,
     mondayStart: '2023-11-24T08:00:00.000Z',
     mondayEnd: '2023-11-24T20:00:00.000Z',
     tuesdayStart: '2023-11-24T08:00:00.000Z',
@@ -20,20 +37,13 @@ const main = async () => {
     sundayEnd: '2023-11-24T20:00:00.000Z'
   } as const
 
-  await prisma.openingHours.create({
-    data: openingHours
-  })
-
-  await prisma.visitorCount.create({ data: { count: 0 } })
-
+  // Create data
+  await prisma.visitorCount.create({ data: visitorCountData })
   await prisma.address.create({
-    data: {
-      address: '',
-      postalCode: '19310',
-      city: 'Louignac',
-      country: 'France',
-      phone: '0611805351'
-    }
+    data: addressData
+  })
+  await prisma.openingHours.create({
+    data: openingHoursData
   })
 }
 

@@ -2,10 +2,12 @@ import Container from '@/components/elements/Container'
 import FacebookIcon from '@/components/images/icons/socialMedia/FacebookIcon'
 import InstagramIcon from '@/components/images/icons/socialMedia/InstagramIcon'
 import LinkedInIcon from '@/components/images/icons/socialMedia/LinkedInIcon'
+import MailIcon from '@/components/images/icons/socialMedia/MailIcon'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import FollowUsItem from './FollowUsItem'
 import FooterCopyright from './FooterCopyright'
+import FooterEmail from './FooterEmail'
 import FooterHeading from './FooterHeading'
 import FooterItem from './FooterItem'
 import FooterNav from './FooterNav'
@@ -75,6 +77,9 @@ const Footer = () => {
                 <LinkedInIcon className={COMMON_ICON_CLASSNAME} />
               </FollowUsItem>
             </FooterItem>
+            <FooterEmail>
+              <MailIcon className={COMMON_ICON_CLASSNAME} />
+            </FooterEmail>
           </ul>
         </FooterNav>
       </Container>

@@ -60,7 +60,7 @@ const MainNavigation = ({
   }
 
   return (
-    <nav aria-labelledby='Main'>
+    <nav aria-labelledby='Main' data-testid='header-main-navigation'>
       <NavList>
         <NavItem routes={[navLinks.home]}>
           <Link href={navLinks.home} onClick={onCloseBurgerMenu}>
@@ -100,7 +100,6 @@ const MainNavigation = ({
                 href={navLinks.yurt}
                 className='flex max-w-max items-center gap-2 py-1 lg:rounded-lg'
                 onClick={onCloseBurgerMenu}
-                data-testid='header-yurt-link'
               >
                 {t('yurt')}
               </Link>
@@ -111,7 +110,6 @@ const MainNavigation = ({
                 className='flex max-w-max items-center gap-2 py-1 lg:rounded-lg'
                 onClick={onCloseBurgerMenu}
                 onBlur={handleClosePopup}
-                data-testid='header-hut-link'
               >
                 {t('hut')}
               </Link>

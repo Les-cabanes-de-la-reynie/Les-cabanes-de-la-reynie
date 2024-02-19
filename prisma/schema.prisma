@@ -42,9 +42,10 @@ model Image {
 
 model Address {
   id Int @id @default(autoincrement())
-  address String
+  streetAddress String
   postalCode String
   city String
   country String
   phone String
+  email String
 }

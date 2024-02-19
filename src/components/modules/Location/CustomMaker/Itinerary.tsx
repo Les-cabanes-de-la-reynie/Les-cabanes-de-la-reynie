@@ -7,7 +7,7 @@ type ItineraryProps = { address: Address }
 const Itinerary = ({ address }: ItineraryProps) => {
   const tContact = useTranslations('Contact')
 
-  const { postalCode, city, country } = address
+  const { postalCode, city, country, streetAddress } = address
 
   return (
     <div
@@ -21,6 +21,9 @@ const Itinerary = ({ address }: ItineraryProps) => {
         {tContact('Itinerary')} :
       </span>
       <div>
+        {!!streetAddress && (
+          <span itemProp='streetAddress'>{streetAddress} &nbsp;</span>
+        )}
         <span itemProp='postalCode'>{postalCode} &nbsp;</span>
         <span itemProp='addressLocality'>{city}, &nbsp;</span>
         <span>{country}</span>
