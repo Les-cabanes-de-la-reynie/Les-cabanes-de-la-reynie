@@ -16,8 +16,7 @@
     "yurt": "Yurt",
     "hut": "Hut",
     "practicalInformation": "Practical Information",
-    "sliderTitle": "Our accommodations",
-    "email": "Our Email"
+    "sliderTitle": "Our accommodations"
   },
   "SEO": {
     "homeDescription": "Welcome to Les cabanes de la Reynie"
@@ -41,7 +40,9 @@
     "geoLocationFound": "Your geolocation has been found !",
     "geoLocationNotFound": "Geolocation not found",
     "confirmLocationDescription": "For a better user experience on our site, we need to know your location. You can activate it at the top of this page or in your browser settings.",
-    "confirmLocationButton": "See itinerary"
+    "confirmLocationButton": "See itinerary",
+    "arrivalsDescription": "Arrivals are between 4:00 and 8:00 p.m",
+    "departuresDescription": "Departures must be before 11:00 a.m"
   },
   "Errors": {
     "shortError404": "404 - Page not found",
@@ -62,6 +63,7 @@
     "facebookButton": "Read more about our Facebook page",
     "instagramButton": "Read more about our Instagram page",
     "linkedinButton": "Read more about our LinkedIn page",
+    "email": "Our Email",
     "allRightsReserved": "All Rights Reserved",
     "developedBy": "Developed by"
   },

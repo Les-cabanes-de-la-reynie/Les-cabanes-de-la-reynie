@@ -16,8 +16,7 @@
     "yurt": "Yourte",
     "hut": "Cabane",
     "practicalInformation": "Informations pratiques",
-    "sliderTitle": "Nos logements",
-    "email": "Notre email"
+    "sliderTitle": "Nos logements"
   },
   "SEO": {
     "homeDescription": "Bienvenue sur Les cabanes de la Reynie"
@@ -41,7 +40,9 @@
     "geoLocationFound": "Votre localisation a été trouvée !",
     "geoLocationNotFound": "Localisation n'a pas été trouvée",
     "confirmLocationDescription": "Pour une meilleure expérience utilisateur sur notre site, nous avons besoin connaitre votre localisation. Vous pouvez l'activer en haut de cette page ou dans les paramètres de votre navigateur.",
-    "confirmLocationButton": "Voir itinéraire"
+    "confirmLocationButton": "Voir itinéraire",
+    "arrivalsDescription": "Les arrivées se font entre 16h00 et 20h00",
+    "departuresDescription": "Les départs avant 11h00"
   },
   "Errors": {
     "shortError404": "404 - La page demandée n'a pas été trouvée",
@@ -62,6 +63,7 @@
     "facebookButton": "En savoir plus avec notre page Facebook",
     "instagramButton": "En savoir plus avec notre page Instagram",
     "linkedinButton": "En savoir plus avec notre page LinkedIn",
+    "email": "Notre email",
     "allRightsReserved": "Tous droits réservés",
     "developedBy": "Développé par"
   },

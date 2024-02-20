@@ -53,31 +53,25 @@ const Footer = () => {
         <FooterNav>
           <FooterHeading> {t('followUs')}</FooterHeading>
           <ul className='flex gap-6'>
-            <FooterItem>
-              <FollowUsItem
-                href='https://www.google.fr/'
-                aria-label={t('facebookButton')}
-              >
-                <FacebookIcon className={COMMON_ICON_CLASSNAME} />
-              </FollowUsItem>
-            </FooterItem>
-            <FooterItem>
-              <FollowUsItem
-                href='https://www.google.fr/'
-                aria-label={t('instagramButton')}
-              >
-                <InstagramIcon className={COMMON_ICON_CLASSNAME} />
-              </FollowUsItem>
-            </FooterItem>
-            <FooterItem>
-              <FollowUsItem
-                href='https://www.google.fr/'
-                aria-label={t('linkedinButton')}
-              >
-                <LinkedInIcon className={COMMON_ICON_CLASSNAME} />
-              </FollowUsItem>
-            </FooterItem>
-            <FooterEmail>
+            <FollowUsItem
+              href='https://www.google.fr/'
+              aria-label={t('facebookButton')}
+            >
+              <FacebookIcon className={COMMON_ICON_CLASSNAME} />
+            </FollowUsItem>
+            <FollowUsItem
+              href='https://www.google.fr/'
+              aria-label={t('instagramButton')}
+            >
+              <InstagramIcon className={COMMON_ICON_CLASSNAME} />
+            </FollowUsItem>
+            <FollowUsItem
+              href='https://www.google.fr/'
+              aria-label={t('linkedinButton')}
+            >
+              <LinkedInIcon className={COMMON_ICON_CLASSNAME} />
+            </FollowUsItem>
+            <FooterEmail ariaLabel={t('email')}>
               <MailIcon className={COMMON_ICON_CLASSNAME} />
             </FooterEmail>
           </ul>

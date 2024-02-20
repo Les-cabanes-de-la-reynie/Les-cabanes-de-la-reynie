@@ -1,9 +1,9 @@
-import { useTranslations } from 'next-intl'
-import { DaysOfTheWeekEnum, OpeningHoursRowData } from './types'
-import OpeningHoursTable from './OpeningHoursTable'
+import P from '@/components/elements/P'
 import { formatDateToTime } from '@/lib/utils'
 import { getOpeningHours } from '@/services/queries/openingHours'
-import P from '@/components/elements/P'
+import { useTranslations } from 'next-intl'
+import OpeningHoursTable from './OpeningHoursTable'
+import { DaysOfTheWeekEnum, OpeningHoursRowData } from './types'
 
 const OpeningHours = async () => {
   const t = useTranslations('Contact')
@@ -88,8 +88,8 @@ const OpeningHours = async () => {
     <div className='flex flex-1 flex-col items-center justify-center'>
       <OpeningHoursTable openingHoursData={openingHoursData} />
       <P className='flex flex-col'>
-        <span>Les arrivées se font entre 16h00 et 20h00</span>
-        <span>Les départs avant 11h00</span>
+        <span>{t('arrivalsDescription')}</span>
+        <span>{t('departuresDescription')}</span>
       </P>
     </div>
   )

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
+import FooterItem from './FooterItem'
 
 type FollowUsItemProps = PropsWithChildren & {
   href: string
@@ -7,9 +8,11 @@ type FollowUsItemProps = PropsWithChildren & {
 
 const FollowUsItem = ({ children, href, ...rest }: FollowUsItemProps) => {
   return (
-    <Link href={href} {...rest}>
-      {children}
-    </Link>
+    <FooterItem>
+      <Link href={href} {...rest}>
+        {children}
+      </Link>
+    </FooterItem>
   )
 }
 export default FollowUsItem

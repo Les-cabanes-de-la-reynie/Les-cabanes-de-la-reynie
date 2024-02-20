@@ -1,15 +1,18 @@
 import { getAddress } from '@/services/queries/address'
 import { PropsWithChildren } from 'react'
 import FollowUsItem from './FollowUsItem'
-import FooterItem from './FooterItem'
 
-const FooterEmail = async ({ children }: PropsWithChildren) => {
+type FooterEmailProps = PropsWithChildren & {
+  ariaLabel: string
+}
+
+const FooterEmail = async ({ children, ariaLabel }: FooterEmailProps) => {
   const { email } = await getAddress()
 
   return email ? (
-    <FooterItem>
-      <FollowUsItem href={`mailto:${email}`}>{children}</FollowUsItem>
-    </FooterItem>
+    <FollowUsItem href={`mailto:${email}`} aria-label={ariaLabel}>
+      {children}
+    </FollowUsItem>
   ) : null
 }
 export default FooterEmail
