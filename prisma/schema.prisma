@@ -49,3 +49,13 @@ model Address {
   phone String
   email String
 }
+
+model Yurt {
+  id Int @id @default(autoincrement())
+  price Int
+}
+
+model Hut {
+  id Int @id @default(autoincrement())
+  price Int
+}

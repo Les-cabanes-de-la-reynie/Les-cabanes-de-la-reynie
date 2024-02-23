@@ -1,3 +1,4 @@
+import { AccommodationTypeEnum } from '@/_types/accommodations'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import Heading from '@/components/elements/Heading'
 import P from '@/components/elements/P'
@@ -6,6 +7,7 @@ import AccommodationsHeader from '@/components/modules/Accommodations/Accommodat
 import AccommodationsHeaderContent from '@/components/modules/Accommodations/AccommodationsHeader/AccommodationsHeaderContent'
 import AccommodationsHeaderImage from '@/components/modules/Accommodations/AccommodationsHeader/AccommodationsHeaderImage'
 import AccommodationsPopover from '@/components/modules/Accommodations/AccommodationsPopover'
+import AccommodationsPrice from '@/components/modules/Accommodations/AccommodationsPrice'
 import AccommodationsSlider from '@/components/modules/Accommodations/AccommodationsSlider'
 import PracticalInformation from '@/components/modules/PracticalInformation'
 import { env } from '@/lib/env'
@@ -33,6 +35,7 @@ const Hut = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
 
   const t = useTranslations('Common')
+  const t2 = useTranslations('Accommodations')
 
   const bookList = [
     { title: 'Airbnb', href: 'https://www.airbnb.fr/' },
@@ -78,7 +81,11 @@ const Hut = ({ params: { locale } }: { params: { locale: string } }) => {
           <Heading level={2} className='mt-10'>
             {t('price')}
           </Heading>
-          <P>Tarif unique : 175€</P>
+
+          <AccommodationsPrice
+            accommodationType={AccommodationTypeEnum.HUT}
+            description={t2('averagePrice')}
+          />
 
           <AccommodationsPopover bookList={bookList} />
         </AccommodationsHeaderContent>
