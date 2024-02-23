@@ -29,6 +29,7 @@ type AddressInformationFormProps = {
 
 const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
   const t = useTranslations('Common')
+  const t2 = useTranslations('Admin')
 
   const [isPending, startTransition] = useTransition()
   const [isEdit, handleToggleEdit] = useToggle(false)
@@ -42,11 +43,11 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           <EditButton onClick={handleToggleEdit} />
         )}
         {isEdit && (
-          <SubmitButton disabled={isPending}>Mettre à jour</SubmitButton>
+          <SubmitButton disabled={isPending}>{t('update')}</SubmitButton>
         )}
       </div>
     ),
-    [isEdit, handleToggleEdit, isPending]
+    [isEdit, handleToggleEdit, isPending, t]
   )
 
   const form = useForm<z.infer<typeof AddressFormSchema>>({
@@ -98,7 +99,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='streetAddress'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Address</FormLabel>
+              <FormLabel>{t2('address')}</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -111,7 +112,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='postalCode'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Postal Code *</FormLabel>
+              <FormLabel>{t2('postalCode')} *</FormLabel>
               <FormControl>
                 <Input required {...field} />
               </FormControl>
@@ -124,7 +125,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='city'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>City *</FormLabel>
+              <FormLabel>{t2('city')} *</FormLabel>
               <FormControl>
                 <Input required {...field} />
               </FormControl>
@@ -137,7 +138,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='country'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Country *</FormLabel>
+              <FormLabel>{t2('country')} *</FormLabel>
               <FormControl>
                 <Input required {...field} />
               </FormControl>
@@ -150,7 +151,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='phone'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Phone *</FormLabel>
+              <FormLabel>{t2('phone')} *</FormLabel>
               <FormControl>
                 <Input type='number' required {...field} />
               </FormControl>
@@ -163,7 +164,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='email'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email *</FormLabel>
+              <FormLabel>{t2('email')} *</FormLabel>
               <FormControl>
                 <Input type='email' required {...field} />
               </FormControl>

@@ -49,3 +49,19 @@ CREATE TABLE "Address" (
 
     CONSTRAINT "Address_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateTable
+CREATE TABLE "Yurt" (
+    "id" SERIAL NOT NULL,
+    "price" INTEGER NOT NULL,
+
+    CONSTRAINT "Yurt_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Hut" (
+    "id" SERIAL NOT NULL,
+    "price" INTEGER NOT NULL,
+
+    CONSTRAINT "Hut_pkey" PRIMARY KEY ("id")
+);

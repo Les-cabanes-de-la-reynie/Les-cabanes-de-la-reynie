@@ -15,14 +15,20 @@
     "bookYourStay": "Réservez votre séjour",
     "yurt": "Yourte",
     "hut": "Cabane",
+    "yurtInformation": "Informations concernant la yourte",
+    "hutInformation": "Informations concernant la cabane",
     "practicalInformation": "Informations pratiques",
-    "sliderTitle": "Nos logements"
+    "sliderTitle": "Nos logements",
+    "uploadImage": "Télécharger vos images"
   },
   "SEO": {
     "homeDescription": "Bienvenue sur Les cabanes de la Reynie"
   },
   "Home": {},
-  "Accommodations": { "bookList": "Liste des choix pour réserver" },
+  "Accommodations": {
+    "bookList": "Liste des choix pour réserver",
+    "averagePrice": "Tarif moyen :"
+  },
   "Contact": {
     "contactMainTitle": "Trouver Les cabanes de la Reynie",
     "location": "Nous trouver",
@@ -43,6 +49,17 @@
     "confirmLocationButton": "Voir itinéraire",
     "arrivalsDescription": "Les arrivées se font entre 16h00 et 20h00",
     "departuresDescription": "Les départs avant 11h00"
+  },
+  "Activities": {},
+  "Admin": {
+    "personnalInformation": "Informations personnelles",
+    "personnalInformationDescription": "Les informations ici vont être affichées sur la carte dans la page contact",
+    "address": "Adresse",
+    "postalCode": "Code postal",
+    "city": "Ville",
+    "country": "Pays",
+    "phone": "Téléphone",
+    "email": "Email"
   },
   "Errors": {
     "shortError404": "404 - La page demandée n'a pas été trouvée",

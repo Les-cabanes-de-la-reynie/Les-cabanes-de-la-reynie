@@ -1,13 +1,14 @@
 import Container from '@/components/elements/Container'
 import Heading from '@/components/elements/Heading'
-import Loader from '@/components/elements/Loader'
-import AddressInformation from '@/components/modules/AddressInformation'
-import OpeningHoursEdit from '@/components/modules/OpeningHours/Edit/OpeningHoursEdit'
-import UploadImage from '@/components/modules/UploadImage'
+import AddressInformationSection from '@/components/modules/AddressInformation/AddressInformationSection'
+import HomeSection from '@/components/modules/Home/HomeSection'
+import HutSection from '@/components/modules/Hut/HutSection'
+import OpeningHoursSection from '@/components/modules/OpeningHours/Edit/OpeningHoursSection'
+import YurtSection from '@/components/modules/Yurt/YurtSection'
+import { Separator } from '@/components/ui/separator'
 import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 import { NextPage } from 'next'
 import { useLocale } from 'next-intl'
-import { Suspense } from 'react'
 
 const AdminPage: NextPage = withPageAuthRequired(
   async () => {
@@ -17,27 +18,23 @@ const AdminPage: NextPage = withPageAuthRequired(
           Admin
         </Heading>
 
-        <section className='mb-8'>
-          <Heading level={2} className='my-8'>
-            Address information
-          </Heading>
-          <Suspense fallback={<Loader />}>
-            <AddressInformation />
-          </Suspense>
-        </section>
+        <AddressInformationSection />
 
-        <section className='mb-8'>
-          <Heading level={2} className='my-8'>
-            Opening hours
-          </Heading>
-          <Suspense fallback={<Loader />}>
-            <OpeningHoursEdit />
-          </Suspense>
-        </section>
+        <Separator className='mb-12 mt-4' />
 
-        <section className='mb-8'>
-          <UploadImage />
-        </section>
+        <OpeningHoursSection />
+
+        <Separator className='mb-12 mt-4' />
+
+        <HomeSection />
+
+        <Separator className='mb-12 mt-4' />
+
+        <YurtSection />
+
+        <Separator className='mb-12 mt-4' />
+
+        <HutSection />
       </Container>
     )
   },

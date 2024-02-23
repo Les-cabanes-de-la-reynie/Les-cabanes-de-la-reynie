@@ -8,6 +8,7 @@ import ToiletIcon from '@/components/images/icons/practicalInformation/ToiletIco
 import WifiIcon from '@/components/images/icons/practicalInformation/WifiIcon'
 import { useTranslations } from 'next-intl'
 import PracticalInformationCard from './PracticalInformationCard'
+import PracticalInformationList from './PracticalInformationList'
 
 const PracticalInformation = () => {
   const t = useTranslations('Common')
@@ -20,7 +21,8 @@ const PracticalInformation = () => {
         <Heading level={2} className='mb-8 text-center'>
           {t('practicalInformation')}
         </Heading>
-        <ul className='grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4'>
+
+        <PracticalInformationList>
           <PracticalInformationCard description='Wifi'>
             <WifiIcon className={COMMON_ICON_CLASSNAME} />
           </PracticalInformationCard>
@@ -44,7 +46,7 @@ const PracticalInformation = () => {
           <PracticalInformationCard description='Toilette'>
             <ToiletIcon className={COMMON_ICON_CLASSNAME} />
           </PracticalInformationCard>
-        </ul>
+        </PracticalInformationList>
       </section>
     </Container>
   )
