@@ -13,6 +13,14 @@ export const updateYurtPrice = authenticatedAction(
       data: price
     })
 
+    revalidatePath('/[locale]/logements/yourte')
+    revalidatePath('/[locale]/logements/yourte', 'page')
     revalidatePath('/[locale]/logements/yourte', 'layout')
+
+    revalidatePath('/[locale]')
+    revalidatePath('/[locale]', 'page')
+    revalidatePath('/[locale]', 'layout')
+
+    revalidatePath('/')
   }
 )

@@ -13,6 +13,14 @@ export const updateHutPrice = authenticatedAction(
       data: price
     })
 
+    revalidatePath('/[locale]/logements/cabane')
+    revalidatePath('/[locale]/logements/cabane', 'page')
     revalidatePath('/[locale]/logements/cabane', 'layout')
+
+    revalidatePath('/[locale]')
+    revalidatePath('/[locale]', 'page')
+    revalidatePath('/[locale]', 'layout')
+
+    revalidatePath('/')
   }
 )
