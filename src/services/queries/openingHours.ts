@@ -1,47 +1,49 @@
+import { RevalidateTagsEnum } from '@/_types/revalidateTags'
 import { db } from '@/lib/prisma'
+import { unstable_cache } from 'next/cache'
 
-export const revalidate = 0
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
+export const getOpeningHours = unstable_cache(
+  async () => {
+    const data = await db.openingHours.findMany({
+      where: {
+        id: 1
+      }
+    })
 
-export const getOpeningHours = async () => {
-  const data = await db.openingHours.findMany({
-    where: {
-      id: 1
+    const {
+      mondayStart,
+      mondayEnd,
+      tuesdayStart,
+      tuesdayEnd,
+      wednesdayStart,
+      wednesdayEnd,
+      thursdayStart,
+      thursdayEnd,
+      fridayStart,
+      fridayEnd,
+      saturdayStart,
+      saturdayEnd,
+      sundayStart,
+      sundayEnd
+    } = data[0]
+
+    return {
+      mondayStart,
+      mondayEnd,
+      tuesdayStart,
+      tuesdayEnd,
+      wednesdayStart,
+      wednesdayEnd,
+      thursdayStart,
+      thursdayEnd,
+      fridayStart,
+      fridayEnd,
+      saturdayStart,
+      saturdayEnd,
+      sundayStart,
+      sundayEnd
     }
-  })
-
-  const {
-    mondayStart,
-    mondayEnd,
-    tuesdayStart,
-    tuesdayEnd,
-    wednesdayStart,
-    wednesdayEnd,
-    thursdayStart,
-    thursdayEnd,
-    fridayStart,
-    fridayEnd,
-    saturdayStart,
-    saturdayEnd,
-    sundayStart,
-    sundayEnd
-  } = data[0]
-
-  return {
-    mondayStart,
-    mondayEnd,
-    tuesdayStart,
-    tuesdayEnd,
-    wednesdayStart,
-    wednesdayEnd,
-    thursdayStart,
-    thursdayEnd,
-    fridayStart,
-    fridayEnd,
-    saturdayStart,
-    saturdayEnd,
-    sundayStart,
-    sundayEnd
-  }
-}
+  },
+  [RevalidateTagsEnum.OPENING_HOURS],
+  { tags: [RevalidateTagsEnum.OPENING_HOURS] }
+)

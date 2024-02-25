@@ -1,7 +1,7 @@
 import {
   convertDateWithoutTimeZone,
   formatStringTimeIntoDate
-} from '@/lib/utils'
+} from '@/utils/date'
 import { format } from 'date-fns'
 import { useLocale } from 'next-intl'
 import TableRow from './TableRow'

@@ -1,6 +1,6 @@
-import { ForwardRefRenderFunction, PropsWithChildren, forwardRef } from 'react'
-import { cn } from '@/lib/utils'
 import { ClassNameProps } from '@/_types/components'
+import { cn } from '@/utils/tailwind'
+import { ForwardRefRenderFunction, PropsWithChildren, forwardRef } from 'react'
 
 type NavListProps = PropsWithChildren & ClassNameProps
 

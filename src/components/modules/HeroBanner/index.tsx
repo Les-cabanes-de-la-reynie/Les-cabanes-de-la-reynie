@@ -1,6 +1,6 @@
 import { ClassNameProps } from '@/_types/components'
 import Heading from '@/components/elements/Heading'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/tailwind'
 import { PropsWithChildren } from 'react'
 
 type HeroBannerProps = PropsWithChildren &

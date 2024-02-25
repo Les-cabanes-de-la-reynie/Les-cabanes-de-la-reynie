@@ -1,15 +1,17 @@
+import { RevalidateTagsEnum } from '@/_types/revalidateTags'
 import { db } from '@/lib/prisma'
+import { unstable_cache } from 'next/cache'
 
-export const revalidate = 0
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
+export const getAddress = unstable_cache(
+  async () => {
+    const data = await db.address.findMany({
+      where: {
+        id: 1
+      }
+    })
 
-export const getAddress = async () => {
-  const data = await db.address.findMany({
-    where: {
-      id: 1
-    }
-  })
-
-  return data[0]
-}
+    return data[0]
+  },
+  [RevalidateTagsEnum.ADDRESS],
+  { tags: [RevalidateTagsEnum.ADDRESS] }
+)

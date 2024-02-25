@@ -1,12 +1,12 @@
 'use client'
 
-import * as React from 'react'
 import { DialogProps } from '@radix-ui/react-dialog'
 import { Command as CommandPrimitive } from 'cmdk'
 import { Search } from 'lucide-react'
+import * as React from 'react'
 
-import { cn } from '@/lib/utils'
 import { Dialog, DialogContent } from '@/components/ui/dialog'
+import { cn } from '@/utils/tailwind'
 
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
@@ -118,7 +118,7 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      'aria-selected:bg-primary-dark aria-selected:text-primary-dark-foreground relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+      'aria-selected:text-primary-dark-foreground relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-primary-dark data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       className
     )}
     {...props}
@@ -146,11 +146,11 @@ CommandShortcut.displayName = 'CommandShortcut'
 export {
   Command,
   CommandDialog,
-  CommandInput,
-  CommandList,
   CommandEmpty,
   CommandGroup,
+  CommandInput,
   CommandItem,
-  CommandShortcut,
-  CommandSeparator
+  CommandList,
+  CommandSeparator,
+  CommandShortcut
 }

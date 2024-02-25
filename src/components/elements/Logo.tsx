@@ -1,5 +1,5 @@
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/tailwind'
 import { useLocale } from 'next-intl'
 import Link from 'next/link'
 

@@ -1,6 +1,6 @@
-import { useLocale } from 'next-intl'
+import { formatLocaleToCountry } from '@/utils/formats'
 import { Languages } from 'lucide-react'
-import { transformLocaleToCountry } from '@/lib/utils'
+import { useLocale } from 'next-intl'
 
 const LanguageSwitcherButton = () => {
   const lang = useLocale()
@@ -8,7 +8,7 @@ const LanguageSwitcherButton = () => {
   return (
     <>
       <Languages name='languages' size={18} className='mr-2' />
-      <span>{transformLocaleToCountry(lang)}</span>
+      <span>{formatLocaleToCountry(lang)}</span>
     </>
   )
 }

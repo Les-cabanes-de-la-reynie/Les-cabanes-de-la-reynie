@@ -1,6 +1,6 @@
 import P from '@/components/elements/P'
-import { formatDateToTime } from '@/lib/utils'
 import { getOpeningHours } from '@/services/queries/openingHours'
+import { formatDateToTime } from '@/utils/date'
 import { useTranslations } from 'next-intl'
 import OpeningHoursTable from './OpeningHoursTable'
 import { DaysOfTheWeekEnum, OpeningHoursRowData } from './types'
