@@ -3,7 +3,6 @@
 import { db } from '@/lib/prisma'
 import { authenticatedAction } from '@/lib/safeActions'
 import { HutDataSchema } from '@/models/Hut'
-import { revalidatePath } from 'next/cache'
 
 export const updateHutPrice = authenticatedAction(
   HutDataSchema,
@@ -12,15 +11,5 @@ export const updateHutPrice = authenticatedAction(
       where: { id: 1 },
       data: price
     })
-
-    revalidatePath('/[locale]/logements/cabane')
-    revalidatePath('/[locale]/logements/cabane', 'page')
-    revalidatePath('/[locale]/logements/cabane', 'layout')
-
-    revalidatePath('/[locale]')
-    revalidatePath('/[locale]', 'page')
-    revalidatePath('/[locale]', 'layout')
-
-    revalidatePath('/')
   }
 )
