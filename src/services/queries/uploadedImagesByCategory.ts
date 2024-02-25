@@ -1,7 +1,11 @@
-import { z } from 'zod'
+import { UploadImage } from '@/_types/uploadImage'
 import { db } from '@/lib/prisma'
 import { UpdateUploadedImageCommonSchema } from '@/models/UploadedImages'
-import { UploadImage } from '@/_types/uploadImage'
+import { z } from 'zod'
+
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'
 
 const pickedCategory = UpdateUploadedImageCommonSchema.pick({ category: true })
 

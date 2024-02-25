@@ -1,10 +1,10 @@
-import { useTranslations } from 'next-intl'
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
-import { env } from '@/lib/env'
+import Container from '@/components/elements/Container'
 import Heading from '@/components/elements/Heading'
 import Location from '@/components/modules/Location'
 import OpeningHours from '@/components/modules/OpeningHours'
-import Container from '@/components/elements/Container'
+import { env } from '@/lib/env'
+import { useTranslations } from 'next-intl'
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
 
 export async function generateStaticParams() {
   return env.NEXT_PUBLIC_LANGS.map(locale => ({ locale }))
@@ -34,12 +34,12 @@ const Contact = ({ params: { locale } }: { params: { locale: string } }) => {
       </Heading>
       <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
         <section className='flex w-full flex-col gap-4 lg:mb-0'>
-          <Heading level={2}>{t('location')}</Heading>
-          <Location />
-        </section>
-        <section className='flex w-full flex-col gap-4 lg:mb-0'>
           <Heading level={2}>{t('openingHours')}</Heading>
           <OpeningHours />
+        </section>
+        <section className='flex w-full flex-col gap-4 lg:mb-0'>
+          <Heading level={2}>{t('location')}</Heading>
+          <Location />
         </section>
       </div>
     </Container>
