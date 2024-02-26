@@ -1,8 +1,10 @@
 'use server'
 
+import { RevalidateTag } from '@/_types/revalidateTags'
 import { db } from '@/lib/prisma'
 import { authenticatedAction } from '@/lib/safeActions'
 import { AddressFormSchema } from '@/models/Address'
+import { revalidateTag } from 'next/cache'
 
 export const updateAddressInformation = authenticatedAction(
   AddressFormSchema,
@@ -11,5 +13,7 @@ export const updateAddressInformation = authenticatedAction(
       where: { id: 1 },
       data: addressData
     })
+
+    revalidateTag(RevalidateTag.ADDRESS)
   }
 )

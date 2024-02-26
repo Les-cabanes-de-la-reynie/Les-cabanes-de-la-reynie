@@ -1,8 +1,10 @@
 'use server'
 
+import { RevalidateTag } from '@/_types/revalidateTags'
 import { db } from '@/lib/prisma'
 import { authenticatedAction } from '@/lib/safeActions'
 import { YurtDataSchema } from '@/models/Yurt'
+import { revalidateTag } from 'next/cache'
 
 export const updateYurtPrice = authenticatedAction(
   YurtDataSchema,
@@ -11,5 +13,7 @@ export const updateYurtPrice = authenticatedAction(
       where: { id: 1 },
       data: price
     })
+
+    revalidateTag(RevalidateTag.YURT)
   }
 )
