@@ -1,11 +1,18 @@
 import P from '@/components/elements/P'
 import { formatDateToTime } from '@/lib/utils'
-import { getOpeningHours } from '@/services/queries/openingHours'
 import { useTranslations } from 'next-intl'
 import OpeningHoursTable from './OpeningHoursTable'
-import { DaysOfTheWeekEnum, OpeningHoursRowData } from './types'
+import {
+  DaysOfTheWeekEnum,
+  OpeningHoursData,
+  OpeningHoursRowData
+} from './types'
 
-const OpeningHours = async () => {
+type OpeningHoursProps = {
+  incomingOpeningHoursData: OpeningHoursData
+}
+
+const OpeningHours = ({ incomingOpeningHoursData }: OpeningHoursProps) => {
   const t = useTranslations('Contact')
 
   const {
@@ -23,7 +30,7 @@ const OpeningHours = async () => {
     saturdayEnd,
     sundayStart,
     sundayEnd
-  } = await getOpeningHours()
+  } = incomingOpeningHoursData
 
   const openingHoursData: OpeningHoursRowData[] = [
     {
