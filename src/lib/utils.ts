@@ -22,8 +22,10 @@ export const isoToEmoji = (code: string) =>
 export const formatStringTimeIntoDate = (time: string) =>
   new Date(`2023-11-27T${time}:00.000Z`)
 
-export const convertDateWithoutTimeZone = (incomingDate: Date) =>
-  new Date(incomingDate.toISOString().slice(0, -1))
+export const convertDateWithoutTimeZone = (incomingDate: Date) => {
+  const newDate = new Date(incomingDate)
+  return new Date(newDate.valueOf() + newDate.getTimezoneOffset() * 60 * 1000)
+}
 
 export const formatDateToTime = (incomingDate: Date) => {
   const dateWithoutTimeZone = convertDateWithoutTimeZone(incomingDate)
