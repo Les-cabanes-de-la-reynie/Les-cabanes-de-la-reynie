@@ -1,8 +1,10 @@
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import { getUploadedImagesByCategory } from '@/services/queries/uploadedImagesByCategory'
+import { unstable_noStore } from 'next/cache'
 import UploadImage from '.'
 
 const HomeUploadImage = async () => {
+  unstable_noStore()
   const uploadedImages = await getUploadedImagesByCategory({
     category: UploadImageCategoryKeyEnum.HomeSlider
   })

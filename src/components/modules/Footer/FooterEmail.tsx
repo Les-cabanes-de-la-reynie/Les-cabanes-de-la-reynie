@@ -1,4 +1,5 @@
 import { getAddress } from '@/services/queries/address'
+import { unstable_noStore } from 'next/cache'
 import { PropsWithChildren } from 'react'
 import FollowUsItem from './FollowUsItem'
 
@@ -7,6 +8,7 @@ type FooterEmailProps = PropsWithChildren & {
 }
 
 const FooterEmail = async ({ children, ariaLabel }: FooterEmailProps) => {
+  unstable_noStore()
   const { email } = await getAddress()
 
   return email ? (
