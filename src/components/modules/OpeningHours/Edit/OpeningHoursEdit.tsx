@@ -1,9 +1,11 @@
-import OpeningHoursForm from './OpeningHoursForm'
-import { DaysOfTheWeekEnum, OpeningHoursRowData } from '../types'
 import { formatDateToTime } from '@/lib/utils'
 import { getOpeningHours } from '@/services/queries/openingHours'
+import { unstable_noStore } from 'next/cache'
+import { DaysOfTheWeekEnum, OpeningHoursRowData } from '../types'
+import OpeningHoursForm from './OpeningHoursForm'
 
 const OpeningHoursEdit = async () => {
+  unstable_noStore()
   const {
     mondayStart,
     mondayEnd,

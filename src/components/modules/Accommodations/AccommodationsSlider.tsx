@@ -1,5 +1,6 @@
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import { getUploadedImagesByCategory } from '@/services/queries/uploadedImagesByCategory'
+import { unstable_noStore } from 'next/cache'
 import CarouselWithLightbox from '../Carousel/CarouselWithLightbox'
 
 type AccommodationsSliderProps = {
@@ -9,6 +10,7 @@ type AccommodationsSliderProps = {
 const AccommodationsSlider = async ({
   category
 }: AccommodationsSliderProps) => {
+  unstable_noStore()
   const images = await getUploadedImagesByCategory({ category })
 
   return images?.length ? (
