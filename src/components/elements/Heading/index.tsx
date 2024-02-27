@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/tailwind'
 import { Galada } from 'next/font/google'
 import { HTMLProps, PropsWithChildren } from 'react'
 

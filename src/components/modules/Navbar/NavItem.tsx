@@ -1,7 +1,7 @@
 'use client'
 
 import { ClassNameProps } from '@/_types/components'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/tailwind'
 import { usePathname } from 'next/navigation'
 import { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
 

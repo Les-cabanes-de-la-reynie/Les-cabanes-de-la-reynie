@@ -1,5 +1,5 @@
 import P from '@/components/elements/P'
-import { formatDateToTime } from '@/lib/utils'
+import { formatDateToTime } from '@/utils/date'
 import { useTranslations } from 'next-intl'
 import OpeningHoursTable from './OpeningHoursTable'
 import {

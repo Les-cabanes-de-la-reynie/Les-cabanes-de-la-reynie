@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/tailwind'
 import { format } from 'date-fns'
 import { enUS } from 'date-fns/locale'
 import { PropsWithChildren } from 'react'
