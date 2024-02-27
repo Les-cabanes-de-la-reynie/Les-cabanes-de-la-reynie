@@ -1,8 +1,8 @@
 'use client'
 
 import useToggle from '@/hooks/useToggle'
-import { formatFormDataIntoOpeningHoursData } from '@/lib/utils'
 import { updateOpeningHours } from '@/services/actions/updateOpeningHours'
+import { formatFormDataIntoOpeningHoursData } from '@/utils/formats'
 import { useTranslations } from 'next-intl'
 import { useMemo } from 'react'
 import { toast } from 'sonner'

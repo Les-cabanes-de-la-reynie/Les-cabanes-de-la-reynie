@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/tailwind'
 import MainNavigation from '../Navbar/MainNavigation'
 import SecondNavigation from '../Navbar/SecondNavigation'
 

@@ -1,5 +1,5 @@
 import { ClassNameProps } from '@/_types/components'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/tailwind'
 
 const DoubleBedIcon = ({ className }: ClassNameProps) => {
   return (

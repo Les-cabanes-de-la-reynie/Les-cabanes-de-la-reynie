@@ -1,6 +1,6 @@
 import useOutsideClick from '@/hooks/useOutsideClick'
 import useToggle from '@/hooks/useToggle'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/tailwind'
 import { ChevronDown } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'

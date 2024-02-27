@@ -1,11 +1,5 @@
 import { OpeningHoursData } from '@/components/modules/OpeningHours/types'
-import { clsx, type ClassValue } from 'clsx'
-import { format } from 'date-fns'
-import { twMerge } from 'tailwind-merge'
-
-export const cn = (...inputs: ClassValue[]) => {
-  return twMerge(clsx(inputs))
-}
+import { formatStringTimeIntoDate } from './date'
 
 export const transformLocaleToCountry = (locale: string) =>
   locale === 'fr' ? 'Français' : 'English'
@@ -18,20 +12,6 @@ export const isoToEmoji = (code: string) =>
     .map(letter => (letter.charCodeAt(0) % 32) + 0x1f1e5)
     .map(emojiCode => String.fromCodePoint(emojiCode))
     .join('')
-
-export const formatStringTimeIntoDate = (time: string) =>
-  new Date(`2023-11-27T${time}:00.000Z`)
-
-export const convertDateWithoutTimeZone = (incomingDate: Date) => {
-  const newDate = new Date(incomingDate)
-  return new Date(newDate.valueOf() + newDate.getTimezoneOffset() * 60 * 1000)
-}
-
-export const formatDateToTime = (incomingDate: Date) => {
-  const dateWithoutTimeZone = convertDateWithoutTimeZone(incomingDate)
-
-  return format(dateWithoutTimeZone, 'HH:mm')
-}
 
 export const formatFormDataIntoOpeningHoursData = (formData: FormData) => {
   const allFormData = Array.from(formData) as [[keyof OpeningHoursData, string]]
