@@ -1,9 +1,6 @@
 'use client'
 
 import { Yurt } from '@/_types/yurt'
-import CancelButton from '@/components/elements/CancelButton'
-import EditButton from '@/components/elements/EditButton'
-import SubmitButton from '@/components/elements/SubmitButton'
 import {
   Form,
   FormControl,
@@ -18,10 +15,11 @@ import { YurtDataSchema } from '@/models/Yurt'
 import { updateYurtPrice } from '@/services/actions/updateYurtPrice'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
-import { useMemo, useTransition } from 'react'
+import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import * as z from 'zod'
+import EditableButtons from '../EditableButtons'
 
 type YurtFormProps = {
   yurt: Yurt
@@ -32,22 +30,6 @@ const YurtForm = ({ yurt }: YurtFormProps) => {
 
   const [isPending, startTransition] = useTransition()
   const [isEdit, handleToggleEdit] = useToggle(false)
-
-  const editableSection = useMemo(
-    () => (
-      <div className='mt-4 flex justify-end gap-2'>
-        {isEdit ? (
-          <CancelButton onClick={handleToggleEdit} />
-        ) : (
-          <EditButton onClick={handleToggleEdit} />
-        )}
-        {isEdit && (
-          <SubmitButton disabled={isPending}>{t('update')}</SubmitButton>
-        )}
-      </div>
-    ),
-    [isEdit, handleToggleEdit, isPending, t]
-  )
 
   const form = useForm<z.infer<typeof YurtDataSchema>>({
     resolver: zodResolver(YurtDataSchema),
@@ -106,7 +88,11 @@ const YurtForm = ({ yurt }: YurtFormProps) => {
           )}
         />
 
-        {editableSection}
+        <EditableButtons
+          isEdit={isEdit}
+          handleToggleEdit={handleToggleEdit}
+          isPending={isPending}
+        />
       </form>
     </Form>
   )

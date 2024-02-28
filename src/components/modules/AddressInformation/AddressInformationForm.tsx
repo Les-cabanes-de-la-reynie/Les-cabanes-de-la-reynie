@@ -1,9 +1,6 @@
 'use client'
 
 import { Address } from '@/_types/address'
-import CancelButton from '@/components/elements/CancelButton'
-import EditButton from '@/components/elements/EditButton'
-import SubmitButton from '@/components/elements/SubmitButton'
 import {
   Form,
   FormControl,
@@ -18,10 +15,11 @@ import { AddressFormSchema } from '@/models/Address'
 import { updateAddressInformation } from '@/services/actions/updateAddressInformation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
-import { useMemo, useTransition } from 'react'
+import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import * as z from 'zod'
+import EditableButtons from '../EditableButtons'
 
 type AddressInformationFormProps = {
   address: Address
@@ -33,22 +31,6 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
 
   const [isPending, startTransition] = useTransition()
   const [isEdit, handleToggleEdit] = useToggle(false)
-
-  const editableSection = useMemo(
-    () => (
-      <div className='mt-4 flex justify-end gap-2'>
-        {isEdit ? (
-          <CancelButton onClick={handleToggleEdit} />
-        ) : (
-          <EditButton onClick={handleToggleEdit} />
-        )}
-        {isEdit && (
-          <SubmitButton disabled={isPending}>{t('update')}</SubmitButton>
-        )}
-      </div>
-    ),
-    [isEdit, handleToggleEdit, isPending, t]
-  )
 
   const form = useForm<z.infer<typeof AddressFormSchema>>({
     resolver: zodResolver(AddressFormSchema),
@@ -172,7 +154,12 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
             </FormItem>
           )}
         />
-        {editableSection}
+
+        <EditableButtons
+          isEdit={isEdit}
+          handleToggleEdit={handleToggleEdit}
+          isPending={isPending}
+        />
       </form>
     </Form>
   )

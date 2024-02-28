@@ -2,9 +2,13 @@ import Heading from '@/components/elements/Heading'
 import { Loader } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Suspense } from 'react'
-import OpeningHoursEdit from './OpeningHoursEdit'
+import OpeningHoursData from './OpeningHoursData'
 
-const OpeningHoursSection = () => {
+type OpeningHoursSectionProps = {
+  editable: boolean
+}
+
+const OpeningHoursSection = ({ editable }: OpeningHoursSectionProps) => {
   const t = useTranslations('Contact')
 
   return (
@@ -13,7 +17,7 @@ const OpeningHoursSection = () => {
         {t('openingHours')}
       </Heading>
       <Suspense fallback={<Loader />}>
-        <OpeningHoursEdit />
+        <OpeningHoursData editable={editable} />
       </Suspense>
     </section>
   )

@@ -4,38 +4,27 @@ import useToggle from '@/hooks/useToggle'
 import { updateOpeningHours } from '@/services/actions/updateOpeningHours'
 import { formatFormDataIntoOpeningHoursData } from '@/utils/formats'
 import { useTranslations } from 'next-intl'
-import { useMemo } from 'react'
 import { toast } from 'sonner'
-import CancelButton from '../../../elements/CancelButton'
-import EditButton from '../../../elements/EditButton'
-import SubmitButton from '../../../elements/SubmitButton'
-import TableHeader from '../TableHeader'
-import { OpeningHoursFormProps } from '../types'
-import DayRowEdit from './DayRowEdit'
+import EditableButtons from '../EditableButtons'
+import DayRow from './DayRow'
+import TableHeader from './TableHeader'
+import { OpeningHoursFormProps } from './types'
 
-const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
+const OpeningHoursForm = ({
+  openingHoursData,
+  editable
+}: OpeningHoursFormProps) => {
   const [isEdit, handleToggleEdit] = useToggle(false)
 
   const t = useTranslations('Common')
-
-  const editableSection = useMemo(
-    () => (
-      <div className='mt-4 flex justify-end gap-2'>
-        {isEdit ? (
-          <CancelButton onClick={handleToggleEdit} />
-        ) : (
-          <EditButton onClick={handleToggleEdit} />
-        )}
-        {isEdit && <SubmitButton>Mettre à jour</SubmitButton>}
-      </div>
-    ),
-    [isEdit, handleToggleEdit]
-  )
+  const t2 = useTranslations('Contact')
 
   return (
     <form
       action={async formData => {
         try {
+          if (!editable) throw new Error('You cannot edit the opening hours!')
+
           const openingHoursData = formatFormDataIntoOpeningHoursData(formData)
 
           const { validationErrors, serverError } =
@@ -85,32 +74,37 @@ const OpeningHoursForm = ({ openingHoursData }: OpeningHoursFormProps) => {
       className='h-full w-full'
     >
       <table className='w-full flex-grow'>
-        <TableHeader day={''} opening={'Ouverture'} closing={'Fermeture'} />
+        <TableHeader day='' opening={t2('opening')} closing={t2('closing')} />
         <tbody className='text-center'>
           {openingHoursData?.map(
             ({
               day,
               dayTranslation,
-              inputStartName,
-              inputStartValue,
-              inputEndName,
-              inputEndValue
+              startDate,
+              startDateKey,
+              endDate,
+              endDateKey
             }) => (
-              <DayRowEdit
+              <DayRow
                 key={dayTranslation}
                 day={day}
                 dayTranslation={dayTranslation}
-                inputStartName={inputStartName}
-                inputStartValue={inputStartValue}
-                inputEndName={inputEndName}
-                inputEndValue={inputEndValue}
+                startDate={startDate}
+                startDateKey={startDateKey}
+                endDate={endDate}
+                endDateKey={endDateKey}
                 isEdit={isEdit}
               />
             )
           )}
         </tbody>
       </table>
-      {editableSection}
+
+      <EditableButtons
+        editable={editable}
+        isEdit={isEdit}
+        handleToggleEdit={handleToggleEdit}
+      />
     </form>
   )
 }

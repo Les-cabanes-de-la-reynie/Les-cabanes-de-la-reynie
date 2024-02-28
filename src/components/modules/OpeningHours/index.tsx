@@ -1,7 +1,7 @@
 import P from '@/components/elements/P'
 import { formatDateToTime } from '@/utils/date'
 import { useTranslations } from 'next-intl'
-import OpeningHoursTable from './OpeningHoursTable'
+import OpeningHoursForm from './OpeningHoursForm'
 import {
   DaysOfTheWeekEnum,
   OpeningHoursData,
@@ -10,9 +10,13 @@ import {
 
 type OpeningHoursProps = {
   incomingOpeningHoursData: OpeningHoursData
+  editable: boolean
 }
 
-const OpeningHours = ({ incomingOpeningHoursData }: OpeningHoursProps) => {
+const OpeningHours = ({
+  incomingOpeningHoursData,
+  editable
+}: OpeningHoursProps) => {
   const t = useTranslations('Contact')
 
   const {
@@ -36,68 +40,73 @@ const OpeningHours = ({ incomingOpeningHoursData }: OpeningHoursProps) => {
     {
       day: DaysOfTheWeekEnum.Monday,
       dayTranslation: t('monday'),
-      inputStartName: 'mondayStart',
-      inputStartValue: formatDateToTime(mondayStart),
-      inputEndName: 'mondayEnd',
-      inputEndValue: formatDateToTime(mondayEnd)
+      startDate: formatDateToTime(mondayStart),
+      startDateKey: 'mondayStart',
+      endDate: formatDateToTime(mondayEnd),
+      endDateKey: 'mondayEnd'
     },
     {
       day: DaysOfTheWeekEnum.Tuesday,
       dayTranslation: t('tuesday'),
-      inputStartName: 'tuesdayStart',
-      inputStartValue: formatDateToTime(tuesdayStart),
-      inputEndName: 'tuesdayEnd',
-      inputEndValue: formatDateToTime(tuesdayEnd)
+      startDate: formatDateToTime(tuesdayStart),
+      startDateKey: 'tuesdayStart',
+      endDate: formatDateToTime(tuesdayEnd),
+      endDateKey: 'tuesdayEnd'
     },
     {
       day: DaysOfTheWeekEnum.Wednesday,
       dayTranslation: t('wednesday'),
-      inputStartName: 'wednesdayStart',
-      inputStartValue: formatDateToTime(wednesdayStart),
-      inputEndName: 'wednesdayEnd',
-      inputEndValue: formatDateToTime(wednesdayEnd)
+      startDate: formatDateToTime(wednesdayStart),
+      startDateKey: 'wednesdayStart',
+      endDate: formatDateToTime(wednesdayEnd),
+      endDateKey: 'wednesdayEnd'
     },
     {
       day: DaysOfTheWeekEnum.Thursday,
       dayTranslation: t('thursday'),
-      inputStartName: 'thursdayStart',
-      inputStartValue: formatDateToTime(thursdayStart),
-      inputEndName: 'thursdayEnd',
-      inputEndValue: formatDateToTime(thursdayEnd)
+      startDate: formatDateToTime(thursdayStart),
+      startDateKey: 'thursdayStart',
+      endDate: formatDateToTime(thursdayEnd),
+      endDateKey: 'thursdayEnd'
     },
     {
       day: DaysOfTheWeekEnum.Friday,
       dayTranslation: t('friday'),
-      inputStartName: 'fridayStart',
-      inputStartValue: formatDateToTime(fridayStart),
-      inputEndName: 'fridayEnd',
-      inputEndValue: formatDateToTime(fridayEnd)
+      startDate: formatDateToTime(fridayStart),
+      startDateKey: 'fridayStart',
+      endDate: formatDateToTime(fridayEnd),
+      endDateKey: 'fridayEnd'
     },
     {
       day: DaysOfTheWeekEnum.Saturday,
       dayTranslation: t('saturday'),
-      inputStartName: 'saturdayStart',
-      inputStartValue: formatDateToTime(saturdayStart),
-      inputEndName: 'saturdayEnd',
-      inputEndValue: formatDateToTime(saturdayEnd)
+      startDate: formatDateToTime(saturdayStart),
+      startDateKey: 'saturdayStart',
+      endDate: formatDateToTime(saturdayEnd),
+      endDateKey: 'saturdayEnd'
     },
     {
       day: DaysOfTheWeekEnum.Sunday,
       dayTranslation: t('sunday'),
-      inputStartName: 'sundayStart',
-      inputStartValue: formatDateToTime(sundayStart),
-      inputEndName: 'sundayEnd',
-      inputEndValue: formatDateToTime(sundayEnd)
+      startDate: formatDateToTime(sundayStart),
+      startDateKey: 'sundayStart',
+      endDate: formatDateToTime(sundayEnd),
+      endDateKey: 'sundayEnd'
     }
   ]
 
   return (
     <div className='flex flex-1 flex-col items-center justify-center'>
-      <OpeningHoursTable openingHoursData={openingHoursData} />
-      <P className='flex flex-col'>
-        <span>{t('arrivalsDescription')}</span>
-        <span>{t('departuresDescription')}</span>
-      </P>
+      <OpeningHoursForm
+        openingHoursData={openingHoursData}
+        editable={editable}
+      />
+      {!editable && (
+        <P className='flex flex-col'>
+          <span>{t('arrivalsDescription')}</span>
+          <span>{t('departuresDescription')}</span>
+        </P>
+      )}
     </div>
   )
 }

@@ -1,7 +1,5 @@
-import {
-  convertDateWithoutTimeZone,
-  formatStringTimeIntoDate
-} from '@/utils/date'
+import { Input } from '@/components/ui/input'
+import { convertDateWithoutTimeZone, convertTimeIntoDate } from '@/utils/date'
 import { format } from 'date-fns'
 import { useLocale } from 'next-intl'
 import TableRow from './TableRow'
@@ -10,39 +8,54 @@ import { OpeningHoursRowData } from './types'
 const DayRow = ({
   day,
   dayTranslation,
-  inputStartValue,
-  inputEndValue
+  startDate,
+  startDateKey,
+  endDate,
+  endDateKey,
+  isEdit
 }: OpeningHoursRowData) => {
   const lang = useLocale()
 
-  const startDateWithoutTimeZone = convertDateWithoutTimeZone(
-    formatStringTimeIntoDate(inputStartValue)
+  const openingDateWithoutTimeZone = convertDateWithoutTimeZone(
+    convertTimeIntoDate(startDate)
   )
-  const endDateWithoutTimeZone = convertDateWithoutTimeZone(
-    formatStringTimeIntoDate(inputEndValue)
+  const closingDateWithoutTimeZone = convertDateWithoutTimeZone(
+    convertTimeIntoDate(endDate)
   )
 
-  const startDate =
+  const formattedOpeningDate =
     lang === 'fr'
-      ? format(startDateWithoutTimeZone, 'HH:mm')
-      : format(startDateWithoutTimeZone, 'h:mm aaaa')
+      ? format(openingDateWithoutTimeZone, 'HH:mm')
+      : format(openingDateWithoutTimeZone, 'h:mm aaaa')
 
-  const endDate =
+  const formattedClosingDate =
     lang === 'fr'
-      ? format(endDateWithoutTimeZone, 'HH:mm')
-      : format(endDateWithoutTimeZone, 'h:mm aaaa')
+      ? format(closingDateWithoutTimeZone, 'HH:mm')
+      : format(closingDateWithoutTimeZone, 'h:mm aaaa')
+
+  const openingDate = isEdit ? (
+    <Input
+      type='time'
+      name={startDateKey}
+      defaultValue={String(startDate) || ''}
+    />
+  ) : (
+    <span>{formattedOpeningDate}</span>
+  )
+
+  const closingDate = isEdit ? (
+    <Input type='time' name={endDateKey} defaultValue={String(endDate) || ''} />
+  ) : (
+    <span>{formattedClosingDate}</span>
+  )
 
   return (
     <TableRow day={day}>
       <th className='border px-2 py-2 align-middle sm:px-4'>
         {dayTranslation}
       </th>
-      <td className='border px-2 py-2 align-middle sm:px-4'>
-        <span>{startDate}</span>
-      </td>
-      <td className='border px-2 py-2 align-middle sm:px-4'>
-        <span>{endDate}</span>
-      </td>
+      <td className='border px-2 py-2 align-middle sm:px-4'>{openingDate}</td>
+      <td className='border px-2 py-2 align-middle sm:px-4'>{closingDate}</td>
     </TableRow>
   )
 }
