@@ -14,16 +14,18 @@ export enum DaysOfTheWeekEnum {
 export type OpeningHoursRowData = {
   day: DaysOfTheWeekEnum
   dayTranslation: string
-  inputStartName?: string
-  inputStartValue: string
-  inputEndName?: string
-  inputEndValue: string
+  startDate: string
+  startDateKey: string
+  endDate: string
+  endDateKey: string
+  isEdit?: boolean
 }
 
 export type OpeningHoursData = z.infer<typeof OpeningHoursDataSchema>
 
 export type OpeningHoursFormProps = {
   openingHoursData: OpeningHoursRowData[]
+  editable: boolean
 }
 
 export type TableHeaderProps = {

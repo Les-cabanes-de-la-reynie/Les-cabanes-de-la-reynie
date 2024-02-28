@@ -1,5 +1,5 @@
 import { OpeningHoursData } from '@/components/modules/OpeningHours/types'
-import { formatStringTimeIntoDate } from './date'
+import { convertTimeIntoDate } from './date'
 
 export const transformLocaleToCountry = (locale: string) =>
   locale === 'fr' ? 'Français' : 'English'
@@ -19,7 +19,7 @@ export const formatFormDataIntoOpeningHoursData = (formData: FormData) => {
   const openingHoursData = allFormData.reduce((acc, curr) => {
     const [key, value] = curr
 
-    acc[key] = formatStringTimeIntoDate(value)
+    acc[key] = convertTimeIntoDate(value)
 
     return acc
   }, {} as OpeningHoursData)

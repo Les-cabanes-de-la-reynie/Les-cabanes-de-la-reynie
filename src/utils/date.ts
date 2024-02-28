@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 
-export const formatStringTimeIntoDate = (time: string) => {
+export const convertTimeIntoDate = (time: string) => {
   return new Date(`2023-11-27T${time}:00.000Z`)
 }
 

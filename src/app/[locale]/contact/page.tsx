@@ -35,7 +35,7 @@ const Contact = ({ params: { locale } }: { params: { locale: string } }) => {
       <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
         <section className='flex w-full flex-col gap-4 lg:mb-0'>
           <Heading level={2}>{t('openingHours')}</Heading>
-          <OpeningHoursData />
+          <OpeningHoursData editable={false} />
         </section>
         <section className='flex w-full flex-col gap-4 lg:mb-0'>
           <Heading level={2}>{t('location')}</Heading>
