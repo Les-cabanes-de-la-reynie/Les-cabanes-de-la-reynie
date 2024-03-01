@@ -1,5 +1,6 @@
 import P from '@/components/elements/P'
 import { formatDateToTime } from '@/utils/date'
+import { AlertCircleIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import OpeningHoursForm from './OpeningHoursForm'
 import {
@@ -101,11 +102,17 @@ const OpeningHours = ({
         openingHoursData={openingHoursData}
         editable={editable}
       />
+
       {!editable && (
-        <P className='flex flex-col'>
-          <span>{t('arrivalsDescription')}</span>
-          <span>{t('departuresDescription')}</span>
-        </P>
+        <div className='mt-4 flex gap-2'>
+          <AlertCircleIcon className='stroke-primary' />
+          <div>
+            <P>{t('departuresDescription')}</P>
+            <P className='[&:not(:first-child)]:mt-0'>
+              {t('arrivalsDescription')}
+            </P>
+          </div>
+        </div>
       )}
     </div>
   )

@@ -37,11 +37,7 @@ const Hut = ({ params: { locale } }: { params: { locale: string } }) => {
   const t = useTranslations('Common')
   const t2 = useTranslations('Accommodations')
 
-  const bookList = [
-    { title: 'Airbnb', href: 'https://www.airbnb.fr/' },
-    { title: 'Airbnb 2', href: 'https://www.airbnb.fr/' },
-    { title: 'Airbnb 3', href: 'https://www.airbnb.fr/' }
-  ]
+  const bookList = [{ title: 'Airbnb', href: 'https://abnb.me/z4L2e1aCBHb' }]
 
   return (
     <main className='w-full'>
