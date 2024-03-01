@@ -31,7 +31,7 @@ const Heading = ({
   )
   const h2ClassName = cn(
     fontFamily.variable,
-    'scroll-m-20 text-3xl font-title tracking-tight first:mt-0',
+    'scroll-m-20 text-3xl font-title first:mt-0',
     {
       'text-error': error
     },

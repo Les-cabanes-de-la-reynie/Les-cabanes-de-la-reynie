@@ -27,7 +27,13 @@
   "Home": {},
   "Accommodations": {
     "bookList": "Book list",
-    "averagePrice": "Average price:"
+    "averagePrice": "Average price:",
+    "wifi": "Wifi",
+    "animal": "Pets allowed",
+    "bed": "King-size bed 180x200",
+    "fridge": "Fridge",
+    "shower": "Shower",
+    "dryToilet": "Dry toilet"
   },
   "Contact": {
     "contactMainTitle": "Find Les cabanes de la Reynie",
@@ -42,13 +48,14 @@
     "friday": "Friday",
     "saturday": "Saturday",
     "sunday": "Sunday",
+    "arrivalsDescription": "Arrivals are between 4:00 and 8:00 p.m",
+    "departuresDescription": "Departures must be before 11:00 a.m",
     "Itinerary": "Itinerary",
     "geoLocationFound": "Your geolocation has been found !",
     "geoLocationNotFound": "Geolocation not found",
     "confirmLocationDescription": "For a better user experience on our site, we need to know your location. You can activate it at the top of this page or in your browser settings.",
     "confirmLocationButton": "See itinerary",
-    "arrivalsDescription": "Arrivals are between 4:00 and 8:00 p.m",
-    "departuresDescription": "Departures must be before 11:00 a.m"
+    "locationDescription": "Exact address communicated after booking"
   },
   "Activities": {},
   "Admin": {

@@ -12,10 +12,6 @@ const Location = async () => {
   unstable_noStore()
   const address = await getAddress()
 
-  return (
-    <div className='relative flex h-96 w-full flex-grow items-center justify-center'>
-      <Map address={address} />
-    </div>
-  )
+  return <Map address={address} />
 }
 export default Location
