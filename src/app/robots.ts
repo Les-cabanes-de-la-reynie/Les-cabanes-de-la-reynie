@@ -1,3 +1,4 @@
+import { env } from '@/lib/env'
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
@@ -6,6 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
       disallow: ['/admin']
-    }
+    },
+    sitemap: `${env.NEXT_PUBLIC_BASE_URL}/sitemap.xml`
   }
 }
