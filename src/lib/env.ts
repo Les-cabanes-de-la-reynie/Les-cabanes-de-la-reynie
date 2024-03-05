@@ -13,6 +13,7 @@ export const env = createEnv({
     NODE_ENV: z.enum(['development', 'test', 'production'])
   },
   client: {
+    NEXT_PUBLIC_BASE_URL: z.string().min(1),
     NEXT_PUBLIC_LANG: z.enum(['fr', 'en']),
     NEXT_PUBLIC_LANGS: z.array(z.string().min(2)),
     NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: z.string().min(1),
@@ -27,6 +28,7 @@ export const env = createEnv({
     UPLOADTHING_SECRET: process.env.UPLOADTHING_SECRET,
     UPLOADTHING_APP_ID: process.env.UPLOADTHING_APP_ID,
     NODE_ENV: process.env.NODE_ENV,
+    NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
     NEXT_PUBLIC_LANG: process.env.NEXT_PUBLIC_LANG,
     NEXT_PUBLIC_LANGS: JSON.parse(process.env.NEXT_PUBLIC_LANGS!),
     NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME:
