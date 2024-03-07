@@ -89,6 +89,7 @@ const HutForm = ({ hut }: hutFormProps) => {
         />
 
         <EditableButtons
+          editable={true}
           isEdit={isEdit}
           handleToggleEdit={handleToggleEdit}
           isPending={isPending}

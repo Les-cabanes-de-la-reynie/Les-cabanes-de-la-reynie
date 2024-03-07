@@ -72,7 +72,7 @@ const LocaleLayout = async ({
           </main>
           <Footer />
         </Providers>
-        <Toaster richColors position='bottom-right' expand={true} />
+        <Toaster richColors position='top-right' expand={true} />
       </body>
     </html>
   )
