@@ -1,9 +1,12 @@
-import { UploadImage, UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
+import {
+  UploadImageCategoryKeyEnum,
+  UploadImage as UploadImageType
+} from '@/_types/uploadImage'
 import UploadImageCard from './UploadImageCard'
 
 type UploadImageProps = {
   category: UploadImageCategoryKeyEnum
-  images: UploadImage[]
+  images: UploadImageType[]
 }
 
 const UploadImage = ({ category, images }: UploadImageProps) => {

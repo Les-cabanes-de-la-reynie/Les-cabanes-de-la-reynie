@@ -4,7 +4,7 @@ import SubmitButton from '@/components/elements/SubmitButton'
 import { useTranslations } from 'next-intl'
 
 type EditableButtonsProps = {
-  editable?: boolean
+  editable: boolean
   isEdit: boolean
   handleToggleEdit: () => void
   isPending?: boolean

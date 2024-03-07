@@ -156,6 +156,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
         />
 
         <EditableButtons
+          editable={true}
           isEdit={isEdit}
           handleToggleEdit={handleToggleEdit}
           isPending={isPending}

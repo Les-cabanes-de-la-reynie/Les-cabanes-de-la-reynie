@@ -6,10 +6,6 @@ const config = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'res.cloudinary.com'
-      },
-      {
-        protocol: 'https',
         hostname: 's.gravatar.com'
       },
       {

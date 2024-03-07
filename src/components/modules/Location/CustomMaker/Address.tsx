@@ -1,12 +1,12 @@
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
-import { Address } from '@/_types/address'
+import { Address as AddressType } from '@/_types/address'
 import Heading from '@/components/elements/Heading'
 import { cn } from '@/utils/tailwind'
 import Email from './Email'
 import ItineraryAlertDialog from './ItineraryAlertDialog'
 import Phone from './Phone'
 
-type AddressProps = { address: Address }
+type AddressProps = { address: AddressType }
 
 const Address = ({ address }: AddressProps) => {
   return (

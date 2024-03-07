@@ -89,6 +89,7 @@ const YurtForm = ({ yurt }: YurtFormProps) => {
         />
 
         <EditableButtons
+          editable={true}
           isEdit={isEdit}
           handleToggleEdit={handleToggleEdit}
           isPending={isPending}
