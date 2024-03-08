@@ -1,27 +1,32 @@
 import { env } from '@/lib/env'
 import { MetadataRoute } from 'next'
 
+type SitemapType = {
+  location: string
+  priority: number
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = env.NEXT_PUBLIC_BASE_URL
+  const locales = env.NEXT_PUBLIC_LANGS
 
-  const frenchPages = [
-    { location: 'fr', priority: 1 },
-    { location: 'fr/logements/yourte', priority: 0.9 },
-    { location: 'fr/logements/cabane', priority: 0.9 },
-    { location: 'fr/contact', priority: 0.8 },
-    { location: 'fr/activites', priority: 0.5 }
-  ]
-  const englishPages = [
-    { location: 'en', priority: 1 },
-    { location: 'en/logements/yourte', priority: 0.9 },
-    { location: 'en/logements/cabane', priority: 0.9 },
-    { location: 'en/contact', priority: 0.8 },
-    { location: 'en/activites', priority: 0.5 }
-  ]
+  const sitemapWithLocale: SitemapType[] = []
 
-  const urls = [...frenchPages, ...englishPages]
+  for (const locale of locales) {
+    sitemapWithLocale.push({ location: locale, priority: 1 })
+    sitemapWithLocale.push({
+      location: `${locale}/logements/yourte`,
+      priority: 0.9
+    })
+    sitemapWithLocale.push({
+      location: `${locale}/logements/cabane`,
+      priority: 0.9
+    })
+    sitemapWithLocale.push({ location: `${locale}/contact`, priority: 0.8 })
+    sitemapWithLocale.push({ location: `${locale}/activites`, priority: 0.5 })
+  }
 
-  return urls.map(({ location, priority }) => ({
+  return sitemapWithLocale.map(({ location, priority }) => ({
     url: `${baseUrl}/${location}`,
     lastModified: new Date(),
     priority

@@ -60,7 +60,11 @@ const MainNavigation = ({
   }
 
   return (
-    <nav aria-labelledby='Main' data-testid='header-main-navigation'>
+    <nav
+      aria-labelledby='Main'
+      data-testid='header-main-navigation'
+      className='lg:h-full'
+    >
       <NavList>
         <NavItem routes={[navLinks.home]}>
           <Link href={navLinks.home} onClick={onCloseBurgerMenu}>
@@ -90,7 +94,7 @@ const MainNavigation = ({
           </div>
           <NavList
             className={cn('hidden', {
-              'flex flex-col bg-gradient-to-r from-primary to-primary-dark lg:absolute lg:top-14 lg:rounded-lg lg:border lg:border-primary lg:p-3 lg:shadow-md':
+              'flex h-16 flex-col bg-gradient-to-r from-primary to-primary-dark lg:absolute lg:top-14 lg:rounded-lg lg:border lg:border-primary lg:px-3 lg:py-2 lg:shadow-md':
                 isNestedListOpen
             })}
             ref={popupRef}
