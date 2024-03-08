@@ -9,7 +9,7 @@ const NavList: ForwardRefRenderFunction<HTMLUListElement, NavListProps> = (
   ref
 ) => {
   const classes = cn(
-    'flex flex-col gap-x-8 text-lg select-none lg:flex-row lg:items-center',
+    'flex flex-col gap-x-8 h-full text-lg select-none lg:flex-row lg:items-center',
     className
   )
 

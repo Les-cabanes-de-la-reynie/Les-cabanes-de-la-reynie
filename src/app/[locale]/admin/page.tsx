@@ -3,7 +3,12 @@ import { unstable_setRequestLocale } from 'next-intl/server'
 import AdminPage from './AdminPage'
 
 export const metadata: Metadata = {
-  title: 'Admin'
+  title: 'Admin',
+  robots: {
+    index: false,
+    follow: true,
+    nocache: true
+  }
 }
 
 const Admin = ({ params: { locale } }: { params: { locale: string } }) => {
