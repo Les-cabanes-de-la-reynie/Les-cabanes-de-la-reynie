@@ -1,8 +1,7 @@
+import type { Config } from 'tailwindcss'
 const defaultTheme = require('tailwindcss/defaultTheme')
-import { withUt } from 'uploadthing/tw'
 
-/** @type {import('tailwindcss').Config} */
-module.exports = withUt({
+const config = {
   darkMode: ['class'],
   content: [
     './pages/**/*.{ts,tsx}',
@@ -10,6 +9,7 @@ module.exports = withUt({
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}'
   ],
+  prefix: '',
   theme: {
     screens: {
       xs: '475px',
@@ -80,4 +80,6 @@ module.exports = withUt({
     }
   },
   plugins: [require('tailwindcss-animate')]
-})
+} satisfies Config
+
+export default config
