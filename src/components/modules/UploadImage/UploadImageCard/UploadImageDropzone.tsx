@@ -39,7 +39,7 @@ const UploadImageDropzone = ({ endpoint }: UploadImageDropzoneProps) => {
       appearance={{
         button: 'ut-uploading:cursor-not-allowed rounded-lg bg-primary-dark',
         container:
-          'flex flex-col items-center justify-between rounded-lg border border-muted bg-popover'
+          'flex flex-col items-center justify-between rounded-lg border border-muted bg-popover py-4'
       }}
     />
   )

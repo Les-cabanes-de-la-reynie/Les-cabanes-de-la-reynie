@@ -80,7 +80,7 @@ npm run lint
 ### Style
 
 If you need to change some colors, this project use **shadcn ui** and
-**tailwind** so you can change colors in _src/app/global.css_ and other
+**tailwind** so you can change colors in _src/app/globals.css_ and other
 configurations in the **tailwind.config.ts** file.
 
 ## Database
