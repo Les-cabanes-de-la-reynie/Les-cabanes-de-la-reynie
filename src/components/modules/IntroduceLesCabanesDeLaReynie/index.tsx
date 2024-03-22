@@ -3,6 +3,7 @@ import Heading from '@/components/elements/Heading'
 import P from '@/components/elements/P'
 import natureImage from '@/components/images/background/nature.svg'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const IntroduceLesCabanesDeLaReynie = () => {
   const TEXT_TITLE = `[TODO] Let's introduce ourselves`
@@ -25,13 +26,20 @@ const IntroduceLesCabanesDeLaReynie = () => {
   return (
     <Container>
       <div className='min-h-72 w-full'>
-        <Image
-          src={natureImage}
-          alt='nature-drawing-background'
-          height={50}
-          width={150}
-          className='float-right hidden h-64 w-64 xs:block'
-        />
+        <Link
+          href='https://storyset.com/nature'
+          aria-label='Nature illustrations by Storyset'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <Image
+            src={natureImage}
+            alt='Nature illustrations by Storyset'
+            height={256}
+            width={256}
+            className='float-right hidden h-64 w-64 cursor-default xs:block'
+          />
+        </Link>
 
         <div className='block h-full'>
           <Heading level={2}>{TEXT_TITLE}</Heading>
