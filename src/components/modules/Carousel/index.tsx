@@ -13,7 +13,7 @@ import { CarouselProps } from './types'
 const FsLightbox = dynamic(() => import('fslightbox-react'))
 
 const SLIDER_BUTTONS_COMMON_CLASSNAME =
-  'h-10 w-10 absolute -top-8 flex items-center justify-center rounded-full p-0'
+  'h-10 w-10 absolute -top-9 flex items-center justify-center rounded-full p-0'
 
 const Carousel = ({
   carouselItems,
@@ -26,7 +26,7 @@ const Carousel = ({
   return (
     <>
       {!!title && (
-        <Heading level={2} className='mb-2 pl-4 pr-24'>
+        <Heading level={2} className='mb-4 pl-4 pr-24'>
           {title}
         </Heading>
       )}

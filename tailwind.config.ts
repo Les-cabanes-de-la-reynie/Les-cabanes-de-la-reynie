@@ -75,7 +75,9 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out'
       },
       backgroundImage: {
-        customImg1: 'url("../components/images/hutAndYurt/cabane-fenetres.jpg")'
+        customImg1:
+          'url("../components/images/background/cabane-fenetres.jpg")',
+        natureSvg: 'url("../components/images/background/nature.svg")'
       }
     }
   },

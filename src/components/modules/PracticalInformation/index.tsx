@@ -18,9 +18,9 @@ const PracticalInformation = () => {
   const COMMON_ICON_CLASSNAME = 'h-12 w-12 fill-primary stroke-1 stroke-primary'
 
   return (
-    <Container className='my-10'>
+    <Container>
       <section>
-        <Heading level={2} className='mb-8 text-center'>
+        <Heading level={2} className='mb-4'>
           {t('practicalInformation')}
         </Heading>
 
