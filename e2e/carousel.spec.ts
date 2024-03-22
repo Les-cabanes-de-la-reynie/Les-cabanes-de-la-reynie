@@ -38,6 +38,7 @@ test.describe('Carousel', () => {
       const nextButton = page.getByTestId('carousel-next-button')
       const previousButton = page.getByTestId('carousel-previous-button')
 
+      firstImage.scrollIntoViewIfNeeded()
       await expect(firstImage).toBeInViewport()
 
       await nextButton.click({ delay: 2000, clickCount: 1 })

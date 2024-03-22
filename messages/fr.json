@@ -49,7 +49,7 @@
     "saturday": "Samedi",
     "sunday": "Dimanche",
     "arrivalsDescription": "Les arrivées se font entre 16h00 et 20h00",
-    "departuresDescription": "Les départs avant 11h00",
+    "departuresDescription": "Les départs se font avant 11h00",
     "Itinerary": "Itinéraire",
     "geoLocationFound": "Votre localisation a été trouvée !",
     "geoLocationNotFound": "Localisation n'a pas été trouvée",

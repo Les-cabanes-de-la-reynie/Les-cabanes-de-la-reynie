@@ -52,11 +52,6 @@
   }
 }
 
-/* scrollbar style for firefox */
-html {
-  scrollbar-width: thin;
-}
-
 /* Leaflet map  */
 .leaflet-control {
   z-index: 0 !important;

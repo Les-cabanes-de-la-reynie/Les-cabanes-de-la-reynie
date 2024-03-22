@@ -7,9 +7,7 @@ const AccommodationsHeaderContent = ({
   children
 }: AccommodationsHeaderContentProps) => {
   return (
-    <Container className='flex flex-col justify-center lg:p-10'>
-      {children}
-    </Container>
+    <Container className='flex flex-col justify-center'>{children}</Container>
   )
 }
 export default AccommodationsHeaderContent

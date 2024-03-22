@@ -17,7 +17,7 @@ const Container = ({
   const classes = cn(
     'relative mx-auto box-border flex w-full max-w-screen-2xl flex-1 flex-col',
     {
-      'p-4 md:p-6': padding,
+      'px-4 py-8 md:px-6 md:py-10': padding,
       'justify-center items-center': center
     },
     className

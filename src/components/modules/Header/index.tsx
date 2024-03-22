@@ -57,7 +57,7 @@ const Header = () => {
 
   return (
     <header className={headerClassName}>
-      <Container className='justify-center'>
+      <Container className='justify-center py-0 md:py-0'>
         <div className='flex items-center justify-between lg:justify-normal'>
           <Logo />
           <BurgerMenu
