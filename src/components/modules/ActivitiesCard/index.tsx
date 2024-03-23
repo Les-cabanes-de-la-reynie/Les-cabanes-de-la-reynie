@@ -32,7 +32,7 @@ const ActivitiesCard = ({ title, image, alt }: ActivitiesCardProps) => {
           level={3}
           className='absolute flex h-full w-full items-end bg-black bg-opacity-20 pb-6 font-bold transition-colors hover:lg:bg-opacity-50'
         >
-          <span className='relative inline-block w-full before:absolute before:-inset-1 before:block before:-skew-y-[3deg] before:bg-primary before:transition-all group-hover:lg:before:-inset-10 group-hover:lg:before:bg-primary-dark'>
+          <span className='relative inline-block w-full before:absolute before:-inset-1 before:block before:-skew-y-[3deg] before:bg-primary before:transition-all group-hover:lg:before:-inset-10'>
             <span className='relative p-2 text-white'>{title}</span>
           </span>
         </Heading>

@@ -51,11 +51,15 @@ const DayRow = ({
 
   return (
     <TableRow day={day}>
-      <th className='border px-2 py-2 align-middle sm:px-4'>
+      <th className='border border-zinc-300 px-2 py-2 align-middle dark:border-zinc-800 sm:px-4'>
         {dayTranslation}
       </th>
-      <td className='border px-2 py-2 align-middle sm:px-4'>{openingDate}</td>
-      <td className='border px-2 py-2 align-middle sm:px-4'>{closingDate}</td>
+      <td className='border border-zinc-300 px-2 py-2 align-middle dark:border-zinc-800 sm:px-4'>
+        {openingDate}
+      </td>
+      <td className='border border-zinc-300 px-2 py-2 align-middle dark:border-zinc-800 sm:px-4'>
+        {closingDate}
+      </td>
     </TableRow>
   )
 }

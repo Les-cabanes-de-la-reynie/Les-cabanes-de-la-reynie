@@ -1,4 +1,5 @@
 import P from '@/components/elements/P'
+import { Card } from '@/components/ui/card'
 import { PropsWithChildren } from 'react'
 
 type PracticalInformationCardProps = PropsWithChildren & {
@@ -10,9 +11,11 @@ const PracticalInformationCard = ({
   description
 }: PracticalInformationCardProps) => {
   return (
-    <li className='flex flex-col items-center rounded-lg bg-popover p-4 text-center text-muted-foreground'>
-      {children}
-      <P className='mt-6 font-normal'>{description}</P>
+    <li>
+      <Card className='flex flex-col items-center p-4 text-center'>
+        {children}
+        <P className='mt-6 font-normal'>{description}</P>
+      </Card>
     </li>
   )
 }

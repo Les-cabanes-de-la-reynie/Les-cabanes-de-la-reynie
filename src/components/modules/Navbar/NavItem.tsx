@@ -15,9 +15,9 @@ const NavItem = ({ routes, children, className, ...rest }: NavItemProps) => {
   const currentRoute = usePathname()
 
   const classes = cn(
-    'py-4 select-none lg:p-0 lg:flex lg:items-center text-primary-foreground lg:hover:text-ring transition-colors lg:h-full',
+    'py-4 select-none lg:p-0 lg:flex lg:items-center text-primary-foreground lg:hover:text-black transition-colors lg:h-full',
     {
-      'lg:border-b-2 lg:border-ring lg:w-max lg:text-primary-foreground':
+      'lg:border-b-2 lg:border-primary-foreground lg:w-max lg:text-primary-foreground':
         routes?.includes(currentRoute)
     },
     className

@@ -1,21 +1,18 @@
-import LanguageSwitcherButton from './LanguageSwitcherButton'
+import { Button } from '@/components/ui/button'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger
 } from '@/components/ui/popover'
-import LocaleList from './LocaleList'
-import { Button } from '@/components/ui/button'
 import PopoverCloseButton from '../PopoverCloseButton'
+import LanguageSwitcherButton from './LanguageSwitcherButton'
+import LocaleList from './LocaleList'
 
 const LanguagesSwitcher = () => {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button
-          variant='ghost'
-          className='text-primary-foreground hover:bg-primary'
-        >
+        <Button variant='ghost'>
           <LanguageSwitcherButton />
         </Button>
       </PopoverTrigger>

@@ -1,6 +1,6 @@
 import { MenuIcon, X } from 'lucide-react'
-import { Button } from '../ui/button'
 import { useTranslations } from 'next-intl'
+import { Button } from '../ui/button'
 
 type BurgerMenuProps = {
   isBurgerMenuOpen: boolean
@@ -17,7 +17,7 @@ const BurgerMenu = ({
     <Button
       variant='ghost'
       size='icon'
-      className='rounded-full bg-primary-dark text-primary-foreground hover:bg-primary lg:hidden'
+      className='bg-secondary-dark rounded-full text-primary-foreground hover:bg-primary lg:hidden'
       onClick={onToggleBurgerMenu}
       aria-label={isBurgerMenuOpen ? t('closeBurgerMenu') : t('openBurgerMenu')}
       aria-expanded={isBurgerMenuOpen}

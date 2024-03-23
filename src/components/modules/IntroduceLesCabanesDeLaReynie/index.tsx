@@ -43,8 +43,8 @@ const IntroduceLesCabanesDeLaReynie = () => {
 
         <div className='block h-full'>
           <Heading level={2}>{TEXT_TITLE}</Heading>
-          <P>{P1}</P>
-          <P>{P2}</P>
+          <P className='text-muted-foreground'>{P1}</P>
+          <P className='text-muted-foreground'>{P2}</P>
         </div>
       </div>
     </Container>
