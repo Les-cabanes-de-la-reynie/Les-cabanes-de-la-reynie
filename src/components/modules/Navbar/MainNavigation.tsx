@@ -94,7 +94,7 @@ const MainNavigation = ({
           </div>
           <NavList
             className={cn('hidden', {
-              'to-secondary-dark flex h-16 flex-col bg-gradient-to-r from-primary lg:absolute lg:top-14 lg:rounded-lg lg:px-3 lg:py-2 lg:shadow-md':
+              'flex h-16 flex-col bg-primary lg:absolute lg:top-14 lg:rounded-lg lg:px-3 lg:py-2 lg:shadow-md':
                 isNestedListOpen
             })}
             ref={popupRef}
