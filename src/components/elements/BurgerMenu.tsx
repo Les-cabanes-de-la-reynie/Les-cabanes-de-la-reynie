@@ -17,7 +17,7 @@ const BurgerMenu = ({
     <Button
       variant='ghost'
       size='icon'
-      className='bg-secondary-dark rounded-full text-primary-foreground hover:bg-primary lg:hidden'
+      className='rounded-full text-primary-foreground hover:bg-accent lg:hidden'
       onClick={onToggleBurgerMenu}
       aria-label={isBurgerMenuOpen ? t('closeBurgerMenu') : t('openBurgerMenu')}
       aria-expanded={isBurgerMenuOpen}
