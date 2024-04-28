@@ -22,9 +22,20 @@
     "uploadImage": "Télécharger vos images"
   },
   "SEO": {
-    "homeDescription": "Bienvenue sur Les cabanes de la Reynie"
+    "homeDescription": "Bienvenue sur les cabanes de la Reynie"
   },
-  "Home": {},
+  "Home": {
+    "aboutUsTitle": "Bienvenue dans les cabanes de la Reynie !",
+    "aboutUsP1": "L'aventure a commencé en 2021 en arpentant le territoire à la recherche du lieu répondant à nos aspirations. Et nous l'avons trouvé ici : trois hectares de prairie, forêt, potager et mares, aux confins de la Corrèze et aux portes de la Dordogne.",
+    "aboutUsP2": "Une cabane et une yourte plus tard, de nombreux voyageurs se sont déjà arrêtés pour quelques jours de dépaysement…",
+    "aboutUsP3": "…car se réveiller dans les cabanes de la Reynie, c'est se retrouver au cœur de la nature, découvrir les charmes de la Corrèze et de ses environs, savourer la gastronomie de la région, plonger dans l'histoire et surtout vivre un séjour unique entre amis ou en famille !",
+    "aboutUsP4": "Alors offrez-vous une escapade inoubliable dans notre yourte pour 6 personnes ou dans notre cabane pour 2, à la vue imprenable et au calme ressourçant.",
+    "accommodationsTitle": "Un havre de paix pour les amoureux de la nature",
+    "accommodationsP1": "Imaginez-vous vous réveiller au chant des oiseaux, enveloppés par la douce lumière du matin qui filtre à travers les toiles de votre yourte. Laissez-vous bercer par le bruissement des feuilles dans les arbres qui surplombent votre cabane. Profitez de la vue sur les paysages verdoyants et les vallons qui s'étendent à perte de vue. Puis installez-vous sur la terrasse pour savourer un café matinal en pleine nature, un pique-nique gourmand à l'ombre des arbres ou un apéritif rêveur face au coucher du soleil.",
+    "accommodationsP2-1": "Notre",
+    "accommodationsP2-2": "spacieuse et confortable, aménagée avec goût et simplicité, vous offrira un séjour authentique et relaxant et notre",
+    "accommodationsP2-3": "nichée dans son écrin de verdure, vous aidera à arrêter le temps, tout simplement !"
+  },
   "Accommodations": {
     "bookList": "Liste des choix pour réserver",
     "averagePrice": "Tarif moyen :",
@@ -34,6 +45,14 @@
     "fridge": "Frigo",
     "shower": "Douche",
     "dryToilet": "Toilettes sèches"
+  },
+  "Yurt": {
+    "yurtP1": "La yourte peut accueillir jusqu'à 6 personnes (un lit-double, deux lits simples et un canapé-lit) et dispose d'un coin cuisine avec réchaud, d'une table et de chaises, et d'un accès à l'eau potable (filtre). Ses deux portes, son puits de lumière et sa fenêtre apportent toute la lumière nécessaire.",
+    "yurtP2": "La douche et les toilettes sèches sont à l'extérieur. La terrasse s'ouvre sur la nature environnante."
+  },
+  "Hut": {
+    "hutP1": "La cabane peut accueillir 2 personnes (un lit-double). Elle dispose d'une table et de chaises sur sa terrasse (mais libre à vous de les déplacer où vous le désirez !). Sa double-porte et ses deux fenêtres donnent l'impression d'être au beau milieu de la nature.",
+    "hutP2": "La douche, les toilettes sèches et un petit coin cuisine d'été se trouvent à l'extérieur."
   },
   "Contact": {
     "contactMainTitle": "Trouver Les cabanes de la Reynie",

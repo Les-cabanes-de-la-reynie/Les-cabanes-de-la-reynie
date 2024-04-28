@@ -34,8 +34,9 @@ export async function generateMetadata({
 const Yurt = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
 
-  const t = useTranslations('Common')
-  const t2 = useTranslations('Accommodations')
+  const tCommon = useTranslations('Common')
+  const tAccommodations = useTranslations('Accommodations')
+  const tYurt = useTranslations('Yurt')
 
   const bookList = [{ title: 'Airbnb', href: 'https://abnb.me/5guTmU7BBHb' }]
 
@@ -44,7 +45,7 @@ const Yurt = ({ params: { locale } }: { params: { locale: string } }) => {
       <AccommodationsHeader>
         <AccommodationsHeaderImage>
           <Image
-            alt={`Main ${t('yurt')} landscape`}
+            alt={`Main ${tCommon('yurt')} landscape`}
             src={headerImage}
             placeholder='blur'
             fill
@@ -55,41 +56,31 @@ const Yurt = ({ params: { locale } }: { params: { locale: string } }) => {
         </AccommodationsHeaderImage>
         <AccommodationsHeaderContent>
           <Heading level={1} className='mt-4 lg:mt-0'>
-            {t('yurt')}
+            {tCommon('yurt')}
           </Heading>
 
           <Heading level={2} className='mt-10'>
-            {t('description')}
+            {tCommon('description')}
           </Heading>
-          <P className='text-muted-foreground'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-            libero pariatur quod sapiente, molestiae incidunt facere qui impedit
-            at voluptates ratione, unde, quis tempore quasi reiciendis
-            doloribus. Cupiditate, atque animi.
-          </P>
-          <P className='italic text-muted-foreground'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-            libero pariatur quod sapiente, molestiae incidunt facere qui impedit
-            at voluptates ratione, unde, quis tempore quasi reiciendis
-            doloribus. Cupiditate, atque animi.
-          </P>
+          <P>{tYurt('yurtP1')}</P>
+          <P className='italic'>{tYurt('yurtP2')}</P>
 
           <Heading level={2} className='mt-10'>
-            {t('price')}
+            {tCommon('price')}
           </Heading>
 
           <AccommodationsPrice
             accommodationType={AccommodationTypeEnum.YURT}
-            description={t2('averagePrice')}
+            description={tAccommodations('averagePrice')}
           />
 
           <AccommodationsPopover bookList={bookList} />
         </AccommodationsHeaderContent>
       </AccommodationsHeader>
 
-      <PracticalInformation />
-
       <AccommodationsSlider category={UploadImageCategoryKeyEnum.YurtSlider} />
+
+      <PracticalInformation />
     </main>
   )
 }

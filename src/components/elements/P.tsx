@@ -6,7 +6,7 @@ type PProps = PropsWithChildren & ClassNameProps
 
 const P = ({ children, className, ...rest }: PProps) => {
   const classes = cn(
-    'text-base leading-7 [&:not(:first-child)]:mt-4',
+    'text-base leading-7 [&:not(:first-child)]:mt-4 text-muted-foreground text-pretty',
     className
   )
 

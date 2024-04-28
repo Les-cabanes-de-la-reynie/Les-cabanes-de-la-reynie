@@ -34,8 +34,9 @@ export async function generateMetadata({
 const Hut = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
 
-  const t = useTranslations('Common')
-  const t2 = useTranslations('Accommodations')
+  const tCommon = useTranslations('Common')
+  const tAccommodations = useTranslations('Accommodations')
+  const tHut = useTranslations('Hut')
 
   const bookList = [{ title: 'Airbnb', href: 'https://abnb.me/z4L2e1aCBHb' }]
 
@@ -44,7 +45,7 @@ const Hut = ({ params: { locale } }: { params: { locale: string } }) => {
       <AccommodationsHeader>
         <AccommodationsHeaderImage>
           <Image
-            alt={`Main ${t('hut')} landscape`}
+            alt={`Main ${tCommon('hut')} landscape`}
             src={headerImage}
             placeholder='blur'
             fill
@@ -55,41 +56,31 @@ const Hut = ({ params: { locale } }: { params: { locale: string } }) => {
         </AccommodationsHeaderImage>
         <AccommodationsHeaderContent>
           <Heading level={1} className='mt-4 lg:mt-0'>
-            {t('hut')}
+            {tCommon('hut')}
           </Heading>
 
           <Heading level={2} className='mt-10'>
-            {t('description')}
+            {tCommon('description')}
           </Heading>
-          <P className='text-muted-foreground'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-            libero pariatur quod sapiente, molestiae incidunt facere qui impedit
-            at voluptates ratione, unde, quis tempore quasi reiciendis
-            doloribus. Cupiditate, atque animi.
-          </P>
-          <P className='italic text-muted-foreground'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-            libero pariatur quod sapiente, molestiae incidunt facere qui impedit
-            at voluptates ratione, unde, quis tempore quasi reiciendis
-            doloribus. Cupiditate, atque animi.
-          </P>
+          <P>{tHut('hutP1')}</P>
+          <P className='italic'>{tHut('hutP2')}</P>
 
           <Heading level={2} className='mt-10'>
-            {t('price')}
+            {tCommon('price')}
           </Heading>
 
           <AccommodationsPrice
             accommodationType={AccommodationTypeEnum.HUT}
-            description={t2('averagePrice')}
+            description={tAccommodations('averagePrice')}
           />
 
           <AccommodationsPopover bookList={bookList} />
         </AccommodationsHeaderContent>
       </AccommodationsHeader>
 
-      <PracticalInformation />
-
       <AccommodationsSlider category={UploadImageCategoryKeyEnum.HutSlider} />
+
+      <PracticalInformation />
     </main>
   )
 }

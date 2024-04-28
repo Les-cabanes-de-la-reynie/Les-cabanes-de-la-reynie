@@ -10,7 +10,7 @@ const QueFaireDansLePerigordPourpre = () => {
     <div className='w-full'>
       <HeroBanner
         title='Que faire dans le Perigord Pourpre'
-        className='lg:h-[30rem]'
+        className='lg:h-[calc(75vh-4.5rem)]'
       >
         <Image
           alt='Paysage typique dans le Perigord Pourpre'

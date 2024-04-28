@@ -7,7 +7,6 @@ import { transformLocaleToCountry } from '@/utils/formats'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
 import { usePathname, useRouter } from '../../../navigation'
-import P from '../P'
 
 const LocaleList = () => {
   const [isPending, startTransition] = useTransition()
@@ -24,7 +23,7 @@ const LocaleList = () => {
 
   return (
     <>
-      <P className='mb-2 select-none'>{t('switchLangTitle')}</P>
+      <span className='mb-2 select-none'>{t('switchLangTitle')}</span>
       <Separator className='mb-2' />
       <ul aria-labelledby='language-menu-button'>
         {env.NEXT_PUBLIC_LANGS?.map(locale => {

@@ -1,6 +1,6 @@
 'use client'
 
-import { UploadImage } from '@/_types/uploadImage'
+import { UploadImage, UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
@@ -14,9 +14,13 @@ const Carousel = dynamic(() => import('.'), {
 
 type CarouselWithLightboxProps = {
   data: UploadImage[]
+  category: UploadImageCategoryKeyEnum
 }
 
-const CarouselWithLightbox = ({ data }: CarouselWithLightboxProps) => {
+const CarouselWithLightbox = ({
+  data,
+  category
+}: CarouselWithLightboxProps) => {
   const t = useTranslations('Common')
 
   const [lightboxController, setLightboxController] = useState({
@@ -64,7 +68,11 @@ const CarouselWithLightbox = ({ data }: CarouselWithLightboxProps) => {
       carouselItems={carouselItems}
       lighboxItems={lighboxItems}
       lightboxController={lightboxController}
-      title={t('sliderTitle')}
+      title={
+        category === UploadImageCategoryKeyEnum.HomeSlider
+          ? t('sliderTitle')
+          : undefined
+      }
     />
   )
 }

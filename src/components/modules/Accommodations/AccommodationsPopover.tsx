@@ -1,16 +1,15 @@
 'use client'
 
-import Link from 'next/link'
-import { useTranslations } from 'next-intl'
+import PopoverCloseButton from '@/components/elements/PopoverCloseButton'
+import { Button } from '@/components/ui/button'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger
 } from '@/components/ui/popover'
-import PopoverCloseButton from '@/components/elements/PopoverCloseButton'
 import { Separator } from '@/components/ui/separator'
-import { Button } from '@/components/ui/button'
-import P from '@/components/elements/P'
+import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 import { BookEntity } from './types'
 
 type AccommodationsPopoverProps = {
@@ -31,7 +30,7 @@ const AccommodationsPopover = ({ bookList }: AccommodationsPopoverProps) => {
       </PopoverTrigger>
       <PopoverContent>
         <>
-          <P className='mb-2 select-none'>{t('bookList')}</P>
+          <span className='mb-2 select-none'>{t('bookList')}</span>
           <Separator className='mb-2' />
           <ul className='flex flex-col gap-2'>
             {bookList?.map(({ title, href }) => (
