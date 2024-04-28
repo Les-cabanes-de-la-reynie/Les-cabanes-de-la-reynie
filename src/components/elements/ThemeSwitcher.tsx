@@ -7,7 +7,6 @@ import { Moon, Sun } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useTheme } from 'next-themes'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
-import P from './P'
 import PopoverCloseButton from './PopoverCloseButton'
 
 type ThemeSwitcherProps = {
@@ -32,7 +31,7 @@ export const ThemeSwitcher = ({
       </PopoverTrigger>
       <PopoverContent className='w-36'>
         <>
-          <P className='mb-2 select-none'>{t('themeSwitcherTitle')}</P>
+          <span className='mb-2 select-none'>{t('themeSwitcherTitle')}</span>
           <Separator className='mb-2' />
           <Button
             variant='ghost'

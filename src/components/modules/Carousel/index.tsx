@@ -19,7 +19,7 @@ const Carousel = ({
   carouselItems,
   lighboxItems,
   lightboxController,
-  title = ''
+  title
 }: CarouselProps) => {
   const t = useTranslations('Carousel')
 

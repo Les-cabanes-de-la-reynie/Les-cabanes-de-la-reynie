@@ -10,7 +10,7 @@ type HeroBannerProps = PropsWithChildren &
 
 const HeroBanner = ({ children, title, className }: HeroBannerProps) => {
   const classes = cn(
-    'relative h-96 w-full select-none overflow-hidden lg:h-screen',
+    'relative h-[55vh] lg:h-[75vh] w-full select-none overflow-hidden',
     className
   )
 

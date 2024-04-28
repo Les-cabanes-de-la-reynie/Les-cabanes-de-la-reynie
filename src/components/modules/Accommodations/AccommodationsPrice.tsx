@@ -20,8 +20,8 @@ const AccommodationsPrice = async ({
       : (await getYurtData()).price
 
   return (
-    <P>
-      {description} {accommodationPrice}€
+    <P className='text-foreground'>
+      {description} <span className='font-bold'>{accommodationPrice}€</span>
     </P>
   )
 }

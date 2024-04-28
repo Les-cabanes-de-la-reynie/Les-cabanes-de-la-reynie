@@ -22,9 +22,20 @@
     "uploadImage": "Upload your images"
   },
   "SEO": {
-    "homeDescription": "Welcome to Les cabanes de la Reynie"
+    "homeDescription": "Welcome to les cabanes de la Reynie"
   },
-  "Home": {},
+  "Home": {
+    "aboutUsTitle": "Welcome to les cabanes de la Reynie!",
+    "aboutUsP1": "The adventure began in 2021 when we scoured the region looking for a place that matched our aspirations. And we found it here: three hectares of meadow, forest, vegetable garden and ponds, on the edge of the Corrèze and at the gateway to the Dordogne.",
+    "aboutUsP2": "One hut and one yurt later, many travellers have already stopped off for a few days to get away from it all...",
+    "aboutUsP3": "...because waking up in les cabanes de la Reynie means finding yourself in the heart of nature, discovering the charms of Corrèze and the surrounding area, savouring the region's gastronomy, immersing yourself in history and, above all, enjoying a unique stay with friends or family!",
+    "aboutUsP4": "Treat yourself to an unforgettable getaway in our 6-person yurt or 2-person cabin, with its breathtaking views and rejuvenating tranquillity.",
+    "accommodationsTitle": "A haven of peace for nature lovers",
+    "accommodationsP1": "Imagine waking up to birdsong, enveloped in the soft morning light filtering through the canvas of your yurt. Let yourself be lulled by the rustle of leaves in the trees above your cabin. Enjoy the view of the lush green countryside and the valleys that stretch as far as the eye can see. Then sit out on the terrace to enjoy a morning coffee in the heart of nature, a gourmet picnic in the shade of the trees or a dreamy aperitif as the sun sets.",
+    "accommodationsP2-1": "Our spacious and comfortable",
+    "accommodationsP2-2": " furnished with taste and simplicity, will offer you an authentic and relaxing stay, and our",
+    "accommodationsP2-3": " nestled in its own green setting, will help you to simply stop time!"
+  },
   "Accommodations": {
     "bookList": "Book list",
     "averagePrice": "Average price:",
@@ -34,6 +45,14 @@
     "fridge": "Fridge",
     "shower": "Shower",
     "dryToilet": "Dry toilet"
+  },
+  "Yurt": {
+    "yurtP1": "The yurt can accommodate up to 6 people (one double bed, two single beds and a sofa bed) and has a kitchenette with stove, table and chairs, and access to drinking water (filter). Its two doors, skylight and window provide all the light you need.",
+    "yurtP2": "The shower and dry toilets are outside. The terrace overlooks the surrounding countryside."
+  },
+  "Hut": {
+    "hutP1": "The cabin sleeps 2 (double bed). It has a table and chairs on the terrace (but you're free to move them wherever you like!). Its double doors and two windows give the impression of being right in the middle of nature.",
+    "hutP2": "The shower, dry toilets and a small summer kitchen area are located outside."
   },
   "Contact": {
     "contactMainTitle": "Find Les cabanes de la Reynie",

@@ -18,7 +18,7 @@ const ActivitiesCard = ({ title, image, alt }: ActivitiesCardProps) => {
     <li>
       <Link
         href={`/${lang}/activites/${formattedTitle}`}
-        className='group relative flex h-60 flex-col items-center overflow-hidden rounded-lg text-center text-muted-foreground'
+        className='group relative flex h-60 flex-col items-center overflow-hidden rounded-lg text-center'
       >
         <Image
           alt={alt}

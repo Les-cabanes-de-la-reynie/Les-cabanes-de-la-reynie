@@ -1,12 +1,13 @@
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import Container from '@/components/elements/Container'
-import Heading from '@/components/elements/Heading'
+import AccommodationsDescription from '@/components/modules/Accommodations/AccommodationsDescription'
 import AccommodationsSlider from '@/components/modules/Accommodations/AccommodationsSlider'
 import HeroBanner from '@/components/modules/HeroBanner'
 import IntroduceLesCabanesDeLaReynie from '@/components/modules/IntroduceLesCabanesDeLaReynie'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import Image from 'next/image'
+import Link from 'next/link'
 import fullscreenImage from '../../components/images/hutAndYurt/cabane-ext.jpg'
 
 const Home = ({ params: { locale } }: { params: { locale: string } }) => {
@@ -31,18 +32,23 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
       <AccommodationsSlider category={UploadImageCategoryKeyEnum.HomeSlider} />
 
       <Container>
-        <div className='min-h-72 w-full'>
-          TODO: Découvrez tous nos logements
+        <div className='grid grid-cols-2 gap-4 '>
+          <Link href={`/${locale}/logements/yourte`} className='w-max'>
+            <div className='h-60 w-60 bg-primary flex items-center justify-center'>
+              YOURTE
+            </div>
+          </Link>
+          <Link href={`/${locale}/logements/cabane`} className='w-max'>
+            <div className='h-60 w-60 bg-primary flex items-center justify-center'>
+              CABANE
+            </div>
+          </Link>
         </div>
       </Container>
 
       <div className='my-8 h-96 w-full select-none bg-customImg1 bg-cover bg-fixed bg-center bg-no-repeat md:my-10' />
 
-      <Container>
-        <div className='min-h-72 w-full'>
-          <Heading level={2}>Les activités</Heading>
-        </div>
-      </Container>
+      <AccommodationsDescription />
     </div>
   )
 }
