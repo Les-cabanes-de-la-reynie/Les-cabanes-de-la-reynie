@@ -32,7 +32,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
       <AccommodationsSlider category={UploadImageCategoryKeyEnum.HomeSlider} />
 
       <Container>
-        <div className='grid grid-cols-2 gap-4 '>
+        <div className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
           <Link href={`/${locale}/logements/yourte`} className='w-max'>
             <div className='h-60 w-60 bg-primary flex items-center justify-center'>
               YOURTE

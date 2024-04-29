@@ -3,8 +3,6 @@ import Heading from '@/components/elements/Heading'
 import forest1 from '@/components/images/homeCarousel/forest.webp'
 import forest2 from '@/components/images/homeCarousel/forest2.webp'
 import forest3 from '@/components/images/homeCarousel/forest3.webp'
-import forest4 from '@/components/images/homeCarousel/forest4.webp'
-import forest5 from '@/components/images/homeCarousel/forest5.webp'
 import ActivitiesCard from '@/components/modules/ActivitiesCard'
 import { env } from '@/lib/env'
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
@@ -34,34 +32,25 @@ const Activites = ({ params: { locale } }: { params: { locale: string } }) => {
         <Heading level={1} className='my-8 text-center'>
           ACTIVITES
         </Heading>
-        <Heading level={2} className='mb-4 mt-8'>
-          Que faire dans le Perigord
-        </Heading>
+
         <ul className='grid grid-cols-1 gap-6 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
           <ActivitiesCard
-            title='Que faire dans le Perigord Vert'
+            href={`/${locale}/activites/1`}
+            title="Un terrain de jeux grandeur nature pour les amateurs de sports et d'aventure"
             image={forest1}
-            alt='Paysage du Perigord Vert'
+            alt='TODO'
           />
           <ActivitiesCard
-            title='Que faire dans le Perigord Blanc'
+            href={`/${locale}/activites/2`}
+            title='Un voyage culinaire au cœur du terroir corrézien et périgourdin'
             image={forest2}
-            alt='Paysage du Perigord Blanc'
+            alt='TODO'
           />
           <ActivitiesCard
-            title='Que faire dans le Perigord Noir'
+            href={`/${locale}/activites/3`}
+            title="Sur les traces de l'histoire en Corrèze et en Dordogne"
             image={forest3}
-            alt='Paysage du Perigord Noir'
-          />
-          <ActivitiesCard
-            title='Que faire dans le Perigord Pourpre'
-            image={forest4}
-            alt='Paysage du Perigord Pourpre'
-          />
-          <ActivitiesCard
-            title='Que faire dans le Perigord Bleu'
-            image={forest5}
-            alt='Paysage du Perigord Bleu'
+            alt='TODO'
           />
         </ul>
       </section>
