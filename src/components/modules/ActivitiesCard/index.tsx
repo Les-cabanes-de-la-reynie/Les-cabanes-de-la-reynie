@@ -1,23 +1,19 @@
 import Heading from '@/components/elements/Heading'
-import { useLocale } from 'next-intl'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 
 type ActivitiesCardProps = {
+  href: string
   title: string
   image: StaticImageData
   alt: string
 }
 
-const ActivitiesCard = ({ title, image, alt }: ActivitiesCardProps) => {
-  const lang = useLocale()
-
-  const formattedTitle = title.toLocaleLowerCase().split(' ').join('-')
-
+const ActivitiesCard = ({ href, title, image, alt }: ActivitiesCardProps) => {
   return (
     <li>
       <Link
-        href={`/${lang}/activites/${formattedTitle}`}
+        href={href}
         className='group relative flex h-60 flex-col items-center overflow-hidden rounded-lg text-center'
       >
         <Image
