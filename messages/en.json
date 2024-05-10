@@ -25,6 +25,8 @@
     "homeDescription": "Welcome to les cabanes de la Reynie"
   },
   "Home": {
+    "seeOurYurt": "See our Yurt!",
+    "seeOurHut": "See our Hut!",
     "aboutUsTitle": "Welcome to les cabanes de la Reynie!",
     "aboutUsP1": "The adventure began in 2021 when we scoured the region looking for a place that matched our aspirations. And we found it here: three hectares of meadow, forest, vegetable garden and ponds, on the edge of the Corrèze and at the gateway to the Dordogne.",
     "aboutUsP2": "One hut and one yurt later, many travellers have already stopped off for a few days to get away from it all...",
@@ -32,9 +34,7 @@
     "aboutUsP4": "Treat yourself to an unforgettable getaway in our 6-person yurt or 2-person cabin, with its breathtaking views and rejuvenating tranquillity.",
     "accommodationsTitle": "A haven of peace for nature lovers",
     "accommodationsP1": "Imagine waking up to birdsong, enveloped in the soft morning light filtering through the canvas of your yurt. Let yourself be lulled by the rustle of leaves in the trees above your cabin. Enjoy the view of the lush green countryside and the valleys that stretch as far as the eye can see. Then sit out on the terrace to enjoy a morning coffee in the heart of nature, a gourmet picnic in the shade of the trees or a dreamy aperitif as the sun sets.",
-    "accommodationsP2-1": "Our spacious and comfortable",
-    "accommodationsP2-2": " furnished with taste and simplicity, will offer you an authentic and relaxing stay, and our",
-    "accommodationsP2-3": " nestled in its own green setting, will help you to simply stop time!"
+    "accommodationsP2": "Our spacious and comfortable yurt, furnished with taste and simplicity, will offer you an authentic and relaxing stay, and our hut, nestled in its own green setting, will help you to simply stop time!"
   },
   "Accommodations": {
     "bookList": "Book list",

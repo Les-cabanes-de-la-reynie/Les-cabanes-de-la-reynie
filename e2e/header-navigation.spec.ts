@@ -6,8 +6,6 @@ import {
 } from '../playwright.config'
 import { closeBurgerMenu, openBurgerMenu } from './commons'
 
-const HOME_PAGE_H1_TEXT = 'Les cabanes de la Reynie'
-
 test.beforeEach(async ({ page }) => {
   await page.goto(frenchURL)
 })
@@ -19,9 +17,9 @@ test.describe('Header navigation', () => {
 
     test('should be in the home page on load', async ({ page }) => {
       await expect(page).toHaveURL(frenchURL)
-      await expect(
-        page.getByRole('heading', { name: HOME_PAGE_H1_TEXT })
-      ).toBeVisible()
+
+      const mainTitle = page.getByTestId('home-page-main-title')
+      await expect(mainTitle).toBeVisible()
     })
 
     test('should be in the home page after clicked on the logo', async ({
@@ -29,9 +27,9 @@ test.describe('Header navigation', () => {
     }) => {
       await page.getByTestId('app-main-logo').click()
       await expect(page).toHaveURL(frenchURL)
-      await expect(
-        page.getByRole('heading', { name: HOME_PAGE_H1_TEXT })
-      ).toBeVisible()
+
+      const mainTitle = page.getByTestId('home-page-main-title')
+      await expect(mainTitle).toBeVisible()
     })
 
     test('should open and close the burger menu', async ({ page }) => {
@@ -158,9 +156,9 @@ test.describe('Header navigation', () => {
 
     test('should be in the home page on load', async ({ page }) => {
       await expect(page).toHaveURL(frenchURL)
-      await expect(
-        page.getByRole('heading', { name: HOME_PAGE_H1_TEXT })
-      ).toBeVisible()
+
+      const mainTitle = page.getByTestId('home-page-main-title')
+      await expect(mainTitle).toBeVisible()
     })
 
     test('should be in the home page after clicked on the logo', async ({
@@ -168,9 +166,9 @@ test.describe('Header navigation', () => {
     }) => {
       await page.getByTestId('app-main-logo').click()
       await expect(page).toHaveURL(frenchURL)
-      await expect(
-        page.getByRole('heading', { name: HOME_PAGE_H1_TEXT })
-      ).toBeVisible()
+
+      const mainTitle = page.getByTestId('home-page-main-title')
+      await expect(mainTitle).toBeVisible()
     })
 
     test('should be in the home page after clicked on Home', async ({

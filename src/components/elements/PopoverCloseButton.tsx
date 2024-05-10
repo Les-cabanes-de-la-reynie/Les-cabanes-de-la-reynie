@@ -1,6 +1,6 @@
-import { KeyboardEvent } from 'react'
 import { PopoverClose } from '@radix-ui/react-popover'
 import { X } from 'lucide-react'
+import { KeyboardEvent } from 'react'
 
 type PopoverCloseButtonProps = {
   onPopoverClose?: () => void
@@ -14,7 +14,7 @@ const PopoverCloseButton = ({ onPopoverClose }: PopoverCloseButtonProps) => {
           onPopoverClose()
         }
       }}
-      className='absolute right-[7px] top-[7px] inline-flex h-[25px] w-[25px] cursor-pointer items-center justify-center rounded-full border outline-none transition-colors hover:text-primary focus:shadow-[0_0_0_2px]'
+      className='absolute select-none -right-2 -top-2 bg-popover inline-flex h-[25px] w-[25px] cursor-pointer items-center justify-center rounded-full border outline-none transition-colors hover:bg-accent focus:shadow-[0_0_0_2px]'
       aria-label='Close'
     >
       <X size={16} />

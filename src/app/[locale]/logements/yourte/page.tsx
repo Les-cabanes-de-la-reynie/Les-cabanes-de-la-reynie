@@ -78,9 +78,9 @@ const Yurt = ({ params: { locale } }: { params: { locale: string } }) => {
         </AccommodationsHeaderContent>
       </AccommodationsHeader>
 
-      <AccommodationsSlider category={UploadImageCategoryKeyEnum.YurtSlider} />
-
       <PracticalInformation />
+
+      <AccommodationsSlider category={UploadImageCategoryKeyEnum.YurtSlider} />
     </main>
   )
 }
