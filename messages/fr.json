@@ -25,6 +25,8 @@
     "homeDescription": "Bienvenue sur les cabanes de la Reynie"
   },
   "Home": {
+    "seeOurYurt": "Voir notre Yourte !",
+    "seeOurHut": "Voir notre Cabane !",
     "aboutUsTitle": "Bienvenue dans les cabanes de la Reynie !",
     "aboutUsP1": "L'aventure a commencé en 2021 en arpentant le territoire à la recherche du lieu répondant à nos aspirations. Et nous l'avons trouvé ici : trois hectares de prairie, forêt, potager et mares, aux confins de la Corrèze et aux portes de la Dordogne.",
     "aboutUsP2": "Une cabane et une yourte plus tard, de nombreux voyageurs se sont déjà arrêtés pour quelques jours de dépaysement…",
@@ -32,9 +34,7 @@
     "aboutUsP4": "Alors offrez-vous une escapade inoubliable dans notre yourte pour 6 personnes ou dans notre cabane pour 2, à la vue imprenable et au calme ressourçant.",
     "accommodationsTitle": "Un havre de paix pour les amoureux de la nature",
     "accommodationsP1": "Imaginez-vous vous réveiller au chant des oiseaux, enveloppés par la douce lumière du matin qui filtre à travers les toiles de votre yourte. Laissez-vous bercer par le bruissement des feuilles dans les arbres qui surplombent votre cabane. Profitez de la vue sur les paysages verdoyants et les vallons qui s'étendent à perte de vue. Puis installez-vous sur la terrasse pour savourer un café matinal en pleine nature, un pique-nique gourmand à l'ombre des arbres ou un apéritif rêveur face au coucher du soleil.",
-    "accommodationsP2-1": "Notre",
-    "accommodationsP2-2": "spacieuse et confortable, aménagée avec goût et simplicité, vous offrira un séjour authentique et relaxant et notre",
-    "accommodationsP2-3": "nichée dans son écrin de verdure, vous aidera à arrêter le temps, tout simplement !"
+    "accommodationsP2": "Notre yourte, spacieuse et confortable, aménagée avec goût et simplicité, vous offrira un séjour authentique et relaxant et notre cabane, nichée dans son écrin de verdure, vous aidera à arrêter le temps, tout simplement !"
   },
   "Accommodations": {
     "bookList": "Liste des choix pour réserver",

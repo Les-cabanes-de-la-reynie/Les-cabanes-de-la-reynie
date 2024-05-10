@@ -21,6 +21,7 @@ const HeroBanner = ({ children, title, className }: HeroBannerProps) => {
         <Heading
           level={1}
           className='text-5xl text-primary-foreground lg:text-6xl'
+          data-testid='home-page-main-title'
         >
           {title}
         </Heading>

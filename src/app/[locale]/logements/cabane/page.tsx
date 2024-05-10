@@ -78,9 +78,9 @@ const Hut = ({ params: { locale } }: { params: { locale: string } }) => {
         </AccommodationsHeaderContent>
       </AccommodationsHeader>
 
-      <AccommodationsSlider category={UploadImageCategoryKeyEnum.HutSlider} />
-
       <PracticalInformation />
+
+      <AccommodationsSlider category={UploadImageCategoryKeyEnum.HutSlider} />
     </main>
   )
 }
