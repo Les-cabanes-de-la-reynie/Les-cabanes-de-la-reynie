@@ -24,12 +24,10 @@ const Carousel = ({
   const t = useTranslations('Carousel')
 
   return (
-    <>
-      {!!title && (
-        <Heading level={2} className='mb-4 pl-4 pr-24'>
-          {title}
-        </Heading>
-      )}
+    <div className='relative mt-7'>
+      <Heading level={2} className='first:mt-0 -top-[3.4rem] left-4 absolute'>
+        {title ?? ''}
+      </Heading>
 
       <EmblaCarousel
         className='w-full'
@@ -69,7 +67,7 @@ const Carousel = ({
           sources={lighboxItems}
         />
       ) : null}
-    </>
+    </div>
   )
 }
 export default Carousel

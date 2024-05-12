@@ -14,7 +14,7 @@ const AccommodationsSlider = async ({
   const images = await getUploadedImagesByCategory({ category })
 
   return images?.length ? (
-    <section className='mx-auto w-full max-w-screen-2xl py-8 md:py-10'>
+    <section className='mx-auto w-full max-w-screen-2xl py-8'>
       <CarouselWithLightbox data={images} category={category} />
     </section>
   ) : null
