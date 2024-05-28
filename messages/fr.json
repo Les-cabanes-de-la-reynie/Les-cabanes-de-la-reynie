@@ -44,7 +44,14 @@
     "bed": "Lit king-size 180x200",
     "fridge": "Frigo",
     "shower": "Douche",
-    "dryToilet": "Toilettes sèches"
+    "dryToilet": "Toilettes sèches",
+    "accommodationsDescriptionTitle": "Un séjour écologique et gourmand pour une expérience authentique",
+    "accommodationsDescriptionP1": "Soucieux de préserver l'environnement, notre site est conçu dans une démarche écologique. Notre yourte et notre cabane sont équipées de toilettes sèches et nous favorisons l'utilisation de produits naturels et locaux pour l'entretien des habitations et du site.",
+    "ourGourmetOffer": "Vous pouvez également profiter de notre offre gourmande (sur réservation) :",
+    "ourGourmetOfferImportantItem1": "Planche apéritive 100 % produits locaux et bio",
+    "ourGourmetOfferItem1": ", composée de charcuterie artisanale, de fromages fermiers, de fruits et légumes de saison, accompagnée de pain frais, de tartinades maison et de vin",
+    "ourGourmetOfferImportantItem2": "Petits déjeuners bio et locaux",
+    "ourGourmetOfferItem2": ", avec viennoiseries du boulanger local, confitures et yaourts maison, œufs brouillés de nos poules, fruits de saison…"
   },
   "Yurt": {
     "yurtP1": "La yourte peut accueillir jusqu'à 6 personnes (un lit-double, deux lits simples et un canapé-lit) et dispose d'un coin cuisine avec réchaud, d'une table et de chaises, et d'un accès à l'eau potable (filtre). Ses deux portes, son puits de lumière et sa fenêtre apportent toute la lumière nécessaire.",

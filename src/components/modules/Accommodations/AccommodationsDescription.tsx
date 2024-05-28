@@ -9,7 +9,7 @@ const AccommodationsDescription = () => {
   return (
     <Container>
       <div className=' w-full'>
-        <Heading level={2}>{t('accommodationsTitle')}</Heading>
+        <Heading level={3}>{t('accommodationsTitle')}</Heading>
         <P>{t('accommodationsP1')}</P>
         <P>{t('accommodationsP2')}</P>
       </div>

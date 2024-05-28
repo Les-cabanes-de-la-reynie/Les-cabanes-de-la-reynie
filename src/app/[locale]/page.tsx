@@ -20,10 +20,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
 
   return (
     <div className='w-full lg:-mt-[4.5rem]'>
-      <HeroBanner
-        title={ESTABLISHMENT_TITLE}
-        className='mb-8 md:mb-10 select-none'
-      >
+      <HeroBanner title={ESTABLISHMENT_TITLE} className='select-none'>
         <Image
           alt='Paysage typique dans "Les cabanes de la Reynie"'
           src={fullscreenImage}
@@ -37,7 +34,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
 
       <IntroduceLesCabanesDeLaReynie />
 
-      <div className='my-8 h-96 w-full select-none bg-homeParallaxImage bg-cover bg-fixed bg-center bg-no-repeat md:my-10' />
+      <div className='mb-8 h-96 w-full select-none bg-homeParallaxImage bg-cover bg-fixed bg-center bg-no-repeat md:mb-10' />
 
       <AccommodationsSlider category={UploadImageCategoryKeyEnum.HomeSlider} />
 

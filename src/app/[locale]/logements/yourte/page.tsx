@@ -9,6 +9,7 @@ import AccommodationsHeaderImage from '@/components/modules/Accommodations/Accom
 import AccommodationsPopover from '@/components/modules/Accommodations/AccommodationsPopover'
 import AccommodationsPrice from '@/components/modules/Accommodations/AccommodationsPrice'
 import AccommodationsSlider from '@/components/modules/Accommodations/AccommodationsSlider'
+import OurGourmetOffer from '@/components/modules/OurGourmetOffer'
 import PracticalInformation from '@/components/modules/PracticalInformation'
 import { env } from '@/lib/env'
 import { useTranslations } from 'next-intl'
@@ -81,6 +82,8 @@ const Yurt = ({ params: { locale } }: { params: { locale: string } }) => {
       <PracticalInformation />
 
       <AccommodationsSlider category={UploadImageCategoryKeyEnum.YurtSlider} />
+
+      <OurGourmetOffer />
     </main>
   )
 }

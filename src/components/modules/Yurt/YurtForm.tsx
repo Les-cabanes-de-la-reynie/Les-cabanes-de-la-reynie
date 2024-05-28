@@ -19,7 +19,7 @@ import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import * as z from 'zod'
-import EditableButtons from '../EditableButtons'
+import EditableButtons from '../../elements/EditableButtons'
 
 type YurtFormProps = {
   yurt: Yurt
