@@ -23,7 +23,7 @@ const Heading = ({
   ...rest
 }: HeadingProps) => {
   const h1ClassName = cn(
-    'scroll-m-20 text-4xl font-medium tracking-tight lg:text-5xl',
+    'scroll-m-20 text-4xl text-balance font-medium tracking-tight lg:text-5xl',
     {
       'text-error': error
     },
@@ -31,21 +31,21 @@ const Heading = ({
   )
   const h2ClassName = cn(
     fontFamily.variable,
-    'scroll-m-20 text-3xl font-title first:mt-0',
+    'scroll-m-20 text-3xl text-balance font-title first:mt-0',
     {
       'text-error': error
     },
     className
   )
   const h3ClassName = cn(
-    'scroll-m-20 text-2xl font-semibold tracking-tight',
+    'scroll-m-20 text-2xl text-balance font-semibold tracking-tight',
     {
       'text-error': error
     },
     className
   )
   const h4ClassName = cn(
-    'scroll-m-20 text-xl font-semibold tracking-tight',
+    'scroll-m-20 text-xl text-balance font-semibold tracking-tight',
     {
       'text-error': error
     },
