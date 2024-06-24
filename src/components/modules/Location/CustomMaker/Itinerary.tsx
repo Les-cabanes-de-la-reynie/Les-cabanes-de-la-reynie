@@ -1,4 +1,6 @@
+import { APP_ICON_SIZE_CLASSNAME } from '@/_constants/className'
 import { Address } from '@/_types/address'
+import { IconContainer } from '@/components/elements/IconContainer'
 import { NavigationIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
@@ -11,13 +13,15 @@ const Itinerary = ({ address }: ItineraryProps) => {
 
   return (
     <div
-      className='mb-2 flex flex-col text-primary hover:underline'
+      className='flex flex-col text-primary hover:underline'
       itemProp='address'
       itemScope
       itemType='https://schema.org/PostalAddress'
     >
-      <span className='flex items-center justify-center'>
-        <NavigationIcon size={15} className='mr-1' />
+      <span className='flex items-center'>
+        <IconContainer size={'none'}>
+          <NavigationIcon className={APP_ICON_SIZE_CLASSNAME} />
+        </IconContainer>
         {tContact('Itinerary')} :
       </span>
       <div>

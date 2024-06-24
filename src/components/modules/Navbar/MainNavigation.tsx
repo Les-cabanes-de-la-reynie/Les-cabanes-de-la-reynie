@@ -1,3 +1,4 @@
+import { IconContainer } from '@/components/elements/IconContainer'
 import useOutsideClick from '@/hooks/useOutsideClick'
 import useToggle from '@/hooks/useToggle'
 import { cn } from '@/utils/tailwind'
@@ -81,16 +82,18 @@ const MainNavigation = ({
           tabIndex={0}
         >
           <div
-            className={cn('flex max-w-max cursor-pointer items-center gap-2 ', {
+            className={cn('flex max-w-max cursor-pointer items-center', {
               'pb-4 lg:pb-0': isNestedListOpen
             })}
           >
             {t('accommodations')}
-            <ChevronDown
-              className={cn('rotate-0 transition-transform', {
-                'rotate-180': isNestedListOpen
-              })}
-            />
+            <IconContainer className='mr-0'>
+              <ChevronDown
+                className={cn('rotate-0 transition-transform w-5 h-5', {
+                  'rotate-180': isNestedListOpen
+                })}
+              />
+            </IconContainer>
           </div>
           <NavList
             className={cn('hidden', {

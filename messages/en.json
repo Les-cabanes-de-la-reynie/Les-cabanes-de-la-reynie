@@ -19,7 +19,13 @@
     "hutInformation": "Hut information",
     "practicalInformation": "Practical information",
     "sliderTitle": "Our accommodations",
-    "uploadImage": "Upload your images"
+    "uploadImage": "Upload your images",
+    "address": "Address",
+    "postalCode": "Postal Code",
+    "city": "City",
+    "country": "Country",
+    "phone": "Phone",
+    "email": "Email"
   },
   "SEO": {
     "homeDescription": "Welcome to les cabanes de la Reynie"
@@ -86,13 +92,7 @@
   "Activities": {},
   "Admin": {
     "personnalInformation": "Personnal information",
-    "personnalInformationDescription": "The information here will be displayed on the map in the contact page",
-    "address": "Address",
-    "postalCode": "Postal Code",
-    "city": "City",
-    "country": "Country",
-    "phone": "Phone",
-    "email": "Email"
+    "personnalInformationDescription": "The information here will be displayed on the map in the contact page"
   },
   "Errors": {
     "shortError404": "404 - Page not found",

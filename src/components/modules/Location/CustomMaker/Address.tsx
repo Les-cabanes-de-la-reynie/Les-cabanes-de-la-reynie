@@ -1,7 +1,5 @@
-import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import { Address as AddressType } from '@/_types/address'
-import Heading from '@/components/elements/Heading'
-import { cn } from '@/utils/tailwind'
+import { Separator } from '@/components/ui/separator'
 import Email from './Email'
 import ItineraryAlertDialog from './ItineraryAlertDialog'
 import Phone from './Phone'
@@ -10,14 +8,12 @@ type AddressProps = { address: AddressType }
 
 const Address = ({ address }: AddressProps) => {
   return (
-    <address className='text-center text-sm'>
-      <Heading level={3} className={cn('mb-2 text-primary dark:text-primary')}>
-        {ESTABLISHMENT_TITLE}
-      </Heading>
-
+    <address className='text-sm'>
       <ItineraryAlertDialog address={address} />
 
+      <Separator className='my-2' />
       <Phone address={address} />
+      <Separator className='my-2' />
 
       <Email address={address} />
     </address>
