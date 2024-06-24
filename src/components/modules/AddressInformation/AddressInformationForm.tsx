@@ -26,8 +26,7 @@ type AddressInformationFormProps = {
 }
 
 const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
-  const t = useTranslations('Common')
-  const t2 = useTranslations('Admin')
+  const tCommon = useTranslations('Common')
 
   const [isPending, startTransition] = useTransition()
   const [isEdit, handleToggleEdit] = useToggle(false)
@@ -46,7 +45,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
       if (validationErrors) {
         toast.error('There was an error updating address.', {
           action: {
-            label: t('close'),
+            label: tCommon('close'),
             onClick: () => toast.dismiss()
           }
         })
@@ -56,7 +55,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
       if (serverError) {
         toast.error(serverError, {
           action: {
-            label: t('close'),
+            label: tCommon('close'),
             onClick: () => toast.dismiss()
           }
         })
@@ -65,7 +64,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
 
       toast.success('Success ! Address information updated', {
         action: {
-          label: t('close'),
+          label: tCommon('close'),
           onClick: () => toast.dismiss()
         }
       })
@@ -81,7 +80,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='streetAddress'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t2('address')}</FormLabel>
+              <FormLabel>{tCommon('address')}</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -94,7 +93,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='postalCode'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t2('postalCode')} *</FormLabel>
+              <FormLabel>{tCommon('postalCode')} *</FormLabel>
               <FormControl>
                 <Input required {...field} />
               </FormControl>
@@ -107,7 +106,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='city'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t2('city')} *</FormLabel>
+              <FormLabel>{tCommon('city')} *</FormLabel>
               <FormControl>
                 <Input required {...field} />
               </FormControl>
@@ -120,7 +119,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='country'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t2('country')} *</FormLabel>
+              <FormLabel>{tCommon('country')} *</FormLabel>
               <FormControl>
                 <Input required {...field} />
               </FormControl>
@@ -133,7 +132,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='phone'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t2('phone')} *</FormLabel>
+              <FormLabel>{tCommon('phone')} *</FormLabel>
               <FormControl>
                 <Input type='number' required {...field} />
               </FormControl>
@@ -146,7 +145,7 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
           name='email'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t2('email')} *</FormLabel>
+              <FormLabel>{tCommon('email')} *</FormLabel>
               <FormControl>
                 <Input type='email' required {...field} />
               </FormControl>

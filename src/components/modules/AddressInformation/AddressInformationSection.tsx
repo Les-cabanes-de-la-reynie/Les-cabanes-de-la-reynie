@@ -6,15 +6,15 @@ import { Suspense } from 'react'
 import AddressInformation from '.'
 
 const AddressInformationSection = () => {
-  const t = useTranslations('Admin')
+  const tAdmin = useTranslations('Admin')
 
   return (
     <section className='mb-8'>
       <Heading level={2} className='my-8'>
-        {t('personnalInformation')}
+        {tAdmin('personnalInformation')}
       </Heading>
 
-      <P className='mb-5'>{t('personnalInformationDescription')}</P>
+      <P className='mb-5'>{tAdmin('personnalInformationDescription')}</P>
 
       <Suspense fallback={<Loader />}>
         <AddressInformation />

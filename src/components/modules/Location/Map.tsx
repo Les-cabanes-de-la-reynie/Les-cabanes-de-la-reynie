@@ -1,7 +1,9 @@
 'use client'
 
 import { Address as AddressType } from '@/_types/address'
+import { IconContainer } from '@/components/elements/IconContainer'
 import P from '@/components/elements/P'
+import { cn } from '@/utils/tailwind'
 import 'leaflet/dist/leaflet.css'
 import { AlertCircleIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
@@ -28,8 +30,10 @@ const Map = ({ address }: MapProps) => {
         </CustomMarker>
       </MapContainer>
 
-      <P className='flex gap-2'>
-        <AlertCircleIcon className='stroke-primary' />
+      <P className='flex items-center'>
+        <IconContainer>
+          <AlertCircleIcon className={cn('stroke-primary w-5 h-5')} />
+        </IconContainer>
         <span>{t('locationDescription')}</span>
       </P>
     </div>

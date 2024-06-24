@@ -14,6 +14,7 @@ import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import { X } from 'lucide-react'
 import Image from 'next/image'
+import { APP_ICON_SIZE_CLASSNAME } from '../../../../_constants/className'
 
 type PreviewImageItemProps = {
   image: UploadImage
@@ -54,7 +55,7 @@ const PreviewImageItem = ({
             variant='destructive'
             className='absolute right-0 top-0 p-2'
           >
-            <X className='h-5 w-5' />
+            <X className={APP_ICON_SIZE_CLASSNAME} />
           </Button>
         </AlertDialogTrigger>
         <AlertDialogContent>

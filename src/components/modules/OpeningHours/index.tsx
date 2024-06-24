@@ -1,3 +1,4 @@
+import { IconContainer } from '@/components/elements/IconContainer'
 import P from '@/components/elements/P'
 import { formatDateToTime } from '@/utils/date'
 import { AlertCircleIcon } from 'lucide-react'
@@ -104,8 +105,10 @@ const OpeningHours = ({
       />
 
       {!editable && (
-        <div className='mt-4 flex gap-2'>
-          <AlertCircleIcon className='stroke-primary' />
+        <div className='mt-4 flex'>
+          <IconContainer className='mt-1'>
+            <AlertCircleIcon className='stroke-primary w-5 h-5' />
+          </IconContainer>
           <div>
             <P>{t('departuresDescription')}</P>
             <P className='[&:not(:first-child)]:mt-0'>

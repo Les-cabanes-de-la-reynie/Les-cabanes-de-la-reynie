@@ -19,7 +19,13 @@
     "hutInformation": "Informations concernant la cabane",
     "practicalInformation": "Informations pratiques",
     "sliderTitle": "Nos logements",
-    "uploadImage": "Télécharger vos images"
+    "uploadImage": "Télécharger vos images",
+    "address": "Adresse",
+    "postalCode": "Code postal",
+    "city": "Ville",
+    "country": "Pays",
+    "phone": "Téléphone",
+    "email": "Email"
   },
   "SEO": {
     "homeDescription": "Bienvenue sur les cabanes de la Reynie"
@@ -86,13 +92,7 @@
   "Activities": {},
   "Admin": {
     "personnalInformation": "Informations personnelles",
-    "personnalInformationDescription": "Les informations ici vont être affichées sur la carte dans la page contact",
-    "address": "Adresse",
-    "postalCode": "Code postal",
-    "city": "Ville",
-    "country": "Pays",
-    "phone": "Téléphone",
-    "email": "Email"
+    "personnalInformationDescription": "Les informations ici vont être affichées sur la carte dans la page contact"
   },
   "Errors": {
     "shortError404": "404 - La page demandée n'a pas été trouvée",

@@ -1,7 +1,7 @@
 import Container from '@/components/elements/Container'
 import Heading from '@/components/elements/Heading'
-import Location from '@/components/modules/Location'
-import OpeningHoursData from '@/components/modules/OpeningHours/OpeningHoursData'
+import LocationSection from '@/components/modules/Location/LocationSection'
+import OpeningHoursSection from '@/components/modules/OpeningHours/OpeningHoursSection'
 import { env } from '@/lib/env'
 import { useTranslations } from 'next-intl'
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
@@ -33,14 +33,9 @@ const Contact = ({ params: { locale } }: { params: { locale: string } }) => {
         {t('contactMainTitle')}
       </Heading>
       <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
-        <section className='flex w-full flex-col gap-4 lg:mb-0'>
-          <Heading level={2}>{t('openingHours')}</Heading>
-          <OpeningHoursData editable={false} />
-        </section>
-        <section className='flex w-full flex-col gap-4 lg:mb-0'>
-          <Heading level={2}>{t('location')}</Heading>
-          <Location />
-        </section>
+        <OpeningHoursSection editable={false} />
+
+        <LocationSection />
       </div>
     </Container>
   )
