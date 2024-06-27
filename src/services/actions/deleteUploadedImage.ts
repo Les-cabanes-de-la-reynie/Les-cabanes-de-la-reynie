@@ -1,13 +1,13 @@
 'use server'
 
 import { db } from '@/lib/prisma'
-import { authenticatedAction } from '@/lib/safeActions'
+import { authActionClient } from '@/lib/safeActions'
 import { utapi } from '@/lib/utapiUploadthing'
 import { DeleteUploadedImageSchema } from '@/models/UploadedImages'
 
-export const deleteUploadedImage = authenticatedAction(
-  DeleteUploadedImageSchema,
-  async ({ id, imageKey }) => {
+export const deleteUploadedImage = authActionClient
+  .schema(DeleteUploadedImageSchema)
+  .action(async ({ parsedInput: { id, imageKey } }) => {
     // Delete old image in uploadthing (https://uploadthing.com/) by his key
     await utapi.deleteFiles(imageKey)
 
@@ -17,5 +17,4 @@ export const deleteUploadedImage = authenticatedAction(
         id
       }
     })
-  }
-)
+  })

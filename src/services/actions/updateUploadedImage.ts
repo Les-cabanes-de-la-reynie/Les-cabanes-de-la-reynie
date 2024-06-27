@@ -1,12 +1,12 @@
 'use server'
 
 import { db } from '@/lib/prisma'
-import { authenticatedAction } from '@/lib/safeActions'
+import { authActionClient } from '@/lib/safeActions'
 import { UpdateUploadedImageCommonSchema } from '@/models/UploadedImages'
 
-export const updateUploadedImage = authenticatedAction(
-  UpdateUploadedImageCommonSchema,
-  async ({ key, url, category }) => {
+export const updateUploadedImage = authActionClient
+  .schema(UpdateUploadedImageCommonSchema)
+  .action(async ({ parsedInput: { key, url, category } }) => {
     try {
       // Create new image in specific category
       await db.image.create({
@@ -19,5 +19,4 @@ export const updateUploadedImage = authenticatedAction(
     } catch (error) {
       return error
     }
-  }
-)
+  })

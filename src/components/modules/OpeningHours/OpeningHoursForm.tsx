@@ -27,10 +27,9 @@ const OpeningHoursForm = ({
 
           const openingHoursData = formatFormDataIntoOpeningHoursData(formData)
 
-          const { validationErrors, serverError } =
-            await updateOpeningHours(openingHoursData)
+          const res = await updateOpeningHours(openingHoursData)
 
-          if (validationErrors) {
+          if (res?.validationErrors) {
             return toast.error(
               'There was an error updating opening hours. Data are maybe invalid',
               {
@@ -42,8 +41,8 @@ const OpeningHoursForm = ({
             )
           }
 
-          if (serverError) {
-            return toast.error(serverError, {
+          if (res?.serverError) {
+            return toast.error(res.serverError, {
               action: {
                 label: t('close'),
                 onClick: () => toast.dismiss()

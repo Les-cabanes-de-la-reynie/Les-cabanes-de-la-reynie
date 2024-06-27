@@ -8,7 +8,6 @@ import YurtSection from '@/components/modules/Yurt/YurtSection'
 import { Separator } from '@/components/ui/separator'
 import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 import { NextPage } from 'next'
-import { useLocale } from 'next-intl'
 
 const AdminPage: NextPage = withPageAuthRequired(
   async () => {
@@ -40,9 +39,7 @@ const AdminPage: NextPage = withPageAuthRequired(
   },
   {
     returnTo: () => {
-      // eslint-disable-next-line
-      const lang = useLocale()
-      return `${lang}/admin`
+      return 'fr/admin'
     }
   }
 )

@@ -1,11 +1,11 @@
 'use client'
 
-import { useTransition } from 'react'
-import { useTranslations } from 'next-intl'
 import { DeleteUploadImage, UploadImage } from '@/_types/uploadImage'
-import PreviewImageItem from './PreviewImageItem'
 import { deleteUploadedImage } from '@/services/actions/deleteUploadedImage'
+import { useTranslations } from 'next-intl'
+import { useTransition } from 'react'
 import { toast } from 'sonner'
+import PreviewImageItem from './PreviewImageItem'
 
 type PreviewImageListProps = { images: UploadImage[] }
 
@@ -20,12 +20,12 @@ const PreviewImageList = ({ images }: PreviewImageListProps) => {
   }: DeleteUploadImage) => {
     startTransition(async () => {
       // Update database
-      const { validationErrors, serverError } = await deleteUploadedImage({
+      const res = await deleteUploadedImage({
         id,
         imageKey
       })
 
-      if (validationErrors) {
+      if (res?.validationErrors) {
         toast.error('There was an error deleting uploaded image.', {
           action: {
             label: t('close'),
@@ -35,8 +35,8 @@ const PreviewImageList = ({ images }: PreviewImageListProps) => {
         return
       }
 
-      if (serverError) {
-        toast.error(serverError, {
+      if (res?.serverError) {
+        toast.error(res.serverError, {
           action: {
             label: t('close'),
             onClick: () => toast.dismiss()

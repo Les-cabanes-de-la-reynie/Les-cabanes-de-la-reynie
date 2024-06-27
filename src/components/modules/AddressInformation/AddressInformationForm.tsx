@@ -39,10 +39,9 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
 
   const onSubmit = (data: z.infer<typeof AddressFormSchema>) => {
     startTransition(async () => {
-      const { validationErrors, serverError } =
-        await updateAddressInformation(data)
+      const res = await updateAddressInformation(data)
 
-      if (validationErrors) {
+      if (res?.validationErrors) {
         toast.error('There was an error updating address.', {
           action: {
             label: tCommon('close'),
@@ -52,8 +51,8 @@ const AddressInformationForm = ({ address }: AddressInformationFormProps) => {
         return
       }
 
-      if (serverError) {
-        toast.error(serverError, {
+      if (res?.serverError) {
+        toast.error(res.serverError, {
           action: {
             label: tCommon('close'),
             onClick: () => toast.dismiss()
