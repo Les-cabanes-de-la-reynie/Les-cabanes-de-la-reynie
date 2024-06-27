@@ -1,24 +1,33 @@
-import { createSafeActionClient } from 'next-safe-action'
 import { getSession } from '@auth0/nextjs-auth0'
+import { createSafeActionClient } from 'next-safe-action'
 
 export class ActionError extends Error {}
 
-export const authenticatedAction = createSafeActionClient({
-  handleReturnedServerError(error) {
-    if (error instanceof ActionError) {
-      return error.message
+// Base client
+export const actionClient = createSafeActionClient({
+  handleReturnedServerError: e => {
+    // If the error is an instance of `ActionError`, unmask the message.
+    if (e instanceof ActionError) {
+      return e.message
     }
-    return 'Something went wrong ! Maybe forgot to be logged ?'
-  },
-  async middleware() {
-    // This code runs on your server before action
-    const user = await getSession()
 
-    const userEmail = user?.user?.email
-    const isEmailVerified = user?.user.email_verified
-
-    // If you throw, the user will not be able to upload
-    if (!userEmail || !isEmailVerified)
-      throw new ActionError('You need to be logged to do this')
+    // Otherwise return default error message.
+    return 'Something went wrong!'
   }
+})
+
+// Auth client
+export const authActionClient = actionClient.use(async ({ next }) => {
+  // This code runs on your server before action
+  const user = await getSession()
+
+  const userEmail = user?.user?.email
+  const isEmailVerified = user?.user.email_verified
+
+  // If you throw an error, the user will not be able to upload pictures
+  if (!userEmail || !isEmailVerified) {
+    throw new Error('You need to be logged to do this')
+  }
+
+  return next({ ctx: { userEmail } })
 })

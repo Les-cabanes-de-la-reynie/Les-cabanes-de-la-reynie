@@ -39,9 +39,9 @@ const YurtForm = ({ yurt }: YurtFormProps) => {
 
   const onSubmit = (data: z.infer<typeof YurtDataSchema>) => {
     startTransition(async () => {
-      const { validationErrors, serverError } = await updateYurtPrice(data)
+      const res = await updateYurtPrice(data)
 
-      if (validationErrors) {
+      if (res?.validationErrors) {
         toast.error('There was an error updating price.', {
           action: {
             label: t('close'),
@@ -51,8 +51,8 @@ const YurtForm = ({ yurt }: YurtFormProps) => {
         return
       }
 
-      if (serverError) {
-        toast.error(serverError, {
+      if (res?.serverError) {
+        toast.error(res.serverError, {
           action: {
             label: t('close'),
             onClick: () => toast.dismiss()

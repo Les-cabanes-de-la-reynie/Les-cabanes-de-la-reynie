@@ -39,9 +39,9 @@ const HutForm = ({ hut }: hutFormProps) => {
 
   const onSubmit = (data: z.infer<typeof HutDataSchema>) => {
     startTransition(async () => {
-      const { validationErrors, serverError } = await updateHutPrice(data)
+      const res = await updateHutPrice(data)
 
-      if (validationErrors) {
+      if (res?.validationErrors) {
         toast.error('There was an error updating price.', {
           action: {
             label: t('close'),
@@ -51,8 +51,8 @@ const HutForm = ({ hut }: hutFormProps) => {
         return
       }
 
-      if (serverError) {
-        toast.error(serverError, {
+      if (res?.serverError) {
+        toast.error(res.serverError, {
           action: {
             label: t('close'),
             onClick: () => toast.dismiss()

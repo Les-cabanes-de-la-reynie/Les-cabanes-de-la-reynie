@@ -1,15 +1,14 @@
 'use server'
 
 import { db } from '@/lib/prisma'
-import { authenticatedAction } from '@/lib/safeActions'
+import { authActionClient } from '@/lib/safeActions'
 import { AddressFormSchema } from '@/models/Address'
 
-export const updateAddressInformation = authenticatedAction(
-  AddressFormSchema,
-  async addressData => {
+export const updateAddressInformation = authActionClient
+  .schema(AddressFormSchema)
+  .action(async ({ parsedInput: addressData }) => {
     await db.address.update({
       where: { id: 1 },
       data: addressData
     })
-  }
-)
+  })
