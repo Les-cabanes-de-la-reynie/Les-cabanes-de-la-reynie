@@ -14,7 +14,7 @@ const PracticalInformationCard = ({
     <li>
       <Card className='flex flex-col items-center p-4 text-center'>
         {children}
-        <P className='mt-6 font-normal'>{description}</P>
+        <P className='mt-6 font-normal text-center'>{description}</P>
       </Card>
     </li>
   )

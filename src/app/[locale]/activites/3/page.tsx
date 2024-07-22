@@ -3,7 +3,18 @@ import Heading from '@/components/elements/Heading'
 import P from '@/components/elements/P'
 import forest from '@/components/images/homeCarousel/forest4.webp'
 import HeroBanner from '@/components/modules/HeroBanner'
+import { env } from '@/lib/env'
 import Image from 'next/image'
+
+export async function generateStaticParams() {
+  return env.NEXT_PUBLIC_LANGS.map(locale => ({ locale }))
+}
+
+export async function generateMetadata() {
+  return {
+    title: "Sur les traces de l'histoire en Corrèze et en Dordogne"
+  }
+}
 
 const Activity3 = () => {
   return (

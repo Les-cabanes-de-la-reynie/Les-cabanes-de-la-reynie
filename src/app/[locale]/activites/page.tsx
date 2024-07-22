@@ -16,10 +16,12 @@ export async function generateMetadata({
 }: {
   params: { locale: string }
 }) {
-  const t = await getTranslations({ locale, namespace: 'Common' })
+  const tCommon = await getTranslations({ locale, namespace: 'Common' })
+  const tSEO = await getTranslations({ locale, namespace: 'SEO' })
 
   return {
-    title: t('activities')
+    title: tCommon('activities'),
+    description: tSEO('activitiesDescription')
   }
 }
 
