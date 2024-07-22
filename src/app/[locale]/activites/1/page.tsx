@@ -3,7 +3,19 @@ import Heading from '@/components/elements/Heading'
 import P from '@/components/elements/P'
 import forest from '@/components/images/homeCarousel/forest2.webp'
 import HeroBanner from '@/components/modules/HeroBanner'
+import { env } from '@/lib/env'
 import Image from 'next/image'
+
+export async function generateStaticParams() {
+  return env.NEXT_PUBLIC_LANGS.map(locale => ({ locale }))
+}
+
+export async function generateMetadata() {
+  return {
+    title:
+      "Un terrain de jeux grandeur nature pour les amateurs de sports et d'aventure"
+  }
+}
 
 const Activity1 = () => {
   return (
