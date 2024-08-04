@@ -9,9 +9,11 @@ import IntroduceLesCabanesDeLaReynie from '@/components/modules/IntroduceLesCaba
 import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import Image from 'next/image'
-import yourtImageFront from '../../components/images/homeCarousel/forest2.webp'
-import yourtImageHover from '../../components/images/homeCarousel/forest3.webp'
-import fullscreenImage from '../../components/images/hutAndYurt/cabane-ext.jpg'
+import homeBannerImage from '../../components/images/hutAndYurt/home-banner.jpg'
+import hutImageFront from '../../components/images/hutAndYurt/home-hut-front.jpg'
+import hutImageHover from '../../components/images/hutAndYurt/home-hut-hover.jpg'
+import yourtImageFront from '../../components/images/hutAndYurt/home-yourt-front.jpg'
+import yourtImageHover from '../../components/images/hutAndYurt/home-yourt-hover.jpg'
 
 const Home = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
@@ -23,7 +25,7 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
       <HeroBanner title={ESTABLISHMENT_TITLE} className='select-none'>
         <Image
           alt='Paysage typique dans "Les cabanes de la Reynie"'
-          src={fullscreenImage}
+          src={homeBannerImage}
           placeholder='blur'
           fill
           sizes='100vw'
@@ -51,8 +53,8 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
 
           <AccommodationsCard
             href={`/${locale}/logements/cabane`}
-            imageOnFront={yourtImageFront}
-            imageOnHover={yourtImageHover}
+            imageOnFront={hutImageFront}
+            imageOnHover={hutImageHover}
             textContent={t('seeOurHut')}
           />
         </div>
