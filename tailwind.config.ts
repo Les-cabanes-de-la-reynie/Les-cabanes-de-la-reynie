@@ -84,7 +84,7 @@ const config = {
       },
       backgroundImage: {
         homeParallaxImage:
-          'url("../components/images/background/cabane-fenetres.jpg")'
+          'url("../components/images/hutAndYurt/home-parallax.jpg")'
       }
     }
   },

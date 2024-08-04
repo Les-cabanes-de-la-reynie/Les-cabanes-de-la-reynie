@@ -1,7 +1,7 @@
 import Container from '@/components/elements/Container'
 import Heading from '@/components/elements/Heading'
 import P from '@/components/elements/P'
-import natureImage from '@/components/images/background/nature.svg'
+import natureImage from '@/components/images/svg/nature.svg'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
