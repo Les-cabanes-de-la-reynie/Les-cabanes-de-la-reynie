@@ -37,11 +37,20 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'SEO' })
 
   return {
+    metadataBase: new URL(env.NEXT_PUBLIC_BASE_URL),
     title: {
       default: ESTABLISHMENT_TITLE,
       template: `%s - ${ESTABLISHMENT_TITLE}`
     },
-    description: t('homeDescription')
+    description: t('homeDescription'),
+    openGraph: {
+      title: ESTABLISHMENT_TITLE,
+      description: t('homeDescription'),
+      type: 'website',
+      locale: locale,
+      url: env.NEXT_PUBLIC_BASE_URL,
+      siteName: ESTABLISHMENT_TITLE
+    }
   }
 }
 
