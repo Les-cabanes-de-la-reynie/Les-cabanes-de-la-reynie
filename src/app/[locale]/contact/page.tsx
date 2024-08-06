@@ -27,7 +27,7 @@ export async function generateMetadata({
       description: tSEO('contactDescription'),
       type: 'website',
       locale: locale,
-      url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/${tCommon('accommodations').toLocaleLowerCase()}/${tCommon('contact').toLocaleLowerCase()}`,
+      url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/${tCommon('contact').toLocaleLowerCase()}`,
       siteName: ESTABLISHMENT_TITLE
     }
   }
