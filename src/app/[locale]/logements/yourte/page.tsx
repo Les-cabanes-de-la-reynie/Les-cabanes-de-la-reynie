@@ -1,3 +1,4 @@
+import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import { AccommodationTypeEnum } from '@/_types/accommodations'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import Heading from '@/components/elements/Heading'
@@ -30,7 +31,15 @@ export async function generateMetadata({
 
   return {
     title: tCommon('yurt'),
-    description: tSEO('yurtDescription')
+    description: tSEO('yurtDescription'),
+    openGraph: {
+      title: tCommon('yurt'),
+      description: tSEO('yurtDescription'),
+      type: 'website',
+      locale: locale,
+      url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/${tCommon('accommodations').toLocaleLowerCase()}/${tCommon('yurt').toLocaleLowerCase()}`,
+      siteName: ESTABLISHMENT_TITLE
+    }
   }
 }
 

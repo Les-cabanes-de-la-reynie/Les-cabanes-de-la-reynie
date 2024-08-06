@@ -1,3 +1,4 @@
+import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import Container from '@/components/elements/Container'
 import Heading from '@/components/elements/Heading'
 import LocationSection from '@/components/modules/Location/LocationSection'
@@ -20,7 +21,15 @@ export async function generateMetadata({
 
   return {
     title: tCommon('contact'),
-    description: tSEO('contactDescription')
+    description: tSEO('contactDescription'),
+    openGraph: {
+      title: tCommon('contact'),
+      description: tSEO('contactDescription'),
+      type: 'website',
+      locale: locale,
+      url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/${tCommon('accommodations').toLocaleLowerCase()}/${tCommon('contact').toLocaleLowerCase()}`,
+      siteName: ESTABLISHMENT_TITLE
+    }
   }
 }
 
