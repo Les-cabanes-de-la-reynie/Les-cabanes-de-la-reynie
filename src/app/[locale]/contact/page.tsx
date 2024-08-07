@@ -29,11 +29,13 @@ export async function generateMetadata({
       locale: locale,
       url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/${tCommon('contact').toLocaleLowerCase()}`,
       siteName: ESTABLISHMENT_TITLE,
-      images: {
-        url: '/yurt.jpg',
-        width: 1200,
-        height: 630
-      }
+      images: [
+        {
+          url: '/yurt.jpg',
+          width: 1200,
+          height: 630
+        }
+      ]
     }
   }
 }
