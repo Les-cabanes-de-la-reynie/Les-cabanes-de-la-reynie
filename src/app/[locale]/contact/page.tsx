@@ -1,6 +1,7 @@
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import Container from '@/components/elements/Container'
 import Heading from '@/components/elements/Heading'
+import openGraphImage from '@/components/images/seo/yourt.jpg'
 import LocationSection from '@/components/modules/Location/LocationSection'
 import OpeningHoursSection from '@/components/modules/OpeningHours/OpeningHoursSection'
 import { env } from '@/lib/env'
@@ -28,7 +29,8 @@ export async function generateMetadata({
       type: 'website',
       locale: locale,
       url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/${tCommon('contact').toLocaleLowerCase()}`,
-      siteName: ESTABLISHMENT_TITLE
+      siteName: ESTABLISHMENT_TITLE,
+      images: [openGraphImage]
     }
   }
 }
