@@ -12,8 +12,8 @@ import Image from 'next/image'
 import homeBannerImage from '../../components/images/hutAndYurt/home-banner.jpg'
 import hutImageFront from '../../components/images/hutAndYurt/home-hut-front.jpg'
 import hutImageHover from '../../components/images/hutAndYurt/home-hut-hover.jpg'
-import yourtImageFront from '../../components/images/hutAndYurt/home-yourt-front.jpg'
-import yourtImageHover from '../../components/images/hutAndYurt/home-yourt-hover.jpg'
+import yurtImageFront from '../../components/images/hutAndYurt/home-yurt-front.jpg'
+import yurtImageHover from '../../components/images/hutAndYurt/home-yurt-hover.jpg'
 
 const Home = ({ params: { locale } }: { params: { locale: string } }) => {
   unstable_setRequestLocale(locale)
@@ -46,8 +46,8 @@ const Home = ({ params: { locale } }: { params: { locale: string } }) => {
         <div className='flex gap-8 flex-wrap'>
           <AccommodationsCard
             href={`/${locale}/logements/yourte`}
-            imageOnFront={yourtImageFront}
-            imageOnHover={yourtImageHover}
+            imageOnFront={yurtImageFront}
+            imageOnHover={yurtImageHover}
             textContent={t('seeOurYurt')}
           />
 

@@ -3,8 +3,7 @@ import { AccommodationTypeEnum } from '@/_types/accommodations'
 import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import Heading from '@/components/elements/Heading'
 import P from '@/components/elements/P'
-import headerImage from '@/components/images/hutAndYurt/yourt-header.jpg'
-import openGraphImage from '@/components/images/seo/yourt.jpg'
+import headerImage from '@/components/images/hutAndYurt/yurt-header.jpg'
 import AccommodationsHeader from '@/components/modules/Accommodations/AccommodationsHeader'
 import AccommodationsHeaderContent from '@/components/modules/Accommodations/AccommodationsHeader/AccommodationsHeaderContent'
 import AccommodationsHeaderImage from '@/components/modules/Accommodations/AccommodationsHeader/AccommodationsHeaderImage'
@@ -40,7 +39,11 @@ export async function generateMetadata({
       locale: locale,
       url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/${tCommon('accommodations').toLocaleLowerCase()}/${tCommon('yurt').toLocaleLowerCase()}`,
       siteName: ESTABLISHMENT_TITLE,
-      images: [openGraphImage]
+      images: {
+        url: '/yurt.jpg',
+        width: 1200,
+        height: 630
+      }
     }
   }
 }
