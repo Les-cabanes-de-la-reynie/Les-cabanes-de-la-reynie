@@ -39,11 +39,13 @@ export async function generateMetadata({
       locale: locale,
       url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/${tCommon('accommodations').toLocaleLowerCase()}/${tCommon('hut').toLocaleLowerCase()}`,
       siteName: ESTABLISHMENT_TITLE,
-      images: {
-        url: '/hut.jpg',
-        width: 1200,
-        height: 630
-      }
+      images: [
+        {
+          url: '/hut.jpg',
+          width: 1200,
+          height: 630
+        }
+      ]
     }
   }
 }
