@@ -34,7 +34,8 @@ export async function generateMetadata({
 }: {
   params: { locale: string }
 }) {
-  const t = await getTranslations({ locale, namespace: 'SEO' })
+  const tCommon = await getTranslations({ locale, namespace: 'Common' })
+  const tSEO = await getTranslations({ locale, namespace: 'SEO' })
 
   return {
     metadataBase: new URL(env.NEXT_PUBLIC_BASE_URL),
@@ -42,10 +43,10 @@ export async function generateMetadata({
       default: ESTABLISHMENT_TITLE,
       template: `%s - ${ESTABLISHMENT_TITLE}`
     },
-    description: t('homeDescription'),
+    description: tSEO('homeDescription'),
     openGraph: {
-      title: ESTABLISHMENT_TITLE,
-      description: t('homeDescription'),
+      title: `${tCommon('home')} - ${ESTABLISHMENT_TITLE}`,
+      description: tSEO('homeDescription'),
       type: 'website',
       locale: locale,
       url: env.NEXT_PUBLIC_BASE_URL,
