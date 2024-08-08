@@ -33,7 +33,7 @@ export async function generateMetadata({
     title: tCommon('yurt'),
     description: tSEO('yurtDescription'),
     openGraph: {
-      title: tCommon('yurt'),
+      title: `${tCommon('yurt')} - ${ESTABLISHMENT_TITLE}`,
       description: tSEO('yurtDescription'),
       type: 'website',
       locale: locale,
