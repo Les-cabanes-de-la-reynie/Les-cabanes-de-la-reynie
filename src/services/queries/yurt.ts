@@ -10,6 +10,6 @@ export const getYurtData = async () => {
 
     return data[0]
   } catch (error) {
-    throw new Error('Failed to fetch yurt data')
+    throw new Error(`Failed to fetch yurt data. ${error}`)
   }
 }
