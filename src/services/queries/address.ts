@@ -10,6 +10,6 @@ export const getAddress = async () => {
 
     return data[0]
   } catch (error) {
-    throw new Error('Failed to fetch address data')
+    throw new Error(`Failed to fetch address data. ${error}`)
   }
 }

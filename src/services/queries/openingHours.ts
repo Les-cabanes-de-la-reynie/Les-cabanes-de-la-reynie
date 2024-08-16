@@ -42,6 +42,6 @@ export const getOpeningHours = async () => {
       sundayEnd
     }
   } catch (error) {
-    throw new Error('Failed to fetch opening hours data')
+    throw new Error(`Failed to fetch opening hours data. ${error}`)
   }
 }

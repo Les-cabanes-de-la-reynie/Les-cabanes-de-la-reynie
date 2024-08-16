@@ -1,8 +1,8 @@
 import LanguagesSwitcher from '@/components/elements/LanguagesSwitcher'
-import NavItem from './NavItem'
 import { ThemeSwitcher } from '@/components/elements/ThemeSwitcher'
+import Profile from '../Profile'
+import NavItem from './NavItem'
 import NavList from './NavList'
-import Profile from '@/components/elements/Profile'
 
 type SecondNavigationProps = {
   handleCloseBurgerMenu: () => void

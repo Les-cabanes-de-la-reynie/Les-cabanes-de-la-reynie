@@ -127,7 +127,8 @@
     "logout": "Logout",
     "profile": "Your profile",
     "openBurgerMenu": "Open the menu",
-    "closeBurgerMenu": "Close the menu"
+    "closeBurgerMenu": "Close the menu",
+    "modifyWebsiteInformation": "Modify the website information"
   },
   "ThemeSwitcher": {
     "themeSwitcherAccessibleText": "Toggle theme",

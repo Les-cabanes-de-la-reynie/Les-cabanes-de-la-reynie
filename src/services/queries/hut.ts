@@ -10,6 +10,6 @@ export const getHutData = async () => {
 
     return data[0]
   } catch (error) {
-    throw new Error('Failed to fetch hut data')
+    throw new Error(`Failed to fetch hut data. ${error}`)
   }
 }

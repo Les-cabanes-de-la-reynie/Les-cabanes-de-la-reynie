@@ -127,7 +127,8 @@
     "logout": "Se déconnecter",
     "profile": "Votre profil",
     "openBurgerMenu": "Ouvrir le menu",
-    "closeBurgerMenu": "Fermer le menu"
+    "closeBurgerMenu": "Fermer le menu",
+    "modifyWebsiteInformation": "Modifier les informations du site"
   },
   "ThemeSwitcher": {
     "themeSwitcherAccessibleText": "Changer de thème",

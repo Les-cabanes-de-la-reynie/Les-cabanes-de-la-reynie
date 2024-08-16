@@ -1,11 +1,9 @@
-import { UploadImage } from '@/_types/uploadImage'
+import { UploadImage, UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
 import { db } from '@/lib/prisma'
-import { UpdateUploadedImageCommonSchema } from '@/models/UploadedImages'
-import { z } from 'zod'
 
-const pickedCategory = UpdateUploadedImageCommonSchema.pick({ category: true })
-
-type GetUploadedImagesByCategoryProps = z.infer<typeof pickedCategory>
+type GetUploadedImagesByCategoryProps = {
+  category: UploadImageCategoryKeyEnum
+}
 
 export const getUploadedImagesByCategory = async ({
   category
@@ -17,6 +15,6 @@ export const getUploadedImagesByCategory = async ({
       }
     })) as UploadImage[]
   } catch (error) {
-    throw new Error('Failed to fetch uploaded images data')
+    throw new Error(`Failed to fetch uploaded images data. ${error}`)
   }
 }
