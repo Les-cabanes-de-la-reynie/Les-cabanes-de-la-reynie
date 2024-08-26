@@ -17,7 +17,7 @@ const HeroBanner = ({ children, title, className }: HeroBannerProps) => {
   return (
     <div className={classes}>
       {children}
-      <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 p-4 text-center'>
+      <div className='absolute inset-0 flex items-center justify-center bg-opacity-20 p-4 text-center'>
         <Heading
           level={1}
           className='text-5xl text-primary-foreground lg:text-6xl'
