@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --white: 175 27% 100%;
-    ---black: 175 5% 10%;
+    --black: 175 5% 10%;
 
     --background: 175 27% 100%;
     --foreground: 175 5% 10%;
