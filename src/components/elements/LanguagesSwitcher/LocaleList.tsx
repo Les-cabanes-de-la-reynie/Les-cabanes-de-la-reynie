@@ -31,6 +31,7 @@ const LocaleList = () => {
             <li key={locale}>
               <Button
                 variant='ghost'
+                data-testid={`switch-language-${locale}`}
                 className='w-full select-none justify-start'
                 onClick={() => onSelectChange(locale)}
                 disabled={isPending}

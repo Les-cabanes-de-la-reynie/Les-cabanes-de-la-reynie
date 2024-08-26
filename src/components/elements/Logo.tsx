@@ -11,7 +11,7 @@ const Logo = ({ onCloseMenu }: LogoProps) => {
   const lang = useLocale()
 
   const classes = cn(
-    'flex flex-col box-border cursor-pointer mr-8 border-y-4 border-white  text-2xl font-extrabold text-white'
+    'flex flex-col box-border cursor-pointer mr-8 border-y-4 border-white  text-2xl font-extrabold w-max text-white'
   )
 
   return (
@@ -21,6 +21,7 @@ const Logo = ({ onCloseMenu }: LogoProps) => {
       onClick={onCloseMenu}
       aria-label={`${ESTABLISHMENT_TITLE} Logo`}
       data-testid='app-main-logo'
+      prefetch={false}
     >
       <span>LOGO</span>
     </Link>
