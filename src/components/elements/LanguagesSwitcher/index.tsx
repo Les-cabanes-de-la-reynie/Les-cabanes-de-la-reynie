@@ -12,7 +12,7 @@ const LanguagesSwitcher = () => {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant='ghost'>
+        <Button variant='ghost' className='w-max'>
           <LanguageSwitcherButton />
         </Button>
       </PopoverTrigger>

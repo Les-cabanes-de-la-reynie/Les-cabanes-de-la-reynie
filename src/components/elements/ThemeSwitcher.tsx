@@ -9,13 +9,7 @@ import { useTheme } from 'next-themes'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import PopoverCloseButton from './PopoverCloseButton'
 
-type ThemeSwitcherProps = {
-  handleCloseBurgerMenu: () => void
-}
-
-export const ThemeSwitcher = ({
-  handleCloseBurgerMenu
-}: ThemeSwitcherProps) => {
+export const ThemeSwitcher = () => {
   const { setTheme } = useTheme()
 
   const t = useTranslations('ThemeSwitcher')
@@ -55,7 +49,7 @@ export const ThemeSwitcher = ({
             {t('systemModeTheme')}
           </Button>
         </>
-        <PopoverCloseButton onPopoverClose={handleCloseBurgerMenu} />
+        <PopoverCloseButton />
       </PopoverContent>
     </Popover>
   )

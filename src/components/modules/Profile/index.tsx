@@ -14,11 +14,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '../../ui/button'
 
-type ProfileProps = {
-  handleCloseBurgerMenu: () => void
-}
-
-const Profile = ({ handleCloseBurgerMenu }: ProfileProps) => {
+const Profile = () => {
   const { user, error } = useUser()
 
   const t = useTranslations('Navigation')
@@ -44,10 +40,7 @@ const Profile = ({ handleCloseBurgerMenu }: ProfileProps) => {
           <span className='sr-only'>User profile</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent
-        onEscapeKeyDown={handleCloseBurgerMenu}
-        className='w-56'
-      >
+      <DropdownMenuContent className='w-56'>
         <DropdownMenuLabel>{t('profile')}</DropdownMenuLabel>
 
         <DropdownMenuSeparator />

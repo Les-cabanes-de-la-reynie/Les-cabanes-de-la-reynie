@@ -30,25 +30,18 @@ test.describe('Internationalization (i18n)', () => {
       await openBurgerMenu(page)
       await page.getByRole('button', { name: 'Français' }).click()
 
-      await expect(
-        page.getByRole('dialog').getByRole('button', { name: 'Français' })
-      ).toBeVisible()
-      await expect(
-        page.getByRole('dialog').getByRole('button', { name: 'English' })
-      ).toBeVisible()
+      await expect(page.getByTestId('switch-language-fr')).toBeVisible()
+      await expect(page.getByTestId('switch-language-en')).toBeVisible()
     })
 
     test('should switch language in English', async ({ page }) => {
       await openBurgerMenu(page)
       await page.getByRole('button', { name: 'Français' }).click()
+      await page.getByTestId('switch-language-en').click()
 
-      await page
-        .getByRole('dialog')
-        .getByRole('button', { name: 'English' })
-        .click()
-
-      await page.getByLabel('Open the menu').click() // Open burger menu with english label
       await expect(page).toHaveURL(englishURL)
+
+      await openBurgerMenu(page)
       await expect(page.getByRole('button', { name: 'English' })).toBeVisible()
     })
   })
@@ -69,23 +62,16 @@ test.describe('Internationalization (i18n)', () => {
     }) => {
       await page.getByRole('button', { name: 'Français' }).click()
 
-      await expect(
-        page.getByRole('dialog').getByRole('button', { name: 'Français' })
-      ).toBeVisible()
-      await expect(
-        page.getByRole('dialog').getByRole('button', { name: 'English' })
-      ).toBeVisible()
+      await expect(page.getByTestId('switch-language-fr')).toBeVisible()
+      await expect(page.getByTestId('switch-language-en')).toBeVisible()
     })
 
     test('should switch language in English', async ({ page }) => {
       await page.getByRole('button', { name: 'Français' }).click()
-
-      await page
-        .getByRole('dialog')
-        .getByRole('button', { name: 'English' })
-        .click()
+      await page.getByTestId('switch-language-en').click()
 
       await expect(page).toHaveURL(englishURL)
+
       await expect(page.getByRole('button', { name: 'English' })).toBeVisible()
     })
   })

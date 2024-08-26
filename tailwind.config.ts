@@ -28,9 +28,13 @@ const config = {
         title: ['var(--font-secondary)']
       },
       colors: {
+        white: 'hsl(var(--white))',
+        black: 'hsl(var(--black))',
+
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
@@ -39,7 +43,6 @@ const config = {
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
-          dark: 'hsl(var(--secondary-dark))',
           foreground: 'hsl(var(--secondary-foreground))'
         },
         destructive: {

@@ -35,7 +35,7 @@ test.describe('Header navigation', () => {
     test('should open and close the burger menu', async ({ page }) => {
       // Burger menu is closed by default
       const homeLink = page
-        .getByTestId('header-main-navigation')
+        .getByTestId('mobile-header-navbar')
         .getByRole('link', { name: 'Accueil' })
 
       await expect(homeLink).not.toBeVisible()
@@ -51,7 +51,7 @@ test.describe('Header navigation', () => {
       page
     }) => {
       const homeLink = page
-        .getByTestId('header-main-navigation')
+        .getByTestId('mobile-header-navbar')
         .getByRole('link', { name: 'Accueil' })
 
       await openBurgerMenu(page)
@@ -59,16 +59,18 @@ test.describe('Header navigation', () => {
       await expect(page).toHaveURL(frenchURL)
     })
 
-    test('should open a popover with Yurt and Hut links', async ({ page }) => {
+    test('should open a sub navigation of accommodations with Yurt and Hut links', async ({
+      page
+    }) => {
       const accommodationsLink = page
-        .getByTestId('header-main-navigation')
+        .getByTestId('mobile-header-navbar')
         .getByText('Logements')
       const yurtLink = page
-        .getByTestId('header-main-navigation')
-        .getByRole('link', { name: 'Yourte' })
+        .getByTestId('mobile-header-navbar')
+        .getByRole('link', { name: 'Yourte', exact: true })
       const hutLink = page
-        .getByTestId('header-main-navigation')
-        .getByRole('link', { name: 'Cabane' })
+        .getByTestId('mobile-header-navbar')
+        .getByRole('link', { name: 'Cabane', exact: true })
 
       await openBurgerMenu(page)
       await accommodationsLink.click()
@@ -85,11 +87,11 @@ test.describe('Header navigation', () => {
       page
     }) => {
       const accommodationsLink = page
-        .getByTestId('header-main-navigation')
+        .getByTestId('mobile-header-navbar')
         .getByText('Logements')
       const yurtLink = page
-        .getByTestId('header-main-navigation')
-        .getByRole('link', { name: 'Yourte' })
+        .getByTestId('mobile-header-navbar')
+        .getByRole('link', { name: 'Yourte', exact: true })
 
       await openBurgerMenu(page)
       await accommodationsLink.click()
@@ -100,11 +102,11 @@ test.describe('Header navigation', () => {
 
     test('should be in the hut page after clicked on Hut', async ({ page }) => {
       const accommodationsLink = page
-        .getByTestId('header-main-navigation')
+        .getByTestId('mobile-header-navbar')
         .getByText('Logements')
       const hutLink = page
-        .getByTestId('header-main-navigation')
-        .getByRole('link', { name: 'Cabane' })
+        .getByTestId('mobile-header-navbar')
+        .getByRole('link', { name: 'Cabane', exact: true })
 
       await openBurgerMenu(page)
       await accommodationsLink.click()
@@ -117,7 +119,7 @@ test.describe('Header navigation', () => {
       page
     }) => {
       const contactLink = page
-        .getByTestId('header-main-navigation')
+        .getByTestId('mobile-header-navbar')
         .getByRole('link', { name: 'Contact' })
 
       await openBurgerMenu(page)
@@ -135,7 +137,7 @@ test.describe('Header navigation', () => {
       page
     }) => {
       const activitiesLink = page
-        .getByTestId('header-main-navigation')
+        .getByTestId('mobile-header-navbar')
         .getByRole('link', { name: 'Activités' })
 
       await openBurgerMenu(page)
@@ -175,7 +177,7 @@ test.describe('Header navigation', () => {
       page
     }) => {
       const homeLink = page
-        .getByTestId('header-main-navigation')
+        .getByTestId('desktop-header-navbar')
         .getByRole('link', { name: 'Accueil' })
 
       await homeLink.click()
@@ -184,16 +186,13 @@ test.describe('Header navigation', () => {
 
     test('should open a popover with Yurt and Hut links', async ({ page }) => {
       const accommodationsLink = page
-        .getByTestId('header-main-navigation')
+        .getByTestId('desktop-header-navbar')
         .getByText('Logements')
-      const yurtLink = page
-        .getByTestId('header-main-navigation')
-        .getByRole('link', { name: 'Yourte' })
-      const hutLink = page
-        .getByTestId('header-main-navigation')
-        .getByRole('link', { name: 'Cabane' })
+      const yurtLink = page.getByTestId('accommodations-sub-navigation-yourte')
 
-      await accommodationsLink.click()
+      const hutLink = page.getByTestId('accommodations-sub-navigation-cabane')
+
+      await accommodationsLink.hover()
       await expect(page).toHaveURL(frenchURL)
 
       // Check if Yurt/Yourte exist
@@ -207,11 +206,9 @@ test.describe('Header navigation', () => {
       page
     }) => {
       const accommodationsLink = page
-        .getByTestId('header-main-navigation')
+        .getByTestId('desktop-header-navbar')
         .getByText('Logements')
-      const yurtLink = page
-        .getByTestId('header-main-navigation')
-        .getByRole('link', { name: 'Yourte' })
+      const yurtLink = page.getByTestId('accommodations-sub-navigation-yourte')
 
       await accommodationsLink.click()
       await yurtLink.click()
@@ -221,11 +218,9 @@ test.describe('Header navigation', () => {
 
     test('should be in the hut page after clicked on Hut', async ({ page }) => {
       const accommodationsLink = page
-        .getByTestId('header-main-navigation')
+        .getByTestId('desktop-header-navbar')
         .getByText('Logements')
-      const hutLink = page
-        .getByTestId('header-main-navigation')
-        .getByRole('link', { name: 'Cabane' })
+      const hutLink = page.getByTestId('accommodations-sub-navigation-cabane')
 
       await accommodationsLink.click()
       await hutLink.click()
@@ -237,7 +232,7 @@ test.describe('Header navigation', () => {
       page
     }) => {
       const contactLink = page
-        .getByTestId('header-main-navigation')
+        .getByTestId('desktop-header-navbar')
         .getByRole('link', { name: 'Contact' })
 
       await contactLink.click()
@@ -254,7 +249,7 @@ test.describe('Header navigation', () => {
       page
     }) => {
       const activitiesLink = page
-        .getByTestId('header-main-navigation')
+        .getByTestId('desktop-header-navbar')
         .getByRole('link', { name: 'Activités' })
 
       await activitiesLink.click()

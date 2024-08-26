@@ -1,8 +1,9 @@
 import { Page } from '@playwright/test'
 
 export const openBurgerMenu = async (page: Page) => {
-  return page.getByLabel('Ouvrir le menu').click()
+  return page.getByTestId('open-burger-menu-button').click()
 }
+
 export const closeBurgerMenu = async (page: Page) => {
-  return page.getByLabel('Fermer le menu').click()
+  return page.getByTestId('close-sheet-button').click()
 }
