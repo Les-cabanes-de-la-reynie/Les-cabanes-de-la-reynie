@@ -21,7 +21,6 @@ const Logo = ({ onCloseMenu }: LogoProps) => {
       onClick={onCloseMenu}
       aria-label={`${ESTABLISHMENT_TITLE} Logo`}
       data-testid='app-main-logo'
-      prefetch={false}
     >
       <span>LOGO</span>
     </Link>

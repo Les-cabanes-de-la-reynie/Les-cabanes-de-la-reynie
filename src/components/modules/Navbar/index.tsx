@@ -11,19 +11,17 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle
+  NavigationMenuTrigger
 } from '@/components/ui/navigation-menu'
 import { Separator } from '@/components/ui/separator'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { cn } from '@/utils/tailwind'
 import { ChevronRightIcon, MenuIcon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useState } from 'react'
 import Profile from '../Profile'
+import CustomLink from './CustomLink'
 import ListItem from './ListItem'
 
 export const Navbar = () => {
@@ -41,11 +39,6 @@ export const Navbar = () => {
     contact: `/${lang}/contact`,
     activities: `/${lang}/activites`
   }
-
-  const navigationMenuLinkClasses = cn(
-    navigationMenuTriggerStyle(),
-    'bg-transparent'
-  )
 
   const handleCloseNavbar = () => {
     setMobileNavbarOpened(false)
@@ -83,7 +76,6 @@ export const Navbar = () => {
                 href={navLinks.home}
                 onClick={handleCloseNavbar}
                 className='flex w-full items-center py-2 text-lg font-semibold'
-                prefetch={false}
               >
                 {tCommon('home')}
               </Link>
@@ -98,7 +90,6 @@ export const Navbar = () => {
                       href={navLinks.yurt}
                       onClick={handleCloseNavbar}
                       className='group grid h-auto w-full justify-start gap-1'
-                      prefetch={false}
                     >
                       <div className='text-sm font-medium leading-none group-hover:underline'>
                         {tCommon('yurt')}
@@ -108,7 +99,6 @@ export const Navbar = () => {
                       href={navLinks.hut}
                       onClick={handleCloseNavbar}
                       className='group grid h-auto w-full justify-start gap-1'
-                      prefetch={false}
                     >
                       <div className='text-sm font-medium leading-none group-hover:underline'>
                         {tCommon('hut')}
@@ -121,7 +111,6 @@ export const Navbar = () => {
                 href={navLinks.contact}
                 onClick={handleCloseNavbar}
                 className='flex w-full items-center py-2 text-lg font-semibold'
-                prefetch={false}
               >
                 {tCommon('contact')}
               </Link>
@@ -129,7 +118,6 @@ export const Navbar = () => {
                 href={navLinks.activities}
                 onClick={handleCloseNavbar}
                 className='flex w-full items-center py-2 text-lg font-semibold'
-                prefetch={false}
               >
                 {tCommon('activities')}
               </Link>
@@ -150,15 +138,9 @@ export const Navbar = () => {
           className='hidden lg:flex text-white'
         >
           <NavigationMenuList>
-            <NavigationMenuLink asChild>
-              <Link
-                href={navLinks.home}
-                className={navigationMenuLinkClasses}
-                prefetch={false}
-              >
-                {tCommon('home')}
-              </Link>
-            </NavigationMenuLink>
+            <NavigationMenuItem>
+              <CustomLink href={navLinks.home}> {tCommon('home')}</CustomLink>
+            </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger className='bg-transparent'>
                 {tCommon('accommodations')}
@@ -182,44 +164,29 @@ export const Navbar = () => {
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
-            <NavigationMenuLink asChild>
-              <Link
-                href={navLinks.contact}
-                className={navigationMenuLinkClasses}
-                prefetch={false}
-              >
+            <NavigationMenuItem>
+              <CustomLink href={navLinks.contact}>
                 {tCommon('contact')}
-              </Link>
-            </NavigationMenuLink>
-            <NavigationMenuLink asChild>
-              <Link
-                href={navLinks.activities}
-                className={navigationMenuLinkClasses}
-                prefetch={false}
-              >
+              </CustomLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <CustomLink href={navLinks.activities}>
                 {tCommon('activities')}
-              </Link>
-            </NavigationMenuLink>
+              </CustomLink>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
       </div>
 
-      <NavigationMenu
+      <div
         data-testid='desktop-header-navbar'
-        className='hidden lg:flex text-white'
+        className='hidden lg:flex text-white group flex-1 list-none items-center justify-center space-x-1'
       >
-        <NavigationMenuList>
-          <NavigationMenuLink asChild>
-            <LanguagesSwitcher />
-          </NavigationMenuLink>
-          <NavigationMenuLink asChild>
-            <ThemeSwitcher />
-          </NavigationMenuLink>
-          <NavigationMenuLink asChild>
-            <Profile />
-          </NavigationMenuLink>
-        </NavigationMenuList>
-      </NavigationMenu>
+        <LanguagesSwitcher />
+        <ThemeSwitcher />
+        <Profile />
+      </div>
     </div>
   )
 }
