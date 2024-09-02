@@ -40,8 +40,11 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(env.NEXT_PUBLIC_BASE_URL),
     title: {
-      default: ESTABLISHMENT_TITLE,
+      default: `${ESTABLISHMENT_TITLE} | ${tSEO('homeTitle')}`,
       template: `%s - ${ESTABLISHMENT_TITLE}`
+    },
+    alternates: {
+      canonical: './'
     },
     description: tSEO('homeDescription'),
     openGraph: {
