@@ -36,8 +36,8 @@ export const Navbar = () => {
     home: `/${lang}`,
     yurt: `/${lang}/logements/yourte`,
     hut: `/${lang}/logements/cabane`,
-    contact: `/${lang}/contact`,
-    activities: `/${lang}/activites`
+    activities: `/${lang}/activites`,
+    contact: `/${lang}/contact`
   }
 
   const handleCloseNavbar = () => {
@@ -108,18 +108,18 @@ export const Navbar = () => {
                 </CollapsibleContent>
               </Collapsible>
               <Link
-                href={navLinks.contact}
-                onClick={handleCloseNavbar}
-                className='flex w-full items-center py-2 text-lg font-semibold'
-              >
-                {tCommon('contact')}
-              </Link>
-              <Link
                 href={navLinks.activities}
                 onClick={handleCloseNavbar}
                 className='flex w-full items-center py-2 text-lg font-semibold'
               >
                 {tCommon('activities')}
+              </Link>
+              <Link
+                href={navLinks.contact}
+                onClick={handleCloseNavbar}
+                className='flex w-full items-center py-2 text-lg font-semibold'
+              >
+                {tCommon('contact')}
               </Link>
 
               <Separator />
@@ -165,14 +165,13 @@ export const Navbar = () => {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <CustomLink href={navLinks.contact}>
-                {tCommon('contact')}
-              </CustomLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
               <CustomLink href={navLinks.activities}>
                 {tCommon('activities')}
+              </CustomLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <CustomLink href={navLinks.contact}>
+                {tCommon('contact')}
               </CustomLink>
             </NavigationMenuItem>
           </NavigationMenuList>

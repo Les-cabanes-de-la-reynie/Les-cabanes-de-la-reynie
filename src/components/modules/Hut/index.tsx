@@ -1,4 +1,5 @@
 import Heading from '@/components/elements/Heading'
+import { Separator } from '@/components/ui/separator'
 import { getHutData } from '@/services/queries/hut'
 import { unstable_noStore } from 'next/cache'
 import HutUploadImage from '../UploadImage/HutUploadImage'
@@ -20,7 +21,9 @@ const Hut = async ({ hutFormTitle, hutUploadImageTitle }: HutProps) => {
       </Heading>
       <HutForm hut={hut} />
 
-      <Heading level={3} className='my-4 text-center'>
+      <Separator className='my-6' />
+
+      <Heading level={3} className='my-4'>
         {hutUploadImageTitle}
       </Heading>
       <HutUploadImage />

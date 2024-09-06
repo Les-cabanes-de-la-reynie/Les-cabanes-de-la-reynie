@@ -12,7 +12,9 @@ const Address = ({ address }: AddressProps) => {
       <ItineraryAlertDialog address={address} />
 
       <Separator className='my-2' />
+
       <Phone address={address} />
+
       <Separator className='my-2' />
 
       <Email address={address} />

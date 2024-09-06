@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { unstable_setRequestLocale } from 'next-intl/server'
-import AdminPage from './AdminPage'
+import AdminPage from './components/AdminPage'
 
 export const metadata: Metadata = {
   title: 'Admin',
