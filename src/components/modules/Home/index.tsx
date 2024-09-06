@@ -8,7 +8,7 @@ type HomeProps = {
 const Home = ({ homeUploadImageTitle }: HomeProps) => {
   return (
     <>
-      <Heading level={3} className='my-4 text-center'>
+      <Heading level={3} className='my-4'>
         {homeUploadImageTitle}
       </Heading>
       <HomeUploadImage />

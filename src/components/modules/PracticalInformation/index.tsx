@@ -7,6 +7,7 @@ import RefrigeratorIcon from '@/components/images/icons/practicalInformation/Ref
 import ShowerIcon from '@/components/images/icons/practicalInformation/ShowerIcon'
 import WifiIcon from '@/components/images/icons/practicalInformation/WifiIcon'
 import { cn } from '@/utils/tailwind'
+import { CarFrontIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import PracticalInformationCard from './PracticalInformationCard'
 import PracticalInformationList from './PracticalInformationList'
@@ -47,6 +48,12 @@ const PracticalInformation = () => {
 
           <PracticalInformationCard description={t2('dryToilet')}>
             <DryToiletIcon className={cn(COMMON_ICON_CLASSNAME, 'stroke-0')} />
+          </PracticalInformationCard>
+
+          <PracticalInformationCard description={t2('carPark')}>
+            <CarFrontIcon
+              className={cn(COMMON_ICON_CLASSNAME, 'fill-transparent')}
+            />
           </PracticalInformationCard>
         </PracticalInformationList>
       </section>

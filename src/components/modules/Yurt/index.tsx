@@ -1,4 +1,5 @@
 import Heading from '@/components/elements/Heading'
+import { Separator } from '@/components/ui/separator'
 import { getYurtData } from '@/services/queries/yurt'
 import { unstable_noStore } from 'next/cache'
 import YurtUploadImage from '../UploadImage/YurtUploadImage'
@@ -20,7 +21,9 @@ const Yurt = async ({ yurtFormTitle, yurtUploadImageTitle }: YurtProps) => {
       </Heading>
       <YurtForm yurt={yurt} />
 
-      <Heading level={3} className='my-4 text-center'>
+      <Separator className='my-6' />
+
+      <Heading level={3} className='my-4'>
         {yurtUploadImageTitle}
       </Heading>
       <YurtUploadImage />

@@ -1,11 +1,12 @@
+import AdminSection from '@/app/[locale]/admin/components/AdminSection'
 import Heading from '@/components/elements/Heading'
 import { useTranslations } from 'next-intl'
-import Yurt from '.'
+import Yurt from '../../../../../components/modules/Yurt'
 
 const YurtSection = () => {
   const t = useTranslations('Common')
   return (
-    <section className='mb-8'>
+    <AdminSection>
       <Heading level={2} className='my-8'>
         {t('yurt')}
       </Heading>
@@ -14,7 +15,7 @@ const YurtSection = () => {
         yurtFormTitle={t('yurtInformation')}
         yurtUploadImageTitle={t('uploadImage')}
       />
-    </section>
+    </AdminSection>
   )
 }
 export default YurtSection

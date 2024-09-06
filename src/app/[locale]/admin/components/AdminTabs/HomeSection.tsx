@@ -1,17 +1,18 @@
+import AdminSection from '@/app/[locale]/admin/components/AdminSection'
 import Heading from '@/components/elements/Heading'
 import { useTranslations } from 'next-intl'
-import Home from '.'
+import Home from '../../../../../components/modules/Home'
 
 const HomeSection = () => {
   const t = useTranslations('Common')
   return (
-    <section className='mb-8'>
+    <AdminSection>
       <Heading level={2} className='my-8'>
         {t('home')}
       </Heading>
 
       <Home homeUploadImageTitle={t('uploadImage')} />
-    </section>
+    </AdminSection>
   )
 }
 export default HomeSection
