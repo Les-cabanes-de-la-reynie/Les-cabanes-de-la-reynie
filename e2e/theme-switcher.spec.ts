@@ -1,3 +1,4 @@
+import { ThemeMode } from '@/_types/theme'
 import { expect, test } from '@playwright/test'
 import {
   DESKTOP_VIEWPORT,
@@ -5,7 +6,6 @@ import {
   frenchURL
 } from '../playwright.config'
 import { openBurgerMenu } from './commons'
-import { ThemeMode } from '@/_types/theme'
 
 test.beforeEach(async ({ page }) => {
   await page.goto(frenchURL)
@@ -27,36 +27,10 @@ test.describe('Theme switcher (dark/light mode)', () => {
     test('should change from dark mode to light mode', async ({ page }) => {
       await openBurgerMenu(page)
       await page.getByRole('button', { name: 'Changer de thème' }).click()
-      await page.getByRole('button', { name: 'Clair' }).click()
+      await page.getByRole('menuitem', { name: 'Clair' }).click()
       await expect(page.locator('html')).toHaveAttribute(
         'class',
         ThemeMode.Light
-      )
-    })
-
-    test('should change from dark to light to system mode', async ({
-      page
-    }) => {
-      // Dark mode by default
-      await expect(page.locator('html')).toHaveAttribute(
-        'class',
-        ThemeMode.Dark
-      )
-
-      // Change to light mode
-      await openBurgerMenu(page)
-      await page.getByRole('button', { name: 'Changer de thème' }).click()
-      await page.getByRole('button', { name: 'Clair' }).click()
-      await expect(page.locator('html')).toHaveAttribute(
-        'class',
-        ThemeMode.Light
-      )
-
-      // Back to dark with systeme mode
-      await page.getByRole('button', { name: 'Système' }).click()
-      await expect(page.locator('html')).toHaveAttribute(
-        'class',
-        ThemeMode.Dark
       )
     })
   })
@@ -75,35 +49,10 @@ test.describe('Theme switcher (dark/light mode)', () => {
 
     test('should change from dark mode to light mode', async ({ page }) => {
       await page.getByRole('button', { name: 'Changer de thème' }).click()
-      await page.getByRole('button', { name: 'Clair' }).click()
+      await page.getByRole('menuitem', { name: 'Clair' }).click()
       await expect(page.locator('html')).toHaveAttribute(
         'class',
         ThemeMode.Light
-      )
-    })
-
-    test('should change from dark to light to system mode', async ({
-      page
-    }) => {
-      // Dark mode by default
-      await expect(page.locator('html')).toHaveAttribute(
-        'class',
-        ThemeMode.Dark
-      )
-
-      // Change to light mode
-      await page.getByRole('button', { name: 'Changer de thème' }).click()
-      await page.getByRole('button', { name: 'Clair' }).click()
-      await expect(page.locator('html')).toHaveAttribute(
-        'class',
-        ThemeMode.Light
-      )
-
-      // Back to dark with systeme mode
-      await page.getByRole('button', { name: 'Système' }).click()
-      await expect(page.locator('html')).toHaveAttribute(
-        'class',
-        ThemeMode.Dark
       )
     })
   })

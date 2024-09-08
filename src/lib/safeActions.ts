@@ -1,18 +1,21 @@
 import { getSession } from '@auth0/nextjs-auth0'
-import { createSafeActionClient } from 'next-safe-action'
+import {
+  createSafeActionClient,
+  DEFAULT_SERVER_ERROR_MESSAGE
+} from 'next-safe-action'
 
 export class ActionError extends Error {}
 
 // Base client
 export const actionClient = createSafeActionClient({
-  handleReturnedServerError: e => {
+  handleServerError: e => {
     // If the error is an instance of `ActionError`, unmask the message.
     if (e instanceof ActionError) {
       return e.message
     }
 
     // Otherwise return default error message.
-    return 'Something went wrong!'
+    return DEFAULT_SERVER_ERROR_MESSAGE
   }
 })
 
