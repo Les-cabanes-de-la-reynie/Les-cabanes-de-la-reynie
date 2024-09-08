@@ -136,8 +136,7 @@
     "themeSwitcherAccessibleText": "Changer de thème",
     "themeSwitcherTitle": "Thème",
     "darkModeTheme": "Sombre",
-    "lightModeTheme": "Clair",
-    "systemModeTheme": "Système"
+    "lightModeTheme": "Clair"
   },
   "Carousel": {
     "prevButton": "Image précédente",

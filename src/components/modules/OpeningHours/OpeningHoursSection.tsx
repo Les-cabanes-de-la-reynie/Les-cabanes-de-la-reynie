@@ -1,5 +1,5 @@
 import Heading from '@/components/elements/Heading'
-import { Loader } from 'lucide-react'
+import Loader from '@/components/elements/Loader'
 import { useTranslations } from 'next-intl'
 import { Suspense } from 'react'
 import OpeningHoursData from './OpeningHoursData'
