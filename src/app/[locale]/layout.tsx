@@ -2,6 +2,7 @@ import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import Footer from '@/components/modules/Footer'
 import Header from '@/components/modules/Header'
 import { Toaster } from '@/components/ui/sonner'
+import VisitorCount from '@/hooks/VisitorCount'
 import { env } from '@/lib/env'
 import Providers from '@/providers'
 import { cn } from '@/utils/tailwind'
@@ -86,6 +87,9 @@ const LocaleLayout = async ({
           <Footer />
         </Providers>
         <Toaster richColors position='top-right' expand={true} />
+
+        {/* Increment visit counter */}
+        <VisitorCount />
       </body>
     </html>
   )
