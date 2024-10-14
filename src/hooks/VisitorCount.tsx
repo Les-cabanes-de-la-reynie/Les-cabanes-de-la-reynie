@@ -5,7 +5,7 @@ import { env } from '@/lib/env'
 import { isSameDay } from 'date-fns'
 import { useEffect } from 'react'
 
-const incrementVisitor = async (lastVisitDate: string) => {
+const incrementVisitor = async (lastVisitDate: string | null) => {
   const url = `${env.NEXT_PUBLIC_BASE_URL}/api/visitorCount`
 
   await fetch(url, {
@@ -26,16 +26,16 @@ const VisitorCount = () => {
       // First visit
       const newDate = Date.now().toString()
 
-      incrementVisitor(newDate)
+      incrementVisitor(lastVisitDate)
       return localStorage.setItem(LAST_VISIT_KEY, newDate)
     }
-    
+
     const isVisitedToday = isSameDay(Number(lastVisitDate), Date.now())
 
     if (!isVisitedToday) {
       const newDate = Date.now().toString()
 
-      incrementVisitor(newDate)
+      incrementVisitor(lastVisitDate)
       return localStorage.setItem(LAST_VISIT_KEY, newDate)
     }
   }, [])
