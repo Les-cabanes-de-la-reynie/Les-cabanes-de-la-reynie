@@ -1,7 +1,7 @@
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import { Container } from '@/components/Container'
 import { Heading } from '@/components/Heading'
-import { MapSection } from '@/features/map/mapoo'
+import { MapSection } from '@/features/map/MapSection'
 import { OpeningHoursSection } from '@/features/openingHours/OpeningHoursSection'
 import { env } from '@/lib/env'
 import { useTranslations } from 'next-intl'
