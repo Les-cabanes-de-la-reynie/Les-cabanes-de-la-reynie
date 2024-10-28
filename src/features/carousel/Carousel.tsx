@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/carousel'
 import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
-import { CarouselProps } from './aa'
+import { CarouselProps } from './types'
 
 const FsLightbox = dynamic(() => import('fslightbox-react'))
 
