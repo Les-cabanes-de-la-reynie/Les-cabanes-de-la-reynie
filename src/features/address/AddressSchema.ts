@@ -1,7 +1,7 @@
 import validator from 'validator'
 import { z } from 'zod'
 
-export const AddressFormSchema = z.object({
+export const AddressSchema = z.object({
   streetAddress: z.string(),
   postalCode: z.string().length(5, { message: 'Code postal invalide' }),
   city: z.string(),

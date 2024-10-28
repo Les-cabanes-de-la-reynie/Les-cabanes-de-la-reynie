@@ -1,9 +1,9 @@
 'use server'
 
+import { DeleteUploadedImageSchema } from '@/features/common/uploadImage/UploadedImagesSchema'
 import { db } from '@/lib/prisma'
 import { authActionClient } from '@/lib/safeActions'
 import { utapi } from '@/lib/utapiUploadthing'
-import { DeleteUploadedImageSchema } from '@/models/UploadedImages'
 
 export const deleteUploadedImage = authActionClient
   .schema(DeleteUploadedImageSchema)

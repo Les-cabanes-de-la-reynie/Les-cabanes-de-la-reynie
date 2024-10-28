@@ -9,8 +9,8 @@ import {
   FormMessage
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { HutSchema } from '@/features/hut/HutSchema'
 import { useToggle } from '@/hooks/useToggle'
-import { HutDataSchema } from '@/models/Hut'
 import { updateHutPrice } from '@/services/actions/updateHutPrice'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
@@ -31,13 +31,13 @@ export const HutForm = ({ hut }: hutFormProps) => {
   const [isPending, startTransition] = useTransition()
   const [isEdit, handleToggleEdit] = useToggle(false)
 
-  const form = useForm<z.infer<typeof HutDataSchema>>({
-    resolver: zodResolver(HutDataSchema),
+  const form = useForm<z.infer<typeof HutSchema>>({
+    resolver: zodResolver(HutSchema),
     defaultValues: hut,
     disabled: !isEdit
   })
 
-  const onSubmit = (data: z.infer<typeof HutDataSchema>) => {
+  const onSubmit = (data: z.infer<typeof HutSchema>) => {
     startTransition(async () => {
       const res = await updateHutPrice(data)
 

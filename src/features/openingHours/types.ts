@@ -1,4 +1,4 @@
-import { OpeningHoursDataSchema } from '@/models/OpeningHours'
+import { OpeningHoursSchema } from '@/features/openingHours/OpeningHoursSchema'
 import { z } from 'zod'
 
 export enum DaysOfTheWeekEnum {
@@ -21,7 +21,7 @@ export type OpeningHoursRowData = {
   isEdit?: boolean
 }
 
-export type OpeningHoursData = z.infer<typeof OpeningHoursDataSchema>
+export type OpeningHoursData = z.infer<typeof OpeningHoursSchema>
 
 export type OpeningHoursFormProps = {
   openingHoursData: OpeningHoursRowData[]

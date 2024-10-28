@@ -1,4 +1,4 @@
+import { AddressSchema } from '@/features/address/AddressSchema'
 import { z } from 'zod'
-import { AddressFormSchema } from '@/models/Address'
 
-export type Address = z.infer<typeof AddressFormSchema>
+export type Address = z.infer<typeof AddressSchema>

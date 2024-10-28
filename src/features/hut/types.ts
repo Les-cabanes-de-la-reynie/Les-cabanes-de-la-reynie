@@ -1,4 +1,4 @@
-import { HutDataSchema } from '@/models/Hut'
 import { z } from 'zod'
+import { HutSchema } from './HutSchema'
 
-export type Hut = z.infer<typeof HutDataSchema>
+export type Hut = z.infer<typeof HutSchema>
