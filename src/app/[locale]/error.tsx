@@ -1,6 +1,6 @@
 'use client'
 
-import Heading from '@/components/elements/Heading'
+import { Heading } from '@/components/Heading'
 import { Button } from '@/components/ui/button'
 import { useEffect } from 'react'
 

@@ -1,8 +1,8 @@
-import Link from 'next/link'
-import { useLocale, useTranslations } from 'next-intl'
-import Heading from '@/components/elements/Heading'
-import P from '@/components/elements/P'
+import { Heading } from '@/components/Heading'
+import { P } from '@/components/P'
 import { Button } from '@/components/ui/button'
+import { useLocale, useTranslations } from 'next-intl'
+import Link from 'next/link'
 
 const NotFound = () => {
   const t = useTranslations('Errors')

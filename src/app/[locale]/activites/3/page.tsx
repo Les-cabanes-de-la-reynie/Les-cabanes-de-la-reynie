@@ -1,8 +1,8 @@
-import Container from '@/components/elements/Container'
-import Heading from '@/components/elements/Heading'
-import P from '@/components/elements/P'
-import forest from '@/components/images/homeCarousel/forest4.webp'
-import HeroBanner from '@/components/modules/HeroBanner'
+import forest from '@/assets/homeCarousel/forest4.webp'
+import { Container } from '@/components/Container'
+import { Heading } from '@/components/Heading'
+import { HeroBanner } from '@/components/HeroBanner'
+import { P } from '@/components/P'
 import { env } from '@/lib/env'
 import Image from 'next/image'
 

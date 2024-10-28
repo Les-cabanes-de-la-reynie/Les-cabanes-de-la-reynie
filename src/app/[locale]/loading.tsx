@@ -1,8 +1,8 @@
 'use client'
 
+import { Loader } from '@/components/Loader'
+import { P } from '@/components/P'
 import { useTranslations } from 'next-intl'
-import Loader from '@/components/elements/Loader'
-import P from '@/components/elements/P'
 
 const Loading = () => {
   const t = useTranslations('Common')

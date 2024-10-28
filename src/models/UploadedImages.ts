@@ -1,4 +1,4 @@
-import { UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
+import { UploadImageCategoryKeyEnum } from '@/features/common/uploadImage/types'
 import validator from 'validator'
 import { z } from 'zod'
 
