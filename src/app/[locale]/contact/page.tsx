@@ -1,8 +1,8 @@
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
-import Container from '@/components/elements/Container'
-import Heading from '@/components/elements/Heading'
-import LocationSection from '@/components/modules/Location/LocationSection'
-import OpeningHoursSection from '@/components/modules/OpeningHours/OpeningHoursSection'
+import { Container } from '@/components/Container'
+import { Heading } from '@/components/Heading'
+import { MapSection } from '@/features/map/MapSection'
+import { OpeningHoursSection } from '@/features/openingHours/OpeningHoursSection'
 import { env } from '@/lib/env'
 import { useTranslations } from 'next-intl'
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
@@ -53,7 +53,7 @@ const Contact = ({ params: { locale } }: { params: { locale: string } }) => {
       <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
         <OpeningHoursSection editable={false} />
 
-        <LocationSection />
+        <MapSection />
       </div>
     </Container>
   )

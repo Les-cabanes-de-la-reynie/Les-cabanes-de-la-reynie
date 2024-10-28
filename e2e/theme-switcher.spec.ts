@@ -1,4 +1,4 @@
-import { ThemeMode } from '@/_types/theme'
+import { ThemeMode } from '@/features/themeSwitcher/types'
 import { expect, test } from '@playwright/test'
 import {
   DESKTOP_VIEWPORT,
