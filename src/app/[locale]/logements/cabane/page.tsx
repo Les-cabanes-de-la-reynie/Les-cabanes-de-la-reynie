@@ -9,7 +9,7 @@ import { AccommodationsHeaderImage } from '@/features/accommodations/Accommodati
 import { AccommodationsPopover } from '@/features/accommodations/AccommodationsPopover'
 import { AccommodationsPrice } from '@/features/accommodations/AccommodationsPrice'
 import { AccommodationsSlider } from '@/features/accommodations/AccommodationsSlider'
-import { AccommodationTypeEnum } from '@/features/accommodations/hh'
+import { AccommodationTypeEnum } from '@/features/accommodations/types'
 import { PracticalInformation } from '@/features/common/practicalInformation/PracticalInformation'
 import { UploadImageCategoryKeyEnum } from '@/features/common/uploadImage/types'
 import { env } from '@/lib/env'

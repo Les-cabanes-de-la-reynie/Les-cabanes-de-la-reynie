@@ -2,7 +2,7 @@ import { P } from '@/components/P'
 import { getHutData } from '@/services/queries/hut'
 import { getYurtData } from '@/services/queries/yurt'
 import { unstable_noStore } from 'next/cache'
-import { AccommodationTypeEnum } from './hh'
+import { AccommodationTypeEnum } from './types'
 
 type AccommodationsPriceProps = {
   accommodationType: AccommodationTypeEnum
