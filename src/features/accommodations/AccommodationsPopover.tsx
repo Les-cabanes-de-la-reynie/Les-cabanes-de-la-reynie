@@ -10,7 +10,7 @@ import {
 import { Separator } from '@/components/ui/separator'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { BookEntity } from './types'
+import { BookEntity } from './hh'
 
 type AccommodationsPopoverProps = {
   bookList: BookEntity[]
