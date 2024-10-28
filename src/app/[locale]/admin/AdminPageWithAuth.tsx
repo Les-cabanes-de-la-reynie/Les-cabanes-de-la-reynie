@@ -2,7 +2,7 @@ import { Container } from '@/components/Container'
 import { Heading } from '@/components/Heading'
 import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 import { NextPage } from 'next'
-import { AdminTabs } from './components/adminTabs/AdminTabs'
+import { AdminTabs } from './components/tabs/AdminTabs'
 
 export const AdminPageWithAuth: NextPage = withPageAuthRequired(
   async () => {

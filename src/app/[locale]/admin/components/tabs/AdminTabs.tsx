@@ -5,15 +5,15 @@ import { HomeSection } from './HomeSection'
 import { HutSection } from './HutSection'
 import { YurtSection } from './YurtSection'
 
+const TAB_VALUES = {
+  home: 'home',
+  yurt: 'yurt',
+  hut: 'hut',
+  contact: 'contact'
+}
+
 export const AdminTabs = () => {
   const tCommon = useTranslations('Common')
-
-  const TAB_VALUES = {
-    home: 'home',
-    yurt: 'yurt',
-    hut: 'hut',
-    contact: 'contact'
-  }
 
   return (
     <Tabs defaultValue={TAB_VALUES.home}>
