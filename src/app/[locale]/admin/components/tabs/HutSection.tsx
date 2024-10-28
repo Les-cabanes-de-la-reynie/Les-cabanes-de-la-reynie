@@ -1,5 +1,5 @@
 import { Heading } from '@/components/Heading'
-import { Hut } from '@/features/hut/tata'
+import { Hut } from '@/features/hut/Hut'
 import { useTranslations } from 'next-intl'
 import { AdminSection } from '../AdminSection'
 
