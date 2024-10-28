@@ -8,12 +8,23 @@ import {
 } from '@/components/ui/carousel'
 import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
-import { CarouselProps } from './types'
 
 const FsLightbox = dynamic(() => import('fslightbox-react'))
 
 const SLIDER_BUTTONS_COMMON_CLASSNAME =
   'h-10 w-10 absolute -top-9 flex items-center justify-center rounded-full p-0'
+
+type LightboxController = {
+  toggler: boolean
+  sourceIndex: number
+}
+
+export type CarouselProps = {
+  carouselItems: JSX.Element[]
+  lighboxItems: JSX.Element[]
+  lightboxController: LightboxController
+  title?: string
+}
 
 const Carousel = ({
   carouselItems,
