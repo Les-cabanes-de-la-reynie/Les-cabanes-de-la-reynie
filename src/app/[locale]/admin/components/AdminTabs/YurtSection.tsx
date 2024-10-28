@@ -7,7 +7,7 @@ export const YurtSection = () => {
   const t = useTranslations('Common')
   return (
     <AdminSection>
-      <Heading level={2} className='my-8'>
+      <Heading level={2} className='my-8 text-center'>
         {t('yurt')}
       </Heading>
 
