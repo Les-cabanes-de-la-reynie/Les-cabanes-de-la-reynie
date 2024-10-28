@@ -86,8 +86,7 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out'
       },
       backgroundImage: {
-        homeParallaxImage:
-          'url("../components/images/hutAndYurt/home-parallax.jpg")'
+        homeParallaxImage: 'url("../assets/hutAndYurt/home-parallax.jpg")'
       }
     }
   },

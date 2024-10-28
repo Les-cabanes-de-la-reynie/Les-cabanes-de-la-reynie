@@ -1,4 +1,4 @@
-import { OpeningHoursData } from '@/components/modules/OpeningHours/types'
+import { OpeningHoursData } from '@/features/openingHours/types'
 import { convertTimeIntoDate } from './date'
 
 export const transformLocaleToCountry = (locale: string) =>

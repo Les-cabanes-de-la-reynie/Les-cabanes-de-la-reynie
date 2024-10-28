@@ -1,11 +1,11 @@
-import Container from '@/components/elements/Container'
-import Heading from '@/components/elements/Heading'
-import forest1 from '@/components/images/homeCarousel/forest.webp'
-import forest2 from '@/components/images/homeCarousel/forest2.webp'
-import forest3 from '@/components/images/homeCarousel/forest3.webp'
-import ActivitiesCard from '@/components/modules/ActivitiesCard'
+import forest1 from '@/assets/homeCarousel/forest.webp'
+import forest2 from '@/assets/homeCarousel/forest2.webp'
+import forest3 from '@/assets/homeCarousel/forest3.webp'
+import { Container } from '@/components/Container'
+import { Heading } from '@/components/Heading'
 import { env } from '@/lib/env'
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
+import { ActivitiesCard } from './components/ActivitiesCard'
 
 export async function generateStaticParams() {
   return env.NEXT_PUBLIC_LANGS.map(locale => ({ locale }))

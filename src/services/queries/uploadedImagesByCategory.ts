@@ -1,4 +1,7 @@
-import { UploadImage, UploadImageCategoryKeyEnum } from '@/_types/uploadImage'
+import {
+  UploadImageCategoryKeyEnum,
+  UploadImageEntity
+} from '@/features/common/uploadImage/types'
 import { db } from '@/lib/prisma'
 
 type GetUploadedImagesByCategoryProps = {
@@ -13,7 +16,7 @@ export const getUploadedImagesByCategory = async ({
       where: {
         category
       }
-    })) as UploadImage[]
+    })) as UploadImageEntity[]
   } catch (error) {
     throw new Error(`Failed to fetch uploaded images data. ${error}`)
   }
