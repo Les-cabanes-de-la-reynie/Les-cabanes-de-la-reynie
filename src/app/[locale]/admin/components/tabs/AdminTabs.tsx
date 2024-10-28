@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useTranslations } from 'next-intl'
-import { ContactSection } from './ContactSection'
+import { ContactPageSection } from './ContactPageSection'
 import { HomeSection } from './HomeSection'
 import { HutSection } from './HutSection'
 import { YurtSection } from './YurtSection'
@@ -35,7 +35,7 @@ export const AdminTabs = () => {
         <HutSection />
       </TabsContent>
       <TabsContent value={TAB_VALUES.contact}>
-        <ContactSection />
+        <ContactPageSection />
       </TabsContent>
     </Tabs>
   )

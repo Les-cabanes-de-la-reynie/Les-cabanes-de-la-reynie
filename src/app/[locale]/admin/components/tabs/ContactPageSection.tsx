@@ -5,7 +5,7 @@ import { OpeningHoursSection } from '@/features/openingHours/OpeningHoursSection
 import { useTranslations } from 'next-intl'
 import { AdminSection } from '../AdminSection'
 
-export const ContactSection = () => {
+export const ContactPageSection = () => {
   const t = useTranslations('Common')
   return (
     <AdminSection>
