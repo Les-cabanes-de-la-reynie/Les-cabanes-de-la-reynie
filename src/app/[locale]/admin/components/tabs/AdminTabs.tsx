@@ -1,6 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useTranslations } from 'next-intl'
-import { ContactSection } from './Contact-section'
+
+import { ContactSection } from './ContactSection'
 import { HomeSection } from './HomeSection'
 import { HutSection } from './HutSection'
 import { YurtSection } from './YurtSection'
