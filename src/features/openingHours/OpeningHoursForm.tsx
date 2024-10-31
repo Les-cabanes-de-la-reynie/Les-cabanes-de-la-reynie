@@ -2,7 +2,7 @@
 
 import { EditableButtons } from '@/components/editableButtons/EditableButtons'
 import { useToggle } from '@/hooks/useToggle'
-import { updateOpeningHours } from '@/services/actions/updateOpeningHours'
+import { updateOpeningHours } from '@/features/openingHours/infrastructure/actions/updateOpeningHours'
 import { formatFormDataIntoOpeningHoursData } from '@/utils/formats'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'

@@ -1,4 +1,4 @@
-import { getAddress } from '@/services/queries/address'
+import { getAddress } from '@/features/address/infrastructure/getAddress'
 import { unstable_noStore } from 'next/cache'
 import { AddressInformationForm } from './AddressInformationForm'
 

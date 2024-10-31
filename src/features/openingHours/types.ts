@@ -1,5 +1,9 @@
 import { OpeningHoursSchema } from '@/features/openingHours/OpeningHoursSchema'
+import { Prisma } from '@prisma/client'
 import { z } from 'zod'
+import { getOpeningHours } from './infrastructure/getOpeningHours'
+
+export type GetOpeningHours = Prisma.PromiseReturnType<typeof getOpeningHours>
 
 export enum DaysOfTheWeekEnum {
   Monday = 'Monday',

@@ -1,7 +1,7 @@
 import { Heading } from '@/components/Heading'
 import { Separator } from '@/components/ui/separator'
 import { HutUploadImage } from '@/features/hut/HutUploadImage'
-import { getHutData } from '@/services/queries/hut'
+import { getHutData } from '@/features/hut/infrastructure/getHutData'
 import { unstable_noStore } from 'next/cache'
 import { HutForm } from './HutForm'
 
@@ -12,6 +12,7 @@ type HutProps = {
 
 export const Hut = async ({ hutFormTitle, hutUploadImageTitle }: HutProps) => {
   unstable_noStore()
+
   const hut = await getHutData()
 
   return (

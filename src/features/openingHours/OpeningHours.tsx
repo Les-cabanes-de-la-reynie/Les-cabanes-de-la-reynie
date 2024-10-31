@@ -1,17 +1,13 @@
 import { IconContainer } from '@/components/IconContainer'
 import { P } from '@/components/P'
-import { formatDateToTime } from '@/utils/date'
 import { AlertCircleIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { useConvertToOpeningHoursRowData } from './application/convertToOpeningHoursRowData'
 import { OpeningHoursForm } from './OpeningHoursForm'
-import {
-  DaysOfTheWeekEnum,
-  OpeningHoursData,
-  OpeningHoursRowData
-} from './types'
+import { GetOpeningHours } from './types'
 
 type OpeningHoursProps = {
-  incomingOpeningHoursData: OpeningHoursData
+  incomingOpeningHoursData: GetOpeningHours
   editable: boolean
 }
 
@@ -21,81 +17,12 @@ export const OpeningHours = ({
 }: OpeningHoursProps) => {
   const t = useTranslations('Contact')
 
-  const {
-    mondayStart,
-    mondayEnd,
-    tuesdayStart,
-    tuesdayEnd,
-    wednesdayStart,
-    wednesdayEnd,
-    thursdayStart,
-    thursdayEnd,
-    fridayStart,
-    fridayEnd,
-    saturdayStart,
-    saturdayEnd,
-    sundayStart,
-    sundayEnd
-  } = incomingOpeningHoursData
+  // eslint-disable-next-line
+  const { id, ...rest } = incomingOpeningHoursData
 
-  const openingHoursData: OpeningHoursRowData[] = [
-    {
-      day: DaysOfTheWeekEnum.Monday,
-      dayTranslation: t('monday'),
-      startDate: formatDateToTime(mondayStart),
-      startDateKey: 'mondayStart',
-      endDate: formatDateToTime(mondayEnd),
-      endDateKey: 'mondayEnd'
-    },
-    {
-      day: DaysOfTheWeekEnum.Tuesday,
-      dayTranslation: t('tuesday'),
-      startDate: formatDateToTime(tuesdayStart),
-      startDateKey: 'tuesdayStart',
-      endDate: formatDateToTime(tuesdayEnd),
-      endDateKey: 'tuesdayEnd'
-    },
-    {
-      day: DaysOfTheWeekEnum.Wednesday,
-      dayTranslation: t('wednesday'),
-      startDate: formatDateToTime(wednesdayStart),
-      startDateKey: 'wednesdayStart',
-      endDate: formatDateToTime(wednesdayEnd),
-      endDateKey: 'wednesdayEnd'
-    },
-    {
-      day: DaysOfTheWeekEnum.Thursday,
-      dayTranslation: t('thursday'),
-      startDate: formatDateToTime(thursdayStart),
-      startDateKey: 'thursdayStart',
-      endDate: formatDateToTime(thursdayEnd),
-      endDateKey: 'thursdayEnd'
-    },
-    {
-      day: DaysOfTheWeekEnum.Friday,
-      dayTranslation: t('friday'),
-      startDate: formatDateToTime(fridayStart),
-      startDateKey: 'fridayStart',
-      endDate: formatDateToTime(fridayEnd),
-      endDateKey: 'fridayEnd'
-    },
-    {
-      day: DaysOfTheWeekEnum.Saturday,
-      dayTranslation: t('saturday'),
-      startDate: formatDateToTime(saturdayStart),
-      startDateKey: 'saturdayStart',
-      endDate: formatDateToTime(saturdayEnd),
-      endDateKey: 'saturdayEnd'
-    },
-    {
-      day: DaysOfTheWeekEnum.Sunday,
-      dayTranslation: t('sunday'),
-      startDate: formatDateToTime(sundayStart),
-      startDateKey: 'sundayStart',
-      endDate: formatDateToTime(sundayEnd),
-      endDateKey: 'sundayEnd'
-    }
-  ]
+  const openingHoursData = useConvertToOpeningHoursRowData({
+    incomingOpeningHoursData: rest
+  })
 
   return (
     <div className='flex flex-1 flex-col items-center justify-center'>
