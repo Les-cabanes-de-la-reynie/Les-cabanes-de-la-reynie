@@ -1,4 +1,4 @@
-import { YurtDataSchema } from '@/models/Yurt'
 import { z } from 'zod'
+import { YurtSchema } from './YurtSchema'
 
-export type Yurt = z.infer<typeof YurtDataSchema>
+export type Yurt = z.infer<typeof YurtSchema>

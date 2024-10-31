@@ -1,5 +1,5 @@
 import { z } from 'zod'
 
-export const HutDataSchema = z.object({
+export const YurtSchema = z.object({
   price: z.coerce.number()
 })

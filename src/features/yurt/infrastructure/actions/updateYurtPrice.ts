@@ -1,11 +1,11 @@
 'use server'
 
+import { YurtSchema } from '@/features/yurt/YurtSchema'
 import { db } from '@/lib/prisma'
 import { authActionClient } from '@/lib/safeActions'
-import { YurtDataSchema } from '@/models/Yurt'
 
 export const updateYurtPrice = authActionClient
-  .schema(YurtDataSchema)
+  .schema(YurtSchema)
   .action(async ({ parsedInput: price }) => {
     await db.yurt.update({
       where: { id: 1 },

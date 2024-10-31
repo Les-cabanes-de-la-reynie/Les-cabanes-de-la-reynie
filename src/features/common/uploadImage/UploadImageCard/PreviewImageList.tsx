@@ -1,6 +1,6 @@
 'use client'
 
-import { deleteUploadedImage } from '@/services/actions/deleteUploadedImage'
+import { deleteUploadedImage } from '@/features/common/uploadImage/infrastructure/actions/deleteUploadedImage'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
 import { toast } from 'sonner'

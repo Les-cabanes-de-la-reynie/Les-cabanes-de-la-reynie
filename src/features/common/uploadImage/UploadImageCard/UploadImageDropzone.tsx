@@ -1,7 +1,7 @@
 'use client'
 
 import { UploadDropzone } from '@/lib/uploadthing'
-import { updateUploadedImage } from '@/services/actions/updateUploadedImage'
+import { updateUploadedImage } from '@/features/common/uploadImage/infrastructure/actions/updateUploadedImage'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 import { UploadImageCategoryKeyEnum } from '../types'

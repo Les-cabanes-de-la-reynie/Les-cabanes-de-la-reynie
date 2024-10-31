@@ -1,4 +1,4 @@
-import { getOpeningHours } from '@/services/queries/openingHours'
+import { getOpeningHours } from '@/features/openingHours/infrastructure/getOpeningHours'
 import { unstable_noStore } from 'next/cache'
 import { OpeningHours } from './OpeningHours'
 
@@ -8,11 +8,12 @@ type OpeningHoursDataProps = {
 
 export const OpeningHoursData = async ({ editable }: OpeningHoursDataProps) => {
   unstable_noStore()
-  const openingHoursData = await getOpeningHours()
+
+  const incomingOpeningHoursData = await getOpeningHours()
 
   return (
     <OpeningHours
-      incomingOpeningHoursData={openingHoursData}
+      incomingOpeningHoursData={incomingOpeningHoursData}
       editable={editable}
     />
   )

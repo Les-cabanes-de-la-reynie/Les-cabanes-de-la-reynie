@@ -1,6 +1,6 @@
 import { P } from '@/components/P'
-import { getHutData } from '@/services/queries/hut'
-import { getYurtData } from '@/services/queries/yurt'
+import { getHutData } from '@/features/hut/infrastructure/getHutData'
+import { getYurtData } from '@/features/yurt/infrastructure/getYurtData'
 import { unstable_noStore } from 'next/cache'
 import { AccommodationTypeEnum } from './types'
 

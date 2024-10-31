@@ -1,8 +1,8 @@
 'use server'
 
+import { UpdateUploadedImageCommonSchema } from '@/features/common/uploadImage/UploadedImagesSchema'
 import { db } from '@/lib/prisma'
 import { authActionClient } from '@/lib/safeActions'
-import { UpdateUploadedImageCommonSchema } from '@/models/UploadedImages'
 
 export const updateUploadedImage = authActionClient
   .schema(UpdateUploadedImageCommonSchema)

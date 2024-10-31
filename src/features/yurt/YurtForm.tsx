@@ -10,9 +10,9 @@ import {
   FormMessage
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { YurtSchema } from '@/features/yurt/YurtSchema'
 import { useToggle } from '@/hooks/useToggle'
-import { YurtDataSchema } from '@/models/Yurt'
-import { updateYurtPrice } from '@/services/actions/updateYurtPrice'
+import { updateYurtPrice } from '@/features/yurt/infrastructure/actions/updateYurtPrice'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
@@ -31,13 +31,13 @@ export const YurtForm = ({ yurt }: YurtFormProps) => {
   const [isPending, startTransition] = useTransition()
   const [isEdit, handleToggleEdit] = useToggle(false)
 
-  const form = useForm<z.infer<typeof YurtDataSchema>>({
-    resolver: zodResolver(YurtDataSchema),
+  const form = useForm<z.infer<typeof YurtSchema>>({
+    resolver: zodResolver(YurtSchema),
     defaultValues: yurt,
     disabled: !isEdit
   })
 
-  const onSubmit = (data: z.infer<typeof YurtDataSchema>) => {
+  const onSubmit = (data: z.infer<typeof YurtSchema>) => {
     startTransition(async () => {
       const res = await updateYurtPrice(data)
 

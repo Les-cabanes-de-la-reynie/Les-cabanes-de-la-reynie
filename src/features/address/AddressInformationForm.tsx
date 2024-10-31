@@ -11,9 +11,9 @@ import {
   FormMessage
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { AddressSchema } from '@/features/address/AddressSchema'
 import { useToggle } from '@/hooks/useToggle'
-import { AddressFormSchema } from '@/models/Address'
-import { updateAddressInformation } from '@/services/actions/updateAddressInformation'
+import { updateAddressInformation } from '@/features/address/infrastructure/actions/updateAddressInformation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
@@ -33,13 +33,13 @@ export const AddressInformationForm = ({
   const [isPending, startTransition] = useTransition()
   const [isEdit, handleToggleEdit] = useToggle(false)
 
-  const form = useForm<z.infer<typeof AddressFormSchema>>({
-    resolver: zodResolver(AddressFormSchema),
+  const form = useForm<z.infer<typeof AddressSchema>>({
+    resolver: zodResolver(AddressSchema),
     defaultValues: address,
     disabled: !isEdit
   })
 
-  const onSubmit = (data: z.infer<typeof AddressFormSchema>) => {
+  const onSubmit = (data: z.infer<typeof AddressSchema>) => {
     startTransition(async () => {
       const res = await updateAddressInformation(data)
 
