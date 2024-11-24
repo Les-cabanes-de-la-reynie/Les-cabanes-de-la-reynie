@@ -6,7 +6,6 @@ import { ourFileRouter } from './core'
 export const { GET, POST } = createRouteHandler({
   router: ourFileRouter,
   config: {
-    uploadthingId: env.UPLOADTHING_APP_ID,
-    uploadthingSecret: env.UPLOADTHING_SECRET
+    token: env.UPLOADTHING_TOKEN
   }
 })
