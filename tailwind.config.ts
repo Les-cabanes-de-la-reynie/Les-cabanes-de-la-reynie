@@ -24,8 +24,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-primary)'],
-        title: ['var(--font-secondary)']
+        primary: ['var(--font-primary)'],
+        secondary: ['var(--font-secondary)']
       },
       colors: {
         white: 'hsl(var(--white))',

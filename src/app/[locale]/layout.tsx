@@ -7,15 +7,54 @@ import { env } from '@/lib/env'
 import Providers from '@/providers'
 import { cn } from '@/utils/tailwind'
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
-import { Roboto } from 'next/font/google'
+import localFont from 'next/font/local'
 import { notFound } from 'next/navigation'
 import { ReactNode } from 'react'
 
-const fontFamily = Roboto({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '700', '900'],
-  display: 'swap',
-  variable: '--font-primary'
+const fontPrimary = localFont({
+  variable: '--font-primary',
+  src: [
+    {
+      path: '../../assets/fonts/Roboto/Roboto-Regular.ttf',
+      weight: '400',
+      style: 'normal'
+    },
+    {
+      path: '../../assets/fonts/Roboto/Roboto-Italic.ttf',
+      weight: '400',
+      style: 'italic'
+    },
+    {
+      path: '../../assets/fonts/Roboto/Roboto-Medium.ttf',
+      weight: '500',
+      style: 'normal'
+    },
+    {
+      path: '../../assets/fonts/Roboto/Roboto-MediumItalic.ttf',
+      weight: '500',
+      style: 'italic'
+    },
+    {
+      path: '../../assets/fonts/Roboto/Roboto-Bold.ttf',
+      weight: '700',
+      style: 'normal'
+    },
+    {
+      path: '../../assets/fonts/Roboto/Roboto-BoldItalic.ttf',
+      weight: '700',
+      style: 'italic'
+    },
+    {
+      path: '../../assets/fonts/Roboto/Roboto-Black.ttf',
+      weight: '900',
+      style: 'normal'
+    },
+    {
+      path: '../../assets/fonts/Roboto/Roboto-BlackItalic.ttf',
+      weight: '900',
+      style: 'italic'
+    }
+  ]
 })
 
 async function getMessages(locale: string) {
@@ -75,8 +114,8 @@ const LocaleLayout = async ({
     <html suppressHydrationWarning lang={locale}>
       <body
         className={cn(
-          fontFamily.variable,
-          'text:foreground relative flex min-h-screen w-full flex-col bg-background font-sans'
+          fontPrimary.variable,
+          'text:foreground relative flex min-h-screen w-full flex-col bg-background font-primary'
         )}
       >
         <Providers locale={locale} messages={messages}>
