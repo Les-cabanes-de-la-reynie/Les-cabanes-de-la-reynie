@@ -1,12 +1,16 @@
 import { cn } from '@/utils/tailwind'
-import { Galada } from 'next/font/google'
+import localFont from 'next/font/local'
 import { HTMLProps, PropsWithChildren } from 'react'
 
-const fontFamily = Galada({
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap',
-  variable: '--font-secondary'
+const fontSecondary = localFont({
+  variable: '--font-secondary',
+  src: [
+    {
+      path: '../assets/fonts/Galada/Galada-Regular.ttf',
+      weight: '400',
+      style: 'normal'
+    }
+  ]
 })
 
 export type HeadingProps = PropsWithChildren &
@@ -30,8 +34,8 @@ export const Heading = ({
     className
   )
   const h2ClassName = cn(
-    fontFamily.variable,
-    'scroll-m-20 text-3xl text-balance font-title first:mt-0',
+    fontSecondary.variable,
+    'scroll-m-20 text-3xl text-balance font-secondary first:mt-0',
     {
       'text-error': error
     },
