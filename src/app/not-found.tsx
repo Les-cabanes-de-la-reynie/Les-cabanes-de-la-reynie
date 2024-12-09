@@ -1,17 +1,21 @@
-'use client'
+import { Heading } from '@/components/Heading'
+import { P } from '@/components/P'
+import { Button } from '@/components/ui/button'
+import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 
-import Error from 'next/error'
+const NotFound = () => {
+  const t = useTranslations('Errors')
 
-// Render the default Next.js 404 page when a route
-// is requested that doesn't match the middleware and
-// therefore doesn't have a locale associated with it.
-
-export default function NotFound() {
   return (
-    <html lang='fr'>
-      <body>
-        <Error statusCode={404} />
-      </body>
-    </html>
+    <div className='flex w-full flex-col items-center justify-center  p-4'>
+      <Heading level={2}>{t('shortError404')}</Heading>
+      <P>{t('longError404')}</P>
+      <Button asChild className='mt-4'>
+        <Link href='/'>{t('backButtonMessage')}</Link>
+      </Button>
+    </div>
   )
 }
+
+export default NotFound

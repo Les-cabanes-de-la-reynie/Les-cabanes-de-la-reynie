@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { useUser } from '@auth0/nextjs-auth0/client'
 import { Edit3Icon, LogOutIcon, UserIcon } from 'lucide-react'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -18,7 +18,6 @@ export const Profile = () => {
   const { user, error } = useUser()
 
   const t = useTranslations('Navigation')
-  const lang = useLocale()
 
   if (error || !user?.email) {
     return null
@@ -51,7 +50,7 @@ export const Profile = () => {
             <span>{user?.name}</span>
           </DropdownMenuItem>
 
-          <Link href={`/${lang}/admin`}>
+          <Link href='/admin'>
             <DropdownMenuItem>
               <Edit3Icon className='mr-2 h-4 w-4 flex-shrink-0' />
               <span>{t('modifyWebsiteInformation')}</span>

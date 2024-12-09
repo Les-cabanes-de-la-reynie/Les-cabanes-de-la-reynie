@@ -27,15 +27,6 @@
     "phone": "Phone",
     "email": "Email"
   },
-  "SEO": {
-    "homeTitle": "In the heart of Corrèze's nature",
-    "homeDescription": "Welcome to our yurt and hut, in the heart of Corrèze's nature, with its rich landscapes and history to discover for the duration of your stay!",
-    "accommodationsDescription": "Opening onto the peaceful natural surroundings, our accommodation is designed to give you a restful change of scene.",
-    "yurtDescription": "The yurt can sleep up to 6 people, with its sleeping area, lounge, kitchen and toilet facilities. The view extends over the meadow and the valley.",
-    "hutDescription": "The hut sleeps two people and has an outdoor shower, dry toilets and summer kitchen just two steps away.",
-    "contactDescription": "Find out all about us!",
-    "activitiesDescription": "Hiking, mountain biking, climbing, canoeing, castle visits and listed villages, the Lascaux and Tourtoirac caves, the Padirac chasm, local gastronomy..."
-  },
   "Home": {
     "seeOurYurt": "See our Yurt!",
     "seeOurHut": "See our Hut!",

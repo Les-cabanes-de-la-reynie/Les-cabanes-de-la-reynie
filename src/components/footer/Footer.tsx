@@ -3,7 +3,7 @@ import { InstagramIcon } from '@/assets/icons/socialMedia/InstagramIcon'
 import { LinkedInIcon } from '@/assets/icons/socialMedia/LinkedInIcon'
 import { MailIcon } from '@/assets/icons/socialMedia/MailIcon'
 import { Container } from '@/components/Container'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { FollowUsItem } from './FollowUsItem'
 import { FooterCopyright } from './FooterCopyright'
@@ -14,7 +14,6 @@ import { FooterNav } from './FooterNav'
 
 export const Footer = () => {
   const t = useTranslations('Footer')
-  const lang = useLocale()
 
   const COMMON_ICON_CLASSNAME =
     'fill-card-foreground transition-colors hover:fill-primary h-7 w-7'
@@ -26,13 +25,13 @@ export const Footer = () => {
           <FooterHeading>{t('aboutUs')}</FooterHeading>
           <ul>
             <FooterItem>
-              <Link href={`/${lang}`}>{t('leadershipTeam')}</Link>
+              <Link href='/'>{t('leadershipTeam')}</Link>
             </FooterItem>
             <FooterItem>
-              <Link href={`/${lang}`}>{t('valuesInAction')}</Link>
+              <Link href='/'>{t('valuesInAction')}</Link>
             </FooterItem>
             <FooterItem>
-              <Link href={`/${lang}`}>{t('franchiseInfo')}</Link>
+              <Link href='/'>{t('franchiseInfo')}</Link>
             </FooterItem>
           </ul>
         </FooterNav>
@@ -40,13 +39,13 @@ export const Footer = () => {
           <FooterHeading>Admin</FooterHeading>
           <ul>
             <FooterItem>
-              <Link href={`/api/auth/login`}>Item 1</Link>
+              <Link href='/'>Item 1</Link>
             </FooterItem>
             <FooterItem>
-              <Link href={`/${lang}`}>Item 2</Link>
+              <Link href='/'>Item 2</Link>
             </FooterItem>
             <FooterItem>
-              <Link href={`/${lang}/admin`}>Espace admin</Link>
+              <Link href='/admin'>Espace admin</Link>
             </FooterItem>
           </ul>
         </FooterNav>

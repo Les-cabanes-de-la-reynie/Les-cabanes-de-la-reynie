@@ -2,17 +2,18 @@ import { ourFileRouter } from '@/app/api/uploadthing/core'
 import { UserProvider } from '@auth0/nextjs-auth0/client'
 import { NextSSRPlugin } from '@uploadthing/react/next-ssr-plugin'
 import { NextIntlClientProvider } from 'next-intl'
+import { getMessages } from 'next-intl/server'
 import { PropsWithChildren } from 'react'
 import { extractRouterConfig } from 'uploadthing/server'
 import { ThemeProvider } from './theme-provider'
 
 type ProvidersProps = PropsWithChildren & {
   locale: string
-  /* eslint-disable  @typescript-eslint/no-explicit-any */
-  messages: any
 }
 
-const Providers = ({ locale, messages, children }: ProvidersProps) => {
+export const Providers = async ({ locale, children }: ProvidersProps) => {
+  const messages = await getMessages()
+
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <ThemeProvider
@@ -37,4 +38,3 @@ const Providers = ({ locale, messages, children }: ProvidersProps) => {
     </NextIntlClientProvider>
   )
 }
-export default Providers
