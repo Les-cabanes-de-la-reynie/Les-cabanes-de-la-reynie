@@ -1,6 +1,5 @@
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import { cn } from '@/utils/tailwind'
-import { useLocale } from 'next-intl'
 import Link from 'next/link'
 
 type LogoProps = {
@@ -8,15 +7,13 @@ type LogoProps = {
 }
 
 export const Logo = ({ onCloseMenu }: LogoProps) => {
-  const lang = useLocale()
-
   const classes = cn(
     'flex flex-col box-border cursor-pointer mr-8 border-y-4 border-white  text-2xl font-extrabold w-max text-white'
   )
 
   return (
     <Link
-      href={`/${lang}`}
+      href='/'
       className={classes}
       onClick={onCloseMenu}
       aria-label={`${ESTABLISHMENT_TITLE} Logo`}

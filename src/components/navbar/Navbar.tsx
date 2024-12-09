@@ -1,3 +1,4 @@
+import { SEO } from '@/_constants/SEO'
 import { Logo } from '@/components/Logo'
 import { Button } from '@/components/ui/button'
 import {
@@ -25,7 +26,7 @@ import { ThemeSwitcher } from '@/features/themeSwitcher/ThemeSwitcher'
 import { Profile } from '@/features/userProfile/Profile'
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import { ChevronRightIcon, MenuIcon } from 'lucide-react'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useState } from 'react'
 import { CustomLink } from './CustomLink'
@@ -35,16 +36,14 @@ export const Navbar = () => {
   const [mobileNavbarOpened, setMobileNavbarOpened] = useState(false)
 
   const tCommon = useTranslations('Common')
-  const tSEO = useTranslations('SEO')
   const tNavigation = useTranslations('Navigation')
-  const lang = useLocale()
 
   const navLinks = {
-    home: `/${lang}`,
-    yurt: `/${lang}/logements/yourte`,
-    hut: `/${lang}/logements/cabane`,
-    activities: `/${lang}/activites`,
-    contact: `/${lang}/contact`
+    home: '/',
+    yurt: '/logements/yourte',
+    hut: '/logements/cabane',
+    activities: '/activites',
+    contact: '/contact'
   }
 
   const handleCloseNavbar = () => {
@@ -166,14 +165,14 @@ export const Navbar = () => {
                     title={tCommon('yurt')}
                     href={navLinks.yurt}
                   >
-                    {tSEO('yurtDescription')}
+                    {SEO.accommodation.yurt.description}
                   </ListItem>
                   <ListItem
                     key={tCommon('hut')}
                     title={tCommon('hut')}
                     href={navLinks.hut}
                   >
-                    {tSEO('hutDescription')}
+                    {SEO.accommodation.hut.description}
                   </ListItem>
                 </ul>
               </NavigationMenuContent>

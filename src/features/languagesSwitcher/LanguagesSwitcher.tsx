@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -7,26 +9,25 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-import { env } from '@/lib/env'
-import { usePathname, useRouter } from '@/navigation'
 import { transformLocaleToCountry } from '@/utils/formats'
 import { cn } from '@/utils/tailwind'
 import { useLocale, useTranslations } from 'next-intl'
 import { useTransition } from 'react'
+import { Locale, locales } from '../i18n/config'
+import { setUserLocale } from '../i18n/infrastructure/locale'
 import { PADDING_ITEM } from '../themeSwitcher/ThemeSwitcher'
 import { LanguageSwitcherButton } from './LanguageSwitcherButton'
 
 export const LanguagesSwitcher = () => {
   const [isPending, startTransition] = useTransition()
-  const router = useRouter()
-  const pathname = usePathname()
   const t = useTranslations('Navigation')
   const currentLocale = useLocale()
 
-  const onSelectChange = (locale: string) => {
-    const nextLocale = locale
+  const onSelectChange = (value: string) => {
+    const locale = value as Locale
+
     startTransition(() => {
-      router.replace(pathname, { locale: nextLocale })
+      setUserLocale(locale)
     })
   }
 
@@ -42,7 +43,7 @@ export const LanguagesSwitcher = () => {
         <DropdownMenuSeparator />
 
         <div aria-labelledby='language-menu-button'>
-          {env.NEXT_PUBLIC_LANGS?.map(locale => {
+          {locales?.map(locale => {
             return (
               <DropdownMenuItem
                 key={locale}
