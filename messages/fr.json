@@ -18,7 +18,7 @@
     "yurtInformation": "Informations concernant la yourte",
     "hutInformation": "Informations concernant la cabane",
     "practicalInformation": "Informations pratiques",
-    "sliderTitle": "Nos logements",
+    "sliderTitle": "Ce que vous pouvez découvrir",
     "uploadImage": "Télécharger vos images",
     "address": "Adresse",
     "postalCode": "Code postal",
@@ -28,6 +28,8 @@
     "email": "Email"
   },
   "Home": {
+    "CTA": "Plongez dans la nature",
+    "ourAccommodations": "Nos logements",
     "seeOurYurt": "Voir notre Yourte !",
     "seeOurHut": "Voir notre Cabane !",
     "aboutUsTitle": "Bienvenue dans les cabanes de la Reynie !",

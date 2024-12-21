@@ -18,7 +18,7 @@
     "yurtInformation": "Yurt information",
     "hutInformation": "Hut information",
     "practicalInformation": "Practical information",
-    "sliderTitle": "Our accommodations",
+    "sliderTitle": "What you will discover",
     "uploadImage": "Upload your images",
     "address": "Address",
     "postalCode": "Postal Code",
@@ -28,6 +28,8 @@
     "email": "Email"
   },
   "Home": {
+    "CTA": "Dive into nature",
+    "ourAccommodations": "Our accommodations",
     "seeOurYurt": "See our Yurt!",
     "seeOurHut": "See our Hut!",
     "aboutUsTitle": "Welcome to les cabanes de la Reynie!",

@@ -14,8 +14,6 @@ export const AccommodationsSlider = async ({
   const uploadedImages = await getUploadedImagesByCategory({ category })
 
   return uploadedImages?.length ? (
-    <section className='mx-auto w-full max-w-screen-2xl py-8'>
-      <CarouselWithLightbox data={uploadedImages} category={category} />
-    </section>
+    <CarouselWithLightbox data={uploadedImages} category={category} />
   ) : null
 }
