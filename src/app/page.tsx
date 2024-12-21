@@ -1,18 +1,26 @@
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import homeBannerImage from '@/assets/hutAndYurt/home-banner.jpg'
 import { Container } from '@/components/Container'
+import { Heading } from '@/components/Heading'
 import { HeroBanner } from '@/components/HeroBanner'
 import { IntroduceLesCabanesDeLaReynie } from '@/components/IntroduceLesCabanesDeLaReynie'
 import { AccommodationsCardList } from '@/features/accommodations/AccommodationsCardList'
 import { AccommodationsDescription } from '@/features/accommodations/AccommodationsDescription'
-import { AccommodationsSlider } from '@/features/accommodations/AccommodationsSlider'
+import { AccommodationsSliderWithSkeleton } from '@/features/accommodations/AccommodationsSliderWithSkeleton'
 import { UploadImageCategoryKeyEnum } from '@/features/common/uploadImage/types'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 const Home = () => {
+  const tHome = useTranslations('Home')
+
   return (
     <div className='w-full lg:-mt-[4.5rem]'>
-      <HeroBanner title={ESTABLISHMENT_TITLE} className='select-none'>
+      <HeroBanner
+        title={ESTABLISHMENT_TITLE}
+        className='select-none relative'
+        callToActionText={tHome('CTA')}
+      >
         <Image
           alt='Paysage typique dans "Les cabanes de la Reynie"'
           src={homeBannerImage}
@@ -28,13 +36,18 @@ const Home = () => {
 
       <div className='mb-8 h-96 w-full select-none bg-homeParallaxImage bg-cover bg-fixed bg-center bg-no-repeat md:mb-10' />
 
-      <AccommodationsSlider category={UploadImageCategoryKeyEnum.HomeSlider} />
-
-      <AccommodationsDescription />
+      <AccommodationsSliderWithSkeleton
+        category={UploadImageCategoryKeyEnum.HomeSlider}
+      />
 
       <Container>
+        <Heading id='our-services' level={2}>
+          {tHome('ourAccommodations')}
+        </Heading>
         <AccommodationsCardList />
       </Container>
+
+      <AccommodationsDescription />
     </div>
   )
 }

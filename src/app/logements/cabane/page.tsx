@@ -9,7 +9,7 @@ import { AccommodationsHeaderContent } from '@/features/accommodations/Accommoda
 import { AccommodationsHeaderImage } from '@/features/accommodations/AccommodationsHeader/AccommodationsHeaderImage'
 import { AccommodationsPopover } from '@/features/accommodations/AccommodationsPopover'
 import { AccommodationsPrice } from '@/features/accommodations/AccommodationsPrice'
-import { AccommodationsSlider } from '@/features/accommodations/AccommodationsSlider'
+import { AccommodationsSliderWithSkeleton } from '@/features/accommodations/AccommodationsSliderWithSkeleton'
 import { AccommodationTypeEnum } from '@/features/accommodations/types'
 import { PracticalInformation } from '@/features/common/practicalInformation/PracticalInformation'
 import { UploadImageCategoryKeyEnum } from '@/features/common/uploadImage/types'
@@ -86,7 +86,9 @@ const Hut = () => {
 
       <PracticalInformation />
 
-      <AccommodationsSlider category={UploadImageCategoryKeyEnum.HutSlider} />
+      <AccommodationsSliderWithSkeleton
+        category={UploadImageCategoryKeyEnum.HutSlider}
+      />
 
       <OurGourmetOffer />
     </main>

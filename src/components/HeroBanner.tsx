@@ -1,14 +1,23 @@
 import { ClassNameProps } from '@/_types/components'
 import { Heading } from '@/components/Heading'
 import { cn } from '@/utils/tailwind'
+import { ArrowBigDown } from 'lucide-react'
+import Link from 'next/link'
 import { PropsWithChildren } from 'react'
+import { buttonVariants } from './ui/button'
 
 type HeroBannerProps = PropsWithChildren &
   ClassNameProps & {
     title: string
+    callToActionText?: string
   }
 
-export const HeroBanner = ({ children, title, className }: HeroBannerProps) => {
+export const HeroBanner = ({
+  children,
+  title,
+  callToActionText,
+  className
+}: HeroBannerProps) => {
   const classes = cn(
     'relative h-[55vh] lg:h-[75vh] w-full select-none overflow-hidden',
     className
@@ -17,7 +26,7 @@ export const HeroBanner = ({ children, title, className }: HeroBannerProps) => {
   return (
     <div className={classes}>
       {children}
-      <div className='absolute inset-0 flex items-center justify-center bg-opacity-20 p-4 text-center'>
+      <div className='absolute inset-0 bg-black/30 flex flex-col items-center justify-center gap-12 p-4 text-center'>
         <Heading
           level={1}
           className='text-5xl text-primary-foreground lg:text-6xl'
@@ -25,6 +34,19 @@ export const HeroBanner = ({ children, title, className }: HeroBannerProps) => {
         >
           {title}
         </Heading>
+
+        {!!callToActionText && (
+          <Link
+            href='#our-services'
+            className={cn(
+              'flex gap-2 items-center',
+              buttonVariants({ size: 'lg' })
+            )}
+          >
+            <span>{callToActionText}</span>
+            <ArrowBigDown className='motion-safe:animate-bounce' />
+          </Link>
+        )}
       </div>
     </div>
   )
