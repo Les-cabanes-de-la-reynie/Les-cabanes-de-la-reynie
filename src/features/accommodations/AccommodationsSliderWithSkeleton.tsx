@@ -5,16 +5,18 @@ import { UploadImageCategoryKeyEnum } from '../common/uploadImage/types'
 import { AccommodationsSlider } from './AccommodationsSlider'
 
 type AccommodationsSliderWithSkeletonProps = {
+  title?: string
   category: UploadImageCategoryKeyEnum
 }
 
 export const AccommodationsSliderWithSkeleton = ({
+  title,
   category
 }: AccommodationsSliderWithSkeletonProps) => {
   return (
     <Container>
       <Suspense fallback={<CarouselWithLightboxSkeleton />}>
-        <AccommodationsSlider category={category} />
+        <AccommodationsSlider title={title} category={category} />
       </Suspense>
     </Container>
   )

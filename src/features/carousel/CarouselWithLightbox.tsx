@@ -1,25 +1,19 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
-import {
-  UploadImageCategoryKeyEnum,
-  UploadImageEntity
-} from '../common/uploadImage/types'
+import { UploadImageEntity } from '../common/uploadImage/types'
 import Carousel from './Carousel'
 
 type CarouselWithLightboxProps = {
+  title?: string
   data: UploadImageEntity[]
-  category: UploadImageCategoryKeyEnum
 }
 
 export const CarouselWithLightbox = ({
-  data,
-  category
+  title,
+  data
 }: CarouselWithLightboxProps) => {
-  const t = useTranslations('Common')
-
   const [lightboxController, setLightboxController] = useState({
     toggler: false,
     sourceIndex: 0
@@ -65,11 +59,7 @@ export const CarouselWithLightbox = ({
       carouselItems={carouselItems}
       lighboxItems={lighboxItems}
       lightboxController={lightboxController}
-      title={
-        category === UploadImageCategoryKeyEnum.HomeSlider
-          ? t('sliderTitle')
-          : undefined
-      }
+      title={title}
     />
   )
 }

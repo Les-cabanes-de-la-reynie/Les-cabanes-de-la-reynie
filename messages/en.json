@@ -18,7 +18,6 @@
     "yurtInformation": "Yurt information",
     "hutInformation": "Hut information",
     "practicalInformation": "Practical information",
-    "sliderTitle": "What you will discover",
     "uploadImage": "Upload your images",
     "address": "Address",
     "postalCode": "Postal Code",
@@ -29,6 +28,7 @@
   },
   "Home": {
     "CTA": "Dive into nature",
+    "sliderTitle": "What you will discover",
     "ourAccommodations": "Our accommodations",
     "seeOurYurt": "See our Yurt!",
     "seeOurHut": "See our Hut!",
@@ -60,10 +60,12 @@
     "ourGourmetOfferItem2": "with pastries from the local baker, home-made jams and yoghurts, scrambled eggs from our chickens, seasonal fruit..."
   },
   "Yurt": {
+    "sliderTitle": "The yurt",
     "yurtP1": "The yurt can accommodate up to 6 people (one double bed, two single beds and a sofa bed) and has a kitchenette with stove, table and chairs, and access to drinking water (filter). Its two doors, skylight and window provide all the light you need.",
     "yurtP2": "The shower and dry toilets are outside. The terrace overlooks the surrounding countryside."
   },
   "Hut": {
+    "sliderTitle": "The hut",
     "hutP1": "The cabin sleeps 2 (double bed). It has a table and chairs on the terrace (but you're free to move them wherever you like!). Its double doors and two windows give the impression of being right in the middle of nature.",
     "hutP2": "The shower, dry toilets and a small summer kitchen area are located outside."
   },

@@ -87,6 +87,7 @@ const Yurt = () => {
       <PracticalInformation />
 
       <AccommodationsSliderWithSkeleton
+        title={tYurt('sliderTitle')}
         category={UploadImageCategoryKeyEnum.YurtSlider}
       />
 

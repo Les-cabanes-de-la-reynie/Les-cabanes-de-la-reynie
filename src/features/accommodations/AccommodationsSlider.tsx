@@ -4,16 +4,18 @@ import { unstable_noStore } from 'next/cache'
 import { UploadImageCategoryKeyEnum } from '../common/uploadImage/types'
 
 type AccommodationsSliderProps = {
+  title?: string
   category: UploadImageCategoryKeyEnum
 }
 
 export const AccommodationsSlider = async ({
+  title,
   category
 }: AccommodationsSliderProps) => {
   unstable_noStore()
   const uploadedImages = await getUploadedImagesByCategory({ category })
 
   return uploadedImages?.length ? (
-    <CarouselWithLightbox data={uploadedImages} category={category} />
+    <CarouselWithLightbox data={uploadedImages} title={title} />
   ) : null
 }
