@@ -87,6 +87,7 @@ const Hut = () => {
       <PracticalInformation />
 
       <AccommodationsSliderWithSkeleton
+        title={tHut('sliderTitle')}
         category={UploadImageCategoryKeyEnum.HutSlider}
       />
 

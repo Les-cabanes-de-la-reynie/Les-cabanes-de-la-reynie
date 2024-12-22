@@ -1,22 +1,16 @@
-import { Heading } from '@/components/Heading'
 import {
   CarouselApi,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
   Carousel as EmblaCarousel
 } from '@/components/ui/carousel'
 import { Progress } from '@/components/ui/progress'
-import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 import { useCallback, useEffect, useState } from 'react'
+import { CarouselHeader } from './CarouselHeader'
 import { CarouselProps } from './types'
 
 const FsLightbox = dynamic(() => import('fslightbox-react'))
-
-const SLIDER_BUTTONS_COMMON_CLASSNAME =
-  'h-10 w-10 absolute -top-9 flex items-center justify-center rounded-full p-0'
 
 const Carousel = ({
   carouselItems,
@@ -24,8 +18,6 @@ const Carousel = ({
   lightboxController,
   title
 }: CarouselProps) => {
-  const t = useTranslations('Carousel')
-
   const [emblaApi, setEmblaApi] = useState<CarouselApi>()
   const [scrollProgress, setScrollProgress] = useState(0)
 
@@ -47,18 +39,16 @@ const Carousel = ({
   }, [emblaApi, onScroll])
 
   return (
-    <div className='relative mt-7'>
-      <Heading level={2} className='first:mt-0 -top-[3.4rem] left-0 absolute'>
-        {title ?? ''}
-      </Heading>
-
+    <div>
       <EmblaCarousel
         setApi={setEmblaApi}
-        className='w-full'
+        className='w-full flex flex-col gap-3'
         opts={{
           align: 'start'
         }}
       >
+        <CarouselHeader title={title} />
+
         <CarouselContent className='ml-0'>
           {carouselItems.map((carouselItem, index) => (
             <CarouselItem
@@ -69,18 +59,7 @@ const Carousel = ({
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious
-          variant={'default'}
-          className={`${SLIDER_BUTTONS_COMMON_CLASSNAME} left-[unset] right-14`}
-          aria-label={t('prevButton')}
-          data-testid='carousel-previous-button'
-        />
-        <CarouselNext
-          variant={'default'}
-          className={`${SLIDER_BUTTONS_COMMON_CLASSNAME} right-0`}
-          aria-label={t('nextButton')}
-          data-testid='carousel-next-button'
-        />
+
         <Progress
           value={scrollProgress}
           className='mt-4 w-2/3 lg:w-2/6 mx-auto'

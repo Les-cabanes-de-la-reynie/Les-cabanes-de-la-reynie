@@ -18,7 +18,6 @@
     "yurtInformation": "Informations concernant la yourte",
     "hutInformation": "Informations concernant la cabane",
     "practicalInformation": "Informations pratiques",
-    "sliderTitle": "Ce que vous pouvez découvrir",
     "uploadImage": "Télécharger vos images",
     "address": "Adresse",
     "postalCode": "Code postal",
@@ -29,6 +28,7 @@
   },
   "Home": {
     "CTA": "Plongez dans la nature",
+    "sliderTitle": "Ce que vous pouvez découvrir",
     "ourAccommodations": "Nos logements",
     "seeOurYurt": "Voir notre Yourte !",
     "seeOurHut": "Voir notre Cabane !",
@@ -60,10 +60,12 @@
     "ourGourmetOfferItem2": "avec viennoiseries du boulanger local, confitures et yaourts maison, œufs brouillés de nos poules, fruits de saison…"
   },
   "Yurt": {
+    "sliderTitle": "La yourte",
     "yurtP1": "La yourte peut accueillir jusqu'à 6 personnes (un lit-double, deux lits simples et un canapé-lit) et dispose d'un coin cuisine avec réchaud, d'une table et de chaises, et d'un accès à l'eau potable (filtre). Ses deux portes, son puits de lumière et sa fenêtre apportent toute la lumière nécessaire.",
     "yurtP2": "La douche et les toilettes sèches sont à l'extérieur. La terrasse s'ouvre sur la nature environnante."
   },
   "Hut": {
+    "sliderTitle": "La cabane",
     "hutP1": "La cabane peut accueillir 2 personnes (un lit-double). Elle dispose d'une table et de chaises sur sa terrasse (mais libre à vous de les déplacer où vous le désirez !). Sa double-porte et ses deux fenêtres donnent l'impression d'être au beau milieu de la nature.",
     "hutP2": "La douche, les toilettes sèches et un petit coin cuisine d'été se trouvent à l'extérieur."
   },

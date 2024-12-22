@@ -35,7 +35,7 @@ export const AccommodationsCard = ({
           />
           <Heading
             level={2}
-            className='flex items-center rounded text-primary-foreground justify-center h-full w-full absolute top-0 left-0 bg-opacity-50'
+            className='flex items-center bg-black/30 rounded text-primary-foreground justify-center h-full w-full absolute top-0 left-0 bg-opacity-50'
           >
             {textContent}
           </Heading>

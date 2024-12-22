@@ -37,6 +37,7 @@ const Home = () => {
       <div className='mb-8 h-96 w-full select-none bg-homeParallaxImage bg-cover bg-fixed bg-center bg-no-repeat md:mb-10' />
 
       <AccommodationsSliderWithSkeleton
+        title={tHome('sliderTitle')}
         category={UploadImageCategoryKeyEnum.HomeSlider}
       />
 
