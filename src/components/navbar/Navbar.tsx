@@ -98,13 +98,13 @@ export const Navbar = () => {
                   <ChevronRightIcon className='ml-auto h-5 w-5 transition-all' />
                 </CollapsibleTrigger>
                 <CollapsibleContent>
-                  <div className='-mx-6 grid gap-6 px-10 py-2 bg-primary'>
+                  <div className='-mx-6 grid border-l gap-6 ml-0 px-4 py-2 bg-primary'>
                     <Link
                       href={navLinks.yurt}
                       onClick={handleCloseNavbar}
                       className='group grid h-auto w-full justify-start gap-1'
                     >
-                      <div className='text-sm font-medium leading-none group-hover:underline'>
+                      <div className='text-sm leading-none group-hover:underline'>
                         {tCommon('yurt')}
                       </div>
                     </Link>
@@ -113,7 +113,7 @@ export const Navbar = () => {
                       onClick={handleCloseNavbar}
                       className='group grid h-auto w-full justify-start gap-1'
                     >
-                      <div className='text-sm font-medium leading-none group-hover:underline'>
+                      <div className='text-sm leading-none group-hover:underline'>
                         {tCommon('hut')}
                       </div>
                     </Link>
