@@ -36,7 +36,7 @@ export const Phone = ({ address }: PhoneProps) => {
     >
       <span className='flex flex-col text-primary'>
         <div className='flex items-center'>
-          <IconContainer size={'none'}>
+          <IconContainer>
             <PhoneIcon className={APP_ICON_SIZE_CLASSNAME} />
           </IconContainer>
           {tCommon('phone')} :

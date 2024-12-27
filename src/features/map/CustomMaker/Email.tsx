@@ -18,7 +18,7 @@ export const Email = ({ address }: EmailProps) => {
     >
       <div itemProp='email' className='flex flex-col max-w-64 text-primary'>
         <div className='flex items-center'>
-          <IconContainer size={'none'}>
+          <IconContainer>
             <MailIcon className={APP_ICON_SIZE_CLASSNAME} />
           </IconContainer>
           <span>{tCommon('email')}</span>

@@ -1,24 +1,24 @@
 import { useTranslations } from 'next-intl'
+import { TextWithSkewBackgroundColor } from '../TextWithSkewBackgroundColor'
 import { OurGourmetOfferItem } from './OurGourmetOfferItem'
-import { OurGourmetOfferStrong } from './OurGourmetOfferStrong'
 
 export const OurGourmetOfferList = () => {
   const t = useTranslations('Accommodations')
 
   return (
-    <ul className='ml-8'>
+    <ul className='ml-8 flex flex-col gap-2'>
       <OurGourmetOfferItem>
-        <OurGourmetOfferStrong>
+        <TextWithSkewBackgroundColor>
           {t('ourGourmetOfferImportantItem1')}
-        </OurGourmetOfferStrong>
+        </TextWithSkewBackgroundColor>
 
         {t('ourGourmetOfferItem1')}
       </OurGourmetOfferItem>
 
       <OurGourmetOfferItem>
-        <OurGourmetOfferStrong>
+        <TextWithSkewBackgroundColor>
           {t('ourGourmetOfferImportantItem2')}
-        </OurGourmetOfferStrong>
+        </TextWithSkewBackgroundColor>
 
         {t('ourGourmetOfferItem2')}
       </OurGourmetOfferItem>

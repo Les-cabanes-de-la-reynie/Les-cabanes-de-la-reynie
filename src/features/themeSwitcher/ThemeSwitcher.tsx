@@ -1,5 +1,8 @@
 'use client'
 
+import { APP_ICON_SIZE_CLASSNAME } from '@/_constants/className'
+import { IconContainer } from '@/components/IconContainer'
+import { TextWithSkewBackgroundColor } from '@/components/TextWithSkewBackgroundColor'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -14,30 +17,29 @@ import { cn } from '@/utils/tailwind'
 import { Moon, Sun } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useTheme } from 'next-themes'
-
-export const PADDING_ITEM = 'pl-4 py-2'
+import { ThemeSwitcherIcon } from './ThemeSwitcherIcon'
 
 export const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme()
 
   const t = useTranslations('ThemeSwitcher')
 
-  const darkButtonClasses = cn(PADDING_ITEM, {
-    'underline decoration-primary decoration-2 underline-offset-4':
-      theme === ThemeMode.Dark
-  })
-
-  const lightButtonClasses = cn(PADDING_ITEM, {
-    'underline decoration-primary decoration-2 underline-offset-4':
-      theme === ThemeMode.Light
-  })
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant='ghost' size='icon'>
-          <Sun className='h-[1.2rem] w-[1.2rem] rotate-0 scale-100 dark:-rotate-90 dark:scale-0' />
-          <Moon className='absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 dark:rotate-0 dark:scale-100' />
+          <Sun
+            className={cn(
+              'rotate-0 scale-100 dark:-rotate-90 dark:scale-0',
+              APP_ICON_SIZE_CLASSNAME
+            )}
+          />
+          <Moon
+            className={cn(
+              'absolute rotate-90 scale-0 dark:rotate-0 dark:scale-100',
+              APP_ICON_SIZE_CLASSNAME
+            )}
+          />
           <span className='sr-only'>{t('themeSwitcherAccessibleText')}</span>
         </Button>
       </DropdownMenuTrigger>
@@ -45,18 +47,36 @@ export const ThemeSwitcher = () => {
         <DropdownMenuLabel>{t('themeSwitcherTitle')}</DropdownMenuLabel>
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem
-          className={darkButtonClasses}
-          onClick={() => setTheme(ThemeMode.Dark)}
-        >
-          {t('darkModeTheme')}
+        <DropdownMenuItem onClick={() => setTheme(ThemeMode.Dark)}>
+          <div className='flex gap-2'>
+            <IconContainer>
+              <ThemeSwitcherIcon theme={ThemeMode.Dark} />
+            </IconContainer>
+
+            {theme === ThemeMode.Dark ? (
+              <TextWithSkewBackgroundColor>
+                {t('darkModeTheme')}
+              </TextWithSkewBackgroundColor>
+            ) : (
+              t('darkModeTheme')
+            )}
+          </div>
         </DropdownMenuItem>
 
-        <DropdownMenuItem
-          className={lightButtonClasses}
-          onClick={() => setTheme(ThemeMode.Light)}
-        >
-          {t('lightModeTheme')}
+        <DropdownMenuItem onClick={() => setTheme(ThemeMode.Light)}>
+          <div className='flex gap-2'>
+            <IconContainer>
+              <ThemeSwitcherIcon theme={ThemeMode.Light} />
+            </IconContainer>
+
+            {theme === ThemeMode.Light ? (
+              <TextWithSkewBackgroundColor>
+                {t('lightModeTheme')}
+              </TextWithSkewBackgroundColor>
+            ) : (
+              t('lightModeTheme')
+            )}
+          </div>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
