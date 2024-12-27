@@ -1,5 +1,7 @@
 'use client'
 
+import { IconContainer } from '@/components/IconContainer'
+import { TextWithSkewBackgroundColor } from '@/components/TextWithSkewBackgroundColor'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -10,13 +12,12 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 import { transformLocaleToCountry } from '@/utils/formats'
-import { cn } from '@/utils/tailwind'
 import { useLocale, useTranslations } from 'next-intl'
 import { useTransition } from 'react'
 import { Locale, locales } from '../i18n/config'
 import { setUserLocale } from '../i18n/infrastructure/locale'
-import { PADDING_ITEM } from '../themeSwitcher/ThemeSwitcher'
 import { LanguageSwitcherButton } from './LanguageSwitcherButton'
+import { LanguagesSwitcherFlag } from './LanguagesSwitcherFlag'
 
 export const LanguagesSwitcher = () => {
   const [isPending, startTransition] = useTransition()
@@ -40,6 +41,7 @@ export const LanguagesSwitcher = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel>{t('switchLangTitle')}</DropdownMenuLabel>
+
         <DropdownMenuSeparator />
 
         <div aria-labelledby='language-menu-button'>
@@ -48,14 +50,22 @@ export const LanguagesSwitcher = () => {
               <DropdownMenuItem
                 key={locale}
                 data-testid={`switch-language-${locale}`}
-                className={cn(PADDING_ITEM, {
-                  'underline decoration-primary decoration-2 underline-offset-4':
-                    locale === currentLocale
-                })}
                 onClick={() => onSelectChange(locale)}
                 disabled={isPending}
               >
-                {transformLocaleToCountry(locale)}
+                <div className='flex gap-2'>
+                  <IconContainer>
+                    <LanguagesSwitcherFlag locale={locale} />
+                  </IconContainer>
+
+                  {locale === currentLocale ? (
+                    <TextWithSkewBackgroundColor>
+                      {transformLocaleToCountry(locale)}
+                    </TextWithSkewBackgroundColor>
+                  ) : (
+                    transformLocaleToCountry(locale)
+                  )}
+                </div>
               </DropdownMenuItem>
             )
           })}

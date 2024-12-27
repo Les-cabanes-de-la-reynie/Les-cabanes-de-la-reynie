@@ -19,7 +19,7 @@ export const Itinerary = ({ address }: ItineraryProps) => {
       itemType='https://schema.org/PostalAddress'
     >
       <span className='flex items-center'>
-        <IconContainer size={'none'}>
+        <IconContainer>
           <NavigationIcon className={APP_ICON_SIZE_CLASSNAME} />
         </IconContainer>
         {tContact('Itinerary')} :

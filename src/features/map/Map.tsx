@@ -30,9 +30,9 @@ export const Map = ({ address }: MapProps) => {
         </CustomMarker>
       </MapContainer>
 
-      <P className='flex items-center'>
+      <P className='flex'>
         <IconContainer>
-          <AlertCircleIcon className={cn('stroke-primary w-5 h-5')} />
+          <AlertCircleIcon className={cn('stroke-primary h-5 w-5')} />
         </IconContainer>
         <span>{t('locationDescription')}</span>
       </P>

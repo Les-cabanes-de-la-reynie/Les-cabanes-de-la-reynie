@@ -1,5 +1,6 @@
 import { IconContainer } from '@/components/IconContainer'
 import { P } from '@/components/P'
+import { cn } from '@/utils/tailwind'
 import { AlertCircleIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useConvertToOpeningHoursRowData } from './application/convertToOpeningHoursRowData'
@@ -34,7 +35,7 @@ export const OpeningHours = ({
       {!editable && (
         <div className='mt-4 flex'>
           <IconContainer className='mt-1'>
-            <AlertCircleIcon className='stroke-primary w-5 h-5' />
+            <AlertCircleIcon className={cn('stroke-primary h-5 w-5')} />
           </IconContainer>
           <div>
             <P>{t('departuresDescription')}</P>

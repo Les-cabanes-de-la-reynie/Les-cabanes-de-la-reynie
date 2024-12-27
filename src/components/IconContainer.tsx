@@ -1,35 +1,30 @@
-import { cva, type VariantProps } from 'class-variance-authority'
-
 import { ClassNameProps } from '@/_types/components'
 import { cn } from '@/utils/tailwind'
 import { PropsWithChildren } from 'react'
 
-const iconContainerVariants = cva('', {
-  variants: {
-    size: {
-      default: 'm-2',
-      sm: 'm-1',
-      lg: 'm-3',
-      xl: 'm-4',
-      none: 'm-0'
-    }
-  },
-  defaultVariants: {
-    size: 'default'
+type IconContainerProps = ClassNameProps &
+  PropsWithChildren & {
+    direction?: 'left' | 'right'
+    size?: 'sm' | 'default' | 'lg' | 'xl'
   }
-})
 
-type IconContainerProps = VariantProps<typeof iconContainerVariants> &
-  PropsWithChildren &
-  ClassNameProps
-
-const IconContainer = ({ className, size, children }: IconContainerProps) => {
-  return (
-    <span className={cn(iconContainerVariants({ size, className }), 'px-1')}>
-      {children}
-    </span>
+export const IconContainer = ({
+  className,
+  direction = 'right',
+  size = 'default',
+  children
+}: IconContainerProps) => {
+  const classes = cn(
+    { 'ml-1': direction === 'left' && size === 'sm' },
+    { 'ml-2': direction === 'left' && size === 'default' },
+    { 'ml-3': direction === 'left' && size === 'lg' },
+    { 'ml-4': direction === 'left' && size === 'xl' },
+    { 'mr-1': direction === 'right' && size === 'sm' },
+    { 'mr-2': direction === 'right' && size === 'default' },
+    { 'mr-3': direction === 'right' && size === 'lg' },
+    { 'mr-4': direction === 'right' && size === 'xl' },
+    className
   )
-}
-IconContainer.displayName = 'IconContainer'
 
-export { IconContainer, iconContainerVariants }
+  return <span className={classes}>{children}</span>
+}
