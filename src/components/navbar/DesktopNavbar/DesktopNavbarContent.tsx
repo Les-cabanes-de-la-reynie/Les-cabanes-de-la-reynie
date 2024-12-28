@@ -21,7 +21,7 @@ export const DesktopNavbarContent = () => {
     <>
       <NavigationMenu
         data-testid='desktop-header-navbar'
-        className='hidden lg:flex text-white'
+        className='hidden lg:flex text-primary-foreground'
       >
         <NavigationMenuList>
           <NavigationMenuItem>
@@ -35,7 +35,7 @@ export const DesktopNavbarContent = () => {
           <NavigationMenuItem>
             <NavigationMenuTrigger
               className={cn('bg-transparent', {
-                'bg-accent':
+                'bg-accent text-accent-foreground':
                   pathName === navLinks.yurt.url ||
                   pathName === navLinks.hut.url
               })}
@@ -48,7 +48,8 @@ export const DesktopNavbarContent = () => {
                   title={navLinks.yurt.label}
                   href={navLinks.yurt.url}
                   className={cn({
-                    'bg-accent': pathName === navLinks.yurt.url
+                    'bg-accent text-accent-foreground':
+                      pathName === navLinks.yurt.url
                   })}
                 >
                   {SEO.accommodation.yurt.description}
@@ -57,7 +58,8 @@ export const DesktopNavbarContent = () => {
                   title={navLinks.hut.label}
                   href={navLinks.hut.url}
                   className={cn({
-                    'bg-accent': pathName === navLinks.hut.url
+                    'bg-accent text-accent-foreground':
+                      pathName === navLinks.hut.url
                   })}
                 >
                   {SEO.accommodation.hut.description}
