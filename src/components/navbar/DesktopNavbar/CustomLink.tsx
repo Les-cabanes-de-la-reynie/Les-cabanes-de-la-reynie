@@ -12,7 +12,7 @@ export const CustomLink = ({ href, isActive, children }: CustomLinkProps) => {
   const navigationMenuLinkClasses = cn(
     navigationMenuTriggerStyle(),
     'bg-transparent',
-    { 'bg-accent': isActive }
+    { 'bg-accent text-accent-foreground': isActive }
   )
 
   return (
