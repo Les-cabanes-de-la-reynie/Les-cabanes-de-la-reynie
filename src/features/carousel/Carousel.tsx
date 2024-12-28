@@ -43,9 +43,6 @@ const Carousel = ({
       <EmblaCarousel
         setApi={setEmblaApi}
         className='w-full flex flex-col gap-3'
-        opts={{
-          align: 'start'
-        }}
       >
         <CarouselHeader title={title} />
 
