@@ -65,6 +65,7 @@ export const metadata: Metadata = {
     default: `${ESTABLISHMENT_TITLE} | ${SEO.home.title}`,
     template: `%s - ${ESTABLISHMENT_TITLE}`
   },
+  alternates: { canonical: new URL(env.NEXT_PUBLIC_BASE_URL) },
   description: SEO.home.description,
   openGraph: {
     title: `${SEO.home.documentTitle} - ${ESTABLISHMENT_TITLE}`,

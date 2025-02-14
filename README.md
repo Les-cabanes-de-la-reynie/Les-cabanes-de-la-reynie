@@ -2,32 +2,32 @@
 
 ## Description
 
-Les cabanes de la Reynie is an establishment that you can enjoy with an awesome
+Les cabanes de la Reynie is a guest rooms that you can enjoy with an awesome
 **Yurt** or a **Hut** in France.
 
 ## Website
 
 You can visit the website with this link:
-[Les cabanes de la Reynie](https://les-cabanes-de-la-reynie.vercel.app/fr).
+[Les cabanes de la Reynie](https://les-cabanes-de-la-reynie.vercel.app/).
 
 You could find in the website:
 
 - Yurt and Hut's pictures
 - Details of each services
 - An opening hours
-- The establishment location
+- The location
 - Pictures of the landscape
 - What to do next to the establishment etc.
 
 To book, you have to sign up in other plaform like Airbnb or other.
 
-The website is responsive and should works on **smartphone**, **tablet** and
+The website is responsive and works on **smartphone**, **tablet** and
 **desktop**.
 
-You can switch between **French** or **English** languages by the languages
-switcher in the header of the application.
+You can switch between **French** or **English** languages in the header of the
+application.
 
-You can also switch between **Dark** and **Light** mode.
+You can also switch between **Dark** or **Light** mode.
 
 ## Techinal details summary
 
