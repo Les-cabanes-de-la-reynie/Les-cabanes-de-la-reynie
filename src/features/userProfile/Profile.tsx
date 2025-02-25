@@ -46,13 +46,13 @@ export const Profile = () => {
 
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <UserIcon className='mr-2 h-4 w-4 flex-shrink-0' />
+            <UserIcon className='mr-2 h-4 w-4 shrink-0' />
             <span>{user?.name}</span>
           </DropdownMenuItem>
 
           <Link href='/admin'>
             <DropdownMenuItem>
-              <Edit3Icon className='mr-2 h-4 w-4 flex-shrink-0' />
+              <Edit3Icon className='mr-2 h-4 w-4 shrink-0' />
               <span>{t('modifyWebsiteInformation')}</span>
             </DropdownMenuItem>
           </Link>
@@ -62,7 +62,7 @@ export const Profile = () => {
 
         <Link href='/api/auth/logout'>
           <DropdownMenuItem>
-            <LogOutIcon className='mr-2 h-4 w-4 flex-shrink-0' />
+            <LogOutIcon className='mr-2 h-4 w-4 shrink-0' />
             <span>{t('logout')}</span>
           </DropdownMenuItem>
         </Link>

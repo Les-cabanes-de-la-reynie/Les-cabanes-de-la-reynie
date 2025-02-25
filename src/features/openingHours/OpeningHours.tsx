@@ -39,9 +39,7 @@ export const OpeningHours = ({
           </IconContainer>
           <div>
             <P>{t('departuresDescription')}</P>
-            <P className='[&:not(:first-child)]:mt-0'>
-              {t('arrivalsDescription')}
-            </P>
+            <P className='not-first:mt-0'>{t('arrivalsDescription')}</P>
           </div>
         </div>
       )}

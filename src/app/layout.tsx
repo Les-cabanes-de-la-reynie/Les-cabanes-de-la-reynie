@@ -90,20 +90,22 @@ export default async function RootLayout({
       <body
         className={cn(
           fontPrimary.variable,
-          'text:foreground relative flex min-h-screen w-full flex-col bg-background font-primary'
+          'relative min-h-screen w-full antialiased'
         )}
       >
-        <Providers locale={locale}>
-          <Header />
-          <main id='main' role='main' className='flex flex-1'>
-            {children}
-          </main>
-          <Footer />
-        </Providers>
-        <Toaster richColors position='top-right' expand={true} />
+        <div className='font-primary'>
+          <Providers locale={locale}>
+            <Header />
+            <main id='main' role='main' className='flex flex-1'>
+              {children}
+            </main>
+            <Footer />
+          </Providers>
+          <Toaster richColors position='top-right' expand={true} />
 
-        {/* Increment visit counter */}
-        <VisitorCount />
+          {/* Increment visit counter */}
+          <VisitorCount />
+        </div>
       </body>
     </html>
   )

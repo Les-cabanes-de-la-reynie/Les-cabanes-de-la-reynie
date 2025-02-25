@@ -1,7 +1,8 @@
 import { Button } from '@/components/ui/button'
 import { useTranslations } from 'next-intl'
+import { ComponentProps } from 'react'
 
-type CancelButtonProps = {
+type CancelButtonProps = ComponentProps<'button'> & {
   onClick: () => void
 }
 

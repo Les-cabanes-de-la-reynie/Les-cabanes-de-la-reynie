@@ -15,7 +15,7 @@ export const Container = ({
   children
 }: ContainerProps) => {
   const classes = cn(
-    'relative mx-auto box-border flex w-full max-w-screen-2xl flex-1 flex-col',
+    'relative mx-auto box-border flex w-full max-w-7xl flex-1 flex-col',
     {
       'px-6 py-10 md:px-8 md:py-12': padding,
       'justify-center items-center': center

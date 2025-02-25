@@ -1,8 +1,8 @@
 'use client'
 
 import { EditableButtons } from '@/components/editableButtons/EditableButtons'
-import { useToggle } from '@/hooks/useToggle'
 import { updateOpeningHours } from '@/features/openingHours/infrastructure/actions/updateOpeningHours'
+import { useToggle } from '@/hooks/useToggle'
 import { formatFormDataIntoOpeningHoursData } from '@/utils/formats'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
@@ -19,60 +19,59 @@ export const OpeningHoursForm = ({
   const t = useTranslations('Common')
   const t2 = useTranslations('Contact')
 
-  return (
-    <form
-      action={async formData => {
-        try {
-          if (!editable) throw new Error('You cannot edit the opening hours!')
+  const onAction = async (formData: FormData) => {
+    try {
+      if (!editable) throw new Error('You cannot edit the opening hours!')
 
-          const openingHoursData = formatFormDataIntoOpeningHoursData(formData)
+      const openingHoursData = formatFormDataIntoOpeningHoursData(formData)
 
-          const res = await updateOpeningHours(openingHoursData)
+      const res = await updateOpeningHours(openingHoursData)
 
-          if (res?.validationErrors) {
-            return toast.error(
-              'There was an error updating opening hours. Data are maybe invalid',
-              {
-                action: {
-                  label: t('close'),
-                  onClick: () => toast.dismiss()
-                }
-              }
-            )
-          }
-
-          if (res?.serverError) {
-            return toast.error(res.serverError, {
-              action: {
-                label: t('close'),
-                onClick: () => toast.dismiss()
-              }
-            })
-          }
-
-          handleToggleEdit()
-
-          toast.success('Success ! The opening hours has been saved', {
+      if (res?.validationErrors) {
+        toast.error(
+          'There was an error updating opening hours. Data are maybe invalid',
+          {
             action: {
               label: t('close'),
               onClick: () => toast.dismiss()
             }
-          })
-        } catch (error) {
-          return toast.error(
-            `Something went wrong! Cannot update opening hours. ${error}`,
-            {
-              action: {
-                label: t('close'),
-                onClick: () => toast.dismiss()
-              }
-            }
-          )
+          }
+        )
+      }
+
+      if (res?.serverError) {
+        toast.error(res.serverError, {
+          action: {
+            label: t('close'),
+            onClick: () => toast.dismiss()
+          }
+        })
+      }
+
+      handleToggleEdit()
+
+      toast.success('Success ! The opening hours has been saved', {
+        action: {
+          label: t('close'),
+          onClick: () => toast.dismiss()
         }
-      }}
-      className='h-full w-full'
-    >
-      <table className='w-full flex-grow'>
+      })
+    } catch (error) {
+      toast.error(
+        `Something went wrong! Cannot update opening hours. ${error}`,
+        {
+          action: {
+            label: t('close'),
+            onClick: () => toast.dismiss()
+          }
+        }
+      )
+    }
+  }
+
+  return (
+    <form action={onAction} className='h-full w-full'>
+      <table className='w-full grow'>
         <TableHeader day='' opening={t2('opening')} closing={t2('closing')} />
         <tbody className='text-center'>
           {openingHoursData?.map(
