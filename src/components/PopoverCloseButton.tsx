@@ -17,7 +17,7 @@ export const PopoverCloseButton = ({
           onPopoverClose()
         }
       }}
-      className='absolute select-none -right-2 -top-2 bg-popover inline-flex h-[25px] w-[25px] cursor-pointer items-center justify-center rounded-full border outline-none transition-colors hover:bg-accent focus:shadow-[0_0_0_2px]'
+      className='absolute select-none -right-2 -top-2 bg-popover inline-flex h-[25px] w-[25px] cursor-pointer items-center justify-center rounded-full border outline-hidden transition-colors hover:bg-accent focus:shadow-[0_0_0_2px]'
       aria-label='Close'
     >
       <X className={APP_ICON_SIZE_CLASSNAME} />

@@ -35,7 +35,6 @@ const MapWithNoSSR = dynamic(
   () =>
     import('../../features/map/MapSection').then(module => module.MapSection),
   {
-    ssr: false,
     loading: () => <Loader />
   }
 )

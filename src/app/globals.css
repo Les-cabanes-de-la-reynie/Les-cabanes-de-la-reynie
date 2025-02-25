@@ -1,64 +1,59 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@layer base {
-  :root {
-    --white: 175 27% 100%;
-    --black: 175 5% 10%;
+@plugin "tailwindcss-animate";
 
-    --background: 175 13% 95%;
-    --foreground: 175 5% 10%;
-    --card: 175 13% 90%;
-    --card-foreground: 175 5% 15%;
-    --popover: 175 13% 95%;
-    --popover-foreground: 175 95% 10%;
-    --primary: 175 80.2% 15.9%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 175 13% 70%;
-    --secondary-foreground: 0 0% 0%;
-    --muted: 137 13% 85%;
-    --muted-foreground: 175 5% 35%;
-    --accent: 137 13% 80%;
-    --accent-foreground: 175 5% 15%;
-    --destructive: 0 50% 30%;
-    --destructive-foreground: 175 5% 90%;
-    --border: 175 20% 50%;
-    --input: 175 20% 20%;
-    --ring: 175 80.2% 15.9%;
-    --radius: 0.5rem;
-  }
-  .dark {
-    --background: 175 13% 10%;
-    --foreground: 175 5% 90%;
-    --card: 175 13% 10%;
-    --card-foreground: 175 5% 90%;
-    --popover: 175 13% 5%;
-    --popover-foreground: 175 5% 90%;
-    --primary: 175 80.2% 15.9%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 175 13% 20%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 137 13% 20%;
-    --muted-foreground: 175 5% 60%;
-    --accent: 137 13% 20%;
-    --accent-foreground: 175 5% 90%;
-    --destructive: 0 50% 30%;
-    --destructive-foreground: 175 5% 90%;
-    --border: 175 20% 20%;
-    --input: 175 20% 20%;
-    --ring: 175 80.2% 15.9%;
-    --radius: 0.5rem;
-  }
+@theme {
+  --font-primary: var(--font-primary);
+  --font-secondary: var(--font-secondary);
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+:root {
+  --white: hsl(175 27% 100%);
+  --black: hsl(175 5% 10%);
+
+  --background: hsl(175 13% 95%);
+  --foreground: hsl(175 5% 10%);
+  --card: hsl(175 13% 90%);
+  --card-foreground: hsl(175 5% 15%);
+  --popover: hsl(175 13% 95%);
+  --popover-foreground: hsl(175 95% 10%);
+  --primary: hsl(175 80.2% 15.9%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(175 13% 70%);
+  --secondary-foreground: hsl(0 0% 0%);
+  --muted: hsl(137 13% 85%);
+  --muted-foreground: hsl(175 5% 35%);
+  --accent: hsl(137 13% 80%);
+  --accent-foreground: hsl(175 5% 15%);
+  --destructive: hsl(0 50% 30%);
+  --destructive-foreground: hsl(175 5% 90%);
+  --border: hsl(175 20% 50%);
+  --input: hsl(175 20% 20%);
+  --ring: hsl(175 80.2% 15.9%);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(175 13% 10%);
+  --foreground: hsl(175 5% 90%);
+  --card: hsl(175 13% 10%);
+  --card-foreground: hsl(175 5% 90%);
+  --popover: hsl(175 13% 5%);
+  --popover-foreground: hsl(175 5% 90%);
+  --primary: hsl(175 80.2% 15.9%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(175 13% 20%);
+  --secondary-foreground: hsl(0 0% 100%);
+  --muted: hsl(137 13% 20%);
+  --muted-foreground: hsl(175 5% 60%);
+  --accent: hsl(137 13% 20%);
+  --accent-foreground: hsl(175 5% 90%);
+  --destructive: hsl(0 50% 30%);
+  --destructive-foreground: hsl(175 5% 90%);
+  --border: hsl(175 20% 20%);
+  --input: hsl(175 20% 20%);
+  --ring: hsl(175 80.2% 15.9%);
+  --radius: 0.5rem;
 }
 
 /* Leaflet map  */
@@ -71,4 +66,50 @@
 .leaflet-top,
 .leaflet-bottom {
   z-index: 0 !important;
+}
+
+@theme inline {
+  --color-white: var(--white);
+  --color-black: var(--black);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --home-parallax-image: url('../assets/hutAndYurt/home-parallax.jpg');
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

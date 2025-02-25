@@ -17,7 +17,7 @@ type MapProps = { address: AddressType }
 export const Map = ({ address }: MapProps) => {
   const t = useTranslations('Contact')
   return (
-    <div className='relative flex h-96 w-full flex-grow flex-col items-center justify-center'>
+    <div className='relative flex h-96 w-full grow flex-col items-center justify-center'>
       <MapContainer
         scrollWheelZoom={false}
         center={ESTABLISHMENT_POSITION}

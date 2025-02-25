@@ -34,7 +34,7 @@ const Home = () => {
 
       <IntroduceLesCabanesDeLaReynie />
 
-      <div className='mb-8 h-96 w-full select-none bg-homeParallaxImage bg-cover bg-fixed bg-center bg-no-repeat md:mb-10' />
+      <div className='mb-8 h-96 w-full select-none bg-(image:--home-parallax-image) bg-cover bg-fixed bg-center bg-no-repeat md:mb-10' />
 
       <AccommodationsSliderWithSkeleton
         title={tHome('sliderTitle')}
