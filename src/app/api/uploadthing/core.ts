@@ -1,18 +1,22 @@
-import { getSession } from '@auth0/nextjs-auth0'
+import { auth } from '@/lib/auth'
+import { headers } from 'next/headers'
 import { createUploadthing, type FileRouter } from 'uploadthing/next'
 import { UploadThingError } from 'uploadthing/server'
 
 const f = createUploadthing()
 
 const authCallback = async () => {
-  // This code runs on your server before upload
-  const user = await getSession()
+  const session = await auth.api.getSession({
+    headers: await headers()
+  })
 
-  const userEmail = user?.user?.email
-  const isEmailVerified = user?.user.email_verified
+  if (!session) throw new UploadThingError('Not authenticated')
+
+  const userEmail = session.user.email
+  const userToken = session.session.token
 
   // If you throw, the user will not be able to upload
-  if (!userEmail || !isEmailVerified) throw new UploadThingError('Unauthorized')
+  if (!userEmail || !userToken) throw new UploadThingError('Unauthorized')
 
   // Whatever is returned here is accessible in onUploadComplete as `metadata`
   return { userEmail: userEmail }

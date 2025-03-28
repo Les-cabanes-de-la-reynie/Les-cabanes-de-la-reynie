@@ -8,34 +8,24 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-import { useUser } from '@auth0/nextjs-auth0/client'
+import { User } from 'better-auth'
 import { Edit3Icon, LogOutIcon, UserIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import Image from 'next/image'
 import Link from 'next/link'
 
-export const Profile = () => {
-  const { user, error } = useUser()
+type ProfileContentProps = {
+  user: User
+  onLogout: () => Promise<void>
+}
 
+export const ProfileContent = ({ user, onLogout }: ProfileContentProps) => {
   const t = useTranslations('Navigation')
-
-  if (error || !user?.email) {
-    return null
-  }
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant='ghost' size='icon' className='hover:bg-transparent'>
-          {!!user?.picture && (
-            <Image
-              src={user.picture}
-              alt='Profile user popover trigger button'
-              width={30}
-              height={30}
-              className='rounded-full'
-            />
-          )}
+          <UserIcon className='mr-2 h-8 w-8 shrink-0 rounded-full' />
           <span className='sr-only'>User profile</span>
         </Button>
       </DropdownMenuTrigger>
@@ -60,12 +50,10 @@ export const Profile = () => {
 
         <DropdownMenuSeparator />
 
-        <Link href='/api/auth/logout'>
-          <DropdownMenuItem>
-            <LogOutIcon className='mr-2 h-4 w-4 shrink-0' />
-            <span>{t('logout')}</span>
-          </DropdownMenuItem>
-        </Link>
+        <DropdownMenuItem onClick={onLogout}>
+          <LogOutIcon className='mr-2 h-4 w-4 shrink-0' />
+          <span>{t('logout')}</span>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )

@@ -1,6 +1,6 @@
+import { Profile } from '@/features/auth/Profile/Profile'
 import { LanguagesSwitcher } from '@/features/languagesSwitcher/LanguagesSwitcher'
 import { ThemeSwitcher } from '@/features/themeSwitcher/ThemeSwitcher'
-import { Profile } from '@/features/userProfile/Profile'
 import { cn } from '@/utils/tailwind'
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import { ChevronRightIcon, MenuIcon } from 'lucide-react'

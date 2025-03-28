@@ -1,8 +1,8 @@
-import { getSession } from '@auth0/nextjs-auth0'
 import {
   createSafeActionClient,
   DEFAULT_SERVER_ERROR_MESSAGE
 } from 'next-safe-action'
+import { authClient } from './auth-client'
 
 export class ActionError extends Error {}
 
@@ -22,15 +22,12 @@ export const actionClient = createSafeActionClient({
 // Auth client
 export const authActionClient = actionClient.use(async ({ next }) => {
   // This code runs on your server before action
-  const user = await getSession()
-
-  const userEmail = user?.user?.email
-  const isEmailVerified = user?.user.email_verified
+  const { data } = authClient.useSession()
 
   // If you throw an error, the user will not be able to upload pictures
-  if (!userEmail || !isEmailVerified) {
+  if (!data || !data.user || !data.user.email) {
     throw new Error('You need to be logged to do this')
   }
 
-  return next({ ctx: { userEmail } })
+  return next({ ctx: { userEmail: data.user.email } })
 })

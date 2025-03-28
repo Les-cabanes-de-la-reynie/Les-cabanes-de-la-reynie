@@ -23,9 +23,9 @@ export const EditableButtons = ({
       {editable && (
         <div className='mt-4 flex justify-end gap-2'>
           {isEdit ? (
-            <CancelButton onClick={handleToggleEdit} />
+            <CancelButton disabled={isPending} onClick={handleToggleEdit} />
           ) : (
-            <EditButton onClick={handleToggleEdit} />
+            <EditButton disabled={isPending} onClick={handleToggleEdit} />
           )}
           {isEdit && (
             <SubmitButton disabled={isPending}>{t('update')}</SubmitButton>

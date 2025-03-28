@@ -1,7 +1,7 @@
 import { Logo } from '@/components/Logo'
+import { Profile } from '@/features/auth/Profile/Profile'
 import { LanguagesSwitcher } from '@/features/languagesSwitcher/LanguagesSwitcher'
 import { ThemeSwitcher } from '@/features/themeSwitcher/ThemeSwitcher'
-import { Profile } from '@/features/userProfile/Profile'
 import { useState } from 'react'
 import { DesktopNavbarContent } from './DesktopNavbar/DesktopNavbarContent'
 import { MobileNavbar } from './MobileNavbar'

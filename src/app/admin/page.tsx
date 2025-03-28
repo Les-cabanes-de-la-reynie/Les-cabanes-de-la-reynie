@@ -1,5 +1,7 @@
+import { Container } from '@/components/Container'
+import { Heading } from '@/components/Heading'
 import { Metadata } from 'next'
-import { AdminPageWithAuth } from './AdminPageWithAuth'
+import { AdminTabs } from './components/tabs/AdminTabs'
 
 export const metadata: Metadata = {
   title: 'Admin',
@@ -11,7 +13,15 @@ export const metadata: Metadata = {
 }
 
 const Admin = () => {
-  return <AdminPageWithAuth />
+  return (
+    <Container>
+      <Heading level={1} className='mb-8 mt-4 text-center'>
+        Admin
+      </Heading>
+
+      <AdminTabs />
+    </Container>
+  )
 }
 
 export default Admin

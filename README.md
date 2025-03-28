@@ -44,7 +44,7 @@ You can also switch between **Dark** or **Light** mode.
   github account)
 - E2E Tests: [Playwright](https://playwright.dev/)
 - i18n: [next-intl](https://next-intl-docs.vercel.app/) (FR & EN)
-- Authentication: [Auth0](https://auth0.com/) (admin page)
+- Authentication: [Better Auth](https://www.better-auth.com/) (admin page)
 - Upload image: [uploadthing](https://uploadthing.com/) (admin page only)
 - Map: [Leaflet](https://leafletjs.com/) + [Mapbox](https://www.mapbox.com/) (a
   **key** for mapbox is mandatory)
