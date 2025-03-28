@@ -42,7 +42,7 @@ export const Footer = () => {
               <Link href='/'>Item 1</Link>
             </FooterItem>
             <FooterItem>
-              <Link href='/'>Item 2</Link>
+              <Link href='/sign-in'>Sign In</Link>
             </FooterItem>
             <FooterItem>
               <Link href='/admin'>Espace admin</Link>
