@@ -21,10 +21,11 @@ import {
 import { Input } from '@/components/ui/input'
 import { postSignIn } from '@/features/auth/infrastructure/actions/signIn'
 import { SignInSchema } from '@/features/auth/SignInSchema'
+import { authClient } from '@/lib/auth-client'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
-import { startTransition } from 'react'
+import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import * as z from 'zod'
@@ -32,6 +33,8 @@ import * as z from 'zod'
 const SignIn = () => {
   const tCommon = useTranslations('Common')
   const router = useRouter()
+  const session = authClient.useSession()
+  const [isPending, startTransition] = useTransition()
 
   const form = useForm<z.infer<typeof SignInSchema>>({
     resolver: zodResolver(SignInSchema),
@@ -64,6 +67,10 @@ const SignIn = () => {
         })
         return
       }
+
+      // Force session update
+      // Useful to update Profile component after a sign in
+      session.refetch()
 
       router.push('/admin')
 
@@ -118,7 +125,11 @@ const SignIn = () => {
           </Form>
         </CardContent>
         <CardFooter className='flex flex-col gap-4'>
-          <Button className='w-full' onClick={form.handleSubmit(onSubmit)}>
+          <Button
+            className='w-full'
+            onClick={form.handleSubmit(onSubmit)}
+            disabled={isPending}
+          >
             Se connecter
           </Button>
         </CardFooter>
