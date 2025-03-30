@@ -1,20 +1,13 @@
 import { ourFileRouter } from '@/app/api/uploadthing/core'
 import { NextSSRPlugin } from '@uploadthing/react/next-ssr-plugin'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
 import { PropsWithChildren } from 'react'
 import { extractRouterConfig } from 'uploadthing/server'
 import { ThemeProvider } from './theme-provider'
 
-type ProvidersProps = PropsWithChildren & {
-  locale: string
-}
-
-export const Providers = async ({ locale, children }: ProvidersProps) => {
-  const messages = await getMessages()
-
+export const Providers = async ({ children }: PropsWithChildren) => {
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
+    <NextIntlClientProvider>
       <ThemeProvider
         attribute='class'
         defaultTheme='system'

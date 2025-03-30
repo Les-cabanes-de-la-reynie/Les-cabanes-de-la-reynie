@@ -1,13 +1,13 @@
 'use server'
 
-import { HutSchema } from '@/features/hut/HutSchema'
+import { CabinSchema } from '@/features/cabin/CabinSchema'
 import { db } from '@/lib/prisma'
 import { authActionClient } from '@/lib/safeActions'
 
-export const updateHutPrice = authActionClient
-  .schema(HutSchema)
+export const updateCabinPrice = authActionClient
+  .schema(CabinSchema)
   .action(async ({ parsedInput: price }) => {
-    await db.hut.update({
+    await db.cabin.update({
       where: { id: 1 },
       data: price
     })

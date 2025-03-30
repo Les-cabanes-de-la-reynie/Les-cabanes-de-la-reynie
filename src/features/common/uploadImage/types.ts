@@ -1,7 +1,7 @@
 export enum UploadImageCategoryKeyEnum {
   HomeSlider = 'homeSlider',
   YurtSlider = 'yurtSlider',
-  HutSlider = 'hutSlider'
+  CabinSlider = 'cabinSlider'
 }
 
 export type UploadImageEntity = {

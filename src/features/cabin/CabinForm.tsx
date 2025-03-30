@@ -9,9 +9,9 @@ import {
   FormMessage
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { HutSchema } from '@/features/hut/HutSchema'
+import { CabinSchema } from '@/features/cabin/CabinSchema'
+import { updateCabinPrice } from '@/features/cabin/infrastructure/actions/updateCabinPrice'
 import { useToggle } from '@/hooks/useToggle'
-import { updateHutPrice } from '@/features/hut/infrastructure/actions/updateHutPrice'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
@@ -19,27 +19,27 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import * as z from 'zod'
 import { EditableButtons } from '../../components/editableButtons/EditableButtons'
-import { Hut } from './types'
+import { Cabin } from './types'
 
-type hutFormProps = {
-  hut: Hut
+type cabinFormProps = {
+  cabin: Cabin
 }
 
-export const HutForm = ({ hut }: hutFormProps) => {
+export const CabinForm = ({ cabin }: cabinFormProps) => {
   const t = useTranslations('Common')
 
   const [isPending, startTransition] = useTransition()
   const [isEdit, handleToggleEdit] = useToggle(false)
 
-  const form = useForm<z.infer<typeof HutSchema>>({
-    resolver: zodResolver(HutSchema),
-    defaultValues: hut,
+  const form = useForm<z.infer<typeof CabinSchema>>({
+    resolver: zodResolver(CabinSchema),
+    defaultValues: cabin,
     disabled: !isEdit
   })
 
-  const onSubmit = (data: z.infer<typeof HutSchema>) => {
+  const onSubmit = (data: z.infer<typeof CabinSchema>) => {
     startTransition(async () => {
-      const res = await updateHutPrice(data)
+      const res = await updateCabinPrice(data)
 
       if (res?.validationErrors) {
         toast.error('There was an error updating price.', {
@@ -61,7 +61,7 @@ export const HutForm = ({ hut }: hutFormProps) => {
         return
       }
 
-      toast.success("Success ! Hut's price updated", {
+      toast.success("Success ! Cabin's price updated", {
         action: {
           label: t('close'),
           onClick: () => toast.dismiss()

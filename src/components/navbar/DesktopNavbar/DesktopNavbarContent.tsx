@@ -1,4 +1,3 @@
-import { SEO } from '@/_constants/SEO'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -37,7 +36,7 @@ export const DesktopNavbarContent = () => {
               className={cn('bg-transparent', {
                 'bg-accent text-accent-foreground':
                   pathName === navLinks.yurt.url ||
-                  pathName === navLinks.hut.url
+                  pathName === navLinks.cabin.url
               })}
             >
               {navLinks.accommodations.label}
@@ -52,17 +51,17 @@ export const DesktopNavbarContent = () => {
                       pathName === navLinks.yurt.url
                   })}
                 >
-                  {SEO.accommodation.yurt.description}
+                  {navLinks.yurt.description}
                 </ListItem>
                 <ListItem
-                  title={navLinks.hut.label}
-                  href={navLinks.hut.url}
+                  title={navLinks.cabin.label}
+                  href={navLinks.cabin.url}
                   className={cn({
                     'bg-accent text-accent-foreground':
-                      pathName === navLinks.hut.url
+                      pathName === navLinks.cabin.url
                   })}
                 >
-                  {SEO.accommodation.hut.description}
+                  {navLinks.cabin.description}
                 </ListItem>
               </ul>
             </NavigationMenuContent>

@@ -36,7 +36,7 @@ export const ourFileRouter = {
     .onUploadComplete(async ({ metadata }) => {
       return { uploadedBy: metadata.userEmail }
     }),
-  hutSlider: f({ image: { maxFileSize: '4MB', maxFileCount: 1 } })
+  cabinSlider: f({ image: { maxFileSize: '4MB', maxFileCount: 1 } })
     .middleware(authCallback)
     .onUploadComplete(async ({ metadata }) => {
       return { uploadedBy: metadata.userEmail }

@@ -5,5 +5,5 @@ export type BookEntity = {
 
 export enum AccommodationTypeEnum {
   YURT = 'yurt',
-  HUT = 'hut'
+  CABIN = 'cabin'
 }

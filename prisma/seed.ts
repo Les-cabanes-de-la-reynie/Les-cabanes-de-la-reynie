@@ -6,14 +6,14 @@ const main = async () => {
   // Delete existing data
   await prisma.visitorCount.deleteMany()
   await prisma.yurt.deleteMany()
-  await prisma.hut.deleteMany()
+  await prisma.cabin.deleteMany()
   await prisma.address.deleteMany()
   await prisma.openingHours.deleteMany()
 
   // Default data
   const visitorCountData = { id: 1, count: 0 }
   const yurtData = { id: 1, price: 170 }
-  const hutData = { id: 1, price: 170 }
+  const cabinData = { id: 1, price: 170 }
   const addressData = {
     id: 1,
     streetAddress: '',
@@ -46,8 +46,8 @@ const main = async () => {
   await prisma.yurt.create({
     data: yurtData
   })
-  await prisma.hut.create({
-    data: hutData
+  await prisma.cabin.create({
+    data: cabinData
   })
   await prisma.address.create({
     data: addressData

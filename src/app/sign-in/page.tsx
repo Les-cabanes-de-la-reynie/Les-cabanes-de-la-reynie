@@ -84,7 +84,7 @@ const SignIn = () => {
   }
 
   return (
-    <Container className='flex items-center justify-center'>
+    <Container className='flex items-center justify-center h-full'>
       <Card className='w-[400px]'>
         <CardHeader>
           <CardTitle>Connexion</CardTitle>

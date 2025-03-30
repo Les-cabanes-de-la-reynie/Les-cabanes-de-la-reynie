@@ -3,15 +3,15 @@ import { UploadImage } from '@/features/common/uploadImage/UploadImage'
 import { unstable_noStore } from 'next/cache'
 import { UploadImageCategoryKeyEnum } from '../common/uploadImage/types'
 
-export const HutUploadImage = async () => {
+export const CabinUploadImage = async () => {
   unstable_noStore()
   const uploadedImages = await getUploadedImagesByCategory({
-    category: UploadImageCategoryKeyEnum.HutSlider
+    category: UploadImageCategoryKeyEnum.CabinSlider
   })
 
   return (
     <UploadImage
-      category={UploadImageCategoryKeyEnum.HutSlider}
+      category={UploadImageCategoryKeyEnum.CabinSlider}
       images={uploadedImages}
     />
   )
