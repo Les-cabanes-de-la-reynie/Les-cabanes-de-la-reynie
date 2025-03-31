@@ -1,5 +1,5 @@
 import { UploadImageCategoryKeyEnum } from '@/features/common/uploadImage/types'
-import { db } from '@/lib/prisma'
+import db from '@/lib/prisma'
 
 type GetUploadedImagesByCategoryProps = {
   category: UploadImageCategoryKeyEnum

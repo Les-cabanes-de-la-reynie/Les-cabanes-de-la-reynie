@@ -1,7 +1,7 @@
 'use server'
 
 import { CabinSchema } from '@/features/cabin/CabinSchema'
-import { db } from '@/lib/prisma'
+import db from '@/lib/prisma'
 import { authActionClient } from '@/lib/safeActions'
 
 export const updateCabinPrice = authActionClient

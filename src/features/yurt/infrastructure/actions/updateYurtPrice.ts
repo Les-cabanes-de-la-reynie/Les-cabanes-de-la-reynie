@@ -1,7 +1,7 @@
 'use server'
 
 import { YurtSchema } from '@/features/yurt/YurtSchema'
-import { db } from '@/lib/prisma'
+import db from '@/lib/prisma'
 import { authActionClient } from '@/lib/safeActions'
 
 export const updateYurtPrice = authActionClient

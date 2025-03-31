@@ -1,5 +1,5 @@
 import { getVisitorCount } from '@/features/visitorCount/infrastructure/getVisitorCount'
-import { db } from '@/lib/prisma'
+import db from '@/lib/prisma'
 import { isSameDay } from 'date-fns'
 import { NextResponse } from 'next/server'
 
