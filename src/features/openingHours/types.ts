@@ -2,7 +2,7 @@ import { OpeningHoursSchema } from '@/features/openingHours/OpeningHoursSchema'
 import { z } from 'zod'
 import { getOpeningHours } from './infrastructure/getOpeningHours'
 
-export type GetOpeningHours = Awaited<typeof getOpeningHours>
+export type GetOpeningHours = Awaited<ReturnType<typeof getOpeningHours>>
 
 export enum DaysOfTheWeekEnum {
   Monday = 'Monday',
