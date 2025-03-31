@@ -91,7 +91,11 @@ To update the database with Prisma, you have to delete the migrations folder and
 type in the terminal:
 
 ```bash
-npx prisma migrate dev
+npx prisma migrate reset / pnpm dlx prisma migrate reset
+```
+
+```bash
+npx prisma migrate dev / pnpm dlx prisma migrate dev
 ```
 
 **WATCH OUT** this operation can delete all data in the database ! But there's a

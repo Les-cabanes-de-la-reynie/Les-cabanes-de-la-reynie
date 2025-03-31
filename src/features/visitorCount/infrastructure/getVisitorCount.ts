@@ -1,8 +1,8 @@
-import db from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 
 export const getVisitorCount = async () => {
   try {
-    const data = await db.visitorCount.findMany({
+    const data = await prisma.visitorCount.findMany({
       where: {
         id: 1
       }

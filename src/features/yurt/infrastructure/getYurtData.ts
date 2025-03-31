@@ -1,8 +1,8 @@
-import db from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 
 export const getYurtData = async () => {
   try {
-    const data = await db.yurt.findMany({
+    const data = await prisma.yurt.findMany({
       where: {
         id: 1
       }

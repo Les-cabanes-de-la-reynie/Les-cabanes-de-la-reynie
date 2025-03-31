@@ -1,8 +1,8 @@
-import db from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 
 export const getOpeningHours = async () => {
   try {
-    const data = await db.openingHours.findMany({
+    const data = await prisma.openingHours.findMany({
       where: {
         id: 1
       }

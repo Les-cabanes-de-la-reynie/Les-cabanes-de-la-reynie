@@ -20,23 +20,27 @@ const incrementVisitor = async (lastVisitDate: string | null) => {
 
 export const VisitorCount = () => {
   useEffect(() => {
-    const lastVisitDate = localStorage.getItem(LAST_VISIT_KEY)
+    try {
+      const lastVisitDate = localStorage.getItem(LAST_VISIT_KEY)
 
-    if (!lastVisitDate) {
-      // First visit
-      const newDate = Date.now().toString()
+      if (!lastVisitDate) {
+        // First visit
+        const newDate = Date.now().toString()
 
-      incrementVisitor(lastVisitDate)
-      return localStorage.setItem(LAST_VISIT_KEY, newDate)
-    }
+        incrementVisitor(lastVisitDate)
+        return localStorage.setItem(LAST_VISIT_KEY, newDate)
+      }
 
-    const isVisitedToday = isSameDay(Number(lastVisitDate), Date.now())
+      const isVisitedToday = isSameDay(Number(lastVisitDate), Date.now())
 
-    if (!isVisitedToday) {
-      const newDate = Date.now().toString()
+      if (!isVisitedToday) {
+        const newDate = Date.now().toString()
 
-      incrementVisitor(lastVisitDate)
-      return localStorage.setItem(LAST_VISIT_KEY, newDate)
+        incrementVisitor(lastVisitDate)
+        return localStorage.setItem(LAST_VISIT_KEY, newDate)
+      }
+    } catch (error) {
+      console.error('Error in VisitorCount:', error)
     }
   }, [])
 

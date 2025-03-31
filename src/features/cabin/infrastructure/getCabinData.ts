@@ -1,8 +1,8 @@
-import db from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 
 export const getCabinData = async () => {
   try {
-    const data = await db.cabin.findMany({
+    const data = await prisma.cabin.findMany({
       where: {
         id: 1
       }

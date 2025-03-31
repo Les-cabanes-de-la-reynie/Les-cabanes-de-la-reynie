@@ -6,40 +6,60 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Navbar } from './navbar/Navbar'
 
-export const SCROLL_Y_LIMIT = 100
-
-export const DEFAULT_HEADER_CLASSNAME =
-  'sticky inset-0 z-20 flex transition-colors duration-300 h-[4.5rem] w-full bg-primary lg:bg-transparent lg:bg-linear-to-b lg:from-neutral-900 lg:to-transparent'
+const CONFIG = {
+  SCROLL_Y_LIMIT: 100,
+  BASE_CLASSES: [
+    'sticky',
+    'inset-0',
+    'z-20',
+    'shrink-0',
+    'flex',
+    'transition-colors',
+    'duration-300',
+    'h-[4.5rem]',
+    'w-full'
+  ]
+} as const
 
 export const Header = () => {
-  const [headerClassName, setHeaderClassName] = useState(
-    DEFAULT_HEADER_CLASSNAME
-  )
-  const [clientWindowHeight, setClientWindowHeight] = useState(0)
+  const [scrollY, setScrollY] = useState(0)
+  const pathname = usePathname()
+  const isHomePage = pathname === '/'
+  const isAtTop = scrollY <= CONFIG.SCROLL_Y_LIMIT
 
-  const pathName = usePathname()
-  const pathWithoutLocale = pathName.slice(0, -2)
-
+  // Scroll handler with throttling
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      setClientWindowHeight(window.scrollY)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrollY(window.scrollY)
+          ticking = false
+        })
+        ticking = true
+      }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    // Initialize scrollY on mount
+    setScrollY(window.scrollY)
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  useEffect(() => {
-    setHeaderClassName(
-      cn(DEFAULT_HEADER_CLASSNAME, {
-        'lg:bg-primary lg:bg-none':
-          clientWindowHeight > SCROLL_Y_LIMIT || pathWithoutLocale !== '/'
-      })
-    )
-  }, [pathWithoutLocale, clientWindowHeight])
+  const headerClasses = cn(
+    CONFIG.BASE_CLASSES,
+    // Apply bg-primary only if NOT on homepage OR NOT at top
+    (!isHomePage || !isAtTop) && 'bg-primary',
+    // Apply transparent background with gradient only on homepage when at top
+    isHomePage &&
+      isAtTop &&
+      'lg:bg-transparent lg:bg-gradient-to-b lg:from-neutral-900 lg:to-transparent'
+  )
 
   return (
-    <header className={headerClassName}>
+    <header className={headerClasses}>
       <Container className='justify-center py-0 md:py-0'>
         <Navbar />
       </Container>

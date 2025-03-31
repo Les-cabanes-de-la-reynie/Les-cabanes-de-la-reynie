@@ -1,7 +1,7 @@
 'use server'
 
 import { DeleteUploadedImageSchema } from '@/features/common/uploadImage/UploadedImagesSchema'
-import db from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 import { authActionClient } from '@/lib/safeActions'
 import { utapi } from '@/lib/utapiUploadthing'
 
@@ -12,7 +12,7 @@ export const deleteUploadedImage = authActionClient
     await utapi.deleteFiles(imageKey)
 
     // Delete old images in postgre database
-    await db.image.deleteMany({
+    await prisma.image.deleteMany({
       where: {
         id
       }
