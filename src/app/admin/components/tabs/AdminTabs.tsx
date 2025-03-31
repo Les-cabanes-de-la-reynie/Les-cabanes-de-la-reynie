@@ -1,15 +1,15 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useTranslations } from 'next-intl'
 
+import { CabinSection } from './CabinSection'
 import { ContactSection } from './ContactSection'
 import { HomeSection } from './HomeSection'
-import { HutSection } from './HutSection'
 import { YurtSection } from './YurtSection'
 
 const TAB_VALUES = {
   home: 'home',
   yurt: 'yurt',
-  hut: 'hut',
+  cabin: 'cabin',
   contact: 'contact'
 }
 
@@ -21,7 +21,7 @@ export const AdminTabs = () => {
       <TabsList className='mb-10 w-full'>
         <TabsTrigger value={TAB_VALUES.home}>{tCommon('home')}</TabsTrigger>
         <TabsTrigger value={TAB_VALUES.yurt}>{tCommon('yurt')}</TabsTrigger>
-        <TabsTrigger value={TAB_VALUES.hut}>{tCommon('hut')}</TabsTrigger>
+        <TabsTrigger value={TAB_VALUES.cabin}>{tCommon('cabin')}</TabsTrigger>
         <TabsTrigger value={TAB_VALUES.contact}>
           {tCommon('contact')}
         </TabsTrigger>
@@ -32,8 +32,8 @@ export const AdminTabs = () => {
       <TabsContent value={TAB_VALUES.yurt}>
         <YurtSection />
       </TabsContent>
-      <TabsContent value={TAB_VALUES.hut}>
-        <HutSection />
+      <TabsContent value={TAB_VALUES.cabin}>
+        <CabinSection />
       </TabsContent>
       <TabsContent value={TAB_VALUES.contact}>
         <ContactSection />

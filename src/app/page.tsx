@@ -1,5 +1,5 @@
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
-import homeBannerImage from '@/assets/hutAndYurt/home-banner.jpg'
+import homeBannerImage from '@/assets/cabinAndYurt/home-banner.jpg'
 import { Container } from '@/components/Container'
 import { Heading } from '@/components/Heading'
 import { HeroBanner } from '@/components/HeroBanner'

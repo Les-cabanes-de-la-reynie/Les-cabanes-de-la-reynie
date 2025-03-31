@@ -1,10 +1,10 @@
 import { getAddress } from '@/features/address/infrastructure/getAddress'
 import { unstable_noStore } from 'next/cache'
-import { Map } from './Map'
+import { MapSection } from './MapSection'
 
-export const MapContainer = async () => {
+export const ContactMapSection = async () => {
   unstable_noStore()
   const address = await getAddress()
 
-  return <Map address={address} />
+  return <MapSection address={address} />
 }

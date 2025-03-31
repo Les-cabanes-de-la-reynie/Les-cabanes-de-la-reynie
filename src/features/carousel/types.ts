@@ -1,3 +1,5 @@
+import { JSX } from 'react'
+
 type LightboxController = {
   toggler: boolean
   sourceIndex: number

@@ -16,12 +16,13 @@ type MapProps = { address: AddressType }
 
 export const Map = ({ address }: MapProps) => {
   const t = useTranslations('Contact')
+
   return (
     <div className='relative flex h-96 w-full grow flex-col items-center justify-center'>
       <MapContainer
-        scrollWheelZoom={false}
         center={ESTABLISHMENT_POSITION}
         zoom={6}
+        scrollWheelZoom={false}
         className='relative h-full w-full'
       >
         <TileLayer url={MAP_URL} detectRetina={true} />

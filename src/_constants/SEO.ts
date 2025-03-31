@@ -14,7 +14,7 @@ export const SEO = {
       description:
         "La yourte peut héberger jusqu'à 6 personnes, avec ses espaces nuit, salon, cuisine et son coin toilettes. La vue s'étend sur la prairie et la vallée."
     },
-    hut: {
+    cabin: {
       title: 'Cabane',
       description:
         "La cabane peut accueillir deux personnes et offre, à deux-pas, une douche extérieure, des toilettes sèches et un espace cuisine d'été."

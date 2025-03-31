@@ -1,14 +1,47 @@
 import { useTranslations } from 'next-intl'
 
-export const useGetNavigationLinks = () => {
+type NavigationLink = {
+  label: string
+  description: string | null
+  url: string
+}
+
+export type NavigationLinks = {
+  home: NavigationLink
+  accommodations: NavigationLink
+  yurt: NavigationLink
+  cabin: NavigationLink
+  activities: NavigationLink
+  contact: NavigationLink
+}
+
+export const useGetNavigationLinks = (): NavigationLinks => {
   const tCommon = useTranslations('Common')
+  const tYurt = useTranslations('Yurt')
+  const tCabin = useTranslations('Cabin')
 
   return {
-    home: { label: tCommon('home'), url: '/' },
-    accommodations: { label: tCommon('accommodations'), url: null },
-    yurt: { label: tCommon('yurt'), url: '/logements/yourte' },
-    hut: { label: tCommon('hut'), url: '/logements/cabane' },
-    activities: { label: tCommon('activities'), url: '/activites' },
-    contact: { label: tCommon('contact'), url: '/contact' }
+    home: { label: tCommon('home'), description: null, url: '/' },
+    accommodations: {
+      label: tCommon('accommodations'),
+      description: null,
+      url: ''
+    },
+    yurt: {
+      label: tCommon('yurt'),
+      description: tYurt('yurtP1'),
+      url: '/logements/yourte'
+    },
+    cabin: {
+      label: tCommon('cabin'),
+      description: tCabin('cabinP1'),
+      url: '/logements/cabane'
+    },
+    activities: {
+      label: tCommon('activities'),
+      description: null,
+      url: '/activites'
+    },
+    contact: { label: tCommon('contact'), description: null, url: '/contact' }
   }
 }

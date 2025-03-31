@@ -14,9 +14,9 @@
     "price": "Prix",
     "bookYourStay": "Réservez votre séjour",
     "yurt": "Yourte",
-    "hut": "Cabane",
+    "cabin": "Cabane",
     "yurtInformation": "Informations concernant la yourte",
-    "hutInformation": "Informations concernant la cabane",
+    "cabinInformation": "Informations concernant la cabane",
     "practicalInformation": "Informations pratiques",
     "uploadImage": "Télécharger vos images",
     "address": "Adresse",
@@ -31,7 +31,7 @@
     "sliderTitle": "Ce que vous pouvez découvrir",
     "ourAccommodations": "Nos logements",
     "seeOurYurt": "Voir notre Yourte !",
-    "seeOurHut": "Voir notre Cabane !",
+    "seeOurCabin": "Voir notre Cabane !",
     "aboutUsTitle": "Bienvenue dans les cabanes de la Reynie !",
     "aboutUsP1": "L'aventure a commencé en 2021 en arpentant le territoire à la recherche du lieu répondant à nos aspirations. Et nous l'avons trouvé ici : trois hectares de prairie, forêt, potager et mares, aux confins de la Corrèze et aux portes de la Dordogne.",
     "aboutUsP2": "Une cabane et une yourte plus tard, de nombreux voyageurs se sont déjà arrêtés pour quelques jours de dépaysement…",
@@ -64,10 +64,10 @@
     "yurtP1": "La yourte peut accueillir jusqu'à 6 personnes (un lit-double, deux lits simples et un canapé-lit) et dispose d'un coin cuisine avec réchaud, d'une table et de chaises, et d'un accès à l'eau potable (filtre). Ses deux portes, son puits de lumière et sa fenêtre apportent toute la lumière nécessaire.",
     "yurtP2": "La douche et les toilettes sèches sont à l'extérieur. La terrasse s'ouvre sur la nature environnante."
   },
-  "Hut": {
+  "Cabin": {
     "sliderTitle": "La cabane",
-    "hutP1": "La cabane peut accueillir 2 personnes (un lit-double). Elle dispose d'une table et de chaises sur sa terrasse (mais libre à vous de les déplacer où vous le désirez !). Sa double-porte et ses deux fenêtres donnent l'impression d'être au beau milieu de la nature.",
-    "hutP2": "La douche, les toilettes sèches et un petit coin cuisine d'été se trouvent à l'extérieur."
+    "cabinP1": "La cabane peut accueillir 2 personnes (un lit-double). Elle dispose d'une table et de chaises sur sa terrasse (mais libre à vous de les déplacer où vous le désirez !). Sa double-porte et ses deux fenêtres donnent l'impression d'être au beau milieu de la nature.",
+    "cabinP2": "La douche, les toilettes sèches et un petit coin cuisine d'été se trouvent à l'extérieur."
   },
   "Contact": {
     "contactMainTitle": "Trouver Les cabanes de la Reynie",

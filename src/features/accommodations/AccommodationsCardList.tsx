@@ -1,7 +1,7 @@
-import hutImageFront from '@/assets/hutAndYurt/home-hut-front.jpg'
-import hutImageHover from '@/assets/hutAndYurt/home-hut-hover.jpg'
-import yurtImageFront from '@/assets/hutAndYurt/home-yurt-front.jpg'
-import yurtImageHover from '@/assets/hutAndYurt/home-yurt-hover.jpg'
+import cabinImageFront from '@/assets/cabinAndYurt/home-cabin-front.jpg'
+import cabinImageHover from '@/assets/cabinAndYurt/home-cabin-hover.jpg'
+import yurtImageFront from '@/assets/cabinAndYurt/home-yurt-front.jpg'
+import yurtImageHover from '@/assets/cabinAndYurt/home-yurt-hover.jpg'
 import { useTranslations } from 'next-intl'
 import { AccommodationsCard } from './AccommodationsCard'
 
@@ -19,9 +19,9 @@ export const AccommodationsCardList = () => {
 
       <AccommodationsCard
         href={'/logements/cabane'}
-        imageOnFront={hutImageFront}
-        imageOnHover={hutImageHover}
-        textContent={t('seeOurHut')}
+        imageOnFront={cabinImageFront}
+        imageOnHover={cabinImageHover}
+        textContent={t('seeOurCabin')}
       />
     </div>
   )

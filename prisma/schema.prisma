@@ -52,7 +52,7 @@ model Yurt {
   price Int
 }
 
-model Hut {
+model Cabin {
   id    Int @id @default(autoincrement())
   price Int
 }

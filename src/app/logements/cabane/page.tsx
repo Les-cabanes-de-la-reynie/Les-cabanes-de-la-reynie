@@ -1,6 +1,6 @@
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import { SEO } from '@/_constants/SEO'
-import headerImage from '@/assets/hutAndYurt/hut-header.jpg'
+import headerImage from '@/assets/cabinAndYurt/cabin-header.jpg'
 import { Heading } from '@/components/Heading'
 import { OurGourmetOffer } from '@/components/ourGourmetOffer/OurGourmetOffer'
 import { P } from '@/components/P'
@@ -20,18 +20,18 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: SEO.accommodation.hut.title,
-  description: SEO.accommodation.hut.description,
+  title: SEO.accommodation.cabin.title,
+  description: SEO.accommodation.cabin.description,
   openGraph: {
-    title: `${SEO.accommodation.hut.title} - ${ESTABLISHMENT_TITLE}`,
-    description: SEO.accommodation.hut.description,
+    title: `${SEO.accommodation.cabin.title} - ${ESTABLISHMENT_TITLE}`,
+    description: SEO.accommodation.cabin.description,
     type: 'website',
     locale: defaultLocale,
-    url: `${env.NEXT_PUBLIC_BASE_URL}/${SEO.accommodation.title.toLocaleLowerCase()}/${SEO.accommodation.hut.title.toLocaleLowerCase()}`,
+    url: `${env.NEXT_PUBLIC_BASE_URL}/${SEO.accommodation.title.toLocaleLowerCase()}/${SEO.accommodation.cabin.title.toLocaleLowerCase()}`,
     siteName: ESTABLISHMENT_TITLE,
     images: [
       {
-        url: '/hut.jpg',
+        url: '/cabin.jpg',
         width: 1200,
         height: 630
       }
@@ -39,10 +39,10 @@ export const metadata: Metadata = {
   }
 }
 
-const Hut = () => {
+const Cabin = () => {
   const tCommon = useTranslations('Common')
   const tAccommodations = useTranslations('Accommodations')
-  const tHut = useTranslations('Hut')
+  const tCabin = useTranslations('Cabin')
 
   const bookList = [{ title: 'Airbnb', href: 'https://abnb.me/z4L2e1aCBHb' }]
 
@@ -51,7 +51,7 @@ const Hut = () => {
       <AccommodationsHeader>
         <AccommodationsHeaderImage>
           <Image
-            alt={`Main ${tCommon('hut')} landscape`}
+            alt={`Main ${tCommon('cabin')} landscape`}
             src={headerImage}
             placeholder='blur'
             fill
@@ -62,21 +62,21 @@ const Hut = () => {
         </AccommodationsHeaderImage>
         <AccommodationsHeaderContent>
           <Heading level={1} className='mt-4 lg:mt-0'>
-            {tCommon('hut')}
+            {tCommon('cabin')}
           </Heading>
 
           <Heading level={2} className='mt-10'>
             {tCommon('description')}
           </Heading>
-          <P>{tHut('hutP1')}</P>
-          <P className='italic'>{tHut('hutP2')}</P>
+          <P>{tCabin('cabinP1')}</P>
+          <P className='italic'>{tCabin('cabinP2')}</P>
 
           <Heading level={2} className='mt-10'>
             {tCommon('price')}
           </Heading>
 
           <AccommodationsPrice
-            accommodationType={AccommodationTypeEnum.HUT}
+            accommodationType={AccommodationTypeEnum.CABIN}
             description={tAccommodations('averagePrice')}
           />
 
@@ -87,8 +87,8 @@ const Hut = () => {
       <PracticalInformation />
 
       <AccommodationsSliderWithSkeleton
-        title={tHut('sliderTitle')}
-        category={UploadImageCategoryKeyEnum.HutSlider}
+        title={tCabin('sliderTitle')}
+        category={UploadImageCategoryKeyEnum.CabinSlider}
       />
 
       <OurGourmetOffer />
@@ -96,4 +96,4 @@ const Hut = () => {
   )
 }
 
-export default Hut
+export default Cabin

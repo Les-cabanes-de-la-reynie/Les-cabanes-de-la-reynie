@@ -1,3 +1,4 @@
+import { Container } from '@/components/Container'
 import { Heading } from '@/components/Heading'
 import { P } from '@/components/P'
 import { Button } from '@/components/ui/button'
@@ -8,13 +9,13 @@ const NotFound = () => {
   const t = useTranslations('Errors')
 
   return (
-    <div className='flex w-full flex-col items-center justify-center  p-4'>
+    <Container center>
       <Heading level={2}>{t('shortError404')}</Heading>
       <P>{t('longError404')}</P>
       <Button asChild className='mt-4'>
         <Link href='/'>{t('backButtonMessage')}</Link>
       </Button>
-    </div>
+    </Container>
   )
 }
 

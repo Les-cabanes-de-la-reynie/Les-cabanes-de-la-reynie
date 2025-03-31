@@ -1,6 +1,6 @@
 import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import { SEO } from '@/_constants/SEO'
-import headerImage from '@/assets/hutAndYurt/yurt-header.jpg'
+import headerImage from '@/assets/cabinAndYurt/yurt-header.jpg'
 import { Heading } from '@/components/Heading'
 import { OurGourmetOffer } from '@/components/ourGourmetOffer/OurGourmetOffer'
 import { P } from '@/components/P'

@@ -14,9 +14,9 @@
     "price": "Price",
     "bookYourStay": "Book your stay",
     "yurt": "Yurt",
-    "hut": "Hut",
+    "cabin": "Cabin",
     "yurtInformation": "Yurt information",
-    "hutInformation": "Hut information",
+    "cabinInformation": "Cabin information",
     "practicalInformation": "Practical information",
     "uploadImage": "Upload your images",
     "address": "Address",
@@ -31,15 +31,15 @@
     "sliderTitle": "What you will discover",
     "ourAccommodations": "Our accommodations",
     "seeOurYurt": "See our Yurt!",
-    "seeOurHut": "See our Hut!",
+    "seeOurCabin": "See our Cabin!",
     "aboutUsTitle": "Welcome to les cabanes de la Reynie!",
     "aboutUsP1": "The adventure began in 2021 when we scoured the region looking for a place that matched our aspirations. And we found it here: three hectares of meadow, forest, vegetable garden and ponds, on the edge of the Corrèze and at the gateway to the Dordogne.",
-    "aboutUsP2": "One hut and one yurt later, many travellers have already stopped off for a few days to get away from it all...",
+    "aboutUsP2": "One cabin and one yurt later, many travellers have already stopped off for a few days to get away from it all...",
     "aboutUsP3": "...because waking up in les cabanes de la Reynie means finding yourself in the heart of nature, discovering the charms of Corrèze and the surrounding area, savouring the region's gastronomy, immersing yourself in history and, above all, enjoying a unique stay with friends or family!",
     "aboutUsP4": "Treat yourself to an unforgettable getaway in our 6-person yurt or 2-person cabin, with its breathtaking views and rejuvenating tranquillity.",
     "accommodationsTitle": "A haven of peace for nature lovers",
     "accommodationsP1": "Imagine waking up to birdsong, enveloped in the soft morning light filtering through the canvas of your yurt. Let yourself be lulled by the rustle of leaves in the trees above your cabin. Enjoy the view of the lush green countryside and the valleys that stretch as far as the eye can see. Then sit out on the terrace to enjoy a morning coffee in the heart of nature, a gourmet picnic in the shade of the trees or a dreamy aperitif as the sun sets.",
-    "accommodationsP2": "Our spacious and comfortable yurt, furnished with taste and simplicity, will offer you an authentic and relaxing stay, and our hut, nestled in its own green setting, will help you to simply stop time!"
+    "accommodationsP2": "Our spacious and comfortable yurt, furnished with taste and simplicity, will offer you an authentic and relaxing stay, and our cabin, nestled in its own green setting, will help you to simply stop time!"
   },
   "Accommodations": {
     "bookList": "Book list",
@@ -52,7 +52,7 @@
     "dryToilet": "Dry toilet",
     "carPark": "Free on-site car park",
     "accommodationsDescriptionTitle": "An ecological and gourmet holiday for an authentic experience",
-    "accommodationsDescriptionP1": "Our site has been designed with the environment in mind. Our yurt and hut are equipped with dry toilets, and we use natural, local products for the upkeep of our accommodation and site.",
+    "accommodationsDescriptionP1": "Our site has been designed with the environment in mind. Our yurt and cabin are equipped with dry toilets, and we use natural, local products for the upkeep of our accommodation and site.",
     "ourGourmetOffer": "You can also take advantage of our gourmet offer (booking required):",
     "ourGourmetOfferImportantItem1": "100% local and organic aperitif board",
     "ourGourmetOfferItem1": "with home-made charcuterie, farmhouse cheeses, seasonal fruit and vegetables, fresh bread, homemade spreads and wine",
@@ -64,10 +64,10 @@
     "yurtP1": "The yurt can accommodate up to 6 people (one double bed, two single beds and a sofa bed) and has a kitchenette with stove, table and chairs, and access to drinking water (filter). Its two doors, skylight and window provide all the light you need.",
     "yurtP2": "The shower and dry toilets are outside. The terrace overlooks the surrounding countryside."
   },
-  "Hut": {
-    "sliderTitle": "The hut",
-    "hutP1": "The cabin sleeps 2 (double bed). It has a table and chairs on the terrace (but you're free to move them wherever you like!). Its double doors and two windows give the impression of being right in the middle of nature.",
-    "hutP2": "The shower, dry toilets and a small summer kitchen area are located outside."
+  "Cabin": {
+    "sliderTitle": "The cabin",
+    "cabinP1": "The cabin sleeps 2 (double bed). It has a table and chairs on the terrace (but you're free to move them wherever you like!). Its double doors and two windows give the impression of being right in the middle of nature.",
+    "cabinP2": "The shower, dry toilets and a small summer kitchen area are located outside."
   },
   "Contact": {
     "contactMainTitle": "Find Les cabanes de la Reynie",

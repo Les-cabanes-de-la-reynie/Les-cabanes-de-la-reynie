@@ -87,16 +87,11 @@ export default async function RootLayout({
   // suppressHydrationWarning useful because next-themes trigger an error with: attribute='class'
   return (
     <html suppressHydrationWarning lang={locale}>
-      <body
-        className={cn(
-          fontPrimary.variable,
-          'relative min-h-screen w-full antialiased'
-        )}
-      >
-        <div className='font-primary'>
-          <Providers locale={locale}>
+      <body className={cn(fontPrimary.variable, 'relative w-full antialiased')}>
+        <div className='font-primary h-svh flex flex-col'>
+          <Providers>
             <Header />
-            <main id='main' role='main' className='flex flex-1'>
+            <main id='main' role='main' className='flex-1 flex'>
               {children}
             </main>
             <Footer />

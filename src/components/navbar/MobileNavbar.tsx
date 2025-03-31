@@ -98,7 +98,7 @@ export const MobileNavbar = ({
                 {
                   'bg-accent':
                     pathName === navLinks.yurt.url ||
-                    pathName === navLinks.hut.url
+                    pathName === navLinks.cabin.url
                 }
               )}
             >
@@ -120,16 +120,16 @@ export const MobileNavbar = ({
                   {navLinks.yurt.label}
                 </Link>
                 <Link
-                  href={navLinks.hut.url}
+                  href={navLinks.cabin.url}
                   onClick={handleCloseNavbar}
                   className={cn(
                     'w-full text-sm leading-none hover:underline p-2 rounded',
                     {
-                      'bg-accent': pathName === navLinks.hut.url
+                      'bg-accent': pathName === navLinks.cabin.url
                     }
                   )}
                 >
-                  {navLinks.hut.label}
+                  {navLinks.cabin.label}
                 </Link>
               </div>
             </CollapsibleContent>

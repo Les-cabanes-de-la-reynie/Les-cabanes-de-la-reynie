@@ -1,5 +1,5 @@
 import { P } from '@/components/P'
-import { getHutData } from '@/features/hut/infrastructure/getHutData'
+import { getCabinData } from '@/features/cabin/infrastructure/getCabinData'
 import { getYurtData } from '@/features/yurt/infrastructure/getYurtData'
 import { unstable_noStore } from 'next/cache'
 import { AccommodationTypeEnum } from './types'
@@ -15,8 +15,8 @@ export const AccommodationsPrice = async ({
 }: AccommodationsPriceProps) => {
   unstable_noStore()
   const accommodationPrice =
-    accommodationType === AccommodationTypeEnum.HUT
-      ? (await getHutData()).price
+    accommodationType === AccommodationTypeEnum.CABIN
+      ? (await getCabinData()).price
       : (await getYurtData()).price
 
   return (

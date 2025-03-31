@@ -2,13 +2,12 @@ import { ESTABLISHMENT_TITLE } from '@/_constants/establishmentInformation'
 import { SEO } from '@/_constants/SEO'
 import { Container } from '@/components/Container'
 import { Heading } from '@/components/Heading'
-import { Loader } from '@/components/Loader'
 import { defaultLocale } from '@/features/i18n/config'
+import { ContactMapSection } from '@/features/map/ContactMapSection'
 import { OpeningHoursSection } from '@/features/openingHours/OpeningHoursSection'
 import { env } from '@/lib/env'
 import { Metadata } from 'next'
 import { useTranslations } from 'next-intl'
-import dynamic from 'next/dynamic'
 
 export const metadata: Metadata = {
   title: SEO.contact.title,
@@ -30,15 +29,6 @@ export const metadata: Metadata = {
   }
 }
 
-// ⚠️: .then() is needed because the component is not exported with the default keyword
-const MapWithNoSSR = dynamic(
-  () =>
-    import('../../features/map/MapSection').then(module => module.MapSection),
-  {
-    loading: () => <Loader />
-  }
-)
-
 const Contact = () => {
   const t = useTranslations('Contact')
 
@@ -50,7 +40,7 @@ const Contact = () => {
       <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
         <OpeningHoursSection editable={false} />
 
-        <MapWithNoSSR />
+        <ContactMapSection />
       </div>
     </Container>
   )

@@ -3,7 +3,7 @@
 ## Description
 
 Les cabanes de la Reynie is a guest rooms that you can enjoy with an awesome
-**Yurt** or a **Hut** in France.
+**Yurt** or a **Cabin** in France.
 
 ## Website
 
@@ -12,7 +12,7 @@ You can visit the website with this link:
 
 You could find in the website:
 
-- Yurt and Hut's pictures
+- Yurt and Cabin's pictures
 - Details of each services
 - An opening hours
 - The location

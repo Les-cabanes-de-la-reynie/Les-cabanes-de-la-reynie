@@ -59,7 +59,7 @@ test.describe('Header navigation', () => {
       await expect(page).toHaveURL(frenchURL)
     })
 
-    test('should open a sub navigation of accommodations with Yurt and Hut links', async ({
+    test('should open a sub navigation of accommodations with Yurt and Cabin links', async ({
       page
     }) => {
       const accommodationsLink = page
@@ -68,7 +68,7 @@ test.describe('Header navigation', () => {
       const yurtLink = page
         .getByTestId('mobile-header-navbar')
         .getByRole('link', { name: 'Yourte', exact: true })
-      const hutLink = page
+      const cabinLink = page
         .getByTestId('mobile-header-navbar')
         .getByRole('link', { name: 'Cabane', exact: true })
 
@@ -79,8 +79,8 @@ test.describe('Header navigation', () => {
       // Check if Yurt/Yourte exist
       await expect(yurtLink).toBeVisible()
 
-      // Check if Hut/Cabane exist
-      await expect(hutLink).toBeVisible()
+      // Check if Cabin/Cabane exist
+      await expect(cabinLink).toBeVisible()
     })
 
     test('should be in the yurt page after clicked on Yurt', async ({
@@ -100,17 +100,17 @@ test.describe('Header navigation', () => {
       await expect(page.getByRole('heading', { name: 'Yourte' })).toBeAttached()
     })
 
-    test('should be in the hut page after clicked on Hut', async ({ page }) => {
+    test('should be in the cabin page after clicked on Cabin', async ({ page }) => {
       const accommodationsLink = page
         .getByTestId('mobile-header-navbar')
         .getByText('Logements')
-      const hutLink = page
+      const cabinLink = page
         .getByTestId('mobile-header-navbar')
         .getByRole('link', { name: 'Cabane', exact: true })
 
       await openBurgerMenu(page)
       await accommodationsLink.click()
-      await hutLink.click()
+      await cabinLink.click()
       await page.waitForURL('**/logements/cabane')
       await expect(page.getByRole('heading', { name: 'Cabane' })).toBeAttached()
     })
@@ -184,13 +184,13 @@ test.describe('Header navigation', () => {
       await expect(page).toHaveURL(frenchURL)
     })
 
-    test('should open a popover with Yurt and Hut links', async ({ page }) => {
+    test('should open a popover with Yurt and Cabin links', async ({ page }) => {
       const accommodationsLink = page
         .getByTestId('desktop-header-navbar')
         .getByText('Logements')
       const yurtLink = page.getByTestId('accommodations-sub-navigation-yourte')
 
-      const hutLink = page.getByTestId('accommodations-sub-navigation-cabane')
+      const cabinLink = page.getByTestId('accommodations-sub-navigation-cabane')
 
       await accommodationsLink.hover()
       await expect(page).toHaveURL(frenchURL)
@@ -198,8 +198,8 @@ test.describe('Header navigation', () => {
       // Check if Yurt/Yourte exist
       await expect(yurtLink).toBeVisible()
 
-      // Check if Hut/Cabane exist
-      await expect(hutLink).toBeVisible()
+      // Check if Cabin/Cabane exist
+      await expect(cabinLink).toBeVisible()
     })
 
     test('should be in the yurt page after clicked on Yurt', async ({
@@ -216,14 +216,14 @@ test.describe('Header navigation', () => {
       await expect(page.getByRole('heading', { name: 'Yourte' })).toBeVisible()
     })
 
-    test('should be in the hut page after clicked on Hut', async ({ page }) => {
+    test('should be in the cabin page after clicked on Cabin', async ({ page }) => {
       const accommodationsLink = page
         .getByTestId('desktop-header-navbar')
         .getByText('Logements')
-      const hutLink = page.getByTestId('accommodations-sub-navigation-cabane')
+      const cabinLink = page.getByTestId('accommodations-sub-navigation-cabane')
 
       await accommodationsLink.click()
-      await hutLink.click()
+      await cabinLink.click()
       await page.waitForURL('**/logements/cabane')
       await expect(page.getByRole('heading', { name: 'Cabane' })).toBeVisible()
     })
