@@ -50,12 +50,11 @@ export const Header = () => {
 
   const headerClasses = cn(
     CONFIG.BASE_CLASSES,
-    // Apply bg-primary only if NOT on homepage OR NOT at top
-    (!isHomePage || !isAtTop) && 'bg-primary',
-    // Apply transparent background with gradient only on homepage when at top
-    isHomePage &&
-      isAtTop &&
-      'lg:bg-transparent lg:bg-gradient-to-b lg:from-neutral-900 lg:to-transparent'
+    { 'bg-primary': !isHomePage || !isAtTop },
+    {
+      'bg-transparent lg:bg-gradient-to-b lg:from-neutral-900 lg:to-transparent':
+        isHomePage && isAtTop
+    }
   )
 
   return (
