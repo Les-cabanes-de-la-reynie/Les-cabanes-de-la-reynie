@@ -1,9 +1,12 @@
 import { PrismaClient } from '@prisma/client'
+import { auth } from '../src/lib/auth'
 
 const prisma = new PrismaClient()
 
 const main = async () => {
   // Delete existing data
+  await prisma.account.deleteMany()
+  await prisma.user.deleteMany()
   await prisma.visitorCount.deleteMany()
   await prisma.yurt.deleteMany()
   await prisma.cabin.deleteMany()
@@ -49,6 +52,33 @@ const main = async () => {
     await prisma.cabin.create({ data: cabinData })
     await prisma.address.create({ data: addressData })
     await prisma.openingHours.create({ data: openingHoursData })
+
+    // Create user and account
+    const ctx = await auth.$context
+    const hashedPassword = await ctx.password.hash('fakepassword')
+
+    const user = await prisma.user.create({
+      data: {
+        id: 'default-admin-id',
+        email: 'fakeemail',
+        name: 'Admin',
+        emailVerified: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+    })
+
+    await prisma.account.create({
+      data: {
+        id: 'default-admin-account-id',
+        userId: user.id,
+        providerId: 'credential',
+        accountId: user.id,
+        password: hashedPassword,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+    })
 
     console.log('Seed completed successfully')
   } catch (error) {
