@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npx prisma generate --no-engine && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "test": "playwright test --ui",
@@ -16,7 +16,6 @@
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@prisma/client": "^6.5.0",
-    "@prisma/extension-accelerate": "^1.3.0",
     "@radix-ui/react-alert-dialog": "^1.1.6",
     "@radix-ui/react-aspect-ratio": "^1.1.2",
     "@radix-ui/react-collapsible": "^1.1.3",
@@ -64,7 +63,7 @@
     "@tailwindcss/postcss": "^4",
     "@types/fslightbox-react": "^1.7.7",
     "@types/leaflet": "^1.9.17",
-    "@types/node": "^20",
+    "@types/node": "^20.17.28",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/validator": "^13.12.1",
@@ -78,11 +77,10 @@
     "prettier-plugin-tailwindcss": "^0.6.11",
     "prisma": "^6.5.0",
     "tailwindcss": "^4",
-    "ts-node": "^10.9.2",
     "tsx": "^4.19.3",
     "typescript": "^5.5.4"
   },
   "prisma": {
-    "seed": "ts-node prisma/seed.ts"
+    "seed": "tsx prisma/seed.ts"
   }
 }

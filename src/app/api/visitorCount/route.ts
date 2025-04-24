@@ -1,5 +1,5 @@
 import { getVisitorCount } from '@/features/visitorCount/infrastructure/getVisitorCount'
-import db from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 import { isSameDay } from 'date-fns'
 import { NextResponse } from 'next/server'
 
@@ -11,7 +11,7 @@ export const POST = async (request: Request) => {
       // First visit
       const visitorCount = await getVisitorCount()
 
-      await db.visitorCount.update({
+      await prisma.visitorCount.update({
         where: { id: 1 },
         data: { count: visitorCount.count + 1 }
       })
@@ -27,7 +27,7 @@ export const POST = async (request: Request) => {
     if (!isVisitedToday) {
       const visitorCount = await getVisitorCount()
 
-      await db.visitorCount.update({
+      await prisma.visitorCount.update({
         where: { id: 1 },
         data: { count: visitorCount.count + 1 }
       })

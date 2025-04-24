@@ -1,8 +1,8 @@
-import db from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 
 export const getAddress = async () => {
   try {
-    const data = await db.address.findMany({
+    const data = await prisma.address.findMany({
       where: {
         id: 1
       }
