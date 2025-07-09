@@ -10,7 +10,7 @@ export const Providers = async ({ children }: PropsWithChildren) => {
     <NextIntlClientProvider>
       <ThemeProvider
         attribute='class'
-        defaultTheme='system'
+        defaultTheme='dark'
         enableSystem
         disableTransitionOnChange
       >
