@@ -1,3 +1,4 @@
+import { Container } from '@/components/Container'
 import { CarouselWithLightbox } from '@/features/carousel/CarouselWithLightbox'
 import { getUploadedImagesByCategory } from '@/features/common/uploadImage/infrastructure/getUploadedImagesByCategory'
 import { unstable_noStore } from 'next/cache'
@@ -16,6 +17,8 @@ export const AccommodationsSlider = async ({
   const uploadedImages = await getUploadedImagesByCategory({ category })
 
   return uploadedImages?.length ? (
-    <CarouselWithLightbox data={uploadedImages} title={title} />
+    <Container>
+      <CarouselWithLightbox data={uploadedImages} title={title} />
+    </Container>
   ) : null
 }
