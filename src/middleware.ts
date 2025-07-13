@@ -17,5 +17,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [PAGE_ROUTES.admin.home, PAGE_ROUTES.admin.signIn]
+  matcher: ['/admin', '/admin/auth/sign-in']
 }
