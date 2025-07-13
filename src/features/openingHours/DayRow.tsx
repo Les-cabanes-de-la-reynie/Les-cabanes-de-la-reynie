@@ -1,5 +1,8 @@
-import { Input } from '@/components/ui/input'
-import { convertDateWithoutTimeZone, convertTimeIntoDate } from '@/utils/date'
+import { Input } from '@/shared/components/ui/input'
+import {
+  convertDateWithoutTimeZone,
+  convertTimeIntoDate
+} from '@/shared/utils/date'
 import { format } from 'date-fns'
 import { useLocale } from 'next-intl'
 import { TableRow } from './TableRow'

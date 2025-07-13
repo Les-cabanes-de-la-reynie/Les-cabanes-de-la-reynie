@@ -1,6 +1,8 @@
 'use client'
 
-import { EditableButtons } from '@/components/editableButtons/EditableButtons'
+import { updateYurtPrice } from '@/features/yurt/infrastructure/actions/updateYurtPrice'
+import { YurtSchema } from '@/features/yurt/YurtSchema'
+import { EditableButtons } from '@/shared/components/editableButtons/EditableButtons'
 import {
   Form,
   FormControl,
@@ -8,11 +10,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { YurtSchema } from '@/features/yurt/YurtSchema'
-import { useToggle } from '@/hooks/useToggle'
-import { updateYurtPrice } from '@/features/yurt/infrastructure/actions/updateYurtPrice'
+} from '@/shared/components/ui/form'
+import { Input } from '@/shared/components/ui/input'
+import { useToggle } from '@/shared/hooks/useToggle'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'

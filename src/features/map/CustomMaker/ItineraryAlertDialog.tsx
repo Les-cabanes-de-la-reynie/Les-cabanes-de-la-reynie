@@ -1,4 +1,4 @@
-import { Address } from '@/_types/address'
+import { Address } from '@/shared/_types/address'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -9,7 +9,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger
-} from '@/components/ui/alert-dialog'
+} from '@/shared/components/ui/alert-dialog'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useState } from 'react'

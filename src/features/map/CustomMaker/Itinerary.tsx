@@ -1,6 +1,6 @@
-import { APP_ICON_SIZE_CLASSNAME } from '@/_constants/className'
-import { Address } from '@/_types/address'
-import { IconContainer } from '@/components/IconContainer'
+import { APP_ICON_SIZE_CLASSNAME } from '@/shared/_constants/className'
+import { Address } from '@/shared/_types/address'
+import { IconContainer } from '@/shared/components/IconContainer'
 import { NavigationIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 

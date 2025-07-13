@@ -1,9 +1,9 @@
 'use client'
 
-import { EditableButtons } from '@/components/editableButtons/EditableButtons'
 import { updateOpeningHours } from '@/features/openingHours/infrastructure/actions/updateOpeningHours'
-import { useToggle } from '@/hooks/useToggle'
-import { formatFormDataIntoOpeningHoursData } from '@/utils/formats'
+import { EditableButtons } from '@/shared/components/editableButtons/EditableButtons'
+import { useToggle } from '@/shared/hooks/useToggle'
+import { formatFormDataIntoOpeningHoursData } from '@/shared/utils/formats'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 import { DayRow } from './DayRow'

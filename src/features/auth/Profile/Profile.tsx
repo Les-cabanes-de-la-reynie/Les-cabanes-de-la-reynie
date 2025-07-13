@@ -1,4 +1,5 @@
-import { authClient } from '@/lib/auth-client'
+import { PAGE_ROUTES } from '@/shared/_constants/page'
+import { authClient } from '@/shared/lib/auth-client'
 import { useRouter } from 'next/navigation'
 import { ProfileContent } from './ProfileContent'
 
@@ -10,7 +11,7 @@ export const Profile = () => {
 
   const handleLogOut = async () => {
     await authClient.signOut()
-    router.push('/')
+    router.push(PAGE_ROUTES.home)
   }
 
   return <ProfileContent user={session.data?.user} onLogout={handleLogOut} />

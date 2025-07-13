@@ -1,8 +1,8 @@
 'use server'
 
 import { OpeningHoursSchema } from '@/features/openingHours/OpeningHoursSchema'
-import prisma from '@/lib/prisma'
-import { authActionClient } from '@/lib/safeActions'
+import prisma from '@/shared/lib/prisma'
+import { authActionClient } from '@/shared/lib/safeActions'
 
 export const updateOpeningHours = authActionClient
   .schema(OpeningHoursSchema)

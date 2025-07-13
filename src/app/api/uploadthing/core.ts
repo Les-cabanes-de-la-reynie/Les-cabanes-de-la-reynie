@@ -1,4 +1,4 @@
-import { auth } from '@/lib/auth'
+import { auth } from '@/shared/lib/auth'
 import { headers } from 'next/headers'
 import { createUploadthing, type FileRouter } from 'uploadthing/next'
 import { UploadThingError } from 'uploadthing/server'

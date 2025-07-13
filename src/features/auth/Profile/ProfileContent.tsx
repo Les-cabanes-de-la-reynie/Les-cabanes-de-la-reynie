@@ -1,4 +1,5 @@
-import { Button } from '@/components/ui/button'
+import { PAGE_ROUTES } from '@/shared/_constants/page'
+import { Button } from '@/shared/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,7 +8,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
+} from '@/shared/components/ui/dropdown-menu'
 import { User } from 'better-auth'
 import { Edit3Icon, LogOutIcon, UserIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
@@ -30,17 +31,14 @@ export const ProfileContent = ({ user, onLogout }: ProfileContentProps) => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className='w-56'>
-        <DropdownMenuLabel>{t('profile')}</DropdownMenuLabel>
+        <DropdownMenuLabel>
+          {t('profile')} ({user?.name})
+        </DropdownMenuLabel>
 
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <UserIcon className='mr-2 h-4 w-4 shrink-0' />
-            <span>{user?.name}</span>
-          </DropdownMenuItem>
-
-          <Link href='/admin'>
+          <Link href={PAGE_ROUTES.admin.home}>
             <DropdownMenuItem>
               <Edit3Icon className='mr-2 h-4 w-4 shrink-0' />
               <span>{t('modifyWebsiteInformation')}</span>

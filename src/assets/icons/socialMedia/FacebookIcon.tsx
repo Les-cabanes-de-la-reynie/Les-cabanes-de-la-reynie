@@ -1,5 +1,5 @@
-import { ClassNameProps } from '@/_types/components'
-import { cn } from '@/utils/tailwind'
+import { ClassNameProps } from '@/shared/_types/components'
+import { cn } from '@/shared/utils/tailwind'
 
 export const FacebookIcon = ({ className }: ClassNameProps) => {
   return (

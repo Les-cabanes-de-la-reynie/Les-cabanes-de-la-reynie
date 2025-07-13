@@ -1,4 +1,4 @@
-import { Container } from '@/components/Container'
+import { Container } from '@/shared/components/Container'
 import { PropsWithChildren } from 'react'
 
 type AccommodationsHeaderContentProps = PropsWithChildren

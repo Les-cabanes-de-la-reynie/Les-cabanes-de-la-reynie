@@ -1,7 +1,9 @@
 'use client'
 
-import { Address } from '@/_types/address'
-import { EditableButtons } from '@/components/editableButtons/EditableButtons'
+import { AddressSchema } from '@/features/address/AddressSchema'
+import { updateAddressInformation } from '@/features/address/infrastructure/actions/updateAddressInformation'
+import { Address } from '@/shared/_types/address'
+import { EditableButtons } from '@/shared/components/editableButtons/EditableButtons'
 import {
   Form,
   FormControl,
@@ -9,11 +11,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { AddressSchema } from '@/features/address/AddressSchema'
-import { useToggle } from '@/hooks/useToggle'
-import { updateAddressInformation } from '@/features/address/infrastructure/actions/updateAddressInformation'
+} from '@/shared/components/ui/form'
+import { Input } from '@/shared/components/ui/input'
+import { useToggle } from '@/shared/hooks/useToggle'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'

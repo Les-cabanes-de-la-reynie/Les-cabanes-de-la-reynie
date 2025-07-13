@@ -1,9 +1,9 @@
 'use client'
 
-import { Address as AddressType } from '@/_types/address'
-import { IconContainer } from '@/components/IconContainer'
-import { P } from '@/components/P'
-import { cn } from '@/utils/tailwind'
+import { Address as AddressType } from '@/shared/_types/address'
+import { IconContainer } from '@/shared/components/IconContainer'
+import { P } from '@/shared/components/P'
+import { cn } from '@/shared/utils/tailwind'
 import 'leaflet/dist/leaflet.css'
 import { AlertCircleIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'

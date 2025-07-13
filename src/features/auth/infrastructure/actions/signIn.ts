@@ -1,7 +1,7 @@
 'use server'
 
-import { auth } from '@/lib/auth'
-import { actionClient } from '@/lib/safeActions'
+import { auth } from '@/shared/lib/auth'
+import { actionClient } from '@/shared/lib/safeActions'
 import { SignInSchema } from '../../SignInSchema'
 
 export const postSignIn = actionClient

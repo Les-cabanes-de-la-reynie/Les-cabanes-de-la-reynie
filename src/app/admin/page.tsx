@@ -1,5 +1,5 @@
-import { Container } from '@/components/Container'
-import { Heading } from '@/components/Heading'
+import { Container } from '@/shared/components/Container'
+import { Heading } from '@/shared/components/Heading'
 import { Metadata } from 'next'
 import { AdminTabs } from './components/tabs/AdminTabs'
 

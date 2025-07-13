@@ -1,7 +1,7 @@
-import { getUploadedImagesByCategory } from '@/features/common/uploadImage/infrastructure/getUploadedImagesByCategory'
-import { UploadImage } from '@/features/common/uploadImage/UploadImage'
+import { getUploadedImagesByCategory } from '@/features/shared/uploadImage/infrastructure/getUploadedImagesByCategory'
+import { UploadImage } from '@/features/shared/uploadImage/UploadImage'
 import { unstable_noStore } from 'next/cache'
-import { UploadImageCategoryKeyEnum } from '../common/uploadImage/types'
+import { UploadImageCategoryKeyEnum } from '../shared/uploadImage/types'
 
 export const CabinUploadImage = async () => {
   unstable_noStore()

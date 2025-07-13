@@ -1,7 +1,7 @@
-import { Heading } from '@/components/Heading'
-import { Separator } from '@/components/ui/separator'
 import { CabinUploadImage } from '@/features/cabin/CabinUploadImage'
 import { getCabinData } from '@/features/cabin/infrastructure/getCabinData'
+import { Heading } from '@/shared/components/Heading'
+import { Separator } from '@/shared/components/ui/separator'
 import { unstable_noStore } from 'next/cache'
 import { CabinForm } from './CabinForm'
 

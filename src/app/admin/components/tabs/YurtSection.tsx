@@ -1,5 +1,5 @@
-import { Heading } from '@/components/Heading'
 import { Yurt } from '@/features/yurt/Yurt'
+import { Heading } from '@/shared/components/Heading'
 import { useTranslations } from 'next-intl'
 import { AdminSection } from '../AdminSection'
 

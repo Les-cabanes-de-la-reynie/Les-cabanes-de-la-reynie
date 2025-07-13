@@ -1,6 +1,6 @@
-import { APP_ICON_SIZE_CLASSNAME } from '@/_constants/className'
-import { ClassNameProps } from '@/_types/components'
-import { cn } from '@/utils/tailwind'
+import { APP_ICON_SIZE_CLASSNAME } from '@/shared/_constants/className'
+import { ClassNameProps } from '@/shared/_types/components'
+import { cn } from '@/shared/utils/tailwind'
 
 export const FrenchFlag = ({ className }: ClassNameProps) => {
   return (

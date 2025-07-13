@@ -1,6 +1,10 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger
+} from '@/shared/components/ui/tabs'
 import { useTranslations } from 'next-intl'
-
 import { CabinSection } from './CabinSection'
 import { ContactSection } from './ContactSection'
 import { HomeSection } from './HomeSection'

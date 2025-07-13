@@ -1,7 +1,7 @@
-import { Heading } from '@/components/Heading'
-import { Separator } from '@/components/ui/separator'
 import { AddressInformationSection } from '@/features/address/AddressInformationSection'
 import { OpeningHoursSection } from '@/features/openingHours/OpeningHoursSection'
+import { Heading } from '@/shared/components/Heading'
+import { Separator } from '@/shared/components/ui/separator'
 import { useTranslations } from 'next-intl'
 import { AdminSection } from '../AdminSection'
 

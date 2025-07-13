@@ -1,5 +1,8 @@
 'use client'
 
+import { CabinSchema } from '@/features/cabin/CabinSchema'
+import { updateCabinPrice } from '@/features/cabin/infrastructure/actions/updateCabinPrice'
+import { EditableButtons } from '@/shared/components/editableButtons/EditableButtons'
 import {
   Form,
   FormControl,
@@ -7,18 +10,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { CabinSchema } from '@/features/cabin/CabinSchema'
-import { updateCabinPrice } from '@/features/cabin/infrastructure/actions/updateCabinPrice'
-import { useToggle } from '@/hooks/useToggle'
+} from '@/shared/components/ui/form'
+import { Input } from '@/shared/components/ui/input'
+import { useToggle } from '@/shared/hooks/useToggle'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import * as z from 'zod'
-import { EditableButtons } from '../../components/editableButtons/EditableButtons'
 import { Cabin } from './types'
 
 type cabinFormProps = {

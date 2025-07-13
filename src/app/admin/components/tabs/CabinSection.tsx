@@ -1,5 +1,5 @@
-import { Heading } from '@/components/Heading'
 import { Cabin } from '@/features/cabin/Cabin'
+import { Heading } from '@/shared/components/Heading'
 import { useTranslations } from 'next-intl'
 import { AdminSection } from '../AdminSection'
 
