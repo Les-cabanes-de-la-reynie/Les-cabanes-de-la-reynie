@@ -1,0 +1,101 @@
+import { AddressSchema } from '@/features/address/AddressSchema'
+import { AuthenticatedRequest, withAuth } from '@/shared/lib/auth-middleware'
+import prisma from '@/shared/lib/prisma'
+import { NextResponse } from 'next/server'
+
+const ADDRESS_ID = 1
+
+export const GET = async () => {
+  try {
+    const addressList = await prisma.address.findMany({
+      where: {
+        id: ADDRESS_ID
+      }
+    })
+
+    if (!addressList || addressList?.length === 0) {
+      return new NextResponse(JSON.stringify({ error: 'Address not found' }), {
+        status: 404,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+    }
+
+    // Return the first address in the list because we only have one address
+    return new NextResponse(JSON.stringify(addressList[0]), {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  } catch (error) {
+    return new NextResponse(JSON.stringify({ error }), {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+}
+
+export const POST = withAuth(async (request: AuthenticatedRequest) => {
+  try {
+    const rawData = await request.json()
+
+    // Validate the data with Zod
+    const validationResult = AddressSchema.safeParse(rawData)
+
+    if (!validationResult.success) {
+      return new NextResponse(
+        JSON.stringify({
+          error: 'Validation failed',
+          details: validationResult.error.errors
+        }),
+        {
+          status: 400,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+    }
+
+    const validatedData = validationResult.data
+
+    const updatedAddress = await prisma.address.update({
+      where: { id: ADDRESS_ID },
+      data: {
+        streetAddress: validatedData.streetAddress,
+        postalCode: validatedData.postalCode,
+        city: validatedData.city,
+        country: validatedData.country,
+        phone: validatedData.phone,
+        email: validatedData.email
+      }
+    })
+
+    return new NextResponse(
+      JSON.stringify({
+        message: 'Address updated successfully',
+        address: updatedAddress
+      }),
+      {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    )
+  } catch {
+    return new NextResponse(
+      JSON.stringify({ error: 'Failed to update address' }),
+      {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    )
+  }
+})

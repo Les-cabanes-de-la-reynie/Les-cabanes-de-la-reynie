@@ -70,6 +70,7 @@
 @theme inline {
   --color-white: var(--white);
   --color-black: var(--black);
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);

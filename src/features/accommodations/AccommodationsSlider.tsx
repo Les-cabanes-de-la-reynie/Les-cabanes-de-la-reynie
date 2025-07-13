@@ -1,8 +1,8 @@
-import { Container } from '@/components/Container'
 import { CarouselWithLightbox } from '@/features/carousel/CarouselWithLightbox'
-import { getUploadedImagesByCategory } from '@/features/common/uploadImage/infrastructure/getUploadedImagesByCategory'
+import { getUploadedImagesByCategory } from '@/features/shared/uploadImage/infrastructure/getUploadedImagesByCategory'
+import { Container } from '@/shared/components/Container'
 import { unstable_noStore } from 'next/cache'
-import { UploadImageCategoryKeyEnum } from '../common/uploadImage/types'
+import { UploadImageCategoryKeyEnum } from '../shared/uploadImage/types'
 
 type AccommodationsSliderProps = {
   title?: string

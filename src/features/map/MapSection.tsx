@@ -1,8 +1,8 @@
 'use client'
 
-import { Address as AddressType } from '@/_types/address'
-import { Heading } from '@/components/Heading'
-import { Loader } from '@/components/Loader'
+import { Address as AddressType } from '@/shared/_types/address'
+import { Heading } from '@/shared/components/Heading'
+import { Loader } from '@/shared/components/Loader'
 import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 

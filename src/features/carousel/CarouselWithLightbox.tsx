@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { UploadImageEntity } from '../common/uploadImage/types'
+import { UploadImageEntity } from '../shared/uploadImage/types'
 import Carousel from './Carousel'
 
 type CarouselWithLightboxProps = {

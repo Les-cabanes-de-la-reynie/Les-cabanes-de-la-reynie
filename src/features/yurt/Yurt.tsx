@@ -1,6 +1,6 @@
-import { Heading } from '@/components/Heading'
-import { Separator } from '@/components/ui/separator'
 import { getYurtData } from '@/features/yurt/infrastructure/getYurtData'
+import { Heading } from '@/shared/components/Heading'
+import { Separator } from '@/shared/components/ui/separator'
 import { unstable_noStore } from 'next/cache'
 import { YurtForm } from './YurtForm'
 import { YurtUploadImage } from './YurtUploadImage'

@@ -1,8 +1,8 @@
 'use server'
 
 import { AddressSchema } from '@/features/address/AddressSchema'
-import prisma from '@/lib/prisma'
-import { authActionClient } from '@/lib/safeActions'
+import prisma from '@/shared/lib/prisma'
+import { authActionClient } from '@/shared/lib/safeActions'
 
 export const updateAddressInformation = authActionClient
   .schema(AddressSchema)

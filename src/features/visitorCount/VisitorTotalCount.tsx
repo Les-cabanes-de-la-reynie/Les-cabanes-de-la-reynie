@@ -1,5 +1,5 @@
-import { Heading } from '@/components/Heading'
-import { P } from '@/components/P'
+import { Heading } from '@/shared/components/Heading'
+import { P } from '@/shared/components/P'
 import { getVisitorCount } from './infrastructure/getVisitorCount'
 
 export const VisitorTotalCount = async () => {

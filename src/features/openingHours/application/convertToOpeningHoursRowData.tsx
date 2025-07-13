@@ -1,4 +1,4 @@
-import { formatDateToTime } from '@/utils/date'
+import { formatDateToTime } from '@/shared/utils/date'
 import { useTranslations } from 'next-intl'
 import {
   DaysOfTheWeekEnum,

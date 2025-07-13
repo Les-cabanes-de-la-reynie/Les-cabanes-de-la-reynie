@@ -1,6 +1,6 @@
 'use client'
 
-import { env } from '@/lib/env'
+import { env } from '@/shared/lib/env'
 import { isSameDay } from 'date-fns'
 import { useEffect } from 'react'
 import { LAST_VISIT_KEY } from './types'

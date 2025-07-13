@@ -1,4 +1,4 @@
-import { env } from '@/lib/env'
+import { env } from '@/shared/lib/env'
 
 export const ESTABLISHMENT_POSITION: [number, number] = [45.221387, 1.251147]
 

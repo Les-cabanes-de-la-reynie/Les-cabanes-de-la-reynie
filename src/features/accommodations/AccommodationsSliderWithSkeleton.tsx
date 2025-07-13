@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 import { CarouselWithLightboxSkeleton } from '../carousel/CarouselWithLightboxSkeleton'
-import { UploadImageCategoryKeyEnum } from '../common/uploadImage/types'
+import { UploadImageCategoryKeyEnum } from '../shared/uploadImage/types'
 import { AccommodationsSlider } from './AccommodationsSlider'
 
 type AccommodationsSliderWithSkeletonProps = {

@@ -1,6 +1,6 @@
-import { SEO } from '@/_constants/SEO'
-import { Container } from '@/components/Container'
-import { Heading } from '@/components/Heading'
+import { SEO } from '@/shared/_constants/SEO'
+import { Container } from '@/shared/components/Container'
+import { Heading } from '@/shared/components/Heading'
 import { Metadata } from 'next'
 import { ActivityCardList } from './components/ActivityCardList'
 

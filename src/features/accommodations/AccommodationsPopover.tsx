@@ -1,13 +1,13 @@
 'use client'
 
-import { PopoverCloseButton } from '@/components/PopoverCloseButton'
-import { Button } from '@/components/ui/button'
+import { PopoverCloseButton } from '@/shared/components/PopoverCloseButton'
+import { Button } from '@/shared/components/ui/button'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger
-} from '@/components/ui/popover'
-import { Separator } from '@/components/ui/separator'
+} from '@/shared/components/ui/popover'
+import { Separator } from '@/shared/components/ui/separator'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { BookEntity } from './types'

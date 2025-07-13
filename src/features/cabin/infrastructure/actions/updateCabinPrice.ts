@@ -1,8 +1,8 @@
 'use server'
 
 import { CabinSchema } from '@/features/cabin/CabinSchema'
-import prisma from '@/lib/prisma'
-import { authActionClient } from '@/lib/safeActions'
+import prisma from '@/shared/lib/prisma'
+import { authActionClient } from '@/shared/lib/safeActions'
 
 export const updateCabinPrice = authActionClient
   .schema(CabinSchema)

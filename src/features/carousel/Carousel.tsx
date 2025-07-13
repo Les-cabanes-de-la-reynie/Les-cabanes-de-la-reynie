@@ -3,8 +3,8 @@ import {
   CarouselContent,
   CarouselItem,
   Carousel as EmblaCarousel
-} from '@/components/ui/carousel'
-import { Progress } from '@/components/ui/progress'
+} from '@/shared/components/ui/carousel'
+import { Progress } from '@/shared/components/ui/progress'
 import dynamic from 'next/dynamic'
 import { useCallback, useEffect, useState } from 'react'
 import { CarouselHeader } from './CarouselHeader'

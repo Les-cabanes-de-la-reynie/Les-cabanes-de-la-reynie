@@ -1,7 +1,7 @@
-import { Heading } from '@/components/Heading'
-import { Separator } from '@/components/ui/separator'
 import { HomeUploadImage } from '@/features/home/HomeUploadImage'
 import { VisitorTotalCount } from '@/features/visitorCount/VisitorTotalCount'
+import { Heading } from '@/shared/components/Heading'
+import { Separator } from '@/shared/components/ui/separator'
 import { useTranslations } from 'next-intl'
 import { AdminSection } from '../AdminSection'
 

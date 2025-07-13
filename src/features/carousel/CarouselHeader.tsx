@@ -1,5 +1,5 @@
-import { Heading } from '@/components/Heading'
-import { CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
+import { Heading } from '@/shared/components/Heading'
+import { CarouselNext, CarouselPrevious } from '@/shared/components/ui/carousel'
 import { useTranslations } from 'next-intl'
 
 type CarouselHeaderProps = {

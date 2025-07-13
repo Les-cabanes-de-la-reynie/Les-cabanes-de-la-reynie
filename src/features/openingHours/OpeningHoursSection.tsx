@@ -1,5 +1,5 @@
-import { Heading } from '@/components/Heading'
-import { Loader } from '@/components/Loader'
+import { Heading } from '@/shared/components/Heading'
+import { Loader } from '@/shared/components/Loader'
 import { useTranslations } from 'next-intl'
 import { Suspense } from 'react'
 import { OpeningHoursData } from './OpeningHoursData'

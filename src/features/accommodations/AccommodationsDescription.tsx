@@ -1,6 +1,6 @@
-import { Container } from '@/components/Container'
-import { Heading } from '@/components/Heading'
-import { P } from '@/components/P'
+import { Container } from '@/shared/components/Container'
+import { Heading } from '@/shared/components/Heading'
+import { P } from '@/shared/components/P'
 import { useTranslations } from 'next-intl'
 
 export const AccommodationsDescription = () => {

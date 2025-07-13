@@ -1,8 +1,8 @@
 'use client'
 
-import { Container } from '@/components/Container'
-import { Loader } from '@/components/Loader'
-import { P } from '@/components/P'
+import { Container } from '@/shared/components/Container'
+import { Loader } from '@/shared/components/Loader'
+import { P } from '@/shared/components/P'
 import { useTranslations } from 'next-intl'
 
 const Loading = () => {

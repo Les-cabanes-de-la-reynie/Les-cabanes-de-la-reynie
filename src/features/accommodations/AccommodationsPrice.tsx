@@ -1,6 +1,6 @@
-import { P } from '@/components/P'
 import { getCabinData } from '@/features/cabin/infrastructure/getCabinData'
 import { getYurtData } from '@/features/yurt/infrastructure/getYurtData'
+import { P } from '@/shared/components/P'
 import { unstable_noStore } from 'next/cache'
 import { AccommodationTypeEnum } from './types'
 

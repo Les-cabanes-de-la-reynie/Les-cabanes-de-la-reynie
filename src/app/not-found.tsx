@@ -1,7 +1,8 @@
-import { Container } from '@/components/Container'
-import { Heading } from '@/components/Heading'
-import { P } from '@/components/P'
-import { Button } from '@/components/ui/button'
+import { PAGE_ROUTES } from '@/shared/_constants/page'
+import { Container } from '@/shared/components/Container'
+import { Heading } from '@/shared/components/Heading'
+import { P } from '@/shared/components/P'
+import { Button } from '@/shared/components/ui/button'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 
@@ -13,7 +14,7 @@ const NotFound = () => {
       <Heading level={2}>{t('shortError404')}</Heading>
       <P>{t('longError404')}</P>
       <Button asChild className='mt-4'>
-        <Link href='/'>{t('backButtonMessage')}</Link>
+        <Link href={PAGE_ROUTES.home}>{t('backButtonMessage')}</Link>
       </Button>
     </Container>
   )
