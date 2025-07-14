@@ -39,7 +39,7 @@ export const GET = async () => {
   }
 }
 
-export const POST = withAuth(async (request: AuthenticatedRequest) => {
+export const PUT = withAuth(async (request: AuthenticatedRequest) => {
   try {
     const rawData = await request.json()
 

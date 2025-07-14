@@ -1,12 +1,16 @@
 import { Heading } from '@/shared/components/Heading'
-import { Loader } from '@/shared/components/Loader'
 import { P } from '@/shared/components/P'
+import { getQueryClient } from '@/shared/lib/get-query-client'
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
-import { Suspense } from 'react'
 import { AddressInformation } from './AddressInformation'
+import { useGetAddress } from './hooks/useGetAddress'
 
 export const AddressInformationSection = () => {
   const tAdmin = useTranslations('Admin')
+
+  const queryClient = getQueryClient()
+  void queryClient.prefetchQuery(useGetAddress)
 
   return (
     <section className='mb-8'>
@@ -16,9 +20,9 @@ export const AddressInformationSection = () => {
 
       <P className='mb-5'>{tAdmin('personnalInformationDescription')}</P>
 
-      <Suspense fallback={<Loader />}>
+      <HydrationBoundary state={dehydrate(queryClient)}>
         <AddressInformation />
-      </Suspense>
+      </HydrationBoundary>
     </section>
   )
 }
