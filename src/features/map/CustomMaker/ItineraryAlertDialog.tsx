@@ -1,4 +1,4 @@
-import { Address } from '@/shared/_types/address'
+import { Address } from '@/features/address/_types'
 import {
   AlertDialog,
   AlertDialogAction,

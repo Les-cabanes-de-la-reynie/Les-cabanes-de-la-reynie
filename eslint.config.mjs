@@ -1,4 +1,5 @@
 import { FlatCompat } from '@eslint/eslintrc'
+import pluginQuery from '@tanstack/eslint-plugin-query'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 
@@ -10,8 +11,8 @@ const compat = new FlatCompat({
 })
 
 const eslintConfig = [
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
-  ...pluginQuery.configs['flat/recommended']
+  ...pluginQuery.configs['flat/recommended'],
+  ...compat.extends('next/core-web-vitals', 'next/typescript')
 ]
 
 export default eslintConfig
