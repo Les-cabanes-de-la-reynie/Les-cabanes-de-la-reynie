@@ -1,5 +1,6 @@
 'use client'
 
+import { SIGN_IN_FIELDS } from '@/features/auth/_const'
 import { useSignIn } from '@/features/auth/hooks/useSignIn'
 import { SignInSchema } from '@/features/auth/SignInSchema'
 import { Container } from '@/shared/components/Container'
@@ -54,7 +55,7 @@ const SignIn = () => {
             <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
               <FormField
                 control={form.control}
-                name='email'
+                name={SIGN_IN_FIELDS.email}
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Email</FormLabel>
@@ -67,7 +68,7 @@ const SignIn = () => {
               />
               <FormField
                 control={form.control}
-                name='password'
+                name={SIGN_IN_FIELDS.password}
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Mot de passe</FormLabel>
