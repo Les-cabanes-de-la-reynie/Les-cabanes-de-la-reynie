@@ -10,7 +10,7 @@ export const VisitorTotalCount = async () => {
       <Heading level={3} className='my-4'>
         Visiteurs
       </Heading>
-      <P>Total : {visitorCount.count}</P>
+      <P>Total : {visitorCount}</P>
     </>
   )
 }
