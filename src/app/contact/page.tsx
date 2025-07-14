@@ -6,6 +6,8 @@ import { SEO } from '@/shared/_constants/SEO'
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
 import { env } from '@/shared/lib/env'
+import { getQueryClient } from '@/shared/lib/get-query-client'
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { Metadata } from 'next'
 import { useTranslations } from 'next-intl'
 
@@ -31,6 +33,7 @@ export const metadata: Metadata = {
 
 const Contact = () => {
   const t = useTranslations('Contact')
+  const queryClient = getQueryClient()
 
   return (
     <Container>
@@ -40,7 +43,9 @@ const Contact = () => {
       <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
         <OpeningHoursSection editable={false} />
 
-        <ContactMapSection />
+        <HydrationBoundary state={dehydrate(queryClient)}>
+          <ContactMapSection />
+        </HydrationBoundary>
       </div>
     </Container>
   )

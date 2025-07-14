@@ -1,7 +1,6 @@
 import { getYurtData } from '@/features/yurt/infrastructure/getYurtData'
 import { Heading } from '@/shared/components/Heading'
 import { Separator } from '@/shared/components/ui/separator'
-import { unstable_noStore } from 'next/cache'
 import { YurtForm } from './YurtForm'
 import { YurtUploadImage } from './YurtUploadImage'
 
@@ -14,7 +13,6 @@ export const Yurt = async ({
   yurtFormTitle,
   yurtUploadImageTitle
 }: YurtProps) => {
-  unstable_noStore()
   const yurt = await getYurtData()
 
   return (

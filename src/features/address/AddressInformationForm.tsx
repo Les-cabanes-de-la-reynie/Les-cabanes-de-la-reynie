@@ -1,8 +1,6 @@
 'use client'
 
 import { AddressSchema } from '@/features/address/AddressSchema'
-import { updateAddressInformation } from '@/features/address/infrastructure/actions/updateAddressInformation'
-import { Address } from '@/shared/_types/address'
 import { EditableButtons } from '@/shared/components/editableButtons/EditableButtons'
 import {
   Form,
@@ -16,10 +14,11 @@ import { Input } from '@/shared/components/ui/input'
 import { useToggle } from '@/shared/hooks/useToggle'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
-import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
 import * as z from 'zod'
+import { ADDRESS_FIELDS } from './_const'
+import { Address } from './_types'
+import { useUpdateAddress } from './hooks/useUpdateAddress'
 
 type AddressInformationFormProps = {
   address: Address
@@ -29,8 +28,8 @@ export const AddressInformationForm = ({
   address
 }: AddressInformationFormProps) => {
   const tCommon = useTranslations('Common')
+  const { updateAddressMutation, isPending } = useUpdateAddress()
 
-  const [isPending, startTransition] = useTransition()
   const [isEdit, handleToggleEdit] = useToggle(false)
 
   const form = useForm<z.infer<typeof AddressSchema>>({
@@ -40,37 +39,9 @@ export const AddressInformationForm = ({
   })
 
   const onSubmit = (data: z.infer<typeof AddressSchema>) => {
-    startTransition(async () => {
-      const res = await updateAddressInformation(data)
+    updateAddressMutation(data)
 
-      if (res?.validationErrors) {
-        toast.error('There was an error updating address.', {
-          action: {
-            label: tCommon('close'),
-            onClick: () => toast.dismiss()
-          }
-        })
-        return
-      }
-
-      if (res?.serverError) {
-        toast.error(res.serverError, {
-          action: {
-            label: tCommon('close'),
-            onClick: () => toast.dismiss()
-          }
-        })
-        return
-      }
-
-      toast.success('Success ! Address information updated', {
-        action: {
-          label: tCommon('close'),
-          onClick: () => toast.dismiss()
-        }
-      })
-      handleToggleEdit()
-    })
+    handleToggleEdit()
   }
 
   return (
@@ -78,7 +49,7 @@ export const AddressInformationForm = ({
       <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
         <FormField
           control={form.control}
-          name='streetAddress'
+          name={ADDRESS_FIELDS.streetAddress}
           render={({ field }) => (
             <FormItem>
               <FormLabel>{tCommon('address')}</FormLabel>
@@ -91,7 +62,7 @@ export const AddressInformationForm = ({
         />
         <FormField
           control={form.control}
-          name='postalCode'
+          name={ADDRESS_FIELDS.postalCode}
           render={({ field }) => (
             <FormItem>
               <FormLabel>{tCommon('postalCode')} *</FormLabel>
@@ -104,7 +75,7 @@ export const AddressInformationForm = ({
         />
         <FormField
           control={form.control}
-          name='city'
+          name={ADDRESS_FIELDS.city}
           render={({ field }) => (
             <FormItem>
               <FormLabel>{tCommon('city')} *</FormLabel>
@@ -117,7 +88,7 @@ export const AddressInformationForm = ({
         />
         <FormField
           control={form.control}
-          name='country'
+          name={ADDRESS_FIELDS.country}
           render={({ field }) => (
             <FormItem>
               <FormLabel>{tCommon('country')} *</FormLabel>
@@ -130,7 +101,7 @@ export const AddressInformationForm = ({
         />
         <FormField
           control={form.control}
-          name='phone'
+          name={ADDRESS_FIELDS.phone}
           render={({ field }) => (
             <FormItem>
               <FormLabel>{tCommon('phone')} *</FormLabel>
@@ -143,7 +114,7 @@ export const AddressInformationForm = ({
         />
         <FormField
           control={form.control}
-          name='email'
+          name={ADDRESS_FIELDS.email}
           render={({ field }) => (
             <FormItem>
               <FormLabel>{tCommon('email')} *</FormLabel>

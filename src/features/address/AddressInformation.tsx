@@ -1,10 +1,11 @@
-import { getAddress } from '@/features/address/infrastructure/getAddress'
-import { unstable_noStore } from 'next/cache'
-import { AddressInformationForm } from './AddressInformationForm'
+'use client'
 
-export const AddressInformation = async () => {
-  unstable_noStore()
-  const address = await getAddress()
+import { useSuspenseQuery } from '@tanstack/react-query'
+import { AddressInformationForm } from './AddressInformationForm'
+import { useGetAddress } from './hooks/useGetAddress'
+
+export const AddressInformation = () => {
+  const { data: address } = useSuspenseQuery(useGetAddress)
 
   return <AddressInformationForm address={address} />
 }

@@ -1,4 +1,4 @@
-import { Address as AddressType } from '@/shared/_types/address'
+import { Address as AddressType } from '@/features/address/_types'
 import { Separator } from '@/shared/components/ui/separator'
 import { Email } from './Email'
 import { ItineraryAlertDialog } from './ItineraryAlertDialog'

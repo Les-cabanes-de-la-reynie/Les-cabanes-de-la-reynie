@@ -1,6 +1,6 @@
 'use client'
 
-import { Address as AddressType } from '@/shared/_types/address'
+import { Address as AddressType } from '@/features/address/_types'
 import { IconContainer } from '@/shared/components/IconContainer'
 import { P } from '@/shared/components/P'
 import { cn } from '@/shared/utils/tailwind'

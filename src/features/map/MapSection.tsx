@@ -1,13 +1,13 @@
 'use client'
 
-import { Address as AddressType } from '@/shared/_types/address'
 import { Heading } from '@/shared/components/Heading'
 import { Loader } from '@/shared/components/Loader'
 import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
+import { Address } from '../address/_types'
 
 type MapSectionProps = {
-  address: AddressType
+  address: Address
 }
 
 export const MapSection = ({ address }: MapSectionProps) => {

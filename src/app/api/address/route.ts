@@ -39,12 +39,10 @@ export const GET = async () => {
   }
 }
 
-export const POST = withAuth(async (request: AuthenticatedRequest) => {
+export const PUT = withAuth(async (request: AuthenticatedRequest) => {
   try {
-    const rawData = await request.json()
-
-    // Validate the data with Zod
-    const validationResult = AddressSchema.safeParse(rawData)
+    const body = await request.json()
+    const validationResult = AddressSchema.safeParse(body)
 
     if (!validationResult.success) {
       return new NextResponse(
@@ -61,17 +59,18 @@ export const POST = withAuth(async (request: AuthenticatedRequest) => {
       )
     }
 
-    const validatedData = validationResult.data
+    const { streetAddress, postalCode, city, country, phone, email } =
+      validationResult.data
 
     const updatedAddress = await prisma.address.update({
       where: { id: ADDRESS_ID },
       data: {
-        streetAddress: validatedData.streetAddress,
-        postalCode: validatedData.postalCode,
-        city: validatedData.city,
-        country: validatedData.country,
-        phone: validatedData.phone,
-        email: validatedData.email
+        streetAddress,
+        postalCode,
+        city,
+        country,
+        phone,
+        email
       }
     })
 

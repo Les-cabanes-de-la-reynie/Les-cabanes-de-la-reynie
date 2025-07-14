@@ -1,10 +1,11 @@
-import { getAddress } from '@/features/address/infrastructure/getAddress'
-import { unstable_noStore } from 'next/cache'
+'use client'
+
+import { useSuspenseQuery } from '@tanstack/react-query'
+import { useGetAddress } from '../address/hooks/useGetAddress'
 import { MapSection } from './MapSection'
 
-export const ContactMapSection = async () => {
-  unstable_noStore()
-  const address = await getAddress()
+export const ContactMapSection = () => {
+  const { data: address } = useSuspenseQuery(useGetAddress)
 
   return <MapSection address={address} />
 }
