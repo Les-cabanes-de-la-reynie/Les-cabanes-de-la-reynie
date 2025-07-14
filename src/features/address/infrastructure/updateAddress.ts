@@ -8,6 +8,9 @@ export const updateAddress = async (address: Address): Promise<Address> => {
       `${env.NEXT_PUBLIC_BASE_URL}${API_ROUTES.address}`,
       {
         method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify(address)
       }
     )

@@ -1,6 +1,6 @@
 'use client'
 
-import { postSignIn } from '@/features/auth/infrastructure/actions/signIn'
+import { useSignIn } from '@/features/auth/hooks/useSignIn'
 import { SignInSchema } from '@/features/auth/SignInSchema'
 import { Container } from '@/shared/components/Container'
 import { Button } from '@/shared/components/ui/button'
@@ -21,20 +21,12 @@ import {
   FormMessage
 } from '@/shared/components/ui/form'
 import { Input } from '@/shared/components/ui/input'
-import { authClient } from '@/shared/lib/auth-client'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useTranslations } from 'next-intl'
-import { useRouter } from 'next/navigation'
-import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
 import * as z from 'zod'
 
 const SignIn = () => {
-  const tCommon = useTranslations('Common')
-  const router = useRouter()
-  const session = authClient.useSession()
-  const [isPending, startTransition] = useTransition()
+  const { signInMutation, isPending } = useSignIn()
 
   const form = useForm<z.infer<typeof SignInSchema>>({
     resolver: zodResolver(SignInSchema),
@@ -45,42 +37,7 @@ const SignIn = () => {
   })
 
   const onSubmit = (data: z.infer<typeof SignInSchema>) => {
-    startTransition(async () => {
-      const res = await postSignIn(data)
-
-      if (res?.validationErrors) {
-        toast.error('There was an error during sign in.', {
-          action: {
-            label: tCommon('close'),
-            onClick: () => toast.dismiss()
-          }
-        })
-        return
-      }
-
-      if (res?.serverError) {
-        toast.error(res.serverError, {
-          action: {
-            label: tCommon('close'),
-            onClick: () => toast.dismiss()
-          }
-        })
-        return
-      }
-
-      // Force session update
-      // Useful to update Profile component after a sign in
-      session.refetch()
-
-      router.push('/admin')
-
-      toast.success('Success ! You are now connected', {
-        action: {
-          label: tCommon('close'),
-          onClick: () => toast.dismiss()
-        }
-      })
-    })
+    signInMutation(data)
   }
 
   return (

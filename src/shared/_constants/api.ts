@@ -1,11 +1,11 @@
 export const PUBLIC_API_ROUTES = {
   address: '/api/address',
-  visitorCount: '/api/visitorCount'
+  visitorCount: '/api/visitorCount',
+  signIn: '/api/auth/sign-in'
 } as const
 
 export const PROTECTED_API_ROUTES = {
-  uploadthing: '/api/uploadthing',
-  auth: '/api/auth'
+  uploadthing: '/api/uploadthing'
 } as const
 
 export const API_ROUTES = {

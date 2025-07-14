@@ -4,7 +4,13 @@ import { env } from '@/shared/lib/env'
 export const getAddress = async () => {
   try {
     const response = await fetch(
-      `${env.NEXT_PUBLIC_BASE_URL}${API_ROUTES.address}`
+      `${env.NEXT_PUBLIC_BASE_URL}${API_ROUTES.address}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
     )
 
     if (!response.ok) {
