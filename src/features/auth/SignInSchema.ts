@@ -1,8 +1,7 @@
-import validator from 'validator'
 import { z } from 'zod'
 
 export const SignInSchema = z.object({
-  email: z.string().refine(validator.isEmail, {
+  email: z.string().email({
     message: 'Email invalide'
   }),
   password: z.string().min(6, {

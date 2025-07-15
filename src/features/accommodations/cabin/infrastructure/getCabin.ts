@@ -1,10 +1,10 @@
 import { API_ROUTES } from '@/shared/_constants/api'
 import { env } from '@/shared/lib/env'
 
-export const getVisitorCount = async () => {
+export const getCabin = async () => {
   try {
     const response = await fetch(
-      `${env.NEXT_PUBLIC_BASE_URL}${API_ROUTES.visitorCount}`,
+      `${env.NEXT_PUBLIC_BASE_URL}${API_ROUTES.cabin}`,
       {
         method: 'GET',
         headers: {
@@ -19,6 +19,6 @@ export const getVisitorCount = async () => {
 
     return response.json()
   } catch (error) {
-    throw new Error(`Failed to fetch visitor count data. ${error}`)
+    throw new Error(`Failed to fetch cabin data. ${error}`)
   }
 }

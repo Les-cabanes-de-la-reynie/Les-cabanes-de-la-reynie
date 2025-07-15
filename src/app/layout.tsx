@@ -98,7 +98,7 @@ export default async function RootLayout({
           </Providers>
           <Toaster richColors position='top-right' expand={true} />
 
-          {/* Increment visit counter */}
+          {/* update visitor count */}
           <VisitorCount />
         </div>
       </body>

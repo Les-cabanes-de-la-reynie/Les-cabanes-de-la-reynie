@@ -1,11 +1,11 @@
 import headerImage from '@/assets/cabinAndYurt/cabin-header.jpg'
-import { AccommodationsHeader } from '@/features/accommodations/AccommodationsHeader/AccommodationsHeader'
-import { AccommodationsHeaderContent } from '@/features/accommodations/AccommodationsHeader/AccommodationsHeaderContent'
-import { AccommodationsHeaderImage } from '@/features/accommodations/AccommodationsHeader/AccommodationsHeaderImage'
-import { AccommodationsPopover } from '@/features/accommodations/AccommodationsPopover'
-import { AccommodationsPrice } from '@/features/accommodations/AccommodationsPrice'
-import { AccommodationsSliderWithSkeleton } from '@/features/accommodations/AccommodationsSliderWithSkeleton'
-import { AccommodationTypeEnum } from '@/features/accommodations/types'
+import { CabinPrice } from '@/features/accommodations/cabin/CabinPrice'
+import { getCabinOptions } from '@/features/accommodations/cabin/infrastructure/getCabinOptions'
+import { AccommodationsHeader } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeader'
+import { AccommodationsHeaderContent } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderContent'
+import { AccommodationsHeaderImage } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderImage'
+import { AccommodationsPopover } from '@/features/accommodations/components/AccommodationsPopover'
+import { AccommodationsSliderWithSkeleton } from '@/features/accommodations/components/AccommodationsSliderWithSkeleton'
 import { defaultLocale } from '@/features/i18n/config'
 import { PracticalInformation } from '@/features/shared/practicalInformation/PracticalInformation'
 import { UploadImageCategoryKeyEnum } from '@/features/shared/uploadImage/types'
@@ -15,6 +15,8 @@ import { Heading } from '@/shared/components/Heading'
 import { OurGourmetOffer } from '@/shared/components/ourGourmetOffer/OurGourmetOffer'
 import { P } from '@/shared/components/P'
 import { env } from '@/shared/lib/env'
+import { getQueryClient } from '@/shared/lib/get-query-client'
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { Metadata } from 'next'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -41,8 +43,10 @@ export const metadata: Metadata = {
 
 const Cabin = () => {
   const tCommon = useTranslations('Common')
-  const tAccommodations = useTranslations('Accommodations')
   const tCabin = useTranslations('Cabin')
+
+  const queryClient = getQueryClient()
+  void queryClient.prefetchQuery(getCabinOptions)
 
   const bookList = [{ title: 'Airbnb', href: 'https://abnb.me/z4L2e1aCBHb' }]
 
@@ -75,10 +79,9 @@ const Cabin = () => {
             {tCommon('price')}
           </Heading>
 
-          <AccommodationsPrice
-            accommodationType={AccommodationTypeEnum.CABIN}
-            description={tAccommodations('averagePrice')}
-          />
+          <HydrationBoundary state={dehydrate(queryClient)}>
+            <CabinPrice />
+          </HydrationBoundary>
 
           <AccommodationsPopover bookList={bookList} />
         </AccommodationsHeaderContent>

@@ -1,10 +1,11 @@
-import { Cabin } from '@/features/cabin/Cabin'
+import { Cabin } from '@/features/accommodations/cabin/Cabin'
 import { Heading } from '@/shared/components/Heading'
 import { useTranslations } from 'next-intl'
 import { AdminSection } from '../AdminSection'
 
 export const CabinSection = () => {
   const t = useTranslations('Common')
+
   return (
     <AdminSection>
       <Heading level={2} className='my-8 text-center'>

@@ -4,9 +4,8 @@ import { z } from 'zod'
 export const env = createEnv({
   server: {
     BETTER_AUTH_SECRET: z.string().min(1),
-    BETTER_AUTH_URL: z.string().min(1),
     UPLOADTHING_TOKEN: z.string().min(1),
-    NODE_ENV: z.enum(['development', 'test', 'production'])
+    ENABLE_VISITOR_COUNT: z.string().optional()
   },
   client: {
     NEXT_PUBLIC_BASE_URL: z.string().min(1),
@@ -14,9 +13,8 @@ export const env = createEnv({
   },
   runtimeEnv: {
     BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
-    BETTER_AUTH_URL: process.env.BETTER_AUTH_URL,
     UPLOADTHING_TOKEN: process.env.UPLOADTHING_TOKEN,
-    NODE_ENV: process.env.NODE_ENV,
+    ENABLE_VISITOR_COUNT: process.env.ENABLE_VISITOR_COUNT,
     NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
     NEXT_PUBLIC_MAPBOX_KEY: process.env.NEXT_PUBLIC_MAPBOX_KEY
   }

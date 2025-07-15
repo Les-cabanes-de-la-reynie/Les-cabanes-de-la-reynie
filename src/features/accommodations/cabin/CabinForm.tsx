@@ -1,7 +1,6 @@
 'use client'
 
-import { CabinSchema } from '@/features/cabin/CabinSchema'
-import { updateCabinPrice } from '@/features/cabin/infrastructure/actions/updateCabinPrice'
+import { CabinSchema } from '@/features/accommodations/cabin/CabinSchema'
 import { EditableButtons } from '@/shared/components/editableButtons/EditableButtons'
 import {
   Form,
@@ -14,61 +13,33 @@ import {
 import { Input } from '@/shared/components/ui/input'
 import { useToggle } from '@/shared/hooks/useToggle'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useSuspenseQuery } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
-import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
-import * as z from 'zod'
-import { Cabin } from './types'
+import { CABIN_FIELDS } from './_const'
+import { Cabin } from './_types'
+import { useUpdateCabin } from './hooks/useUpdateCabin'
+import { getCabinOptions } from './infrastructure/getCabinOptions'
 
-type cabinFormProps = {
-  cabin: Cabin
-}
-
-export const CabinForm = ({ cabin }: cabinFormProps) => {
+export const CabinForm = () => {
   const t = useTranslations('Common')
 
-  const [isPending, startTransition] = useTransition()
+  const { data: cabin } = useSuspenseQuery(getCabinOptions)
+
+  const { updateCabinMutation, isPending } = useUpdateCabin()
+
   const [isEdit, handleToggleEdit] = useToggle(false)
 
-  const form = useForm<z.infer<typeof CabinSchema>>({
+  const form = useForm<Cabin>({
     resolver: zodResolver(CabinSchema),
     defaultValues: cabin,
     disabled: !isEdit
   })
 
-  const onSubmit = (data: z.infer<typeof CabinSchema>) => {
-    startTransition(async () => {
-      const res = await updateCabinPrice(data)
+  const onSubmit = (data: Cabin) => {
+    updateCabinMutation(data)
 
-      if (res?.validationErrors) {
-        toast.error('There was an error updating price.', {
-          action: {
-            label: t('close'),
-            onClick: () => toast.dismiss()
-          }
-        })
-        return
-      }
-
-      if (res?.serverError) {
-        toast.error(res.serverError, {
-          action: {
-            label: t('close'),
-            onClick: () => toast.dismiss()
-          }
-        })
-        return
-      }
-
-      toast.success("Success ! Cabin's price updated", {
-        action: {
-          label: t('close'),
-          onClick: () => toast.dismiss()
-        }
-      })
-      handleToggleEdit()
-    })
+    handleToggleEdit()
   }
 
   return (
@@ -76,7 +47,7 @@ export const CabinForm = ({ cabin }: cabinFormProps) => {
       <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
         <FormField
           control={form.control}
-          name='price'
+          name={CABIN_FIELDS.price}
           render={({ field }) => (
             <FormItem>
               <FormLabel>{t('price')}</FormLabel>

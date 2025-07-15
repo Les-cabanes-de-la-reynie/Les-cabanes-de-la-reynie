@@ -9,18 +9,25 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/shared/components/ui/dropdown-menu'
+import { signOut } from '@/shared/lib/auth-client'
 import { User } from 'better-auth'
 import { Edit3Icon, LogOutIcon, UserIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 type ProfileContentProps = {
   user: User
-  onLogout: () => Promise<void>
 }
 
-export const ProfileContent = ({ user, onLogout }: ProfileContentProps) => {
+export const ProfileContent = ({ user }: ProfileContentProps) => {
   const t = useTranslations('Navigation')
+  const router = useRouter()
+
+  const onLogout = async () => {
+    await signOut()
+    router.push(PAGE_ROUTES.home)
+  }
 
   return (
     <DropdownMenu>

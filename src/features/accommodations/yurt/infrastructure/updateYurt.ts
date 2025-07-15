@@ -1,15 +1,17 @@
 import { API_ROUTES } from '@/shared/_constants/api'
 import { env } from '@/shared/lib/env'
+import { Yurt } from '../_types'
 
-export const getVisitorCount = async () => {
+export const updateYurt = async (yurt: Yurt): Promise<Yurt> => {
   try {
     const response = await fetch(
-      `${env.NEXT_PUBLIC_BASE_URL}${API_ROUTES.visitorCount}`,
+      `${env.NEXT_PUBLIC_BASE_URL}${API_ROUTES.yurt}`,
       {
-        method: 'GET',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify(yurt)
       }
     )
 
@@ -19,6 +21,6 @@ export const getVisitorCount = async () => {
 
     return response.json()
   } catch (error) {
-    throw new Error(`Failed to fetch visitor count data. ${error}`)
+    throw new Error(`Failed to update yurt. ${error}`)
   }
 }

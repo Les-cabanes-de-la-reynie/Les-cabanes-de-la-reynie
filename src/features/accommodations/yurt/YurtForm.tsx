@@ -1,7 +1,5 @@
 'use client'
 
-import { updateYurtPrice } from '@/features/yurt/infrastructure/actions/updateYurtPrice'
-import { YurtSchema } from '@/features/yurt/YurtSchema'
 import { EditableButtons } from '@/shared/components/editableButtons/EditableButtons'
 import {
   Form,
@@ -14,21 +12,22 @@ import {
 import { Input } from '@/shared/components/ui/input'
 import { useToggle } from '@/shared/hooks/useToggle'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useSuspenseQuery } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
-import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
 import * as z from 'zod'
-import { Yurt } from './types'
+import { YurtSchema } from './YurtSchema'
+import { YURT_FIELDS } from './_const'
+import { useUpdateYurt } from './hooks/useUpdateYurt'
+import { getYurtOptions } from './infrastructure/getYurtOptions'
 
-type YurtFormProps = {
-  yurt: Yurt
-}
-
-export const YurtForm = ({ yurt }: YurtFormProps) => {
+export const YurtForm = () => {
   const t = useTranslations('Common')
 
-  const [isPending, startTransition] = useTransition()
+  const { data: yurt } = useSuspenseQuery(getYurtOptions)
+
+  const { updateYurtMutation, isPending } = useUpdateYurt()
+
   const [isEdit, handleToggleEdit] = useToggle(false)
 
   const form = useForm<z.infer<typeof YurtSchema>>({
@@ -38,37 +37,9 @@ export const YurtForm = ({ yurt }: YurtFormProps) => {
   })
 
   const onSubmit = (data: z.infer<typeof YurtSchema>) => {
-    startTransition(async () => {
-      const res = await updateYurtPrice(data)
+    updateYurtMutation(data)
 
-      if (res?.validationErrors) {
-        toast.error('There was an error updating price.', {
-          action: {
-            label: t('close'),
-            onClick: () => toast.dismiss()
-          }
-        })
-        return
-      }
-
-      if (res?.serverError) {
-        toast.error(res.serverError, {
-          action: {
-            label: t('close'),
-            onClick: () => toast.dismiss()
-          }
-        })
-        return
-      }
-
-      toast.success("Success ! Yurt's price updated", {
-        action: {
-          label: t('close'),
-          onClick: () => toast.dismiss()
-        }
-      })
-      handleToggleEdit()
-    })
+    handleToggleEdit()
   }
 
   return (
@@ -76,7 +47,7 @@ export const YurtForm = ({ yurt }: YurtFormProps) => {
       <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
         <FormField
           control={form.control}
-          name='price'
+          name={YURT_FIELDS.price}
           render={({ field }) => (
             <FormItem>
               <FormLabel>{t('price')}</FormLabel>

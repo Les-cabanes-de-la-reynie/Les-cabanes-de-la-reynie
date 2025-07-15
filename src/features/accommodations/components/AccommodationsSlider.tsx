@@ -1,7 +1,7 @@
 import { CarouselWithLightbox } from '@/features/carousel/CarouselWithLightbox'
 import { getUploadedImagesByCategory } from '@/features/shared/uploadImage/infrastructure/getUploadedImagesByCategory'
+import { UploadImageCategoryKeyEnum } from '@/features/shared/uploadImage/types'
 import { Container } from '@/shared/components/Container'
-import { UploadImageCategoryKeyEnum } from '../shared/uploadImage/types'
 
 type AccommodationsSliderProps = {
   title?: string

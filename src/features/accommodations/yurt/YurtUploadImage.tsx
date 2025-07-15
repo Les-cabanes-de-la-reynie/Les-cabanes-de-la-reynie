@@ -1,15 +1,15 @@
 import { getUploadedImagesByCategory } from '@/features/shared/uploadImage/infrastructure/getUploadedImagesByCategory'
+import { UploadImageCategoryKeyEnum } from '@/features/shared/uploadImage/types'
 import { UploadImage } from '@/features/shared/uploadImage/UploadImage'
-import { UploadImageCategoryKeyEnum } from '../shared/uploadImage/types'
 
-export const CabinUploadImage = async () => {
+export const YurtUploadImage = async () => {
   const uploadedImages = await getUploadedImagesByCategory({
-    category: UploadImageCategoryKeyEnum.CabinSlider
+    category: UploadImageCategoryKeyEnum.YurtSlider
   })
 
   return (
     <UploadImage
-      category={UploadImageCategoryKeyEnum.CabinSlider}
+      category={UploadImageCategoryKeyEnum.YurtSlider}
       images={uploadedImages}
     />
   )
