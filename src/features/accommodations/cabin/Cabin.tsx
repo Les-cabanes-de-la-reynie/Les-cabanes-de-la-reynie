@@ -1,26 +1,32 @@
-import { CabinUploadImage } from '@/features/cabin/CabinUploadImage'
-import { getCabinData } from '@/features/cabin/infrastructure/getCabinData'
 import { Heading } from '@/shared/components/Heading'
 import { Separator } from '@/shared/components/ui/separator'
+import { getQueryClient } from '@/shared/lib/get-query-client'
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { CabinForm } from './CabinForm'
+import { CabinUploadImage } from './CabinUploadImage'
+import { getCabinOptions } from './infrastructure/getCabinOptions'
 
 type CabinProps = {
   cabinFormTitle: string
   cabinUploadImageTitle: string
 }
 
-export const Cabin = async ({
+export const Cabin = ({
   cabinFormTitle,
   cabinUploadImageTitle
 }: CabinProps) => {
-  const cabin = await getCabinData()
+  const queryClient = getQueryClient()
+  void queryClient.prefetchQuery(getCabinOptions)
 
   return (
     <>
       <Heading level={3} className='my-4'>
         {cabinFormTitle}
       </Heading>
-      <CabinForm cabin={cabin} />
+
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <CabinForm />
+      </HydrationBoundary>
 
       <Separator className='my-6' />
 

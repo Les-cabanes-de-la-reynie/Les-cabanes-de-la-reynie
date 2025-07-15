@@ -1,7 +1,9 @@
 export const PUBLIC_API_ROUTES = {
   address: '/api/address',
   visitorCount: '/api/visitorCount',
-  signIn: '/api/auth/sign-in'
+  signIn: '/api/auth/sign-in',
+  cabin: '/api/accommodations/cabin',
+  yurt: '/api/accommodations/yurt'
 } as const
 
 export const PROTECTED_API_ROUTES = {

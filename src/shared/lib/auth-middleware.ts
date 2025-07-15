@@ -1,6 +1,5 @@
-import { auth } from '@/shared/lib/auth'
-import { headers } from 'next/headers'
 import { NextResponse } from 'next/server'
+import { getSession } from './auth-serveur'
 
 export interface AuthenticatedRequest extends Request {
   user: {
@@ -20,7 +19,7 @@ export const withAuth = (
 ) => {
   return async (request: Request): Promise<NextResponse> => {
     try {
-      const session = await auth.api.getSession({ headers: await headers() })
+      const session = await getSession()
 
       if (!session || !session.user || !session.user.email) {
         return new NextResponse(

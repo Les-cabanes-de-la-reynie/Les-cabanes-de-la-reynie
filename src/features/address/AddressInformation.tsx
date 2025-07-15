@@ -2,10 +2,10 @@
 
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { AddressInformationForm } from './AddressInformationForm'
-import { useGetAddress } from './hooks/useGetAddress'
+import { getAddressOptions } from './infrastructure/getAddressOptions'
 
 export const AddressInformation = () => {
-  const { data: address } = useSuspenseQuery(useGetAddress)
+  const { data: address } = useSuspenseQuery(getAddressOptions)
 
   return <AddressInformationForm address={address} />
 }

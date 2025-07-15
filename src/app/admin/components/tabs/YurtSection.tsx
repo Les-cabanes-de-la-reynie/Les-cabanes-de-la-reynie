@@ -1,4 +1,4 @@
-import { Yurt } from '@/features/yurt/Yurt'
+import { Yurt } from '@/features/accommodations/yurt/Yurt'
 import { Heading } from '@/shared/components/Heading'
 import { useTranslations } from 'next-intl'
 import { AdminSection } from '../AdminSection'

@@ -1,8 +1,8 @@
 'use client'
 
 import { SIGN_IN_FIELDS } from '@/features/auth/_const'
-import { useSignIn } from '@/features/auth/hooks/useSignIn'
 import { SignInSchema } from '@/features/auth/SignInSchema'
+import { PAGE_ROUTES } from '@/shared/_constants/page'
 import { Container } from '@/shared/components/Container'
 import { Button } from '@/shared/components/ui/button'
 import {
@@ -22,12 +22,20 @@ import {
   FormMessage
 } from '@/shared/components/ui/form'
 import { Input } from '@/shared/components/ui/input'
+import { signIn } from '@/shared/lib/auth-client'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/navigation'
+import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 import * as z from 'zod'
 
 const SignIn = () => {
-  const { signInMutation, isPending } = useSignIn()
+  const router = useRouter()
+  const tCommon = useTranslations('Common')
+
+  const [isPending, startTransition] = useTransition()
 
   const form = useForm<z.infer<typeof SignInSchema>>({
     resolver: zodResolver(SignInSchema),
@@ -37,8 +45,37 @@ const SignIn = () => {
     }
   })
 
-  const onSubmit = (data: z.infer<typeof SignInSchema>) => {
-    signInMutation(data)
+  const onSubmit = async (data: z.infer<typeof SignInSchema>) => {
+    startTransition(async () => {
+      const validatedData = SignInSchema.parse(data)
+
+      await signIn.email(
+        {
+          email: validatedData.email,
+          password: validatedData.password
+        },
+        {
+          onSuccess: () => {
+            router.push(PAGE_ROUTES.admin.home)
+
+            toast.success('Success ! You are now connected', {
+              action: {
+                label: tCommon('close'),
+                onClick: () => toast.dismiss()
+              }
+            })
+          },
+          onError: () => {
+            toast.error('There was an error during sign in.', {
+              action: {
+                label: tCommon('close'),
+                onClick: () => toast.dismiss()
+              }
+            })
+          }
+        }
+      )
+    })
   }
 
   return (

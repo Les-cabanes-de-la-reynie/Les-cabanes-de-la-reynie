@@ -1,11 +1,11 @@
 import headerImage from '@/assets/cabinAndYurt/yurt-header.jpg'
-import { AccommodationsHeader } from '@/features/accommodations/AccommodationsHeader/AccommodationsHeader'
-import { AccommodationsHeaderContent } from '@/features/accommodations/AccommodationsHeader/AccommodationsHeaderContent'
-import { AccommodationsHeaderImage } from '@/features/accommodations/AccommodationsHeader/AccommodationsHeaderImage'
-import { AccommodationsPopover } from '@/features/accommodations/AccommodationsPopover'
-import { AccommodationsPrice } from '@/features/accommodations/AccommodationsPrice'
-import { AccommodationsSliderWithSkeleton } from '@/features/accommodations/AccommodationsSliderWithSkeleton'
-import { AccommodationTypeEnum } from '@/features/accommodations/types'
+import { AccommodationsHeader } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeader'
+import { AccommodationsHeaderContent } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderContent'
+import { AccommodationsHeaderImage } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderImage'
+import { AccommodationsPopover } from '@/features/accommodations/components/AccommodationsPopover'
+import { AccommodationsSliderWithSkeleton } from '@/features/accommodations/components/AccommodationsSliderWithSkeleton'
+import { getYurtOptions } from '@/features/accommodations/yurt/infrastructure/getYurtOptions'
+import { YurtPrice } from '@/features/accommodations/yurt/YurtPrice'
 import { defaultLocale } from '@/features/i18n/config'
 import { PracticalInformation } from '@/features/shared/practicalInformation/PracticalInformation'
 import { UploadImageCategoryKeyEnum } from '@/features/shared/uploadImage/types'
@@ -15,6 +15,8 @@ import { Heading } from '@/shared/components/Heading'
 import { OurGourmetOffer } from '@/shared/components/ourGourmetOffer/OurGourmetOffer'
 import { P } from '@/shared/components/P'
 import { env } from '@/shared/lib/env'
+import { getQueryClient } from '@/shared/lib/get-query-client'
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { Metadata } from 'next'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -41,8 +43,10 @@ export const metadata: Metadata = {
 
 const Yurt = () => {
   const tCommon = useTranslations('Common')
-  const tAccommodations = useTranslations('Accommodations')
   const tYurt = useTranslations('Yurt')
+
+  const queryClient = getQueryClient()
+  void queryClient.prefetchQuery(getYurtOptions)
 
   const bookList = [{ title: 'Airbnb', href: 'https://abnb.me/5guTmU7BBHb' }]
 
@@ -75,10 +79,9 @@ const Yurt = () => {
             {tCommon('price')}
           </Heading>
 
-          <AccommodationsPrice
-            accommodationType={AccommodationTypeEnum.YURT}
-            description={tAccommodations('averagePrice')}
-          />
+          <HydrationBoundary state={dehydrate(queryClient)}>
+            <YurtPrice />
+          </HydrationBoundary>
 
           <AccommodationsPopover bookList={bookList} />
         </AccommodationsHeaderContent>

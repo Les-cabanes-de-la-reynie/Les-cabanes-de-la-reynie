@@ -1,16 +1,14 @@
-import { auth } from '@/shared/lib/auth'
-import { headers } from 'next/headers'
+import { getSession } from '@/shared/lib/auth-serveur'
 import { createUploadthing, type FileRouter } from 'uploadthing/next'
 import { UploadThingError } from 'uploadthing/server'
 
 const f = createUploadthing()
 
 const authCallback = async () => {
-  const session = await auth.api.getSession({
-    headers: await headers()
-  })
+  const session = await getSession()
 
-  if (!session) throw new UploadThingError('Not authenticated')
+  if (!session || !session.user || !session.user.email)
+    throw new UploadThingError('Not authenticated')
 
   const userEmail = session.user.email
   const userToken = session.session.token
