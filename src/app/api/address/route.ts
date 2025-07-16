@@ -1,5 +1,8 @@
 import { AddressSchema } from '@/features/address/AddressSchema'
-import { AuthenticatedRequest, withAuth } from '@/shared/lib/auth-middleware'
+import {
+  AuthenticatedRequest,
+  withAuth
+} from '@/shared/lib/auth-api-middleware'
 import prisma from '@/shared/lib/prisma'
 import { NextResponse } from 'next/server'
 

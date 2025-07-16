@@ -1,22 +1,23 @@
 import { IconContainer } from '@/shared/components/IconContainer'
 import { P } from '@/shared/components/P'
 import { cn } from '@/shared/utils/tailwind'
+import { useSuspenseQuery } from '@tanstack/react-query'
 import { AlertCircleIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useConvertToOpeningHoursRowData } from './application/convertToOpeningHoursRowData'
+import { getOpeningHoursOptions } from './infrastructure/getOpeningHoursOptions'
 import { OpeningHoursForm } from './OpeningHoursForm'
-import { GetOpeningHours } from './types'
 
 type OpeningHoursProps = {
-  incomingOpeningHoursData: GetOpeningHours
   editable: boolean
 }
 
-export const OpeningHours = ({
-  incomingOpeningHoursData,
-  editable
-}: OpeningHoursProps) => {
+export const OpeningHours = ({ editable }: OpeningHoursProps) => {
   const t = useTranslations('Contact')
+
+  const { data: incomingOpeningHoursData } = useSuspenseQuery(
+    getOpeningHoursOptions
+  )
 
   // eslint-disable-next-line
   const { id, ...rest } = incomingOpeningHoursData

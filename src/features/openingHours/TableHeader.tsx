@@ -1,4 +1,8 @@
-import { TableHeaderProps } from './types'
+export type TableHeaderProps = {
+  day: string
+  opening: string
+  closing: string
+}
 
 export const TableHeader = ({ day, opening, closing }: TableHeaderProps) => {
   return (

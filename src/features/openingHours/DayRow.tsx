@@ -6,7 +6,7 @@ import {
 import { format } from 'date-fns'
 import { useLocale } from 'next-intl'
 import { TableRow } from './TableRow'
-import { OpeningHoursRowData } from './types'
+import { OpeningHoursRowData } from './_types'
 
 export const DayRow = ({
   day,

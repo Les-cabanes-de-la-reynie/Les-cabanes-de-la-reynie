@@ -4,13 +4,8 @@ import { Heading } from '@/shared/components/Heading'
 import { Loader } from '@/shared/components/Loader'
 import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
-import { Address } from '../address/_types'
 
-type MapSectionProps = {
-  address: Address
-}
-
-export const MapSection = ({ address }: MapSectionProps) => {
+export const MapSection = () => {
   const t = useTranslations('Contact')
 
   const MapWithNoSSR = dynamic(
@@ -25,7 +20,7 @@ export const MapSection = ({ address }: MapSectionProps) => {
     <section className='flex w-full flex-col gap-4 lg:mb-0'>
       <Heading level={2}>{t('location')}</Heading>
 
-      <MapWithNoSSR address={address} />
+      <MapWithNoSSR />
     </section>
   )
 }

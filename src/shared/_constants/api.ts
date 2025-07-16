@@ -1,5 +1,6 @@
 export const PUBLIC_API_ROUTES = {
   address: '/api/address',
+  openingHours: '/api/openingHours',
   visitorCount: '/api/visitorCount',
   signIn: '/api/auth/sign-in',
   cabin: '/api/accommodations/cabin',

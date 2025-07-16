@@ -32,8 +32,7 @@ You can also switch between **Dark** or **Light** mode.
 ## Techinal details summary
 
 - UI: [React](https://react.dev/)
-- Framework: [Next.js](https://nextjs.org/docs) (App directory & Server actions
-  with next-safe-action)
+- Framework: [Next.js](https://nextjs.org/docs) (App directory)
 - Language: [TypeScript](https://www.typescriptlang.org/fr/docs/)
 - Styling: [TailwindCSS](https://tailwindcss.com/)
 - Design System & Components: [ShadCN](https://ui.shadcn.com/) /

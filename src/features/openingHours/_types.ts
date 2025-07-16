@@ -1,8 +1,5 @@
 import { OpeningHoursSchema } from '@/features/openingHours/OpeningHoursSchema'
 import { z } from 'zod'
-import { getOpeningHours } from './infrastructure/getOpeningHours'
-
-export type GetOpeningHours = Awaited<ReturnType<typeof getOpeningHours>>
 
 export enum DaysOfTheWeekEnum {
   Monday = 'Monday',
@@ -25,18 +22,3 @@ export type OpeningHoursRowData = {
 }
 
 export type OpeningHoursData = z.infer<typeof OpeningHoursSchema>
-
-export type OpeningHoursFormProps = {
-  openingHoursData: OpeningHoursRowData[]
-  editable: boolean
-}
-
-export type TableHeaderProps = {
-  day: string
-  opening: string
-  closing: string
-}
-
-export type DayRowEditProps = OpeningHoursRowData & {
-  isEdit: boolean
-}
