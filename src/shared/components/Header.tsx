@@ -4,7 +4,7 @@ import { PAGE_ROUTES } from '@/shared/_constants/page'
 import { Container } from '@/shared/components/Container'
 import { cn } from '@/shared/utils/tailwind'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Navbar } from './navbar/Navbar'
 
 const CONFIG = {
@@ -28,14 +28,17 @@ export const Header = () => {
   const isHomePage = pathname === PAGE_ROUTES.home
   const isAtTop = scrollY <= CONFIG.SCROLL_Y_LIMIT
 
-  // Scroll handler with throttling
+  const handleScroll = useCallback(() => {
+    setScrollY(window.scrollY)
+  }, [])
+
   useEffect(() => {
     let ticking = false
 
-    const handleScroll = () => {
+    const throttledScrollHandler = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrollY(window.scrollY)
+          handleScroll()
           ticking = false
         })
         ticking = true
@@ -43,11 +46,11 @@ export const Header = () => {
     }
 
     // Initialize scrollY on mount
-    setScrollY(window.scrollY)
+    handleScroll()
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener('scroll', throttledScrollHandler, { passive: true })
+    return () => window.removeEventListener('scroll', throttledScrollHandler)
+  }, [handleScroll])
 
   const headerClasses = cn(
     CONFIG.BASE_CLASSES,

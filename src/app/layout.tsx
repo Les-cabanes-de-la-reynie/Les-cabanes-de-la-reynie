@@ -22,19 +22,9 @@ const fontPrimary = localFont({
       style: 'normal'
     },
     {
-      path: '../assets/fonts/Roboto/Roboto-Italic.ttf',
-      weight: '400',
-      style: 'italic'
-    },
-    {
       path: '../assets/fonts/Roboto/Roboto-Medium.ttf',
       weight: '500',
       style: 'normal'
-    },
-    {
-      path: '../assets/fonts/Roboto/Roboto-MediumItalic.ttf',
-      weight: '500',
-      style: 'italic'
     },
     {
       path: '../assets/fonts/Roboto/Roboto-Bold.ttf',
@@ -42,21 +32,13 @@ const fontPrimary = localFont({
       style: 'normal'
     },
     {
-      path: '../assets/fonts/Roboto/Roboto-BoldItalic.ttf',
-      weight: '700',
-      style: 'italic'
-    },
-    {
       path: '../assets/fonts/Roboto/Roboto-Black.ttf',
       weight: '900',
       style: 'normal'
-    },
-    {
-      path: '../assets/fonts/Roboto/Roboto-BlackItalic.ttf',
-      weight: '900',
-      style: 'italic'
     }
-  ]
+  ],
+  display: 'swap',
+  preload: true
 })
 
 export const metadata: Metadata = {
