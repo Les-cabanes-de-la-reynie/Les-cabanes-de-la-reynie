@@ -1,4 +1,4 @@
-import { HomeUploadImage } from '@/features/home/HomeUploadImage'
+import { HomeUploadedImages } from '@/features/home/HomeUploadedImages'
 import { VisitorTotalCount } from '@/features/visitorCount/VisitorTotalCount'
 import { Heading } from '@/shared/components/Heading'
 import { Separator } from '@/shared/components/ui/separator'
@@ -21,7 +21,7 @@ export const HomeSection = () => {
       <Heading level={3} className='my-4'>
         {t('uploadImage')}
       </Heading>
-      <HomeUploadImage />
+      <HomeUploadedImages />
     </AdminSection>
   )
 }

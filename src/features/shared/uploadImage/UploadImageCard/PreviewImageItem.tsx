@@ -14,24 +14,19 @@ import { Button } from '@/shared/components/ui/button'
 import { Skeleton } from '@/shared/components/ui/skeleton'
 import { X } from 'lucide-react'
 import Image from 'next/image'
-import { DeleteUploadImage, UploadImageEntity } from '../types'
+import { UploadedImage } from '../_types'
+import { useDeleteUploadedImage } from '../hooks/useDeleteUploadedImage'
 
 type PreviewImageItemProps = {
-  image: UploadImageEntity
-  deleteUploadedImage: ({ id, imageKey }: DeleteUploadImage) => Promise<void>
-  isLoading: boolean
+  image: UploadedImage
 }
 
-export const PreviewImageItem = ({
-  image,
-  deleteUploadedImage,
-  isLoading
-}: PreviewImageItemProps) => {
+export const PreviewImageItem = ({ image }: PreviewImageItemProps) => {
   const { id, imageUrl, imageKey } = image
 
-  const handleDeleteUploadedImage = () => deleteUploadedImage({ id, imageKey })
+  const { deleteUploadedImageMutation, isPending } = useDeleteUploadedImage()
 
-  if (isLoading)
+  if (isPending)
     return (
       <Skeleton className='relative flex h-28 w-36 items-center justify-center'>
         <Loader />
@@ -70,7 +65,10 @@ export const PreviewImageItem = ({
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Annuler</AlertDialogCancel>
-            <Button variant={'destructive'} onClick={handleDeleteUploadedImage}>
+            <Button
+              variant={'destructive'}
+              onClick={() => deleteUploadedImageMutation({ id, imageKey })}
+            >
               Supprimer
             </Button>
           </AlertDialogFooter>

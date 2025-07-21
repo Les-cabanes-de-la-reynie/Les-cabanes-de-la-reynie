@@ -4,17 +4,14 @@ import { getQueryClient } from '@/shared/lib/get-query-client'
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { getYurtOptions } from './infrastructure/getYurtOptions'
 import { YurtForm } from './YurtForm'
-import { YurtUploadImage } from './YurtUploadImage'
+import { YurtUploadedImages } from './YurtUploadedImages'
 
 type YurtProps = {
   yurtFormTitle: string
   yurtUploadImageTitle: string
 }
 
-export const Yurt = async ({
-  yurtFormTitle,
-  yurtUploadImageTitle
-}: YurtProps) => {
+export const Yurt = ({ yurtFormTitle, yurtUploadImageTitle }: YurtProps) => {
   const queryClient = getQueryClient()
   void queryClient.prefetchQuery(getYurtOptions)
 
@@ -33,7 +30,7 @@ export const Yurt = async ({
       <Heading level={3} className='my-4'>
         {yurtUploadImageTitle}
       </Heading>
-      <YurtUploadImage />
+      <YurtUploadedImages />
     </>
   )
 }

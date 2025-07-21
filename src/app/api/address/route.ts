@@ -1,5 +1,8 @@
 import { AddressSchema } from '@/features/address/AddressSchema'
-import { AuthenticatedRequest, withAuth } from '@/shared/lib/auth-middleware'
+import {
+  AuthenticatedRequest,
+  withAuth
+} from '@/shared/lib/auth-api-middleware'
 import prisma from '@/shared/lib/prisma'
 import { NextResponse } from 'next/server'
 
@@ -12,15 +15,6 @@ export const GET = async () => {
         id: ADDRESS_ID
       }
     })
-
-    if (!addressList || addressList?.length === 0) {
-      return new NextResponse(JSON.stringify({ error: 'Address not found' }), {
-        status: 404,
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-    }
 
     // Return the first address in the list because we only have one address
     return new NextResponse(JSON.stringify(addressList[0]), {

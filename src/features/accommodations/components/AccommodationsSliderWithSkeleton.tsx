@@ -1,20 +1,26 @@
 import { CarouselWithLightboxSkeleton } from '@/features/carousel/CarouselWithLightboxSkeleton'
-import { UploadImageCategoryKeyEnum } from '@/features/shared/uploadImage/types'
-import { Suspense } from 'react'
+import { UploadedImage } from '@/features/shared/uploadImage/_types'
+import { Container } from '@/shared/components/Container'
 import { AccommodationsSlider } from './AccommodationsSlider'
 
 type AccommodationsSliderWithSkeletonProps = {
   title?: string
-  category: UploadImageCategoryKeyEnum
+  uploadedImages: UploadedImage[]
+  isLoading: boolean
 }
 
 export const AccommodationsSliderWithSkeleton = ({
   title,
-  category
+  uploadedImages,
+  isLoading
 }: AccommodationsSliderWithSkeletonProps) => {
   return (
-    <Suspense fallback={<CarouselWithLightboxSkeleton />}>
-      <AccommodationsSlider title={title} category={category} />
-    </Suspense>
+    <Container>
+      {isLoading ? (
+        <CarouselWithLightboxSkeleton />
+      ) : (
+        <AccommodationsSlider title={title} uploadedImages={uploadedImages} />
+      )}
+    </Container>
   )
 }

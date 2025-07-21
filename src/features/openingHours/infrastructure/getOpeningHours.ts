@@ -1,14 +1,24 @@
-import prisma from '@/shared/lib/prisma'
+import { API_ROUTES } from '@/shared/_constants/api'
+import { env } from '@/shared/lib/env'
+import { OpeningHoursData } from '../_types'
 
-export const getOpeningHours = async () => {
+export const getOpeningHours = async (): Promise<OpeningHoursData> => {
   try {
-    const data = await prisma.openingHours.findMany({
-      where: {
-        id: 1
+    const response = await fetch(
+      `${env.NEXT_PUBLIC_BASE_URL}${API_ROUTES.openingHours}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
       }
-    })
+    )
 
-    return data[0]
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+
+    return response.json()
   } catch (error) {
     throw new Error(`Failed to fetch opening hours data. ${error}`)
   }

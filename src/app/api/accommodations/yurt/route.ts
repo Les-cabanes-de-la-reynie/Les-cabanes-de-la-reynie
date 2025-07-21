@@ -1,5 +1,8 @@
 import { YurtSchema } from '@/features/accommodations/yurt/YurtSchema'
-import { AuthenticatedRequest, withAuth } from '@/shared/lib/auth-middleware'
+import {
+  AuthenticatedRequest,
+  withAuth
+} from '@/shared/lib/auth-api-middleware'
 import prisma from '@/shared/lib/prisma'
 import { NextResponse } from 'next/server'
 
@@ -12,15 +15,6 @@ export const GET = async () => {
         id: YURT_ID
       }
     })
-
-    if (!yurtList || yurtList?.length === 0) {
-      return new NextResponse(JSON.stringify({ error: 'Yurt not found' }), {
-        status: 404,
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-    }
 
     // Return the first yurt in the list because we only have one yurt
     return new NextResponse(JSON.stringify(yurtList[0]), {

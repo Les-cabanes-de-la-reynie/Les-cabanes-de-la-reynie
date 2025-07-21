@@ -1,5 +1,8 @@
 import { CabinSchema } from '@/features/accommodations/cabin/CabinSchema'
-import { AuthenticatedRequest, withAuth } from '@/shared/lib/auth-middleware'
+import {
+  AuthenticatedRequest,
+  withAuth
+} from '@/shared/lib/auth-api-middleware'
 import prisma from '@/shared/lib/prisma'
 import { NextResponse } from 'next/server'
 
@@ -12,15 +15,6 @@ export const GET = async () => {
         id: CABIN_ID
       }
     })
-
-    if (!cabinList || cabinList?.length === 0) {
-      return new NextResponse(JSON.stringify({ error: 'Cabin not found' }), {
-        status: 404,
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-    }
 
     // Return the first cabin in the list because we only have one cabin
     return new NextResponse(JSON.stringify(cabinList[0]), {

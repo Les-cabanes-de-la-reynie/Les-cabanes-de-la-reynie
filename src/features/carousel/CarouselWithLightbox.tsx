@@ -2,12 +2,12 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { UploadImageEntity } from '../shared/uploadImage/types'
+import { UploadedImage } from '../shared/uploadImage/_types'
 import Carousel from './Carousel'
 
 type CarouselWithLightboxProps = {
   title?: string
-  data: UploadImageEntity[]
+  data: UploadedImage[]
 }
 
 export const CarouselWithLightbox = ({

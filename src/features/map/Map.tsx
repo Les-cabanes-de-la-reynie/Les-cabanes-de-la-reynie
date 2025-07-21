@@ -1,6 +1,3 @@
-'use client'
-
-import { Address as AddressType } from '@/features/address/_types'
 import { IconContainer } from '@/shared/components/IconContainer'
 import { P } from '@/shared/components/P'
 import { cn } from '@/shared/utils/tailwind'
@@ -8,13 +5,11 @@ import 'leaflet/dist/leaflet.css'
 import { AlertCircleIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { MapContainer, TileLayer } from 'react-leaflet'
-import { Address } from './CustomMaker/Address'
-import { CustomMarker } from './CustomMaker/CustomMaker'
 import { ESTABLISHMENT_POSITION, MAP_URL } from './const'
+import { CustomMarker } from './CustomMaker/CustomMaker'
+import { ItineraryAlertDialog } from './CustomMaker/ItineraryAlertDialog'
 
-type MapProps = { address: AddressType }
-
-export const Map = ({ address }: MapProps) => {
+export const Map = () => {
   const t = useTranslations('Contact')
 
   return (
@@ -27,7 +22,7 @@ export const Map = ({ address }: MapProps) => {
       >
         <TileLayer url={MAP_URL} detectRetina={true} />
         <CustomMarker>
-          <Address address={address} />
+          <ItineraryAlertDialog />
         </CustomMarker>
       </MapContainer>
 

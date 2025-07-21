@@ -1,21 +1,26 @@
-import { UploadImageCategoryKeyEnum } from '@/features/shared/uploadImage/types'
-import prisma from '@/shared/lib/prisma'
+import { API_ROUTES } from '@/shared/_constants/api'
+import { env } from '@/shared/lib/env'
+import { UploadedImage, UploadImageCategoryKeyEnum } from '../_types'
 
-type GetUploadedImagesByCategoryProps = {
+export const getUploadedImagesByCategory = async (
   category: UploadImageCategoryKeyEnum
-}
-
-export const getUploadedImagesByCategory = async ({
-  category
-}: GetUploadedImagesByCategoryProps) => {
+): Promise<UploadedImage[]> => {
   try {
-    const uploadedImages = await prisma.image.findMany({
-      where: {
-        category
+    const response = await fetch(
+      `${env.NEXT_PUBLIC_BASE_URL}${API_ROUTES.uploadImage}/?category=${category}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
       }
-    })
+    )
 
-    return uploadedImages || []
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+
+    return response.json()
   } catch (error) {
     throw new Error(`Failed to fetch uploaded images data. ${error}`)
   }

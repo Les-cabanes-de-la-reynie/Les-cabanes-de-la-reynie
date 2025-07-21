@@ -3,7 +3,7 @@ import { Separator } from '@/shared/components/ui/separator'
 import { getQueryClient } from '@/shared/lib/get-query-client'
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { CabinForm } from './CabinForm'
-import { CabinUploadImage } from './CabinUploadImage'
+import { CabinUploadedImages } from './CabinUploadedImages'
 import { getCabinOptions } from './infrastructure/getCabinOptions'
 
 type CabinProps = {
@@ -33,7 +33,7 @@ export const Cabin = ({
       <Heading level={3} className='my-4'>
         {cabinUploadImageTitle}
       </Heading>
-      <CabinUploadImage />
+      <CabinUploadedImages />
     </>
   )
 }

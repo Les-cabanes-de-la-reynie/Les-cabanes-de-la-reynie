@@ -1,7 +1,9 @@
 import { API_ROUTES } from '@/shared/_constants/api'
 import { env } from '@/shared/lib/env'
 
-export const updateVisitorCount = async (lastVisitDate: string | null) => {
+export const updateVisitorCount = async (
+  lastVisitDate: string | null
+): Promise<number> => {
   try {
     const response = await fetch(
       `${env.NEXT_PUBLIC_BASE_URL}${API_ROUTES.visitorCount}`,

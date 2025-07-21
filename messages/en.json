@@ -89,7 +89,12 @@
     "geoLocationNotFound": "Geolocation not found",
     "confirmLocationDescription": "For a better user experience on our site, we need to know your location. You can activate it at the top of this page or in your browser settings.",
     "confirmLocationButton": "See itinerary",
-    "locationDescription": "Exact address communicated after booking"
+    "locationDescription": "Exact address communicated after booking",
+    "geoLocationLoading": "Geolocation in progress...",
+    "geoLocationPermissionDenied": "Geolocation denied. Please allow access to your position.",
+    "geoLocationPermissionDeniedDescription": "Please allow access to your position in your browser.",
+    "geoLocationPermissionDeniedButton": "Retry",
+    "geoLocationPermissionDeniedButtonDescription": "Unable to determine your position. Please check your GPS/WiFi connection and try again."
   },
   "Activities": {},
   "Admin": {
@@ -115,9 +120,9 @@
     "facebookButton": "Read more about our Facebook page",
     "instagramButton": "Read more about our Instagram page",
     "linkedinButton": "Read more about our LinkedIn page",
-    "email": "Our Email",
     "allRightsReserved": "All Rights Reserved",
-    "developedBy": "Developed by"
+    "developedBy": "Developed by",
+    "address": "Address"
   },
   "Navigation": {
     "switchLangTitle": "Languages",

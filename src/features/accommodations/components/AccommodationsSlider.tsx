@@ -1,22 +1,16 @@
 import { CarouselWithLightbox } from '@/features/carousel/CarouselWithLightbox'
-import { getUploadedImagesByCategory } from '@/features/shared/uploadImage/infrastructure/getUploadedImagesByCategory'
-import { UploadImageCategoryKeyEnum } from '@/features/shared/uploadImage/types'
-import { Container } from '@/shared/components/Container'
+import { UploadedImage } from '@/features/shared/uploadImage/_types'
 
 type AccommodationsSliderProps = {
   title?: string
-  category: UploadImageCategoryKeyEnum
+  uploadedImages: UploadedImage[]
 }
 
-export const AccommodationsSlider = async ({
+export const AccommodationsSlider = ({
   title,
-  category
+  uploadedImages
 }: AccommodationsSliderProps) => {
-  const uploadedImages = await getUploadedImagesByCategory({ category })
-
   return uploadedImages?.length ? (
-    <Container>
-      <CarouselWithLightbox data={uploadedImages} title={title} />
-    </Container>
+    <CarouselWithLightbox data={uploadedImages} title={title} />
   ) : null
 }

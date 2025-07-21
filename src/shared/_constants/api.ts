@@ -1,5 +1,6 @@
 export const PUBLIC_API_ROUTES = {
   address: '/api/address',
+  openingHours: '/api/openingHours',
   visitorCount: '/api/visitorCount',
   signIn: '/api/auth/sign-in',
   cabin: '/api/accommodations/cabin',
@@ -7,7 +8,8 @@ export const PUBLIC_API_ROUTES = {
 } as const
 
 export const PROTECTED_API_ROUTES = {
-  uploadthing: '/api/uploadthing'
+  uploadthing: '/api/uploadthing',
+  uploadImage: '/api/uploadImage'
 } as const
 
 export const API_ROUTES = {

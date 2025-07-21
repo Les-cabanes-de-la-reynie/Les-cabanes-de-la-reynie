@@ -1,14 +1,13 @@
-import headerImage from '@/assets/cabinAndYurt/yurt-header.jpg'
+import headerImage from '@/assets/cabinAndYurt/yurt-header.webp'
 import { AccommodationsHeader } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeader'
 import { AccommodationsHeaderContent } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderContent'
 import { AccommodationsHeaderImage } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderImage'
 import { AccommodationsPopover } from '@/features/accommodations/components/AccommodationsPopover'
-import { AccommodationsSliderWithSkeleton } from '@/features/accommodations/components/AccommodationsSliderWithSkeleton'
 import { getYurtOptions } from '@/features/accommodations/yurt/infrastructure/getYurtOptions'
+import { YurtAccommodationSlider } from '@/features/accommodations/yurt/YurtAccommodationSlider'
 import { YurtPrice } from '@/features/accommodations/yurt/YurtPrice'
 import { defaultLocale } from '@/features/i18n/config'
 import { PracticalInformation } from '@/features/shared/practicalInformation/PracticalInformation'
-import { UploadImageCategoryKeyEnum } from '@/features/shared/uploadImage/types'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { SEO } from '@/shared/_constants/SEO'
 import { Heading } from '@/shared/components/Heading'
@@ -89,10 +88,7 @@ const Yurt = () => {
 
       <PracticalInformation />
 
-      <AccommodationsSliderWithSkeleton
-        title={tYurt('sliderTitle')}
-        category={UploadImageCategoryKeyEnum.YurtSlider}
-      />
+      <YurtAccommodationSlider />
 
       <OurGourmetOffer />
     </main>

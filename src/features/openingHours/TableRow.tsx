@@ -4,7 +4,7 @@ import { cn } from '@/shared/utils/tailwind'
 import { format } from 'date-fns'
 import { enUS } from 'date-fns/locale'
 import { PropsWithChildren } from 'react'
-import { OpeningHoursRowData } from './types'
+import { OpeningHoursRowData } from './_types'
 
 type TableRowProps = Pick<OpeningHoursRowData, 'day'> & PropsWithChildren
 
