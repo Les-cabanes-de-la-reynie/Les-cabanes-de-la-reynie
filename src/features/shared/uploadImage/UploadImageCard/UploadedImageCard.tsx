@@ -1,20 +1,20 @@
 import { Heading } from '@/shared/components/Heading'
-import { UploadImageCategoryKeyEnum, UploadImageEntity } from '../types'
+import { UploadedImage, UploadImageCategoryKeyEnum } from '../_types'
 import { PreviewImageList } from './PreviewImageList'
 import { UploadImageDropzone } from './UploadImageDropzone'
 
-type UploadImageCardProps = {
-  endpoint: UploadImageCategoryKeyEnum
-  images: UploadImageEntity[]
+type UploadedImageCardProps = {
+  categoryKey: UploadImageCategoryKeyEnum
+  images: UploadedImage[]
 }
 
-export const UploadImageCard = async ({
-  endpoint,
+export const UploadedImageCard = ({
+  categoryKey,
   images
-}: UploadImageCardProps) => {
+}: UploadedImageCardProps) => {
   return (
     <div>
-      <UploadImageDropzone endpoint={endpoint} />
+      <UploadImageDropzone categoryKey={categoryKey} />
 
       <Heading level={4} className='mt-2 text-center'>
         Preview

@@ -1,39 +1,43 @@
 'use client'
 
-import { updateUploadedImage } from '@/features/shared/uploadImage/infrastructure/actions/updateUploadedImage'
 import { UploadDropzone } from '@/shared/lib/uploadthing'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
-import { UploadImageCategoryKeyEnum } from '../types'
+import { UploadImageCategoryKeyEnum } from '../_types'
+import { usePostUploadImage } from '../hooks/usePostUploadImage'
 
 type UploadImageDropzoneProps = {
-  endpoint: UploadImageCategoryKeyEnum
+  categoryKey: UploadImageCategoryKeyEnum
 }
 
-export const UploadImageDropzone = ({ endpoint }: UploadImageDropzoneProps) => {
+export const UploadImageDropzone = ({
+  categoryKey
+}: UploadImageDropzoneProps) => {
   const t = useTranslations('Common')
+
+  const { postUploadImageMutation } = usePostUploadImage()
+
+  const handleUpload = (res: any) => {
+    const { key, ufsUrl } = res[0]
+
+    postUploadImageMutation({
+      key: key,
+      url: ufsUrl,
+      category: categoryKey
+    })
+  }
 
   return (
     <UploadDropzone
-      endpoint={endpoint}
-      onClientUploadComplete={async res => {
-        const { key, url } = res[0]
-
-        await updateUploadedImage({ key, url, category: endpoint })
-
-        toast.success('Success ! Your upload is completed', {
-          action: {
-            label: t('close'),
-            onClick: () => toast.dismiss()
-          }
-        })
-      }}
+      endpoint={categoryKey}
+      onClientUploadComplete={handleUpload}
       onUploadError={(error: Error) => {
         toast.error(`Upload failed ! Reason: ${error.message}`, {
           action: {
             label: t('close'),
             onClick: () => toast.dismiss()
-          }
+          },
+          duration: Infinity
         })
       }}
       appearance={{

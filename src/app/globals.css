@@ -102,7 +102,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
 
-  --home-parallax-image: url('../assets/cabinAndYurt/home-parallax.jpg');
+  --home-parallax-image: url('../assets/cabinAndYurt/home-parallax.webp');
 }
 
 @layer base {

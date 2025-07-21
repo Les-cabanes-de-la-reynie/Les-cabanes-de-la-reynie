@@ -1,14 +1,13 @@
-import headerImage from '@/assets/cabinAndYurt/cabin-header.jpg'
+import headerImage from '@/assets/cabinAndYurt/cabin-header.webp'
+import { CabinAccommodationSlider } from '@/features/accommodations/cabin/CabinAccommodationSlider'
 import { CabinPrice } from '@/features/accommodations/cabin/CabinPrice'
 import { getCabinOptions } from '@/features/accommodations/cabin/infrastructure/getCabinOptions'
 import { AccommodationsHeader } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeader'
 import { AccommodationsHeaderContent } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderContent'
 import { AccommodationsHeaderImage } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderImage'
 import { AccommodationsPopover } from '@/features/accommodations/components/AccommodationsPopover'
-import { AccommodationsSliderWithSkeleton } from '@/features/accommodations/components/AccommodationsSliderWithSkeleton'
 import { defaultLocale } from '@/features/i18n/config'
 import { PracticalInformation } from '@/features/shared/practicalInformation/PracticalInformation'
-import { UploadImageCategoryKeyEnum } from '@/features/shared/uploadImage/types'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { SEO } from '@/shared/_constants/SEO'
 import { Heading } from '@/shared/components/Heading'
@@ -89,10 +88,7 @@ const Cabin = () => {
 
       <PracticalInformation />
 
-      <AccommodationsSliderWithSkeleton
-        title={tCabin('sliderTitle')}
-        category={UploadImageCategoryKeyEnum.CabinSlider}
-      />
+      <CabinAccommodationSlider />
 
       <OurGourmetOffer />
     </main>

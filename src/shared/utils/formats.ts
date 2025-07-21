@@ -1,4 +1,4 @@
-import { OpeningHoursData } from '@/features/openingHours/types'
+import { OpeningHoursData } from '@/features/openingHours/_types'
 import { convertTimeIntoDate } from './date'
 
 export const transformLocaleToCountry = (locale: string) =>
@@ -16,4 +16,8 @@ export const formatFormDataIntoOpeningHoursData = (formData: FormData) => {
   }, {} as OpeningHoursData)
 
   return openingHoursData
+}
+
+export const formatPhoneNumber = (phoneNumber: string) => {
+  return phoneNumber.replace(/\B(?=(\d{2})+(?!\d))(?<!\+3)|\B(?<=\+33)/g, ' ')
 }

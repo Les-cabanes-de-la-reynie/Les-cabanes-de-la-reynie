@@ -1,7 +1,8 @@
 import { API_ROUTES } from '@/shared/_constants/api'
 import { env } from '@/shared/lib/env'
+import { Address } from '../_types'
 
-export const getAddress = async () => {
+export const getAddress = async (): Promise<Address> => {
   try {
     const response = await fetch(
       `${env.NEXT_PUBLIC_BASE_URL}${API_ROUTES.address}`,

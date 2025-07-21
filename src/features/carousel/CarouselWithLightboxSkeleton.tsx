@@ -4,7 +4,7 @@ export const CarouselWithLightboxSkeleton = () => {
   return (
     <div className='mb-5'>
       <header className='mb-2 flex items-center justify-between pl-4'>
-        <Skeleton className='h-[36px] w-32'></Skeleton>
+        <Skeleton className='h-[36px] w-full max-w-1/3'></Skeleton>
         <div className='flex'>
           <Skeleton className='h-10 w-10 rounded-full'></Skeleton>
           <Skeleton className='mx-2 h-10 w-10 rounded-full'></Skeleton>

@@ -16,18 +16,6 @@ export const GET = async () => {
       }
     })
 
-    if (!openingHoursList || openingHoursList?.length === 0) {
-      return new NextResponse(
-        JSON.stringify({ error: 'Opening hours not found' }),
-        {
-          status: 404,
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }
-      )
-    }
-
     // Return the first opening hours in the list because we only have one opening hours
     return new NextResponse(JSON.stringify(openingHoursList[0]), {
       status: 200,

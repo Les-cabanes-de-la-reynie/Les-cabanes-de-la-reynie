@@ -1,8 +1,7 @@
-import homeBannerImage from '@/assets/cabinAndYurt/home-banner.jpg'
+import homeBannerImage from '@/assets/cabinAndYurt/home-banner.webp'
 import { AccommodationsCardList } from '@/features/accommodations/components/AccommodationsCardList'
 import { AccommodationsDescription } from '@/features/accommodations/components/AccommodationsDescription'
-import { AccommodationsSliderWithSkeleton } from '@/features/accommodations/components/AccommodationsSliderWithSkeleton'
-import { UploadImageCategoryKeyEnum } from '@/features/shared/uploadImage/types'
+import { HomeAccommodationSlider } from '@/features/accommodations/HomeAccommodationSlider'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
@@ -36,10 +35,7 @@ const Home = () => {
 
       <div className='mb-8 h-96 w-full select-none bg-(image:--home-parallax-image) bg-cover bg-fixed bg-center bg-no-repeat md:mb-10' />
 
-      <AccommodationsSliderWithSkeleton
-        title={tHome('sliderTitle')}
-        category={UploadImageCategoryKeyEnum.HomeSlider}
-      />
+      <HomeAccommodationSlider />
 
       <Container>
         <Heading id='our-services' level={2}>

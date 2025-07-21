@@ -16,15 +16,6 @@ export const GET = async () => {
       }
     })
 
-    if (!cabinList || cabinList?.length === 0) {
-      return new NextResponse(JSON.stringify({ error: 'Cabin not found' }), {
-        status: 404,
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-    }
-
     // Return the first cabin in the list because we only have one cabin
     return new NextResponse(JSON.stringify(cabinList[0]), {
       status: 200,

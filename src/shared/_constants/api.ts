@@ -8,7 +8,8 @@ export const PUBLIC_API_ROUTES = {
 } as const
 
 export const PROTECTED_API_ROUTES = {
-  uploadthing: '/api/uploadthing'
+  uploadthing: '/api/uploadthing',
+  uploadImage: '/api/uploadImage'
 } as const
 
 export const API_ROUTES = {

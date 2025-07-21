@@ -1,7 +1,8 @@
 import { API_ROUTES } from '@/shared/_constants/api'
 import { env } from '@/shared/lib/env'
+import { OpeningHoursData } from '../_types'
 
-export const getOpeningHours = async () => {
+export const getOpeningHours = async (): Promise<OpeningHoursData> => {
   try {
     const response = await fetch(
       `${env.NEXT_PUBLIC_BASE_URL}${API_ROUTES.openingHours}`,

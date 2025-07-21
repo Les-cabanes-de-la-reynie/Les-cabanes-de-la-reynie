@@ -24,7 +24,7 @@
     "city": "Ville",
     "country": "Pays",
     "phone": "Téléphone",
-    "email": "Email"
+    "email": "E-mail"
   },
   "Home": {
     "CTA": "Plongez dans la nature",
@@ -89,7 +89,12 @@
     "geoLocationNotFound": "Localisation n'a pas été trouvée",
     "confirmLocationDescription": "Pour une meilleure expérience utilisateur sur notre site, nous avons besoin connaitre votre localisation. Vous pouvez l'activer en haut de cette page ou dans les paramètres de votre navigateur.",
     "confirmLocationButton": "Voir itinéraire",
-    "locationDescription": "Adresse exacte communiquée après la réservation"
+    "locationDescription": "Adresse exacte communiquée après la réservation",
+    "geoLocationLoading": "Localisation en cours...",
+    "geoLocationPermissionDenied": "Géolocalisation refusée. Veuillez autoriser l'accès à votre position.",
+    "geoLocationPermissionDeniedDescription": "Veuillez autoriser l'accès à votre position dans votre navigateur.",
+    "geoLocationPermissionDeniedButton": "Réessayer",
+    "geoLocationPermissionDeniedButtonDescription": "Impossible de déterminer votre position. Vérifiez votre connexion GPS/WiFi et réessayez."
   },
   "Activities": {},
   "Admin": {
@@ -115,9 +120,9 @@
     "facebookButton": "En savoir plus avec notre page Facebook",
     "instagramButton": "En savoir plus avec notre page Instagram",
     "linkedinButton": "En savoir plus avec notre page LinkedIn",
-    "email": "Notre email",
     "allRightsReserved": "Tous droits réservés",
-    "developedBy": "Développé par"
+    "developedBy": "Développé par",
+    "address": "Adresse"
   },
   "Navigation": {
     "switchLangTitle": "Langues",

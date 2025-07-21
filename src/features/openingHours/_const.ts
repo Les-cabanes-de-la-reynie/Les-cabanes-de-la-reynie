@@ -1,4 +1,4 @@
-export const OPENING_HOURS_QUERY_KEY = 'openingHours'
+export const OPENING_HOURS_QUERY_KEY = 'openingHoursQueryKey'
 
 export const OPENING_HOURS_FIELDS = {
   mondayStart: 'mondayStart',

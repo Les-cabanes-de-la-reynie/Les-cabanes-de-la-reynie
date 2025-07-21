@@ -1,35 +1,31 @@
-import { Address } from '@/features/address/_types'
+'use client'
+
+import { getAddressOptions } from '@/features/address/infrastructure/getAddressOptions'
 import { APP_ICON_SIZE_CLASSNAME } from '@/shared/_constants/className'
 import { IconContainer } from '@/shared/components/IconContainer'
+import { useSuspenseQuery } from '@tanstack/react-query'
 import { NavigationIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
-type ItineraryProps = { address: Address }
-
-export const Itinerary = ({ address }: ItineraryProps) => {
+export const Itinerary = () => {
   const tContact = useTranslations('Contact')
+
+  const { data: address } = useSuspenseQuery(getAddressOptions)
 
   const { postalCode, city, country, streetAddress } = address
 
   return (
-    <div
-      className='flex flex-col text-primary hover:underline'
-      itemProp='address'
-      itemScope
-      itemType='https://schema.org/PostalAddress'
-    >
+    <div className='flex flex-col text-primary hover:underline'>
       <span className='flex items-center'>
         <IconContainer>
           <NavigationIcon className={APP_ICON_SIZE_CLASSNAME} />
         </IconContainer>
-        {tContact('Itinerary')} :
+        {tContact('Itinerary')}
       </span>
-      <div>
-        {!!streetAddress && (
-          <span itemProp='streetAddress'>{streetAddress} &nbsp;</span>
-        )}
-        <span itemProp='postalCode'>{postalCode} &nbsp;</span>
-        <span itemProp='addressLocality'>{city}, &nbsp;</span>
+      <div className='flex gap-1'>
+        {!!streetAddress && <span>{streetAddress}</span>}
+        <span>{postalCode},</span>
+        <span>{city}</span>
         <span>{country}</span>
       </div>
     </div>

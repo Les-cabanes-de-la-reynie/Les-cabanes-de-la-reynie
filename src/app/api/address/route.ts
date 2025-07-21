@@ -16,15 +16,6 @@ export const GET = async () => {
       }
     })
 
-    if (!addressList || addressList?.length === 0) {
-      return new NextResponse(JSON.stringify({ error: 'Address not found' }), {
-        status: 404,
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-    }
-
     // Return the first address in the list because we only have one address
     return new NextResponse(JSON.stringify(addressList[0]), {
       status: 200,

@@ -1,14 +1,22 @@
 'use client'
 
-import { updateOpeningHours } from '@/features/openingHours/infrastructure/actions/updateOpeningHours'
 import { EditableButtons } from '@/shared/components/editableButtons/EditableButtons'
+import { Form } from '@/shared/components/ui/form'
 import { useToggle } from '@/shared/hooks/useToggle'
-import { formatFormDataIntoOpeningHoursData } from '@/shared/utils/formats'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
+import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
+import { OpeningHoursData } from './_types'
 import { DayRow } from './DayRow'
+import { useConvertToOpeningHoursRowData } from './hooks/useConvertToOpeningHoursRowData'
+import { OpeningHoursSchema } from './OpeningHoursSchema'
 import { TableHeader } from './TableHeader'
-import { OpeningHoursFormProps } from './types'
+
+type OpeningHoursFormProps = {
+  openingHoursData: OpeningHoursData
+  editable: boolean
+}
 
 export const OpeningHoursForm = ({
   openingHoursData,
@@ -19,43 +27,55 @@ export const OpeningHoursForm = ({
   const t = useTranslations('Common')
   const t2 = useTranslations('Contact')
 
-  const onAction = async (formData: FormData) => {
+  const form = useForm<OpeningHoursData>({
+    resolver: zodResolver(OpeningHoursSchema),
+    defaultValues: openingHoursData,
+    disabled: !isEdit
+  })
+
+  // Convertir les données en format utilisable par DayRow
+  const openingHoursRows = useConvertToOpeningHoursRowData({
+    openingHoursData
+  })
+
+  const onAction = async (data: OpeningHoursData) => {
     try {
-      if (!editable) throw new Error('You cannot edit the opening hours!')
+      console.log('data', data)
+      // if (!editable) throw new Error('You cannot edit the opening hours!')
 
-      const openingHoursData = formatFormDataIntoOpeningHoursData(formData)
+      // const openingHoursData = formatFormDataIntoOpeningHoursData(formData)
 
-      const res = await updateOpeningHours(openingHoursData)
+      // const res = await updateOpeningHours(openingHoursData)
 
-      if (res?.validationErrors) {
-        toast.error(
-          'There was an error updating opening hours. Data are maybe invalid',
-          {
-            action: {
-              label: t('close'),
-              onClick: () => toast.dismiss()
-            }
-          }
-        )
-      }
+      // if (res?.validationErrors) {
+      //   toast.error(
+      //     'There was an error updating opening hours. Data are maybe invalid',
+      //     {
+      //       action: {
+      //         label: t('close'),
+      //         onClick: () => toast.dismiss()
+      //       }
+      //     }
+      //   )
+      // }
 
-      if (res?.serverError) {
-        toast.error(res.serverError, {
-          action: {
-            label: t('close'),
-            onClick: () => toast.dismiss()
-          }
-        })
-      }
+      // if (res?.serverError) {
+      //   toast.error(res.serverError, {
+      //     action: {
+      //       label: t('close'),
+      //       onClick: () => toast.dismiss()
+      //     }
+      //   })
+      // }
 
-      handleToggleEdit()
+      // handleToggleEdit()
 
-      toast.success('Success ! The opening hours has been saved', {
-        action: {
-          label: t('close'),
-          onClick: () => toast.dismiss()
-        }
-      })
+      // toast.success('Success ! The opening hours has been saved', {
+      //   action: {
+      //     label: t('close'),
+      //     onClick: () => toast.dismiss()
+      //   }
+      // })
     } catch (error) {
       toast.error(
         `Something went wrong! Cannot update opening hours. ${error}`,
@@ -70,39 +90,33 @@ export const OpeningHoursForm = ({
   }
 
   return (
-    <form action={onAction} className='h-full w-full'>
-      <table className='w-full grow'>
-        <TableHeader day='' opening={t2('opening')} closing={t2('closing')} />
-        <tbody className='text-center'>
-          {openingHoursData?.map(
-            ({
-              day,
-              dayTranslation,
-              startDate,
-              startDateKey,
-              endDate,
-              endDateKey
-            }) => (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onAction)} className='h-full w-full'>
+        <table className='w-full grow'>
+          <TableHeader day='' opening={t2('opening')} closing={t2('closing')} />
+          <tbody className='text-center'>
+            {openingHoursRows.map(rowData => (
               <DayRow
-                key={dayTranslation}
-                day={day}
-                dayTranslation={dayTranslation}
-                startDate={startDate}
-                startDateKey={startDateKey}
-                endDate={endDate}
-                endDateKey={endDateKey}
+                key={rowData.day}
+                day={rowData.day}
+                dayTranslation={rowData.dayTranslation}
+                startDate={rowData.startDate}
+                startDateKey={rowData.startDateKey}
+                endDate={rowData.endDate}
+                endDateKey={rowData.endDateKey}
                 isEdit={isEdit}
+                form={form}
               />
-            )
-          )}
-        </tbody>
-      </table>
+            ))}
+          </tbody>
+        </table>
 
-      <EditableButtons
-        editable={editable}
-        isEdit={isEdit}
-        handleToggleEdit={handleToggleEdit}
-      />
-    </form>
+        <EditableButtons
+          editable={editable}
+          isEdit={isEdit}
+          handleToggleEdit={handleToggleEdit}
+        />
+      </form>
+    </Form>
   )
 }

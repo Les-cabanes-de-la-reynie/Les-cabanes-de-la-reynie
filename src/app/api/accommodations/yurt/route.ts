@@ -16,15 +16,6 @@ export const GET = async () => {
       }
     })
 
-    if (!yurtList || yurtList?.length === 0) {
-      return new NextResponse(JSON.stringify({ error: 'Yurt not found' }), {
-        status: 404,
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-    }
-
     // Return the first yurt in the list because we only have one yurt
     return new NextResponse(JSON.stringify(yurtList[0]), {
       status: 200,
