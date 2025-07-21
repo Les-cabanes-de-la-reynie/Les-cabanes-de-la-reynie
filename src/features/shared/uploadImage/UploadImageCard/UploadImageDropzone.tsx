@@ -3,6 +3,7 @@
 import { UploadDropzone } from '@/shared/lib/uploadthing'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
+import { ClientUploadedFileData } from 'uploadthing/types'
 import { UploadImageCategoryKeyEnum } from '../_types'
 import { usePostUploadImage } from '../hooks/usePostUploadImage'
 
@@ -17,7 +18,8 @@ export const UploadImageDropzone = ({
 
   const { postUploadImageMutation } = usePostUploadImage()
 
-  const handleUpload = (res: any) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleUpload = (res: ClientUploadedFileData<any>[]) => {
     const { key, ufsUrl } = res[0]
 
     postUploadImageMutation({

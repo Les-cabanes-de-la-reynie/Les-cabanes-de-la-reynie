@@ -11,7 +11,7 @@ import {
 } from '@/shared/components/ui/alert-dialog'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { toast } from 'sonner'
 import { Itinerary } from './Itinerary'
 
@@ -74,7 +74,7 @@ export const ItineraryAlertDialog = () => {
     }
   }
 
-  const getUserLocation = () => {
+  const getUserLocation = useCallback(() => {
     if ('geolocation' in navigator) {
       setIsLoading(true)
       navigator.geolocation.getCurrentPosition(successFunction, errorFunction, {
@@ -91,7 +91,7 @@ export const ItineraryAlertDialog = () => {
         duration: Infinity
       })
     }
-  }
+  }, [tContact, tCommon])
 
   // Watch for changes in geolocation permission
   useEffect(() => {
@@ -111,14 +111,14 @@ export const ItineraryAlertDialog = () => {
     }
 
     checkPermission()
-  }, [isDialogOpen])
+  }, [isDialogOpen, getUserLocation])
 
   // Relaunch the geolocation when the dialog opens
   useEffect(() => {
     if (isDialogOpen && !userLocation.length) {
       getUserLocation()
     }
-  }, [isDialogOpen])
+  }, [isDialogOpen, getUserLocation, userLocation.length])
 
   const [lat, long] = userLocation
   const locationLink = `https://www.google.fr/maps/dir/${lat},+${long}/La+Reynie+Haute,+19310+Louignac/@44.1892761,1.0389325,8z`
