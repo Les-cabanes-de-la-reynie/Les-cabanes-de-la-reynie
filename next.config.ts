@@ -4,10 +4,6 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
-      // {
-      //   protocol: 'https',
-      //   hostname: 's.gravatar.com'
-      // },
       {
         protocol: 'https',
         hostname: 'conti9s7l7.ufs.sh'
