@@ -56,7 +56,7 @@ export const Header = () => {
     CONFIG.BASE_CLASSES,
     { 'bg-primary': !isHomePage || !isAtTop },
     {
-      'bg-transparent lg:bg-gradient-to-b lg:from-neutral-900 lg:to-transparent':
+      'bg-primary lg:bg-transparent! lg:bg-gradient-to-b lg:from-neutral-900 lg:to-transparent':
         isHomePage && isAtTop
     }
   )
