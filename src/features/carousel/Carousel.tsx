@@ -23,8 +23,11 @@ const Carousel = ({
 
   const onScroll = useCallback((emblaApi: CarouselApi) => {
     if (emblaApi) {
-      const progress = Math.max(0, Math.min(1, emblaApi.scrollProgress()))
-      setScrollProgress(progress * 100)
+      const progress = Math.trunc(emblaApi.scrollProgress() * 100)
+
+      if (progress !== scrollProgress) {
+        setScrollProgress(progress)
+      }
     }
   }, [])
 
@@ -36,6 +39,10 @@ const Carousel = ({
       .on('reInit', onScroll)
       .on('scroll', onScroll)
       .on('slideFocus', onScroll)
+
+    return () => {
+      emblaApi.destroy()
+    }
   }, [emblaApi, onScroll])
 
   return (
@@ -50,7 +57,7 @@ const Carousel = ({
           {carouselItems.map((carouselItem, index) => (
             <CarouselItem
               key={`${carouselItem.key}-${index}`}
-              className='px-4 md:basis-1/2 lg:basis-1/3'
+              className='px-4 md:basis-1/2 lg:basis-1/3 select-none'
             >
               {carouselItem}
             </CarouselItem>
