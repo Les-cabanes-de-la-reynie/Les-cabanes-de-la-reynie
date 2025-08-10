@@ -66,9 +66,7 @@ export const GET = async (request: AuthenticatedRequest) => {
 export const POST = withAuth(async (request: AuthenticatedRequest) => {
   try {
     const body: PostUploadImage = await request.json()
-    console.log('body', body)
     const validationResult = UploadImageSchema.safeParse(body)
-    console.log('validationResult', validationResult)
 
     if (!validationResult.success) {
       return new NextResponse(

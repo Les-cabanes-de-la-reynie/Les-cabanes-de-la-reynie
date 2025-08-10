@@ -1,4 +1,7 @@
-import { OpeningHoursSchema } from '@/features/openingHours/OpeningHoursSchema'
+import {
+  OpeningHoursFormSchema,
+  OpeningHoursSchema
+} from '@/features/openingHours/OpeningHoursSchema'
 import { z } from 'zod'
 
 export enum DaysOfTheWeekEnum {
@@ -22,3 +25,4 @@ export type OpeningHoursRowData = {
 }
 
 export type OpeningHoursData = z.infer<typeof OpeningHoursSchema>
+export type OpeningHoursFormData = z.infer<typeof OpeningHoursFormSchema>
