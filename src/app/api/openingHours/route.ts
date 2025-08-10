@@ -53,41 +53,9 @@ export const PUT = withAuth(async (request: AuthenticatedRequest) => {
       )
     }
 
-    const {
-      mondayStart,
-      mondayEnd,
-      tuesdayStart,
-      tuesdayEnd,
-      wednesdayStart,
-      wednesdayEnd,
-      thursdayStart,
-      thursdayEnd,
-      fridayStart,
-      fridayEnd,
-      saturdayStart,
-      saturdayEnd,
-      sundayStart,
-      sundayEnd
-    } = validationResult.data
-
     const updatedOpeningHours = await prisma.openingHours.update({
       where: { id: OPENING_HOURS_ID },
-      data: {
-        mondayStart,
-        mondayEnd,
-        tuesdayStart,
-        tuesdayEnd,
-        wednesdayStart,
-        wednesdayEnd,
-        thursdayStart,
-        thursdayEnd,
-        fridayStart,
-        fridayEnd,
-        saturdayStart,
-        saturdayEnd,
-        sundayStart,
-        sundayEnd
-      }
+      data: validationResult.data
     })
 
     return new NextResponse(

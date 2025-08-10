@@ -1,28 +1,16 @@
-import { formatDateToTime } from '@/shared/utils/date'
 import { useTranslations } from 'next-intl'
-import { DaysOfTheWeekEnum, OpeningHoursRowData } from '../_types'
+import {
+  DaysOfTheWeekEnum,
+  OpeningHoursFormData,
+  OpeningHoursRowData
+} from '../_types'
 
 type ConvertToOpeningHoursRowDataProps = {
-  openingHoursData: {
-    mondayStart: Date
-    mondayEnd: Date
-    tuesdayStart: Date
-    tuesdayEnd: Date
-    wednesdayStart: Date
-    wednesdayEnd: Date
-    thursdayStart: Date
-    thursdayEnd: Date
-    fridayStart: Date
-    fridayEnd: Date
-    saturdayStart: Date
-    saturdayEnd: Date
-    sundayStart: Date
-    sundayEnd: Date
-  }
+  openingHoursFormData: OpeningHoursFormData
 }
 
 export const useConvertToOpeningHoursRowData = ({
-  openingHoursData
+  openingHoursFormData
 }: ConvertToOpeningHoursRowDataProps): OpeningHoursRowData[] => {
   const t = useTranslations('Contact')
 
@@ -30,57 +18,57 @@ export const useConvertToOpeningHoursRowData = ({
     {
       day: DaysOfTheWeekEnum.Monday,
       dayTranslation: t('monday'),
-      startDate: formatDateToTime(openingHoursData.mondayStart),
+      startDate: openingHoursFormData.mondayStart,
       startDateKey: 'mondayStart',
-      endDate: formatDateToTime(openingHoursData.mondayEnd),
+      endDate: openingHoursFormData.mondayEnd,
       endDateKey: 'mondayEnd'
     },
     {
       day: DaysOfTheWeekEnum.Tuesday,
       dayTranslation: t('tuesday'),
-      startDate: formatDateToTime(openingHoursData.tuesdayStart),
+      startDate: openingHoursFormData.tuesdayStart,
       startDateKey: 'tuesdayStart',
-      endDate: formatDateToTime(openingHoursData.tuesdayEnd),
+      endDate: openingHoursFormData.tuesdayEnd,
       endDateKey: 'tuesdayEnd'
     },
     {
       day: DaysOfTheWeekEnum.Wednesday,
       dayTranslation: t('wednesday'),
-      startDate: formatDateToTime(openingHoursData.wednesdayStart),
+      startDate: openingHoursFormData.wednesdayStart,
       startDateKey: 'wednesdayStart',
-      endDate: formatDateToTime(openingHoursData.wednesdayEnd),
+      endDate: openingHoursFormData.wednesdayEnd,
       endDateKey: 'wednesdayEnd'
     },
     {
       day: DaysOfTheWeekEnum.Thursday,
       dayTranslation: t('thursday'),
-      startDate: formatDateToTime(openingHoursData.thursdayStart),
+      startDate: openingHoursFormData.thursdayStart,
       startDateKey: 'thursdayStart',
-      endDate: formatDateToTime(openingHoursData.thursdayEnd),
+      endDate: openingHoursFormData.thursdayEnd,
       endDateKey: 'thursdayEnd'
     },
     {
       day: DaysOfTheWeekEnum.Friday,
       dayTranslation: t('friday'),
-      startDate: formatDateToTime(openingHoursData.fridayStart),
+      startDate: openingHoursFormData.fridayStart,
       startDateKey: 'fridayStart',
-      endDate: formatDateToTime(openingHoursData.fridayEnd),
+      endDate: openingHoursFormData.fridayEnd,
       endDateKey: 'fridayEnd'
     },
     {
       day: DaysOfTheWeekEnum.Saturday,
       dayTranslation: t('saturday'),
-      startDate: formatDateToTime(openingHoursData.saturdayStart),
+      startDate: openingHoursFormData.saturdayStart,
       startDateKey: 'saturdayStart',
-      endDate: formatDateToTime(openingHoursData.saturdayEnd),
+      endDate: openingHoursFormData.saturdayEnd,
       endDateKey: 'saturdayEnd'
     },
     {
       day: DaysOfTheWeekEnum.Sunday,
       dayTranslation: t('sunday'),
-      startDate: formatDateToTime(openingHoursData.sundayStart),
+      startDate: openingHoursFormData.sundayStart,
       startDateKey: 'sundayStart',
-      endDate: formatDateToTime(openingHoursData.sundayEnd),
+      endDate: openingHoursFormData.sundayEnd,
       endDateKey: 'sundayEnd'
     }
   ]

@@ -10,7 +10,7 @@ type OpeningHoursSectionProps = {
 }
 
 export const OpeningHoursSection = ({ editable }: OpeningHoursSectionProps) => {
-  const t = useTranslations('Contact')
+  const tContact = useTranslations('Contact')
 
   const queryClient = getQueryClient()
   void queryClient.prefetchQuery(getOpeningHoursOptions)
@@ -18,7 +18,7 @@ export const OpeningHoursSection = ({ editable }: OpeningHoursSectionProps) => {
   return (
     <section className='mb-8'>
       <Heading level={2} className='my-8'>
-        {t('openingHours')}
+        {tContact('openingHours')}
       </Heading>
 
       <HydrationBoundary state={dehydrate(queryClient)}>

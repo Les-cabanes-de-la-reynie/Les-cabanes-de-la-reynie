@@ -21,15 +21,18 @@ const Carousel = ({
   const [emblaApi, setEmblaApi] = useState<CarouselApi>()
   const [scrollProgress, setScrollProgress] = useState(0)
 
-  const onScroll = useCallback((emblaApi: CarouselApi) => {
-    if (emblaApi) {
-      const progress = Math.trunc(emblaApi.scrollProgress() * 100)
+  const onScroll = useCallback(
+    (emblaApi: CarouselApi) => {
+      if (emblaApi) {
+        const progress = Math.trunc(emblaApi.scrollProgress() * 100)
 
-      if (progress !== scrollProgress) {
-        setScrollProgress(progress)
+        if (progress !== scrollProgress) {
+          setScrollProgress(progress)
+        }
       }
-    }
-  }, [])
+    },
+    [scrollProgress]
+  )
 
   useEffect(() => {
     if (!emblaApi) return
