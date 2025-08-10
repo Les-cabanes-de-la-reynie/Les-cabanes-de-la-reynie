@@ -5,7 +5,6 @@ import {
   FormMessage
 } from '@/shared/components/ui/form'
 import { Input } from '@/shared/components/ui/input'
-import { useLocale } from 'next-intl'
 import { UseFormReturn } from 'react-hook-form'
 import { TableRow } from './TableRow'
 import {
@@ -28,8 +27,6 @@ export const DayRow = ({
   isEdit,
   form
 }: DayRowProps) => {
-  const lang = useLocale()
-
   const openingDate = isEdit ? (
     <FormField
       control={form.control}

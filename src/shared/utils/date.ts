@@ -1,11 +1,8 @@
 import { OpeningHoursFormData } from '@/features/openingHours/_types'
 import { format, parse } from 'date-fns'
-import { useLocale } from 'next-intl'
 
 export const convertDateToTime = (incomingDate: Date) => {
-  const lang = useLocale()
-  const formatString = lang === 'fr' ? 'HH:mm' : 'h:mm aaaa'
-  return format(incomingDate, formatString)
+  return format(incomingDate, 'HH:mm')
 }
 
 export const convertTimeIntoISOString = (time: string) => {

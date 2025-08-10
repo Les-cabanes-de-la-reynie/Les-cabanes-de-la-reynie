@@ -27,8 +27,7 @@ export const OpeningHoursForm = ({
 
   const [isEdit, handleToggleEdit] = useToggle(false)
 
-  const t = useTranslations('Common')
-  const t2 = useTranslations('Contact')
+  const tContact = useTranslations('Contact')
 
   const form = useForm<OpeningHoursFormData>({
     resolver: zodResolver(OpeningHoursFormSchema),
@@ -55,7 +54,11 @@ export const OpeningHoursForm = ({
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='h-full w-full'>
         <table className='w-full grow'>
-          <TableHeader day='' opening={t2('opening')} closing={t2('closing')} />
+          <TableHeader
+            day=''
+            opening={tContact('opening')}
+            closing={tContact('closing')}
+          />
           <tbody className='text-center'>
             {openingHoursRows.map(rowData => (
               <DayRow

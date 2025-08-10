@@ -15,7 +15,7 @@ type OpeningHoursProps = {
 }
 
 export const OpeningHours = ({ editable }: OpeningHoursProps) => {
-  const t = useTranslations('Contact')
+  const tContact = useTranslations('Contact')
 
   const { data: incomingOpeningHoursData } = useSuspenseQuery(
     getOpeningHoursOptions
@@ -51,8 +51,8 @@ export const OpeningHours = ({ editable }: OpeningHoursProps) => {
             <AlertCircleIcon className={cn('stroke-primary h-5 w-5')} />
           </IconContainer>
           <div>
-            <P>{t('departuresDescription')}</P>
-            <P className='not-first:mt-0'>{t('arrivalsDescription')}</P>
+            <P>{tContact('departuresDescription')}</P>
+            <P className='not-first:mt-0'>{tContact('arrivalsDescription')}</P>
           </div>
         </div>
       )}
