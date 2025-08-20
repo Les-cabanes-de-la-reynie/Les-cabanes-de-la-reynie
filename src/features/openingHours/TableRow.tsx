@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@/shared/utils/tailwind'
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 import { enUS } from 'date-fns/locale'
 import { PropsWithChildren } from 'react'
 import { OpeningHoursRowData } from './_types'

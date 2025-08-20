@@ -1,6 +1,6 @@
 import { getVisitorCount } from '@/features/visitorCount/infrastructure/getVisitorCount'
 import prisma from '@/shared/lib/prisma'
-import { isSameDay } from 'date-fns'
+import { isSameDay } from 'date-fns/isSameDay'
 import { NextResponse } from 'next/server'
 
 const VISITOR_COUNT_ID = 1

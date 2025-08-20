@@ -1,17 +1,5 @@
 import { cn } from '@/shared/utils/tailwind'
-import localFont from 'next/font/local'
 import { HTMLProps, PropsWithChildren } from 'react'
-
-const fontSecondary = localFont({
-  variable: '--font-secondary',
-  src: [
-    {
-      path: '../../assets/fonts/Galada/Galada-Regular.ttf',
-      weight: '400',
-      style: 'normal'
-    }
-  ]
-})
 
 export type HeadingProps = PropsWithChildren &
   HTMLProps<HTMLHeadingElement> & {
@@ -34,7 +22,6 @@ export const Heading = ({
     className
   )
   const h2ClassName = cn(
-    fontSecondary.variable,
     'scroll-m-20 text-3xl text-balance font-secondary first:mt-0',
     {
       'text-error': error

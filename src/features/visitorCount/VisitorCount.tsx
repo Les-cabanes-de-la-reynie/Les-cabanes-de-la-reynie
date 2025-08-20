@@ -1,6 +1,6 @@
 'use client'
 
-import { isSameDay } from 'date-fns'
+import { isSameDay } from 'date-fns/isSameDay'
 import { useCallback, useEffect } from 'react'
 import { updateVisitorCount } from './infrastructure/updateVisitorCount'
 import { LAST_VISIT_KEY } from './types'
@@ -9,21 +9,24 @@ export const VisitorCount = () => {
   const handleVisitorCount = useCallback(async () => {
     try {
       const lastVisitDate = localStorage.getItem(LAST_VISIT_KEY)
+      const now = Date.now()
 
       if (!lastVisitDate) {
         // First visit
-        const newDate = Date.now().toString()
-        await updateVisitorCount(lastVisitDate)
+        const newDate = now.toString()
         localStorage.setItem(LAST_VISIT_KEY, newDate)
+        // API call not blocking (no await)
+        updateVisitorCount(null).catch(console.error)
         return
       }
 
-      const isVisitedToday = isSameDay(Number(lastVisitDate), Date.now())
+      const isVisitedToday = isSameDay(Number(lastVisitDate), now)
 
       if (!isVisitedToday) {
-        const newDate = Date.now().toString()
-        await updateVisitorCount(lastVisitDate)
+        const newDate = now.toString()
         localStorage.setItem(LAST_VISIT_KEY, newDate)
+        // API call not blocking (no await)
+        updateVisitorCount(lastVisitDate).catch(console.error)
       }
     } catch (error) {
       console.error('Error in VisitorCount:', error)
@@ -31,12 +34,22 @@ export const VisitorCount = () => {
   }, [])
 
   useEffect(() => {
-    // Use requestIdleCallback to defer execution
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(handleVisitorCount)
+    const scheduleVisitorCount = () => {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(handleVisitorCount, { timeout: 2000 })
+      } else {
+        setTimeout(handleVisitorCount, 100)
+      }
+    }
+
+    if (document.readyState === 'complete') {
+      scheduleVisitorCount()
     } else {
-      // Fallback for browsers that don't support requestIdleCallback
-      setTimeout(handleVisitorCount, 1000)
+      window.addEventListener('load', scheduleVisitorCount, { once: true })
+    }
+
+    return () => {
+      window.removeEventListener('load', scheduleVisitorCount)
     }
   }, [handleVisitorCount])
 

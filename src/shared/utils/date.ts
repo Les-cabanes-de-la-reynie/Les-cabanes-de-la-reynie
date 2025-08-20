@@ -1,5 +1,6 @@
 import { OpeningHoursFormData } from '@/features/openingHours/_types'
-import { format, parse } from 'date-fns'
+import { format } from 'date-fns/format'
+import { parse } from 'date-fns/parse'
 
 export const convertDateToTime = (incomingDate: Date) => {
   return format(incomingDate, 'HH:mm')

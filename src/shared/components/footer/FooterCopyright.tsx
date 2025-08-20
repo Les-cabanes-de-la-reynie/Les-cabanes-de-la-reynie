@@ -1,5 +1,5 @@
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 
