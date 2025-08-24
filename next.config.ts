@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
         hostname: 'conti9s7l7.ufs.sh'
       }
     ]
+  },
+  experimental: {
+    optimizePackageImports: ['lucide-react']
   }
 }
 

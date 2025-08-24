@@ -16,9 +16,9 @@ import './globals.css'
 const fontPrimary = Roboto({
   variable: '--font-primary',
   subsets: ['latin'],
-  weight: ['400', '500', '700', '900'],
+  weight: ['400', '700'],
   display: 'swap',
-  preload: true,
+  preload: false,
   fallback: ['system-ui', 'arial']
 })
 
@@ -27,7 +27,7 @@ const fontSecondary = Galada({
   weight: ['400'],
   subsets: ['latin'],
   display: 'swap',
-  preload: true,
+  preload: false,
   fallback: ['cursive', 'system-ui']
 })
 
