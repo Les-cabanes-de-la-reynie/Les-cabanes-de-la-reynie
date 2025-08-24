@@ -71,7 +71,7 @@ export default async function RootLayout({
           <Toaster richColors position='top-right' expand={true} />
 
           {/* update visitor count */}
-          <VisitorCount />
+          {process.env.ENABLE_VISITOR_COUNT === 'true' && <VisitorCount />}
         </div>
       </body>
     </html>

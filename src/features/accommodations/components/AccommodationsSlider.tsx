@@ -3,7 +3,7 @@ import { CarouselWithLightboxSkeleton } from '@/features/carousel/CarouselWithLi
 import { UploadedImage } from '@/features/shared/uploadImage/_types'
 import { Container } from '@/shared/components/Container'
 
-type AccommodationsSlider = {
+type AccommodationsSliderProps = {
   title?: string
   uploadedImages: UploadedImage[]
   isLoading: boolean
@@ -13,7 +13,7 @@ export const AccommodationsSlider = ({
   title,
   uploadedImages,
   isLoading
-}: AccommodationsSlider) => {
+}: AccommodationsSliderProps) => {
   return (
     <Container>
       {isLoading && <CarouselWithLightboxSkeleton />}

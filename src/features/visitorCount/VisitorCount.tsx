@@ -6,12 +6,6 @@ import { updateVisitorCount } from './infrastructure/updateVisitorCount'
 import { LAST_VISIT_KEY } from './types'
 
 export const VisitorCount = () => {
-  if (
-    typeof window === 'undefined' ||
-    process.env.ENABLE_VISITOR_COUNT !== 'true'
-  )
-    return null
-
   const handleVisitorCount = useCallback(async () => {
     try {
       const lastVisitDate = localStorage.getItem(LAST_VISIT_KEY)
