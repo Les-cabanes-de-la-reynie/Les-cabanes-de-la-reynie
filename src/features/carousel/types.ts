@@ -7,7 +7,7 @@ type LightboxController = {
 
 export type CarouselProps = {
   carouselItems: JSX.Element[]
-  lighboxItems: JSX.Element[]
+  lightboxSources: string[]
   lightboxController: LightboxController
   title?: string
 }

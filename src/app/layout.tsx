@@ -10,35 +10,25 @@ import { Providers } from '@/shared/providers'
 import { cn } from '@/shared/utils/tailwind'
 import { Metadata } from 'next'
 import { getLocale } from 'next-intl/server'
-import localFont from 'next/font/local'
+import { Galada, Roboto } from 'next/font/google'
 import './globals.css'
 
-const fontPrimary = localFont({
+const fontPrimary = Roboto({
   variable: '--font-primary',
-  src: [
-    {
-      path: '../assets/fonts/Roboto/Roboto-Regular.ttf',
-      weight: '400',
-      style: 'normal'
-    },
-    {
-      path: '../assets/fonts/Roboto/Roboto-Medium.ttf',
-      weight: '500',
-      style: 'normal'
-    },
-    {
-      path: '../assets/fonts/Roboto/Roboto-Bold.ttf',
-      weight: '700',
-      style: 'normal'
-    },
-    {
-      path: '../assets/fonts/Roboto/Roboto-Black.ttf',
-      weight: '900',
-      style: 'normal'
-    }
-  ],
+  subsets: ['latin'],
+  weight: ['400', '700'],
   display: 'swap',
-  preload: true
+  preload: false,
+  fallback: ['system-ui', 'arial']
+})
+
+const fontSecondary = Galada({
+  variable: '--font-secondary',
+  weight: ['400'],
+  subsets: ['latin'],
+  display: 'swap',
+  preload: false,
+  fallback: ['cursive', 'system-ui']
 })
 
 export const metadata: Metadata = {
@@ -68,8 +58,8 @@ export default async function RootLayout({
 
   // suppressHydrationWarning useful because next-themes trigger an error with: attribute='class'
   return (
-    <html suppressHydrationWarning lang={locale}>
-      <body className={cn(fontPrimary.variable)}>
+    <html lang={locale} suppressHydrationWarning>
+      <body className={cn(fontPrimary.variable, fontSecondary.variable)}>
         <div className='relative font-primary min-h-svh flex flex-col antialiased'>
           <Providers>
             <Header />
@@ -81,7 +71,7 @@ export default async function RootLayout({
           <Toaster richColors position='top-right' expand={true} />
 
           {/* update visitor count */}
-          <VisitorCount />
+          {process.env.ENABLE_VISITOR_COUNT === 'true' && <VisitorCount />}
         </div>
       </body>
     </html>

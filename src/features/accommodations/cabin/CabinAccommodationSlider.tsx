@@ -4,7 +4,7 @@ import { UploadImageCategoryKeyEnum } from '@/features/shared/uploadImage/_types
 import { getUploadedImagesByCategoryOption } from '@/features/shared/uploadImage/infrastructure/getUploadedImagesByCategoryOption'
 import { useQuery } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
-import { AccommodationsSliderWithSkeleton } from '../components/AccommodationsSliderWithSkeleton'
+import { AccommodationsSlider } from '../components/AccommodationsSlider'
 
 export const CabinAccommodationSlider = () => {
   const tCabin = useTranslations('Cabin')
@@ -17,7 +17,7 @@ export const CabinAccommodationSlider = () => {
   })
 
   return (
-    <AccommodationsSliderWithSkeleton
+    <AccommodationsSlider
       title={tCabin('sliderTitle')}
       uploadedImages={uploadedImages}
       isLoading={isLoading}
