@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import { UploadedImage } from '../shared/uploadImage/_types'
-import Carousel from './Carousel'
+import { AppCarousel } from './AppCarousel'
 
 type CarouselWithLightboxProps = {
   title?: string
@@ -20,10 +20,10 @@ export const CarouselWithLightbox = ({
   })
 
   const openLightboxOnSource = (sourceIndex: number) => {
-    setLightboxController({
-      toggler: !lightboxController.toggler,
-      sourceIndex: sourceIndex
-    })
+    setLightboxController(prev => ({
+      toggler: !prev.toggler,
+      sourceIndex
+    }))
   }
 
   const carouselItems = data.map(({ id, imageUrl }, i) => (
@@ -41,23 +41,13 @@ export const CarouselWithLightbox = ({
       />
     </div>
   ))
-  const lighboxItems = data.map(({ id, imageUrl }, i) => (
-    <Image
-      key={`lightbox-${i}-${id}`}
-      alt={`Our fabulous place ${i}`}
-      src={imageUrl}
-      width='0'
-      height='0'
-      sizes='100vw'
-      className='h-auto w-full'
-      quality={100}
-    />
-  ))
+
+  const lightboxSources = data.map(({ imageUrl }) => imageUrl)
 
   return (
-    <Carousel
+    <AppCarousel
       carouselItems={carouselItems}
-      lighboxItems={lighboxItems}
+      lightboxSources={lightboxSources}
       lightboxController={lightboxController}
       title={title}
     />

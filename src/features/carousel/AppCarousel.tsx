@@ -10,11 +10,13 @@ import { useCallback, useEffect, useState } from 'react'
 import { CarouselHeader } from './CarouselHeader'
 import { CarouselProps } from './types'
 
-const FsLightbox = dynamic(() => import('fslightbox-react'))
+const FsLightbox = dynamic(() => import('fslightbox-react'), {
+  ssr: false
+})
 
-const Carousel = ({
+export const AppCarousel = ({
   carouselItems,
-  lighboxItems,
+  lightboxSources,
   lightboxController,
   title
 }: CarouselProps) => {
@@ -38,14 +40,7 @@ const Carousel = ({
     if (!emblaApi) return
 
     onScroll(emblaApi)
-    emblaApi
-      .on('reInit', onScroll)
-      .on('scroll', onScroll)
-      .on('slideFocus', onScroll)
-
-    return () => {
-      emblaApi.destroy()
-    }
+    emblaApi.on('scroll', onScroll).on('slideFocus', onScroll)
   }, [emblaApi, onScroll])
 
   return (
@@ -73,15 +68,13 @@ const Carousel = ({
         />
       </EmblaCarousel>
 
-      {lighboxItems?.length ? (
+      {lightboxSources?.length ? (
         <FsLightbox
           toggler={lightboxController.toggler}
           sourceIndex={lightboxController.sourceIndex}
-          sources={lighboxItems}
+          sources={lightboxSources}
         />
       ) : null}
     </div>
   )
 }
-
-export default Carousel
