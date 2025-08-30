@@ -1,45 +1,85 @@
+'use client'
+
+import { Loader } from '@/shared/components/Loader'
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger
 } from '@/shared/components/ui/tabs'
-import { useTranslations } from 'next-intl'
-import { CabinSection } from './CabinSection'
-import { ContactSection } from './ContactSection'
-import { HomeSection } from './HomeSection'
-import { YurtSection } from './YurtSection'
+import { cn } from '@/shared/utils/tailwind'
+import dynamic from 'next/dynamic'
+import { useState } from 'react'
 
-const TAB_VALUES = {
-  home: 'home',
-  yurt: 'yurt',
-  cabin: 'cabin',
-  contact: 'contact'
-}
+const HomeSection = dynamic(
+  () => import('./HomeSection').then(m => ({ default: m.HomeSection })),
+  {
+    loading: () => <Loader />
+  }
+)
+
+const YurtSection = dynamic(
+  () => import('./YurtSection').then(m => ({ default: m.YurtSection })),
+  {
+    loading: () => <Loader />
+  }
+)
+
+const CabinSection = dynamic(
+  () => import('./CabinSection').then(m => ({ default: m.CabinSection })),
+  {
+    loading: () => <Loader />
+  }
+)
+
+const ContactSection = dynamic(
+  () => import('./ContactSection').then(m => ({ default: m.ContactSection })),
+  {
+    loading: () => <Loader />
+  }
+)
 
 export const AdminTabs = () => {
-  const tCommon = useTranslations('Common')
+  const [activeTab, setActiveTab] = useState('home')
+
+  const handleTabChange = (value: string) => {
+    setActiveTab(value)
+  }
 
   return (
-    <Tabs defaultValue={TAB_VALUES.home}>
-      <TabsList className='mb-10 w-full'>
-        <TabsTrigger value={TAB_VALUES.home}>{tCommon('home')}</TabsTrigger>
-        <TabsTrigger value={TAB_VALUES.yurt}>{tCommon('yurt')}</TabsTrigger>
-        <TabsTrigger value={TAB_VALUES.cabin}>{tCommon('cabin')}</TabsTrigger>
-        <TabsTrigger value={TAB_VALUES.contact}>
-          {tCommon('contact')}
-        </TabsTrigger>
+    <Tabs value={activeTab} onValueChange={handleTabChange} className='w-full'>
+      <TabsList className='grid w-full grid-cols-4'>
+        <TabsTrigger value='home'>Home</TabsTrigger>
+        <TabsTrigger value='yurt'>Yourte</TabsTrigger>
+        <TabsTrigger value='cabin'>Cabane</TabsTrigger>
+        <TabsTrigger value='contact'>Contact</TabsTrigger>
       </TabsList>
-      <TabsContent value={TAB_VALUES.home}>
+
+      <TabsContent
+        value='home'
+        className={cn({ hidden: activeTab !== 'home' })}
+      >
         <HomeSection />
       </TabsContent>
-      <TabsContent value={TAB_VALUES.yurt}>
+
+      <TabsContent
+        value='yurt'
+        className={cn({ hidden: activeTab !== 'yurt' })}
+      >
         <YurtSection />
       </TabsContent>
-      <TabsContent value={TAB_VALUES.cabin}>
+
+      <TabsContent
+        value='cabin'
+        className={cn({ hidden: activeTab !== 'cabin' })}
+      >
         <CabinSection />
       </TabsContent>
-      <TabsContent value={TAB_VALUES.contact}>
+
+      <TabsContent
+        value='contact'
+        className={cn({ hidden: activeTab !== 'contact' })}
+      >
         <ContactSection />
       </TabsContent>
     </Tabs>

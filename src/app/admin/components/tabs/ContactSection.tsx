@@ -1,3 +1,5 @@
+'use client'
+
 import { AddressInformationSection } from '@/features/address/AddressInformationSection'
 import { OpeningHoursSection } from '@/features/openingHours/OpeningHoursSection'
 import { Heading } from '@/shared/components/Heading'

@@ -2,6 +2,7 @@ import { API_ROUTES } from '@/shared/_constants/api'
 import { env } from '@/shared/lib/env'
 import { UploadedImage, UploadImageCategoryKeyEnum } from '../_types'
 
+// Generic function to get uploaded images by category
 export const getUploadedImagesByCategory = async (
   category: UploadImageCategoryKeyEnum
 ): Promise<UploadedImage[]> => {
@@ -25,3 +26,13 @@ export const getUploadedImagesByCategory = async (
     throw new Error(`Failed to fetch uploaded images data. ${error}`)
   }
 }
+
+// Specific functions for each category
+export const getHomeSliderImages = () =>
+  getUploadedImagesByCategory(UploadImageCategoryKeyEnum.HomeSlider)
+
+export const getYurtSliderImages = () =>
+  getUploadedImagesByCategory(UploadImageCategoryKeyEnum.YurtSlider)
+
+export const getCabinSliderImages = () =>
+  getUploadedImagesByCategory(UploadImageCategoryKeyEnum.CabinSlider)
