@@ -1,3 +1,5 @@
+'use client'
+
 import { Cabin } from '@/features/accommodations/cabin/Cabin'
 import { Heading } from '@/shared/components/Heading'
 import { useTranslations } from 'next-intl'

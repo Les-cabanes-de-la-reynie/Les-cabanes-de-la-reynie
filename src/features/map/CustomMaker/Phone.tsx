@@ -4,7 +4,7 @@ import { IconContainer } from '@/shared/components/IconContainer'
 import { PhoneIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { FRENCH_PHONE_CODE } from '../const'
+import { FRENCH_PHONE_CODE } from '../_const'
 
 type PhoneProps = { address: Address }
 

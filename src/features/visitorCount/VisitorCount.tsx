@@ -2,19 +2,19 @@
 
 import { isSameDay } from 'date-fns/isSameDay'
 import { useCallback, useEffect } from 'react'
+import { LAST_VISIT_LS_KEY } from './_const'
 import { updateVisitorCount } from './infrastructure/updateVisitorCount'
-import { LAST_VISIT_KEY } from './types'
 
 export const VisitorCount = () => {
   const handleVisitorCount = useCallback(async () => {
     try {
-      const lastVisitDate = localStorage.getItem(LAST_VISIT_KEY)
+      const lastVisitDate = localStorage.getItem(LAST_VISIT_LS_KEY)
       const now = Date.now()
 
       if (!lastVisitDate) {
         // First visit
         const newDate = now.toString()
-        localStorage.setItem(LAST_VISIT_KEY, newDate)
+        localStorage.setItem(LAST_VISIT_LS_KEY, newDate)
         // API call not blocking (no await)
         updateVisitorCount(null).catch(console.error)
         return
@@ -24,7 +24,7 @@ export const VisitorCount = () => {
 
       if (!isVisitedToday) {
         const newDate = now.toString()
-        localStorage.setItem(LAST_VISIT_KEY, newDate)
+        localStorage.setItem(LAST_VISIT_LS_KEY, newDate)
         // API call not blocking (no await)
         updateVisitorCount(lastVisitDate).catch(console.error)
       }

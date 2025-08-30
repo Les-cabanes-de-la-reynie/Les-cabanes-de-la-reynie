@@ -8,7 +8,7 @@ import { Progress } from '@/shared/components/ui/progress'
 import dynamic from 'next/dynamic'
 import { useCallback, useEffect, useState } from 'react'
 import { CarouselHeader } from './CarouselHeader'
-import { CarouselProps } from './types'
+import { CarouselProps } from './_types'
 
 const FsLightbox = dynamic(() => import('fslightbox-react'), {
   ssr: false

@@ -1,3 +1,5 @@
+'use client'
+
 import { HomeUploadedImages } from '@/features/home/HomeUploadedImages'
 import { VisitorTotalCount } from '@/features/visitorCount/VisitorTotalCount'
 import { Heading } from '@/shared/components/Heading'

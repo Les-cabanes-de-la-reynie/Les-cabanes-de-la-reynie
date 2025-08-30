@@ -1,10 +1,23 @@
 import { queryOptions } from '@tanstack/react-query'
-import { UPLOADED_IMAGES_QUERY_KEY } from '../_const'
+import { getUploadedImagesQueryKey } from '../_const'
 import { UploadImageCategoryKeyEnum } from '../_types'
-import { getUploadedImagesByCategory } from './getUploadedImagesByCategory'
+import {
+  getCabinSliderImages,
+  getHomeSliderImages,
+  getYurtSliderImages
+} from './getUploadedImagesByCategory'
 
-export const getUploadedImagesByCategoryOption = queryOptions({
-  queryKey: [UPLOADED_IMAGES_QUERY_KEY],
-  queryFn: ({ meta }) =>
-    getUploadedImagesByCategory(meta?.category as UploadImageCategoryKeyEnum)
+export const getHomeSliderImagesOptions = queryOptions({
+  queryKey: getUploadedImagesQueryKey(UploadImageCategoryKeyEnum.HomeSlider),
+  queryFn: getHomeSliderImages
+})
+
+export const getYurtSliderImagesOptions = queryOptions({
+  queryKey: getUploadedImagesQueryKey(UploadImageCategoryKeyEnum.YurtSlider),
+  queryFn: getYurtSliderImages
+})
+
+export const getCabinSliderImagesOptions = queryOptions({
+  queryKey: getUploadedImagesQueryKey(UploadImageCategoryKeyEnum.CabinSlider),
+  queryFn: getCabinSliderImages
 })

@@ -1,6 +1,6 @@
 'use client'
 
-import { ThemeMode } from '@/features/theme/types'
+import { ThemeMode } from '@/features/theme/_types'
 import { APP_ICON_SIZE_CLASSNAME } from '@/shared/_constants/className'
 import { IconContainer } from '@/shared/components/IconContainer'
 import { TextWithSkewBackgroundColor } from '@/shared/components/TextWithSkewBackgroundColor'

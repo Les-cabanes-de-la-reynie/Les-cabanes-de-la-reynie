@@ -4,7 +4,7 @@ import MarkerIcon from 'leaflet/dist/images/marker-icon.png'
 import MarkerShadow from 'leaflet/dist/images/marker-shadow.png'
 import { PropsWithChildren, useEffect, useRef } from 'react'
 import { Marker, Popup } from 'react-leaflet'
-import { ESTABLISHMENT_POSITION } from '../const'
+import { ESTABLISHMENT_POSITION } from '../_const'
 
 Icon.Default.mergeOptions({
   iconRetinaUrl: MarkerIcon2X.src,

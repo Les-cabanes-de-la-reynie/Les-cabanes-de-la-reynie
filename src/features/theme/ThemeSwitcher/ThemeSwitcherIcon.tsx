@@ -1,6 +1,6 @@
 import { APP_ICON_SIZE_CLASSNAME } from '@/shared/_constants/className'
 import { MoonIcon, SunIcon } from 'lucide-react'
-import { ThemeMode } from '../types'
+import { ThemeMode } from '../_types'
 
 type ThemeSwitcherIconProps = { theme?: string }
 

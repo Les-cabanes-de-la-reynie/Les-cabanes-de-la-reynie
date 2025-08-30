@@ -5,7 +5,7 @@ import 'leaflet/dist/leaflet.css'
 import { AlertCircleIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { MapContainer, TileLayer } from 'react-leaflet'
-import { ESTABLISHMENT_POSITION, MAP_URL } from './const'
+import { ESTABLISHMENT_POSITION, MAP_URL } from './_const'
 import { CustomMarker } from './CustomMaker/CustomMaker'
 import { ItineraryAlertDialog } from './CustomMaker/ItineraryAlertDialog'
 

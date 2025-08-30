@@ -1,3 +1,5 @@
+'use client'
+
 import { Yurt } from '@/features/accommodations/yurt/Yurt'
 import { Heading } from '@/shared/components/Heading'
 import { useTranslations } from 'next-intl'

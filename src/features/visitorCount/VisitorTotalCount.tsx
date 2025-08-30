@@ -1,9 +1,14 @@
+'use client'
+
 import { Heading } from '@/shared/components/Heading'
 import { P } from '@/shared/components/P'
-import { getVisitorCount } from './infrastructure/getVisitorCount'
+import { useQuery } from '@tanstack/react-query'
+import { getVisitorCountOptions } from './infrastructure/getVisitorCountOptions'
 
-export const VisitorTotalCount = async () => {
-  const visitorCount = await getVisitorCount()
+export const VisitorTotalCount = () => {
+  const { data: visitorCount = 0, isLoading } = useQuery(getVisitorCountOptions)
+
+  if (isLoading) return <P>Chargement des visiteurs...</P>
 
   return (
     <>
