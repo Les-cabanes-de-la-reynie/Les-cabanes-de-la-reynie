@@ -27,7 +27,7 @@ const Home = () => {
           fill
           sizes='100vw'
           className='object-cover'
-          priority
+          priority={true}
         />
       </HeroBanner>
 

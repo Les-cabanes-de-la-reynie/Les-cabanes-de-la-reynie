@@ -2,7 +2,7 @@ import { getSessionCookie } from 'better-auth/cookies'
 import { NextRequest, NextResponse } from 'next/server'
 import { PAGE_ROUTES } from './shared/_constants/page'
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const sessionCookie = getSessionCookie(request, {})
 
   if (request.nextUrl.pathname === PAGE_ROUTES.admin.signIn && sessionCookie) {

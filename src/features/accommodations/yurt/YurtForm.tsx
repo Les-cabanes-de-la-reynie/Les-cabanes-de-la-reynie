@@ -15,8 +15,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
-import * as z from 'zod'
-import { YurtSchema } from './YurtSchema'
+import { YurtFormInput, YurtFormOutput, YurtSchema } from './YurtSchema'
 import { YURT_FIELDS } from './_const'
 import { useUpdateYurt } from './hooks/useUpdateYurt'
 import { getYurtOptions } from './infrastructure/getYurtOptions'
@@ -30,13 +29,16 @@ export const YurtForm = () => {
 
   const [isEdit, handleToggleEdit] = useToggle(false)
 
-  const form = useForm<z.infer<typeof YurtSchema>>({
+  const form = useForm<YurtFormInput>({
     resolver: zodResolver(YurtSchema),
-    defaultValues: yurt,
+    defaultValues: {
+      price: yurt?.price ?? 0
+    },
     disabled: !isEdit
   })
 
-  const onSubmit = (data: z.infer<typeof YurtSchema>) => {
+  const onSubmit = (raw: YurtFormInput) => {
+    const data: YurtFormOutput = YurtSchema.parse(raw)
     updateYurtMutation(data)
 
     handleToggleEdit()

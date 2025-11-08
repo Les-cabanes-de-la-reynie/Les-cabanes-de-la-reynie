@@ -1,15 +1,15 @@
 import { Icon } from 'leaflet'
-import MarkerIcon2X from 'leaflet/dist/images/marker-icon-2x.png'
-import MarkerIcon from 'leaflet/dist/images/marker-icon.png'
-import MarkerShadow from 'leaflet/dist/images/marker-shadow.png'
 import { PropsWithChildren, useEffect, useRef } from 'react'
 import { Marker, Popup } from 'react-leaflet'
 import { ESTABLISHMENT_POSITION } from '../_const'
 
-Icon.Default.mergeOptions({
-  iconRetinaUrl: MarkerIcon2X.src,
-  iconUrl: MarkerIcon.src,
-  shadowUrl: MarkerShadow.src
+// Custom icon configuration
+const customIcon = new Icon({
+  iconUrl: '/map-pin.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
 })
 
 export const CustomMarker = ({ children }: PropsWithChildren) => {
@@ -22,7 +22,7 @@ export const CustomMarker = ({ children }: PropsWithChildren) => {
   }, [])
 
   return (
-    <Marker ref={markerRef} position={ESTABLISHMENT_POSITION}>
+    <Marker ref={markerRef} position={ESTABLISHMENT_POSITION} icon={customIcon}>
       <Popup>{children}</Popup>
     </Marker>
   )
