@@ -5,4 +5,3 @@ export const CabinSchema = z.object({
 })
 
 export type CabinFormInput = z.input<typeof CabinSchema>
-export type CabinFormOutput = z.output<typeof CabinSchema>

@@ -2,7 +2,6 @@
 
 import {
   CabinFormInput,
-  CabinFormOutput,
   CabinSchema
 } from '@/features/accommodations/cabin/CabinSchema'
 import { EditableButtons } from '@/shared/components/editableButtons/EditableButtons'
@@ -27,7 +26,7 @@ import { getCabinOptions } from './infrastructure/getCabinOptions'
 export const CabinForm = () => {
   const t = useTranslations('Common')
 
-  const { data: cabin } = useSuspenseQuery(getCabinOptions)
+  const { data: cabinData } = useSuspenseQuery(getCabinOptions)
 
   const { updateCabinMutation, isPending } = useUpdateCabin()
 
@@ -36,13 +35,12 @@ export const CabinForm = () => {
   const form = useForm<CabinFormInput>({
     resolver: zodResolver(CabinSchema),
     defaultValues: {
-      price: cabin?.price ?? 0
+      price: cabinData?.price ?? 0
     },
     disabled: !isEdit
   })
 
-  const onSubmit = (raw: CabinFormInput) => {
-    const data: CabinFormOutput = CabinSchema.parse(raw)
+  const onSubmit = (data: CabinFormInput) => {
     updateCabinMutation(data)
     handleToggleEdit()
   }
@@ -57,7 +55,11 @@ export const CabinForm = () => {
             <FormItem>
               <FormLabel>{t('price')}</FormLabel>
               <FormControl>
-                <Input type='number' {...field} />
+                <Input
+                  type='number'
+                  {...field}
+                  onChange={e => field.onChange(e.target.valueAsNumber)}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

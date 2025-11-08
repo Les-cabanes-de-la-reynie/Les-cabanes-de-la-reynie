@@ -5,4 +5,3 @@ export const YurtSchema = z.object({
 })
 
 export type YurtFormInput = z.input<typeof YurtSchema>
-export type YurtFormOutput = z.output<typeof YurtSchema>
