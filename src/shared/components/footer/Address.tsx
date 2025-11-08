@@ -4,11 +4,8 @@ import { getAddressOptions } from '@/features/address/infrastructure/getAddressO
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { formatPhoneNumber } from '@/shared/utils/formats'
 import { useSuspenseQuery } from '@tanstack/react-query'
-import { useTranslations } from 'next-intl'
 
 export const Address = () => {
-  const tFooter = useTranslations('Footer')
-
   const { data: address } = useSuspenseQuery(getAddressOptions)
 
   return (
@@ -45,7 +42,7 @@ export const Address = () => {
 
       <div itemProp='email'>
         <a href={`mailto:${address.email}`} className='underline italic'>
-          {tFooter('sendAnEmail')}
+          {address.email}
         </a>
       </div>
     </address>

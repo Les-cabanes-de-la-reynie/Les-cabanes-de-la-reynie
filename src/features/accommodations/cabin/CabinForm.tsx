@@ -1,6 +1,9 @@
 'use client'
 
-import { CabinSchema } from '@/features/accommodations/cabin/CabinSchema'
+import {
+  CabinFormInput,
+  CabinSchema
+} from '@/features/accommodations/cabin/CabinSchema'
 import { EditableButtons } from '@/shared/components/editableButtons/EditableButtons'
 import {
   Form,
@@ -17,28 +20,28 @@ import { useSuspenseQuery } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { CABIN_FIELDS } from './_const'
-import { Cabin } from './_types'
 import { useUpdateCabin } from './hooks/useUpdateCabin'
 import { getCabinOptions } from './infrastructure/getCabinOptions'
 
 export const CabinForm = () => {
   const t = useTranslations('Common')
 
-  const { data: cabin } = useSuspenseQuery(getCabinOptions)
+  const { data: cabinData } = useSuspenseQuery(getCabinOptions)
 
   const { updateCabinMutation, isPending } = useUpdateCabin()
 
   const [isEdit, handleToggleEdit] = useToggle(false)
 
-  const form = useForm<Cabin>({
+  const form = useForm<CabinFormInput>({
     resolver: zodResolver(CabinSchema),
-    defaultValues: cabin,
+    defaultValues: {
+      price: cabinData?.price ?? 0
+    },
     disabled: !isEdit
   })
 
-  const onSubmit = (data: Cabin) => {
+  const onSubmit = (data: CabinFormInput) => {
     updateCabinMutation(data)
-
     handleToggleEdit()
   }
 
@@ -52,7 +55,11 @@ export const CabinForm = () => {
             <FormItem>
               <FormLabel>{t('price')}</FormLabel>
               <FormControl>
-                <Input type='number' {...field} />
+                <Input
+                  type='number'
+                  {...field}
+                  onChange={e => field.onChange(e.target.valueAsNumber)}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

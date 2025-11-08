@@ -3,7 +3,7 @@ import { z } from 'zod'
 import { UploadImageCategoryKeyEnum } from './_types'
 
 export const GetUploadedImagesSchema = z.object({
-  category: z.nativeEnum(UploadImageCategoryKeyEnum)
+  category: z.enum(UploadImageCategoryKeyEnum)
 })
 
 export const UploadImageSchema = z.object({
@@ -11,7 +11,7 @@ export const UploadImageSchema = z.object({
   url: z.string().refine(validator.isURL, {
     message: 'URL invalide'
   }),
-  category: z.nativeEnum(UploadImageCategoryKeyEnum)
+  category: z.enum(UploadImageCategoryKeyEnum)
 })
 
 export const DeleteUploadedImageSchema = z.object({

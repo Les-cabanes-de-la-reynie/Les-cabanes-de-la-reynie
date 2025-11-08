@@ -13,9 +13,9 @@ import {
 } from '@/shared/lib/auth-api-middleware'
 import prisma from '@/shared/lib/prisma'
 import { utapi } from '@/shared/lib/utapiUploadthing'
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
-export const GET = async (request: AuthenticatedRequest) => {
+export const GET = async (request: NextRequest) => {
   const { searchParams } = new URL(request.url)
   const category = searchParams.get('category')
 
@@ -27,7 +27,7 @@ export const GET = async (request: AuthenticatedRequest) => {
     return new NextResponse(
       JSON.stringify({
         error: 'Validation failed',
-        details: validationResult.error.errors
+        details: validationResult.error.message
       }),
       {
         status: 400,
@@ -72,7 +72,7 @@ export const POST = withAuth(async (request: AuthenticatedRequest) => {
       return new NextResponse(
         JSON.stringify({
           error: 'Validation failed',
-          details: validationResult.error.errors
+          details: validationResult.error.message
         }),
         {
           status: 400,
@@ -128,7 +128,7 @@ export const DELETE = withAuth(async (request: AuthenticatedRequest) => {
       return new NextResponse(
         JSON.stringify({
           error: 'Validation failed',
-          details: validationResult.error.errors
+          details: validationResult.error.message
         }),
         {
           status: 400,

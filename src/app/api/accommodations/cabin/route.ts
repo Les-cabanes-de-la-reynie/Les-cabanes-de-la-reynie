@@ -42,7 +42,7 @@ export const PUT = withAuth(async (request: AuthenticatedRequest) => {
       return new NextResponse(
         JSON.stringify({
           error: 'Validation failed',
-          details: validationResult.error.errors
+          details: validationResult.error.message
         }),
         {
           status: 400,

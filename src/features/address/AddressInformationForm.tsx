@@ -106,7 +106,12 @@ export const AddressInformationForm = ({
             <FormItem>
               <FormLabel>{tCommon('phone')} *</FormLabel>
               <FormControl>
-                <Input type='number' required {...field} />
+                <Input
+                  type='number'
+                  required
+                  {...field}
+                  onChange={e => field.onChange(e.target.valueAsNumber)}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
