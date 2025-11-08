@@ -14,7 +14,7 @@ const Home = () => {
   const tHome = useTranslations('Home')
 
   return (
-    <div className='w-full lg:-mt-[4.5rem]'>
+    <div className='w-full lg:-mt-18'>
       <HeroBanner
         title={ESTABLISHMENT_TITLE}
         className='select-none relative'
