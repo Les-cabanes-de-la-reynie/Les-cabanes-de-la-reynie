@@ -6,7 +6,7 @@ import {
 } from '@/shared/components/ui/carousel'
 import { Progress } from '@/shared/components/ui/progress'
 import dynamic from 'next/dynamic'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CarouselHeader } from './CarouselHeader'
 import { CarouselProps } from './_types'
 
@@ -23,18 +23,15 @@ export const AppCarousel = ({
   const [emblaApi, setEmblaApi] = useState<CarouselApi>()
   const [scrollProgress, setScrollProgress] = useState(0)
 
-  const onScroll = useCallback(
-    (emblaApi: CarouselApi) => {
-      if (emblaApi) {
-        const progress = Math.trunc(emblaApi.scrollProgress() * 100)
+  const onScroll = (emblaApi: CarouselApi) => {
+    if (emblaApi) {
+      const progress = Math.trunc(emblaApi.scrollProgress() * 100)
 
-        if (progress !== scrollProgress) {
-          setScrollProgress(progress)
-        }
+      if (progress !== scrollProgress) {
+        setScrollProgress(progress)
       }
-    },
-    [scrollProgress]
-  )
+    }
+  }
 
   useEffect(() => {
     if (!emblaApi) return
@@ -71,7 +68,7 @@ export const AppCarousel = ({
       {lightboxSources?.length ? (
         <FsLightbox
           toggler={lightboxController.toggler}
-          sourceIndex={lightboxController.sourceIndex}
+          slide={lightboxController.sourceIndex + 1}
           sources={lightboxSources}
         />
       ) : null}

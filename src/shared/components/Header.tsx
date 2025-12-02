@@ -4,7 +4,7 @@ import { PAGE_ROUTES } from '@/shared/_constants/page'
 import { Container } from '@/shared/components/Container'
 import { cn } from '@/shared/utils/tailwind'
 import { usePathname } from 'next/navigation'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Navbar } from './navbar/Navbar'
 
 const CONFIG = {
@@ -28,9 +28,9 @@ export const Header = () => {
   const isHomePage = pathname === PAGE_ROUTES.home
   const isAtTop = scrollY <= CONFIG.SCROLL_Y_LIMIT
 
-  const handleScroll = useCallback(() => {
+  const handleScroll = () => {
     setScrollY(window.scrollY)
-  }, [])
+  }
 
   useEffect(() => {
     let ticking = false
