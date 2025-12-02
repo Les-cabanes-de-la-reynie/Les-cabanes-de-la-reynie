@@ -1,12 +1,12 @@
 'use client'
 
 import { isSameDay } from 'date-fns/isSameDay'
-import { useCallback, useEffect } from 'react'
+import { useEffect } from 'react'
 import { LAST_VISIT_LS_KEY } from './_const'
 import { updateVisitorCount } from './infrastructure/updateVisitorCount'
 
 export const VisitorCount = () => {
-  const handleVisitorCount = useCallback(async () => {
+  const handleVisitorCount = async () => {
     try {
       const lastVisitDate = localStorage.getItem(LAST_VISIT_LS_KEY)
       const now = Date.now()
@@ -31,7 +31,7 @@ export const VisitorCount = () => {
     } catch (error) {
       console.error('Error in VisitorCount:', error)
     }
-  }, [])
+  }
 
   useEffect(() => {
     const scheduleVisitorCount = () => {

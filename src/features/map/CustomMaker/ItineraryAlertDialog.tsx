@@ -11,7 +11,7 @@ import {
 } from '@/shared/components/ui/alert-dialog'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 import { Itinerary } from './Itinerary'
 
@@ -29,64 +29,52 @@ export const ItineraryAlertDialog = () => {
     setIsLoading(false)
   }
 
-  const errorFunction = useCallback(
-    (error: GeolocationPositionError) => {
-      setIsLoading(false)
+  const errorFunction = (error: GeolocationPositionError) => {
+    setIsLoading(false)
 
-      switch (error.code) {
-        case error.PERMISSION_DENIED:
-          toast.error(tContact('geoLocationPermissionDenied'), {
-            action: {
-              label: tCommon('close'),
-              onClick: () => toast.dismiss()
-            },
-            duration: Infinity
-          })
-          break
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        toast.error(tContact('geoLocationPermissionDenied'), {
+          action: {
+            label: tCommon('close'),
+            onClick: () => toast.dismiss()
+          },
+          duration: Infinity
+        })
+        break
 
-        case error.POSITION_UNAVAILABLE:
-          toast.error(
-            tContact('geoLocationPermissionDeniedButtonDescription'),
-            {
-              action: {
-                label: tContact('geoLocationPermissionDeniedButton'),
-                onClick: () => toast.dismiss()
-              },
-              duration: Infinity
-            }
-          )
-          break
+      case error.POSITION_UNAVAILABLE:
+        toast.error(tContact('geoLocationPermissionDeniedButtonDescription'), {
+          action: {
+            label: tContact('geoLocationPermissionDeniedButton'),
+            onClick: () => toast.dismiss()
+          },
+          duration: Infinity
+        })
+        break
 
-        case error.TIMEOUT:
-          toast.error(
-            tContact('geoLocationPermissionDeniedButtonDescription'),
-            {
-              action: {
-                label: tContact('geoLocationPermissionDeniedButton'),
-                onClick: () => toast.dismiss()
-              },
-              duration: Infinity
-            }
-          )
-          break
+      case error.TIMEOUT:
+        toast.error(tContact('geoLocationPermissionDeniedButtonDescription'), {
+          action: {
+            label: tContact('geoLocationPermissionDeniedButton'),
+            onClick: () => toast.dismiss()
+          },
+          duration: Infinity
+        })
+        break
 
-        default:
-          toast.error(
-            tContact('geoLocationPermissionDeniedButtonDescription'),
-            {
-              action: {
-                label: tCommon('close'),
-                onClick: () => toast.dismiss()
-              },
-              duration: Infinity
-            }
-          )
-      }
-    },
-    [tContact, tCommon]
-  )
+      default:
+        toast.error(tContact('geoLocationPermissionDeniedButtonDescription'), {
+          action: {
+            label: tCommon('close'),
+            onClick: () => toast.dismiss()
+          },
+          duration: Infinity
+        })
+    }
+  }
 
-  const getUserLocation = useCallback(() => {
+  const getUserLocation = () => {
     if ('geolocation' in navigator) {
       setIsLoading(true)
       navigator.geolocation.getCurrentPosition(successFunction, errorFunction, {
@@ -103,7 +91,7 @@ export const ItineraryAlertDialog = () => {
         duration: Infinity
       })
     }
-  }, [tContact, tCommon, errorFunction])
+  }
 
   // Watch for changes in geolocation permission
   useEffect(() => {

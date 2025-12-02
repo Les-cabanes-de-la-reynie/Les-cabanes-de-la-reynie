@@ -2,6 +2,7 @@ import { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
 
 const nextConfig: NextConfig = {
+  reactCompiler: true,
   images: {
     remotePatterns: [
       // images from uploadthings
