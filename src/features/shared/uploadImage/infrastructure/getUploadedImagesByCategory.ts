@@ -2,7 +2,7 @@ import { API_ROUTES } from '@/shared/_constants/api'
 import { env } from '@/shared/lib/env'
 import { UploadedImage, UploadImageCategoryKeyEnum } from '../_types'
 
-// Generic function to get uploaded images by category
+// Client-side function using API (for React Query)
 export const getUploadedImagesByCategory = async (
   category: UploadImageCategoryKeyEnum
 ): Promise<UploadedImage[]> => {
@@ -27,7 +27,7 @@ export const getUploadedImagesByCategory = async (
   }
 }
 
-// Specific functions for each category
+// Specific functions for each category (client-side)
 export const getHomeSliderImages = () =>
   getUploadedImagesByCategory(UploadImageCategoryKeyEnum.HomeSlider)
 

@@ -1,21 +1,50 @@
 import { getSessionCookie } from 'better-auth/cookies'
+import createIntlMiddleware from 'next-intl/middleware'
 import { NextRequest, NextResponse } from 'next/server'
+import { routing } from './i18n/routing'
 import { PAGE_ROUTES } from './shared/_constants/page'
 
-export async function proxy(request: NextRequest) {
+const intlMiddleware = createIntlMiddleware(routing)
+
+export default async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl
+
+  // Handle admin authentication
   const sessionCookie = getSessionCookie(request, {})
 
-  if (request.nextUrl.pathname === PAGE_ROUTES.admin.signIn && sessionCookie) {
-    return NextResponse.redirect(new URL(PAGE_ROUTES.admin.home, request.url))
+  // Check if it's an admin route (with or without locale prefix)
+  const isAdminSignIn =
+    pathname.includes(PAGE_ROUTES.admin.signIn) ||
+    pathname.endsWith('/admin/auth/sign-in')
+  const isAdminHome =
+    pathname.endsWith('/admin') || pathname.match(/\/[a-z]{2}\/admin$/)
+
+  if (isAdminSignIn && sessionCookie) {
+    const locale = pathname.split('/')[1]
+    
+    const redirectUrl =
+      locale && routing.locales.includes(locale as 'fr' | 'en')
+        ? `/${locale}${PAGE_ROUTES.admin.home}`
+        : PAGE_ROUTES.admin.home
+    return NextResponse.redirect(new URL(redirectUrl, request.url))
   }
 
-  if (request.nextUrl.pathname === PAGE_ROUTES.admin.home && !sessionCookie) {
-    return NextResponse.redirect(new URL(PAGE_ROUTES.admin.signIn, request.url))
+  if (isAdminHome && !sessionCookie) {
+    const locale = pathname.split('/')[1]
+    const redirectUrl =
+      locale && routing.locales.includes(locale as 'fr' | 'en')
+        ? `/${locale}${PAGE_ROUTES.admin.signIn}`
+        : PAGE_ROUTES.admin.signIn
+    return NextResponse.redirect(new URL(redirectUrl, request.url))
   }
 
-  return NextResponse.next()
+  // Handle internationalization
+  return intlMiddleware(request)
 }
 
 export const config = {
-  matcher: ['/admin', '/admin/auth/sign-in']
+  // Match all pathnames except for
+  // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
+  // - … the ones containing a dot (e.g. `favicon.ico`)
+  matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)'
 }

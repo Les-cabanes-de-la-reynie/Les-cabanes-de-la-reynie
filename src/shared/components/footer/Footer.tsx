@@ -1,14 +1,14 @@
 import { FacebookIcon } from '@/assets/icons/socialMedia/FacebookIcon'
 import { InstagramIcon } from '@/assets/icons/socialMedia/InstagramIcon'
 import { LinkedInIcon } from '@/assets/icons/socialMedia/LinkedInIcon'
-import { getAddressOptions } from '@/features/address/infrastructure/getAddressOptions'
+import { getAddressServerOptions } from '@/features/address/infrastructure/getAddressServerOptions'
+import { Link } from '@/i18n/navigation'
 import { PAGE_ROUTES } from '@/shared/_constants/page'
 import { Container } from '@/shared/components/Container'
 import { Address } from '@/shared/components/footer/Address'
 import { getQueryClient } from '@/shared/lib/get-query-client'
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
 import { FollowUsItem } from './FollowUsItem'
 import { FooterCopyright } from './FooterCopyright'
 import { FooterHeading } from './FooterHeading'
@@ -19,7 +19,7 @@ export const Footer = () => {
   const tFooter = useTranslations('Footer')
 
   const queryClient = getQueryClient()
-  void queryClient.prefetchQuery(getAddressOptions)
+  void queryClient.prefetchQuery(getAddressServerOptions)
 
   const COMMON_ICON_CLASSNAME =
     'fill-card-foreground transition-colors hover:fill-primary h-7 w-7'

@@ -4,13 +4,13 @@ import { getQueryClient } from '@/shared/lib/get-query-client'
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 import { AddressInformation } from './AddressInformation'
-import { getAddressOptions } from './infrastructure/getAddressOptions'
+import { getAddressServerOptions } from './infrastructure/getAddressServerOptions'
 
 export const AddressInformationSection = () => {
   const tAdmin = useTranslations('Admin')
 
   const queryClient = getQueryClient()
-  void queryClient.prefetchQuery(getAddressOptions)
+  void queryClient.prefetchQuery(getAddressServerOptions)
 
   return (
     <section className='mb-8'>

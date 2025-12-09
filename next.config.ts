@@ -14,8 +14,14 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ['lucide-react']
+  },
+  // Show full error messages during build
+  logging: {
+    fetches: {
+      fullUrl: true
+    }
   }
 }
 
-const withNextIntl = createNextIntlPlugin('./src/features/i18n/request.ts')
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 export default withNextIntl(nextConfig)

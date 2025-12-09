@@ -1,12 +1,15 @@
+import { Link } from '@/i18n/navigation'
 import {
   NavigationMenuLink,
   navigationMenuTriggerStyle
 } from '@/shared/components/ui/navigation-menu'
 import { cn } from '@/shared/utils/tailwind'
-import Link from 'next/link'
-import { PropsWithChildren } from 'react'
+import { ComponentProps, PropsWithChildren } from 'react'
 
-type CustomLinkProps = PropsWithChildren & { href: string; isActive: boolean }
+type CustomLinkProps = PropsWithChildren & {
+  href: ComponentProps<typeof Link>['href']
+  isActive: boolean
+}
 
 export const CustomLink = ({ href, isActive, children }: CustomLinkProps) => {
   const navigationMenuLinkClasses = cn(

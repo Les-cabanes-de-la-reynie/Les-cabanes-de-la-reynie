@@ -2,6 +2,7 @@ import { API_ROUTES } from '@/shared/_constants/api'
 import { env } from '@/shared/lib/env'
 import { Cabin } from '../_types'
 
+// Client-side function using API (for React Query)
 export const getCabin = async (): Promise<Cabin> => {
   try {
     const response = await fetch(

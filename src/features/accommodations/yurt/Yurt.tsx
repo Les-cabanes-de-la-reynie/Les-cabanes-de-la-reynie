@@ -2,7 +2,7 @@ import { Heading } from '@/shared/components/Heading'
 import { Separator } from '@/shared/components/ui/separator'
 import { getQueryClient } from '@/shared/lib/get-query-client'
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
-import { getYurtOptions } from './infrastructure/getYurtOptions'
+import { getYurtServerOptions } from './infrastructure/getYurtServerOptions'
 import { YurtForm } from './YurtForm'
 import { YurtUploadedImages } from './YurtUploadedImages'
 
@@ -13,7 +13,7 @@ type YurtProps = {
 
 export const Yurt = ({ yurtFormTitle, yurtUploadImageTitle }: YurtProps) => {
   const queryClient = getQueryClient()
-  void queryClient.prefetchQuery(getYurtOptions)
+  void queryClient.prefetchQuery(getYurtServerOptions)
 
   return (
     <>

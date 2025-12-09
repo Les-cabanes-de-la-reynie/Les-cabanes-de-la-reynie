@@ -1,19 +1,29 @@
+import { Link } from '@/i18n/navigation'
 import { PAGE_ROUTES } from '@/shared/_constants/page'
 import { useTranslations } from 'next-intl'
+import { ComponentProps } from 'react'
 
-type NavigationLink = {
+type Href = ComponentProps<typeof Link>['href']
+
+type NavigationLinkWithUrl = {
   label: string
   description: string | null
-  url: string
+  url: Href
+}
+
+type NavigationLinkWithoutUrl = {
+  label: string
+  description: string | null
+  url?: undefined
 }
 
 export type NavigationLinks = {
-  home: NavigationLink
-  accommodations: NavigationLink
-  yurt: NavigationLink
-  cabin: NavigationLink
-  activities: NavigationLink
-  contact: NavigationLink
+  home: NavigationLinkWithUrl
+  accommodations: NavigationLinkWithoutUrl
+  yurt: NavigationLinkWithUrl
+  cabin: NavigationLinkWithUrl
+  activities: NavigationLinkWithUrl
+  contact: NavigationLinkWithUrl
 }
 
 export const useGetNavigationLinks = (): NavigationLinks => {
@@ -25,24 +35,27 @@ export const useGetNavigationLinks = (): NavigationLinks => {
     home: { label: tCommon('home'), description: null, url: PAGE_ROUTES.home },
     accommodations: {
       label: tCommon('accommodations'),
-      description: null,
-      url: ''
+      description: null
     },
     yurt: {
       label: tCommon('yurt'),
       description: tYurt('yurtP1'),
-      url: '/logements/yourte'
+      url: PAGE_ROUTES.accommodation.yurt
     },
     cabin: {
       label: tCommon('cabin'),
       description: tCabin('cabinP1'),
-      url: '/logements/cabane'
+      url: PAGE_ROUTES.accommodation.cabin
     },
     activities: {
       label: tCommon('activities'),
       description: null,
-      url: '/activites'
+      url: PAGE_ROUTES.activity.home
     },
-    contact: { label: tCommon('contact'), description: null, url: '/contact' }
+    contact: {
+      label: tCommon('contact'),
+      description: null,
+      url: PAGE_ROUTES.contact
+    }
   }
 }

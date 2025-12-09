@@ -1,8 +1,8 @@
+import { Link } from '@/i18n/navigation'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { PAGE_ROUTES } from '@/shared/_constants/page'
 import { ClassNameProps } from '@/shared/_types/components'
 import { cn } from '@/shared/utils/tailwind'
-import Link from 'next/link'
 
 type LogoProps = ClassNameProps & {
   onCloseMenu?: () => void
