@@ -15,4 +15,4 @@ export const PAGE_ROUTES = {
     signIn: '/admin/auth/sign-in',
     home: '/admin'
   }
-}
+} as const

@@ -2,6 +2,7 @@ import { API_ROUTES } from '@/shared/_constants/api'
 import { env } from '@/shared/lib/env'
 import { Yurt } from '../_types'
 
+// Client-side function using API (for React Query)
 export const getYurt = async (): Promise<Yurt> => {
   try {
     const response = await fetch(

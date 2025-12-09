@@ -2,6 +2,7 @@ import { API_ROUTES } from '@/shared/_constants/api'
 import { env } from '@/shared/lib/env'
 import { OpeningHoursData } from '../_types'
 
+// Client-side function using API (for React Query)
 export const getOpeningHours = async (): Promise<OpeningHoursData> => {
   try {
     const response = await fetch(

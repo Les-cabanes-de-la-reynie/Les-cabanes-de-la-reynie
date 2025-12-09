@@ -4,7 +4,7 @@ import { getQueryClient } from '@/shared/lib/get-query-client'
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { CabinForm } from './CabinForm'
 import { CabinUploadedImages } from './CabinUploadedImages'
-import { getCabinOptions } from './infrastructure/getCabinOptions'
+import { getCabinServerOptions } from './infrastructure/getCabinServerOptions'
 
 type CabinProps = {
   cabinFormTitle: string
@@ -16,7 +16,7 @@ export const Cabin = ({
   cabinUploadImageTitle
 }: CabinProps) => {
   const queryClient = getQueryClient()
-  void queryClient.prefetchQuery(getCabinOptions)
+  void queryClient.prefetchQuery(getCabinServerOptions)
 
   return (
     <>

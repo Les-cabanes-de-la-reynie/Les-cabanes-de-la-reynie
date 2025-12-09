@@ -1,3 +1,4 @@
+import { Link, useRouter } from '@/i18n/navigation'
 import { PAGE_ROUTES } from '@/shared/_constants/page'
 import { Button } from '@/shared/components/ui/button'
 import {
@@ -13,8 +14,6 @@ import { signOut } from '@/shared/lib/auth-client'
 import { User } from 'better-auth'
 import { Edit3Icon, LogOutIcon, UserIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 
 type ProfileContentProps = {
   user: User

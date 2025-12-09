@@ -1,6 +1,6 @@
 import { Profile } from '@/features/auth/Profile/Profile'
-import { LanguagesSwitcher } from '@/features/i18n/components/languagesSwitcher/LanguagesSwitcher'
 import { ThemeSwitcher } from '@/features/theme/ThemeSwitcher/ThemeSwitcher'
+import { LanguagesSwitcher } from '@/shared/components/languagesSwitcher/LanguagesSwitcher'
 import { useState } from 'react'
 import { Logo } from '../Logo'
 import { DesktopNavbarContent } from './DesktopNavbar/DesktopNavbarContent'

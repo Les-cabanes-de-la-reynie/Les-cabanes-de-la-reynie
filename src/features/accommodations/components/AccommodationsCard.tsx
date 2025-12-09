@@ -1,9 +1,10 @@
+import { Link } from '@/i18n/navigation'
 import { Heading } from '@/shared/components/Heading'
 import Image, { StaticImageData } from 'next/image'
-import Link from 'next/link'
+import { ComponentProps } from 'react'
 
 type AccommodationsCardProps = {
-  href: string
+  href: ComponentProps<typeof Link>['href']
   imageOnFront: StaticImageData
   imageOnHover: StaticImageData
   textContent: string

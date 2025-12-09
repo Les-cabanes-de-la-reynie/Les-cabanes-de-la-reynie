@@ -7,6 +7,7 @@ import {
   getYurtSliderImages
 } from './getUploadedImagesByCategory'
 
+// Client-side options (uses API fetch)
 export const getHomeSliderImagesOptions = queryOptions({
   queryKey: getUploadedImagesQueryKey(UploadImageCategoryKeyEnum.HomeSlider),
   queryFn: getHomeSliderImages
