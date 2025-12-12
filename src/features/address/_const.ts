@@ -1,5 +1,3 @@
-export const ADDRESS_QUERY_KEY = 'addressQueryKey'
-
 export const ADDRESS_FIELDS = {
   streetAddress: 'streetAddress',
   postalCode: 'postalCode',

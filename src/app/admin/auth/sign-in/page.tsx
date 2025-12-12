@@ -25,7 +25,6 @@ import {
 import { Input } from '@/shared/components/ui/input'
 import { signIn } from '@/shared/lib/auth-client'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -33,7 +32,6 @@ import * as z from 'zod'
 
 const SignIn = () => {
   const router = useRouter()
-  const tCommon = useTranslations('Common')
 
   const [isPending, startTransition] = useTransition()
 
@@ -58,17 +56,17 @@ const SignIn = () => {
           onSuccess: () => {
             router.push(PAGE_ROUTES.admin.home)
 
-            toast.success('Success ! You are now connected', {
+            toast.success('Vous êtes maintenant connecté', {
               action: {
-                label: tCommon('close'),
+                label: 'Fermer',
                 onClick: () => toast.dismiss()
               }
             })
           },
           onError: () => {
-            toast.error('There was an error during sign in.', {
+            toast.error("Une erreur s'est produite lors de la connexion.", {
               action: {
-                label: tCommon('close'),
+                label: 'Fermer',
                 onClick: () => toast.dismiss()
               }
             })

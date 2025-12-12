@@ -49,7 +49,7 @@ export const AdminTabs = () => {
   return (
     <Tabs value={activeTab} onValueChange={handleTabChange} className='w-full'>
       <TabsList className='grid w-full grid-cols-4'>
-        <TabsTrigger value='home'>Home</TabsTrigger>
+        <TabsTrigger value='home'>Accueil</TabsTrigger>
         <TabsTrigger value='yurt'>Yourte</TabsTrigger>
         <TabsTrigger value='cabin'>Cabane</TabsTrigger>
         <TabsTrigger value='contact'>Contact</TabsTrigger>
