@@ -3,9 +3,8 @@ import { AccommodationsHeader } from '@/features/accommodations/components/Accom
 import { AccommodationsHeaderContent } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderContent'
 import { AccommodationsHeaderImage } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderImage'
 import { AccommodationsPopover } from '@/features/accommodations/components/AccommodationsPopover'
-import { getYurtServerOptions } from '@/features/accommodations/yurt/infrastructure/getYurtServerOptions'
-import { YurtAccommodationSlider } from '@/features/accommodations/yurt/YurtAccommodationSlider'
-import { YurtPrice } from '@/features/accommodations/yurt/YurtPrice'
+import { YurtAccommodationSlider } from '@/features/accommodations/yurt/components/YurtAccommodationSlider'
+import { YurtPrice } from '@/features/accommodations/yurt/components/YurtPrice'
 import { PracticalInformation } from '@/features/shared/practicalInformation/PracticalInformation'
 import { routing } from '@/i18n/routing'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
@@ -14,8 +13,6 @@ import { Heading } from '@/shared/components/Heading'
 import { OurGourmetOffer } from '@/shared/components/ourGourmetOffer/OurGourmetOffer'
 import { P } from '@/shared/components/P'
 import { env } from '@/shared/lib/env'
-import { getQueryClient } from '@/shared/lib/get-query-client'
-import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { Metadata } from 'next'
 import { hasLocale } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
@@ -62,9 +59,6 @@ export default async function Yurt({ params }: Props) {
   const tCommon = await getTranslations('Common')
   const tYurt = await getTranslations('Yurt')
 
-  const queryClient = getQueryClient()
-  void queryClient.prefetchQuery(getYurtServerOptions)
-
   const bookList = [{ title: 'Airbnb', href: 'https://abnb.me/5guTmU7BBHb' }]
 
   return (
@@ -96,9 +90,7 @@ export default async function Yurt({ params }: Props) {
             {tCommon('price')}
           </Heading>
 
-          <HydrationBoundary state={dehydrate(queryClient)}>
-            <YurtPrice />
-          </HydrationBoundary>
+          <YurtPrice />
 
           <AccommodationsPopover bookList={bookList} />
         </AccommodationsHeaderContent>

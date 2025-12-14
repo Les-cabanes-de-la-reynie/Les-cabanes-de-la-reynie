@@ -1,5 +1,5 @@
 import { MapSection } from '@/features/map/MapSection'
-import { OpeningHoursSection } from '@/features/openingHours/OpeningHoursSection'
+import { OpeningHoursSection } from '@/features/openingHours/components/OpeningHoursSection'
 import { routing } from '@/i18n/routing'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { SEO } from '@/shared/_constants/SEO'

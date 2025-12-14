@@ -18,9 +18,9 @@ import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import * as z from 'zod'
-import { ADDRESS_FIELDS } from './_const'
-import { Address } from './_types'
-import { updateAddressInformation } from './infrastructure/actions/updateAddressInformation'
+import { ADDRESS_FIELDS } from '../_const'
+import { Address } from '../_types'
+import { updateAddressInformation } from '../infrastructure/actions/updateAddressInformation'
 
 type AddressInformationFormProps = {
   address: Address

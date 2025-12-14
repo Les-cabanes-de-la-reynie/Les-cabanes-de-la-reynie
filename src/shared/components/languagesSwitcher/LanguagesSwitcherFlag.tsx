@@ -1,5 +1,5 @@
-import { EnglishFlag } from '@/assets/svg/flags/EnglishFlag'
-import { FrenchFlag } from '@/assets/svg/flags/FrenchFlag'
+import { EnglishFlag } from '@/assets/icons/flags/EnglishFlag'
+import { FrenchFlag } from '@/assets/icons/flags/FrenchFlag'
 
 type LanguagesSwitcherFlagProps = {
   locale: string

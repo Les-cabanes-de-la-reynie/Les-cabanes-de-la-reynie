@@ -14,12 +14,6 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ['lucide-react']
-  },
-  // Show full error messages during build
-  logging: {
-    fetches: {
-      fullUrl: true
-    }
   }
 }
 

@@ -1,4 +1,4 @@
-import natureImage from '@/assets/svg/nature.svg'
+import natureImage from '@/assets/icons/nature.svg'
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
 import { P } from '@/shared/components/P'

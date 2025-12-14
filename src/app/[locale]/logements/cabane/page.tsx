@@ -1,7 +1,6 @@
 import headerImage from '@/assets/cabinAndYurt/cabin-header.webp'
-import { CabinAccommodationSlider } from '@/features/accommodations/cabin/CabinAccommodationSlider'
-import { CabinPrice } from '@/features/accommodations/cabin/CabinPrice'
-import { getCabinServerOptions } from '@/features/accommodations/cabin/infrastructure/getCabinServerOptions'
+import { CabinAccommodationSlider } from '@/features/accommodations/cabin/components/CabinAccommodationSlider'
+import { CabinPrice } from '@/features/accommodations/cabin/components/CabinPrice'
 import { AccommodationsHeader } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeader'
 import { AccommodationsHeaderContent } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderContent'
 import { AccommodationsHeaderImage } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderImage'
@@ -14,8 +13,6 @@ import { Heading } from '@/shared/components/Heading'
 import { OurGourmetOffer } from '@/shared/components/ourGourmetOffer/OurGourmetOffer'
 import { P } from '@/shared/components/P'
 import { env } from '@/shared/lib/env'
-import { getQueryClient } from '@/shared/lib/get-query-client'
-import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { Metadata } from 'next'
 import { hasLocale } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
@@ -62,9 +59,6 @@ export default async function Cabin({ params }: Props) {
   const tCommon = await getTranslations('Common')
   const tCabin = await getTranslations('Cabin')
 
-  const queryClient = getQueryClient()
-  void queryClient.prefetchQuery(getCabinServerOptions)
-
   const bookList = [{ title: 'Airbnb', href: 'https://abnb.me/z4L2e1aCBHb' }]
 
   return (
@@ -81,6 +75,7 @@ export default async function Cabin({ params }: Props) {
             priority
           />
         </AccommodationsHeaderImage>
+        
         <AccommodationsHeaderContent>
           <Heading level={1} className='mt-4 lg:mt-0'>
             {tCommon('cabin')}
@@ -96,9 +91,7 @@ export default async function Cabin({ params }: Props) {
             {tCommon('price')}
           </Heading>
 
-          <HydrationBoundary state={dehydrate(queryClient)}>
-            <CabinPrice />
-          </HydrationBoundary>
+          <CabinPrice />
 
           <AccommodationsPopover bookList={bookList} />
         </AccommodationsHeaderContent>

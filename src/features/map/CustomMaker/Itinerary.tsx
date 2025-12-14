@@ -1,18 +1,15 @@
 'use client'
 
-import { getAddressOptions } from '@/features/address/infrastructure/getAddressOptions'
 import { APP_ICON_SIZE_CLASSNAME } from '@/shared/_constants/className'
 import { IconContainer } from '@/shared/components/IconContainer'
 import { NavigationIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { getAddress } from '../../address/infrastructure/queries/getAddress';
+import { getAddress } from '../../address/infrastructure/queries/getAddress'
 
-export const Itinerary = () => {
+export const Itinerary = async () => {
   const tContact = useTranslations('Contact')
 
-  const address = await getAddress()
-
-  const { postalCode, city, country, streetAddress } = address
+  const { postalCode, city, country, streetAddress } = await getAddress()
 
   return (
     <div className='flex flex-col text-primary hover:underline'>

@@ -1,7 +1,7 @@
 import homeBannerImage from '@/assets/cabinAndYurt/home-banner.webp'
 import { AccommodationsCardList } from '@/features/accommodations/components/AccommodationsCardList'
 import { AccommodationsDescription } from '@/features/accommodations/components/AccommodationsDescription'
-import { HomeAccommodationSlider } from '@/features/accommodations/HomeAccommodationSlider'
+import { HomeAccommodationSlider } from '@/features/accommodations/components/HomeAccommodationSlider'
 import { routing } from '@/i18n/routing'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { Container } from '@/shared/components/Container'
