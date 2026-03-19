@@ -1,6 +1,5 @@
 'use client'
 
-import { Loader } from '@/shared/components/Loader'
 import {
   Tabs,
   TabsContent,
@@ -8,38 +7,21 @@ import {
   TabsTrigger
 } from '@/shared/components/ui/tabs'
 import { cn } from '@/shared/utils/tailwind'
-import dynamic from 'next/dynamic'
 import { useState } from 'react'
 
-const HomeSection = dynamic(
-  () => import('./HomeSection').then(m => ({ default: m.HomeSection })),
-  {
-    loading: () => <Loader />
-  }
-)
+type AdminTabsProps = {
+  homeContent: React.ReactNode
+  yurtContent: React.ReactNode
+  cabinContent: React.ReactNode
+  contactContent: React.ReactNode
+}
 
-const YurtSection = dynamic(
-  () => import('./YurtSection').then(m => ({ default: m.YurtSection })),
-  {
-    loading: () => <Loader />
-  }
-)
-
-const CabinSection = dynamic(
-  () => import('./CabinSection').then(m => ({ default: m.CabinSection })),
-  {
-    loading: () => <Loader />
-  }
-)
-
-const ContactSection = dynamic(
-  () => import('./ContactSection').then(m => ({ default: m.ContactSection })),
-  {
-    loading: () => <Loader />
-  }
-)
-
-export const AdminTabs = () => {
+export const AdminTabs = ({
+  homeContent,
+  yurtContent,
+  cabinContent,
+  contactContent
+}: AdminTabsProps) => {
   const [activeTab, setActiveTab] = useState('home')
 
   const handleTabChange = (value: string) => {
@@ -49,7 +31,7 @@ export const AdminTabs = () => {
   return (
     <Tabs value={activeTab} onValueChange={handleTabChange} className='w-full'>
       <TabsList className='grid w-full grid-cols-4'>
-        <TabsTrigger value='home'>Home</TabsTrigger>
+        <TabsTrigger value='home'>Accueil</TabsTrigger>
         <TabsTrigger value='yurt'>Yourte</TabsTrigger>
         <TabsTrigger value='cabin'>Cabane</TabsTrigger>
         <TabsTrigger value='contact'>Contact</TabsTrigger>
@@ -59,28 +41,28 @@ export const AdminTabs = () => {
         value='home'
         className={cn({ hidden: activeTab !== 'home' })}
       >
-        <HomeSection />
+        {homeContent}
       </TabsContent>
 
       <TabsContent
         value='yurt'
         className={cn({ hidden: activeTab !== 'yurt' })}
       >
-        <YurtSection />
+        {yurtContent}
       </TabsContent>
 
       <TabsContent
         value='cabin'
         className={cn({ hidden: activeTab !== 'cabin' })}
       >
-        <CabinSection />
+        {cabinContent}
       </TabsContent>
 
       <TabsContent
         value='contact'
         className={cn({ hidden: activeTab !== 'contact' })}
       >
-        <ContactSection />
+        {contactContent}
       </TabsContent>
     </Tabs>
   )

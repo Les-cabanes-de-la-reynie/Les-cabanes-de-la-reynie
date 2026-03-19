@@ -1,12 +1,11 @@
-'use client'
-
-import { useQuery } from '@tanstack/react-query'
 import { UploadImageCategoryKeyEnum } from '../shared/uploadImage/_types'
-import { getHomeSliderImagesOptions } from '../shared/uploadImage/infrastructure/getUploadedImagesByCategoryOption'
-import { UploadedImages } from '../shared/uploadImage/UploadedImages'
+import { UploadedImages } from '../shared/uploadImage/components/UploadedImages'
+import { getUploadedImagesByCategory } from '../shared/uploadImage/infrastructure/queries/getUploadedImagesByCategory'
 
-export const HomeUploadedImages = () => {
-  const { data: uploadedImages = [] } = useQuery(getHomeSliderImagesOptions)
+export const HomeUploadedImages = async () => {
+  const uploadedImages = await getUploadedImagesByCategory(
+    UploadImageCategoryKeyEnum.HomeSlider
+  )
 
   return (
     <UploadedImages

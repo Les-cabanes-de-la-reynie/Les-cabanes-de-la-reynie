@@ -1,4 +1,4 @@
-import { VisitorCount } from '@/features/visitorCount/VisitorCount'
+import { VisitorCount } from '@/features/visitorCount/components/VisitorCount'
 import { routing } from '@/i18n/routing'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { SEO } from '@/shared/_constants/SEO'

@@ -1,21 +1,17 @@
-'use client'
-
-import { Yurt } from '@/features/accommodations/yurt/Yurt'
+import { Yurt } from '@/features/accommodations/yurt/components/Yurt'
 import { Heading } from '@/shared/components/Heading'
-import { useTranslations } from 'next-intl'
 import { AdminSection } from '../AdminSection'
 
 export const YurtSection = () => {
-  const t = useTranslations('Common')
   return (
     <AdminSection>
       <Heading level={2} className='my-8 text-center'>
-        {t('yurt')}
+        Yourte
       </Heading>
 
       <Yurt
-        yurtFormTitle={t('yurtInformation')}
-        yurtUploadImageTitle={t('uploadImage')}
+        yurtFormTitle='Informations concernant la yourte'
+        yurtUploadImageTitle='Télécharger vos images'
       />
     </AdminSection>
   )

@@ -1,5 +1,3 @@
-export const OPENING_HOURS_QUERY_KEY = 'openingHoursQueryKey'
-
 export const OPENING_HOURS_FIELDS = {
   mondayStart: 'mondayStart',
   mondayEnd: 'mondayEnd',

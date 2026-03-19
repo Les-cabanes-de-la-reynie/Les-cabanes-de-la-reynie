@@ -1,5 +1,5 @@
 import { MapSection } from '@/features/map/MapSection'
-import { OpeningHoursSection } from '@/features/openingHours/OpeningHoursSection'
+import { OpeningHoursSection } from '@/features/openingHours/components/OpeningHoursSection'
 import { routing } from '@/i18n/routing'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { SEO } from '@/shared/_constants/SEO'
@@ -55,6 +55,7 @@ export default async function Contact({ params }: Props) {
       <Heading level={1} className='my-8'>
         {t('contactMainTitle')}
       </Heading>
+      
       <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
         <OpeningHoursSection editable={false} />
 

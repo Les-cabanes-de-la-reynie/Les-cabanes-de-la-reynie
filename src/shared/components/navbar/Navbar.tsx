@@ -1,4 +1,4 @@
-import { Profile } from '@/features/auth/Profile/Profile'
+import { Profile } from '@/features/auth/components/Profile/Profile'
 import { ThemeSwitcher } from '@/features/theme/ThemeSwitcher/ThemeSwitcher'
 import { LanguagesSwitcher } from '@/shared/components/languagesSwitcher/LanguagesSwitcher'
 import { useState } from 'react'

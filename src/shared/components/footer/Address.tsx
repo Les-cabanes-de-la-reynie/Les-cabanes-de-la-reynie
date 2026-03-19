@@ -1,12 +1,9 @@
-'use client'
-
-import { getAddressOptions } from '@/features/address/infrastructure/getAddressOptions'
+import { getAddress } from '@/features/address/infrastructure/queries/getAddress'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { formatPhoneNumber } from '@/shared/utils/formats'
-import { useSuspenseQuery } from '@tanstack/react-query'
 
-export const Address = () => {
-  const { data: address } = useSuspenseQuery(getAddressOptions)
+export const Address = async () => {
+  const address = await getAddress()
 
   return (
     <address

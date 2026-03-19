@@ -4,6 +4,7 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const nextConfig: NextConfig = {
   reactCompiler: true,
   images: {
+    qualities: [50, 75],
     remotePatterns: [
       // images from uploadthings
       {
@@ -14,12 +15,6 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ['lucide-react']
-  },
-  // Show full error messages during build
-  logging: {
-    fetches: {
-      fullUrl: true
-    }
   }
 }
 
