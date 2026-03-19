@@ -4,6 +4,7 @@ import { DeleteUploadedImageSchema } from '@/features/shared/uploadImage/Uploade
 import prisma from '@/shared/lib/prisma'
 import { authActionClient } from '@/shared/lib/safe-actions'
 import { utapi } from '@/shared/lib/utapiUploadthing'
+import { revalidatePath } from 'next/cache'
 
 export const deleteUploadedImage = authActionClient
   .inputSchema(DeleteUploadedImageSchema)
@@ -17,4 +18,6 @@ export const deleteUploadedImage = authActionClient
         id
       }
     })
+
+    revalidatePath('/', 'layout')
   })

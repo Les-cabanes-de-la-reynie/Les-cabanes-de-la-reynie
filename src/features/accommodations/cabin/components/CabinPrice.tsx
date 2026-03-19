@@ -1,11 +1,9 @@
-'use client'
-
 import { P } from '@/shared/components/P'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { getCabin } from '../infrastructure/queries/getCabin'
 
 export const CabinPrice = async () => {
-  const tAccommodations = useTranslations('Accommodations')
+  const tAccommodations = await getTranslations('Accommodations')
 
   const cabin = await getCabin()
 

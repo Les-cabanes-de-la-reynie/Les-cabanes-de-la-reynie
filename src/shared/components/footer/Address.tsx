@@ -1,5 +1,3 @@
-'use client'
-
 import { getAddress } from '@/features/address/infrastructure/queries/getAddress'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { formatPhoneNumber } from '@/shared/utils/formats'

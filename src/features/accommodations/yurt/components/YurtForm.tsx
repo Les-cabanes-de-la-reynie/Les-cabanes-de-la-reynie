@@ -18,13 +18,14 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { YURT_FIELDS } from '../_const'
 import { updateYurt } from '../infrastructure/actions/updateYurt'
-import { getYurt } from '../infrastructure/queries/getYurt'
 import { YurtFormInput, YurtSchema } from '../YurtSchema'
 
-export const YurtForm = async () => {
-  const t = useTranslations('Common')
+type YurtFormProps = {
+  defaultPrice: number
+}
 
-  const yurtData = await getYurt()
+export const YurtForm = ({ defaultPrice }: YurtFormProps) => {
+  const t = useTranslations('Common')
 
   const [isPending, startTransition] = useTransition()
   const [isEdit, handleToggleEdit] = useToggle(false)
@@ -32,7 +33,7 @@ export const YurtForm = async () => {
   const form = useForm<YurtFormInput>({
     resolver: zodResolver(YurtSchema),
     defaultValues: {
-      price: yurtData?.price ?? 0
+      price: defaultPrice
     },
     disabled: !isEdit
   })

@@ -1,5 +1,3 @@
-'use client'
-
 import { UploadImageCategoryKeyEnum } from '@/features/shared/uploadImage/_types'
 import { UploadedImages } from '@/features/shared/uploadImage/components/UploadedImages'
 import { getUploadedImagesByCategory } from '@/features/shared/uploadImage/infrastructure/queries/getUploadedImagesByCategory'

@@ -1,5 +1,3 @@
-'use client'
-
 import { AddressInformationSection } from '@/features/address/components/AddressInformationSection'
 import { OpeningHoursSection } from '@/features/openingHours/components/OpeningHoursSection'
 import { Heading } from '@/shared/components/Heading'

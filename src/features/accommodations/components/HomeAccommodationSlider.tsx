@@ -1,12 +1,10 @@
-'use client'
-
 import { UploadImageCategoryKeyEnum } from '@/features/shared/uploadImage/_types'
 import { getUploadedImagesByCategory } from '@/features/shared/uploadImage/infrastructure/queries/getUploadedImagesByCategory'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { AccommodationsSlider } from './AccommodationsSlider'
 
 export const HomeAccommodationSlider = async () => {
-  const tHome = useTranslations('Home')
+  const tHome = await getTranslations('Home')
 
   const uploadedImages = await getUploadedImagesByCategory(
     UploadImageCategoryKeyEnum.HomeSlider

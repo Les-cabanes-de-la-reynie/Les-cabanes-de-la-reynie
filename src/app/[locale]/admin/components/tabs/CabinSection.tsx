@@ -1,5 +1,3 @@
-'use client'
-
 import { Cabin } from '@/features/accommodations/cabin/components/Cabin'
 import { Heading } from '@/shared/components/Heading'
 import { AdminSection } from '../AdminSection'

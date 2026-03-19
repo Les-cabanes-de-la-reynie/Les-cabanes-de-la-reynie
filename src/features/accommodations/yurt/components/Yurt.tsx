@@ -1,5 +1,6 @@
 import { Heading } from '@/shared/components/Heading'
 import { Separator } from '@/shared/components/ui/separator'
+import { getYurt } from '../infrastructure/queries/getYurt'
 import { YurtForm } from './YurtForm'
 import { YurtUploadedImages } from './YurtUploadedImages'
 
@@ -8,14 +9,19 @@ type YurtProps = {
   yurtUploadImageTitle: string
 }
 
-export const Yurt = ({ yurtFormTitle, yurtUploadImageTitle }: YurtProps) => {
+export const Yurt = async ({
+  yurtFormTitle,
+  yurtUploadImageTitle
+}: YurtProps) => {
+  const yurtData = await getYurt()
+
   return (
     <>
       <Heading level={3} className='my-4'>
         {yurtFormTitle}
       </Heading>
 
-      <YurtForm />
+      <YurtForm defaultPrice={yurtData.price} />
 
       <Separator className='my-6' />
 

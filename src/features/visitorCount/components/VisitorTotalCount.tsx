@@ -1,5 +1,3 @@
-'use client'
-
 import { Heading } from '@/shared/components/Heading'
 import { P } from '@/shared/components/P'
 import { getVisitorCount } from '../infrastructure/queries/getVisitorCount'

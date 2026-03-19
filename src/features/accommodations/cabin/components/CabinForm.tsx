@@ -22,12 +22,13 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { CABIN_FIELDS } from '../_const'
 import { updateCabin } from '../infrastructure/actions/updateCabin'
-import { getCabin } from '../infrastructure/queries/getCabin'
 
-export const CabinForm = async () => {
+type CabinFormProps = {
+  defaultPrice: number
+}
+
+export const CabinForm = ({ defaultPrice }: CabinFormProps) => {
   const t = useTranslations('Common')
-
-  const cabinData = await getCabin()
 
   const [isPending, startTransition] = useTransition()
   const [isEdit, handleToggleEdit] = useToggle(false)
@@ -35,7 +36,7 @@ export const CabinForm = async () => {
   const form = useForm<CabinFormInput>({
     resolver: zodResolver(CabinSchema),
     defaultValues: {
-      price: cabinData?.price ?? 0
+      price: defaultPrice
     },
     disabled: !isEdit
   })

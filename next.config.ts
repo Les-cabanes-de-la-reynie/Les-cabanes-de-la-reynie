@@ -4,6 +4,7 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const nextConfig: NextConfig = {
   reactCompiler: true,
   images: {
+    qualities: [50, 75],
     remotePatterns: [
       // images from uploadthings
       {

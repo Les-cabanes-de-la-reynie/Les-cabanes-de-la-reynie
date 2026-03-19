@@ -2,7 +2,8 @@ import {
   createSafeActionClient,
   DEFAULT_SERVER_ERROR_MESSAGE
 } from 'next-safe-action'
-import { authClient } from './auth-client'
+import { headers } from 'next/headers'
+import { auth } from './auth'
 
 export class ActionError extends Error {}
 
@@ -21,13 +22,13 @@ export const actionClient = createSafeActionClient({
 
 // Auth client
 export const authActionClient = actionClient.use(async ({ next }) => {
-  // This code runs on your server before action
-  const { data } = authClient.useSession()
+  const session = await auth.api.getSession({
+    headers: await headers()
+  })
 
-  // If you throw an error, the user will not be able to upload pictures
-  if (!data || !data.user || !data.user.email) {
-    throw new Error('You need to be logged to do this')
+  if (!session?.user?.email) {
+    throw new ActionError('You need to be logged in to do this')
   }
 
-  return next({ ctx: { userEmail: data.user.email } })
+  return next({ ctx: { userEmail: session.user.email } })
 })

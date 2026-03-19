@@ -1,5 +1,3 @@
-'use client'
-
 import { Yurt } from '@/features/accommodations/yurt/components/Yurt'
 import { Heading } from '@/shared/components/Heading'
 import { AdminSection } from '../AdminSection'

@@ -1,11 +1,9 @@
-'use client'
-
 import { IconContainer } from '@/shared/components/IconContainer'
 import { P } from '@/shared/components/P'
 import { convertDateToTime } from '@/shared/utils/date'
 import { cn } from '@/shared/utils/tailwind'
 import { AlertCircleIcon } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { getOpeningHours } from '../infrastructure/queries/getOpeningHours'
 import { OpeningHoursForm } from './OpeningHoursForm'
 
@@ -14,7 +12,7 @@ type OpeningHoursProps = {
 }
 
 export const OpeningHours = async ({ editable }: OpeningHoursProps) => {
-  const tContact = useTranslations('Contact')
+  const tContact = await getTranslations('Contact')
 
   const incomingOpeningHoursData = await getOpeningHours()
 

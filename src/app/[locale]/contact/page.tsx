@@ -55,6 +55,7 @@ export default async function Contact({ params }: Props) {
       <Heading level={1} className='my-8'>
         {t('contactMainTitle')}
       </Heading>
+      
       <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
         <OpeningHoursSection editable={false} />
 
