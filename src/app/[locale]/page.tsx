@@ -8,10 +8,12 @@ import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
 import { HeroBanner } from '@/shared/components/HeroBanner'
 import { IntroduceLesCabanesDeLaReynie } from '@/shared/components/IntroduceLesCabanesDeLaReynie'
+import { Loader } from '@/shared/components/Loader'
 import { hasLocale } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import { Suspense } from 'react'
 
 type Props = {
   params: Promise<{ locale: string }>
@@ -50,7 +52,9 @@ export default async function Home({ params }: Props) {
 
       <div className='mb-8 h-96 w-full select-none bg-(image:--home-parallax-image) bg-cover bg-fixed bg-center bg-no-repeat md:mb-10' />
 
-      <HomeAccommodationSlider />
+      <Suspense fallback={<Loader />}>
+        <HomeAccommodationSlider />
+      </Suspense>
 
       <Container>
         <Heading id='our-services' level={2}>

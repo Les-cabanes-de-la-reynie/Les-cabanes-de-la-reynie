@@ -5,7 +5,7 @@ import { PropsWithChildren } from 'react'
 import { extractRouterConfig } from 'uploadthing/server'
 import { ThemeProvider } from './theme-provider'
 
-export const Providers = async ({ children }: PropsWithChildren) => {
+export const Providers = ({ children }: PropsWithChildren) => {
   return (
     <NextIntlClientProvider>
       <ThemeProvider

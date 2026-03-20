@@ -6,45 +6,48 @@ import { PAGE_ROUTES } from './shared/_constants/page'
 
 const intlMiddleware = createIntlMiddleware(routing)
 
-export default async function middleware(request: NextRequest) {
+function stripLocale(pathname: string): string {
+  const localePrefix = routing.locales
+    .map(l => `/${l}`)
+    .find(p => pathname === p || pathname.startsWith(`${p}/`))
+
+  return localePrefix ? pathname.slice(localePrefix.length) || '/' : pathname
+}
+
+function getLocalePrefix(pathname: string): string {
+  const locale = pathname.split('/')[1]
+  return routing.locales.includes(locale as (typeof routing.locales)[number])
+    ? `/${locale}`
+    : ''
+}
+
+export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
+  const normalizedPath = stripLocale(pathname)
+  const sessionCookie = getSessionCookie(request)
 
-  // Handle admin authentication
-  const sessionCookie = getSessionCookie(request, {})
+  const isAdminRoute = normalizedPath.startsWith('/admin')
+  const isAdminAuthRoute = normalizedPath.startsWith(PAGE_ROUTES.admin.signIn)
 
-  // Check if it's an admin route (with or without locale prefix)
-  const isAdminSignIn =
-    pathname.includes(PAGE_ROUTES.admin.signIn) ||
-    pathname.endsWith('/admin/auth/sign-in')
-  const isAdminHome =
-    pathname.endsWith('/admin') || pathname.match(/\/[a-z]{2}\/admin$/)
-
-  if (isAdminSignIn && sessionCookie) {
-    const locale = pathname.split('/')[1]
-    
-    const redirectUrl =
-      locale && routing.locales.includes(locale as 'fr' | 'en')
-        ? `/${locale}${PAGE_ROUTES.admin.home}`
-        : PAGE_ROUTES.admin.home
-    return NextResponse.redirect(new URL(redirectUrl, request.url))
+  // Pas connecté → bloquer toutes les routes /admin/** sauf /admin/auth/**
+  if (isAdminRoute && !isAdminAuthRoute && !sessionCookie) {
+    const localePrefix = getLocalePrefix(pathname)
+    return NextResponse.redirect(
+      new URL(`${localePrefix}${PAGE_ROUTES.admin.signIn}`, request.url)
+    )
   }
 
-  if (isAdminHome && !sessionCookie) {
-    const locale = pathname.split('/')[1]
-    const redirectUrl =
-      locale && routing.locales.includes(locale as 'fr' | 'en')
-        ? `/${locale}${PAGE_ROUTES.admin.signIn}`
-        : PAGE_ROUTES.admin.signIn
-    return NextResponse.redirect(new URL(redirectUrl, request.url))
+  // Déjà connecté → ne pas afficher la page sign-in
+  if (isAdminAuthRoute && sessionCookie) {
+    const localePrefix = getLocalePrefix(pathname)
+    return NextResponse.redirect(
+      new URL(`${localePrefix}${PAGE_ROUTES.admin.home}`, request.url)
+    )
   }
 
-  // Handle internationalization
   return intlMiddleware(request)
 }
 
 export const config = {
-  // Match all pathnames except for
-  // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
-  // - … the ones containing a dot (e.g. `favicon.ico`)
   matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)'
 }

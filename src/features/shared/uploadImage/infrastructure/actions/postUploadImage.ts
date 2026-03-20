@@ -3,7 +3,7 @@
 import { UploadImageSchema } from '@/features/shared/uploadImage/UploadedImagesSchema'
 import prisma from '@/shared/lib/prisma'
 import { authActionClient } from '@/shared/lib/safe-actions'
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 
 export const updateUploadedImage = authActionClient
   .inputSchema(UploadImageSchema)
@@ -18,8 +18,9 @@ export const updateUploadedImage = authActionClient
         }
       })
 
+      revalidateTag('images', {})
       revalidatePath('/', 'layout')
     } catch (error) {
-      return error
+      throw error
     }
   })

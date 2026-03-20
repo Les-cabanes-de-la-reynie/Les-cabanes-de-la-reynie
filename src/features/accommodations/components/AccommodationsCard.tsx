@@ -7,6 +7,8 @@ type AccommodationsCardProps = {
   href: ComponentProps<typeof Link>['href']
   imageOnFront: StaticImageData
   imageOnHover: StaticImageData
+  altFront: string
+  altHover: string
   textContent: string
 }
 
@@ -14,6 +16,8 @@ export const AccommodationsCard = ({
   href,
   imageOnFront,
   imageOnHover,
+  altFront,
+  altHover,
   textContent
 }: AccommodationsCardProps) => {
   return (
@@ -23,14 +27,14 @@ export const AccommodationsCard = ({
           <Image
             src={imageOnFront}
             className='object-cover group-hover:opacity-0 transition-opacity duration-500 ease-in-out'
-            alt='TODO'
+            alt={altFront}
             fill
             sizes='(max-width: 768px) 100vw, 384px'
           />
           <Image
             src={imageOnHover}
             className='opacity-0 group-hover:opacity-100 object-cover transition-opacity duration-500 ease-in-out'
-            alt='TODO'
+            alt={altHover}
             fill
             sizes='(max-width: 768px) 100vw, 384px'
           />

@@ -10,6 +10,7 @@ import { routing } from '@/i18n/routing'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { SEO } from '@/shared/_constants/SEO'
 import { Heading } from '@/shared/components/Heading'
+import { Loader } from '@/shared/components/Loader'
 import { OurGourmetOffer } from '@/shared/components/ourGourmetOffer/OurGourmetOffer'
 import { P } from '@/shared/components/P'
 import { env } from '@/shared/lib/env'
@@ -18,6 +19,7 @@ import { hasLocale } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import { Suspense } from 'react'
 
 type Props = {
   params: Promise<{ locale: string }>
@@ -29,6 +31,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: SEO.accommodation.yurt.title,
     description: SEO.accommodation.yurt.description,
+    alternates: {
+      canonical: new URL(`/${locale}/logements/yourte`, env.NEXT_PUBLIC_BASE_URL),
+      languages: {
+        fr: `${env.NEXT_PUBLIC_BASE_URL}/fr/logements/yourte`,
+        en: `${env.NEXT_PUBLIC_BASE_URL}/en/logements/yourte`
+      }
+    },
     openGraph: {
       title: `${SEO.accommodation.yurt.title} - ${ESTABLISHMENT_TITLE}`,
       description: SEO.accommodation.yurt.description,
@@ -61,8 +70,27 @@ export default async function Yurt({ params }: Props) {
 
   const bookList = [{ title: 'Airbnb', href: 'https://abnb.me/5guTmU7BBHb' }]
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Accommodation',
+    name: `${tCommon('yurt')} — ${ESTABLISHMENT_TITLE}`,
+    description: SEO.accommodation.yurt.description,
+    url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/logements/yourte`,
+    image: `${env.NEXT_PUBLIC_BASE_URL}/yurt.jpg`,
+    occupancy: { '@type': 'QuantitativeValue', maxValue: 6 },
+    containedInPlace: {
+      '@type': 'LodgingBusiness',
+      name: ESTABLISHMENT_TITLE,
+      url: env.NEXT_PUBLIC_BASE_URL
+    }
+  }
+
   return (
     <main className='w-full'>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <AccommodationsHeader>
         <AccommodationsHeaderImage>
           <Image
@@ -98,7 +126,9 @@ export default async function Yurt({ params }: Props) {
 
       <PracticalInformation />
 
-      <YurtAccommodationSlider />
+      <Suspense fallback={<Loader />}>
+        <YurtAccommodationSlider />
+      </Suspense>
 
       <OurGourmetOffer />
     </main>

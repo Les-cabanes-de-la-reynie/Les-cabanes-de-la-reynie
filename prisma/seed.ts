@@ -7,14 +7,12 @@ const main = async () => {
   // Delete existing data
   await prisma.account.deleteMany()
   await prisma.user.deleteMany()
-  await prisma.visitorCount.deleteMany()
   await prisma.yurt.deleteMany()
   await prisma.cabin.deleteMany()
   await prisma.address.deleteMany()
   await prisma.openingHours.deleteMany()
 
   // Default data
-  const visitorCountData = { id: 1, count: 0 }
   const yurtData = { id: 1, price: 170 }
   const cabinData = { id: 1, price: 170 }
   const addressData = {
@@ -47,7 +45,6 @@ const main = async () => {
 
   try {
     // Create data with error handling
-    await prisma.visitorCount.create({ data: visitorCountData })
     await prisma.yurt.create({ data: yurtData })
     await prisma.cabin.create({ data: cabinData })
     await prisma.address.create({ data: addressData })
