@@ -1,24 +1,45 @@
 import forest from '@/assets/homeCarousel/forest5.webp'
 import { routing } from '@/i18n/routing'
+import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { SEO } from '@/shared/_constants/SEO'
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
 import { HeroBanner } from '@/shared/components/HeroBanner'
 import { P } from '@/shared/components/P'
+import { env } from '@/shared/lib/env'
 import { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import Image from 'next/image'
 
-export const metadata: Metadata = {
-  title: SEO.activity[2].title
+type Props = {
+  params: Promise<{ locale: string }>
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+
+  return {
+    title: SEO.activity[2].title,
+    alternates: {
+      canonical: new URL(`/${locale}/activites/2`, env.NEXT_PUBLIC_BASE_URL),
+      languages: {
+        fr: `${env.NEXT_PUBLIC_BASE_URL}/fr/activites/2`,
+        en: `${env.NEXT_PUBLIC_BASE_URL}/en/activites/2`
+      }
+    },
+    openGraph: {
+      title: `${SEO.activity[2].title} - ${ESTABLISHMENT_TITLE}`,
+      description: SEO.activity.description,
+      type: 'website',
+      locale,
+      siteName: ESTABLISHMENT_TITLE,
+      images: [{ url: forest.src, width: forest.width, height: forest.height }]
+    }
+  }
 }
 
 export function generateStaticParams() {
   return routing.locales.map(locale => ({ locale }))
-}
-
-type Props = {
-  params: Promise<{ locale: string }>
 }
 
 const Activity2 = async ({ params }: Props) => {
@@ -32,7 +53,7 @@ const Activity2 = async ({ params }: Props) => {
         className='lg:h-[calc(75vh-4.5rem)]'
       >
         <Image
-          alt='TODO'
+          alt='Paysage de forêt corrézienne au cœur du terroir gastronomique'
           src={forest}
           placeholder='blur'
           fill

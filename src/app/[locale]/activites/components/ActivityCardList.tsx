@@ -11,19 +11,19 @@ export const ActivityCardList = () => {
         href={PAGE_ROUTES.activity.activity1}
         title="Un terrain de jeux grandeur nature pour les amateurs de sports et d'aventure"
         image={forest1}
-        alt='TODO'
+        alt='Forêt corrézienne – activités de plein air et randonnée'
       />
       <ActivityCard
         href={PAGE_ROUTES.activity.activity2}
         title='Un voyage culinaire au cœur du terroir corrézien et périgourdin'
         image={forest2}
-        alt='TODO'
+        alt='Paysage de forêt corrézienne au cœur du terroir gastronomique'
       />
       <ActivityCard
         href={PAGE_ROUTES.activity.activity3}
         title="Sur les traces de l'histoire en Corrèze et en Dordogne"
         image={forest3}
-        alt='TODO'
+        alt='Forêt et paysage historique de Corrèze et Dordogne'
       />
     </ul>
   )

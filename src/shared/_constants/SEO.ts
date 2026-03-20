@@ -22,7 +22,8 @@ export const SEO = {
   },
   contact: {
     title: 'Contact',
-    description: 'Toutes les informations sur nous !'
+    description:
+      "Contactez Les Cabanes de la Reynie, hébergement insolite en Corrèze. Retrouvez nos horaires d'ouverture, adresse et itinéraire pour rejoindre notre yourte et cabane."
   },
   activity: {
     title: 'Activités',

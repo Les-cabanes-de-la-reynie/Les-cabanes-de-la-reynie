@@ -15,6 +15,8 @@ export const AccommodationsCardList = () => {
         href={PAGE_ROUTES.accommodation.yurt}
         imageOnFront={yurtImageFront}
         imageOnHover={yurtImageHover}
+        altFront={t('yurtAltFront')}
+        altHover={t('yurtAltHover')}
         textContent={t('seeOurYurt')}
       />
 
@@ -22,6 +24,8 @@ export const AccommodationsCardList = () => {
         href={PAGE_ROUTES.accommodation.cabin}
         imageOnFront={cabinImageFront}
         imageOnHover={cabinImageHover}
+        altFront={t('cabinAltFront')}
+        altHover={t('cabinAltHover')}
         textContent={t('seeOurCabin')}
       />
     </div>

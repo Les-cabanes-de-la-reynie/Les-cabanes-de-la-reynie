@@ -10,6 +10,7 @@ import { routing } from '@/i18n/routing'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { SEO } from '@/shared/_constants/SEO'
 import { Heading } from '@/shared/components/Heading'
+import { Loader } from '@/shared/components/Loader'
 import { OurGourmetOffer } from '@/shared/components/ourGourmetOffer/OurGourmetOffer'
 import { P } from '@/shared/components/P'
 import { env } from '@/shared/lib/env'
@@ -18,6 +19,7 @@ import { hasLocale } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import { Suspense } from 'react'
 
 type Props = {
   params: Promise<{ locale: string }>
@@ -29,6 +31,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: SEO.accommodation.cabin.title,
     description: SEO.accommodation.cabin.description,
+    alternates: {
+      canonical: new URL(`/${locale}/logements/cabane`, env.NEXT_PUBLIC_BASE_URL),
+      languages: {
+        fr: `${env.NEXT_PUBLIC_BASE_URL}/fr/logements/cabane`,
+        en: `${env.NEXT_PUBLIC_BASE_URL}/en/logements/cabane`
+      }
+    },
     openGraph: {
       title: `${SEO.accommodation.cabin.title} - ${ESTABLISHMENT_TITLE}`,
       description: SEO.accommodation.cabin.description,
@@ -61,8 +70,27 @@ export default async function Cabin({ params }: Props) {
 
   const bookList = [{ title: 'Airbnb', href: 'https://abnb.me/z4L2e1aCBHb' }]
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Accommodation',
+    name: `${tCommon('cabin')} — ${ESTABLISHMENT_TITLE}`,
+    description: SEO.accommodation.cabin.description,
+    url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/logements/cabane`,
+    image: `${env.NEXT_PUBLIC_BASE_URL}/cabin.jpg`,
+    occupancy: { '@type': 'QuantitativeValue', maxValue: 2 },
+    containedInPlace: {
+      '@type': 'LodgingBusiness',
+      name: ESTABLISHMENT_TITLE,
+      url: env.NEXT_PUBLIC_BASE_URL
+    }
+  }
+
   return (
     <main className='w-full'>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <AccommodationsHeader>
         <AccommodationsHeaderImage>
           <Image
@@ -75,7 +103,7 @@ export default async function Cabin({ params }: Props) {
             priority
           />
         </AccommodationsHeaderImage>
-        
+
         <AccommodationsHeaderContent>
           <Heading level={1} className='mt-4 lg:mt-0'>
             {tCommon('cabin')}
@@ -99,7 +127,9 @@ export default async function Cabin({ params }: Props) {
 
       <PracticalInformation />
 
-      <CabinAccommodationSlider />
+      <Suspense fallback={<Loader />}>
+        <CabinAccommodationSlider />
+      </Suspense>
 
       <OurGourmetOffer />
     </main>
