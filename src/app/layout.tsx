@@ -2,8 +2,13 @@ import { routing } from '@/i18n/routing'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { SEO } from '@/shared/_constants/SEO'
 import { env } from '@/shared/lib/env'
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 import './globals.css'
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_BASE_URL),
