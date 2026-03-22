@@ -12,7 +12,6 @@ import { hasLocale } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 import { Galada, Roboto } from 'next/font/google'
 import { notFound } from 'next/navigation'
-import '../globals.css'
 
 const fontPrimary = Roboto({
   variable: '--font-primary',
@@ -44,31 +43,12 @@ export async function generateMetadata({
   const { locale } = await params
 
   return {
-    metadataBase: new URL(env.NEXT_PUBLIC_BASE_URL),
-    title: {
-      default: `${ESTABLISHMENT_TITLE} | ${SEO.home.title}`,
-      template: `%s - ${ESTABLISHMENT_TITLE}`
-    },
     alternates: {
       canonical: new URL(`/${locale}`, env.NEXT_PUBLIC_BASE_URL),
       languages: {
         fr: '/fr',
         en: '/en'
       }
-    },
-    description: SEO.home.description,
-    openGraph: {
-      title: `${SEO.home.documentTitle} - ${ESTABLISHMENT_TITLE}`,
-      description: SEO.home.description,
-      type: 'website',
-      locale,
-      url: env.NEXT_PUBLIC_BASE_URL,
-      siteName: ESTABLISHMENT_TITLE
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${ESTABLISHMENT_TITLE} | ${SEO.home.title}`,
-      description: SEO.home.description
     }
   }
 }

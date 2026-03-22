@@ -42,6 +42,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           height: 630
         }
       ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${SEO.contact.title} - ${ESTABLISHMENT_TITLE}`,
+      description: SEO.contact.description
     }
   }
 }

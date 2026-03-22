@@ -8,11 +8,21 @@ import {
 } from '@/shared/components/ui/alert'
 import { Button } from '@/shared/components/ui/button'
 import { AlertCircleIcon } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useEffect } from 'react'
 
-const Error = ({ error, reset }: { error: Error; reset: () => void }) => {
+const Error = ({
+  error,
+  unstable_retry
+}: {
+  error: Error & { digest?: string }
+  reset: () => void
+  unstable_retry: () => void
+}) => {
+  const t = useTranslations('Errors')
+
   useEffect(() => {
-    // Log the error to an error reporting service
+    console.error(error)
   }, [error])
 
   return (
@@ -20,17 +30,11 @@ const Error = ({ error, reset }: { error: Error; reset: () => void }) => {
       <Alert variant='destructive'>
         <AlertCircleIcon />
         <AlertTitle>
-          <Heading level={2}>Something went wrong!</Heading>
+          <Heading level={2}>{t('genericTitle')}</Heading>
         </AlertTitle>
         <AlertDescription>
-          <Button
-            variant={'destructive'}
-            onClick={
-              // Attempt to recover by trying to re-render the segment
-              () => reset()
-            }
-          >
-            Try again
+          <Button variant='destructive' onClick={() => unstable_retry()}>
+            {t('retryButton')}
           </Button>
         </AlertDescription>
       </Alert>

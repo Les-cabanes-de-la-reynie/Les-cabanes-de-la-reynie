@@ -106,6 +106,8 @@
     "personnalInformationDescription": "Les informations ici vont être affichées sur la carte dans la page contact"
   },
   "Errors": {
+    "genericTitle": "Une erreur est survenue !",
+    "retryButton": "Réessayer",
     "shortError404": "404 - La page demandée n'a pas été trouvée",
     "longError404": "La page que vous recherchez a peut-être été supprimée, son nom a changé ou est temporairement indisponible",
     "shortError500": "500 - Problème serveur",

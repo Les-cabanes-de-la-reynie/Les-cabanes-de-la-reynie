@@ -28,12 +28,12 @@ export const Header = () => {
   const isHomePage = pathname === PAGE_ROUTES.home
   const isAtTop = scrollY <= CONFIG.SCROLL_Y_LIMIT
 
-  const handleScroll = () => {
-    setScrollY(window.scrollY)
-  }
-
   useEffect(() => {
     let ticking = false
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
 
     const throttledScrollHandler = () => {
       if (!ticking) {
@@ -45,12 +45,11 @@ export const Header = () => {
       }
     }
 
-    // Initialize scrollY on mount
     handleScroll()
 
     window.addEventListener('scroll', throttledScrollHandler, { passive: true })
     return () => window.removeEventListener('scroll', throttledScrollHandler)
-  }, [handleScroll])
+  }, [])
 
   const headerClasses = cn(
     CONFIG.BASE_CLASSES,
