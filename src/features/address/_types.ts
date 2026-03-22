@@ -1,4 +1,3 @@
-import { z } from 'zod'
-import { AddressSchema } from './AddressSchema'
+import { AddressModel } from '@/app/generated/prisma/models'
 
-export type Address = z.infer<typeof AddressSchema>
+export type Address = AddressModel

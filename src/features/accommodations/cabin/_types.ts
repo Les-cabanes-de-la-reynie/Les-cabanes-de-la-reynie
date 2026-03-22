@@ -1,4 +1,3 @@
-import { z } from 'zod'
-import { CabinSchema } from './CabinSchema'
+import { CabinModel } from '@/app/generated/prisma/models'
 
-export type Cabin = z.infer<typeof CabinSchema>
+export type Cabin = CabinModel

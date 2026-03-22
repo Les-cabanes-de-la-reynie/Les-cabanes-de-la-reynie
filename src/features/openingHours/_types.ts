@@ -1,7 +1,5 @@
-import {
-  OpeningHoursFormSchema,
-  OpeningHoursSchema
-} from '@/features/openingHours/OpeningHoursSchema'
+import { OpeningHoursModel } from '@/app/generated/prisma/models'
+import { OpeningHoursFormSchema } from './OpeningHoursSchema'
 import { z } from 'zod'
 
 export enum DaysOfTheWeekEnum {
@@ -24,5 +22,5 @@ export type OpeningHoursRowData = {
   isEdit?: boolean
 }
 
-export type OpeningHoursData = z.infer<typeof OpeningHoursSchema>
+export type OpeningHoursData = OpeningHoursModel
 export type OpeningHoursFormData = z.infer<typeof OpeningHoursFormSchema>

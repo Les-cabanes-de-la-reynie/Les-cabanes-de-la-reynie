@@ -106,6 +106,8 @@
     "personnalInformationDescription": "The information here will be displayed on the map in the contact page"
   },
   "Errors": {
+    "genericTitle": "Something went wrong!",
+    "retryButton": "Try again",
     "shortError404": "404 - Page not found",
     "longError404": "The page you are looking for might have been removed had its name changed or is temporarily unavailable",
     "shortError500": "500 - Server error",

@@ -32,7 +32,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: SEO.accommodation.cabin.title,
     description: SEO.accommodation.cabin.description,
     alternates: {
-      canonical: new URL(`/${locale}/logements/cabane`, env.NEXT_PUBLIC_BASE_URL),
+      canonical: new URL(
+        `/${locale}/logements/cabane`,
+        env.NEXT_PUBLIC_BASE_URL
+      ),
       languages: {
         fr: `${env.NEXT_PUBLIC_BASE_URL}/fr/logements/cabane`,
         en: `${env.NEXT_PUBLIC_BASE_URL}/en/logements/cabane`
@@ -52,6 +55,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           height: 630
         }
       ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${SEO.accommodation.cabin.title} - ${ESTABLISHMENT_TITLE}`,
+      description: SEO.accommodation.cabin.description
     }
   }
 }
