@@ -1,4 +1,3 @@
-import { z } from 'zod'
-import { YurtSchema } from './YurtSchema'
+import { YurtModel } from '@/app/generated/prisma/models'
 
-export type Yurt = z.infer<typeof YurtSchema>
+export type Yurt = YurtModel

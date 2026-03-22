@@ -7,7 +7,6 @@ import {
 import { Input } from '@/shared/components/ui/input'
 import { UseFormReturn } from 'react-hook-form'
 import {
-  OpeningHoursData,
   OpeningHoursFormData,
   OpeningHoursRowData
 } from '../_types'
@@ -30,7 +29,7 @@ export const DayRow = ({
   const openingDate = isEdit ? (
     <FormField
       control={form.control}
-      name={startDateKey as keyof OpeningHoursData}
+      name={startDateKey as keyof OpeningHoursFormData}
       render={({ field }) => (
         <FormItem>
           <FormControl>
@@ -47,7 +46,7 @@ export const DayRow = ({
   const closingDate = isEdit ? (
     <FormField
       control={form.control}
-      name={endDateKey as keyof OpeningHoursData}
+      name={endDateKey as keyof OpeningHoursFormData}
       render={({ field }) => (
         <FormItem>
           <FormControl>
