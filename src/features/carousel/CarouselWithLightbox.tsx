@@ -2,13 +2,8 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { UploadedImage } from '../shared/uploadImage/_types'
+import { CarouselWithLightboxProps } from './_types'
 import { AppCarousel } from './AppCarousel'
-
-type CarouselWithLightboxProps = {
-  title?: string
-  data: UploadedImage[]
-}
 
 export const CarouselWithLightbox = ({
   title,

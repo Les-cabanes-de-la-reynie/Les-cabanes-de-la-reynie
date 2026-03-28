@@ -1,5 +1,5 @@
 import forest from '@/assets/homeCarousel/forest4.webp'
-import { routing } from '@/i18n/routing'
+import { generateLocaleStaticParams } from '@/shared/utils/generateLocaleStaticParams'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { SEO } from '@/shared/_constants/SEO'
 import { Container } from '@/shared/components/Container'
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export function generateStaticParams() {
-  return routing.locales.map(locale => ({ locale }))
+  return generateLocaleStaticParams()
 }
 
 const Activity3 = async ({ params }: Props) => {

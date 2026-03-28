@@ -1,7 +1,7 @@
 import { CarouselWithLightboxSkeleton } from '@/features/carousel/CarouselWithLightboxSkeleton'
-import { UploadedImage } from '@/features/shared/uploadImage/_types'
 import { Container } from '@/shared/components/Container'
 import dynamic from 'next/dynamic'
+import { AccommodationsSliderProps } from './_types'
 
 const CarouselWithLightbox = dynamic(
   () =>
@@ -10,12 +10,6 @@ const CarouselWithLightbox = dynamic(
     ),
   { loading: () => <CarouselWithLightboxSkeleton /> }
 )
-
-type AccommodationsSliderProps = {
-  title?: string
-  uploadedImages: UploadedImage[]
-  isLoading: boolean
-}
 
 export const AccommodationsSlider = ({
   title,

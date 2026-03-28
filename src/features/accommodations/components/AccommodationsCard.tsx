@@ -1,16 +1,7 @@
 import { Link } from '@/i18n/navigation'
 import { Heading } from '@/shared/components/Heading'
-import Image, { StaticImageData } from 'next/image'
-import { ComponentProps } from 'react'
-
-type AccommodationsCardProps = {
-  href: ComponentProps<typeof Link>['href']
-  imageOnFront: StaticImageData
-  imageOnHover: StaticImageData
-  altFront: string
-  altHover: string
-  textContent: string
-}
+import Image from 'next/image'
+import { AccommodationsCardProps } from './_types'
 
 export const AccommodationsCard = ({
   href,
