@@ -11,3 +11,8 @@ export type CarouselProps = {
   lightboxController: LightboxController
   title?: string
 }
+
+export type CarouselImage = {
+  id: string
+  imageUrl: string
+}

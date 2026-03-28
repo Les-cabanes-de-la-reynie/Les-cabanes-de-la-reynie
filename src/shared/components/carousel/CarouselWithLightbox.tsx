@@ -2,12 +2,12 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { UploadedImage } from '../shared/uploadImage/_types'
 import { AppCarousel } from './AppCarousel'
+import { CarouselImage } from './_types'
 
 type CarouselWithLightboxProps = {
   title?: string
-  data: UploadedImage[]
+  data: CarouselImage[]
 }
 
 export const CarouselWithLightbox = ({
@@ -36,6 +36,7 @@ export const CarouselWithLightbox = ({
         src={imageUrl}
         sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
         fill
+        quality={50}
         className='rounded-lg object-cover'
         onClick={() => openLightboxOnSource(i)}
       />

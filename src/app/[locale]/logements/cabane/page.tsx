@@ -5,8 +5,9 @@ import { AccommodationsHeader } from '@/features/accommodations/components/Accom
 import { AccommodationsHeaderContent } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderContent'
 import { AccommodationsHeaderImage } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderImage'
 import { AccommodationsPopover } from '@/features/accommodations/components/AccommodationsPopover'
-import { PracticalInformation } from '@/features/shared/practicalInformation/PracticalInformation'
+import { PracticalInformation } from '@/features/accommodations/components/practicalInformation/PracticalInformation'
 import { routing } from '@/i18n/routing'
+import { CABIN_BOOK_LIST } from '@/shared/_constants/bookings'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { SEO } from '@/shared/_constants/SEO'
 import { Heading } from '@/shared/components/Heading'
@@ -76,7 +77,7 @@ export default async function Cabin({ params }: Props) {
   const tCommon = await getTranslations('Common')
   const tCabin = await getTranslations('Cabin')
 
-  const bookList = [{ title: 'Airbnb', href: 'https://abnb.me/z4L2e1aCBHb' }]
+  const bookList = CABIN_BOOK_LIST
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -108,7 +109,8 @@ export default async function Cabin({ params }: Props) {
             fill
             sizes='(max-width: 1024px) 100vw, 50vw'
             className='object-cover'
-            priority
+            loading='eager'
+            fetchPriority='high'
           />
         </AccommodationsHeaderImage>
 

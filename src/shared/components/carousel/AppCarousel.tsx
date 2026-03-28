@@ -5,6 +5,7 @@ import {
   Carousel as EmblaCarousel
 } from '@/shared/components/ui/carousel'
 import { Progress } from '@/shared/components/ui/progress'
+import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import { CarouselHeader } from './CarouselHeader'
@@ -20,6 +21,7 @@ export const AppCarousel = ({
   lightboxController,
   title
 }: CarouselProps) => {
+  const t = useTranslations('Carousel')
   const [emblaApi, setEmblaApi] = useState<CarouselApi>()
   const [scrollProgress, setScrollProgress] = useState(0)
 
@@ -62,6 +64,7 @@ export const AppCarousel = ({
         <Progress
           value={scrollProgress}
           className='mt-4 w-2/3 lg:w-2/6 mx-auto'
+          aria-label={t('scrollProgress')}
         />
       </EmblaCarousel>
 

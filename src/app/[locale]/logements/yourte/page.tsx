@@ -3,10 +3,11 @@ import { AccommodationsHeader } from '@/features/accommodations/components/Accom
 import { AccommodationsHeaderContent } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderContent'
 import { AccommodationsHeaderImage } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderImage'
 import { AccommodationsPopover } from '@/features/accommodations/components/AccommodationsPopover'
+import { PracticalInformation } from '@/features/accommodations/components/practicalInformation/PracticalInformation'
 import { YurtAccommodationSlider } from '@/features/accommodations/yurt/components/YurtAccommodationSlider'
 import { YurtPrice } from '@/features/accommodations/yurt/components/YurtPrice'
-import { PracticalInformation } from '@/features/shared/practicalInformation/PracticalInformation'
 import { routing } from '@/i18n/routing'
+import { YURT_BOOK_LIST } from '@/shared/_constants/bookings'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { SEO } from '@/shared/_constants/SEO'
 import { Heading } from '@/shared/components/Heading'
@@ -76,7 +77,7 @@ export default async function Yurt({ params }: Props) {
   const tCommon = await getTranslations('Common')
   const tYurt = await getTranslations('Yurt')
 
-  const bookList = [{ title: 'Airbnb', href: 'https://abnb.me/5guTmU7BBHb' }]
+  const bookList = YURT_BOOK_LIST
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -108,7 +109,8 @@ export default async function Yurt({ params }: Props) {
             fill
             sizes='(max-width: 1024px) 100vw, 50vw'
             className='object-cover'
-            priority
+            loading='eager'
+            fetchPriority='high'
           />
         </AccommodationsHeaderImage>
         <AccommodationsHeaderContent>
