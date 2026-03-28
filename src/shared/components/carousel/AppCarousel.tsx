@@ -5,8 +5,8 @@ import {
   Carousel as EmblaCarousel
 } from '@/shared/components/ui/carousel'
 import { Progress } from '@/shared/components/ui/progress'
-import dynamic from 'next/dynamic'
 import { useTranslations } from 'next-intl'
+import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import { CarouselHeader } from './CarouselHeader'
 import { CarouselProps } from './_types'

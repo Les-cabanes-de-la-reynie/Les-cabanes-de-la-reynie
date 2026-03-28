@@ -1,4 +1,3 @@
-import { UploadedImage } from '@/features/shared/uploadImage/_types'
 import { JSX } from 'react'
 
 type LightboxController = {
@@ -13,7 +12,7 @@ export type CarouselProps = {
   title?: string
 }
 
-export type CarouselWithLightboxProps = {
-  title?: string
-  data: UploadedImage[]
+export type CarouselImage = {
+  id: string
+  imageUrl: string
 }

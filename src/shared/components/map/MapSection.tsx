@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 
 const MapWithNoSSR = dynamic(
-  () => import('@/features/map/Map').then(mod => mod.Map),
+  () => import('@/shared/components/map/Map').then(mod => mod.Map),
   {
     loading: () => <Loader />,
     ssr: false
