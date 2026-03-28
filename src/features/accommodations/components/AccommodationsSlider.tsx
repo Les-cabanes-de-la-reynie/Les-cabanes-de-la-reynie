@@ -1,7 +1,15 @@
-import { CarouselWithLightbox } from '@/features/carousel/CarouselWithLightbox'
 import { CarouselWithLightboxSkeleton } from '@/features/carousel/CarouselWithLightboxSkeleton'
 import { UploadedImage } from '@/features/shared/uploadImage/_types'
 import { Container } from '@/shared/components/Container'
+import dynamic from 'next/dynamic'
+
+const CarouselWithLightbox = dynamic(
+  () =>
+    import('@/features/carousel/CarouselWithLightbox').then(
+      mod => mod.CarouselWithLightbox
+    ),
+  { loading: () => <CarouselWithLightboxSkeleton /> }
+)
 
 type AccommodationsSliderProps = {
   title?: string

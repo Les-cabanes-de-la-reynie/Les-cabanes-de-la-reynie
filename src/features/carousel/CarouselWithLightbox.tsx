@@ -36,6 +36,7 @@ export const CarouselWithLightbox = ({
         src={imageUrl}
         sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
         fill
+        quality={50}
         className='rounded-lg object-cover'
         onClick={() => openLightboxOnSource(i)}
       />

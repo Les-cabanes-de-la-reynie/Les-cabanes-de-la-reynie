@@ -145,6 +145,7 @@
   },
   "Carousel": {
     "prevButton": "Image précédente",
-    "nextButton": "Image suivante"
+    "nextButton": "Image suivante",
+    "scrollProgress": "Progression du carrousel"
   }
 }

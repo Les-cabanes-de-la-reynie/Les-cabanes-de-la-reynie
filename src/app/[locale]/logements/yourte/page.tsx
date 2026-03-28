@@ -108,7 +108,8 @@ export default async function Yurt({ params }: Props) {
             fill
             sizes='(max-width: 1024px) 100vw, 50vw'
             className='object-cover'
-            priority
+            loading='eager'
+            fetchPriority='high'
           />
         </AccommodationsHeaderImage>
         <AccommodationsHeaderContent>

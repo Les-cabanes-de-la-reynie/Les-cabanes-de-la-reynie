@@ -59,7 +59,8 @@ const Activity3 = async ({ params }: Props) => {
           fill
           sizes='100vw'
           className='object-cover'
-          priority
+          loading='eager'
+          fetchPriority='high'
         />
       </HeroBanner>
 
