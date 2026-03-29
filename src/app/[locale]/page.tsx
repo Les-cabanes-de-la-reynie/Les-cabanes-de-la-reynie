@@ -79,6 +79,7 @@ export default async function Home({ params }: Props) {
           className='object-cover'
           loading='eager'
           fetchPriority='high'
+          preload
         />
       </HeroBanner>
 

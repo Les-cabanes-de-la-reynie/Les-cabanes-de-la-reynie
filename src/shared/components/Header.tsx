@@ -1,9 +1,9 @@
 'use client'
 
+import { usePathname } from '@/i18n/navigation'
 import { PAGE_ROUTES } from '@/shared/_constants/page'
 import { Container } from '@/shared/components/Container'
 import { cn } from '@/shared/utils/tailwind'
-import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Navbar } from './navbar/Navbar'
 
@@ -53,11 +53,10 @@ export const Header = () => {
 
   const headerClasses = cn(
     CONFIG.BASE_CLASSES,
-    { 'bg-primary': !isHomePage || !isAtTop },
-    {
-      'bg-primary lg:bg-transparent! lg:bg-gradient-to-b lg:from-neutral-900 lg:to-transparent':
-        isHomePage && isAtTop
-    }
+    'bg-primary',
+    isHomePage &&
+      isAtTop &&
+      'lg:bg-transparent! lg:bg-gradient-to-b lg:from-neutral-900/80 lg:to-transparent'
   )
 
   return (

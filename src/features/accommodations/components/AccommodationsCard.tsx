@@ -30,7 +30,7 @@ export const AccommodationsCard = ({
             alt={altFront}
             fill
             quality={50}
-            sizes='(max-width: 768px) 100vw, 384px'
+            sizes='(max-width: 768px) calc(100vw - 48px), 384px'
           />
           <Image
             src={imageOnHover}
@@ -38,7 +38,7 @@ export const AccommodationsCard = ({
             alt={altHover}
             fill
             quality={50}
-            sizes='(max-width: 768px) 100vw, 384px'
+            sizes='(max-width: 768px) calc(100vw - 48px), 384px'
           />
           <Heading
             level={2}
