@@ -2,6 +2,7 @@
 
 import prisma from '@/shared/lib/prisma'
 import { authActionClient } from '@/shared/lib/safe-actions'
+import { revalidatePath } from 'next/cache'
 import { OpeningHoursSchema } from '../../OpeningHoursSchema'
 
 export const updateOpeningHours = authActionClient
@@ -11,4 +12,6 @@ export const updateOpeningHours = authActionClient
       where: { id: 1 },
       data: openingHoursData
     })
+
+    revalidatePath('/', 'layout')
   })

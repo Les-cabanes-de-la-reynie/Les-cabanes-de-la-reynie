@@ -6,6 +6,8 @@ export type Locale = (typeof locales)[number]
 export const routing = defineRouting({
   locales,
   defaultLocale: 'fr',
+  // No NEXT_LOCALE cookie: Set-Cookie responses are never CDN-cached
+  localeCookie: false,
   pathnames: {
     '/': '/',
     '/contact': '/contact',

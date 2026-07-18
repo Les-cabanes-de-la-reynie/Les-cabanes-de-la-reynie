@@ -36,14 +36,16 @@ export const CarouselWithLightbox = ({
         src={imageUrl}
         sizes='(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 48px), 400px'
         fill
-        quality={40}
         className='rounded-lg object-cover'
         onClick={() => openLightboxOnSource(i)}
       />
     </div>
   ))
 
-  const lightboxSources = data.map(({ imageUrl }) => imageUrl)
+  // Serve the lightbox through the image optimizer instead of raw originals
+  const lightboxSources = data.map(
+    ({ imageUrl }) => `/_next/image?url=${encodeURIComponent(imageUrl)}&w=2048&q=75`
+  )
 
   return (
     <AppCarousel

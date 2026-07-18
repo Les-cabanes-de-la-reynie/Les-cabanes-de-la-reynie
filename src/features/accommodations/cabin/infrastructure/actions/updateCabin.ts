@@ -2,6 +2,7 @@
 
 import prisma from '@/shared/lib/prisma'
 import { authActionClient } from '@/shared/lib/safe-actions'
+import { revalidatePath } from 'next/cache'
 import { CabinSchema } from '../../CabinSchema'
 
 export const updateCabin = authActionClient
@@ -11,4 +12,6 @@ export const updateCabin = authActionClient
       where: { id: 1 },
       data: cabinData
     })
+
+    revalidatePath('/', 'layout')
   })

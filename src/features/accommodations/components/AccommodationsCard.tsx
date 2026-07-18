@@ -29,7 +29,6 @@ export const AccommodationsCard = ({
             className='object-cover group-hover:opacity-0 transition-opacity duration-500 ease-in-out'
             alt={altFront}
             fill
-            quality={50}
             sizes='(max-width: 768px) calc(100vw - 48px), 384px'
           />
           <Image
@@ -37,7 +36,6 @@ export const AccommodationsCard = ({
             className='opacity-0 group-hover:opacity-100 object-cover transition-opacity duration-500 ease-in-out'
             alt={altHover}
             fill
-            quality={50}
             sizes='(max-width: 768px) calc(100vw - 48px), 384px'
           />
           <Heading
