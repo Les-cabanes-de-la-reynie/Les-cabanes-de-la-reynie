@@ -7,6 +7,7 @@ export default defineConfig({
     path: "prisma/migrations",
   },
   datasource: {
-    url: env("DATABASE_URL"),
+    // Migrations need the direct (non-pooled) URL: PgBouncer can't hold advisory locks
+    url: env("DIRECT_DATABASE_URL"),
   },
 })
