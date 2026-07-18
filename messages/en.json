@@ -12,7 +12,6 @@
     "close": "Close",
     "description": "Description",
     "price": "Price",
-    "bookYourStay": "Book your stay",
     "bookOn": "Book on {platform}",
     "seeAirbnbListings": "See our Airbnb listings",
     "yurt": "Yurt",
@@ -48,8 +47,6 @@
     "accommodationsTitle": "A haven of peace for nature lovers",
     "accommodationsP1": "Imagine waking up to birdsong, enveloped in the soft morning light filtering through the canvas of your yurt. Let yourself be lulled by the rustle of leaves in the trees above your cabin. Enjoy the view of the lush green countryside and the valleys that stretch as far as the eye can see. Then sit out on the terrace to enjoy a morning coffee in the heart of nature, a gourmet picnic in the shade of the trees or a dreamy aperitif as the sun sets.",
     "accommodationsP2": "Our spacious and comfortable yurt, furnished with taste and simplicity, will offer you an authentic and relaxing stay, and our cabin, nestled in its own green setting, will help you to simply stop time.",
-    "bookingText": "Booking takes place online, where you can read reviews from our guests. Any questions before you decide? Write to us — we are happy to help.",
-    "bookingContact": "Contact us",
     "discoverActivities": "Discover the activities",
     "activitiesTeaserAlt": "Corrèze forest around Les Cabanes de la Reynie"
   },

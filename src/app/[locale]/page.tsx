@@ -2,7 +2,6 @@ import forestTeaser from '@/assets/homeCarousel/forest3.webp'
 import homeBannerImage from '@/assets/cabinAndYurt/home-banner.webp'
 import { AccommodationsCardList } from '@/features/accommodations/components/AccommodationsCardList'
 import { AccommodationsDescription } from '@/features/accommodations/components/AccommodationsDescription'
-import { BookingSection } from '@/features/accommodations/components/BookingSection'
 import { HomeAccommodationSlider } from '@/features/accommodations/components/HomeAccommodationSlider'
 import { routing } from '@/i18n/routing'
 import { YURT_BOOK_LIST } from '@/shared/_constants/bookings'
@@ -112,8 +111,6 @@ export default async function Home({ params }: Props) {
       </Container>
 
       <AccommodationsDescription />
-
-      <BookingSection />
     </div>
   )
 }
