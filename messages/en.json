@@ -13,6 +13,7 @@
     "description": "Description",
     "price": "Price",
     "bookYourStay": "Book your stay",
+    "bookOnAirbnb": "Book on Airbnb",
     "yurt": "Yurt",
     "cabin": "Cabin",
     "yurtInformation": "Yurt information",
@@ -28,10 +29,12 @@
   },
   "Home": {
     "CTA": "Dive into nature",
+    "heroSubtitle": "A yurt and a cabin deep in the Corrèze countryside",
+    "heroAlt": "Warm interior of the yurt at Les Cabanes de la Reynie",
     "sliderTitle": "What you will discover",
     "ourAccommodations": "Our accommodations",
-    "seeOurYurt": "See our Yurt!",
-    "seeOurCabin": "See our Cabin!",
+    "seeOurYurt": "See our yurt",
+    "seeOurCabin": "See our cabin",
     "yurtAltFront": "Outside view of the yurt at Les Cabanes de la Reynie",
     "yurtAltHover": "Inside view of the yurt at Les Cabanes de la Reynie",
     "cabinAltFront": "Outside view of the cabin at Les Cabanes de la Reynie",
@@ -39,14 +42,15 @@
     "aboutUsTitle": "Welcome to les cabanes de la Reynie!",
     "aboutUsP1": "The adventure began in 2021 when we scoured the region looking for a place that matched our aspirations. And we found it here: three hectares of meadow, forest, vegetable garden and ponds, on the edge of the Corrèze and at the gateway to the Dordogne.",
     "aboutUsP2": "One cabin and one yurt later, many travellers have already stopped off for a few days to get away from it all...",
-    "aboutUsP3": "...because waking up in les cabanes de la Reynie means finding yourself in the heart of nature, discovering the charms of Corrèze and the surrounding area, savouring the region's gastronomy, immersing yourself in history and, above all, enjoying a unique stay with friends or family!",
+    "aboutUsP3": "...because waking up in les cabanes de la Reynie means finding yourself in the heart of nature, discovering the charms of Corrèze and the surrounding area, savouring the region's gastronomy, immersing yourself in history and, above all, enjoying a unique stay with friends or family.",
     "aboutUsP4": "Treat yourself to an unforgettable getaway in our 6-person yurt or 2-person cabin, with its breathtaking views and rejuvenating tranquillity.",
     "accommodationsTitle": "A haven of peace for nature lovers",
     "accommodationsP1": "Imagine waking up to birdsong, enveloped in the soft morning light filtering through the canvas of your yurt. Let yourself be lulled by the rustle of leaves in the trees above your cabin. Enjoy the view of the lush green countryside and the valleys that stretch as far as the eye can see. Then sit out on the terrace to enjoy a morning coffee in the heart of nature, a gourmet picnic in the shade of the trees or a dreamy aperitif as the sun sets.",
-    "accommodationsP2": "Our spacious and comfortable yurt, furnished with taste and simplicity, will offer you an authentic and relaxing stay, and our cabin, nestled in its own green setting, will help you to simply stop time!"
+    "accommodationsP2": "Our spacious and comfortable yurt, furnished with taste and simplicity, will offer you an authentic and relaxing stay, and our cabin, nestled in its own green setting, will help you to simply stop time.",
+    "bookingText": "Booking takes place on Airbnb, where you can read reviews from our guests. Any questions before you decide? Write to us — we are happy to help.",
+    "bookingContact": "Contact us"
   },
   "Accommodations": {
-    "bookList": "Book list",
     "averagePrice": "Average price:",
     "wifi": "Wifi",
     "animal": "Pets allowed",
@@ -115,19 +119,50 @@
     "backButtonMessage": "Go to homepage"
   },
   "Footer": {
-    "aboutUs": "About Us",
-    "leadershipTeam": "Leadership Team",
-    "valuesInAction": "Values In Action",
-    "franchiseInfo": "Franchise Info",
-    "followUs": "Follow Us",
-    "establishmentFeedback": "Establishment Feedback",
-    "frequentlyAskedQuestions": "Frequently Asked Questions",
-    "facebookButton": "Read more about our Facebook page",
-    "instagramButton": "Read more about our Instagram page",
-    "linkedinButton": "Read more about our LinkedIn page",
+    "navigation": "Navigation",
+    "yurt": "The yurt",
+    "cabin": "The cabin",
+    "activities": "Activities",
+    "contact": "Contact",
     "allRightsReserved": "All Rights Reserved",
     "developedBy": "Developed by",
     "address": "Address"
+  },
+  "SEO": {
+    "home": {
+      "documentTitle": "Home",
+      "title": "In the heart of the Corrèze countryside",
+      "description": "Welcome to our yurt and cabin, in the heart of the Corrèze countryside, rich in landscapes and history — yours to discover during a memorable stay!"
+    },
+    "accommodation": {
+      "title": "Accommodations",
+      "description": "Open onto the peaceful surrounding nature, our accommodations are designed to bring you rest and a change of scenery.",
+      "yurt": {
+        "title": "Yurt",
+        "description": "The yurt sleeps up to 6 people, with its sleeping areas, lounge, kitchen and toilet corner. The view stretches over the meadow and the valley."
+      },
+      "cabin": {
+        "title": "Cabin",
+        "description": "The cabin accommodates two people and offers, a few steps away, an outdoor shower, dry toilets and a summer kitchen area."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contact Les Cabanes de la Reynie, unusual accommodation in Corrèze. Find our opening hours, address and directions to reach our yurt and cabin."
+    },
+    "activity": {
+      "title": "Activities",
+      "description": "Hiking, mountain biking, climbing, canoeing, visits to castles and listed villages, the Lascaux and Tourtoirac caves, the Padirac chasm, local gastronomy…",
+      "1": {
+        "title": "A life-size playground for sports and adventure lovers"
+      },
+      "2": {
+        "title": "A culinary journey through the Corrèze and Périgord terroir"
+      },
+      "3": {
+        "title": "In the footsteps of history in Corrèze and Dordogne"
+      }
+    }
   },
   "Navigation": {
     "switchLangTitle": "Languages",
@@ -144,6 +179,8 @@
     "lightModeTheme": "Light"
   },
   "Carousel": {
+    "imageAlt": "Les Cabanes de la Reynie — photo {number}",
+    "openImage": "Enlarge photo {number}",
     "prevButton": "Previous image",
     "nextButton": "Next image",
     "scrollProgress": "Carousel scroll progress"

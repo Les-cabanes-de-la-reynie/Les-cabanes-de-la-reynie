@@ -97,7 +97,7 @@ test.describe('Header navigation', () => {
       await accommodationsLink.click()
       await yurtLink.click()
       await page.waitForURL('**/logements/yourte')
-      await expect(page.getByRole('heading', { name: 'Yourte' })).toBeAttached()
+      await expect(page.getByRole('heading', { name: 'Yourte', exact: true })).toBeAttached()
     })
 
     test('should be in the cabin page after clicked on Cabin', async ({ page }) => {
@@ -112,7 +112,7 @@ test.describe('Header navigation', () => {
       await accommodationsLink.click()
       await cabinLink.click()
       await page.waitForURL('**/logements/cabane')
-      await expect(page.getByRole('heading', { name: 'Cabane' })).toBeAttached()
+      await expect(page.getByRole('heading', { name: 'Cabane', exact: true })).toBeAttached()
     })
 
     test('should be in the contact page after clicked on Contact', async ({
@@ -213,7 +213,7 @@ test.describe('Header navigation', () => {
       await accommodationsLink.click()
       await yurtLink.click()
       await page.waitForURL('**/logements/yourte')
-      await expect(page.getByRole('heading', { name: 'Yourte' })).toBeVisible()
+      await expect(page.getByRole('heading', { name: 'Yourte', exact: true })).toBeVisible()
     })
 
     test('should be in the cabin page after clicked on Cabin', async ({ page }) => {
@@ -225,7 +225,7 @@ test.describe('Header navigation', () => {
       await accommodationsLink.click()
       await cabinLink.click()
       await page.waitForURL('**/logements/cabane')
-      await expect(page.getByRole('heading', { name: 'Cabane' })).toBeVisible()
+      await expect(page.getByRole('heading', { name: 'Cabane', exact: true })).toBeVisible()
     })
 
     test('should be in the contact page after clicked on Contact', async ({

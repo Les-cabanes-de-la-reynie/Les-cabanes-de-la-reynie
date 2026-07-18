@@ -1,14 +1,13 @@
 import forest from '@/assets/homeCarousel/forest4.webp'
 import { generateLocaleStaticParams } from '@/shared/utils/generateLocaleStaticParams'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
-import { SEO } from '@/shared/_constants/SEO'
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
 import { HeroBanner } from '@/shared/components/HeroBanner'
 import { P } from '@/shared/components/P'
 import { env } from '@/shared/lib/env'
 import { Metadata } from 'next'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Image from 'next/image'
 
 type Props = {
@@ -17,9 +16,10 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
+  const tSEO = await getTranslations({ locale, namespace: 'SEO' })
 
   return {
-    title: SEO.activity[3].title,
+    title: tSEO('activity.3.title'),
     alternates: {
       canonical: new URL(`/${locale}/activites/3`, env.NEXT_PUBLIC_BASE_URL),
       languages: {
@@ -28,8 +28,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       }
     },
     openGraph: {
-      title: `${SEO.activity[3].title} - ${ESTABLISHMENT_TITLE}`,
-      description: SEO.activity.description,
+      title: `${tSEO('activity.3.title')} - ${ESTABLISHMENT_TITLE}`,
+      description: tSEO('activity.description'),
       type: 'website',
       locale,
       siteName: ESTABLISHMENT_TITLE,

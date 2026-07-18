@@ -22,7 +22,7 @@ L'insolite en pleine nature corrézienne : dormir en yourte ou en cabane au cœu
 
 ## Conversion & proof
 
-- CTA primaire : partir réserver sur la plateforme externe (Airbnb). **Le lien réel des yourtes est à retrouver** avant de l'afficher. Repli : la page contact (téléphone/email) déjà en place.
+- CTA primaire : partir réserver sur Airbnb. Yourte : https://www.airbnb.fr/rooms/965598367739509311 — **le lien de l'annonce cabane reste à retrouver** (les anciens liens courts abnb.me sont morts ; en attendant, le CTA cabane renvoie vers l'annonce de la yourte). Repli : la page contact (téléphone/email).
 - La ligne à retenir après 10 secondes : « une parenthèse insolite au cœur de la nature corrézienne ».
 - Échelle de conviction : voir le lieu (photos immersives) → se projeter dans le séjour (confort de la yourte/cabane, activités autour) → sentir l'authenticité de l'accueil → vérifier la praticité (localisation, horaires) → partir réserver en confiance.
 - Preuves en main : aucune pour l'instant ; le lien vers l'annonce Airbnb (avec ses avis) est la piste la plus proche, une fois retrouvé.

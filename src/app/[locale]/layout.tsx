@@ -1,6 +1,5 @@
 import { routing } from '@/i18n/routing'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
-import { SEO } from '@/shared/_constants/SEO'
 import { Footer } from '@/shared/components/footer/Footer'
 import { Header } from '@/shared/components/Header'
 import { Toaster } from '@/shared/components/ui/sonner'
@@ -9,7 +8,7 @@ import { Providers } from '@/shared/providers'
 import { cn } from '@/shared/utils/tailwind'
 import { Metadata } from 'next'
 import { hasLocale } from 'next-intl'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Galada, Roboto } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
@@ -69,12 +68,14 @@ export default async function LocaleLayout({ children, params }: Props) {
   // Enable static rendering
   setRequestLocale(locale)
 
+  const tSEO = await getTranslations('SEO')
+
   // suppressHydrationWarning useful because next-themes trigger an error with: attribute='class'
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LodgingBusiness',
     name: ESTABLISHMENT_TITLE,
-    description: SEO.home.description,
+    description: tSEO('home.description'),
     url: env.NEXT_PUBLIC_BASE_URL,
     image: `${env.NEXT_PUBLIC_BASE_URL}/yurt.jpg`,
     address: {

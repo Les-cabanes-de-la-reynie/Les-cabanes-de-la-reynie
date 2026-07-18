@@ -15,7 +15,7 @@ test.describe('Carousel', () => {
     }) => {
       await expect(page).toHaveURL(frenchURL)
 
-      const firstImage = page.getByRole('img', { name: 'Our fabulous place 0' })
+      const firstImage = page.getByRole('button', { name: 'Agrandir la photo 1' })
       const closeFslightboxButton = page.getByTitle('Close')
       const fullscreenFslightboxButton = page.getByTitle('Enter fullscreen')
 
@@ -34,7 +34,7 @@ test.describe('Carousel', () => {
     }) => {
       await expect(page).toHaveURL(frenchURL)
 
-      const firstImage = page.getByRole('img', { name: 'Our fabulous place 0' })
+      const firstImage = page.getByRole('button', { name: 'Agrandir la photo 1' })
       const nextButton = page.getByTestId('carousel-next-button')
       const previousButton = page.getByTestId('carousel-previous-button')
 

@@ -10,7 +10,7 @@ type LogoProps = ClassNameProps & {
 
 export const Logo = ({ onCloseMenu, className }: LogoProps) => {
   const classes = cn(
-    'flex flex-col box-border cursor-pointer mr-8 border-y-4 border-white text-2xl font-extrabold w-max text-white',
+    'flex flex-col box-border cursor-pointer mr-8 w-max font-secondary text-lg leading-tight text-white',
     className
   )
 
@@ -22,7 +22,8 @@ export const Logo = ({ onCloseMenu, className }: LogoProps) => {
       aria-label={`${ESTABLISHMENT_TITLE} Logo`}
       data-testid='app-main-logo'
     >
-      <span>LOGO</span>
+      <span>Les cabanes</span>
+      <span>de la Reynie</span>
     </Link>
   )
 }

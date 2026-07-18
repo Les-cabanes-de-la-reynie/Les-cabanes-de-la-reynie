@@ -1,12 +1,11 @@
 import forest from '@/assets/homeCarousel/forest2.webp'
 import { routing } from '@/i18n/routing'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
-import { SEO } from '@/shared/_constants/SEO'
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
 import { env } from '@/shared/lib/env'
 import { Metadata } from 'next'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { ActivityCardList } from './components/ActivityCardList'
 
 type Props = {
@@ -15,10 +14,11 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
+  const tSEO = await getTranslations({ locale, namespace: 'SEO' })
 
   return {
-    title: SEO.activity.title,
-    description: SEO.activity.description,
+    title: tSEO('activity.title'),
+    description: tSEO('activity.description'),
     alternates: {
       canonical: new URL(`/${locale}/activites`, env.NEXT_PUBLIC_BASE_URL),
       languages: {
@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       }
     },
     openGraph: {
-      title: `${SEO.activity.title} - ${ESTABLISHMENT_TITLE}`,
-      description: SEO.activity.description,
+      title: `${tSEO('activity.title')} - ${ESTABLISHMENT_TITLE}`,
+      description: tSEO('activity.description'),
       type: 'website',
       locale,
       siteName: ESTABLISHMENT_TITLE,

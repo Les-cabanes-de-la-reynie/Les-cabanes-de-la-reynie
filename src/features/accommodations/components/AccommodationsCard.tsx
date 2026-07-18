@@ -1,5 +1,4 @@
 import { Link } from '@/i18n/navigation'
-import { Heading } from '@/shared/components/Heading'
 import Image, { StaticImageData } from 'next/image'
 import { ComponentProps } from 'react'
 
@@ -26,24 +25,21 @@ export const AccommodationsCard = ({
         <div className='relative h-full w-full overflow-hidden rounded'>
           <Image
             src={imageOnFront}
-            className='object-cover group-hover:opacity-0 transition-opacity duration-500 ease-in-out'
+            className='object-cover transition-opacity duration-500 ease-in-out group-hover:opacity-0'
             alt={altFront}
             fill
             sizes='(max-width: 768px) calc(100vw - 48px), 384px'
           />
           <Image
             src={imageOnHover}
-            className='opacity-0 group-hover:opacity-100 object-cover transition-opacity duration-500 ease-in-out'
+            className='object-cover opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100'
             alt={altHover}
             fill
             sizes='(max-width: 768px) calc(100vw - 48px), 384px'
           />
-          <Heading
-            level={2}
-            className='flex items-center bg-black/50 rounded text-primary-foreground justify-center h-full w-full absolute top-0 left-0 group-hover:opacity-0 transition-opacity duration-500 ease-in-out'
-          >
+          <span className='absolute inset-x-0 bottom-0 flex items-end justify-center rounded-b bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-16 text-xl font-medium text-primary-foreground'>
             {textContent}
-          </Heading>
+          </span>
         </div>
       </Link>
     </div>
