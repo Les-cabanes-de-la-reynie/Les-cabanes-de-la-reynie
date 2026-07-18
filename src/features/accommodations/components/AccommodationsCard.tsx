@@ -1,4 +1,5 @@
 import { Link } from '@/i18n/navigation'
+import { cn } from '@/shared/utils/tailwind'
 import Image, { StaticImageData } from 'next/image'
 import { ComponentProps } from 'react'
 
@@ -9,6 +10,8 @@ type AccommodationsCardProps = {
   altFront: string
   altHover: string
   textContent: string
+  className?: string
+  imageClassName?: string
 }
 
 export const AccommodationsCard = ({
@@ -17,22 +20,29 @@ export const AccommodationsCard = ({
   imageOnHover,
   altFront,
   altHover,
-  textContent
+  textContent,
+  className,
+  imageClassName
 }: AccommodationsCardProps) => {
   return (
-    <div className='group rounded-lg border-4 w-full h-60 md:h-96 md:max-w-96 border-transparent hover:border-primary duration-500 transition-colors'>
+    <div
+      className={cn(
+        'group rounded-lg border-4 w-full h-60 md:h-96 border-transparent hover:border-primary duration-500 transition-colors',
+        className
+      )}
+    >
       <Link href={href} className='block h-full'>
         <div className='relative h-full w-full overflow-hidden rounded'>
           <Image
             src={imageOnFront}
-            className='object-cover transition-opacity duration-500 ease-in-out group-hover:opacity-0'
+            className={cn('object-cover transition-opacity duration-500 ease-in-out group-hover:opacity-0', imageClassName)}
             alt={altFront}
             fill
             sizes='(max-width: 768px) calc(100vw - 48px), 384px'
           />
           <Image
             src={imageOnHover}
-            className='object-cover opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100'
+            className={cn('object-cover opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100', imageClassName)}
             alt={altHover}
             fill
             sizes='(max-width: 768px) calc(100vw - 48px), 384px'

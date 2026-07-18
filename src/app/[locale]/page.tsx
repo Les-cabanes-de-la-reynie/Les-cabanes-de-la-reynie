@@ -1,6 +1,10 @@
+import cabinImageFront from '@/assets/cabinAndYurt/home-cabin-front.webp'
+import cabinImageHover from '@/assets/cabinAndYurt/home-cabin-hover.webp'
+import yurtImageFront from '@/assets/cabinAndYurt/home-yurt-front.webp'
+import yurtImageHover from '@/assets/cabinAndYurt/home-yurt-hover.webp'
 import forestTeaser from '@/assets/homeCarousel/forest3.webp'
 import homeBannerImage from '@/assets/cabinAndYurt/home-banner.webp'
-import { AccommodationsCardList } from '@/features/accommodations/components/AccommodationsCardList'
+import { AccommodationsCard } from '@/features/accommodations/components/AccommodationsCard'
 import { AccommodationsDescription } from '@/features/accommodations/components/AccommodationsDescription'
 import { HomeAccommodationSlider } from '@/features/accommodations/components/HomeAccommodationSlider'
 import { routing } from '@/i18n/routing'
@@ -99,15 +103,35 @@ export default async function Home({ params }: Props) {
         <Heading id='our-services' level={2}>
           {tHome('ourAccommodations')}
         </Heading>
-        <AccommodationsCardList />
-
-        <PhotoLinkBanner
-          href={PAGE_ROUTES.activity.home}
-          image={forestTeaser}
-          imageAlt={tHome('activitiesTeaserAlt')}
-          title={tHome('discoverActivities')}
-          className='mt-8'
-        />
+        <div className='grid grid-cols-1 gap-4 lg:grid-cols-2'>
+          <AccommodationsCard
+            href={PAGE_ROUTES.accommodation.yurt}
+            imageOnFront={yurtImageFront}
+            imageOnHover={yurtImageHover}
+            altFront={tHome('yurtAltFront')}
+            altHover={tHome('yurtAltHover')}
+            textContent={tHome('seeOurYurt')}
+            className='lg:h-full'
+            imageClassName='lg:object-bottom'
+          />
+          <div className='flex flex-col gap-4'>
+            <AccommodationsCard
+              href={PAGE_ROUTES.accommodation.cabin}
+              imageOnFront={cabinImageFront}
+              imageOnHover={cabinImageHover}
+              altFront={tHome('cabinAltFront')}
+              altHover={tHome('cabinAltHover')}
+              textContent={tHome('seeOurCabin')}
+              className='lg:h-72'
+            />
+            <PhotoLinkBanner
+              href={PAGE_ROUTES.activity.home}
+              image={forestTeaser}
+              imageAlt={tHome('activitiesTeaserAlt')}
+              title={tHome('discoverActivities')}
+            />
+          </div>
+        </div>
       </Container>
 
       <AccommodationsDescription />
