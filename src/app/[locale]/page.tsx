@@ -1,9 +1,9 @@
+import forestTeaser from '@/assets/homeCarousel/forest3.webp'
 import homeBannerImage from '@/assets/cabinAndYurt/home-banner.webp'
 import { AccommodationsCardList } from '@/features/accommodations/components/AccommodationsCardList'
 import { AccommodationsDescription } from '@/features/accommodations/components/AccommodationsDescription'
 import { BookingSection } from '@/features/accommodations/components/BookingSection'
 import { HomeAccommodationSlider } from '@/features/accommodations/components/HomeAccommodationSlider'
-import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { YURT_BOOK_LIST } from '@/shared/_constants/bookings'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
@@ -13,7 +13,7 @@ import { Heading } from '@/shared/components/Heading'
 import { HeroBanner } from '@/shared/components/HeroBanner'
 import { IntroduceLesCabanesDeLaReynie } from '@/shared/components/IntroduceLesCabanesDeLaReynie'
 import { Loader } from '@/shared/components/Loader'
-import { buttonVariants } from '@/shared/components/ui/button'
+import { PhotoLinkBanner } from '@/shared/components/PhotoLinkBanner'
 import { env } from '@/shared/lib/env'
 import { pageAlternates } from '@/shared/lib/seo'
 import { Metadata } from 'next'
@@ -102,14 +102,13 @@ export default async function Home({ params }: Props) {
         </Heading>
         <AccommodationsCardList />
 
-        <div className='mt-8 flex justify-center'>
-          <Link
-            href={PAGE_ROUTES.activity.home}
-            className={buttonVariants({ variant: 'outline' })}
-          >
-            {tHome('discoverActivities')}
-          </Link>
-        </div>
+        <PhotoLinkBanner
+          href={PAGE_ROUTES.activity.home}
+          image={forestTeaser}
+          imageAlt={tHome('activitiesTeaserAlt')}
+          title={tHome('discoverActivities')}
+          className='mt-8'
+        />
       </Container>
 
       <AccommodationsDescription />

@@ -1,7 +1,7 @@
 import { ClassNameProps } from '@/shared/_types/components'
 import { Heading } from '@/shared/components/Heading'
 import { cn } from '@/shared/utils/tailwind'
-import { ArrowBigDown, ExternalLink } from 'lucide-react'
+import { ArrowDown, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
 import { buttonVariants } from './ui/button'
@@ -75,7 +75,7 @@ export const HeroBanner = ({
                 )}
               >
                 <span>{callToActionText}</span>
-                <ArrowBigDown aria-hidden='true' />
+                <ArrowDown aria-hidden='true' />
               </Link>
             )}
           </div>

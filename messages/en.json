@@ -14,6 +14,7 @@
     "price": "Price",
     "bookYourStay": "Book your stay",
     "bookOn": "Book on {platform}",
+    "seeAirbnbListings": "See our Airbnb listings",
     "yurt": "Yurt",
     "cabin": "Cabin",
     "yurtInformation": "Yurt information",
@@ -49,7 +50,8 @@
     "accommodationsP2": "Our spacious and comfortable yurt, furnished with taste and simplicity, will offer you an authentic and relaxing stay, and our cabin, nestled in its own green setting, will help you to simply stop time.",
     "bookingText": "Booking takes place online, where you can read reviews from our guests. Any questions before you decide? Write to us — we are happy to help.",
     "bookingContact": "Contact us",
-    "discoverActivities": "Discover the activities"
+    "discoverActivities": "Discover the activities",
+    "activitiesTeaserAlt": "Corrèze forest around Les Cabanes de la Reynie"
   },
   "Accommodations": {
     "averagePrice": "Average price:",
@@ -61,6 +63,7 @@
     "dryToilet": "Dry toilet",
     "carPark": "Free on-site car park",
     "seeAlsoYurt": "Also discover the yurt",
+    "perNight": "/ night",
     "seeAlsoCabin": "Also discover the cabin",
     "accommodationsDescriptionTitle": "An ecological and gourmet holiday for an authentic experience",
     "accommodationsDescriptionP1": "Our site has been designed with the environment in mind. Our yurt and cabin are equipped with dry toilets, and we use natural, local products for the upkeep of our accommodation and site.",
@@ -113,14 +116,17 @@
     "previous": "Previous activity",
     "next": "Next activity",
     "a1": {
+      "sectionTitle": "Sports and nature",
       "imageAlt": "Corrèze forest – outdoor activities and hiking",
       "body": "Corrèze is a true paradise for lovers of nature and outdoor sports. Explore the many hiking trails that wind through the forest, discovering a rich and varied flora and fauna. Take on the rivers by canoe or kayak for guaranteed thrills, or opt for a climbing session and admire the region's spectacular panoramas."
     },
     "a2": {
+      "sectionTitle": "Flavours of the terroir",
       "imageAlt": "Corrèze forest landscape in the heart of gastronomic country",
       "body": "Give in to the rich, flavoursome local gastronomy by tasting Corrèze specialities such as walnut tart, black pudding (with chestnuts) and the famous walnut liqueur, or discover the pleasures of truffles and duck from the neighbouring Périgord. Explore the local markets and sample fresh, organic produce from the region: seasonal fruit and vegetables, farmhouse cheeses, artisanal charcuterie, local honey and jams, herbal teas…"
     },
     "a3": {
+      "sectionTitle": "Heritage and villages",
       "imageAlt": "Forest and historic landscape of Corrèze and Dordogne",
       "body": "Dive into the fascinating history of Corrèze and its surroundings. Visit the many picturesque villages with their red sandstone houses and lauze roofs, such as Turenne, Collonges-la-Rouge and Curemonte. Explore the medieval castles that dot the landscape, such as the Château de Ventadour. Set off to discover the historic sites of the Dordogne and the Vézère valley, such as the Lascaux caves and the villages of Sarlat-la-Canéda and Rocamadour (Lot). Let yourself be carried away by the unique atmosphere of these places steeped in history and admire the remains of the past, testament to the region's rich cultural heritage."
     }

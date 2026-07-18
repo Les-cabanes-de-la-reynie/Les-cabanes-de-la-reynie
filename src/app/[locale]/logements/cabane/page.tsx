@@ -1,13 +1,12 @@
 import headerImage from '@/assets/cabinAndYurt/cabin-header.webp'
+import yurtImageFront from '@/assets/cabinAndYurt/home-yurt-front.webp'
 import { CabinAccommodationSlider } from '@/features/accommodations/cabin/components/CabinAccommodationSlider'
 import { CabinPrice } from '@/features/accommodations/cabin/components/CabinPrice'
 import { AccommodationsHeader } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeader'
 import { AccommodationsHeaderContent } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderContent'
 import { AccommodationsHeaderImage } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderImage'
 import { BookingLinks } from '@/features/accommodations/components/BookingLinks'
-import { buttonVariants } from '@/shared/components/ui/button'
 import { PracticalInformation } from '@/features/accommodations/components/practicalInformation/PracticalInformation'
-import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { CABIN_BOOK_LIST } from '@/shared/_constants/bookings'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
@@ -17,6 +16,7 @@ import { Heading } from '@/shared/components/Heading'
 import { Loader } from '@/shared/components/Loader'
 import { OurGourmetOffer } from '@/shared/components/ourGourmetOffer/OurGourmetOffer'
 import { P } from '@/shared/components/P'
+import { PhotoLinkBanner } from '@/shared/components/PhotoLinkBanner'
 import { env } from '@/shared/lib/env'
 import { localizedUrl, pageAlternates } from '@/shared/lib/seo'
 import { Metadata } from 'next'
@@ -74,6 +74,7 @@ export default async function Cabin({ params }: Props) {
 
   const tCommon = await getTranslations('Common')
   const tAccommodations = await getTranslations('Accommodations')
+  const tHome = await getTranslations('Home')
   const tCabin = await getTranslations('Cabin')
 
 
@@ -129,7 +130,11 @@ export default async function Cabin({ params }: Props) {
 
           <CabinPrice />
 
-          <BookingLinks bookList={CABIN_BOOK_LIST} className='mt-10' />
+          <BookingLinks
+            bookList={CABIN_BOOK_LIST}
+            label={tCommon('seeAirbnbListings')}
+            className='mt-10'
+          />
         </AccommodationsHeaderContent>
       </AccommodationsHeader>
 
@@ -141,13 +146,13 @@ export default async function Cabin({ params }: Props) {
 
       <OurGourmetOffer />
 
-      <Container className='flex justify-center'>
-        <Link
+      <Container>
+        <PhotoLinkBanner
           href={PAGE_ROUTES.accommodation.yurt}
-          className={buttonVariants({ variant: 'outline' })}
-        >
-          {tAccommodations('seeAlsoYurt')}
-        </Link>
+          image={yurtImageFront}
+          imageAlt={tHome('yurtAltFront')}
+          title={tAccommodations('seeAlsoYurt')}
+        />
       </Container>
     </main>
   )
