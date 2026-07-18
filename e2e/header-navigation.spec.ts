@@ -146,7 +146,7 @@ test.describe('Header navigation', () => {
 
       await expect(
         page.getByRole('heading', {
-          name: 'ACTIVITES'
+          name: 'Les activités'
         })
       ).toBeAttached()
     })
@@ -257,7 +257,7 @@ test.describe('Header navigation', () => {
 
       await expect(
         page.getByRole('heading', {
-          name: 'ACTIVITES'
+          name: 'Les activités'
         })
       ).toBeVisible()
     })

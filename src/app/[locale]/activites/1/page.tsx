@@ -1,11 +1,12 @@
 import forest from '@/assets/homeCarousel/forest2.webp'
 import { generateLocaleStaticParams } from '@/shared/utils/generateLocaleStaticParams'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
+import { ActivityPager } from '../components/ActivityPager'
 import { Container } from '@/shared/components/Container'
-import { Heading } from '@/shared/components/Heading'
 import { HeroBanner } from '@/shared/components/HeroBanner'
 import { P } from '@/shared/components/P'
 import { env } from '@/shared/lib/env'
+import { pageAlternates } from '@/shared/lib/seo'
 import { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Image from 'next/image'
@@ -20,13 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: tSEO('activity.1.title'),
-    alternates: {
-      canonical: new URL(`/${locale}/activites/1`, env.NEXT_PUBLIC_BASE_URL),
-      languages: {
-        fr: `${env.NEXT_PUBLIC_BASE_URL}/fr/activites/1`,
-        en: `${env.NEXT_PUBLIC_BASE_URL}/en/activites/1`
-      }
-    },
+    description: tSEO('activity.description'),
+    alternates: pageAlternates(locale, '/activites/1'),
     openGraph: {
       title: `${tSEO('activity.1.title')} - ${ESTABLISHMENT_TITLE}`,
       description: tSEO('activity.description'),
@@ -34,6 +30,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale,
       siteName: ESTABLISHMENT_TITLE,
       images: [{ url: forest.src, width: forest.width, height: forest.height }]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${tSEO('activity.1.title')} - ${ESTABLISHMENT_TITLE}`,
+      description: tSEO('activity.description')
     }
   }
 }
@@ -46,14 +47,17 @@ const Activity1 = async ({ params }: Props) => {
   const { locale } = await params
   setRequestLocale(locale)
 
+  const tSEO = await getTranslations('SEO')
+  const tActivities = await getTranslations('Activities')
+
   return (
     <div className='w-full'>
       <HeroBanner
-        title="Un terrain de jeux grandeur nature pour les amateurs de sports et d'aventure"
+        title={tSEO('activity.1.title')}
         className='lg:h-[calc(75vh-4.5rem)]'
       >
         <Image
-          alt='Forêt corrézienne – activités de plein air et randonnée'
+          alt={tActivities('a1.imageAlt')}
           src={forest}
           placeholder='blur'
           fill
@@ -65,21 +69,10 @@ const Activity1 = async ({ params }: Props) => {
       </HeroBanner>
 
       <Container>
-        <Heading level={2} className='text-center'>
-          Un terrain de jeux grandeur nature pour les amateurs de sports et d
-          &apos;aventure
-        </Heading>
-        <P>
-          {`
-          La Corrèze est un vrai paradis pour les amoureux de nature et de
-          sports en plein air. Vous pourrez explorer les nombreux sentiers de
-          randonnée qui sillonnent la forêt, à la découverte d'une faune et
-          d'une flore riches et variées. Partir à l'assaut des rivières en canoë
-          ou kayak pour des sensations fortes garanties ou opter pour une
-          session d'escalade et admirer les panoramas spectaculaires de la
-          région.`}
-        </P>
+        <P>{tActivities('a1.body')}</P>
       </Container>
+
+      <ActivityPager current={1} />
     </div>
   )
 }

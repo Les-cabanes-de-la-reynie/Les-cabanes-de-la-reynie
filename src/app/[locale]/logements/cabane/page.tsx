@@ -5,15 +5,20 @@ import { AccommodationsHeader } from '@/features/accommodations/components/Accom
 import { AccommodationsHeaderContent } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderContent'
 import { AccommodationsHeaderImage } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderImage'
 import { BookingLinks } from '@/features/accommodations/components/BookingLinks'
+import { buttonVariants } from '@/shared/components/ui/button'
 import { PracticalInformation } from '@/features/accommodations/components/practicalInformation/PracticalInformation'
+import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { CABIN_BOOK_LIST } from '@/shared/_constants/bookings'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
+import { PAGE_ROUTES } from '@/shared/_constants/page'
+import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
 import { Loader } from '@/shared/components/Loader'
 import { OurGourmetOffer } from '@/shared/components/ourGourmetOffer/OurGourmetOffer'
 import { P } from '@/shared/components/P'
 import { env } from '@/shared/lib/env'
+import { localizedUrl, pageAlternates } from '@/shared/lib/seo'
 import { Metadata } from 'next'
 import { hasLocale } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
@@ -32,22 +37,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: tSEO('accommodation.cabin.title'),
     description: tSEO('accommodation.cabin.description'),
-    alternates: {
-      canonical: new URL(
-        `/${locale}/logements/cabane`,
-        env.NEXT_PUBLIC_BASE_URL
-      ),
-      languages: {
-        fr: `${env.NEXT_PUBLIC_BASE_URL}/fr/logements/cabane`,
-        en: `${env.NEXT_PUBLIC_BASE_URL}/en/logements/cabane`
-      }
-    },
+    alternates: pageAlternates(locale, '/logements/cabane'),
     openGraph: {
       title: `${tSEO('accommodation.cabin.title')} - ${ESTABLISHMENT_TITLE}`,
       description: tSEO('accommodation.cabin.description'),
       type: 'website',
       locale,
-      url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/logements/cabane`,
+      url: localizedUrl(locale, '/logements/cabane'),
       siteName: ESTABLISHMENT_TITLE,
       images: [
         {
@@ -77,6 +73,7 @@ export default async function Cabin({ params }: Props) {
   const tSEO = await getTranslations('SEO')
 
   const tCommon = await getTranslations('Common')
+  const tAccommodations = await getTranslations('Accommodations')
   const tCabin = await getTranslations('Cabin')
 
 
@@ -85,7 +82,7 @@ export default async function Cabin({ params }: Props) {
     '@type': 'Accommodation',
     name: `${tCommon('cabin')} — ${ESTABLISHMENT_TITLE}`,
     description: tSEO('accommodation.cabin.description'),
-    url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/logements/cabane`,
+    url: localizedUrl(locale, '/logements/cabane'),
     image: `${env.NEXT_PUBLIC_BASE_URL}/cabin.jpg`,
     occupancy: { '@type': 'QuantitativeValue', maxValue: 2 },
     containedInPlace: {
@@ -143,6 +140,15 @@ export default async function Cabin({ params }: Props) {
       </Suspense>
 
       <OurGourmetOffer />
+
+      <Container className='flex justify-center'>
+        <Link
+          href={PAGE_ROUTES.accommodation.yurt}
+          className={buttonVariants({ variant: 'outline' })}
+        >
+          {tAccommodations('seeAlsoYurt')}
+        </Link>
+      </Container>
     </main>
   )
 }

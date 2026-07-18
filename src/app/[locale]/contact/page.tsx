@@ -5,6 +5,7 @@ import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
 import { MapSection } from '@/shared/components/map/MapSection'
 import { env } from '@/shared/lib/env'
+import { pageAlternates } from '@/shared/lib/seo'
 import { Metadata } from 'next'
 import { hasLocale } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
@@ -21,13 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: tSEO('contact.title'),
     description: tSEO('contact.description'),
-    alternates: {
-      canonical: new URL(`/${locale}/contact`, env.NEXT_PUBLIC_BASE_URL),
-      languages: {
-        fr: `${env.NEXT_PUBLIC_BASE_URL}/fr/contact`,
-        en: `${env.NEXT_PUBLIC_BASE_URL}/en/contact`
-      }
-    },
+    alternates: pageAlternates(locale, '/contact'),
     openGraph: {
       title: `${tSEO('contact.title')} - ${ESTABLISHMENT_TITLE}`,
       description: tSEO('contact.description'),
