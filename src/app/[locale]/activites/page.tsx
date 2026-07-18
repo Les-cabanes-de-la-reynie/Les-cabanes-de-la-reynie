@@ -4,6 +4,7 @@ import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformatio
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
 import { env } from '@/shared/lib/env'
+import { pageAlternates } from '@/shared/lib/seo'
 import { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { ActivityCardList } from './components/ActivityCardList'
@@ -19,13 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: tSEO('activity.title'),
     description: tSEO('activity.description'),
-    alternates: {
-      canonical: new URL(`/${locale}/activites`, env.NEXT_PUBLIC_BASE_URL),
-      languages: {
-        fr: `${env.NEXT_PUBLIC_BASE_URL}/fr/activites`,
-        en: `${env.NEXT_PUBLIC_BASE_URL}/en/activites`
-      }
-    },
+    alternates: pageAlternates(locale, '/activites'),
     openGraph: {
       title: `${tSEO('activity.title')} - ${ESTABLISHMENT_TITLE}`,
       description: tSEO('activity.description'),
@@ -45,11 +40,13 @@ const Activites = async ({ params }: Props) => {
   const { locale } = await params
   setRequestLocale(locale)
 
+  const tActivities = await getTranslations('Activities')
+
   return (
     <Container>
       <section>
         <Heading level={1} className='my-8 text-center'>
-          ACTIVITES
+          {tActivities('indexTitle')}
         </Heading>
 
         <ActivityCardList />

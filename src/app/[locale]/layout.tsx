@@ -4,6 +4,7 @@ import { Footer } from '@/shared/components/footer/Footer'
 import { Header } from '@/shared/components/Header'
 import { Toaster } from '@/shared/components/ui/sonner'
 import { env } from '@/shared/lib/env'
+import { pageAlternates } from '@/shared/lib/seo'
 import { Providers } from '@/shared/providers'
 import { cn } from '@/shared/utils/tailwind'
 import { Metadata } from 'next'
@@ -42,13 +43,7 @@ export async function generateMetadata({
   const { locale } = await params
 
   return {
-    alternates: {
-      canonical: new URL(`/${locale}`, env.NEXT_PUBLIC_BASE_URL),
-      languages: {
-        fr: '/fr',
-        en: '/en'
-      }
-    }
+    alternates: pageAlternates(locale, '/')
   }
 }
 

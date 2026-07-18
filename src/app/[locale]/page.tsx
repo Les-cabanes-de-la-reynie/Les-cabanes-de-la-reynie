@@ -3,15 +3,19 @@ import { AccommodationsCardList } from '@/features/accommodations/components/Acc
 import { AccommodationsDescription } from '@/features/accommodations/components/AccommodationsDescription'
 import { BookingSection } from '@/features/accommodations/components/BookingSection'
 import { HomeAccommodationSlider } from '@/features/accommodations/components/HomeAccommodationSlider'
+import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { YURT_BOOK_LIST } from '@/shared/_constants/bookings'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
+import { PAGE_ROUTES } from '@/shared/_constants/page'
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
 import { HeroBanner } from '@/shared/components/HeroBanner'
 import { IntroduceLesCabanesDeLaReynie } from '@/shared/components/IntroduceLesCabanesDeLaReynie'
 import { Loader } from '@/shared/components/Loader'
+import { buttonVariants } from '@/shared/components/ui/button'
 import { env } from '@/shared/lib/env'
+import { pageAlternates } from '@/shared/lib/seo'
 import { Metadata } from 'next'
 import { hasLocale } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
@@ -30,13 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: tSEO('home.documentTitle'),
     description: tSEO('home.description'),
-    alternates: {
-      canonical: new URL(`/${locale}`, env.NEXT_PUBLIC_BASE_URL),
-      languages: {
-        fr: `${env.NEXT_PUBLIC_BASE_URL}/fr`,
-        en: `${env.NEXT_PUBLIC_BASE_URL}/en`
-      }
-    },
+    alternates: pageAlternates(locale, '/'),
     openGraph: {
       title: `${tSEO('home.documentTitle')} - ${ESTABLISHMENT_TITLE}`,
       description: tSEO('home.description'),
@@ -48,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${ESTABLISHMENT_TITLE} | ${tSEO('home.title')}`,
+      title: `${tSEO('home.documentTitle')} - ${ESTABLISHMENT_TITLE}`,
       description: tSEO('home.description')
     }
   }
@@ -103,6 +101,15 @@ export default async function Home({ params }: Props) {
           {tHome('ourAccommodations')}
         </Heading>
         <AccommodationsCardList />
+
+        <div className='mt-8 flex justify-center'>
+          <Link
+            href={PAGE_ROUTES.activity.home}
+            className={buttonVariants({ variant: 'outline' })}
+          >
+            {tHome('discoverActivities')}
+          </Link>
+        </div>
       </Container>
 
       <AccommodationsDescription />
