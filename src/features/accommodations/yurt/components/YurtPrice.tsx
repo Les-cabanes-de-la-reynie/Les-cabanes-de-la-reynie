@@ -12,6 +12,7 @@ export const YurtPrice = async () => {
     <P className='text-foreground'>
       <span>{tAccommodations('averagePrice')}</span>
       <span className='font-bold ml-2 text-2xl'>{price}€</span>
+      <span className='ml-1'>{tAccommodations('perNight')}</span>
     </P>
   )
 }

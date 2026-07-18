@@ -1,9 +1,9 @@
+import cabinImageFront from '@/assets/cabinAndYurt/home-cabin-front.webp'
+import yurtImageFront from '@/assets/cabinAndYurt/home-yurt-front.webp'
+import forestTeaser from '@/assets/homeCarousel/forest3.webp'
 import homeBannerImage from '@/assets/cabinAndYurt/home-banner.webp'
-import { AccommodationsCardList } from '@/features/accommodations/components/AccommodationsCardList'
 import { AccommodationsDescription } from '@/features/accommodations/components/AccommodationsDescription'
-import { BookingSection } from '@/features/accommodations/components/BookingSection'
 import { HomeAccommodationSlider } from '@/features/accommodations/components/HomeAccommodationSlider'
-import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { YURT_BOOK_LIST } from '@/shared/_constants/bookings'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
@@ -13,7 +13,7 @@ import { Heading } from '@/shared/components/Heading'
 import { HeroBanner } from '@/shared/components/HeroBanner'
 import { IntroduceLesCabanesDeLaReynie } from '@/shared/components/IntroduceLesCabanesDeLaReynie'
 import { Loader } from '@/shared/components/Loader'
-import { buttonVariants } from '@/shared/components/ui/button'
+import { PhotoLinkBanner } from '@/shared/components/PhotoLinkBanner'
 import { env } from '@/shared/lib/env'
 import { pageAlternates } from '@/shared/lib/seo'
 import { Metadata } from 'next'
@@ -100,21 +100,34 @@ export default async function Home({ params }: Props) {
         <Heading id='our-services' level={2}>
           {tHome('ourAccommodations')}
         </Heading>
-        <AccommodationsCardList />
-
-        <div className='mt-8 flex justify-center'>
-          <Link
-            href={PAGE_ROUTES.activity.home}
-            className={buttonVariants({ variant: 'outline' })}
-          >
-            {tHome('discoverActivities')}
-          </Link>
+        <div className='grid grid-cols-1 gap-4 lg:grid-cols-2'>
+          <PhotoLinkBanner
+            href={PAGE_ROUTES.accommodation.yurt}
+            image={yurtImageFront}
+            imageAlt={tHome('yurtAltFront')}
+            title={tHome('seeOurYurt')}
+            className='h-60 md:h-96 lg:h-full'
+            imageClassName='lg:object-bottom'
+          />
+          <div className='flex flex-col gap-4'>
+            <PhotoLinkBanner
+              href={PAGE_ROUTES.accommodation.cabin}
+              image={cabinImageFront}
+              imageAlt={tHome('cabinAltFront')}
+              title={tHome('seeOurCabin')}
+              className='h-60 md:h-96 lg:h-72'
+            />
+            <PhotoLinkBanner
+              href={PAGE_ROUTES.activity.home}
+              image={forestTeaser}
+              imageAlt={tHome('activitiesTeaserAlt')}
+              title={tHome('discoverActivities')}
+            />
+          </div>
         </div>
       </Container>
 
       <AccommodationsDescription />
-
-      <BookingSection />
     </div>
   )
 }

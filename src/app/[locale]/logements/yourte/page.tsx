@@ -1,13 +1,12 @@
+import cabinImageFront from '@/assets/cabinAndYurt/home-cabin-front.webp'
 import headerImage from '@/assets/cabinAndYurt/yurt-header.webp'
 import { AccommodationsHeader } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeader'
 import { AccommodationsHeaderContent } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderContent'
 import { AccommodationsHeaderImage } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderImage'
 import { BookingLinks } from '@/features/accommodations/components/BookingLinks'
-import { buttonVariants } from '@/shared/components/ui/button'
 import { PracticalInformation } from '@/features/accommodations/components/practicalInformation/PracticalInformation'
 import { YurtAccommodationSlider } from '@/features/accommodations/yurt/components/YurtAccommodationSlider'
 import { YurtPrice } from '@/features/accommodations/yurt/components/YurtPrice'
-import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { YURT_BOOK_LIST } from '@/shared/_constants/bookings'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
@@ -17,6 +16,7 @@ import { Heading } from '@/shared/components/Heading'
 import { Loader } from '@/shared/components/Loader'
 import { OurGourmetOffer } from '@/shared/components/ourGourmetOffer/OurGourmetOffer'
 import { P } from '@/shared/components/P'
+import { PhotoLinkBanner } from '@/shared/components/PhotoLinkBanner'
 import { env } from '@/shared/lib/env'
 import { localizedUrl, pageAlternates } from '@/shared/lib/seo'
 import { Metadata } from 'next'
@@ -74,6 +74,7 @@ export default async function Yurt({ params }: Props) {
 
   const tCommon = await getTranslations('Common')
   const tAccommodations = await getTranslations('Accommodations')
+  const tHome = await getTranslations('Home')
   const tYurt = await getTranslations('Yurt')
 
 
@@ -140,13 +141,13 @@ export default async function Yurt({ params }: Props) {
 
       <OurGourmetOffer />
 
-      <Container className='flex justify-center'>
-        <Link
+      <Container>
+        <PhotoLinkBanner
           href={PAGE_ROUTES.accommodation.cabin}
-          className={buttonVariants({ variant: 'outline' })}
-        >
-          {tAccommodations('seeAlsoCabin')}
-        </Link>
+          image={cabinImageFront}
+          imageAlt={tHome('cabinAltFront')}
+          title={tAccommodations('seeAlsoCabin')}
+        />
       </Container>
     </main>
   )

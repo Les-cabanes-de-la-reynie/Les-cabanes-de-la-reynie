@@ -11,10 +11,10 @@ export const FooterCopyright = () => {
   return (
     <p className='px-4 py-2 text-center text-sm md:px-6'>
       © {year} <b>{ESTABLISHMENT_TITLE.toLocaleUpperCase()}</b> |{' '}
-      {t('allRightsReserved')} | {t('developedBy')}
+      {t('allRightsReserved')} | {t('developedBy')}{' '}
       <Link
         href='https://github.com/davidbourrel'
-        className='ml-1 font-bold hover:underline'
+        className='font-bold hover:underline'
         target='_blank'
         rel='noopener noreferrer'
       >

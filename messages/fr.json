@@ -12,8 +12,8 @@
     "close": "Fermer",
     "description": "Description",
     "price": "Prix",
-    "bookYourStay": "Réservez votre séjour",
     "bookOn": "Réserver sur {platform}",
+    "seeAirbnbListings": "Voir nos annonces sur Airbnb",
     "yurt": "Yourte",
     "cabin": "Cabane",
     "yurtInformation": "Informations concernant la yourte",
@@ -36,9 +36,7 @@
     "seeOurYurt": "Voir notre yourte",
     "seeOurCabin": "Voir notre cabane",
     "yurtAltFront": "Extérieur de la yourte aux Cabanes de la Reynie",
-    "yurtAltHover": "Intérieur de la yourte aux Cabanes de la Reynie",
     "cabinAltFront": "Extérieur de la cabane aux Cabanes de la Reynie",
-    "cabinAltHover": "Intérieur de la cabane aux Cabanes de la Reynie",
     "aboutUsTitle": "Bienvenue dans les cabanes de la Reynie !",
     "aboutUsP1": "L'aventure a commencé en 2021 en arpentant le territoire à la recherche du lieu répondant à nos aspirations. Et nous l'avons trouvé ici : trois hectares de prairie, forêt, potager et mares, aux confins de la Corrèze et aux portes de la Dordogne.",
     "aboutUsP2": "Une cabane et une yourte plus tard, de nombreux voyageurs se sont déjà arrêtés pour quelques jours de dépaysement…",
@@ -47,9 +45,8 @@
     "accommodationsTitle": "Un havre de paix pour les amoureux de la nature",
     "accommodationsP1": "Imaginez-vous vous réveiller au chant des oiseaux, enveloppés par la douce lumière du matin qui filtre à travers les toiles de votre yourte. Laissez-vous bercer par le bruissement des feuilles dans les arbres qui surplombent votre cabane. Profitez de la vue sur les paysages verdoyants et les vallons qui s'étendent à perte de vue. Puis installez-vous sur la terrasse pour savourer un café matinal en pleine nature, un pique-nique gourmand à l'ombre des arbres ou un apéritif rêveur face au coucher du soleil.",
     "accommodationsP2": "Notre yourte, spacieuse et confortable, aménagée avec goût et simplicité, vous offrira un séjour authentique et relaxant et notre cabane, nichée dans son écrin de verdure, vous aidera à arrêter le temps, tout simplement.",
-    "bookingText": "La réservation se fait en ligne — vous y retrouverez les avis de nos voyageurs. Une question avant de vous décider ? Écrivez-nous, nous répondons avec plaisir.",
-    "bookingContact": "Nous contacter",
-    "discoverActivities": "Découvrir les activités"
+    "discoverActivities": "Découvrir les activités",
+    "activitiesTeaserAlt": "Forêt corrézienne autour des Cabanes de la Reynie"
   },
   "Accommodations": {
     "averagePrice": "Tarif moyen :",
@@ -61,6 +58,7 @@
     "dryToilet": "Toilettes sèches",
     "carPark": "Parking gratuit sur place",
     "seeAlsoYurt": "Découvrez aussi la yourte",
+    "perNight": "/ nuit",
     "seeAlsoCabin": "Découvrez aussi la cabane",
     "accommodationsDescriptionTitle": "Un séjour écologique et gourmand pour une expérience authentique",
     "accommodationsDescriptionP1": "Soucieux de préserver l'environnement, notre site est conçu dans une démarche écologique. Notre yourte et notre cabane sont équipées de toilettes sèches et nous favorisons l'utilisation de produits naturels et locaux pour l'entretien des habitations et du site.",
@@ -113,14 +111,17 @@
     "previous": "Activité précédente",
     "next": "Activité suivante",
     "a1": {
+      "sectionTitle": "Sports et nature",
       "imageAlt": "Forêt corrézienne – activités de plein air et randonnée",
       "body": "La Corrèze est un vrai paradis pour les amoureux de nature et de sports en plein air. Vous pourrez explorer les nombreux sentiers de randonnée qui sillonnent la forêt, à la découverte d'une faune et d'une flore riches et variées. Partir à l'assaut des rivières en canoë ou kayak pour des sensations fortes garanties ou opter pour une session d'escalade et admirer les panoramas spectaculaires de la région."
     },
     "a2": {
+      "sectionTitle": "Saveurs du terroir",
       "imageAlt": "Paysage de forêt corrézienne au cœur du terroir gastronomique",
       "body": "Laissez-vous tenter par la gastronomie locale riche et savoureuse en goûtant aux spécialités corréziennes comme la tarte aux noix, le boudin noir (aux châtaignes) et la fameuse liqueur de noix, ou bien initiez-vous aux plaisirs de la truffe et du canard des voisins périgourdins. Explorez les marchés locaux et dégustez les produits frais et bio du terroir : fruits et légumes de saison, fromages fermiers, charcuterie artisanale, miel et confitures locales, tisanes…"
     },
     "a3": {
+      "sectionTitle": "Patrimoine et villages",
       "imageAlt": "Forêt et paysage historique de Corrèze et Dordogne",
       "body": "Plongez dans l'histoire fascinante de la Corrèze et de ses environs. Visitez les nombreux villages pittoresques aux maisons de grès rouge et aux toits de lauzes, comme Turenne, Collonges-la-Rouge ou Curemonte. Explorez les châteaux médiévaux qui ponctuent le paysage, comme le château de Ventadour. Partez à la découverte des sites historiques de la Dordogne et de la vallée de la Vézère, comme les grottes de Lascaux et les villages de Sarlat-la-Canéda et Rocamadour (Lot). Laissez-vous transporter par l'atmosphère unique de ces lieux chargés d'histoire et admirez les vestiges du passé, témoins de la richesse du patrimoine culturel de la région."
     }

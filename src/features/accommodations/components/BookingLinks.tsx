@@ -7,9 +7,14 @@ import { useTranslations } from 'next-intl'
 
 type BookingLinksProps = ClassNameProps & {
   bookList: BookEntity[]
+  label?: string
 }
 
-export const BookingLinks = ({ bookList, className }: BookingLinksProps) => {
+export const BookingLinks = ({
+  bookList,
+  label,
+  className
+}: BookingLinksProps) => {
   const tCommon = useTranslations('Common')
 
   return (
@@ -18,7 +23,7 @@ export const BookingLinks = ({ bookList, className }: BookingLinksProps) => {
         <li key={`${title}-${href}`}>
           <Button asChild>
             <a href={href} target='_blank' rel='noopener noreferrer'>
-              {tCommon('bookOn', { platform: title })}
+              {label ?? tCommon('bookOn', { platform: title })}
               <ExternalLink aria-hidden='true' />
             </a>
           </Button>

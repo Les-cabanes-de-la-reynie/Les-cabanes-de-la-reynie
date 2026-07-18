@@ -3,6 +3,7 @@ import { generateLocaleStaticParams } from '@/shared/utils/generateLocaleStaticP
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { ActivityPager } from '../components/ActivityPager'
 import { Container } from '@/shared/components/Container'
+import { Heading } from '@/shared/components/Heading'
 import { HeroBanner } from '@/shared/components/HeroBanner'
 import { P } from '@/shared/components/P'
 import { env } from '@/shared/lib/env'
@@ -54,7 +55,7 @@ const Activity2 = async ({ params }: Props) => {
     <div className='w-full'>
       <HeroBanner
         title={tSEO('activity.2.title')}
-        className='lg:h-[calc(75vh-4.5rem)]'
+        className='lg:h-[50vh]'
       >
         <Image
           alt={tActivities('a2.imageAlt')}
@@ -69,6 +70,7 @@ const Activity2 = async ({ params }: Props) => {
       </HeroBanner>
 
       <Container>
+        <Heading level={2}>{tActivities('a2.sectionTitle')}</Heading>
         <P>{tActivities('a2.body')}</P>
       </Container>
 

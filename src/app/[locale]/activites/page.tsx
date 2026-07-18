@@ -3,6 +3,7 @@ import { routing } from '@/i18n/routing'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
+import { P } from '@/shared/components/P'
 import { env } from '@/shared/lib/env'
 import { pageAlternates } from '@/shared/lib/seo'
 import { Metadata } from 'next'
@@ -41,6 +42,7 @@ const Activites = async ({ params }: Props) => {
   setRequestLocale(locale)
 
   const tActivities = await getTranslations('Activities')
+  const tSEOIntro = await getTranslations('SEO')
 
   return (
     <Container>
@@ -48,6 +50,10 @@ const Activites = async ({ params }: Props) => {
         <Heading level={1} className='my-8 text-center'>
           {tActivities('indexTitle')}
         </Heading>
+
+        <P className='mx-auto mb-8 max-w-prose text-center'>
+          {tSEOIntro('activity.description')}
+        </P>
 
         <ActivityCardList />
       </section>
