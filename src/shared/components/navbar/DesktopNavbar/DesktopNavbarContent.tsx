@@ -5,8 +5,8 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger
 } from '@/shared/components/ui/navigation-menu'
+import { usePathname } from '@/i18n/navigation'
 import { cn } from '@/shared/utils/tailwind'
-import { usePathname } from 'next/navigation'
 import { useGetNavigationLinks } from '../hook'
 import { CustomLink } from './CustomLink'
 import { ListItem } from './ListItem'

@@ -2,6 +2,7 @@
 
 import prisma from '@/shared/lib/prisma'
 import { authActionClient } from '@/shared/lib/safe-actions'
+import { revalidatePath } from 'next/cache'
 import { YurtSchema } from '../../YurtSchema'
 
 export const updateYurt = authActionClient
@@ -11,4 +12,6 @@ export const updateYurt = authActionClient
       where: { id: 1 },
       data: yurtData
     })
+
+    revalidatePath('/', 'layout')
   })

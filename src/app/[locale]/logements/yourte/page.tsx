@@ -2,14 +2,13 @@ import headerImage from '@/assets/cabinAndYurt/yurt-header.webp'
 import { AccommodationsHeader } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeader'
 import { AccommodationsHeaderContent } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderContent'
 import { AccommodationsHeaderImage } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderImage'
-import { AccommodationsPopover } from '@/features/accommodations/components/AccommodationsPopover'
+import { BookingLinks } from '@/features/accommodations/components/BookingLinks'
 import { PracticalInformation } from '@/features/accommodations/components/practicalInformation/PracticalInformation'
 import { YurtAccommodationSlider } from '@/features/accommodations/yurt/components/YurtAccommodationSlider'
 import { YurtPrice } from '@/features/accommodations/yurt/components/YurtPrice'
 import { routing } from '@/i18n/routing'
 import { YURT_BOOK_LIST } from '@/shared/_constants/bookings'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
-import { SEO } from '@/shared/_constants/SEO'
 import { Heading } from '@/shared/components/Heading'
 import { Loader } from '@/shared/components/Loader'
 import { OurGourmetOffer } from '@/shared/components/ourGourmetOffer/OurGourmetOffer'
@@ -28,10 +27,11 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
+  const tSEO = await getTranslations({ locale, namespace: 'SEO' })
 
   return {
-    title: SEO.accommodation.yurt.title,
-    description: SEO.accommodation.yurt.description,
+    title: tSEO('accommodation.yurt.title'),
+    description: tSEO('accommodation.yurt.description'),
     alternates: {
       canonical: new URL(
         `/${locale}/logements/yourte`,
@@ -43,8 +43,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       }
     },
     openGraph: {
-      title: `${SEO.accommodation.yurt.title} - ${ESTABLISHMENT_TITLE}`,
-      description: SEO.accommodation.yurt.description,
+      title: `${tSEO('accommodation.yurt.title')} - ${ESTABLISHMENT_TITLE}`,
+      description: tSEO('accommodation.yurt.description'),
       type: 'website',
       locale,
       url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/logements/yourte`,
@@ -59,8 +59,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${SEO.accommodation.yurt.title} - ${ESTABLISHMENT_TITLE}`,
-      description: SEO.accommodation.yurt.description
+      title: `${tSEO('accommodation.yurt.title')} - ${ESTABLISHMENT_TITLE}`,
+      description: tSEO('accommodation.yurt.description')
     }
   }
 }
@@ -74,16 +74,17 @@ export default async function Yurt({ params }: Props) {
 
   setRequestLocale(locale)
 
+  const tSEO = await getTranslations('SEO')
+
   const tCommon = await getTranslations('Common')
   const tYurt = await getTranslations('Yurt')
 
-  const bookList = YURT_BOOK_LIST
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Accommodation',
     name: `${tCommon('yurt')} — ${ESTABLISHMENT_TITLE}`,
-    description: SEO.accommodation.yurt.description,
+    description: tSEO('accommodation.yurt.description'),
     url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/logements/yourte`,
     image: `${env.NEXT_PUBLIC_BASE_URL}/yurt.jpg`,
     occupancy: { '@type': 'QuantitativeValue', maxValue: 6 },
@@ -130,7 +131,7 @@ export default async function Yurt({ params }: Props) {
 
           <YurtPrice />
 
-          <AccommodationsPopover bookList={bookList} />
+          <BookingLinks bookList={YURT_BOOK_LIST} className='mt-10' />
         </AccommodationsHeaderContent>
       </AccommodationsHeader>
 

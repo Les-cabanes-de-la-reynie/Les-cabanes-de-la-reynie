@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-18T13:30:00Z",
+  "title": "Design System: Les Cabanes de la Reynie",
+  "extensions": {
+    "colorMeta": {
+      "sapin-nocturne": {
+        "role": "primary",
+        "displayName": "Vert sapin nocturne",
+        "canonical": "hsl(175 80% 16%)",
+        "tonalRamp": [
+          "hsl(175 80% 8%)",
+          "hsl(175 80% 16%)",
+          "hsl(175 60% 26%)",
+          "hsl(175 45% 38%)",
+          "hsl(175 35% 50%)",
+          "hsl(175 35% 64%)",
+          "hsl(175 30% 78%)",
+          "hsl(175 25% 92%)"
+        ]
+      },
+      "sous-bois": {
+        "role": "neutral",
+        "displayName": "Sous-bois",
+        "canonical": "hsl(175 13% 10%)",
+        "tonalRamp": [
+          "hsl(175 13% 5%)",
+          "hsl(175 13% 10%)",
+          "hsl(175 13% 20%)",
+          "hsl(175 13% 35%)",
+          "hsl(175 13% 50%)",
+          "hsl(175 13% 70%)",
+          "hsl(175 13% 85%)",
+          "hsl(175 13% 95%)"
+        ]
+      },
+      "brume": {
+        "role": "neutral",
+        "displayName": "Brume",
+        "canonical": "hsl(175 5% 90%)",
+        "tonalRamp": [
+          "hsl(175 5% 15%)",
+          "hsl(175 5% 30%)",
+          "hsl(175 5% 45%)",
+          "hsl(175 5% 60%)",
+          "hsl(175 5% 70%)",
+          "hsl(175 5% 80%)",
+          "hsl(175 5% 90%)",
+          "hsl(175 5% 96%)"
+        ]
+      },
+      "mousse": {
+        "role": "neutral",
+        "displayName": "Mousse",
+        "canonical": "hsl(137 13% 20%)",
+        "tonalRamp": [
+          "hsl(137 13% 10%)",
+          "hsl(137 13% 20%)",
+          "hsl(137 13% 32%)",
+          "hsl(137 13% 45%)",
+          "hsl(137 13% 58%)",
+          "hsl(137 13% 70%)",
+          "hsl(137 13% 82%)",
+          "hsl(137 13% 93%)"
+        ]
+      },
+      "terre-brulee": {
+        "role": "error",
+        "displayName": "Terre brûlée",
+        "canonical": "hsl(0 50% 30%)",
+        "tonalRamp": [
+          "hsl(0 50% 15%)",
+          "hsl(0 50% 30%)",
+          "hsl(0 45% 42%)",
+          "hsl(0 45% 54%)",
+          "hsl(0 45% 66%)",
+          "hsl(0 40% 78%)",
+          "hsl(0 40% 88%)",
+          "hsl(0 40% 95%)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display (Galada)", "purpose": "Titres de section h2 uniquement — la touche manuscrite chaleureuse." },
+      "headline": { "displayName": "Headline (Roboto 500)", "purpose": "Titres de page h1, souvent posés sur la photo du hero." },
+      "body": { "displayName": "Body (Roboto 400)", "purpose": "Paragraphes, 65–75ch max." }
+    },
+    "shadows": [
+      { "name": "shadow-xs", "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)", "purpose": "Seule ombre autorisée (défaut shadcn) — quasi imperceptible, The Flat Forest Rule." }
+    ],
+    "motion": [
+      { "name": "transition-colors", "value": "color, background-color, border-color 300ms ease", "purpose": "Transitions d'état du header et des liens." },
+      { "name": "hover-opacity", "value": "opacity 500ms ease-in-out", "purpose": "Cross-fade des photos front/hover sur les cartes hébergement." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Bouton primaire",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "L'action principale — mène vers la réservation ou valide un formulaire.",
+      "html": "<button class=\"ds-btn-primary\">Réserver</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 36px; padding: 8px 16px; background: var(--primary, #084944); color: #fff; font: 500 0.875rem/1 Roboto, system-ui, sans-serif; border: none; border-radius: 6px; cursor: pointer; transition: background-color 150ms ease, box-shadow 150ms ease; } .ds-btn-primary:hover { background: color-mix(in srgb, var(--primary, #084944) 90%, transparent); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring, #084944) 50%, transparent); }"
+    },
+    {
+      "name": "Bouton outline",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Action secondaire posée sur photo ou surface sombre.",
+      "html": "<button class=\"ds-btn-outline\">En savoir plus</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 8px 16px; background: transparent; color: var(--foreground, #E4E7E7); font: 500 0.875rem/1 Roboto, system-ui, sans-serif; border: 1px solid var(--input, #293D3C); border-radius: 6px; cursor: pointer; transition: background-color 150ms ease; } .ds-btn-outline:hover { background: var(--accent, #2C3A30); } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring, #084944) 50%, transparent); }"
+    },
+    {
+      "name": "Champ de saisie",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Champ de formulaire (contact, admin).",
+      "html": "<input class=\"ds-input\" placeholder=\"Votre email\" />",
+      "css": ".ds-input { height: 36px; width: 100%; max-width: 280px; padding: 4px 12px; background: transparent; color: var(--foreground, #E4E7E7); font: 400 0.875rem/1.5 Roboto, system-ui, sans-serif; border: 1px solid var(--input, #293D3C); border-radius: 6px; transition: border-color 150ms ease, box-shadow 150ms ease; } .ds-input::placeholder { color: var(--muted-foreground, #949E9D); } .ds-input:focus-visible { outline: none; border-color: var(--ring, #084944); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring, #084944) 50%, transparent); }"
+    },
+    {
+      "name": "Carte",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Conteneur plat — se détache par sa teinte et sa bordure, jamais par une ombre.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">La yourte</h3><p class=\"ds-card-body\">Nuit insolite au cœur de la nature corrézienne.</p></div>",
+      "css": ".ds-card { padding: 16px 24px; background: var(--card, #161D1C); color: var(--card-foreground, #E4E7E7); border: 1px solid var(--border, #293D3C); border-radius: 8px; max-width: 320px; } .ds-card-title { font: 600 1.25rem/1.3 Roboto, system-ui, sans-serif; letter-spacing: -0.025em; margin: 0 0 8px; } .ds-card-body { font: 400 0.875rem/1.5 Roboto, system-ui, sans-serif; color: var(--muted-foreground, #949E9D); margin: 0; }"
+    },
+    {
+      "name": "Titre de section (Galada)",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "Le h2 en cursive Galada — seule apparition autorisée de la display.",
+      "html": "<h2 class=\"ds-section-title\">La yourte</h2>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Galada&display=swap'); .ds-section-title { font: 400 1.875rem/1.3 Galada, cursive; color: var(--foreground, #E4E7E7); text-wrap: balance; margin: 0; }"
+    },
+    {
+      "name": "Lien de navigation",
+      "kind": "nav",
+      "refersTo": "body",
+      "description": "Lien du header/footer — sobre, l'état actif se signale par la couleur.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link ds-nav-link-active\" href=\"#\">Yourte</a><a class=\"ds-nav-link\" href=\"#\">Cabane</a><a class=\"ds-nav-link\" href=\"#\">Contact</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 24px; } .ds-nav-link { font: 500 0.9375rem/1 Roboto, system-ui, sans-serif; color: var(--muted-foreground, #949E9D); text-decoration: none; transition: color 300ms ease; } .ds-nav-link:hover, .ds-nav-link-active { color: var(--foreground, #E4E7E7); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "La clairière au crépuscule",
+    "overview": "Le thème sombre par défaut n'est pas un choix cosmétique : c'est la forêt corrézienne à la tombée du jour. L'interface est un écrin vert sombre — calme, silencieux — que les photographies lumineuses viennent percer comme des trouées de lumière. Le site s'efface derrière l'image ; l'utilisateur doit se projeter dans le séjour, pas admirer l'interface. La chaleur vient des photos, de la cursive Galada posée avec parcimonie, et de composants généreux et invitants qui mènent naturellement vers la réservation.",
+    "keyCharacteristics": [
+      "Thème sombre par défaut (vert sapin désaturé, teinte 175°), thème clair disponible",
+      "L'image porte la page ; l'UI reste discrète autour",
+      "Une seule couleur de marque (Vert sapin nocturne), pas de palette multicolore",
+      "Profondeur par teintes, quasi aucune ombre",
+      "Composants généreux et invitants : le chemin vers « réserver » est toujours évident"
+    ],
+    "rules": [
+      { "name": "The One Green Rule", "body": "Le Vert sapin nocturne est la seule couleur saturée autorisée. Toute nouvelle teinte doit rester dans la famille 137–175° désaturée.", "section": "colors" },
+      { "name": "The Photo-First Rule", "body": "La couleur vient des photographies. Si une section semble terne sans image, la réponse est une meilleure image, pas une nouvelle couleur d'interface.", "section": "colors" },
+      { "name": "The Galada Rule", "body": "La cursive est un condiment, pas un plat : uniquement les h2 de section. Jamais en body, jamais en bouton, jamais en navigation.", "section": "typography" },
+      { "name": "The Flat Forest Rule", "body": "Pas d'ombres portées décoratives. Une surface se détache par sa teinte et sa bordure, jamais par un halo.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do laisser les photographies porter les pages ; l'UI est un écrin (« La clairière au crépuscule »).",
+      "Do réserver le Vert sapin nocturne (#084944) aux actions et au focus — sa rareté guide l'œil vers « réserver ».",
+      "Do utiliser Galada uniquement sur les h2 de section.",
+      "Do garantir un contraste AA (4.5:1) pour le corps de texte, sur les deux thèmes.",
+      "Do fournir une alternative prefers-reduced-motion à toute animation."
+    ],
+    "donts": [
+      "Don't ressembler à « une plateforme de réservation » : pas de grilles de prix agressives, badges promo, compteurs d'urgence.",
+      "Don't ressembler à « un resort de luxe froid » : pas de minimalisme distant ni de photos déshumanisées.",
+      "Don't introduire de nouvelles couleurs saturées hors de la famille verte 137–175°.",
+      "Don't ajouter d'ombres portées décoratives — la profondeur passe par les teintes.",
+      "Don't utiliser de border-left coloré épais, de texte en dégradé, ni de glassmorphism décoratif."
+    ]
+  }
+}

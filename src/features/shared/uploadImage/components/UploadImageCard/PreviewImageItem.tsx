@@ -86,7 +86,6 @@ export const PreviewImageItem = ({ image }: PreviewImageItemProps) => {
         fill
         sizes='33vw'
         className='rounded-md object-cover'
-        quality={50}
       />
       <AlertDialog>
         <AlertDialogTrigger asChild>

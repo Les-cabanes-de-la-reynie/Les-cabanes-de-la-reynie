@@ -1,7 +1,6 @@
 import { OpeningHoursSection } from '@/features/openingHours/components/OpeningHoursSection'
 import { routing } from '@/i18n/routing'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
-import { SEO } from '@/shared/_constants/SEO'
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
 import { MapSection } from '@/shared/components/map/MapSection'
@@ -17,10 +16,11 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
+  const tSEO = await getTranslations({ locale, namespace: 'SEO' })
 
   return {
-    title: SEO.contact.title,
-    description: SEO.contact.description,
+    title: tSEO('contact.title'),
+    description: tSEO('contact.description'),
     alternates: {
       canonical: new URL(`/${locale}/contact`, env.NEXT_PUBLIC_BASE_URL),
       languages: {
@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       }
     },
     openGraph: {
-      title: `${SEO.contact.title} - ${ESTABLISHMENT_TITLE}`,
-      description: SEO.contact.description,
+      title: `${tSEO('contact.title')} - ${ESTABLISHMENT_TITLE}`,
+      description: tSEO('contact.description'),
       type: 'website',
       locale,
       url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/contact`,
@@ -45,8 +45,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${SEO.contact.title} - ${ESTABLISHMENT_TITLE}`,
-      description: SEO.contact.description
+      title: `${tSEO('contact.title')} - ${ESTABLISHMENT_TITLE}`,
+      description: tSEO('contact.description')
     }
   }
 }
@@ -60,13 +60,15 @@ export default async function Contact({ params }: Props) {
 
   setRequestLocale(locale)
 
+  const tSEO = await getTranslations('SEO')
+
   const t = await getTranslations('Contact')
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: ESTABLISHMENT_TITLE,
-    description: SEO.contact.description,
+    description: tSEO('contact.description'),
     url: env.NEXT_PUBLIC_BASE_URL,
     image: `${env.NEXT_PUBLIC_BASE_URL}/yurt.jpg`,
     address: {

@@ -4,12 +4,11 @@ import { CabinPrice } from '@/features/accommodations/cabin/components/CabinPric
 import { AccommodationsHeader } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeader'
 import { AccommodationsHeaderContent } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderContent'
 import { AccommodationsHeaderImage } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderImage'
-import { AccommodationsPopover } from '@/features/accommodations/components/AccommodationsPopover'
+import { BookingLinks } from '@/features/accommodations/components/BookingLinks'
 import { PracticalInformation } from '@/features/accommodations/components/practicalInformation/PracticalInformation'
 import { routing } from '@/i18n/routing'
 import { CABIN_BOOK_LIST } from '@/shared/_constants/bookings'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
-import { SEO } from '@/shared/_constants/SEO'
 import { Heading } from '@/shared/components/Heading'
 import { Loader } from '@/shared/components/Loader'
 import { OurGourmetOffer } from '@/shared/components/ourGourmetOffer/OurGourmetOffer'
@@ -28,10 +27,11 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
+  const tSEO = await getTranslations({ locale, namespace: 'SEO' })
 
   return {
-    title: SEO.accommodation.cabin.title,
-    description: SEO.accommodation.cabin.description,
+    title: tSEO('accommodation.cabin.title'),
+    description: tSEO('accommodation.cabin.description'),
     alternates: {
       canonical: new URL(
         `/${locale}/logements/cabane`,
@@ -43,8 +43,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       }
     },
     openGraph: {
-      title: `${SEO.accommodation.cabin.title} - ${ESTABLISHMENT_TITLE}`,
-      description: SEO.accommodation.cabin.description,
+      title: `${tSEO('accommodation.cabin.title')} - ${ESTABLISHMENT_TITLE}`,
+      description: tSEO('accommodation.cabin.description'),
       type: 'website',
       locale,
       url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/logements/cabane`,
@@ -59,8 +59,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${SEO.accommodation.cabin.title} - ${ESTABLISHMENT_TITLE}`,
-      description: SEO.accommodation.cabin.description
+      title: `${tSEO('accommodation.cabin.title')} - ${ESTABLISHMENT_TITLE}`,
+      description: tSEO('accommodation.cabin.description')
     }
   }
 }
@@ -74,16 +74,17 @@ export default async function Cabin({ params }: Props) {
 
   setRequestLocale(locale)
 
+  const tSEO = await getTranslations('SEO')
+
   const tCommon = await getTranslations('Common')
   const tCabin = await getTranslations('Cabin')
 
-  const bookList = CABIN_BOOK_LIST
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Accommodation',
     name: `${tCommon('cabin')} — ${ESTABLISHMENT_TITLE}`,
-    description: SEO.accommodation.cabin.description,
+    description: tSEO('accommodation.cabin.description'),
     url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}/logements/cabane`,
     image: `${env.NEXT_PUBLIC_BASE_URL}/cabin.jpg`,
     occupancy: { '@type': 'QuantitativeValue', maxValue: 2 },
@@ -131,7 +132,7 @@ export default async function Cabin({ params }: Props) {
 
           <CabinPrice />
 
-          <AccommodationsPopover bookList={bookList} />
+          <BookingLinks bookList={CABIN_BOOK_LIST} className='mt-10' />
         </AccommodationsHeaderContent>
       </AccommodationsHeader>
 

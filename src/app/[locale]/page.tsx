@@ -1,10 +1,11 @@
 import homeBannerImage from '@/assets/cabinAndYurt/home-banner.webp'
 import { AccommodationsCardList } from '@/features/accommodations/components/AccommodationsCardList'
 import { AccommodationsDescription } from '@/features/accommodations/components/AccommodationsDescription'
+import { BookingSection } from '@/features/accommodations/components/BookingSection'
 import { HomeAccommodationSlider } from '@/features/accommodations/components/HomeAccommodationSlider'
 import { routing } from '@/i18n/routing'
+import { YURT_BOOK_LIST } from '@/shared/_constants/bookings'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
-import { SEO } from '@/shared/_constants/SEO'
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
 import { HeroBanner } from '@/shared/components/HeroBanner'
@@ -24,10 +25,11 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
+  const tSEO = await getTranslations({ locale, namespace: 'SEO' })
 
   return {
-    title: SEO.home.documentTitle,
-    description: SEO.home.description,
+    title: tSEO('home.documentTitle'),
+    description: tSEO('home.description'),
     alternates: {
       canonical: new URL(`/${locale}`, env.NEXT_PUBLIC_BASE_URL),
       languages: {
@@ -36,8 +38,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       }
     },
     openGraph: {
-      title: `${SEO.home.documentTitle} - ${ESTABLISHMENT_TITLE}`,
-      description: SEO.home.description,
+      title: `${tSEO('home.documentTitle')} - ${ESTABLISHMENT_TITLE}`,
+      description: tSEO('home.description'),
       type: 'website',
       locale,
       url: `${env.NEXT_PUBLIC_BASE_URL}/${locale}`,
@@ -46,8 +48,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${ESTABLISHMENT_TITLE} | ${SEO.home.title}`,
-      description: SEO.home.description
+      title: `${ESTABLISHMENT_TITLE} | ${tSEO('home.title')}`,
+      description: tSEO('home.description')
     }
   }
 }
@@ -62,16 +64,20 @@ export default async function Home({ params }: Props) {
   setRequestLocale(locale)
 
   const tHome = await getTranslations('Home')
+  const tCommon = await getTranslations('Common')
 
   return (
     <div className='w-full lg:-mt-18'>
       <HeroBanner
         title={ESTABLISHMENT_TITLE}
-        className='select-none relative'
+        subtitle={tHome('heroSubtitle')}
+        className='relative'
         callToActionText={tHome('CTA')}
+        bookingHref={YURT_BOOK_LIST[0].href}
+        bookingText={tCommon('bookOn', { platform: YURT_BOOK_LIST[0].title })}
       >
         <Image
-          alt='Paysage typique dans "Les cabanes de la Reynie"'
+          alt={tHome('heroAlt')}
           src={homeBannerImage}
           placeholder='blur'
           fill
@@ -85,7 +91,8 @@ export default async function Home({ params }: Props) {
 
       <IntroduceLesCabanesDeLaReynie />
 
-      <div className='mb-8 h-96 w-full select-none bg-(image:--home-parallax-image) bg-cover bg-fixed bg-center bg-no-repeat md:mb-10' />
+      {/* No bg-fixed: broken on iOS Safari (zoomed/frozen rendering) */}
+      <div className='mb-8 h-96 w-full bg-(image:--home-parallax-image) bg-cover bg-center bg-no-repeat md:mb-10' />
 
       <Suspense fallback={<Loader />}>
         <HomeAccommodationSlider />
@@ -99,6 +106,8 @@ export default async function Home({ params }: Props) {
       </Container>
 
       <AccommodationsDescription />
+
+      <BookingSection />
     </div>
   )
 }

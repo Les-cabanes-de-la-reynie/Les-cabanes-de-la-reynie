@@ -1,10 +1,12 @@
+'use client'
+
 import { Container } from '@/shared/components/Container'
 import { Loader } from '@/shared/components/Loader'
 import { P } from '@/shared/components/P'
-import { getTranslations } from 'next-intl/server'
+import { useTranslations } from 'next-intl'
 
-const Loading = async () => {
-  const t = await getTranslations('Common')
+const Loading = () => {
+  const t = useTranslations('Common')
 
   return (
     <Container center>

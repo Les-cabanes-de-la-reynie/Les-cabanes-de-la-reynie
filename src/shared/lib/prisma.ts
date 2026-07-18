@@ -1,9 +1,14 @@
 import { PrismaClient } from '../../app/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { attachDatabasePool } from '@vercel/functions'
+import { Pool } from 'pg'
 
-const adapter = new PrismaPg({
-  connectionString: process.env.DATABASE_URL!,
-})
+const pool = new Pool({ connectionString: process.env.DATABASE_URL! })
+
+// Let Vercel's runtime drain idle connections before an instance suspends
+attachDatabasePool(pool)
+
+const adapter = new PrismaPg(pool)
 
 const globalForPrisma = global as unknown as { prisma: PrismaClient }
 

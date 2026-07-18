@@ -6,6 +6,7 @@ import { toast } from 'sonner'
 import { ClientUploadedFileData } from 'uploadthing/types'
 import { UploadImageCategoryKeyEnum } from '../../_types'
 import { updateUploadedImage } from '../../infrastructure/actions/postUploadImage'
+import { compressImage } from '../../utils/compressImage'
 
 type UploadImageDropzoneProps = {
   categoryKey: UploadImageCategoryKeyEnum
@@ -30,6 +31,7 @@ export const UploadImageDropzone = ({
   return (
     <UploadDropzone
       endpoint={categoryKey}
+      onBeforeUploadBegin={files => Promise.all(files.map(compressImage))}
       onClientUploadComplete={handleUpload}
       onUploadError={(error: Error) => {
         toast.error(`Upload failed ! Reason: ${error.message}`, {

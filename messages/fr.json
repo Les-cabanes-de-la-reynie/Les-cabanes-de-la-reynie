@@ -13,6 +13,7 @@
     "description": "Description",
     "price": "Prix",
     "bookYourStay": "Réservez votre séjour",
+    "bookOn": "Réserver sur {platform}",
     "yurt": "Yourte",
     "cabin": "Cabane",
     "yurtInformation": "Informations concernant la yourte",
@@ -28,10 +29,12 @@
   },
   "Home": {
     "CTA": "Plongez dans la nature",
+    "heroSubtitle": "Yourte et cabane en pleine nature corrézienne",
+    "heroAlt": "Intérieur chaleureux de la yourte des Cabanes de la Reynie",
     "sliderTitle": "Ce que vous pouvez découvrir",
     "ourAccommodations": "Nos logements",
-    "seeOurYurt": "Voir notre Yourte !",
-    "seeOurCabin": "Voir notre Cabane !",
+    "seeOurYurt": "Voir notre yourte",
+    "seeOurCabin": "Voir notre cabane",
     "yurtAltFront": "Extérieur de la yourte aux Cabanes de la Reynie",
     "yurtAltHover": "Intérieur de la yourte aux Cabanes de la Reynie",
     "cabinAltFront": "Extérieur de la cabane aux Cabanes de la Reynie",
@@ -39,14 +42,15 @@
     "aboutUsTitle": "Bienvenue dans les cabanes de la Reynie !",
     "aboutUsP1": "L'aventure a commencé en 2021 en arpentant le territoire à la recherche du lieu répondant à nos aspirations. Et nous l'avons trouvé ici : trois hectares de prairie, forêt, potager et mares, aux confins de la Corrèze et aux portes de la Dordogne.",
     "aboutUsP2": "Une cabane et une yourte plus tard, de nombreux voyageurs se sont déjà arrêtés pour quelques jours de dépaysement…",
-    "aboutUsP3": "…car se réveiller dans les cabanes de la Reynie, c'est se retrouver au cœur de la nature, découvrir les charmes de la Corrèze et de ses environs, savourer la gastronomie de la région, plonger dans l'histoire et surtout vivre un séjour unique entre amis ou en famille !",
+    "aboutUsP3": "…car se réveiller dans les cabanes de la Reynie, c'est se retrouver au cœur de la nature, découvrir les charmes de la Corrèze et de ses environs, savourer la gastronomie de la région, plonger dans l'histoire et surtout vivre un séjour unique entre amis ou en famille.",
     "aboutUsP4": "Alors offrez-vous une escapade inoubliable dans notre yourte pour 6 personnes ou dans notre cabane pour 2, à la vue imprenable et au calme ressourçant.",
     "accommodationsTitle": "Un havre de paix pour les amoureux de la nature",
     "accommodationsP1": "Imaginez-vous vous réveiller au chant des oiseaux, enveloppés par la douce lumière du matin qui filtre à travers les toiles de votre yourte. Laissez-vous bercer par le bruissement des feuilles dans les arbres qui surplombent votre cabane. Profitez de la vue sur les paysages verdoyants et les vallons qui s'étendent à perte de vue. Puis installez-vous sur la terrasse pour savourer un café matinal en pleine nature, un pique-nique gourmand à l'ombre des arbres ou un apéritif rêveur face au coucher du soleil.",
-    "accommodationsP2": "Notre yourte, spacieuse et confortable, aménagée avec goût et simplicité, vous offrira un séjour authentique et relaxant et notre cabane, nichée dans son écrin de verdure, vous aidera à arrêter le temps, tout simplement !"
+    "accommodationsP2": "Notre yourte, spacieuse et confortable, aménagée avec goût et simplicité, vous offrira un séjour authentique et relaxant et notre cabane, nichée dans son écrin de verdure, vous aidera à arrêter le temps, tout simplement.",
+    "bookingText": "La réservation se fait en ligne — vous y retrouverez les avis de nos voyageurs. Une question avant de vous décider ? Écrivez-nous, nous répondons avec plaisir.",
+    "bookingContact": "Nous contacter"
   },
   "Accommodations": {
-    "bookList": "Liste des choix pour réserver",
     "averagePrice": "Tarif moyen :",
     "wifi": "Wifi",
     "animal": "Animaux admis",
@@ -115,19 +119,50 @@
     "backButtonMessage": "Revenir à la page d'accueil"
   },
   "Footer": {
-    "aboutUs": "À propos de nous",
-    "leadershipTeam": "L'équipe de direction",
-    "valuesInAction": "Les valeurs en action",
-    "franchiseInfo": "Info sur les franchises",
-    "followUs": "Rejoignez-nous !",
-    "establishmentFeedback": "Commentaires sur notre etablissement",
-    "frequentlyAskedQuestions": "Foire aux questions",
-    "facebookButton": "En savoir plus avec notre page Facebook",
-    "instagramButton": "En savoir plus avec notre page Instagram",
-    "linkedinButton": "En savoir plus avec notre page LinkedIn",
+    "navigation": "Navigation",
+    "yurt": "La yourte",
+    "cabin": "La cabane",
+    "activities": "Les activités",
+    "contact": "Contact",
     "allRightsReserved": "Tous droits réservés",
     "developedBy": "Développé par",
     "address": "Adresse"
+  },
+  "SEO": {
+    "home": {
+      "documentTitle": "Accueil",
+      "title": "Au cœur de la nature Corrézienne",
+      "description": "Bienvenue dans notre yourte et notre cabane, au cœur de la nature Corrézienne, riche de ses paysages et de son histoire, à découvrir le temps d'un séjour !"
+    },
+    "accommodation": {
+      "title": "Logements",
+      "description": "Ouverts sur la nature environnante et paisible, nos logements sont conçus pour vous apporter repos et dépaysement.",
+      "yurt": {
+        "title": "Yourte",
+        "description": "La yourte peut héberger jusqu'à 6 personnes, avec ses espaces nuit, salon, cuisine et son coin toilettes. La vue s'étend sur la prairie et la vallée."
+      },
+      "cabin": {
+        "title": "Cabane",
+        "description": "La cabane peut accueillir deux personnes et offre, à deux-pas, une douche extérieure, des toilettes sèches et un espace cuisine d'été."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contactez Les Cabanes de la Reynie, hébergement insolite en Corrèze. Retrouvez nos horaires d'ouverture, adresse et itinéraire pour rejoindre notre yourte et cabane."
+    },
+    "activity": {
+      "title": "Activités",
+      "description": "Randonnée, VTT, escalade, canoës, visites de châteaux et de villages classés, grottes de Lascaux et de Tourtoirac, gouffre de Padirac, gastronomie locale…",
+      "1": {
+        "title": "Un terrain de jeux grandeur nature pour les amateurs de sports et d'aventure"
+      },
+      "2": {
+        "title": "Un voyage culinaire au cœur du terroir corrézien et périgourdin"
+      },
+      "3": {
+        "title": "Sur les traces de l'histoire en Corrèze et en Dordogne"
+      }
+    }
   },
   "Navigation": {
     "switchLangTitle": "Langues",
@@ -144,6 +179,8 @@
     "lightModeTheme": "Clair"
   },
   "Carousel": {
+    "imageAlt": "Les Cabanes de la Reynie — photo {number}",
+    "openImage": "Agrandir la photo {number}",
     "prevButton": "Image précédente",
     "nextButton": "Image suivante",
     "scrollProgress": "Progression du carrousel"
