@@ -11,6 +11,7 @@ type PhotoLinkBannerProps = {
   title: string
   kicker?: string
   className?: string
+  imageClassName?: string
 }
 
 export const PhotoLinkBanner = ({
@@ -19,7 +20,8 @@ export const PhotoLinkBanner = ({
   imageAlt,
   title,
   kicker,
-  className
+  className,
+  imageClassName
 }: PhotoLinkBannerProps) => {
   return (
     <Link
@@ -34,7 +36,10 @@ export const PhotoLinkBanner = ({
         alt={imageAlt}
         fill
         sizes='(max-width: 768px) calc(100vw - 48px), 896px'
-        className='rounded object-cover transition-transform duration-500 ease-out motion-safe:group-hover:scale-105'
+        className={cn(
+          'rounded object-cover transition-transform duration-500 ease-out motion-safe:group-hover:scale-105',
+          imageClassName
+        )}
       />
       <span className='absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 rounded-b bg-gradient-to-t from-black/70 to-transparent px-5 pb-4 pt-16 text-primary-foreground'>
         <span className='flex flex-col gap-1'>
