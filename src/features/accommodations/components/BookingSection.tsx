@@ -1,12 +1,11 @@
+import { BookingLinks } from '@/features/accommodations/components/BookingLinks'
 import { Link } from '@/i18n/navigation'
-import { AIRBNB_LISTINGS } from '@/shared/_constants/bookings'
+import { YURT_BOOK_LIST } from '@/shared/_constants/bookings'
 import { PAGE_ROUTES } from '@/shared/_constants/page'
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
 import { P } from '@/shared/components/P'
 import { buttonVariants } from '@/shared/components/ui/button'
-import { cn } from '@/shared/utils/tailwind'
-import { ExternalLink } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 export const BookingSection = () => {
@@ -18,18 +17,10 @@ export const BookingSection = () => {
       <Heading level={2}>{tCommon('bookYourStay')}</Heading>
       <P className='max-w-prose text-center'>{tHome('bookingText')}</P>
       <div className='flex flex-col items-center gap-3 sm:flex-row'>
-        <a
-          href={AIRBNB_LISTINGS.yurt}
-          target='_blank'
-          rel='noopener noreferrer'
-          className={cn(buttonVariants({ size: 'lg' }), 'gap-2')}
-        >
-          <span>{tCommon('bookOnAirbnb')}</span>
-          <ExternalLink className='size-4' aria-hidden='true' />
-        </a>
+        <BookingLinks bookList={YURT_BOOK_LIST} />
         <Link
           href={PAGE_ROUTES.contact}
-          className={buttonVariants({ variant: 'outline', size: 'lg' })}
+          className={buttonVariants({ variant: 'outline' })}
         >
           {tHome('bookingContact')}
         </Link>

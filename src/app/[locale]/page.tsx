@@ -4,7 +4,7 @@ import { AccommodationsDescription } from '@/features/accommodations/components/
 import { BookingSection } from '@/features/accommodations/components/BookingSection'
 import { HomeAccommodationSlider } from '@/features/accommodations/components/HomeAccommodationSlider'
 import { routing } from '@/i18n/routing'
-import { AIRBNB_LISTINGS } from '@/shared/_constants/bookings'
+import { YURT_BOOK_LIST } from '@/shared/_constants/bookings'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
@@ -73,8 +73,8 @@ export default async function Home({ params }: Props) {
         subtitle={tHome('heroSubtitle')}
         className='relative'
         callToActionText={tHome('CTA')}
-        bookingHref={AIRBNB_LISTINGS.yurt}
-        bookingText={tCommon('bookOnAirbnb')}
+        bookingHref={YURT_BOOK_LIST[0].href}
+        bookingText={tCommon('bookOn', { platform: YURT_BOOK_LIST[0].title })}
       >
         <Image
           alt={tHome('heroAlt')}

@@ -4,10 +4,10 @@ import { CabinPrice } from '@/features/accommodations/cabin/components/CabinPric
 import { AccommodationsHeader } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeader'
 import { AccommodationsHeaderContent } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderContent'
 import { AccommodationsHeaderImage } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderImage'
-import { BookOnAirbnb } from '@/features/accommodations/components/BookOnAirbnb'
+import { BookingLinks } from '@/features/accommodations/components/BookingLinks'
 import { PracticalInformation } from '@/features/accommodations/components/practicalInformation/PracticalInformation'
 import { routing } from '@/i18n/routing'
-import { AIRBNB_LISTINGS } from '@/shared/_constants/bookings'
+import { CABIN_BOOK_LIST } from '@/shared/_constants/bookings'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { Heading } from '@/shared/components/Heading'
 import { Loader } from '@/shared/components/Loader'
@@ -132,7 +132,7 @@ export default async function Cabin({ params }: Props) {
 
           <CabinPrice />
 
-          <BookOnAirbnb href={AIRBNB_LISTINGS.cabin} />
+          <BookingLinks bookList={CABIN_BOOK_LIST} className='mt-10' />
         </AccommodationsHeaderContent>
       </AccommodationsHeader>
 

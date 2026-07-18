@@ -2,12 +2,12 @@ import headerImage from '@/assets/cabinAndYurt/yurt-header.webp'
 import { AccommodationsHeader } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeader'
 import { AccommodationsHeaderContent } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderContent'
 import { AccommodationsHeaderImage } from '@/features/accommodations/components/AccommodationsHeader/AccommodationsHeaderImage'
-import { BookOnAirbnb } from '@/features/accommodations/components/BookOnAirbnb'
+import { BookingLinks } from '@/features/accommodations/components/BookingLinks'
 import { PracticalInformation } from '@/features/accommodations/components/practicalInformation/PracticalInformation'
 import { YurtAccommodationSlider } from '@/features/accommodations/yurt/components/YurtAccommodationSlider'
 import { YurtPrice } from '@/features/accommodations/yurt/components/YurtPrice'
 import { routing } from '@/i18n/routing'
-import { AIRBNB_LISTINGS } from '@/shared/_constants/bookings'
+import { YURT_BOOK_LIST } from '@/shared/_constants/bookings'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { Heading } from '@/shared/components/Heading'
 import { Loader } from '@/shared/components/Loader'
@@ -131,7 +131,7 @@ export default async function Yurt({ params }: Props) {
 
           <YurtPrice />
 
-          <BookOnAirbnb href={AIRBNB_LISTINGS.yurt} />
+          <BookingLinks bookList={YURT_BOOK_LIST} className='mt-10' />
         </AccommodationsHeaderContent>
       </AccommodationsHeader>
 
