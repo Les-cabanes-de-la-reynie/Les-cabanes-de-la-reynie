@@ -14,7 +14,7 @@ const MapWithNoSSR = dynamic(
 )
 
 export const MapSection = () => {
-  const t = useTranslations('Contact')
+  const t = useTranslations('FindUs')
 
   return (
     <section className='flex w-full flex-col gap-4 lg:mb-0'>

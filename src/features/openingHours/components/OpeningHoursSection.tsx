@@ -7,12 +7,12 @@ type OpeningHoursSectionProps = {
 }
 
 export const OpeningHoursSection = ({ editable }: OpeningHoursSectionProps) => {
-  const tContact = useTranslations('Contact')
+  const tFindUs = useTranslations('FindUs')
 
   return (
     <section className='mb-8'>
       <Heading level={2} className='my-8'>
-        {tContact('openingHours')}
+        {tFindUs('openingHours')}
       </Heading>
 
       <OpeningHours editable={editable} />

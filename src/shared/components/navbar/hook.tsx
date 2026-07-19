@@ -23,7 +23,7 @@ export type NavigationLinks = {
   yurt: NavigationLinkWithUrl
   cabin: NavigationLinkWithUrl
   activities: NavigationLinkWithUrl
-  contact: NavigationLinkWithUrl
+  findUs: NavigationLinkWithUrl
 }
 
 export const useGetNavigationLinks = (): NavigationLinks => {
@@ -52,10 +52,10 @@ export const useGetNavigationLinks = (): NavigationLinks => {
       description: null,
       url: PAGE_ROUTES.activity.home
     },
-    contact: {
-      label: tCommon('contact'),
+    findUs: {
+      label: tCommon('findUs'),
       description: null,
-      url: PAGE_ROUTES.contact
+      url: PAGE_ROUTES.findUs
     }
   }
 }

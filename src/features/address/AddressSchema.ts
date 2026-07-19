@@ -12,7 +12,12 @@ export const AddressSchema = z.object({
     .refine(validator.isMobilePhone, {
       message: 'Numéro de téléphone invalide'
     }),
-  email: z.string().refine(validator.isEmail, {
-    message: 'Email invalide'
-  })
+  email: z
+    .string()
+    .refine(validator.isEmail, {
+      message: 'Email invalide'
+    })
+    .refine((value) => !value.toLowerCase().startsWith('example-'), {
+      message: "Adresse d'exemple : renseignez l'email réel de l'établissement"
+    })
 })

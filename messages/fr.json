@@ -2,7 +2,7 @@
   "Common": {
     "home": "Accueil",
     "accommodations": "Logements",
-    "contact": "Contact",
+    "findUs": "Nous trouver",
     "activities": "Activités",
     "loading": "Chargement",
     "update": "Mettre à jour",
@@ -13,7 +13,6 @@
     "description": "Description",
     "price": "Prix",
     "bookOn": "Réserver sur {platform}",
-    "seeAirbnbListings": "Voir nos annonces sur Airbnb",
     "yurt": "Yourte",
     "cabin": "Cabane",
     "yurtInformation": "Informations concernant la yourte",
@@ -78,12 +77,15 @@
     "cabinP1": "La cabane peut accueillir 2 personnes (un lit-double). Elle dispose d'une table et de chaises sur sa terrasse (mais libre à vous de les déplacer où vous le désirez !). Sa double-porte et ses deux fenêtres donnent l'impression d'être au beau milieu de la nature.",
     "cabinP2": "La douche, les toilettes sèches et un petit coin cuisine d'été se trouvent à l'extérieur."
   },
-  "Contact": {
-    "contactMainTitle": "Trouver Les cabanes de la Reynie",
-    "location": "Nous trouver",
+  "FindUs": {
+    "mainTitle": "Trouver Les cabanes de la Reynie",
+    "location": "Notre emplacement",
     "openingHours": "Les horaires",
+    "day": "Jour",
     "opening": "Ouverture",
     "closing": "Fermeture",
+    "openingHoursUpdateSuccess": "Les horaires ont bien été mis à jour",
+    "openingHoursUpdateError": "Une erreur est survenue lors de la mise à jour des horaires",
     "monday": "Lundi",
     "tuesday": "Mardi",
     "wednesday": "Mercredi",
@@ -98,6 +100,7 @@
     "geoLocationNotFound": "Localisation n'a pas été trouvée",
     "confirmLocationDescription": "Pour une meilleure expérience utilisateur sur notre site, nous avons besoin connaitre votre localisation. Vous pouvez l'activer en haut de cette page ou dans les paramètres de votre navigateur.",
     "confirmLocationButton": "Voir itinéraire",
+    "locationFoundDescription": "Votre position est prête : cliquez sur « Voir itinéraire » pour ouvrir le trajet dans Google Maps.",
     "locationDescription": "Adresse exacte communiquée après la réservation",
     "geoLocationLoading": "Localisation en cours...",
     "geoLocationPermissionDenied": "Géolocalisation refusée. Veuillez autoriser l'accès à votre position.",
@@ -128,7 +131,7 @@
   },
   "Admin": {
     "personnalInformation": "Informations personnelles",
-    "personnalInformationDescription": "Les informations ici vont être affichées sur la carte dans la page contact"
+    "personnalInformationDescription": "Les informations ici vont être affichées sur la carte dans la page Nous trouver"
   },
   "Errors": {
     "genericTitle": "Une erreur est survenue !",
@@ -144,7 +147,7 @@
     "yurt": "La yourte",
     "cabin": "La cabane",
     "activities": "Les activités",
-    "contact": "Contact",
+    "findUs": "Nous trouver",
     "allRightsReserved": "Tous droits réservés",
     "developedBy": "Développé par",
     "address": "Adresse"
@@ -167,9 +170,9 @@
         "description": "La cabane peut accueillir deux personnes et offre, à deux-pas, une douche extérieure, des toilettes sèches et un espace cuisine d'été."
       }
     },
-    "contact": {
-      "title": "Contact",
-      "description": "Contactez Les Cabanes de la Reynie, hébergement insolite en Corrèze. Retrouvez nos horaires d'ouverture, adresse et itinéraire pour rejoindre notre yourte et cabane."
+    "findUs": {
+      "title": "Nous trouver",
+      "description": "Retrouvez Les Cabanes de la Reynie en Corrèze : horaires d'ouverture, itinéraire et téléphone pour rejoindre notre yourte et notre cabane."
     },
     "activity": {
       "title": "Activités",

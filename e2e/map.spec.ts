@@ -6,6 +6,12 @@ import {
 } from '../playwright.config'
 import { openBurgerMenu } from './commons'
 
+// Simulate a granted geolocation so the itinerary dialog resolves a position
+test.use({
+  geolocation: { latitude: 45.221387, longitude: 1.251147 },
+  permissions: ['geolocation']
+})
+
 test.beforeEach(async ({ page }) => {
   await page.goto(frenchURL)
 })
@@ -17,11 +23,14 @@ test.describe('Map', () => {
 
     test.beforeEach(async ({ page }) => {
       await openBurgerMenu(page)
-      await page.getByRole('link', { name: 'Contact' }).click()
-      await page.waitForURL('**/contact')
+      await page
+        .getByTestId('mobile-header-navbar')
+        .getByRole('link', { name: 'Nous trouver' })
+        .click()
+      await page.waitForURL('**/nous-trouver')
     })
 
-    test('should display the map on the contact page', async ({ page }) => {
+    test('should display the map on the find us page', async ({ page }) => {
       await expect(page.locator('.leaflet-popup-content-wrapper')).toBeVisible()
     })
 
@@ -37,12 +46,10 @@ test.describe('Map', () => {
       ).toBeVisible()
     })
 
-    test('should display the phone number on the popup', async ({ page }) => {
-      await expect(page.getByTestId('phone-number')).toBeVisible()
-    })
-
-    test('should display the email on the popup', async ({ page }) => {
-      await expect(page.getByTestId('map-address-email')).toBeVisible()
+    test('should display the exact address notice', async ({ page }) => {
+      await expect(
+        page.getByText('Adresse exacte communiquée après la réservation')
+      ).toBeVisible()
     })
   })
 
@@ -51,11 +58,14 @@ test.describe('Map', () => {
     test.use({ viewport: DESKTOP_VIEWPORT })
 
     test.beforeEach(async ({ page }) => {
-      await page.getByRole('link', { name: 'Contact' }).click()
-      await page.waitForURL('**/contact')
+      await page
+        .getByTestId('desktop-header-navbar')
+        .getByRole('link', { name: 'Nous trouver' })
+        .click()
+      await page.waitForURL('**/nous-trouver')
     })
 
-    test('should display the map on the contact page', async ({ page }) => {
+    test('should display the map on the find us page', async ({ page }) => {
       await expect(page.locator('.leaflet-popup-content-wrapper')).toBeVisible()
     })
 
@@ -71,12 +81,10 @@ test.describe('Map', () => {
       ).toBeVisible()
     })
 
-    test('should display the phone number on the popup', async ({ page }) => {
-      await expect(page.getByTestId('phone-number')).toBeVisible()
-    })
-
-    test('should display the email on the popup', async ({ page }) => {
-      await expect(page.getByTestId('map-address-email')).toBeVisible()
+    test('should display the exact address notice', async ({ page }) => {
+      await expect(
+        page.getByText('Adresse exacte communiquée après la réservation')
+      ).toBeVisible()
     })
   })
 })

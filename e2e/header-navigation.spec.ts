@@ -115,16 +115,16 @@ test.describe('Header navigation', () => {
       await expect(page.getByRole('heading', { name: 'Cabane', exact: true })).toBeAttached()
     })
 
-    test('should be in the contact page after clicked on Contact', async ({
+    test('should be in the find us page after clicked on Nous trouver', async ({
       page
     }) => {
-      const contactLink = page
+      const findUsLink = page
         .getByTestId('mobile-header-navbar')
-        .getByRole('link', { name: 'Contact' })
+        .getByRole('link', { name: 'Nous trouver' })
 
       await openBurgerMenu(page)
-      await contactLink.click()
-      await page.waitForURL('**/contact')
+      await findUsLink.click()
+      await page.waitForURL('**/nous-trouver')
 
       await expect(
         page.getByRole('heading', {
@@ -228,15 +228,15 @@ test.describe('Header navigation', () => {
       await expect(page.getByRole('heading', { name: 'Cabane', exact: true })).toBeVisible()
     })
 
-    test('should be in the contact page after clicked on Contact', async ({
+    test('should be in the find us page after clicked on Nous trouver', async ({
       page
     }) => {
-      const contactLink = page
+      const findUsLink = page
         .getByTestId('desktop-header-navbar')
-        .getByRole('link', { name: 'Contact' })
+        .getByRole('link', { name: 'Nous trouver' })
 
-      await contactLink.click()
-      await page.waitForURL('**/contact')
+      await findUsLink.click()
+      await page.waitForURL('**/nous-trouver')
 
       await expect(
         page.getByRole('heading', {

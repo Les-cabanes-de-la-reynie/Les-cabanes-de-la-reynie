@@ -7,7 +7,7 @@ import {
 import { Progress } from '@/shared/components/ui/progress'
 import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { CarouselHeader } from './CarouselHeader'
 import { CarouselProps } from './_types'
 
@@ -24,22 +24,27 @@ export const AppCarousel = ({
   const t = useTranslations('Carousel')
   const [emblaApi, setEmblaApi] = useState<CarouselApi>()
   const [scrollProgress, setScrollProgress] = useState(0)
+  const [lightboxMounted, setLightboxMounted] = useState(false)
 
-  const onScroll = (emblaApi: CarouselApi) => {
-    if (emblaApi) {
-      const progress = Math.trunc(emblaApi.scrollProgress() * 100)
-
-      if (progress !== scrollProgress) {
-        setScrollProgress(progress)
-      }
-    }
+  // Mount the lightbox lazily, on the first toggle
+  if (lightboxController.toggler && !lightboxMounted) {
+    setLightboxMounted(true)
   }
+
+  const onScroll = useCallback((emblaApi: CarouselApi) => {
+    if (emblaApi) {
+      setScrollProgress(Math.trunc(emblaApi.scrollProgress() * 100))
+    }
+  }, [])
 
   useEffect(() => {
     if (!emblaApi) return
 
-    onScroll(emblaApi)
     emblaApi.on('scroll', onScroll).on('slideFocus', onScroll)
+
+    return () => {
+      emblaApi.off('scroll', onScroll).off('slideFocus', onScroll)
+    }
   }, [emblaApi, onScroll])
 
   return (
@@ -68,8 +73,9 @@ export const AppCarousel = ({
         />
       </EmblaCarousel>
 
-      {lightboxSources?.length ? (
+      {lightboxMounted && lightboxSources?.length ? (
         <FsLightbox
+          openOnMount
           toggler={lightboxController.toggler}
           slide={lightboxController.sourceIndex + 1}
           sources={lightboxSources}

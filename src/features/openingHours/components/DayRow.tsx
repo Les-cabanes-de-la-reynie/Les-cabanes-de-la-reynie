@@ -5,11 +5,9 @@ import {
   FormMessage
 } from '@/shared/components/ui/form'
 import { Input } from '@/shared/components/ui/input'
+import { useTranslations } from 'next-intl'
 import { UseFormReturn } from 'react-hook-form'
-import {
-  OpeningHoursFormData,
-  OpeningHoursRowData
-} from '../_types'
+import { OpeningHoursFormData, OpeningHoursRowData } from '../_types'
 import { TableRow } from './TableRow'
 
 type DayRowProps = OpeningHoursRowData & {
@@ -26,6 +24,8 @@ export const DayRow = ({
   isEdit,
   form
 }: DayRowProps) => {
+  const tFindUs = useTranslations('FindUs')
+
   const openingDate = isEdit ? (
     <FormField
       control={form.control}
@@ -33,7 +33,12 @@ export const DayRow = ({
       render={({ field }) => (
         <FormItem>
           <FormControl>
-            <Input type='time' required {...field} />
+            <Input
+              type='time'
+              required
+              aria-label={`${dayTranslation} - ${tFindUs('opening')}`}
+              {...field}
+            />
           </FormControl>
           <FormMessage />
         </FormItem>
@@ -50,7 +55,12 @@ export const DayRow = ({
       render={({ field }) => (
         <FormItem>
           <FormControl>
-            <Input type='time' required {...field} />
+            <Input
+              type='time'
+              required
+              aria-label={`${dayTranslation} - ${tFindUs('closing')}`}
+              {...field}
+            />
           </FormControl>
           <FormMessage />
         </FormItem>
@@ -62,7 +72,10 @@ export const DayRow = ({
 
   return (
     <TableRow day={day}>
-      <th className='border border-input px-2 py-2 align-middle sm:px-4'>
+      <th
+        scope='row'
+        className='border border-input px-2 py-2 align-middle sm:px-4'
+      >
         {dayTranslation}
       </th>
       <td className='border border-input px-2 py-2 align-middle sm:px-4'>

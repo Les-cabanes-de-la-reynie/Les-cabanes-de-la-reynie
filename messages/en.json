@@ -2,7 +2,7 @@
   "Common": {
     "home": "Home",
     "accommodations": "Accommodations",
-    "contact": "Contact",
+    "findUs": "Find us",
     "activities": "Activities",
     "loading": "Loading",
     "update": "Update",
@@ -13,7 +13,6 @@
     "description": "Description",
     "price": "Price",
     "bookOn": "Book on {platform}",
-    "seeAirbnbListings": "See our Airbnb listings",
     "yurt": "Yurt",
     "cabin": "Cabin",
     "yurtInformation": "Yurt information",
@@ -78,12 +77,15 @@
     "cabinP1": "The cabin sleeps 2 (double bed). It has a table and chairs on the terrace (but you're free to move them wherever you like!). Its double doors and two windows give the impression of being right in the middle of nature.",
     "cabinP2": "The shower, dry toilets and a small summer kitchen area are located outside."
   },
-  "Contact": {
-    "contactMainTitle": "Find Les cabanes de la Reynie",
+  "FindUs": {
+    "mainTitle": "Find Les cabanes de la Reynie",
     "location": "Our location",
     "openingHours": "Opening Hours",
+    "day": "Day",
     "opening": "Opening",
     "closing": "Closing",
+    "openingHoursUpdateSuccess": "Opening hours updated successfully",
+    "openingHoursUpdateError": "Something went wrong while updating the opening hours",
     "monday": "Monday",
     "tuesday": "Tuesday",
     "wednesday": "Wednesday",
@@ -98,6 +100,7 @@
     "geoLocationNotFound": "Geolocation not found",
     "confirmLocationDescription": "For a better user experience on our site, we need to know your location. You can activate it at the top of this page or in your browser settings.",
     "confirmLocationButton": "See itinerary",
+    "locationFoundDescription": "Your position is ready: click “See itinerary” to open the route in Google Maps.",
     "locationDescription": "Exact address communicated after booking",
     "geoLocationLoading": "Geolocation in progress...",
     "geoLocationPermissionDenied": "Geolocation denied. Please allow access to your position.",
@@ -128,7 +131,7 @@
   },
   "Admin": {
     "personnalInformation": "Personnal information",
-    "personnalInformationDescription": "The information here will be displayed on the map in the contact page"
+    "personnalInformationDescription": "The information here will be displayed on the map in the Find us page"
   },
   "Errors": {
     "genericTitle": "Something went wrong!",
@@ -144,7 +147,7 @@
     "yurt": "The yurt",
     "cabin": "The cabin",
     "activities": "Activities",
-    "contact": "Contact",
+    "findUs": "Find us",
     "allRightsReserved": "All Rights Reserved",
     "developedBy": "Developed by",
     "address": "Address"
@@ -167,9 +170,9 @@
         "description": "The cabin accommodates two people and offers, a few steps away, an outdoor shower, dry toilets and a summer kitchen area."
       }
     },
-    "contact": {
-      "title": "Contact",
-      "description": "Contact Les Cabanes de la Reynie, unusual accommodation in Corrèze. Find our opening hours, address and directions to reach our yurt and cabin."
+    "findUs": {
+      "title": "Find us",
+      "description": "Find Les Cabanes de la Reynie in Corrèze: opening hours, directions and phone number to reach our yurt and cabin."
     },
     "activity": {
       "title": "Activities",

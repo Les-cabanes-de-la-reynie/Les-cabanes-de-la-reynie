@@ -10,7 +10,10 @@ export const routing = defineRouting({
   localeCookie: false,
   pathnames: {
     '/': '/',
-    '/contact': '/contact',
+    '/nous-trouver': {
+      fr: '/nous-trouver',
+      en: '/find-us'
+    },
     '/logements/cabane': {
       fr: '/logements/cabane',
       en: '/accommodations/cabin'

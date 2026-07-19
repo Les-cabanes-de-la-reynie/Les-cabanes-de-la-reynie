@@ -76,10 +76,10 @@ export const DesktopNavbarContent = () => {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <CustomLink
-              href={navLinks.contact.url}
-              isActive={pathName === navLinks.contact.url}
+              href={navLinks.findUs.url}
+              isActive={pathName === navLinks.findUs.url}
             >
-              {navLinks.contact.label}
+              {navLinks.findUs.label}
             </CustomLink>
           </NavigationMenuItem>
         </NavigationMenuList>

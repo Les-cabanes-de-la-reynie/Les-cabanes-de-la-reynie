@@ -7,21 +7,24 @@ import {
   TabsTrigger
 } from '@/shared/components/ui/tabs'
 import { cn } from '@/shared/utils/tailwind'
+import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 type AdminTabsProps = {
   homeContent: React.ReactNode
   yurtContent: React.ReactNode
   cabinContent: React.ReactNode
-  contactContent: React.ReactNode
+  findUsContent: React.ReactNode
 }
 
 export const AdminTabs = ({
   homeContent,
   yurtContent,
   cabinContent,
-  contactContent
+  findUsContent
 }: AdminTabsProps) => {
+  const tCommon = useTranslations('Common')
+
   const [activeTab, setActiveTab] = useState('home')
 
   const handleTabChange = (value: string) => {
@@ -31,10 +34,10 @@ export const AdminTabs = ({
   return (
     <Tabs value={activeTab} onValueChange={handleTabChange} className='w-full'>
       <TabsList className='grid w-full grid-cols-4'>
-        <TabsTrigger value='home'>Accueil</TabsTrigger>
-        <TabsTrigger value='yurt'>Yourte</TabsTrigger>
-        <TabsTrigger value='cabin'>Cabane</TabsTrigger>
-        <TabsTrigger value='contact'>Contact</TabsTrigger>
+        <TabsTrigger value='home'>{tCommon('home')}</TabsTrigger>
+        <TabsTrigger value='yurt'>{tCommon('yurt')}</TabsTrigger>
+        <TabsTrigger value='cabin'>{tCommon('cabin')}</TabsTrigger>
+        <TabsTrigger value='find-us'>{tCommon('findUs')}</TabsTrigger>
       </TabsList>
 
       <TabsContent
@@ -59,10 +62,10 @@ export const AdminTabs = ({
       </TabsContent>
 
       <TabsContent
-        value='contact'
-        className={cn({ hidden: activeTab !== 'contact' })}
+        value='find-us'
+        className={cn({ hidden: activeTab !== 'find-us' })}
       >
-        {contactContent}
+        {findUsContent}
       </TabsContent>
     </Tabs>
   )

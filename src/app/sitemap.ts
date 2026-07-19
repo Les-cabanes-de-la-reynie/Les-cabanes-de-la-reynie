@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { href: '/', priority: 1, changeFrequency: 'monthly' },
     { href: '/logements/yourte', priority: 0.8, changeFrequency: 'monthly' },
     { href: '/logements/cabane', priority: 0.8, changeFrequency: 'monthly' },
-    { href: '/contact', priority: 0.7, changeFrequency: 'yearly' },
+    { href: '/nous-trouver', priority: 0.7, changeFrequency: 'yearly' },
     { href: '/activites', priority: 0.5, changeFrequency: 'monthly' },
     { href: '/activites/1', priority: 0.5, changeFrequency: 'monthly' },
     { href: '/activites/2', priority: 0.5, changeFrequency: 'monthly' },

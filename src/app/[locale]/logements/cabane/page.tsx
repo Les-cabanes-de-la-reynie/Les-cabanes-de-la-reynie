@@ -130,11 +130,7 @@ export default async function Cabin({ params }: Props) {
 
           <CabinPrice />
 
-          <BookingLinks
-            bookList={CABIN_BOOK_LIST}
-            label={tCommon('seeAirbnbListings')}
-            className='mt-10'
-          />
+          <BookingLinks bookList={CABIN_BOOK_LIST} className='mt-10' />
         </AccommodationsHeaderContent>
       </AccommodationsHeader>
 

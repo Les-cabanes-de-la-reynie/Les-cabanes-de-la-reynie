@@ -7,7 +7,7 @@ import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { AdminTabs } from './components/tabs/AdminTabs'
 import { CabinSection } from './components/tabs/CabinSection'
-import { ContactSection } from './components/tabs/ContactSection'
+import { FindUsSection } from './components/tabs/FindUsSection'
 import { HomeSection } from './components/tabs/HomeSection'
 import { YurtSection } from './components/tabs/YurtSection'
 
@@ -32,7 +32,7 @@ const Admin = async () => {
         homeContent={<HomeSection />}
         yurtContent={<YurtSection />}
         cabinContent={<CabinSection />}
-        contactContent={<ContactSection />}
+        findUsContent={<FindUsSection />}
       />
     </Container>
   )

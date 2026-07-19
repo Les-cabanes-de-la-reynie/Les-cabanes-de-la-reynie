@@ -26,7 +26,15 @@ test.describe('Carousel', () => {
       await firstImage.click({ delay: 1000 })
 
       await expect(closeFslightboxButton).toBeVisible()
-      await expect(fullscreenFslightboxButton).toBeVisible()
+
+      // fslightbox only renders the fullscreen button when the Fullscreen API
+      // is available, which is not the case on WebKit/iOS
+      const fullscreenSupported = await page.evaluate(
+        () => document.fullscreenEnabled
+      )
+      if (fullscreenSupported) {
+        await expect(fullscreenFslightboxButton).toBeVisible()
+      }
     })
 
     test('should switch image with previous and next button', async ({
