@@ -20,10 +20,10 @@ export const SEO = {
         "La cabane peut accueillir deux personnes et offre, à deux-pas, une douche extérieure, des toilettes sèches et un espace cuisine d'été."
     }
   },
-  contact: {
-    title: 'Contact',
+  findUs: {
+    title: 'Nous trouver',
     description:
-      "Contactez Les Cabanes de la Reynie, hébergement insolite en Corrèze. Retrouvez nos horaires d'ouverture, adresse et itinéraire pour rejoindre notre yourte et cabane."
+      "Retrouvez Les Cabanes de la Reynie en Corrèze : horaires d'ouverture, itinéraire et téléphone pour rejoindre notre yourte et notre cabane."
   },
   activity: {
     title: 'Activités',

@@ -4,7 +4,7 @@ export const PAGE_ROUTES = {
     yurt: '/logements/yourte',
     cabin: '/logements/cabane'
   },
-  contact: '/contact',
+  findUs: '/nous-trouver',
   activity: {
     home: '/activites',
     activity1: '/activites/1',

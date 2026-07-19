@@ -10,7 +10,7 @@ import { CustomMarker } from './CustomMaker/CustomMaker'
 import { ItineraryAlertDialog } from './CustomMaker/ItineraryAlertDialog'
 
 export const Map = () => {
-  const t = useTranslations('Contact')
+  const t = useTranslations('FindUs')
 
   return (
     <div className='relative flex h-96 w-full grow flex-col items-center justify-center'>

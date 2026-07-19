@@ -6,16 +6,16 @@ import { NavigationIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 export const Itinerary = () => {
-  const tContact = useTranslations('Contact')
+  const tFindUs = useTranslations('FindUs')
 
   return (
-    <div className='flex flex-col text-primary hover:underline'>
+    <span className='flex flex-col text-primary hover:underline'>
       <span className='flex items-center'>
         <IconContainer>
           <NavigationIcon className={APP_ICON_SIZE_CLASSNAME} />
         </IconContainer>
-        {tContact('Itinerary')}
+        {tFindUs('Itinerary')}
       </span>
-    </div>
+    </span>
   )
 }

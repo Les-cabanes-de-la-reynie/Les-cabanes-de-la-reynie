@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "test": "playwright test --ui",
     "test:write": "playwright codegen --viewport-size=320,900 http://localhost:3000",
     "test:run": "playwright test",

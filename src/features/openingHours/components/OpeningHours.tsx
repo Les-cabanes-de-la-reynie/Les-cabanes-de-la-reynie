@@ -12,7 +12,7 @@ type OpeningHoursProps = {
 }
 
 export const OpeningHours = async ({ editable }: OpeningHoursProps) => {
-  const tContact = await getTranslations('Contact')
+  const tFindUs = await getTranslations('FindUs')
 
   const incomingOpeningHoursData = await getOpeningHours()
 
@@ -46,8 +46,8 @@ export const OpeningHours = async ({ editable }: OpeningHoursProps) => {
             <AlertCircleIcon className={cn('stroke-primary h-5 w-5')} />
           </IconContainer>
           <div>
-            <P>{tContact('departuresDescription')}</P>
-            <P className='not-first:mt-0'>{tContact('arrivalsDescription')}</P>
+            <P>{tFindUs('departuresDescription')}</P>
+            <P className='not-first:mt-0'>{tFindUs('arrivalsDescription')}</P>
           </div>
         </div>
       )}

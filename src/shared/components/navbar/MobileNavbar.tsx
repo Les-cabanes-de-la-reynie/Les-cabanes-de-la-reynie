@@ -146,16 +146,16 @@ export const MobileNavbar = ({
             {navLinks.activities.label}
           </Link>
           <Link
-            href={navLinks.contact.url}
+            href={navLinks.findUs.url}
             onClick={handleCloseNavbar}
             className={cn(
               'flex w-full items-center p-2 rounded text-lg font-semibold',
               {
-                'bg-accent': pathName === navLinks.contact.url
+                'bg-accent': pathName === navLinks.findUs.url
               }
             )}
           >
-            {navLinks.contact.label}
+            {navLinks.findUs.label}
           </Link>
         </main>
 

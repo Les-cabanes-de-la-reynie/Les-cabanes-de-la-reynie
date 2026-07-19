@@ -12,7 +12,7 @@ type ConvertToOpeningHoursRowDataProps = {
 export const useConvertToOpeningHoursRowData = ({
   openingHoursFormData
 }: ConvertToOpeningHoursRowDataProps): OpeningHoursRowData[] => {
-  const t = useTranslations('Contact')
+  const t = useTranslations('FindUs')
 
   const openingHoursRowData: OpeningHoursRowData[] = [
     {

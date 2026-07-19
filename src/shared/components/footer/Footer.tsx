@@ -33,7 +33,7 @@ export const Footer = () => {
               </Link>
             </FooterItem>
             <FooterItem>
-              <Link href={PAGE_ROUTES.contact}>{tFooter('contact')}</Link>
+              <Link href={PAGE_ROUTES.findUs}>{tFooter('findUs')}</Link>
             </FooterItem>
           </ul>
         </FooterNav>

@@ -30,7 +30,7 @@ export const OpeningHoursForm = ({
   const [isPending, startTransition] = useTransition()
   const [isEdit, handleToggleEdit] = useToggle(false)
 
-  const tContact = useTranslations('Contact')
+  const tFindUs = useTranslations('FindUs')
 
   const form = useForm<OpeningHoursFormData>({
     resolver: zodResolver(OpeningHoursFormSchema),
@@ -52,7 +52,7 @@ export const OpeningHoursForm = ({
       const res = await updateOpeningHours(openingHoursData)
 
       if (res?.validationErrors) {
-        toast.error('There was an error updating price.', {
+        toast.error(tFindUs('openingHoursUpdateError'), {
           action: {
             label: t('close'),
             onClick: () => toast.dismiss()
@@ -71,7 +71,7 @@ export const OpeningHoursForm = ({
         return
       }
 
-      toast.success("Success ! Yurt's price updated", {
+      toast.success(tFindUs('openingHoursUpdateSuccess'), {
         action: {
           label: t('close'),
           onClick: () => toast.dismiss()
@@ -86,9 +86,9 @@ export const OpeningHoursForm = ({
       <form onSubmit={form.handleSubmit(onSubmit)} className='h-full w-full'>
         <table className='w-full grow'>
           <TableHeader
-            day=''
-            opening={tContact('opening')}
-            closing={tContact('closing')}
+            day={tFindUs('day')}
+            opening={tFindUs('opening')}
+            closing={tFindUs('closing')}
           />
           <tbody className='text-center'>
             {openingHoursRows.map(rowData => (
