@@ -1,25 +1,28 @@
+import { CACHE_TAGS } from '@/shared/_constants/cacheTags'
 import prisma from '@/shared/lib/prisma'
-import { unstable_cache } from 'next/cache'
+import { cacheLife, cacheTag } from 'next/cache'
 import { UploadImageCategoryKeyEnum } from '../../_types'
 
-export const getUploadedImagesByCategory = unstable_cache(
-  async (category: UploadImageCategoryKeyEnum) => {
-    try {
-      const uploadedImages = await prisma.image.findMany({
-        where: {
-          category
-        }
-      })
+export const getUploadedImagesByCategory = async (
+  category: UploadImageCategoryKeyEnum
+) => {
+  'use cache'
+  cacheLife('hours')
+  cacheTag(CACHE_TAGS.images)
 
-      if (!uploadedImages) {
-        throw new Error('Uploaded images not found')
+  try {
+    const uploadedImages = await prisma.image.findMany({
+      where: {
+        category
       }
+    })
 
-      return uploadedImages
-    } catch (error) {
-      throw new Error(`Failed to fetch uploaded images data. ${error}`)
+    if (!uploadedImages) {
+      throw new Error('Uploaded images not found')
     }
-  },
-  ['uploaded-images'],
-  { revalidate: 3600, tags: ['images'] }
-)
+
+    return uploadedImages
+  } catch (error) {
+    throw new Error(`Failed to fetch uploaded images data. ${error}`)
+  }
+}

@@ -1,8 +1,9 @@
 'use server'
 
+import { CACHE_TAGS } from '@/shared/_constants/cacheTags'
 import prisma from '@/shared/lib/prisma'
 import { authActionClient } from '@/shared/lib/safe-actions'
-import { revalidatePath } from 'next/cache'
+import { updateTag } from 'next/cache'
 import { OpeningHoursSchema } from '../../OpeningHoursSchema'
 
 export const updateOpeningHours = authActionClient
@@ -13,5 +14,5 @@ export const updateOpeningHours = authActionClient
       data: openingHoursData
     })
 
-    revalidatePath('/', 'layout')
+    updateTag(CACHE_TAGS.openingHours)
   })
