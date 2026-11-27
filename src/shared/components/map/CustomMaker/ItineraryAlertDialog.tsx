@@ -118,18 +118,16 @@ export const ItineraryAlertDialog = () => {
     }
   }, [isDialogOpen, getUserLocation])
 
-  // Relaunch the geolocation when the dialog opens
-  useEffect(() => {
-    if (isDialogOpen && !userLocation.length) {
-      getUserLocation()
-    }
-  }, [isDialogOpen, getUserLocation, userLocation.length])
+  const handleOpenChange = (open: boolean) => {
+    setIsDialogOpen(open)
+    if (open && !userLocation.length) getUserLocation()
+  }
 
   const [lat, long] = userLocation
   const locationLink = `https://www.google.fr/maps/dir/${lat},+${long}/La+Reynie+Haute,+19310+Louignac/@44.1892761,1.0389325,8z`
 
   return (
-    <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+    <AlertDialog open={isDialogOpen} onOpenChange={handleOpenChange}>
       <AlertDialogTrigger data-testid='itinerary-link'>
         <Itinerary />
       </AlertDialogTrigger>

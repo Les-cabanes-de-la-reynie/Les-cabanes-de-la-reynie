@@ -97,10 +97,14 @@ test.describe('Header navigation', () => {
       await accommodationsLink.click()
       await yurtLink.click()
       await page.waitForURL('**/logements/yourte')
-      await expect(page.getByRole('heading', { name: 'Yourte', exact: true })).toBeAttached()
+      await expect(
+        page.getByRole('heading', { name: 'Yourte', exact: true })
+      ).toBeAttached()
     })
 
-    test('should be in the cabin page after clicked on Cabin', async ({ page }) => {
+    test('should be in the cabin page after clicked on Cabin', async ({
+      page
+    }) => {
       const accommodationsLink = page
         .getByTestId('mobile-header-navbar')
         .getByText('Logements')
@@ -112,7 +116,9 @@ test.describe('Header navigation', () => {
       await accommodationsLink.click()
       await cabinLink.click()
       await page.waitForURL('**/logements/cabane')
-      await expect(page.getByRole('heading', { name: 'Cabane', exact: true })).toBeAttached()
+      await expect(
+        page.getByRole('heading', { name: 'Cabane', exact: true })
+      ).toBeAttached()
     })
 
     test('should be in the find us page after clicked on Nous trouver', async ({
@@ -184,7 +190,9 @@ test.describe('Header navigation', () => {
       await expect(page).toHaveURL(frenchURL)
     })
 
-    test('should open a popover with Yurt and Cabin links', async ({ page }) => {
+    test('should open a popover with Yurt and Cabin links', async ({
+      page
+    }) => {
       const accommodationsLink = page
         .getByTestId('desktop-header-navbar')
         .getByText('Logements')
@@ -192,11 +200,13 @@ test.describe('Header navigation', () => {
 
       const cabinLink = page.getByTestId('accommodations-sub-navigation-cabane')
 
-      await accommodationsLink.hover()
       await expect(page).toHaveURL(frenchURL)
 
-      // Check if Yurt/Yourte exist
-      await expect(yurtLink).toBeVisible()
+      // A hover that lands before hydration is lost, so retry until it opens
+      await expect(async () => {
+        await accommodationsLink.hover()
+        await expect(yurtLink).toBeVisible({ timeout: 1000 })
+      }).toPass()
 
       // Check if Cabin/Cabane exist
       await expect(cabinLink).toBeVisible()
@@ -213,10 +223,14 @@ test.describe('Header navigation', () => {
       await accommodationsLink.click()
       await yurtLink.click()
       await page.waitForURL('**/logements/yourte')
-      await expect(page.getByRole('heading', { name: 'Yourte', exact: true })).toBeVisible()
+      await expect(
+        page.getByRole('heading', { name: 'Yourte', exact: true })
+      ).toBeVisible()
     })
 
-    test('should be in the cabin page after clicked on Cabin', async ({ page }) => {
+    test('should be in the cabin page after clicked on Cabin', async ({
+      page
+    }) => {
       const accommodationsLink = page
         .getByTestId('desktop-header-navbar')
         .getByText('Logements')
@@ -225,7 +239,9 @@ test.describe('Header navigation', () => {
       await accommodationsLink.click()
       await cabinLink.click()
       await page.waitForURL('**/logements/cabane')
-      await expect(page.getByRole('heading', { name: 'Cabane', exact: true })).toBeVisible()
+      await expect(
+        page.getByRole('heading', { name: 'Cabane', exact: true })
+      ).toBeVisible()
     })
 
     test('should be in the find us page after clicked on Nous trouver', async ({
