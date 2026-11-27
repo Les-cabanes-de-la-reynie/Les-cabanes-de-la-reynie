@@ -3,7 +3,6 @@
 
 @theme {
   --font-primary: var(--font-primary);
-  --font-secondary: var(--font-secondary);
 
   --text-display: clamp(2.75rem, 1.5rem + 4.2vw, 4.75rem);
   --text-display--line-height: 1.04;
