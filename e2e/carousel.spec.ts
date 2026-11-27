@@ -15,7 +15,9 @@ test.describe('Carousel', () => {
     }) => {
       await expect(page).toHaveURL(frenchURL)
 
-      const firstImage = page.getByRole('button', { name: 'Agrandir la photo 1' })
+      const firstImage = page.getByRole('button', {
+        name: 'Agrandir la photo 1'
+      })
       const closeFslightboxButton = page.getByTitle('Close')
       const fullscreenFslightboxButton = page.getByTitle('Enter fullscreen')
 
@@ -42,18 +44,23 @@ test.describe('Carousel', () => {
     }) => {
       await expect(page).toHaveURL(frenchURL)
 
-      const firstImage = page.getByRole('button', { name: 'Agrandir la photo 1' })
+      const firstImage = page.getByRole('button', {
+        name: 'Agrandir la photo 1'
+      })
       const nextButton = page.getByTestId('carousel-next-button')
       const previousButton = page.getByTestId('carousel-previous-button')
 
-      firstImage.scrollIntoViewIfNeeded()
+      await firstImage.scrollIntoViewIfNeeded()
       await expect(firstImage).toBeInViewport()
 
-      await nextButton.click({ delay: 2000, clickCount: 1 })
+      await nextButton.click()
       await expect(firstImage).not.toBeInViewport()
 
-      await previousButton.click({ delay: 2000, clickCount: 1 })
-      await expect(firstImage).toBeInViewport()
+      await previousButton.click()
+      // WebKit's IntersectionObserver misses transform-only moves back into view
+      await expect
+        .poll(async () => (await firstImage.boundingBox())?.x)
+        .toBeGreaterThanOrEqual(0)
     })
   })
 })
