@@ -2,6 +2,7 @@
 
 import * as LabelPrimitive from '@radix-ui/react-label'
 import { Slot } from '@radix-ui/react-slot'
+import { CircleAlertIcon } from 'lucide-react'
 import * as React from 'react'
 import {
   Controller,
@@ -9,7 +10,8 @@ import {
   FieldPath,
   FieldValues,
   FormProvider,
-  useFormContext
+  useFormContext,
+  useFormState
 } from 'react-hook-form'
 
 import { Label } from '@/shared/components/ui/label'
@@ -44,7 +46,9 @@ const FormField = <
 const useFormField = () => {
   const fieldContext = React.useContext(FormFieldContext)
   const itemContext = React.useContext(FormItemContext)
-  const { getFieldState, formState } = useFormContext()
+  const { getFieldState } = useFormContext()
+  // Subscribe per field: the React Compiler memoizes reads of the context formState
+  const formState = useFormState({ name: fieldContext.name })
 
   const fieldState = getFieldState(fieldContext.name, formState)
 
@@ -157,9 +161,18 @@ const FormMessage = React.forwardRef<
     <p
       ref={ref}
       id={formMessageId}
-      className={cn('text-sm font-medium text-destructive', className)}
+      className={cn(
+        'flex items-start gap-1.5 text-sm font-medium text-destructive',
+        className
+      )}
       {...props}
     >
+      {error && (
+        <CircleAlertIcon
+          aria-hidden='true'
+          className='mt-0.5 size-4 shrink-0'
+        />
+      )}
       {body}
     </p>
   )
