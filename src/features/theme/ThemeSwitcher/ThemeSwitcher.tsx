@@ -3,7 +3,7 @@
 import { ThemeMode } from '@/features/theme/_types'
 import { APP_ICON_SIZE_CLASSNAME } from '@/shared/_constants/className'
 import { IconContainer } from '@/shared/components/IconContainer'
-import { TextWithSkewBackgroundColor } from '@/shared/components/TextWithSkewBackgroundColor'
+import { TextHighlight } from '@/shared/components/TextHighlight'
 import { Button } from '@/shared/components/ui/button'
 import {
   DropdownMenu,
@@ -54,9 +54,7 @@ export const ThemeSwitcher = () => {
             </IconContainer>
 
             {theme === ThemeMode.Dark ? (
-              <TextWithSkewBackgroundColor>
-                {t('darkModeTheme')}
-              </TextWithSkewBackgroundColor>
+              <TextHighlight>{t('darkModeTheme')}</TextHighlight>
             ) : (
               t('darkModeTheme')
             )}
@@ -70,9 +68,7 @@ export const ThemeSwitcher = () => {
             </IconContainer>
 
             {theme === ThemeMode.Light ? (
-              <TextWithSkewBackgroundColor>
-                {t('lightModeTheme')}
-              </TextWithSkewBackgroundColor>
+              <TextHighlight>{t('lightModeTheme')}</TextHighlight>
             ) : (
               t('lightModeTheme')
             )}

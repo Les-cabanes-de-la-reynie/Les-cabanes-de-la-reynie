@@ -10,13 +10,13 @@ import { cn } from '@/shared/utils/tailwind'
 import { Metadata } from 'next'
 import { hasLocale } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { Galada, Roboto } from 'next/font/google'
+import { Galada, Source_Sans_3 } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
-const fontPrimary = Roboto({
+const fontPrimary = Source_Sans_3({
   variable: '--font-primary',
   subsets: ['latin'],
-  weight: ['400', '700'],
+  style: ['normal', 'italic'],
   display: 'swap',
   preload: true,
   fallback: ['system-ui', 'arial']

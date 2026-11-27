@@ -6,7 +6,7 @@ import { ActivityCard } from './ActivityCard'
 
 export const ActivityCardList = () => {
   return (
-    <ul className='grid grid-cols-1 gap-6 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+    <ul className='grid grid-cols-1 gap-5 xs:grid-cols-2 md:grid-cols-3'>
       <ActivityCard
         href={PAGE_ROUTES.activity.activity1}
         title="Un terrain de jeux grandeur nature pour les amateurs de sports et d'aventure"

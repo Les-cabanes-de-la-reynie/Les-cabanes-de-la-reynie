@@ -5,7 +5,7 @@ import { ESTABLISHMENT_POSITION } from '../_const'
 
 // Custom icon configuration
 const customIcon = new Icon({
-  iconUrl: '/map-pin.png',
+  iconUrl: '/map-pin.svg',
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],

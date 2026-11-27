@@ -4,55 +4,80 @@
 @theme {
   --font-primary: var(--font-primary);
   --font-secondary: var(--font-secondary);
+
+  --text-display: clamp(2.75rem, 1.5rem + 4.2vw, 4.75rem);
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.025em;
+  --text-h1: clamp(2.5rem, 1.75rem + 2.6vw, 3.75rem);
+  --text-h1--line-height: 1.06;
+  --text-h1--letter-spacing: -0.025em;
+  --text-h2: clamp(1.625rem, 1.3rem + 1.1vw, 2.25rem);
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.018em;
+  --text-lead: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem);
+  --text-lead--line-height: 1.5;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.7;
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+
+  --animate-hero-settle: hero-settle 1800ms var(--ease-out-strong) both;
+  --animate-rise-in: rise-in 800ms var(--ease-out-strong) both;
 }
 
 :root {
   --white: hsl(175 27% 100%);
   --black: hsl(175 5% 10%);
 
-  --background: hsl(175 13% 95%);
-  --foreground: hsl(175 5% 10%);
-  --card: hsl(175 13% 90%);
-  --card-foreground: hsl(175 5% 15%);
-  --popover: hsl(175 13% 95%);
-  --popover-foreground: hsl(175 95% 10%);
-  --primary: hsl(175 80.2% 15.9%);
-  --primary-foreground: hsl(0 0% 100%);
-  --secondary: hsl(175 13% 70%);
-  --secondary-foreground: hsl(0 0% 0%);
-  --muted: hsl(137 13% 85%);
-  --muted-foreground: hsl(175 5% 35%);
-  --accent: hsl(137 13% 80%);
-  --accent-foreground: hsl(175 5% 15%);
+  --background: #f1f6f3;
+  --foreground: #19211c;
+  --card: #e5eee8;
+  --card-foreground: #19211c;
+  --popover: #f8fbf9;
+  --popover-foreground: #19211c;
+  --primary: #1b5c4a;
+  --primary-hover: #326c5c;
+  --primary-foreground: #ffffff;
+  --secondary: #dee8e2;
+  --secondary-foreground: #19211c;
+  --muted: #e2ebe5;
+  --muted-foreground: #4b5a50;
+  --accent: #dae6de;
+  --accent-foreground: #19211c;
   --destructive: hsl(0 50% 30%);
   --destructive-foreground: hsl(175 5% 90%);
-  --border: hsl(175 20% 50%);
-  --input: hsl(175 20% 20%);
-  --ring: hsl(175 80.2% 15.9%);
-  --radius: 0.5rem;
+  --border: #cfdcd3;
+  --input: #b0c2b6;
+  --ring: #1b5c4a;
+  --ink: #1b5c4a;
+  --header: #173f33;
+  --radius: 0.75rem;
 }
 
 .dark {
-  --background: hsl(175 13% 10%);
-  --foreground: hsl(175 5% 90%);
-  --card: hsl(175 13% 10%);
-  --card-foreground: hsl(175 5% 90%);
-  --popover: hsl(175 13% 5%);
-  --popover-foreground: hsl(175 5% 90%);
-  --primary: hsl(175 80.2% 15.9%);
-  --primary-foreground: hsl(0 0% 100%);
-  --secondary: hsl(175 13% 20%);
-  --secondary-foreground: hsl(0 0% 100%);
-  --muted: hsl(137 13% 20%);
-  --muted-foreground: hsl(175 5% 60%);
-  --accent: hsl(137 13% 20%);
-  --accent-foreground: hsl(175 5% 90%);
+  --background: #151b17;
+  --foreground: #e6ece8;
+  --card: #1a221d;
+  --card-foreground: #e6ece8;
+  --popover: #0f1411;
+  --popover-foreground: #e6ece8;
+  --primary: #22745c;
+  --primary-hover: #38826c;
+  --primary-foreground: #ffffff;
+  --secondary: #1f2922;
+  --secondary-foreground: #e6ece8;
+  --muted: #1d2620;
+  --muted-foreground: #a5b3aa;
+  --accent: #223027;
+  --accent-foreground: #e6ece8;
   --destructive: hsl(0 50% 30%);
   --destructive-foreground: hsl(175 5% 90%);
-  --border: hsl(175 20% 20%);
-  --input: hsl(175 20% 20%);
-  --ring: hsl(175 80.2% 15.9%);
-  --radius: 0.5rem;
+  --border: #2a362f;
+  --input: #3a4a40;
+  --ring: #9fd0b4;
+  --ink: #9fd0b4;
+  --header: #173f33;
+  --radius: 0.75rem;
 }
 
 /* Leaflet map  */
@@ -66,6 +91,20 @@
 .leaflet-bottom {
   z-index: 0 !important;
 }
+/* Doubled selectors: leaflet.css is imported after this file */
+.leaflet-container.leaflet-container {
+  font-family: inherit;
+}
+.leaflet-container .leaflet-popup-content-wrapper,
+.leaflet-container .leaflet-popup-tip {
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+.leaflet-container .leaflet-popup a.leaflet-popup-close-button {
+  color: var(--muted-foreground);
+}
 
 @theme inline {
   --color-white: var(--white);
@@ -78,6 +117,7 @@
   --color-foreground: var(--foreground);
 
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --color-primary-foreground: var(--primary-foreground);
 
   --color-secondary: var(--secondary);
@@ -98,6 +138,10 @@
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
 
+  --color-ink: var(--ink);
+  --color-header: var(--header);
+
+  --radius-xl: calc(var(--radius) + 4px);
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -109,7 +153,85 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scrollbar-color: var(--border) transparent;
+    accent-color: var(--primary);
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-primary;
+    caret-color: var(--ink);
+  }
+  ::selection {
+    background-color: color-mix(in oklch, var(--ink) 32%, transparent);
+  }
+  a {
+    text-underline-offset: 0.22em;
+  }
+}
+
+/* Photos develop as they scroll into view; content stays visible without support */
+@utility reveal-photo {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: photo-develop var(--ease-out-strong) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 75%;
+    }
+  }
+}
+
+@utility parallax-band {
+  position: relative;
+  overflow: hidden;
+  background: var(--home-parallax-image) center / cover no-repeat;
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      /* clip, not hidden: a scroll container would freeze the view() timeline */
+      overflow: clip;
+      background: none;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: -14% 0;
+        background: var(--home-parallax-image) center / cover no-repeat;
+        animation: parallax-drift linear both;
+        animation-timeline: view();
+      }
+    }
+  }
+}
+
+@keyframes hero-settle {
+  from {
+    scale: 1.08;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0.4;
+    translate: 0 0.75rem;
+  }
+}
+
+@keyframes photo-develop {
+  from {
+    clip-path: inset(12% 0 0 0 round var(--radius-xl));
+    opacity: 0.5;
+  }
+  to {
+    clip-path: inset(0 0 0 0 round var(--radius-xl));
+    opacity: 1;
+  }
+}
+
+@keyframes parallax-drift {
+  from {
+    translate: 0 -10%;
+  }
+  to {
+    translate: 0 10%;
   }
 }

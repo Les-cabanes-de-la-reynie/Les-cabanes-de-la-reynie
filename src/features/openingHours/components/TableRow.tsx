@@ -14,7 +14,7 @@ export const TableRow = ({ day, children }: TableRowProps) => {
   return (
     <tr
       className={cn('text-muted-foreground', {
-        'bg-primary text-white': day === today
+        'bg-ink/16 font-semibold text-foreground': day === today
       })}
     >
       {children}

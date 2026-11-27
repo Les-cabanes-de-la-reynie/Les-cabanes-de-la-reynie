@@ -8,8 +8,10 @@ export const OurGourmetOffer = () => {
   const t = useTranslations('Accommodations')
   return (
     <Container>
-      <section>
-        <Heading level={2}>{t('accommodationsDescriptionTitle')}</Heading>
+      <section className='mx-auto w-full max-w-[68ch] text-body'>
+        <Heading level={2} className='mb-5'>
+          {t('accommodationsDescriptionTitle')}
+        </Heading>
         <P>{t('accommodationsDescriptionP1')}</P>
 
         <Heading level={3} className='mt-4 mb-2'>

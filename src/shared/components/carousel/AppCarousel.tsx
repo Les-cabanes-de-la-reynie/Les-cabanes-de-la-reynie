@@ -55,11 +55,11 @@ export const AppCarousel = ({
       >
         <CarouselHeader title={title} />
 
-        <CarouselContent className='ml-0'>
+        <CarouselContent>
           {carouselItems.map((carouselItem, index) => (
             <CarouselItem
               key={`${carouselItem.key}-${index}`}
-              className='px-4 md:basis-1/2 lg:basis-1/3 select-none'
+              className='pl-4 md:basis-1/2 lg:basis-1/3 select-none'
             >
               {carouselItem}
             </CarouselItem>
@@ -68,7 +68,7 @@ export const AppCarousel = ({
 
         <Progress
           value={scrollProgress}
-          className='mt-4 w-2/3 lg:w-2/6 mx-auto'
+          className='mx-auto mt-4 h-0.5 w-2/3 bg-border lg:w-2/6 *:bg-ink'
           aria-label={t('scrollProgress')}
         />
       </EmblaCarousel>

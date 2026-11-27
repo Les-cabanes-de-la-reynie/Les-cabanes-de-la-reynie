@@ -1,5 +1,9 @@
 import { Link } from '@/i18n/navigation'
 import {
+  HEADER_NAV_ITEM_ACTIVE_CLASSNAME,
+  HEADER_NAV_ITEM_CLASSNAME
+} from '@/shared/_constants/className'
+import {
   NavigationMenuLink,
   navigationMenuTriggerStyle
 } from '@/shared/components/ui/navigation-menu'
@@ -14,8 +18,8 @@ type CustomLinkProps = PropsWithChildren & {
 export const CustomLink = ({ href, isActive, children }: CustomLinkProps) => {
   const navigationMenuLinkClasses = cn(
     navigationMenuTriggerStyle(),
-    'bg-transparent',
-    { 'bg-accent text-accent-foreground': isActive }
+    HEADER_NAV_ITEM_CLASSNAME,
+    isActive && HEADER_NAV_ITEM_ACTIVE_CLASSNAME
   )
 
   return (

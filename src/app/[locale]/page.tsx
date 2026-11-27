@@ -1,7 +1,7 @@
+import homeBannerImage from '@/assets/cabinAndYurt/home-banner.webp'
 import cabinImageFront from '@/assets/cabinAndYurt/home-cabin-front.webp'
 import yurtImageFront from '@/assets/cabinAndYurt/home-yurt-front.webp'
 import forestTeaser from '@/assets/homeCarousel/forest3.webp'
-import homeBannerImage from '@/assets/cabinAndYurt/home-banner.webp'
 import { AccommodationsDescription } from '@/features/accommodations/components/AccommodationsDescription'
 import { HomeAccommodationSlider } from '@/features/accommodations/components/HomeAccommodationSlider'
 import { routing } from '@/i18n/routing'
@@ -69,6 +69,7 @@ export default async function Home({ params }: Props) {
       <HeroBanner
         title={ESTABLISHMENT_TITLE}
         subtitle={tHome('heroSubtitle')}
+        size='display'
         className='relative'
         callToActionText={tHome('CTA')}
         bookingHref={YURT_BOOK_LIST[0].href}
@@ -90,7 +91,7 @@ export default async function Home({ params }: Props) {
       <IntroduceLesCabanesDeLaReynie />
 
       {/* No bg-fixed: broken on iOS Safari (zoomed/frozen rendering) */}
-      <div className='mb-8 h-96 w-full bg-(image:--home-parallax-image) bg-cover bg-center bg-no-repeat md:mb-10' />
+      <div className='parallax-band mb-8 h-[clamp(22rem,55vh,34rem)] w-full md:mb-10' />
 
       <Suspense fallback={<Loader />}>
         <HomeAccommodationSlider />

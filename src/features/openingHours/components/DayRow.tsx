@@ -74,14 +74,14 @@ export const DayRow = ({
     <TableRow day={day}>
       <th
         scope='row'
-        className='border border-input px-2 py-2 align-middle sm:px-4'
+        className='border-b px-2 py-2.5 align-middle sm:px-4 [tr:last-child>&]:border-b-0'
       >
         {dayTranslation}
       </th>
-      <td className='border border-input px-2 py-2 align-middle sm:px-4'>
+      <td className='border-b px-2 py-2.5 align-middle sm:px-4 [tr:last-child>&]:border-b-0'>
         {openingDate}
       </td>
-      <td className='border border-input px-2 py-2 align-middle sm:px-4'>
+      <td className='border-b px-2 py-2.5 align-middle sm:px-4 [tr:last-child>&]:border-b-0'>
         {closingDate}
       </td>
     </TableRow>

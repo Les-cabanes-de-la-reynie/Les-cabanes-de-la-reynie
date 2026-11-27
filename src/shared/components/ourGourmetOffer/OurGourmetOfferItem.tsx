@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react'
 
 export const OurGourmetOfferItem = ({ children }: PropsWithChildren) => {
   return (
-    <li className='list-disc'>
+    <li className='list-disc marker:text-ink'>
       <P>{children}</P>
     </li>
   )

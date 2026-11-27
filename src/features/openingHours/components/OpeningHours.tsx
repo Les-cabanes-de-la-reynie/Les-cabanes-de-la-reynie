@@ -43,7 +43,7 @@ export const OpeningHours = async ({ editable }: OpeningHoursProps) => {
       {!editable && (
         <div className='mt-4 flex'>
           <IconContainer className='mt-1'>
-            <AlertCircleIcon className={cn('stroke-primary h-5 w-5')} />
+            <AlertCircleIcon className={cn('stroke-ink h-5 w-5')} />
           </IconContainer>
           <div>
             <P>{tFindUs('departuresDescription')}</P>
