@@ -1,0 +1,5 @@
+<svg class="cr-fav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="currentColor" role="img" aria-label="Les Cabanes de la Reynie">
+  <title>Les Cabanes de la Reynie</title>
+  <style>.cr-fav{color:#1b5c4a}@media (prefers-color-scheme:dark){.cr-fav{color:#9fd0b4}}</style>
+  <path fill-rule="evenodd" d="M28 8H36L38 12C45.8 13.6 55.1 19.5 60 28H4C8.9 19.5 18.2 13.6 26 12ZM0 52H64V48H56V32H8V48H0ZM28 36H36V48H28Z"/>
+</svg>

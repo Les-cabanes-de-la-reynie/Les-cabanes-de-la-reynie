@@ -12,7 +12,7 @@ export default function NotFound() {
   return (
     <Container center>
       <Heading level={2}>{t('shortError404')}</Heading>
-      <P>{t('longError404')}</P>
+      <P className='text-center'>{t('longError404')}</P>
       <Button asChild className='mt-4'>
         <Link href={PAGE_ROUTES.home}>{t('backButtonMessage')}</Link>
       </Button>

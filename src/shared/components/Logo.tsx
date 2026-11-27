@@ -1,3 +1,4 @@
+import { LogoHorizontal } from '@/assets/logo/LogoHorizontal'
 import { Link } from '@/i18n/navigation'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { PAGE_ROUTES } from '@/shared/_constants/page'
@@ -10,7 +11,7 @@ type LogoProps = ClassNameProps & {
 
 export const Logo = ({ onCloseMenu, className }: LogoProps) => {
   const classes = cn(
-    'flex flex-col box-border cursor-pointer mr-8 w-max font-secondary text-lg leading-tight text-white',
+    'mr-8 flex w-max shrink-0 cursor-pointer items-center rounded-sm text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current',
     className
   )
 
@@ -22,8 +23,7 @@ export const Logo = ({ onCloseMenu, className }: LogoProps) => {
       aria-label={`${ESTABLISHMENT_TITLE} Logo`}
       data-testid='app-main-logo'
     >
-      <span>Les cabanes</span>
-      <span>de la Reynie</span>
+      <LogoHorizontal className='h-9 w-auto' />
     </Link>
   )
 }

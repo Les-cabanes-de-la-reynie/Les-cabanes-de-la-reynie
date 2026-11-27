@@ -6,11 +6,10 @@ import { Toaster } from '@/shared/components/ui/sonner'
 import { env } from '@/shared/lib/env'
 import { pageAlternates } from '@/shared/lib/seo'
 import { Providers } from '@/shared/providers'
-import { cn } from '@/shared/utils/tailwind'
 import { Metadata } from 'next'
 import { hasLocale } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { Galada, Source_Sans_3 } from 'next/font/google'
+import { Source_Sans_3 } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
 const fontPrimary = Source_Sans_3({
@@ -20,15 +19,6 @@ const fontPrimary = Source_Sans_3({
   display: 'swap',
   preload: true,
   fallback: ['system-ui', 'arial']
-})
-
-const fontSecondary = Galada({
-  variable: '--font-secondary',
-  weight: ['400'],
-  subsets: ['latin'],
-  display: 'swap',
-  preload: false,
-  fallback: ['cursive', 'system-ui']
 })
 
 export function generateStaticParams() {
@@ -82,7 +72,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={cn(fontPrimary.variable, fontSecondary.variable)}>
+      <body className={fontPrimary.variable}>
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
