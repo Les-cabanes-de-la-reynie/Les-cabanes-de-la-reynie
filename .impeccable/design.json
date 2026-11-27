@@ -1,67 +1,142 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-18T13:30:00Z",
+  "generatedAt": "2026-11-27T13:59:43Z",
   "title": "Design System: Les Cabanes de la Reynie",
   "extensions": {
     "colorMeta": {
-      "sapin-nocturne": {
+      "sapin": {
         "role": "primary",
-        "displayName": "Vert sapin nocturne",
-        "canonical": "hsl(175 80% 16%)",
+        "displayName": "Sapin",
+        "canonical": "hsl(163 55% 23%)",
         "tonalRamp": [
-          "hsl(175 80% 8%)",
-          "hsl(175 80% 16%)",
-          "hsl(175 60% 26%)",
-          "hsl(175 45% 38%)",
-          "hsl(175 35% 50%)",
-          "hsl(175 35% 64%)",
-          "hsl(175 30% 78%)",
-          "hsl(175 25% 92%)"
+          "#1B322B",
+          "#1D634F",
+          "#2A8E72",
+          "#38BD98",
+          "#61D1B2",
+          "#91DFC9",
+          "#C0ECE0",
+          "#EEF6F4"
+        ]
+      },
+      "sapin-clair": {
+        "role": "primary",
+        "displayName": "Sapin clair (thème sombre)",
+        "canonical": "hsl(162 55% 29%)",
+        "tonalRamp": [
+          "#1B322B",
+          "#1D634E",
+          "#2A8E71",
+          "#37BD96",
+          "#61D1B0",
+          "#91DFC8",
+          "#C0EDDF",
+          "#EEF6F4"
+        ]
+      },
+      "foret": {
+        "role": "secondary",
+        "displayName": "Forêt",
+        "canonical": "hsl(162 47% 17%)",
+        "tonalRamp": [
+          "#1C302A",
+          "#225D4C",
+          "#31866D",
+          "#41B391",
+          "#6AC8AC",
+          "#96D9C5",
+          "#C3E9DE",
+          "#EFF6F4"
+        ]
+      },
+      "sauge": {
+        "role": "tertiary",
+        "displayName": "Sauge (encre du thème sombre)",
+        "canonical": "hsl(146 34% 72%)",
+        "tonalRamp": [
+          "#1F2D25",
+          "#2A563D",
+          "#3C7B57",
+          "#50A474",
+          "#76BC94",
+          "#9FD0B4",
+          "#C8E4D4",
+          "#F0F5F2"
         ]
       },
       "sous-bois": {
         "role": "neutral",
         "displayName": "Sous-bois",
-        "canonical": "hsl(175 13% 10%)",
+        "canonical": "hsl(140 12% 9%)",
         "tonalRamp": [
-          "hsl(175 13% 5%)",
-          "hsl(175 13% 10%)",
-          "hsl(175 13% 20%)",
-          "hsl(175 13% 35%)",
-          "hsl(175 13% 50%)",
-          "hsl(175 13% 70%)",
-          "hsl(175 13% 85%)",
-          "hsl(175 13% 95%)"
+          "#242925",
+          "#38483D",
+          "#506758",
+          "#6B8A75",
+          "#8CA695",
+          "#AFC1B5",
+          "#D1DBD4",
+          "#F1F3F2"
+        ]
+      },
+      "lichen": {
+        "role": "neutral",
+        "displayName": "Lichen",
+        "canonical": "hsl(141 17% 16%)",
+        "tonalRamp": [
+          "#232A25",
+          "#354B3D",
+          "#4C6B57",
+          "#668F74",
+          "#88AA94",
+          "#ABC4B4",
+          "#CFDDD4",
+          "#F1F3F2"
         ]
       },
       "brume": {
         "role": "neutral",
         "displayName": "Brume",
-        "canonical": "hsl(175 5% 90%)",
+        "canonical": "hsl(140 14% 91%)",
         "tonalRamp": [
-          "hsl(175 5% 15%)",
-          "hsl(175 5% 30%)",
-          "hsl(175 5% 45%)",
-          "hsl(175 5% 60%)",
-          "hsl(175 5% 70%)",
-          "hsl(175 5% 80%)",
-          "hsl(175 5% 90%)",
-          "hsl(175 5% 96%)"
+          "#232925",
+          "#37483D",
+          "#4F6858",
+          "#6A8B75",
+          "#8BA794",
+          "#AEC1B4",
+          "#D1DCD4",
+          "#F1F3F2"
         ]
       },
-      "mousse": {
+      "aube": {
         "role": "neutral",
-        "displayName": "Mousse",
-        "canonical": "hsl(137 13% 20%)",
+        "displayName": "Aube",
+        "canonical": "hsl(144 22% 95%)",
         "tonalRamp": [
-          "hsl(137 13% 10%)",
-          "hsl(137 13% 20%)",
-          "hsl(137 13% 32%)",
-          "hsl(137 13% 45%)",
-          "hsl(137 13% 58%)",
-          "hsl(137 13% 70%)",
-          "hsl(137 13% 82%)",
-          "hsl(137 13% 93%)"
+          "#222B25",
+          "#324E3D",
+          "#487058",
+          "#609575",
+          "#83AF95",
+          "#A8C7B4",
+          "#CDDFD4",
+          "#F1F4F2"
+        ]
+      },
+      "encre": {
+        "role": "neutral",
+        "displayName": "Encre",
+        "canonical": "hsl(142 14% 11%)",
+        "tonalRamp": [
+          "#232926",
+          "#37493E",
+          "#4F6859",
+          "#6A8B76",
+          "#8BA795",
+          "#AEC1B5",
+          "#D1DCD5",
+          "#F1F3F2"
         ]
       },
       "terre-brulee": {
@@ -69,32 +144,100 @@
         "displayName": "Terre brûlée",
         "canonical": "hsl(0 50% 30%)",
         "tonalRamp": [
-          "hsl(0 50% 15%)",
-          "hsl(0 50% 30%)",
-          "hsl(0 45% 42%)",
-          "hsl(0 45% 54%)",
-          "hsl(0 45% 66%)",
-          "hsl(0 40% 78%)",
-          "hsl(0 40% 88%)",
-          "hsl(0 40% 95%)"
+          "#311C1C",
+          "#602020",
+          "#8A2E2E",
+          "#B83D3D",
+          "#CC6666",
+          "#DC9494",
+          "#EBC2C2",
+          "#F6EFEF"
         ]
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display (Galada)", "purpose": "Titres de section h2 uniquement — la touche manuscrite chaleureuse." },
-      "headline": { "displayName": "Headline (Roboto 500)", "purpose": "Titres de page h1, souvent posés sur la photo du hero." },
-      "body": { "displayName": "Body (Roboto 400)", "purpose": "Paragraphes, 65–75ch max." }
+      "display": {
+        "displayName": "Display (Source Sans 3 650)",
+        "purpose": "Le nom du lieu sur le hero de l'accueil."
+      },
+      "headline": {
+        "displayName": "Headline (Source Sans 3 650)",
+        "purpose": "Titres de page h1, souvent posés sur la photo du hero."
+      },
+      "title": {
+        "displayName": "Title (Source Sans 3 650)",
+        "purpose": "Titres de section h2."
+      },
+      "subtitle": {
+        "displayName": "Subtitle (Source Sans 3 600)",
+        "purpose": "Sous-sections h3 et légendes de cartes photo."
+      },
+      "lead": {
+        "displayName": "Lead (Source Sans 3 400)",
+        "purpose": "Sous-titre du hero."
+      },
+      "body": {
+        "displayName": "Body (Source Sans 3 400)",
+        "purpose": "Paragraphes, limités à 68 caractères."
+      },
+      "label": {
+        "displayName": "Label (Source Sans 3 600)",
+        "purpose": "Boutons, navigation, libellés de tuiles."
+      }
     },
     "shadows": [
-      { "name": "shadow-xs", "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)", "purpose": "Seule ombre autorisée (défaut shadcn) — quasi imperceptible, The Flat Forest Rule." }
+      {
+        "name": "floating-layer",
+        "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+        "purpose": "Menus déroulants, panneau mobile et lightbox uniquement ; aucune ombre sur les surfaces posées (The Flat Forest Rule)."
+      }
     ],
     "motion": [
-      { "name": "transition-colors", "value": "color, background-color, border-color 300ms ease", "purpose": "Transitions d'état du header et des liens." },
-      { "name": "hover-opacity", "value": "opacity 500ms ease-in-out", "purpose": "Cross-fade des photos front/hover sur les cartes hébergement." }
+      {
+        "name": "ease-out-strong",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Courbe unique des entrées, pressions et zooms."
+      },
+      {
+        "name": "press",
+        "value": "scale(0.97) 150ms cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Retour à la pression des boutons (0.99 sur les cartes photo)."
+      },
+      {
+        "name": "image-zoom",
+        "value": "scale 1.04 700ms cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Zoom des photos au survol, pointeur fin uniquement."
+      },
+      {
+        "name": "hero-settle",
+        "value": "scale 1.08 → 1, 1800ms cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "L'image du hero se pose à l'arrivée."
+      },
+      {
+        "name": "rise-in",
+        "value": "opacity 0.4 → 1 + translateY 0.75rem, 800ms cubic-bezier(0.23, 1, 0.32, 1), délais 0 / 120 / 260ms",
+        "purpose": "Le texte du hero monte en séquence, jamais invisible."
+      },
+      {
+        "name": "photo-develop",
+        "value": "clip-path inset(12% 0 0 0) → inset(0), view() entry 0% → 75%",
+        "purpose": "Les cartes photo se révèlent au défilement."
+      },
+      {
+        "name": "parallax-drift",
+        "value": "translateY -10% → 10%, view(), linear",
+        "purpose": "Dérive de la bande photo de l'accueil (overflow: clip autour)."
+      }
     ],
     "breakpoints": [
-      { "name": "md", "value": "768px" },
-      { "name": "lg", "value": "1024px" }
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
     ]
   },
   "components": [
@@ -102,80 +245,116 @@
       "name": "Bouton primaire",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "L'action principale — mène vers la réservation ou valide un formulaire.",
-      "html": "<button class=\"ds-btn-primary\">Réserver</button>",
-      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 36px; padding: 8px 16px; background: var(--primary, #084944); color: #fff; font: 500 0.875rem/1 Roboto, system-ui, sans-serif; border: none; border-radius: 6px; cursor: pointer; transition: background-color 150ms ease, box-shadow 150ms ease; } .ds-btn-primary:hover { background: color-mix(in srgb, var(--primary, #084944) 90%, transparent); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring, #084944) 50%, transparent); }"
+      "description": "L'action principale : partir réserver sur Airbnb ou valider un formulaire.",
+      "html": "<button class=\"ds-btn-primary\">Réserver sur Airbnb</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 8px 20px; background: var(--primary, #22745C); color: #fff; font: 600 0.9375rem/1 'Source Sans 3', system-ui, sans-serif; border: none; border-radius: 10px; cursor: pointer; transition: background-color 150ms ease, scale 150ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn-primary:hover { background: var(--primary-hover, #38826C); } .ds-btn-primary:active { scale: 0.97; } .ds-btn-primary:focus-visible { outline: 3px solid color-mix(in oklch, var(--ring, #9FD0B4) 50%, transparent); outline-offset: 2px; }"
     },
     {
-      "name": "Bouton outline",
+      "name": "Bouton contour",
       "kind": "button",
       "refersTo": "button-outline",
-      "description": "Action secondaire posée sur photo ou surface sombre.",
-      "html": "<button class=\"ds-btn-outline\">En savoir plus</button>",
-      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 8px 16px; background: transparent; color: var(--foreground, #E4E7E7); font: 500 0.875rem/1 Roboto, system-ui, sans-serif; border: 1px solid var(--input, #293D3C); border-radius: 6px; cursor: pointer; transition: background-color 150ms ease; } .ds-btn-outline:hover { background: var(--accent, #2C3A30); } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring, #084944) 50%, transparent); }"
+      "description": "Action secondaire, flèches du carousel, « Toutes les activités ».",
+      "html": "<button class=\"ds-btn-outline\">Plongez dans la nature</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; height: 44px; padding: 8px 20px; background: transparent; color: var(--foreground, #E6ECE8); font: 600 0.9375rem/1 'Source Sans 3', system-ui, sans-serif; border: 1px solid var(--input, #3A4A40); border-radius: 10px; cursor: pointer; transition: background-color 150ms ease, scale 150ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn-outline:hover { background: var(--accent, #223027); } .ds-btn-outline:active { scale: 0.97; } .ds-btn-outline:focus-visible { outline: 3px solid color-mix(in oklch, var(--ring, #9FD0B4) 50%, transparent); outline-offset: 2px; }"
+    },
+    {
+      "name": "Navigation du header",
+      "kind": "nav",
+      "refersTo": "nav-item-active",
+      "description": "Bandeau forêt de 72px ; élément actif sur pastille blanche à 12 %.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-item ds-nav-item-active\" href=\"#\">Accueil</a><a class=\"ds-nav-item\" href=\"#\">Logements</a><a class=\"ds-nav-item\" href=\"#\">Activités</a><a class=\"ds-nav-item\" href=\"#\">Nous trouver</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 4px; height: 72px; padding: 0 24px; background: var(--header, #173F33); } .ds-nav-item { display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 10px; color: #fff; font: 500 0.9375rem/1 'Source Sans 3', system-ui, sans-serif; text-decoration: none; transition: background-color 150ms ease; } .ds-nav-item:hover { background: rgb(255 255 255 / 0.08); } .ds-nav-item-active, .ds-nav-item-active:hover { background: rgb(255 255 255 / 0.12); } .ds-nav-item:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }"
+    },
+    {
+      "name": "Carte photo",
+      "kind": "card",
+      "refersTo": "photo-card",
+      "description": "Lien vers un logement ou une activité : la photo porte la carte, légende sur dégradé.",
+      "html": "<a class=\"ds-photo-card\" href=\"#\"><span class=\"ds-photo-card-img\"></span><span class=\"ds-photo-card-caption\">Voir notre yourte <span aria-hidden=\"true\">→</span></span></a>",
+      "css": ".ds-photo-card { position: relative; display: block; width: 320px; height: 224px; overflow: hidden; border-radius: 16px; text-decoration: none; transition: scale 200ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-photo-card-img { position: absolute; inset: 0; background: linear-gradient(160deg, #6f8f7a, #2a3f33 60%, #1a2620); transition: scale 700ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-photo-card:hover .ds-photo-card-img { scale: 1.04; } .ds-photo-card:active { scale: 0.99; } .ds-photo-card-caption { position: absolute; inset: auto 0 0 0; display: flex; justify-content: space-between; padding: 64px 20px 16px; background: linear-gradient(to top, rgb(0 0 0 / 0.7), transparent); color: #fff; font: 600 1.25rem/1.2 'Source Sans 3', system-ui, sans-serif; } .ds-photo-card:focus-visible { outline: 2px solid var(--ink, #9FD0B4); outline-offset: 3px; }"
+    },
+    {
+      "name": "Tuile d'info pratique",
+      "kind": "card",
+      "refersTo": "amenity-tile",
+      "description": "Équipement du logement : tuile teintée sans bordure, icône lucide en contour à l'encre.",
+      "html": "<div class=\"ds-tile\"><svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 20h.01\"/><path d=\"M2 8.82a15 15 0 0 1 20 0\"/><path d=\"M5 12.859a10 10 0 0 1 14 0\"/><path d=\"M8.5 16.429a5 5 0 0 1 7 0\"/></svg><span class=\"ds-tile-label\">Wifi</span></div>",
+      "css": ".ds-tile { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 160px; padding: 20px 12px; background: var(--accent, #223027); border-radius: 16px; color: var(--ink, #9FD0B4); } .ds-tile-label { color: var(--foreground, #E6ECE8); font: 400 0.9375rem/1.35 'Source Sans 3', system-ui, sans-serif; text-align: center; }"
+    },
+    {
+      "name": "Surlignage",
+      "kind": "chip",
+      "refersTo": "highlight",
+      "description": "Met en avant une offre dans un paragraphe, ou l'option choisie d'un menu.",
+      "html": "<p class=\"ds-hl-p\"><span class=\"ds-hl\">Planche apéritive 100 % produits locaux et bio</span> composée de charcuterie artisanale et de fromages fermiers.</p>",
+      "css": ".ds-hl-p { max-width: 68ch; color: var(--foreground, #E6ECE8); font: 400 1.0625rem/1.7 'Source Sans 3', system-ui, sans-serif; } .ds-hl { padding: 0.1em 0.45em; border-radius: 0.4em; background: color-mix(in oklch, var(--ink, #9FD0B4) 18%, transparent); font-weight: 600; box-decoration-break: clone; -webkit-box-decoration-break: clone; }"
     },
     {
       "name": "Champ de saisie",
       "kind": "input",
       "refersTo": "input",
-      "description": "Champ de formulaire (contact, admin).",
-      "html": "<input class=\"ds-input\" placeholder=\"Votre email\" />",
-      "css": ".ds-input { height: 36px; width: 100%; max-width: 280px; padding: 4px 12px; background: transparent; color: var(--foreground, #E4E7E7); font: 400 0.875rem/1.5 Roboto, system-ui, sans-serif; border: 1px solid var(--input, #293D3C); border-radius: 6px; transition: border-color 150ms ease, box-shadow 150ms ease; } .ds-input::placeholder { color: var(--muted-foreground, #949E9D); } .ds-input:focus-visible { outline: none; border-color: var(--ring, #084944); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring, #084944) 50%, transparent); }"
-    },
-    {
-      "name": "Carte",
-      "kind": "card",
-      "refersTo": "card",
-      "description": "Conteneur plat — se détache par sa teinte et sa bordure, jamais par une ombre.",
-      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">La yourte</h3><p class=\"ds-card-body\">Nuit insolite au cœur de la nature corrézienne.</p></div>",
-      "css": ".ds-card { padding: 16px 24px; background: var(--card, #161D1C); color: var(--card-foreground, #E4E7E7); border: 1px solid var(--border, #293D3C); border-radius: 8px; max-width: 320px; } .ds-card-title { font: 600 1.25rem/1.3 Roboto, system-ui, sans-serif; letter-spacing: -0.025em; margin: 0 0 8px; } .ds-card-body { font: 400 0.875rem/1.5 Roboto, system-ui, sans-serif; color: var(--muted-foreground, #949E9D); margin: 0; }"
-    },
-    {
-      "name": "Titre de section (Galada)",
-      "kind": "custom",
-      "refersTo": "display",
-      "description": "Le h2 en cursive Galada — seule apparition autorisée de la display.",
-      "html": "<h2 class=\"ds-section-title\">La yourte</h2>",
-      "css": "@import url('https://fonts.googleapis.com/css2?family=Galada&display=swap'); .ds-section-title { font: 400 1.875rem/1.3 Galada, cursive; color: var(--foreground, #E4E7E7); text-wrap: balance; margin: 0; }"
-    },
-    {
-      "name": "Lien de navigation",
-      "kind": "nav",
-      "refersTo": "body",
-      "description": "Lien du header/footer — sobre, l'état actif se signale par la couleur.",
-      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link ds-nav-link-active\" href=\"#\">Yourte</a><a class=\"ds-nav-link\" href=\"#\">Cabane</a><a class=\"ds-nav-link\" href=\"#\">Contact</a></nav>",
-      "css": ".ds-nav { display: flex; gap: 24px; } .ds-nav-link { font: 500 0.9375rem/1 Roboto, system-ui, sans-serif; color: var(--muted-foreground, #949E9D); text-decoration: none; transition: color 300ms ease; } .ds-nav-link:hover, .ds-nav-link-active { color: var(--foreground, #E4E7E7); }"
+      "description": "Champs de l'administration (prix, horaires, adresse).",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Prix moyen par nuit\" />",
+      "css": ".ds-input { height: 36px; width: 240px; padding: 4px 12px; background: transparent; color: var(--foreground, #E6ECE8); font: 400 1rem/1 'Source Sans 3', system-ui, sans-serif; border: 1px solid var(--input, #3A4A40); border-radius: 10px; outline: none; transition: border-color 150ms ease, box-shadow 150ms ease; } .ds-input::placeholder { color: var(--muted-foreground, #A5B3AA); } .ds-input:focus-visible { border-color: var(--ring, #9FD0B4); box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring, #9FD0B4) 50%, transparent); }"
     }
   ],
   "narrative": {
     "northStar": "La clairière au crépuscule",
-    "overview": "Le thème sombre par défaut n'est pas un choix cosmétique : c'est la forêt corrézienne à la tombée du jour. L'interface est un écrin vert sombre — calme, silencieux — que les photographies lumineuses viennent percer comme des trouées de lumière. Le site s'efface derrière l'image ; l'utilisateur doit se projeter dans le séjour, pas admirer l'interface. La chaleur vient des photos, de la cursive Galada posée avec parcimonie, et de composants généreux et invitants qui mènent naturellement vers la réservation.",
+    "overview": "Le thème sombre par défaut n'est pas un choix cosmétique : c'est la forêt corrézienne à la tombée du jour, un sous-bois de mousse dont le vert ne crie jamais. L'interface est un écrin calme que les photographies lumineuses (yourte éclairée, prairie dans la brume, cabane sous les arbres) viennent percer comme des trouées de lumière. Le site s'efface derrière l'image ; le visiteur doit se projeter dans le séjour, pas admirer l'interface.\n\nLe système rejette les codes des plateformes de réservation (grilles de prix, badges promo, urgence artificielle) et le luxe froid déshumanisé. La chaleur vient des photos, d'une seule voix typographique lisible et posée, et d'un mouvement discret qui fait respirer les images. La personnalité manuscrite ne vit plus que dans le logo dessiné : la yourte et la cabane posées sur la même ligne de pré.",
     "keyCharacteristics": [
-      "Thème sombre par défaut (vert sapin désaturé, teinte 175°), thème clair disponible",
-      "L'image porte la page ; l'UI reste discrète autour",
-      "Une seule couleur de marque (Vert sapin nocturne), pas de palette multicolore",
-      "Profondeur par teintes, quasi aucune ombre",
-      "Composants généreux et invitants : le chemin vers « réserver » est toujours évident"
+      "Thème sombre par défaut (sous-bois mousse #151B17), thème clair disponible (aube #F1F6F3)",
+      "Une seule famille de verts mousse-sapin, de 140° à 165° de teinte ; le sapin est réservé aux actions",
+      "Une seule police pour tout le texte : Source Sans 3 ; colonne de lecture de 68 caractères",
+      "L'image porte la page ; l'interface reste plate (aucune ombre sur les surfaces posées)",
+      "Un mouvement unique et discret : le hero se pose, les photos se révèlent au défilement, la bande photo dérive en parallaxe — tout s'éteint en mouvement réduit"
     ],
     "rules": [
-      { "name": "The One Green Rule", "body": "Le Vert sapin nocturne est la seule couleur saturée autorisée. Toute nouvelle teinte doit rester dans la famille 137–175° désaturée.", "section": "colors" },
-      { "name": "The Photo-First Rule", "body": "La couleur vient des photographies. Si une section semble terne sans image, la réponse est une meilleure image, pas une nouvelle couleur d'interface.", "section": "colors" },
-      { "name": "The Galada Rule", "body": "La cursive est un condiment, pas un plat : uniquement les h2 de section. Jamais en body, jamais en bouton, jamais en navigation.", "section": "typography" },
-      { "name": "The Flat Forest Rule", "body": "Pas d'ombres portées décoratives. Une surface se détache par sa teinte et sa bordure, jamais par un halo.", "section": "elevation" }
+      {
+        "name": "The One Forest Rule",
+        "body": "Une seule famille de verts mousse-sapin (teintes 140–165°). Aucun autre ton saturé, nulle part : même le marqueur de la carte est sapin. Introduire un orange, un bleu ou le rouge d'un marqueur par défaut est interdit.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink Rule",
+        "body": "Le sapin des boutons n'est jamais une couleur de texte sur fond sombre (il y tombait à 1,67:1). Liens, icônes et accents passent toujours par `--ink` : sauge en sombre, sapin en clair.",
+        "section": "colors"
+      },
+      {
+        "name": "The Photo-First Rule",
+        "body": "La couleur vient des photographies. Si une section semble terne sans image, la réponse est une meilleure image, pas une nouvelle couleur d'interface.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Voice Rule",
+        "body": "Source Sans 3 porte chaque mot du site. La personnalité manuscrite vit dans le logo dessiné, jamais en texte courant, en titre ou en bouton.",
+        "section": "typography"
+      },
+      {
+        "name": "The Measure Rule",
+        "body": "Un paragraphe ne dépasse jamais 68 caractères ; les blocs de récit sont des colonnes de 68ch centrées sur l'axe du hero.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Forest Rule",
+        "body": "Une surface posée se détache par sa teinte, jamais par un halo. Si un composant a besoin d'une ombre pour exister, c'est sa teinte qui est fausse.",
+        "section": "elevation"
+      }
     ],
     "dos": [
-      "Do laisser les photographies porter les pages ; l'UI est un écrin (« La clairière au crépuscule »).",
-      "Do réserver le Vert sapin nocturne (#084944) aux actions et au focus — sa rareté guide l'œil vers « réserver ».",
-      "Do utiliser Galada uniquement sur les h2 de section.",
-      "Do garantir un contraste AA (4.5:1) pour le corps de texte, sur les deux thèmes.",
-      "Do fournir une alternative prefers-reduced-motion à toute animation."
+      "**Do** laisser les photographies porter les pages ; l'interface est un écrin (« La clairière au crépuscule »).",
+      "**Do** réserver le vert sapin aux actions — sa rareté guide l'œil vers « réserver ».",
+      "**Do** passer par `--ink` pour tout lien, icône ou accent posé sur une surface.",
+      "**Do** composer tout texte en Source Sans 3 et tenir les paragraphes à 68 caractères.",
+      "**Do** garantir un contraste AA (4.5:1) pour le corps de texte, dans les deux thèmes.",
+      "**Do** fournir une alternative `prefers-reduced-motion` à toute animation et réserver les survols aux pointeurs fins."
     ],
     "donts": [
-      "Don't ressembler à « une plateforme de réservation » : pas de grilles de prix agressives, badges promo, compteurs d'urgence.",
-      "Don't ressembler à « un resort de luxe froid » : pas de minimalisme distant ni de photos déshumanisées.",
-      "Don't introduire de nouvelles couleurs saturées hors de la famille verte 137–175°.",
-      "Don't ajouter d'ombres portées décoratives — la profondeur passe par les teintes.",
-      "Don't utiliser de border-left coloré épais, de texte en dégradé, ni de glassmorphism décoratif."
+      "**Don't** ressembler à « une plateforme de réservation » : pas de grilles de prix agressives, badges promo, compteurs d'urgence (anti-référence PRODUCT.md).",
+      "**Don't** ressembler à « un resort de luxe froid » : pas de minimalisme distant ni de photos déshumanisées (anti-référence PRODUCT.md).",
+      "**Don't** introduire de couleur saturée hors de la famille mousse-sapin (140–165°), ni utiliser le sapin des boutons comme couleur de texte sur fond sombre.",
+      "**Don't** composer du texte en Galada : la cursive n'existe que dans le logo dessiné.",
+      "**Don't** ajouter d'ombres portées sur les surfaces posées — la profondeur passe par les teintes.",
+      "**Don't** utiliser de `border-left` coloré épais, de texte en dégradé, de ruban incliné ni de glassmorphism décoratif."
     ]
   }
 }
