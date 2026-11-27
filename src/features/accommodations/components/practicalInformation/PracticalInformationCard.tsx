@@ -12,9 +12,11 @@ export const PracticalInformationCard = ({
 }: PracticalInformationCardProps) => {
   return (
     <li>
-      <Card className='flex flex-col items-center p-4 text-center'>
+      <Card className='flex h-full flex-col items-center rounded-2xl border-0 bg-accent px-3 py-5 text-center shadow-none'>
         {children}
-        <P className='mt-6 font-normal text-center'>{description}</P>
+        <P className='mt-3.5 text-center text-[0.9375rem] leading-snug text-foreground'>
+          {description}
+        </P>
       </Card>
     </li>
   )

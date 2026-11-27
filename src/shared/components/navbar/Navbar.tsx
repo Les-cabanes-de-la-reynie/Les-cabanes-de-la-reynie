@@ -27,7 +27,7 @@ export const Navbar = () => {
 
       <div
         data-testid='desktop-header-navbar'
-        className='hidden lg:flex text-primary-foreground group flex-1 list-none items-center justify-center space-x-1'
+        className='hidden lg:flex text-primary-foreground group flex-1 list-none items-center justify-center space-x-1 [&_[data-slot=button]:hover]:bg-white/8 [&_[data-slot=button]:hover]:text-primary-foreground'
       >
         <LanguagesSwitcher />
         <ThemeSwitcher />

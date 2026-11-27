@@ -9,7 +9,7 @@ export const Itinerary = () => {
   const tFindUs = useTranslations('FindUs')
 
   return (
-    <span className='flex flex-col text-primary hover:underline'>
+    <span className='flex flex-col text-ink hover:underline'>
       <span className='flex items-center'>
         <IconContainer>
           <NavigationIcon className={APP_ICON_SIZE_CLASSNAME} />

@@ -13,6 +13,7 @@ type HeroBannerProps = PropsWithChildren &
     callToActionText?: string
     bookingHref?: string
     bookingText?: string
+    size?: 'display' | 'page'
   }
 
 export const HeroBanner = ({
@@ -22,34 +23,40 @@ export const HeroBanner = ({
   callToActionText,
   bookingHref,
   bookingText,
+  size = 'page',
   className
 }: HeroBannerProps) => {
   const classes = cn(
-    'relative h-[55vh] lg:h-[75vh] w-full overflow-hidden',
+    'relative h-[55vh] w-full overflow-hidden lg:h-[75vh] motion-safe:[&>img]:animate-hero-settle',
     className
   )
 
   return (
     <div className={classes}>
       {children}
-      <div className='absolute inset-0 bg-black/30 flex flex-col items-center justify-center gap-12 p-4 text-center'>
-        <div className='flex flex-col items-center gap-4'>
+      <div className='absolute inset-0 flex flex-col items-center justify-center gap-12 bg-black/30 p-4 text-center'>
+        <div className='flex flex-col items-center gap-4 motion-safe:*:animate-rise-in motion-safe:[&>p]:[animation-delay:120ms]'>
           <Heading
             level={1}
-            className='text-5xl text-primary-foreground lg:text-6xl'
+            className={cn(
+              'text-primary-foreground',
+              size === 'display'
+                ? 'text-display'
+                : 'max-w-[24ch] text-[clamp(2rem,1.4rem+2vw,3.25rem)] leading-[1.1]'
+            )}
             data-testid='home-page-main-title'
           >
             {title}
           </Heading>
           {!!subtitle && (
-            <p className='max-w-2xl text-balance text-lg text-primary-foreground/90 lg:text-xl'>
+            <p className='max-w-2xl text-balance text-lead text-primary-foreground/90'>
               {subtitle}
             </p>
           )}
         </div>
 
         {(!!bookingHref || !!callToActionText) && (
-          <div className='flex flex-col items-center gap-3 sm:flex-row'>
+          <div className='flex w-full max-w-xs flex-col gap-3 sm:w-auto sm:max-w-none sm:flex-row sm:items-center motion-safe:*:animate-rise-in motion-safe:*:[animation-delay:260ms]'>
             {!!bookingHref && !!bookingText && (
               <a
                 href={bookingHref}

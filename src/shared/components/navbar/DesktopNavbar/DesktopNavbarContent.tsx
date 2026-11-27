@@ -1,3 +1,8 @@
+import { usePathname } from '@/i18n/navigation'
+import {
+  HEADER_NAV_ITEM_ACTIVE_CLASSNAME,
+  HEADER_NAV_ITEM_CLASSNAME
+} from '@/shared/_constants/className'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -5,7 +10,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger
 } from '@/shared/components/ui/navigation-menu'
-import { usePathname } from '@/i18n/navigation'
 import { cn } from '@/shared/utils/tailwind'
 import { useGetNavigationLinks } from '../hook'
 import { CustomLink } from './CustomLink'
@@ -33,11 +37,12 @@ export const DesktopNavbarContent = () => {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger
-              className={cn('bg-transparent', {
-                'bg-accent text-accent-foreground':
-                  pathName === navLinks.yurt.url ||
-                  pathName === navLinks.cabin.url
-              })}
+              className={cn(
+                HEADER_NAV_ITEM_CLASSNAME,
+                (pathName === navLinks.yurt.url ||
+                  pathName === navLinks.cabin.url) &&
+                  HEADER_NAV_ITEM_ACTIVE_CLASSNAME
+              )}
             >
               {navLinks.accommodations.label}
             </NavigationMenuTrigger>

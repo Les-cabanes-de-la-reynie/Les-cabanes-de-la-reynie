@@ -49,7 +49,7 @@ export const MobileNavbar = ({
         <Button
           variant='outline'
           size='icon'
-          className='lg:hidden'
+          className='border-white/25 bg-transparent text-primary-foreground hover:bg-white/8 hover:text-primary-foreground lg:hidden'
           data-testid='open-burger-menu-button'
         >
           <MenuIcon className='h-6 w-6' />

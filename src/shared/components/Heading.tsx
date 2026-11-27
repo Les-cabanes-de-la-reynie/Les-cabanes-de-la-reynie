@@ -15,28 +15,28 @@ export const Heading = ({
   ...rest
 }: HeadingProps) => {
   const h1ClassName = cn(
-    'scroll-m-20 text-4xl text-balance font-medium tracking-tight lg:text-5xl',
+    'scroll-m-20 text-h1 text-balance font-[650]',
     {
       'text-error': error
     },
     className
   )
   const h2ClassName = cn(
-    'scroll-m-20 text-3xl text-balance font-secondary first:mt-0',
+    'scroll-m-20 text-h2 text-balance font-[650] first:mt-0',
     {
       'text-error': error
     },
     className
   )
   const h3ClassName = cn(
-    'scroll-m-20 text-2xl text-balance font-semibold tracking-tight',
+    'scroll-m-20 text-2xl text-balance font-semibold tracking-[-0.01em]',
     {
       'text-error': error
     },
     className
   )
   const h4ClassName = cn(
-    'scroll-m-20 text-xl text-balance font-semibold tracking-tight',
+    'scroll-m-20 text-xl text-balance font-semibold tracking-[-0.01em]',
     {
       'text-error': error
     },

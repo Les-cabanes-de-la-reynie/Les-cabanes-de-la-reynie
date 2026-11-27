@@ -17,12 +17,10 @@ export const CarouselHeader = ({ title }: CarouselHeaderProps) => {
 
       <div className='flex gap-4'>
         <CarouselPrevious
-          variant={'default'}
           aria-label={t('prevButton')}
           data-testid='carousel-previous-button'
         />
         <CarouselNext
-          variant={'default'}
           aria-label={t('nextButton')}
           data-testid='carousel-next-button'
         />

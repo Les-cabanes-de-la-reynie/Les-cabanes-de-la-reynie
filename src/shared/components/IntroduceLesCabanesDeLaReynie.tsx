@@ -8,8 +8,10 @@ export const IntroduceLesCabanesDeLaReynie = () => {
 
   return (
     <Container>
-      <div className='w-full'>
-        <Heading level={2}>{t('aboutUsTitle')}</Heading>
+      <div className='mx-auto w-full max-w-[68ch] text-body'>
+        <Heading level={2} className='mb-5'>
+          {t('aboutUsTitle')}
+        </Heading>
         <P>{t('aboutUsP1')}</P>
         <P>{t('aboutUsP2')}</P>
         <P>{t('aboutUsP3')}</P>

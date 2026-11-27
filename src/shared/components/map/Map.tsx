@@ -28,7 +28,7 @@ export const Map = () => {
 
       <P className='flex'>
         <IconContainer>
-          <AlertCircleIcon className={cn('stroke-primary h-5 w-5')} />
+          <AlertCircleIcon className={cn('stroke-ink h-5 w-5')} />
         </IconContainer>
         <span>{t('locationDescription')}</span>
       </P>

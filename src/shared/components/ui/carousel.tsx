@@ -189,7 +189,7 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        'h-10 w-10 rounded-full',
+        'size-11 rounded-full',
 
         className
       )}
@@ -217,7 +217,7 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        'h-10 w-10 rounded-full',
+        'size-11 rounded-full',
 
         className
       )}

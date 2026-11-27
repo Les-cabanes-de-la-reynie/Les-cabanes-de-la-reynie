@@ -7,7 +7,7 @@ export const FooterHeading = ({ children }: PropsWithChildren) => {
       <Heading level={3} className='mb-2 text-xl font-semibold'>
         {children}
       </Heading>
-      <div className='h-[2px] w-14 bg-primary' />
+      <div className='h-0.5 w-6 bg-ink' />
     </div>
   )
 }

@@ -34,7 +34,7 @@ export const Phone = ({ address }: PhoneProps) => {
       className='hover:underline flex'
       data-testid='phone-number'
     >
-      <span className='flex flex-col text-primary'>
+      <span className='flex flex-col text-ink'>
         <div className='flex items-center'>
           <IconContainer>
             <PhoneIcon className={APP_ICON_SIZE_CLASSNAME} />

@@ -84,28 +84,30 @@ export const OpeningHoursForm = ({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='h-full w-full'>
-        <table className='w-full grow'>
-          <TableHeader
-            day={tFindUs('day')}
-            opening={tFindUs('opening')}
-            closing={tFindUs('closing')}
-          />
-          <tbody className='text-center'>
-            {openingHoursRows.map(rowData => (
-              <DayRow
-                key={rowData.day}
-                day={rowData.day}
-                dayTranslation={rowData.dayTranslation}
-                startDate={rowData.startDate}
-                startDateKey={rowData.startDateKey}
-                endDate={rowData.endDate}
-                endDateKey={rowData.endDateKey}
-                isEdit={isEdit}
-                form={form}
-              />
-            ))}
-          </tbody>
-        </table>
+        <div className='overflow-hidden rounded-xl border'>
+          <table className='w-full grow tabular-nums'>
+            <TableHeader
+              day={tFindUs('day')}
+              opening={tFindUs('opening')}
+              closing={tFindUs('closing')}
+            />
+            <tbody className='text-center'>
+              {openingHoursRows.map(rowData => (
+                <DayRow
+                  key={rowData.day}
+                  day={rowData.day}
+                  dayTranslation={rowData.dayTranslation}
+                  startDate={rowData.startDate}
+                  startDateKey={rowData.startDateKey}
+                  endDate={rowData.endDate}
+                  endDateKey={rowData.endDateKey}
+                  isEdit={isEdit}
+                  form={form}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         <EditableButtons
           editable={editable}

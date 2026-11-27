@@ -1,16 +1,15 @@
 import forest from '@/assets/homeCarousel/forest4.webp'
-import { generateLocaleStaticParams } from '@/shared/utils/generateLocaleStaticParams'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
-import { ActivityPager } from '../components/ActivityPager'
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
 import { HeroBanner } from '@/shared/components/HeroBanner'
 import { P } from '@/shared/components/P'
-import { env } from '@/shared/lib/env'
 import { pageAlternates } from '@/shared/lib/seo'
+import { generateLocaleStaticParams } from '@/shared/utils/generateLocaleStaticParams'
 import { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Image from 'next/image'
+import { ActivityPager } from '../components/ActivityPager'
 
 type Props = {
   params: Promise<{ locale: string }>
@@ -53,10 +52,7 @@ const Activity3 = async ({ params }: Props) => {
 
   return (
     <div className='w-full'>
-      <HeroBanner
-        title={tSEO('activity.3.title')}
-        className='lg:h-[50vh]'
-      >
+      <HeroBanner title={tSEO('activity.3.title')} className='lg:h-[50vh]'>
         <Image
           alt={tActivities('a3.imageAlt')}
           src={forest}
@@ -69,8 +65,10 @@ const Activity3 = async ({ params }: Props) => {
         />
       </HeroBanner>
 
-      <Container>
-        <Heading level={2}>{tActivities('a3.sectionTitle')}</Heading>
+      <Container className='max-w-[calc(68ch+3rem)] text-body md:max-w-[calc(68ch+4rem)]'>
+        <Heading level={2} className='mb-5'>
+          {tActivities('a3.sectionTitle')}
+        </Heading>
         <P>{tActivities('a3.body')}</P>
       </Container>
 

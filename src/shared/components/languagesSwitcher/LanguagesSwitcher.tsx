@@ -3,7 +3,7 @@
 import { Link, usePathname } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { IconContainer } from '@/shared/components/IconContainer'
-import { TextWithSkewBackgroundColor } from '@/shared/components/TextWithSkewBackgroundColor'
+import { TextHighlight } from '@/shared/components/TextHighlight'
 import { Button } from '@/shared/components/ui/button'
 import {
   DropdownMenu,
@@ -50,9 +50,9 @@ export const LanguagesSwitcher = () => {
                     </IconContainer>
 
                     {locale === currentLocale ? (
-                      <TextWithSkewBackgroundColor>
+                      <TextHighlight>
                         {transformLocaleToCountry(locale)}
-                      </TextWithSkewBackgroundColor>
+                      </TextHighlight>
                     ) : (
                       transformLocaleToCountry(locale)
                     )}

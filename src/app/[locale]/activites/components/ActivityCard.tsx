@@ -20,23 +20,21 @@ export const ActivityCard = ({
     <li>
       <Link
         href={href}
-        className='group relative flex h-60 flex-col items-center overflow-hidden rounded-lg text-center'
+        className='group reveal-photo relative flex h-80 flex-col overflow-hidden rounded-xl transition-transform duration-200 ease-out-strong focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-ink motion-safe:active:scale-[0.99]'
       >
         <Image
           alt={alt}
           src={image}
           placeholder='blur'
           fill
-          sizes='(min-width: 1280px) 278px, (min-width: 1040px) calc(12.73vw + 118px), (min-width: 800px) 33.18vw, (min-width: 540px) 50vw, calc(100vw - 16px)'
-          className='object-cover'
+          sizes='(min-width: 1280px) 384px, (min-width: 768px) 33vw, (min-width: 540px) 50vw, calc(100vw - 48px)'
+          className='object-cover transition-[scale] duration-700 ease-out-strong motion-safe:group-hover:scale-104'
         />
         <Heading
           level={3}
-          className='absolute flex h-full w-full items-end bg-opacity-20 pb-6 font-bold transition-colors lg:hover:bg-opacity-50'
+          className='absolute inset-0 flex items-end bg-linear-to-t from-black/80 via-black/20 via-55% to-transparent to-80% p-5 text-xl font-semibold leading-tight text-white'
         >
-          <span className='relative inline-block w-full before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-primary before:transition-all lg:group-hover:before:-inset-10'>
-            <span className='relative p-2 text-white'>{title}</span>
-          </span>
+          {title}
         </Heading>
       </Link>
     </li>

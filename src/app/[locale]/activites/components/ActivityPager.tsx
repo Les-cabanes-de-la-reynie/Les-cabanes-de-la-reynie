@@ -6,7 +6,7 @@ import { PAGE_ROUTES } from '@/shared/_constants/page'
 import { Container } from '@/shared/components/Container'
 import { buttonVariants } from '@/shared/components/ui/button'
 import { cn } from '@/shared/utils/tailwind'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowLeft, ArrowRight, LayoutGridIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image, { StaticImageData } from 'next/image'
 import { ComponentProps } from 'react'
@@ -38,7 +38,7 @@ const PagerCard = ({ activity, direction }: PagerCardProps) => {
     <Link
       href={activity.href}
       className={cn(
-        'group relative flex h-28 overflow-hidden rounded-lg border-4 border-transparent transition-colors duration-500 hover:border-primary focus-visible:border-primary focus-visible:outline-none',
+        'group relative flex h-28 overflow-hidden rounded-xl transition-transform duration-200 ease-out-strong focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-ink motion-safe:active:scale-[0.99]',
         direction === 'next' && 'sm:col-start-2'
       )}
     >
@@ -47,18 +47,22 @@ const PagerCard = ({ activity, direction }: PagerCardProps) => {
         alt=''
         fill
         sizes='(max-width: 640px) calc(100vw - 48px), 440px'
-        className='rounded object-cover transition-transform duration-500 ease-out motion-safe:group-hover:scale-105'
+        className='object-cover transition-[scale] duration-700 ease-out-strong motion-safe:group-hover:scale-104'
       />
       <span
         className={cn(
-          'relative flex w-full flex-col justify-center gap-1 rounded bg-gradient-to-r from-black/75 via-black/45 to-black/20 px-4 text-primary-foreground',
-          direction === 'next' && 'items-end bg-gradient-to-l text-right'
+          'relative flex w-full flex-col justify-center gap-1 bg-linear-to-r from-black/75 via-black/45 to-black/20 px-4 text-primary-foreground',
+          direction === 'next' && 'items-end bg-linear-to-l text-right'
         )}
       >
         <span className='flex items-center gap-1 text-sm text-primary-foreground/80'>
-          {direction === 'previous' && <ArrowLeft aria-hidden='true' className='size-4' />}
+          {direction === 'previous' && (
+            <ArrowLeft aria-hidden='true' className='size-4' />
+          )}
           {tActivities(direction)}
-          {direction === 'next' && <ArrowRight aria-hidden='true' className='size-4' />}
+          {direction === 'next' && (
+            <ArrowRight aria-hidden='true' className='size-4' />
+          )}
         </span>
         <span className='line-clamp-2 text-balance text-sm font-medium'>
           {tSEO(`activity.${activity.titleKey}.title`)}
@@ -78,6 +82,22 @@ export const ActivityPager = ({ current }: ActivityPagerProps) => {
   const previous = ACTIVITIES[current - 2]
   const next = ACTIVITIES[current]
 
+  const allActivitiesLink = (className: string) => (
+    <Link
+      href={PAGE_ROUTES.activity.home}
+      className={cn(buttonVariants({ variant: 'outline' }), className)}
+    >
+      <LayoutGridIcon
+        aria-hidden='true'
+        strokeWidth={1.5}
+        className='hidden text-ink sm:block sm:size-5'
+      />
+      {tActivities('allActivities')}
+    </Link>
+  )
+  const emptyCellClassName =
+    'order-last w-full sm:order-none sm:h-28 sm:rounded-xl sm:border-0 sm:bg-accent sm:text-base sm:hover:bg-secondary'
+
   return (
     <Container>
       <nav
@@ -85,15 +105,18 @@ export const ActivityPager = ({ current }: ActivityPagerProps) => {
         className='flex w-full flex-col gap-3'
       >
         <div className='grid gap-3 sm:grid-cols-2'>
-          {!!previous && <PagerCard activity={previous} direction='previous' />}
-          {!!next && <PagerCard activity={next} direction='next' />}
+          {previous ? (
+            <PagerCard activity={previous} direction='previous' />
+          ) : (
+            allActivitiesLink(emptyCellClassName)
+          )}
+          {next ? (
+            <PagerCard activity={next} direction='next' />
+          ) : (
+            allActivitiesLink(emptyCellClassName)
+          )}
         </div>
-        <Link
-          href={PAGE_ROUTES.activity.home}
-          className={cn(buttonVariants({ variant: 'ghost' }), 'self-center')}
-        >
-          {tActivities('allActivities')}
-        </Link>
+        {!!previous && !!next && allActivitiesLink('self-center')}
       </nav>
     </Container>
   )
