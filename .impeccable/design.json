@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-27T13:59:43Z",
+  "generatedAt": "2026-11-27T14:40:26Z",
   "title": "Design System: Les Cabanes de la Reynie",
   "extensions": {
     "colorMeta": {
@@ -139,19 +139,34 @@
           "#F1F3F2"
         ]
       },
-      "terre-brulee": {
+      "coquelicot": {
         "role": "error",
-        "displayName": "Terre brûlée",
-        "canonical": "hsl(0 50% 30%)",
+        "displayName": "Coquelicot",
+        "canonical": "hsl(360 72% 37%)",
         "tonalRamp": [
-          "#311C1C",
-          "#602020",
-          "#8A2E2E",
-          "#B83D3D",
-          "#CC6666",
-          "#DC9494",
-          "#EBC2C2",
-          "#F6EFEF"
+          "#351717",
+          "#6E1212",
+          "#9E191A",
+          "#D32223",
+          "#E34F50",
+          "#EB8485",
+          "#F4B9B9",
+          "#F7EDED"
+        ]
+      },
+      "coquelicot-clair": {
+        "role": "error",
+        "displayName": "Coquelicot clair (thème sombre)",
+        "canonical": "hsl(8 91% 69%)",
+        "tonalRamp": [
+          "#391813",
+          "#7A1506",
+          "#B01E08",
+          "#EA280B",
+          "#F6543C",
+          "#F98776",
+          "#FBBBB1",
+          "#F9EEEC"
         ]
       }
     },
@@ -325,6 +340,11 @@
         "section": "colors"
       },
       {
+        "name": "The Never-Alone Rule",
+        "body": "Une couleur ne porte jamais seule une information. Une erreur a son icône et son message, l'élément actif un fond plus clair, le jour courant une graisse, un lien dans un texte son soulignement. Le coquelicot a été choisi pour rester distinct du sapin et du texte en protanopie comme en deutéranopie, et lisible à 6:1 sur le fond sombre.",
+        "section": "colors"
+      },
+      {
         "name": "The One Voice Rule",
         "body": "Source Sans 3 porte chaque mot du site. La personnalité manuscrite vit dans le logo dessiné, jamais en texte courant, en titre ou en bouton.",
         "section": "typography"
@@ -346,12 +366,14 @@
       "**Do** passer par `--ink` pour tout lien, icône ou accent posé sur une surface.",
       "**Do** composer tout texte en Source Sans 3 et tenir les paragraphes à 68 caractères.",
       "**Do** garantir un contraste AA (4.5:1) pour le corps de texte, dans les deux thèmes.",
+      "**Do** doubler chaque couleur d'état d'une icône, d'un texte ou d'une forme, pour qu'un visiteur daltonien lise la même chose.",
       "**Do** fournir une alternative `prefers-reduced-motion` à toute animation et réserver les survols aux pointeurs fins."
     ],
     "donts": [
       "**Don't** ressembler à « une plateforme de réservation » : pas de grilles de prix agressives, badges promo, compteurs d'urgence (anti-référence PRODUCT.md).",
       "**Don't** ressembler à « un resort de luxe froid » : pas de minimalisme distant ni de photos déshumanisées (anti-référence PRODUCT.md).",
-      "**Don't** introduire de couleur saturée hors de la famille mousse-sapin (140–165°), ni utiliser le sapin des boutons comme couleur de texte sur fond sombre.",
+      "**Don't** introduire de couleur saturée hors de la famille mousse-sapin (140–165°), le coquelicot des erreurs excepté, ni utiliser le sapin des boutons comme couleur de texte sur fond sombre.",
+      "**Don't** signaler un état, une erreur ou un lien par la seule couleur.",
       "**Don't** composer du texte en Galada : la cursive n'existe que dans le logo dessiné.",
       "**Don't** ajouter d'ombres portées sur les surfaces posées — la profondeur passe par les teintes.",
       "**Don't** utiliser de `border-left` coloré épais, de texte en dégradé, de ruban incliné ni de glassmorphism décoratif."

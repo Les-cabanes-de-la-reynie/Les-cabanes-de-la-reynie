@@ -1,6 +1,9 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+/* dark: follows the site theme class, not the OS setting */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-primary: var(--font-primary);
 
@@ -43,8 +46,8 @@
   --muted-foreground: #4b5a50;
   --accent: #dae6de;
   --accent-foreground: #19211c;
-  --destructive: hsl(0 50% 30%);
-  --destructive-foreground: hsl(175 5% 90%);
+  --destructive: #a21a1b;
+  --destructive-foreground: #ffffff;
   --border: #cfdcd3;
   --input: #b0c2b6;
   --ring: #1b5c4a;
@@ -69,8 +72,8 @@
   --muted-foreground: #a5b3aa;
   --accent: #223027;
   --accent-foreground: #e6ece8;
-  --destructive: hsl(0 50% 30%);
-  --destructive-foreground: hsl(175 5% 90%);
+  --destructive: #f87966;
+  --destructive-foreground: #151b17;
   --border: #2a362f;
   --input: #3a4a40;
   --ring: #9fd0b4;
