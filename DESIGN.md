@@ -233,10 +233,10 @@ Tout le site est un chemin calme vers le bouton de réservation : les composants
 - Mobile : bouton burger transparent bordé de blanc à 25 %, panneau latéral sur fond carte.
 
 ### Logo
-- **Emblème** : un médaillon cerclé d'un anneau crème épais, cadré en gros plan sur la clairière au crépuscule : la grande yourte en toile à la porte éclairée occupe le cœur du cercle, la cabane à la fenêtre allumée à sa droite, le soleil couchant derrière, deux sapins aux bords. Peu d'éléments et beaucoup de contraste, pour rester lisible à 48px ; un léger grain lui donne sa matière d'image.
+- **Emblème** : un médaillon cerclé d'un anneau crème épais, cadré en gros plan sur la clairière au crépuscule : la grande yourte en toile noisette à la porte éclairée occupe le cœur du cercle et se découpe à contre-jour (une toile crème se perdait dans le soleil), la cabane à la fenêtre allumée à sa droite, le soleil couchant derrière, deux sapins aux bords. Peu d'éléments et beaucoup de contraste, pour rester lisible à 48px ; un léger grain lui donne sa matière d'image.
 - **Mot-symbole** : « LES CABANES » en capitales Source Sans 3 SemiBold espacées, « de la Reynie » en Galada, à droite de l'emblème.
 - **Déclinaisons** : images raster, crème sur fond sombre et forêt sur fond clair (`src/assets/logo/logo-on-dark.webp`, `logo-on-light.webp`) ; le header garde la version crème, le menu mobile suit le thème. Kit complet dans `public/brand/` (emblème, horizontal et empilé, deux tons).
-- **Favicon et icônes** : une tuile carrée arrondie, plus lisible qu'un cercle en 16px : la yourte crème et sa porte orange sur le ciel sapin, le soleil dans le coin, sans grain ni anneau (`public/favicon.ico` 16/32/48 rendus nativement, `src/app/icon.png`) ; l'icône d'écran d'accueil en est la version pleine surface, qu'iOS arrondit lui-même (`src/app/apple-icon.png`).
+- **Favicon et icônes** : une tuile carrée arrondie, plus lisible qu'un cercle en 16px : la yourte noisette et sa porte orange à contre-jour devant le soleil, sur un ciel sapin qui se réchauffe vers l'horizon, sans grain ni anneau (`public/favicon.ico` 16/32/48 rendus nativement, `src/app/icon.png`) ; l'icône d'écran d'accueil en est la version pleine surface, qu'iOS arrondit lui-même (`src/app/apple-icon.png`).
 
 ### Signature : le hero et les photos vivantes
 - Photo plein cadre, voile noir à 30 %, titre display centré, sous-titre lead, bouton de réservation puis bouton contour « Plongez dans la nature ».
