@@ -21,7 +21,8 @@ colors:
   givre: "#CFDCD3"
   encre: "#19211C"
   schiste: "#4B5A50"
-  terre-brulee: "#732626"
+  coquelicot: "#A21A1B"
+  coquelicot-clair: "#F87966"
   blanc: "#FFFFFF"
 typography:
   display:
@@ -157,7 +158,7 @@ Une seule voix : la famille mousse-sapin, déclinée en fonds désaturés, un ve
 - **Brume** (#E6ECE8) : texte principal sombre. **Pierre** (#A5B3AA) : texte secondaire sombre.
 - **Aube** (#F1F6F3) : fond du thème clair. **Aube carte** (#E5EEE8), **Rosée** (#DAE6DE, tuiles et survols), **Givre** (#CFDCD3, bordures).
 - **Encre** (#19211C) : texte principal clair. **Schiste** (#4B5A50) : texte secondaire clair.
-- **Terre brûlée** (#732626) : erreurs et actions destructives uniquement.
+- **Coquelicot** (#A21A1B, thème clair) et **Coquelicot clair** (#F87966, thème sombre) : erreurs et actions destructives uniquement, toujours accompagnés d'une icône et d'un texte.
 
 ### Named Rules
 **The One Forest Rule.** Une seule famille de verts mousse-sapin (teintes 140–165°). Aucun autre ton saturé, nulle part : même le marqueur de la carte est sapin. Introduire un orange, un bleu ou le rouge d'un marqueur par défaut est interdit.
@@ -165,6 +166,8 @@ Une seule voix : la famille mousse-sapin, déclinée en fonds désaturés, un ve
 **The Ink Rule.** Le sapin des boutons n'est jamais une couleur de texte sur fond sombre (il y tombait à 1,67:1). Liens, icônes et accents passent toujours par `--ink` : sauge en sombre, sapin en clair.
 
 **The Photo-First Rule.** La couleur vient des photographies. Si une section semble terne sans image, la réponse est une meilleure image, pas une nouvelle couleur d'interface.
+
+**The Never-Alone Rule.** Une couleur ne porte jamais seule une information. Une erreur a son icône et son message, l'élément actif un fond plus clair, le jour courant une graisse, un lien dans un texte son soulignement. Le coquelicot a été choisi pour rester distinct du sapin et du texte en protanopie comme en deutéranopie, et lisible à 6:1 sur le fond sombre.
 
 ## 3. Typography
 
@@ -221,7 +224,7 @@ Tout le site est un chemin calme vers le bouton de réservation : les composants
 ### Inputs / Fields
 - **Style:** fond transparent, bordure 1px `input`, rayon 10px, hauteur 36px.
 - **Focus:** anneau 3px `--ring` + bordure ring.
-- **Error:** bordure et anneau terre brûlée.
+- **Error:** bordure et libellé coquelicot, message précédé d'une icône d'alerte.
 
 ### Navigation
 - Header collant de 72px sur bandeau forêt, logo dessiné de 36px de haut à gauche.
@@ -251,12 +254,14 @@ Les adresses inconnues renvoient un vrai 404 et affichent la page du site (heade
 - **Do** passer par `--ink` pour tout lien, icône ou accent posé sur une surface.
 - **Do** composer tout texte en Source Sans 3 et tenir les paragraphes à 68 caractères.
 - **Do** garantir un contraste AA (4.5:1) pour le corps de texte, dans les deux thèmes.
+- **Do** doubler chaque couleur d'état d'une icône, d'un texte ou d'une forme, pour qu'un visiteur daltonien lise la même chose.
 - **Do** fournir une alternative `prefers-reduced-motion` à toute animation et réserver les survols aux pointeurs fins.
 
 ### Don't:
 - **Don't** ressembler à « une plateforme de réservation » : pas de grilles de prix agressives, badges promo, compteurs d'urgence (anti-référence PRODUCT.md).
 - **Don't** ressembler à « un resort de luxe froid » : pas de minimalisme distant ni de photos déshumanisées (anti-référence PRODUCT.md).
-- **Don't** introduire de couleur saturée hors de la famille mousse-sapin (140–165°), ni utiliser le sapin des boutons comme couleur de texte sur fond sombre.
+- **Don't** introduire de couleur saturée hors de la famille mousse-sapin (140–165°), le coquelicot des erreurs excepté, ni utiliser le sapin des boutons comme couleur de texte sur fond sombre.
+- **Don't** signaler un état, une erreur ou un lien par la seule couleur.
 - **Don't** composer du texte en Galada : la cursive n'existe que dans le logo dessiné.
 - **Don't** ajouter d'ombres portées sur les surfaces posées — la profondeur passe par les teintes.
 - **Don't** utiliser de `border-left` coloré épais, de texte en dégradé, de ruban incliné ni de glassmorphism décoratif.
