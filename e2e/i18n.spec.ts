@@ -40,6 +40,16 @@ test.describe('Internationalization (i18n)', () => {
       await page.getByTestId('switch-language-en').click()
 
       await expect(page).toHaveURL(englishURL)
+      await expect(page.locator('html')).toHaveAttribute('lang', 'en')
+      await expect(page).toHaveTitle('Home - Les cabanes de la Reynie')
+
+      // The French layout stays mounted but hidden: one header, its menu closed
+      await expect(
+        page.getByTestId('open-burger-menu-button').filter({ visible: true })
+      ).toHaveCount(1)
+      await expect(
+        page.getByTestId('mobile-header-navbar').filter({ visible: true })
+      ).toHaveCount(0)
 
       await openBurgerMenu(page)
       await expect(page.getByRole('button', { name: 'English' })).toBeVisible()
@@ -71,8 +81,27 @@ test.describe('Internationalization (i18n)', () => {
       await page.getByTestId('switch-language-en').click()
 
       await expect(page).toHaveURL(englishURL)
+      await expect(page.locator('html')).toHaveAttribute('lang', 'en')
+      await expect(page).toHaveTitle('Home - Les cabanes de la Reynie')
 
       await expect(page.getByRole('button', { name: 'English' })).toBeVisible()
+    })
+
+    test('should switch back to French', async ({ page }) => {
+      await page.getByRole('button', { name: 'Français' }).click()
+      await page.getByTestId('switch-language-en').click()
+      await expect(page).toHaveURL(englishURL)
+
+      // The French layout stays mounted but hidden: target the visible menu
+      await page.getByRole('button', { name: 'English' }).click()
+      await page
+        .getByTestId('switch-language-fr')
+        .filter({ visible: true })
+        .click()
+
+      await expect(page).toHaveURL(frenchURL)
+      await expect(page.locator('html')).toHaveAttribute('lang', 'fr')
+      await expect(page).toHaveTitle('Accueil - Les cabanes de la Reynie')
     })
   })
 })

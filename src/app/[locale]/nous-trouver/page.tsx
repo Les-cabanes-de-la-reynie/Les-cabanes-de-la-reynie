@@ -1,6 +1,5 @@
 import { getAddress } from '@/features/address/infrastructure/queries/getAddress'
 import { OpeningHoursSection } from '@/features/openingHours/components/OpeningHoursSection'
-import { routing } from '@/i18n/routing'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
@@ -12,17 +11,11 @@ import { MapSection } from '@/shared/components/map/MapSection'
 import { env } from '@/shared/lib/env'
 import { localizedUrl, pageAlternates } from '@/shared/lib/seo'
 import { Metadata } from 'next'
-import { hasLocale } from 'next-intl'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { notFound } from 'next/navigation'
+import { getLocale, getTranslations } from 'next-intl/server'
 
-type Props = {
-  params: Promise<{ locale: string }>
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params
-  const tSEO = await getTranslations({ locale, namespace: 'SEO' })
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
+  const tSEO = await getTranslations('SEO')
 
   return {
     title: tSEO('findUs.title'),
@@ -51,15 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function FindUs({ params }: Props) {
-  const { locale } = await params
-
-  if (!hasLocale(routing.locales, locale)) {
-    notFound()
-  }
-
-  setRequestLocale(locale)
-
+export default async function FindUs() {
   const tSEO = await getTranslations('SEO')
 
   const t = await getTranslations('FindUs')

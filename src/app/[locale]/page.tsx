@@ -4,7 +4,6 @@ import yurtImageFront from '@/assets/cabinAndYurt/home-yurt-front.webp'
 import forestTeaser from '@/assets/homeCarousel/forest3.webp'
 import { AccommodationsDescription } from '@/features/accommodations/components/AccommodationsDescription'
 import { HomeAccommodationSlider } from '@/features/accommodations/components/HomeAccommodationSlider'
-import { routing } from '@/i18n/routing'
 import { YURT_BOOK_LIST } from '@/shared/_constants/bookings'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { PAGE_ROUTES } from '@/shared/_constants/page'
@@ -17,22 +16,19 @@ import { PhotoLinkBanner } from '@/shared/components/PhotoLinkBanner'
 import { env } from '@/shared/lib/env'
 import { pageAlternates } from '@/shared/lib/seo'
 import { Metadata } from 'next'
-import { hasLocale } from 'next-intl'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import Image from 'next/image'
-import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 
-type Props = {
-  params: Promise<{ locale: string }>
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params
-  const tSEO = await getTranslations({ locale, namespace: 'SEO' })
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
+  const tSEO = await getTranslations('SEO')
 
   return {
-    title: tSEO('home.documentTitle'),
+    // The layout's title template skips pages of its own segment
+    title: {
+      absolute: `${tSEO('home.documentTitle')} - ${ESTABLISHMENT_TITLE}`
+    },
     description: tSEO('home.description'),
     alternates: pageAlternates(locale, '/'),
     openGraph: {
@@ -52,15 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function Home({ params }: Props) {
-  const { locale } = await params
-
-  if (!hasLocale(routing.locales, locale)) {
-    notFound()
-  }
-
-  setRequestLocale(locale)
-
+export default async function Home() {
   const tHome = await getTranslations('Home')
   const tCommon = await getTranslations('Common')
 
