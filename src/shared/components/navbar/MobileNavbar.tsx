@@ -74,7 +74,8 @@ export const MobileNavbar = ({
           <SheetTitle>
             <Logo
               onCloseMenu={handleCloseNavbar}
-              className='text-card-foreground border-card-foreground'
+              tone='auto'
+              className='text-card-foreground'
             />
             <SheetDescription>
               <VisuallyHidden.Root>Mobile navigation menu</VisuallyHidden.Root>

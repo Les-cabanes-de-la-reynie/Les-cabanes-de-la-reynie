@@ -130,7 +130,7 @@ components:
 
 Le thème sombre par défaut n'est pas un choix cosmétique : c'est la forêt corrézienne à la tombée du jour, un sous-bois de mousse dont le vert ne crie jamais. L'interface est un écrin calme que les photographies lumineuses (yourte éclairée, prairie dans la brume, cabane sous les arbres) viennent percer comme des trouées de lumière. Le site s'efface derrière l'image ; le visiteur doit se projeter dans le séjour, pas admirer l'interface.
 
-Le système rejette les codes des plateformes de réservation (grilles de prix, badges promo, urgence artificielle) et le luxe froid déshumanisé. La chaleur vient des photos, d'une seule voix typographique lisible et posée, et d'un mouvement discret qui fait respirer les images. La personnalité manuscrite ne vit plus que dans le logo dessiné : la yourte et la cabane posées sur la même ligne de pré.
+Le système rejette les codes des plateformes de réservation (grilles de prix, badges promo, urgence artificielle) et le luxe froid déshumanisé. La chaleur vient des photos, d'une seule voix typographique lisible et posée, et d'un mouvement discret qui fait respirer les images. La personnalité manuscrite ne vit plus que dans le logo : un emblème illustré, la clairière au crépuscule avec la yourte et la cabane éclairées.
 
 **Key Characteristics:**
 - Thème sombre par défaut (sous-bois mousse #151B17), thème clair disponible (aube #F1F6F3)
@@ -172,7 +172,7 @@ Une seule voix : la famille mousse-sapin, déclinée en fonds désaturés, un ve
 ## 3. Typography
 
 **Body & Display Font:** Source Sans 3 (variable ; fallback system-ui, arial)
-**Logo:** dessiné et vectorisé (capitales Source Sans 3 SemiBold et Galada), jamais composé en texte
+**Logo:** image illustrée (emblème) avec ses capitales Source Sans 3 SemiBold et Galada intégrées, jamais composé en texte
 
 **Character:** Source Sans 3 est une humaniste calme, très lisible en clair comme en sombre ; elle porte titres, récits et interface d'une seule voix. Les titres sont en 650, légèrement resserrés. La touche manuscrite de Galada ne survit que dans le mot-symbole du logo ; la police Galada n'est plus chargée.
 
@@ -186,7 +186,7 @@ Une seule voix : la famille mousse-sapin, déclinée en fonds désaturés, un ve
 - **Label** (600, 0.9375rem) : boutons, navigation, libellés de tuiles.
 
 ### Named Rules
-**The One Voice Rule.** Source Sans 3 porte chaque mot du site. La personnalité manuscrite vit dans le logo dessiné, jamais en texte courant, en titre ou en bouton.
+**The One Voice Rule.** Source Sans 3 porte chaque mot du site. La personnalité manuscrite vit dans le logo, jamais en texte courant, en titre ou en bouton.
 
 **The Measure Rule.** Un paragraphe ne dépasse jamais 68 caractères ; les blocs de récit sont des colonnes de 68ch centrées sur l'axe du hero.
 
@@ -227,15 +227,16 @@ Tout le site est un chemin calme vers le bouton de réservation : les composants
 - **Error:** bordure et libellé coquelicot, message précédé d'une icône d'alerte.
 
 ### Navigation
-- Header collant de 72px sur bandeau forêt, logo dessiné de 36px de haut à gauche.
+- Header collant de 72px sur bandeau forêt, logo de 56px de haut à gauche (48px sur téléphone).
 - Liens 15px blancs ; élément actif sur pastille blanche à 12 %, survol à 8 %.
 - Sur l'accueil en haut de page (ordinateur), le bandeau devient transparent sur un dégradé noir pour laisser respirer le hero.
 - Mobile : bouton burger transparent bordé de blanc à 25 %, panneau latéral sur fond carte.
 
 ### Logo
-- **Mot-symbole** : la yourte (couronne, toit débordant, porte ouverte) et la cabane (toit à deux pans) posées sur la même ligne de pré ; « LES CABANES » en capitales espacées, « de la Reynie » en Galada vectorisée. Le haut de la couronne aligne le haut des capitales, la hauteur d'x de Galada celle des murs, le pré sert de ligne de base.
-- **Déclinaisons** : horizontale pour le header (`src/assets/logo/LogoHorizontal.tsx`), empilée et symbole seul dans `public/brand/`. Une seule couleur (`currentColor`) : blanc sur forêt, sapin sur aube, sauge sur sous-bois.
-- **Favicon** : la yourte seule sur son pré, calée sur la grille des pixels (`src/app/icon.svg`, `public/favicon.ico`) ; icône d'application blanche sur forêt (`src/app/apple-icon.png`).
+- **Emblème** : un médaillon cerclé d'un anneau crème épais, cadré en gros plan sur la clairière au crépuscule : la grande yourte en toile à la porte éclairée occupe le cœur du cercle, la cabane à la fenêtre allumée à sa droite, le soleil couchant derrière, deux sapins aux bords. Peu d'éléments et beaucoup de contraste, pour rester lisible à 48px ; un léger grain lui donne sa matière d'image.
+- **Mot-symbole** : « LES CABANES » en capitales Source Sans 3 SemiBold espacées, « de la Reynie » en Galada, à droite de l'emblème.
+- **Déclinaisons** : images raster, crème sur fond sombre et forêt sur fond clair (`src/assets/logo/logo-on-dark.webp`, `logo-on-light.webp`) ; le header garde la version crème, le menu mobile suit le thème. Kit complet dans `public/brand/` (emblème, horizontal et empilé, deux tons).
+- **Favicon et icônes** : une tuile carrée arrondie, plus lisible qu'un cercle en 16px : la yourte crème et sa porte orange sur le ciel sapin, le soleil dans le coin, sans grain ni anneau (`public/favicon.ico` 16/32/48 rendus nativement, `src/app/icon.png`) ; l'icône d'écran d'accueil en est la version pleine surface, qu'iOS arrondit lui-même (`src/app/apple-icon.png`).
 
 ### Signature : le hero et les photos vivantes
 - Photo plein cadre, voile noir à 30 %, titre display centré, sous-titre lead, bouton de réservation puis bouton contour « Plongez dans la nature ».
@@ -262,6 +263,6 @@ Les adresses inconnues renvoient un vrai 404 et affichent la page du site (heade
 - **Don't** ressembler à « un resort de luxe froid » : pas de minimalisme distant ni de photos déshumanisées (anti-référence PRODUCT.md).
 - **Don't** introduire de couleur saturée hors de la famille mousse-sapin (140–165°), le coquelicot des erreurs excepté, ni utiliser le sapin des boutons comme couleur de texte sur fond sombre.
 - **Don't** signaler un état, une erreur ou un lien par la seule couleur.
-- **Don't** composer du texte en Galada : la cursive n'existe que dans le logo dessiné.
+- **Don't** composer du texte en Galada : la cursive n'existe que dans le logo.
 - **Don't** ajouter d'ombres portées sur les surfaces posées — la profondeur passe par les teintes.
 - **Don't** utiliser de `border-left` coloré épais, de texte en dégradé, de ruban incliné ni de glassmorphism décoratif.
