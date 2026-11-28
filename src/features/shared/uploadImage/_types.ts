@@ -1,6 +1,3 @@
-import z from 'zod'
-import { UploadImageSchema } from './UploadedImagesSchema'
-
 export enum UploadImageCategoryKeyEnum {
   HomeSlider = 'homeSlider',
   YurtSlider = 'yurtSlider',
@@ -14,5 +11,4 @@ export type UploadedImage = {
   category: string
 }
 
-export type PostUploadImage = z.infer<typeof UploadImageSchema>
 export type DeleteUploadImage = Pick<UploadedImage, 'id' | 'imageKey'>

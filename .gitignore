@@ -20,6 +20,7 @@
 .DS_Store
 *.pem
 .claude
+skills-lock.json
 .mcp.json
 
 # debug
