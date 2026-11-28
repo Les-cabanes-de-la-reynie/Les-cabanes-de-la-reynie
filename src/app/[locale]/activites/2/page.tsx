@@ -5,19 +5,14 @@ import { Heading } from '@/shared/components/Heading'
 import { HeroBanner } from '@/shared/components/HeroBanner'
 import { P } from '@/shared/components/P'
 import { pageAlternates } from '@/shared/lib/seo'
-import { generateLocaleStaticParams } from '@/shared/utils/generateLocaleStaticParams'
 import { Metadata } from 'next'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import { ActivityPager } from '../components/ActivityPager'
 
-type Props = {
-  params: Promise<{ locale: string }>
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params
-  const tSEO = await getTranslations({ locale, namespace: 'SEO' })
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
+  const tSEO = await getTranslations('SEO')
 
   return {
     title: tSEO('activity.2.title'),
@@ -39,14 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export function generateStaticParams() {
-  return generateLocaleStaticParams()
-}
-
-const Activity2 = async ({ params }: Props) => {
-  const { locale } = await params
-  setRequestLocale(locale)
-
+const Activity2 = async () => {
   const tSEO = await getTranslations('SEO')
   const tActivities = await getTranslations('Activities')
 

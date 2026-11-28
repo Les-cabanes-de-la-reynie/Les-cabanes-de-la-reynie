@@ -4,8 +4,7 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const nextConfig: NextConfig = {
   reactCompiler: true,
   cacheComponents: true,
-  // Adopted separately: its dev checks want the locale read as a root param
-  partialPrefetching: false,
+  partialPrefetching: true,
   images: {
     formats: ['image/avif', 'image/webp'],
     qualities: [75],

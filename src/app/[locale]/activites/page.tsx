@@ -1,22 +1,16 @@
 import forest from '@/assets/homeCarousel/forest2.webp'
-import { routing } from '@/i18n/routing'
 import { ESTABLISHMENT_TITLE } from '@/shared/_constants/establishmentInformation'
 import { Container } from '@/shared/components/Container'
 import { Heading } from '@/shared/components/Heading'
 import { P } from '@/shared/components/P'
-import { env } from '@/shared/lib/env'
 import { pageAlternates } from '@/shared/lib/seo'
 import { Metadata } from 'next'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import { ActivityCardList } from './components/ActivityCardList'
 
-type Props = {
-  params: Promise<{ locale: string }>
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params
-  const tSEO = await getTranslations({ locale, namespace: 'SEO' })
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
+  const tSEO = await getTranslations('SEO')
 
   return {
     title: tSEO('activity.title'),
@@ -33,14 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export function generateStaticParams() {
-  return routing.locales.map(locale => ({ locale }))
-}
-
-const Activites = async ({ params }: Props) => {
-  const { locale } = await params
-  setRequestLocale(locale)
-
+const Activites = async () => {
   const tActivities = await getTranslations('Activities')
   const tSEOIntro = await getTranslations('SEO')
 
