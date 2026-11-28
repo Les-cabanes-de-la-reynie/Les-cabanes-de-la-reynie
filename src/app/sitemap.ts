@@ -28,7 +28,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { href: '/activites', priority: 0.5, changeFrequency: 'monthly' },
     { href: '/activites/1', priority: 0.5, changeFrequency: 'monthly' },
     { href: '/activites/2', priority: 0.5, changeFrequency: 'monthly' },
-    { href: '/activites/3', priority: 0.5, changeFrequency: 'monthly' }
+    { href: '/activites/3', priority: 0.5, changeFrequency: 'monthly' },
+    { href: '/mentions-legales', priority: 0.1, changeFrequency: 'yearly' },
+    {
+      href: '/conditions-utilisation',
+      priority: 0.1,
+      changeFrequency: 'yearly'
+    },
+    { href: '/confidentialite', priority: 0.1, changeFrequency: 'yearly' }
   ]
 
   return locales.flatMap(locale =>

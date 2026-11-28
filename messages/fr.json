@@ -28,7 +28,7 @@
   },
   "Home": {
     "CTA": "Plongez dans la nature",
-    "heroSubtitle": "Yourte et cabane en pleine nature corrézienne",
+    "heroSubtitle": "Yourte et cabane en pleine nature corrézienne",
     "heroAlt": "Intérieur chaleureux de la yourte des Cabanes de la Reynie",
     "sliderTitle": "Ce que vous pouvez découvrir",
     "ourAccommodations": "Nos logements",
@@ -143,14 +143,29 @@
     "backButtonMessage": "Revenir à la page d'accueil"
   },
   "Footer": {
-    "navigation": "Navigation",
+    "discover": "Découvrir",
     "yurt": "La yourte",
     "cabin": "La cabane",
     "activities": "Les activités",
     "findUs": "Nous trouver",
+    "contact": "Contact",
+    "legal": "Informations légales",
+    "logoLabel": "Les cabanes de la Reynie, retour à l'accueil",
+    "ownerArea": "Espace propriétaire",
     "allRightsReserved": "Tous droits réservés",
-    "developedBy": "Développé par",
-    "address": "Adresse"
+    "developedBy": "Développé par"
+  },
+  "Legal": {
+    "documents": {
+      "notice": "Mentions légales",
+      "terms": "Conditions d'utilisation",
+      "privacy": "Politique de confidentialité"
+    },
+    "navLabel": "Informations légales",
+    "onThisPage": "Sur cette page",
+    "lastUpdate": "Dernière mise à jour\u00a0: {date}",
+    "translationNote": "La version française fait foi.",
+    "toComplete": "À compléter"
   },
   "SEO": {
     "home": {
@@ -185,6 +200,17 @@
       },
       "3": {
         "title": "Sur les traces de l'histoire en Corrèze et en Dordogne"
+      }
+    },
+    "legal": {
+      "notice": {
+        "description": "Éditeur, hébergeur et propriété intellectuelle du site des Cabanes de la Reynie."
+      },
+      "terms": {
+        "description": "Conditions d'accès et d'utilisation du site des Cabanes de la Reynie, yourte et cabane en Corrèze."
+      },
+      "privacy": {
+        "description": "Données traitées, cookies et droits des visiteurs du site des Cabanes de la Reynie : ni mesure d'audience, ni publicité."
       }
     }
   },

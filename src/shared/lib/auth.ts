@@ -8,7 +8,9 @@ export const auth = betterAuth({
     provider: 'postgresql'
   }),
   emailAndPassword: {
-    enabled: true
+    enabled: true,
+    // One admin account: nobody signs up, not even through the API
+    disableSignUp: true
   },
   plugins: [nextCookies()] // make sure this is the last plugin in the array
 })

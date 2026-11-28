@@ -11,6 +11,11 @@ export const PAGE_ROUTES = {
     activity2: '/activites/2',
     activity3: '/activites/3'
   },
+  legal: {
+    notice: '/mentions-legales',
+    terms: '/conditions-utilisation',
+    privacy: '/confidentialite'
+  },
   admin: {
     signIn: '/admin/auth/sign-in',
     home: '/admin'

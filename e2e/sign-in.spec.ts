@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { frenchURL } from '../playwright.config'
+import { baseURL, frenchURL } from '../playwright.config'
 
 test.describe('Sign-in form', () => {
   test('should show each validation error with an icon', async ({ page }) => {
@@ -24,5 +24,23 @@ test.describe('Sign-in form', () => {
       'aria-invalid',
       'true'
     )
+  })
+})
+
+test.describe('Sign-up', () => {
+  test.skip(
+    ({ browserName, isMobile }) => browserName !== 'chromium' || isMobile,
+    'The auth API is checked once, on Desktop Chrome'
+  )
+
+  test('should refuse to create an account', async ({ request }) => {
+    // Too short a password: even if sign-up reopened, no account is created
+    const response = await request.post('/api/auth/sign-up/email', {
+      headers: { origin: baseURL },
+      data: { name: 'Guard', email: 'sign-up-guard@example.com', password: 'x' }
+    })
+
+    expect(response.status()).toBe(400)
+    expect((await response.json()).code).toBe('EMAIL_PASSWORD_SIGN_UP_DISABLED')
   })
 })

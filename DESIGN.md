@@ -147,7 +147,7 @@ Une seule voix : la famille mousse-sapin, déclinée en fonds désaturés, un ve
 - **Sapin** (#1B5C4A, thème clair) et **Sapin clair** (#22745C, thème sombre) : uniquement les actions — bouton de réservation, boutons pleins, anneau de focus. Survol éclairci : #326C5C / #38826C. Texte blanc dessus (contraste 7,8:1 et 5,6:1).
 
 ### Secondary
-- **Forêt** (#173F33) : le bandeau du header, identique dans les deux thèmes, et le fond de l'icône d'application. Sur l'accueil en haut de page (ordinateur), le header devient transparent sur la photo avec un dégradé sombre.
+- **Forêt** (#173F33) : les bandeaux du header et du pied de page, identiques dans les deux thèmes, et le fond de l'icône d'application. Sur l'accueil en haut de page (ordinateur), le header devient transparent sur la photo avec un dégradé sombre.
 
 ### Tertiary
 - **Sauge** (#9FD0B4, thème sombre) et **Sapin** (#1B5C4A, thème clair), exposés en token `--ink` : liens, icônes, petits filets d'accent, puces de liste, ligne du jour dans les horaires, surlignages (à 16–18 % d'opacité).
@@ -232,6 +232,11 @@ Tout le site est un chemin calme vers le bouton de réservation : les composants
 - Sur l'accueil en haut de page (ordinateur), le bandeau devient transparent sur un dégradé noir pour laisser respirer le hero.
 - Mobile : bouton burger transparent bordé de blanc à 25 %, panneau latéral sur fond carte.
 
+### Pied de page
+- Bandeau forêt qui referme chaque page comme le header l'ouvre, sur le même axe : logo de 56px et accroche à gauche, puis « Découvrir », « Informations légales » et « Contact » (quatre colonnes en bureau, trois en tablette, une sur téléphone).
+- Titres de colonne 16px semi-gras blancs ; liens 15px blancs à 80 % sur des rangées de 32px, soulignés au survol ; coordonnées précédées d'une icône contour et soulignées.
+- Barre basse sous un filet blanc à 10 % : copyright à gauche, « Espace propriétaire » à droite (cadenas, blanc à 70 %, sans préchargement, `rel="nofollow"`). Sur téléphone, le copyright s'empile sans séparateurs.
+
 ### Logo
 - **Emblème** : un médaillon cerclé d'un anneau crème épais, cadré en gros plan sur la clairière au crépuscule : la grande yourte en toile noisette à la porte éclairée occupe le cœur du cercle et se découpe à contre-jour (une toile crème se perdait dans le soleil), la cabane à la fenêtre allumée à sa droite, le soleil couchant derrière, deux sapins aux bords. Peu d'éléments et beaucoup de contraste, pour rester lisible à 48px ; un léger grain lui donne sa matière d'image.
 - **Mot-symbole** : « LES CABANES » en capitales Source Sans 3 SemiBold espacées, « de la Reynie » en Galada, à droite de l'emblème.
@@ -243,6 +248,12 @@ Tout le site est un chemin calme vers le bouton de réservation : les composants
 - À l'arrivée, l'image se pose (`scale` 1.08 → 1 en 1.8s) et le texte monte en séquence (0, 120, 260ms ; départ à 40 % d'opacité, jamais invisible).
 - Au défilement, les cartes photo se révèlent (`clip-path` du bas vers le haut) et la bande photo de l'accueil dérive en parallaxe.
 - Tout cela repose sur des timelines `view()` (avec `overflow: clip`, jamais `hidden`, autour) et s'éteint sous `prefers-reduced-motion`. Les contenus restent visibles là où ces animations ne sont pas prises en charge.
+
+### Pages légales
+- Mentions légales, conditions d'utilisation et politique de confidentialité, en français et en anglais ; la version anglaise précise sous la date que la version française fait foi.
+- Bureau : rail collant de 15rem à gauche (les trois documents, puis « Sur cette page »), colonne de 68ch à droite, sans image. Téléphone : les documents en pastilles qui passent à la ligne, puis le titre.
+- Document courant sur pastille lichen (rosée en clair), en semi-gras, avec `aria-current="page"`. Titres de section à l'échelle h3 (24px, 600). Faits d'identité en liste de définitions, colonne des termes de 11rem.
+- Avant la mise en ligne seulement, un champ légal vide affiche « À compléter » : cadre pointillé coquelicot, icône d'alerte et texte.
 
 ### Page introuvable
 Les adresses inconnues renvoient un vrai 404 et affichent la page du site (header, pied de page, bouton de retour), en français ou en anglais.

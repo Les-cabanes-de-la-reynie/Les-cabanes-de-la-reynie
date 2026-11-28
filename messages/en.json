@@ -143,14 +143,29 @@
     "backButtonMessage": "Go to homepage"
   },
   "Footer": {
-    "navigation": "Navigation",
+    "discover": "Explore",
     "yurt": "The yurt",
     "cabin": "The cabin",
     "activities": "Activities",
     "findUs": "Find us",
-    "allRightsReserved": "All Rights Reserved",
-    "developedBy": "Developed by",
-    "address": "Address"
+    "contact": "Contact",
+    "legal": "Legal",
+    "logoLabel": "Les cabanes de la Reynie, back to home",
+    "ownerArea": "Owner area",
+    "allRightsReserved": "All rights reserved",
+    "developedBy": "Developed by"
+  },
+  "Legal": {
+    "documents": {
+      "notice": "Legal notice",
+      "terms": "Terms of use",
+      "privacy": "Privacy policy"
+    },
+    "navLabel": "Legal information",
+    "onThisPage": "On this page",
+    "lastUpdate": "Last updated: {date}",
+    "translationNote": "This English version is provided for convenience; the French version prevails.",
+    "toComplete": "To be completed"
   },
   "SEO": {
     "home": {
@@ -185,6 +200,17 @@
       },
       "3": {
         "title": "In the footsteps of history in Corrèze and Dordogne"
+      }
+    },
+    "legal": {
+      "notice": {
+        "description": "Publisher, host and intellectual property of the Les Cabanes de la Reynie website."
+      },
+      "terms": {
+        "description": "Terms for accessing and using the Les Cabanes de la Reynie website, a yurt and a cabin in Corrèze."
+      },
+      "privacy": {
+        "description": "Data processed, cookies and visitors' rights on the Les Cabanes de la Reynie website: no analytics, no advertising."
       }
     }
   },
