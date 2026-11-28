@@ -86,5 +86,24 @@ test.describe('Map', () => {
         page.getByText('Adresse exacte communiquée après la réservation')
       ).toBeVisible()
     })
+
+    test('should rebuild the map after leaving and coming back', async ({
+      page
+    }) => {
+      const navbar = page.getByTestId('desktop-header-navbar')
+
+      await navbar.getByRole('link', { name: 'Accueil' }).click()
+      await page.waitForURL(frenchURL)
+      await navbar.getByRole('link', { name: 'Nous trouver' }).click()
+      await page.waitForURL('**/nous-trouver')
+
+      // The previous visit stays mounted but hidden: only one map may show
+      await expect(
+        page.locator('.leaflet-container').filter({ visible: true })
+      ).toHaveCount(1)
+      await expect(
+        page.locator('.leaflet-popup-content-wrapper').filter({ visible: true })
+      ).toBeVisible()
+    })
   })
 })

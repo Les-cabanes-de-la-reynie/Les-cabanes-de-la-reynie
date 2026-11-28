@@ -56,4 +56,19 @@ test.describe('Theme switcher (dark/light mode)', () => {
       )
     })
   })
+
+  test.describe('Operating system in light mode', () => {
+    test.use({ viewport: DESKTOP_VIEWPORT, colorScheme: ThemeMode.Light })
+
+    test('should show the moon while the site is dark', async ({ page }) => {
+      await expect(page.locator('html')).toHaveAttribute(
+        'class',
+        ThemeMode.Dark
+      )
+
+      const themeButton = page.getByRole('button', { name: 'Changer de thème' })
+      await expect(themeButton.locator('svg.lucide-moon')).toBeVisible()
+      await expect(themeButton.locator('svg.lucide-sun')).toBeHidden()
+    })
+  })
 })
