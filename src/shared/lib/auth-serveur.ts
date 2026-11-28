@@ -6,11 +6,3 @@ export const getSession = async () => {
     headers: await headers()
   })
 }
-
-export const getUser = async () => {
-  const session = await getSession()
-
-  if (!session || !session.user || !session.user.email) return null
-
-  return session?.user
-}
