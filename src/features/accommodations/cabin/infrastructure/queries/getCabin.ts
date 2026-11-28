@@ -1,6 +1,12 @@
+import { CACHE_TAGS } from '@/shared/_constants/cacheTags'
 import prisma from '@/shared/lib/prisma'
+import { cacheLife, cacheTag } from 'next/cache'
 
 export const getCabin = async () => {
+  'use cache'
+  cacheLife('hours')
+  cacheTag(CACHE_TAGS.cabin)
+
   try {
     const cabin = await prisma.cabin.findUnique({
       where: { id: 1 }

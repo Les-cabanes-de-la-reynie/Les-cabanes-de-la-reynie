@@ -1,9 +1,10 @@
 'use server'
 
 import { AddressSchema } from '@/features/address/AddressSchema'
+import { CACHE_TAGS } from '@/shared/_constants/cacheTags'
 import prisma from '@/shared/lib/prisma'
 import { authActionClient } from '@/shared/lib/safe-actions'
-import { revalidatePath } from 'next/cache'
+import { updateTag } from 'next/cache'
 
 export const updateAddressInformation = authActionClient
   .inputSchema(AddressSchema)
@@ -13,5 +14,5 @@ export const updateAddressInformation = authActionClient
       data: addressData
     })
 
-    revalidatePath('/', 'layout')
+    updateTag(CACHE_TAGS.address)
   })

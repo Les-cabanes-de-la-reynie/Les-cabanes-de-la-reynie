@@ -6,7 +6,7 @@ import { cn } from '@/shared/utils/tailwind'
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import { ChevronRightIcon, MenuIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { Dispatch } from 'react'
+import { Dispatch, useLayoutEffect } from 'react'
 import { Logo } from '../Logo'
 import { Button } from '../ui/button'
 import {
@@ -42,6 +42,11 @@ export const MobileNavbar = ({
   const handleCloseNavbar = () => {
     setMobileNavbarOpened(false)
   }
+
+  // A language switch keeps the previous locale mounted but hidden: close its menu
+  useLayoutEffect(() => {
+    return () => setMobileNavbarOpened(false)
+  }, [setMobileNavbarOpened])
 
   return (
     <Sheet open={mobileNavbarOpened} onOpenChange={setMobileNavbarOpened}>

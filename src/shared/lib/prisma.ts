@@ -1,9 +1,15 @@
-import { PrismaClient } from '../../app/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { attachDatabasePool } from '@vercel/functions'
 import { Pool } from 'pg'
+import { PrismaClient } from '../../app/generated/prisma/client'
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL! })
+// pg already treats these modes as verify-full and warns on every connection
+const connectionString = process.env.DATABASE_URL!.replace(
+  /sslmode=(prefer|require|verify-ca)/,
+  'sslmode=verify-full'
+)
+
+const pool = new Pool({ connectionString })
 
 // Let Vercel's runtime drain idle connections before an instance suspends
 attachDatabasePool(pool)

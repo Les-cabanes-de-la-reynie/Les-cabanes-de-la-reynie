@@ -1,8 +1,9 @@
 'use server'
 
+import { CACHE_TAGS } from '@/shared/_constants/cacheTags'
 import prisma from '@/shared/lib/prisma'
 import { authActionClient } from '@/shared/lib/safe-actions'
-import { revalidatePath } from 'next/cache'
+import { updateTag } from 'next/cache'
 import { YurtSchema } from '../../YurtSchema'
 
 export const updateYurt = authActionClient
@@ -13,5 +14,5 @@ export const updateYurt = authActionClient
       data: yurtData
     })
 
-    revalidatePath('/', 'layout')
+    updateTag(CACHE_TAGS.yurt)
   })
