@@ -22,6 +22,12 @@ const LOCALES = [
   }
 ]
 
+const FOOTER_LEGAL_LINKS = [
+  'footer-legal-notice-link',
+  'footer-terms-link',
+  'footer-privacy-link'
+]
+
 test.describe('Instant navigation', () => {
   test.use({ viewport: DESKTOP_VIEWPORT })
 
@@ -60,6 +66,13 @@ test.describe('Instant navigation', () => {
 
       for (const name of links) {
         const link = navbar.getByRole('link', { name, exact: true })
+        const href = await link.getAttribute('href')
+        await link.click()
+        await page.waitForURL(`**${href}`)
+      }
+
+      for (const testId of FOOTER_LEGAL_LINKS) {
+        const link = page.getByTestId(testId)
         const href = await link.getAttribute('href')
         await link.click()
         await page.waitForURL(`**${href}`)

@@ -38,6 +38,18 @@ export const routing = defineRouting({
       fr: '/activites/3',
       en: '/activities/3'
     },
+    '/mentions-legales': {
+      fr: '/mentions-legales',
+      en: '/legal-notice'
+    },
+    '/conditions-utilisation': {
+      fr: '/conditions-utilisation',
+      en: '/terms-of-use'
+    },
+    '/confidentialite': {
+      fr: '/confidentialite',
+      en: '/privacy-policy'
+    },
     '/admin': '/admin',
     '/admin/auth/sign-in': '/admin/auth/sign-in'
   }

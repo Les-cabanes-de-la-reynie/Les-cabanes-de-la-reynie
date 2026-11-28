@@ -15,17 +15,29 @@ export const FooterCopyright = () => {
   const t = useTranslations('Footer')
 
   return (
-    <p className='px-4 py-2 text-center text-sm md:px-6'>
-      © <CurrentYear /> <b>{ESTABLISHMENT_TITLE.toLocaleUpperCase()}</b> |{' '}
-      {t('allRightsReserved')} | {t('developedBy')}{' '}
-      <Link
-        href='https://github.com/davidbourrel'
-        className='font-bold hover:underline'
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        David Bourrel
-      </Link>
+    // Stacked on phones, where a wrapped separator would end a line
+    <p className='flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-2'>
+      <span>
+        © <CurrentYear /> {ESTABLISHMENT_TITLE}
+      </span>
+      <span aria-hidden='true' className='hidden sm:inline'>
+        ·
+      </span>
+      <span>{t('allRightsReserved')}</span>
+      <span aria-hidden='true' className='hidden sm:inline'>
+        ·
+      </span>
+      <span>
+        {t('developedBy')}{' '}
+        <Link
+          href='https://github.com/davidbourrel'
+          className='rounded-xs underline decoration-white/40 underline-offset-4 transition-colors hover:text-white hover:decoration-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          David Bourrel
+        </Link>
+      </span>
     </p>
   )
 }

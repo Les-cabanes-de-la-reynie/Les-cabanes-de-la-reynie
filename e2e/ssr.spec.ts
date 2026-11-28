@@ -15,7 +15,13 @@ const PAGES = [
   { path: '/fr/activites', lang: 'fr', title: `Activités - ${SITE}` },
   { path: '/en', lang: 'en', title: `Home - ${SITE}` },
   { path: '/en/accommodations/cabin', lang: 'en', title: `Cabin - ${SITE}` },
-  { path: '/en/find-us', lang: 'en', title: `Find us - ${SITE}` }
+  { path: '/en/find-us', lang: 'en', title: `Find us - ${SITE}` },
+  {
+    path: '/fr/mentions-legales',
+    lang: 'fr',
+    title: `Mentions légales - ${SITE}`
+  },
+  { path: '/en/privacy-policy', lang: 'en', title: `Privacy policy - ${SITE}` }
 ]
 
 test.describe('Server-side rendering', () => {
@@ -41,6 +47,14 @@ test.describe('Server-side rendering', () => {
     expect(html).toContain('Adresse exacte communiquée après la réservation')
     // Today depends on the visitor's clock: only the browser marks it
     expect(html).not.toContain('aria-current="date"')
+  })
+
+  test('should keep the sign-in page out of search results', async ({
+    request
+  }) => {
+    const html = await (await request.get('/fr/admin/auth/sign-in')).text()
+
+    expect(html).toContain('<meta name="robots" content="noindex, nofollow"/>')
   })
 
   test('should answer unknown URLs with a real 404', async ({ request }) => {
