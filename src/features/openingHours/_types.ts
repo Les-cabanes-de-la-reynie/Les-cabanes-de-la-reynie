@@ -1,5 +1,5 @@
-import { OpeningHoursFormSchema } from './OpeningHoursSchema'
 import { z } from 'zod'
+import { OpeningHoursFormSchema } from './OpeningHoursSchema'
 
 export enum DaysOfTheWeekEnum {
   Monday = 'Monday',
